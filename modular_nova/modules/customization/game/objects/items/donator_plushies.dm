@@ -391,7 +391,7 @@
 		"Cut it out, or I'm telling chat!",
 	)
 
-/obj/item/toy/plush/nova/donator/zapp/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/toy/plush/nova/donator/zapp/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	say(pick(hit_response))
 
@@ -854,7 +854,7 @@
 	)
 	COOLDOWN_DECLARE(chunko_cooldown)
 
-/obj/item/toy/plush/nova/donator/chunko/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/toy/plush/nova/donator/chunko/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	if(!COOLDOWN_FINISHED(src, chunko_cooldown))
 		return

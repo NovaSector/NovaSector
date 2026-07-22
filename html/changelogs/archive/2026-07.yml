@@ -797,3 +797,69 @@
   vinylspiders:
   - bugfix: taur emissives are no longer offset weirdly
   - bugfix: fixed an issue where donators would not have their ooc color prefs applied
+2026-07-22:
+  Aliceee2ch:
+  - spellcheck: Fixed blastoff misspelling.
+  CabinetOnFire:
+  - refactor: Ruin loading should now be more robust and should spawn less orphaned
+      genturfs
+  - bugfix: Fixes mechs not qdel'ing when destroyed if they spawn a wreck
+  - bugfix: Some looping sounds no longer runtime when stopping/starting
+  FalloutFalcon:
+  - qol: per department sorting for character setup matches latejoin menu
+  - admin: Adding music as an admin rebuilds the list THAT round instead of having
+      to wait for the next
+  Fghj240:
+  - spellcheck: changed "possible cure" to "cure" in healthscans to show they can't
+      be wrong
+  - qol: Health analyzer has hover text for disease curing strategies
+  Hatterhat:
+  - qol: The botanical chemical dispenser (as seen on the lifebringer ship) is now
+      also capable of dispensing Enduro Grow and Liquid Earthquake.
+  PapaMichael:
+  - spellcheck: More verbs match their pronouns
+  QuiteLiterallyAnything:
+  - bugfix: Broken mirrors no longer produce an intact mirror upon deconstruction.
+  SciDragon:
+  - rscadd: katana sheath to "ronin" curator bundle.
+  SmArtKar:
+  - bugfix: Fixed the Four Hands wizard perk
+  - bugfix: Fixed quick tile replacement
+  - bugfix: Removed unnecessary click delay from window placement
+  TheRyeGuyWhoWillNowDie:
+  - bugfix: kilo genetics now has gene disks and a flesh reshaper
+  YesterdaysPromise:
+  - refactor: Podfloors (floors normaly seen in Survival Pods of miners) are now considered
+      a subtype of plastitanium tiles, and thus craftable.
+  - rscadd: To match with plastitanium, pofloors recieved 2 red variants.
+  - rscadd: Plastitanium can now make a new wall-filling item which you can reskin
+      in hand to make regular plastitanium walls, pod walls, as well as added unmarked
+      pod walls ('dark shuttle') and red unmarked pod walls ('dark red shuttle').
+  lelandkemble:
+  - code_imp: converted calls to attackby() to calls to item_interaction()
+  - bugfix: MODsuit drill module manual activation works again
+  - bugfix: RCDing space works again
+  - bugfix: you can put c4s on safes
+  - code_imp: Edible food unit test doesn't check abstract type food, abstract type
+      food doesn't have seeds.
+  - bugfix: Wumborian Fugu floats
+  sqnztb:
+  - rscdel: removed the jitter when you examine someone who has a much higher athletics
+      skill than you.
+  timothymtorres:
+  - rscadd: Add water bottles to booze-o-mat non-alcoholic category
+  vinylspiders:
+  - bugfix: species quirk incompatibilities will now update immediately without the
+      need to add/remove a quirk to force a ui update
+  - code_imp: quirks backend improved, it will no longer send full updates constantly
+      and be faster
+  - bugfix: fixes taur blood overlays being offset incorrectly
+  - bugfix: fixes taur getting blood shoe overlays
+  - bugfix: peeking into a hilberts hotel room while it gets deleted will now kick
+      you out properly
+  - bugfix: fixed an issue where the lights would stay dark after reloading the same
+      hilberts hotel room
+  - bugfix: fixed an issue that would cause preview icons to randomly become corrupt
+      or invisible if they met certain criteria
+  - admin: select equipment now just shows one direction of previews, greatly reducing
+      lag

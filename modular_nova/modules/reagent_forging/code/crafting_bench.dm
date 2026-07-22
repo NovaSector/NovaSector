@@ -150,20 +150,20 @@
 	QDEL_NULL(selected_recipe)
 	current_hits_to_completion = 0
 
-/obj/structure/reagent_crafting_bench/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/structure/reagent_crafting_bench/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(in_use)
 		balloon_alert(user, "already in use")
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(attacking_item, /obj/item/forging/complete))
+	if(istype(tool, /obj/item/forging/complete))
 		if(length(contents))
 			balloon_alert(user, "already full")
-			return TRUE
+			return ITEM_INTERACT_SUCCESS
 
-		attacking_item.forceMove(src)
-		balloon_alert_to_viewers("placed [attacking_item]")
+		tool.forceMove(src)
+		balloon_alert_to_viewers("placed [tool]")
 		update_appearance()
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 

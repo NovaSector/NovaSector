@@ -1540,10 +1540,10 @@
 /area/virtual_domain/ancient_milsim/loot_camp)
 "Mq" = (
 /obj/effect/baseturf_helper/virtual_domain/ancient_milsim,
-/turf/closed/wall/mineral/titanium/survival,
+/turf/closed/wall/mineral/plastitanium/survival/pod,
 /area/virtual_domain/ancient_milsim/carrier)
 "Mv" = (
-/turf/closed/wall/mineral/titanium/survival,
+/turf/closed/wall/mineral/plastitanium/survival/pod,
 /area/virtual_domain/ancient_milsim/carrier)
 "My" = (
 /obj/structure/table,

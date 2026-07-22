@@ -172,6 +172,11 @@
 /turf/open/indestructible/cobble/corner
 	icon_state = "cobble_corner"
 
+/turf/open/floor/iron/white/textured_large/airless
+	initial_gas_mix = AIRLESS_ATMOS
+
+// TG Sprites - re-overridden back to point to their icon file
+
 /turf/open/floor/plating/reinforced
 	icon = 'icons/turf/floors.dmi'
 
@@ -184,5 +189,5 @@
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/iron/white/textured_large/airless
-	initial_gas_mix = AIRLESS_ATMOS
+/turf/open/floor/mineral/plastitanium/pod
+	icon = 'icons/turf/floors.dmi'
