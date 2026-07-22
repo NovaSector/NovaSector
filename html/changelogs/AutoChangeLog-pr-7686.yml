@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - rscdel: "removed the jitter when you examine someone who has a much higher athletics skill than you."
