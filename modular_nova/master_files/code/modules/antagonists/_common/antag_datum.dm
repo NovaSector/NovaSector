@@ -50,8 +50,6 @@
 	view_exploitables = TRUE
 	give_objectives = FALSE
 
-// Apprentices and academy teachers forge a single role-defining objective rather than pulling from the
-// generic pool, and can't self-assign, so leaving them objectiveless would leave them with nothing at all.
 /datum/antagonist/wizard/apprentice
 	give_objectives = TRUE
 
