@@ -212,3 +212,8 @@
 /turf/closed/indestructible/fakeglass/unreinforced/plasma
 	flags_1 = UNPAINTABLE_1
 	color = PLASMA_WINDOW_COLOR
+
+#undef WINDOW_COLOR
+#undef PLASMA_WINDOW_COLOR
+#undef TINTED_WINDOW_COLOR
+#undef EDGE_OVERLAY_COLOR
