@@ -44,12 +44,34 @@
 /obj/item/clothing/under/dress/skirt/nova/swept
 	name = "swept skirt"
 	desc = "An appealing side-swept skirt. Top not included."
-	body_parts_covered = GROIN
+	body_parts_covered = GROIN|LEGS
 	greyscale_config = /datum/greyscale_config/swept_skirt
 	greyscale_config_worn = /datum/greyscale_config/swept_skirt/worn
 	greyscale_colors = "#29292F"
 	post_init_icon_state = "swept_skirt"
 	icon_state = "/obj/item/clothing/under/dress/skirt/nova/swept"
+
+/obj/item/clothing/under/dress/nova/pleated_Pencil_skirt
+	name = "Pleated Pencil Skirt"
+	desc = "A simple pleated skirt, stretchy and form fitting."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/pleated_pencil_skirt"
+	post_init_icon_state = "pleated_pencil_skirt"
+	greyscale_config = /datum/greyscale_config/pleated_pencil_skirt
+	greyscale_config_worn = /datum/greyscale_config/pleated_pencil_skirt/worn
+	greyscale_colors = "#424242"
+	body_parts_covered = GROIN|LEGS
+
+/obj/item/clothing/under/dress/nova/slit_skirt
+	name = "Slit Skirt"
+	desc = "A simple slit skirt, stretchy and form fitting."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/slit_skirt"
+	post_init_icon_state = "slit_skirt"
+	greyscale_config = /datum/greyscale_config/slit_skirt
+	greyscale_config_worn = /datum/greyscale_config/slit_skirt/worn
+	greyscale_colors = "#424242"
+	body_parts_covered = GROIN|LEGS
 
 /obj/item/clothing/under/dress/skirt/nova/striped_skirt
 	name = "red bra and striped skirt"
@@ -496,8 +518,6 @@
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
 	icon_state = "/obj/item/clothing/under/dress/nova/draped_dress"
 	post_init_icon_state = "draped_dress"
-	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	can_adjust = FALSE
 	greyscale_config = /datum/greyscale_config/draped_dress
 	greyscale_config_worn = /datum/greyscale_config/draped_dress/worn
 	greyscale_colors = "#424242#EDEDED"

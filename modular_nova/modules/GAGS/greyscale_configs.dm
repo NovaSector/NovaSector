@@ -1514,6 +1514,24 @@
 	name = "Swept Skirt (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
+/datum/greyscale_config/slit_skirt
+	name = "Slit Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/slit_skirt.json'
+
+/datum/greyscale_config/slit_skirt/worn
+	name = "Slit Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/pleated_pencil_skirt
+	name = "Pleated Pencil Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/pleated_pencil_skirt.json'
+
+/datum/greyscale_config/pleated_pencil_skirt/worn
+	name = "Pleated Pencil Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
 /datum/greyscale_config/draped_dress
 	name = "Draped Dress"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
