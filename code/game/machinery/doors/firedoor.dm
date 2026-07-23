@@ -377,6 +377,7 @@
 		return
 	active = TRUE
 	alarm_type = code
+	reset_reopen_pending = FALSE // NOVA EDIT ADDITION - AESTHETICS - clear any leftover suppression from a previous reset, we're genuinely alarmed again
 	add_as_source()
 	update_appearance(UPDATE_ICON) //Sets the door lights even if the door doesn't move.
 	correct_state()
@@ -405,8 +406,8 @@
 	remove_as_source()
 	soundloop.stop()
 	is_playing_alarm = FALSE
+	correct_state() // NOVA EDIT CHANGE - AESTHETICS - moved above update_appearance(), see comment on reset_reopen_pending
 	update_appearance(UPDATE_ICON) //Sets the door lights even if the door doesn't move.
-	correct_state()
 
 /**
  * Open the firedoor without resetting existing alarms
@@ -423,8 +424,8 @@
 	soundloop.stop()
 	is_playing_alarm = FALSE
 	remove_as_source()
+	correct_state() // NOVA EDIT CHANGE - AESTHETICS - moved above update_appearance(), see comment on reset_reopen_pending
 	update_appearance(UPDATE_ICON) //Sets the door lights even if the door doesn't move.
-	correct_state()
 
 	/// Please be called 3 seconds after the LAST open, rather then 3 seconds after the first
 	addtimer(CALLBACK(src, PROC_REF(release_constraints)), 3 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
@@ -684,6 +685,7 @@
 		INVOKE_ASYNC(src, PROC_REF(close))
 		return
 	if(!active && density) //We should be open but we're not
+		reset_reopen_pending = TRUE // NOVA EDIT ADDITION - AESTHETICS - see comment on the var itself
 		INVOKE_ASYNC(src, PROC_REF(open))
 		return
 
