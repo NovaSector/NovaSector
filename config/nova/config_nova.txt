@@ -235,3 +235,6 @@ SAVEFILE_UPLOAD_LIMIT 2000
 
 ## Uncomment to force techweb base tech nodes to start unlocked instead of using the vanilla tg settings
 #ENABLE_NOVA_TECHWEB_STARTING_NODES
+
+## Uncomment to enable the medicine overhaul module (MEDICINE_HIPPOCRATES).
+#MEDICINE_HIPPOCRATES
