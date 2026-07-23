@@ -93,6 +93,10 @@
 	liver_load = 1
 	liver_load_flags = LIVER_LOAD_ALL
 
+/datum/reagent/medicine/omnizine/godblood
+	liver_load = 0
+	liver_load_flags = NONE
+
 /datum/reagent/medicine/granibitaluri
 	liver_load = 0.5
 	liver_load_flags = LIVER_LOAD_BRUTE|LIVER_LOAD_BURN

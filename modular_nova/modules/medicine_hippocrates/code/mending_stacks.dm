@@ -43,7 +43,7 @@
  */
 /obj/item/stack/medical/try_heal_checks(mob/living/patient, mob/living/user, healed_zone, silent = FALSE)
 	. = ..()
-	if(!. || (!mending_brute_rate && !mending_burn_rate) || !iscarbon(patient) || !CONFIG_GET(flag/medicine_hippocrates))
+	if(!. || !silent || (!mending_brute_rate && !mending_burn_rate) || !iscarbon(patient) || !CONFIG_GET(flag/medicine_hippocrates))
 		return .
 
 	var/mob/living/carbon/carbon_patient = patient
@@ -66,8 +66,6 @@
 			if(burn_wound?.can_be_ointmented_or_meshed())
 				return .
 
-	if(!silent)
-		carbon_patient.balloon_alert(user, "already mending!")
 	return FALSE
 
 /obj/item/stack/medical/suture
