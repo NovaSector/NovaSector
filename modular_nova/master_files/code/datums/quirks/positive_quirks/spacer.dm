@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(spacer_height_choices, list(
 /datum/preference/choiced/spacer_height/is_accessible(datum/preferences/preferences)
 	return ..() && (/datum/quirk/spacer_born::name in preferences.all_quirks)
 
-/datum/preference/choiced/csl_strength/create_default_value()
+/datum/preference/choiced/spacer_height/create_default_value()
 	return init_possible_values()[1]
 
 /datum/quirk_constant_data/spacer_height
