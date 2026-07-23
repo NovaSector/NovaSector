@@ -9555,6 +9555,7 @@
 #include "modular_nova\modules\research\techweb\nodes\disabled-experiments.dm"
 #include "modular_nova\modules\resleeving\code\rsd_interface.dm"
 #include "modular_nova\modules\resleeving\code\research\resleeving_research.dm"
+#include "modular_nova\modules\resleeving\code\surgery\operations\operation_phylactery.dm"
 #include "modular_nova\modules\revenant_buffs\_revenant.dm"
 #include "modular_nova\modules\revenant_buffs\ghostwriting.dm"
 #include "modular_nova\modules\revenant_buffs\revenant_antag.dm"
