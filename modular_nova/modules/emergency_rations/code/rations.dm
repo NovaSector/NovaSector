@@ -174,6 +174,7 @@
 		/obj/item/food/vendor_tray_meal/side/ration/bag/cookie,
 		/obj/item/food/vendor_tray_meal/side/ration/bag/bstart,
 		/obj/item/food/vendor_tray_meal/side/ration/shortbread,
+		/obj/item/food/vendor_tray_meal/side/ration/bag/pktart,
 	)
 
 /obj/effect/spawner/random/vendor_meal_sides/ration_two
@@ -182,6 +183,7 @@
 		/obj/item/food/vendor_tray_meal/side/ration/granola,
 		/obj/item/food/vendor_tray_meal/side/ration/bag/pretzels,
 		/obj/item/food/vendor_tray_meal/side/ration/bag/cornnuts,
+		/obj/item/food/vendor_tray_meal/side/ration/bag/eggjerky,
 	)
 
 /obj/item/trash/empty_side_pack/ration
