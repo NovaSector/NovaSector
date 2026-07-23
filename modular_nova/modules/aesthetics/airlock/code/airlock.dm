@@ -49,7 +49,7 @@
 	external = FALSE
 
 /obj/machinery/door/airlock/power_change()
-	..()
+	. = ..()
 	update_icon()
 
 //STATION AIRLOCKS
