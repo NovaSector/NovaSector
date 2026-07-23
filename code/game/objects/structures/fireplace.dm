@@ -182,7 +182,9 @@
 			smoke_particles.pixel_w = 36
 			smoke_particles.pixel_z = 25
 		if(NORTH) // there is no icon state for SOUTH
-			remove_shared_particles(/particles/smoke/burning)
+			//remove_shared_particles(/particles/smoke/burning) // NOVA EDIT REMOVAL
+			smoke_particles.pixel_w = 16 // NOVA EDIT ADDITION
+			smoke_particles.pixel_z  = -8 // NOVA EDIT ADDITION
 
 /obj/structure/fireplace/proc/put_out()
 	STOP_PROCESSING(SSobj, src)
