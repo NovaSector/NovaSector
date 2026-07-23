@@ -497,10 +497,10 @@
 	icon_state = "/obj/item/clothing/under/dress/nova/draped_dress"
 	post_init_icon_state = "draped_dress"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-	can_adjust = TRUE
+	can_adjust = FALSE
 	greyscale_config = /datum/greyscale_config/draped_dress
 	greyscale_config_worn = /datum/greyscale_config/draped_dress/worn
-	greyscale_colors = "#424242"
+	greyscale_colors = "#424242#EDEDED"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = GROIN|LEGS
 

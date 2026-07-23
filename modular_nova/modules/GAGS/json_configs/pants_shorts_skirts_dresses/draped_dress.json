@@ -5,6 +5,12 @@
 			"icon_state": "draped_dress",
 			"blend_mode": "overlay",
 			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "draped_dress_buttons",
+			"blend_mode": "overlay",
+			"color_ids": [2]
 		}
 	]
 }

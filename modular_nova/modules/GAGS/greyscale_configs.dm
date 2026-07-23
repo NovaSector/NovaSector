@@ -507,7 +507,7 @@
 
 /datum/greyscale_config/mantle
 	name = "Mantle"
-	icon_file = 'modular_nova/modules/GAGS/icons/neck/neck.dmi'
+	icon_file = 'modular_nova/modules/GAGS/icons/neck/mantle.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/neck/mantle/mantle.json'
 
 /datum/greyscale_config/mantle/worn
@@ -515,13 +515,13 @@
 	json_config = 'modular_nova/modules/GAGS/json_configs/neck/mantle/mantle_worn.json'
 
 /datum/greyscale_config/mantle/worn/teshari
-	icon_file = 'modular_nova/modules/GAGS/icons/neck/neck_teshari.dmi'
+	icon_file = 'modular_nova/modules/GAGS/icons/neck/mantle_teshari.dmi'
 
 /datum/greyscale_config/mantle/worn/newvox
-	icon_file = 'modular_nova/modules/GAGS/icons/neck/neck_newvox.dmi'
+	icon_file = 'modular_nova/modules/GAGS/icons/neck/mantle_newvox.dmi'
 
 /datum/greyscale_config/mantle/worn/oldvox
-	icon_file = 'modular_nova/modules/GAGS/icons/neck/neck_oldvox.dmi'
+	icon_file = 'modular_nova/modules/GAGS/icons/neck/mantle_oldvox.dmi'
 
 //CAPES
 

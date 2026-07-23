@@ -96,7 +96,7 @@
 	desc = "A simple drape over the shoulders."
 	worn_icon = 'modular_nova/modules/GAGS/icons/neck/neck.dmi'
 	worn_icon_teshari = 'modular_nova/modules/GAGS/icons/neck/neck_teshari.dmi'
-	greyscale_colors = "#ffffff"
+	greyscale_colors = "#3D3D3F#CBCD7D"
 	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/mantle/recolorable"
 	post_init_icon_state = "mantle"
