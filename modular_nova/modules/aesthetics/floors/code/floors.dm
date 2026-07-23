@@ -201,16 +201,13 @@
 /turf/open/floor/bluespace
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/eighties
-	icon = 'icons/turf/floors.dmi'
-
 /turf/open/floor/bronze
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/cult
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/eighties/red
+/turf/open/floor/eighties
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/emissive_test
@@ -292,9 +289,6 @@
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/noslip
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/engine
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/chasm/true/fakeout

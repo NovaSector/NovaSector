@@ -368,11 +368,9 @@
 
 //TITANIUM / SHUTTLE
 /obj/machinery/door/airlock/titanium
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/shuttle/shuttle.dmi'
 	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/shuttle/overlays.dmi'
 
 /obj/machinery/door/airlock/shuttle
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/shuttle/shuttle.dmi'
 	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/shuttle/overlays.dmi'
 
 //SHUTTLE2
@@ -421,7 +419,6 @@
 
 /obj/machinery/door/airlock/tram
 	name = "tram door"
-	icon = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/tram/tram.dmi'
 	overlays_file = 'modular_nova/modules/aesthetics/airlock/icons/airlocks/tram/tram_overlays.dmi'
 	doorOpen = 'sound/machines/tram/tramopen.ogg'
 	doorClose = 'sound/machines/tram/tramclose.ogg'
