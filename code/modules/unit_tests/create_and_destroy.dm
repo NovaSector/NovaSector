@@ -76,6 +76,8 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 				// Some effects, such as liquid turfs, intentionally ignore ordinary qdel().
 				// Force them out of the test area before the next atom is created.
 				qdel(to_kill, force = TRUE)
+			// Run() sleeps while GC processes its queues, so release these local references first.
+			to_del.Cut()
 		// Explosions process their affected turfs asynchronously. Do not let a blast
 		// queued by one type affect an atom created by a later iteration.
 		SSexplosions.wipe_turf(spawn_at)
