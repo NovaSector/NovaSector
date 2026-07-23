@@ -130,7 +130,7 @@
 	icon_state = "bag_ration_pretzels"
 	tastes = list("hard pretzel" = 1)
 	
-/obj/item/food/vendor_tray_meal/side/ration/bag/pretzels
+/obj/item/food/vendor_tray_meal/side/ration/bag/eggjerky
 	name = "\improper Emergency Ration Side: Eggplant Jerky"
 	desc = "Some chewy, sweet and salty, maple marinated eggplant jerky."
 	icon_state = "bag_ration_eggjerky"
