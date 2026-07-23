@@ -256,3 +256,7 @@
 
 	/// OOC colour of the clients messages.
 	var/ooc_colour = null
+
+	// NOVA EDIT ADDITION START
+	var/notify_admins_hold_timer
+	// NOVA EDIT ADDITION END
