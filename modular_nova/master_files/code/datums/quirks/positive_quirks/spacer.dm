@@ -32,8 +32,5 @@ GLOBAL_LIST_INIT(spacer_height_choices, list(
 	associated_typepath = /datum/quirk/spacer_born
 	customization_options = list(/datum/preference/choiced/spacer_height)
 
-/datum/preference/choiced/spacer_height/create_default_value()
-	return "Random"
-
 /datum/preference/choiced/spacer_height/apply_to_human(mob/living/carbon/human/target, value)
 	return
