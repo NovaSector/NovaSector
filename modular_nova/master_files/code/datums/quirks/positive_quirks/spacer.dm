@@ -33,7 +33,7 @@ GLOBAL_LIST_INIT(spacer_height_choices, list(
 	customization_options = list(/datum/preference/choiced/spacer_height)
 
 /datum/preference/choiced/spacer_height/create_default_value()
-	return HUMAN_HEIGHT_MEDIUM
+	return "Random"
 
 /datum/preference/choiced/spacer_height/apply_to_human(mob/living/carbon/human/target, value)
 	return
