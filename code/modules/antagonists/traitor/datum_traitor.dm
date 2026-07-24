@@ -14,7 +14,7 @@
 	ui_name = "AntagInfoTraitor"
 	suicide_cry = "FOR THE SYNDICATE!!"
 	preview_outfit = /datum/outfit/traitor
-	can_assign_self_objectives = FALSE // NOVA EDIT CHANGE - Too loose of a cannon, and doesn't have staff sign off - ORIGINAL: can_assign_self_objectives = TRUE
+	can_assign_self_objectives = TRUE
 	default_custom_objective = "Perform an overcomplicated heist on valuable Nanotrasen assets."
 	hardcore_random_bonus = TRUE
 	stinger_sound = 'sound/music/antag/traitor/tatoralert.ogg'
