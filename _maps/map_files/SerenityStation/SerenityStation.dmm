@@ -520,7 +520,7 @@
 /area/station/maintenance/starboard/fore)
 "agR" = (
 /obj/structure/table,
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /turf/open/floor/glass/reinforced,
 /area/station/maintenance/department/security/upper)
 "ahe" = (
@@ -15350,7 +15350,7 @@
 /area/station/maintenance/department/security/upper)
 "ext" = (
 /obj/structure/table,
-/obj/item/food/grown/poppy/geranium/fraxinella,
+/obj/item/food/grown/flower/poppy/geranium/fraxinella,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/department/security/upper)
 "exx" = (
@@ -34099,11 +34099,11 @@
 "jJV" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line,
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = -8;
 	pixel_y = 7
 	},
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_y = 2
 	},
 /obj/machinery/light/directional/south,
@@ -36280,7 +36280,7 @@
 /area/station/security/execution/transfer)
 "kqx" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy/geranium{
+/obj/item/food/grown/flower/poppy/geranium{
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -37699,7 +37699,7 @@
 "kMP" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line,
 /obj/structure/table/wood,
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /obj/machinery/light/directional/south,
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark,
@@ -40237,7 +40237,7 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
 	},
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /turf/open/floor/wood/large,
 /area/station/security/prison/work)
 "lAH" = (
@@ -56005,7 +56005,7 @@
 /area/station/science/ordnance/burnchamber)
 "qoJ" = (
 /obj/structure/table,
-/obj/item/food/grown/poppy/geranium,
+/obj/item/food/grown/flower/poppy/geranium,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "qoO" = (
@@ -77192,7 +77192,7 @@
 	id = "hydroponics_counter";
 	name = "Hydroponics Counter Shutters"
 	},
-/obj/item/food/grown/poppy/lily,
+/obj/item/food/grown/flower/poppy/lily,
 /obj/machinery/door/window/left/directional/south{
 	name = "Hydroponics Desk"
 	},

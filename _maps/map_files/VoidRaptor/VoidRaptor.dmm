@@ -3720,15 +3720,15 @@
 /area/station/maintenance/aft/greater)
 "bal" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy,
+/obj/item/food/grown/flower/poppy,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/service/chapel)
 "bao" = (
@@ -10865,12 +10865,12 @@
 /area/station/security/checkpoint/science/research)
 "djg" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/harebell,
-/obj/item/food/grown/harebell{
+/obj/item/food/grown/flower/harebell,
+/obj/item/food/grown/flower/harebell{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/harebell{
+/obj/item/food/grown/flower/harebell{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -41469,12 +41469,12 @@
 /area/station/cargo/miningdock)
 "lGa" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/harebell,
-/obj/item/food/grown/harebell{
+/obj/item/food/grown/flower/harebell,
+/obj/item/food/grown/flower/harebell{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/harebell{
+/obj/item/food/grown/flower/harebell{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -53233,7 +53233,7 @@
 /area/station/hallway/primary/aft)
 "oRJ" = (
 /obj/structure/table,
-/obj/item/food/grown/poppy/geranium,
+/obj/item/food/grown/flower/poppy/geranium,
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -59467,7 +59467,7 @@
 /area/station/maintenance/starboard/greater)
 "qwZ" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy/lily,
+/obj/item/food/grown/flower/poppy/lily,
 /obj/machinery/light/warm/directional/west,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -84901,15 +84901,15 @@
 /area/station/hallway/primary/central/fore)
 "xvm" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy,
+/obj/item/food/grown/flower/poppy,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/service/chapel/funeral)
 "xvp" = (

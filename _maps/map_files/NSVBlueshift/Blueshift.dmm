@@ -21762,8 +21762,8 @@
 /obj/item/clothing/under/misc/burial,
 /obj/item/clothing/under/misc/burial,
 /obj/item/clothing/under/misc/burial,
-/obj/item/food/grown/harebell,
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
+/obj/item/food/grown/flower/harebell,
 /obj/machinery/newscaster/directional/west,
 /obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/dark,
@@ -61422,11 +61422,11 @@
 /area/station/medical/break_room)
 "mwI" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy/geranium{
+/obj/item/food/grown/flower/poppy/geranium{
 	pixel_x = 6;
 	pixel_y = 6
 	},
-/obj/item/food/grown/poppy/lily,
+/obj/item/food/grown/flower/poppy/lily,
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood,
 /area/station/service/chapel/funeral)
@@ -73696,10 +73696,10 @@
 /obj/item/seeds/cotton/durathread,
 /obj/item/seeds/potato/sweet,
 /obj/item/grown/cotton,
-/obj/item/food/grown/poppy,
-/obj/item/food/grown/poppy/geranium,
-/obj/item/food/grown/poppy/lily,
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/poppy,
+/obj/item/food/grown/flower/poppy/geranium,
+/obj/item/food/grown/flower/poppy/lily,
+/obj/item/food/grown/flower/harebell,
 /obj/item/food/grown/garlic,
 /obj/item/food/grown/onion,
 /obj/item/food/grown/peas,
@@ -88021,7 +88021,7 @@
 /area/station/hallway/primary/central)
 "rJL" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood,
 /area/station/service/chapel/funeral)
