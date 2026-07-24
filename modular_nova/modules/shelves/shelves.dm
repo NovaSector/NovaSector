@@ -258,7 +258,7 @@
 		return
 	building = TRUE
 	to_chat(user, span_notice("You start constructing [src]..."))
-	if(do_after(user, 5 SECONDS, target = user, progress=TRUE))
+	if(do_after(user, 5 SECONDS, target = user, show_progress = TRUE))
 		if(!user.temporarilyRemoveItemFromInventory(src))
 			building = FALSE
 			return

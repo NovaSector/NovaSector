@@ -569,7 +569,7 @@
 	if(!can_z_move(UP, current_turf, null, ZMOVE_CAN_FLY_CHECKS|ZMOVE_FEEDBACK))
 		return
 	balloon_alert(src, "moving up...")
-	if(!do_after(src, 1 SECONDS, hidden = TRUE))
+	if(!do_after(src, 1 SECONDS, cog_icon = null))
 		return
 	if(zMove(UP, z_move_flags = ZMOVE_FLIGHT_FLAGS|ZMOVE_FEEDBACK))
 		to_chat(src, span_notice("You move upwards."))
@@ -593,7 +593,7 @@
 	if(!can_z_move(DOWN, current_turf, null, ZMOVE_CAN_FLY_CHECKS|ZMOVE_FEEDBACK))
 		return
 	balloon_alert(src, "moving down...")
-	if(!do_after(src, 1 SECONDS, hidden = TRUE))
+	if(!do_after(src, 1 SECONDS, cog_icon = null))
 		return
 	if(zMove(DOWN, z_move_flags = ZMOVE_FLIGHT_FLAGS|ZMOVE_FEEDBACK))
 		to_chat(src, span_notice("You move down."))
