@@ -12,8 +12,8 @@
 /obj/machinery/button/door/indestructible/blackmarket_trader/crowbar_act()
 	return
 
-/obj/machinery/button/door/indestructible/blackmarket_trader/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	return
+/obj/machinery/button/door/indestructible/blackmarket_trader/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/button/door/indestructible/blackmarket_trader/emag_act()
 	return

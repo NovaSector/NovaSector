@@ -136,7 +136,7 @@
 /turf/open/floor/plating/forest
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
 
-/turf/open/floor/pod/forest
+/turf/open/floor/mineral/plastitanium/pod/forest
 	initial_gas_mix = FOREST_DEFAULT_ATMOS
 
 /turf/open/floor/stone/forest

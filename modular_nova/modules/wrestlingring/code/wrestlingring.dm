@@ -90,22 +90,23 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/structure/wrestling_corner/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
-	..()
+/obj/structure/wrestling_corner/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	add_fingerprint(user)
 
-	if(attacking_item.tool_behaviour == TOOL_WELDER && !user.combat_mode)
+	if(tool.tool_behaviour == TOOL_WELDER && !user.combat_mode)
 		if(atom_integrity < max_integrity)
-			if(!attacking_item.tool_start_check(user, amount=0))
-				return
+			if(!tool.tool_start_check(user, amount=0))
+				return ITEM_INTERACT_BLOCKING
 
 			to_chat(user, span_notice("You begin repairing [src]..."))
-			if(attacking_item.use_tool(src, user, 40, volume=50))
+			if(tool.use_tool(src, user, 40, volume=50))
 				atom_integrity = max_integrity
 				to_chat(user, span_notice("You repair [src]."))
 		else
 			to_chat(user, span_warning("[src] is already in good condition!"))
-		return
+		return ITEM_INTERACT_SUCCESS
+
+	return ..()
 
 /obj/structure/wrestling_corner/wirecutter_act(mob/living/user, obj/item/tool)
 	. = ..()
