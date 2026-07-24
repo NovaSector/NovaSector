@@ -1,4 +1,0 @@
-author: "lelandkemble"
-delete-after: True
-changes:
-  - bugfix: "medbots can no longer be thrown, all bots no longer have AA"
