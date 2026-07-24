@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_nova/modules/paperwork/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_nova/modules/paperwork/readme.md <a href="https://github.com/NovaSector/NovaSector/blob/6f2b70442d221b4b501f0c7ae74fe0f427392990/modular_nova/modules/paperwork/readme.md"><img src="git.png" width="16" height="16" title="modular_nova/modules/paperwork/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2 id="title-paperwork">Title: Paperwork</h2>
+<p>MODULE ID: PAPERWORK</p>
+<h3 id="description">Description</h3>
+<p>Adds modular photocopier paper templates for Nova Sector without forcing contributors to add temapltes to the upstream configuration file.
+The module hooks into the photocopier's GLOBAL Init process to seamlessly inject custom Nova templates from <code>modular_nova/modules/paperwork/config/blanks.json</code> into the global <code>paper_blanks</code> list on server boot.</p>
+<p>Templates from the Modular <code>blanks.json</code> will merge/overwrite the ones in the core <code>blanks.json</code>, avoiding merge conflicts if upstream updates the core config file <code>blanks.json</code>..</p>
+<h3 id="what-changed">What changed</h3>
+<ul>
+<li><strong>Core Initialization Edit:</strong> Modified the global <code>paper_blanks</code> list initialization in the core upstream file to call our custom <code>init_paper_blanks_nova()</code> proc along the upstream one.</li>
+<li><strong>Boot-Time Merging:</strong> The new proc automatically calls the vanilla <code>init_paper_blanks()</code> first to load all standard upstream templates, then parses and merges/overwrittes the custom Nova templates over them before the round even starts.</li>
+<li><strong>Safe Fallback:</strong> Built-in safeguards ensure that if the Nova module file is missing, corrupted, or empty, the system gracefully falls back to the vanilla upstream templates without throwing runtime errors.</li>
+</ul>
+<h3 id="files-added-edited">Files added / edited</h3>
+<ul>
+<li><strong>Edited (Core Upstream):</strong> <code>code/modules/paperwork/photocopier.dm</code> - Altered the <code>GLOBAL_LIST_INIT</code> to point to our custom Nova initialization proc.</li>
+<li><strong>Added (Module Code):</strong> <code>modular_nova/modules/paperwork/photocopier.dm</code> - Contains the <code>init_paper_blanks_nova()</code> global proc definition and its JSON merging logic.</li>
+<li><strong>Added (Module Config):</strong> <code>modular_nova/modules/paperwork/config/blanks.json</code> - The dedicated modular JSON file for defining Nova-specific photocopier templates.</li>
+</ul></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/6f2b70442d221b4b501f0c7ae74fe0f427392990">6f2b704</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

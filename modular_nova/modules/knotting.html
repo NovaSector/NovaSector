@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_nova/modules/knotting/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_nova/modules/knotting/readme.md <a href="https://github.com/NovaSector/NovaSector/blob/6f2b70442d221b4b501f0c7ae74fe0f427392990/modular_nova/modules/knotting/readme.md"><img src="git.png" width="16" height="16" title="modular_nova/modules/knotting/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><p>https://github.com/NovaSector/NovaSector/pull/7208</p>
+<h2 id="knotting">Knotting</h2>
+<p>Module ID: KNOTTING</p>
+<h3 id="description">Description:</h3>
+<p>Adds opt-in knotting preferences and a temporary knot tie after internal climax. The knotter can keep moving while the tied partner is dragged along, and either participant can resist to end the tie early.</p>
+<h3 id="tg-proc-file-changes">TG Proc/File Changes:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="modular-overrides">Modular Overrides:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="defines">Defines:</h3>
+<ul>
+<li><code>code/__DEFINES/~nova_defines/lewd_defines.dm</code>: <code>CLIMAX_TARGET_ASSHOLE</code>, <code>CLIMAX_TARGET_MOUTH</code></li>
+<li><code>modular_nova/modules/knotting/code/knotted_component.dm</code>: <code>KNOT_DEFAULT_DURATION</code>, <code>KNOT_MIN_DURATION</code>, <code>KNOT_MAX_DURATION</code></li>
+<li><code>code/__DEFINES/~nova_defines/traits/declarations.dm</code>: <code>TRAIT_CAN_KNOT</code>, <code>TRAIT_KNOTTED</code></li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li><code>code/_globalvars/traits/_traits.dm</code>: Adds <code>TRAIT_CAN_KNOT</code> to the Nova plush trait list.</li>
+<li><code>code/_globalvars/traits/admin_tooling.dm</code>: Exposes <code>TRAIT_CAN_KNOT</code> to admin trait tooling.</li>
+<li><code>modular_nova/modules/modular_items/lewd_items/code/lewd_arousal/climax.dm</code>: Calls <code>try_knot()</code> after an internal climax.</li>
+<li><code>tgui/packages/tgui/interfaces/PreferencesMenu/preferences/features/character_preferences/nova/knotting.tsx</code>: Preference menu entries for knotting.</li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<ul>
+<li>Original implementation context: NovaSector/NovaSector#7208</li>
+</ul></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/6f2b70442d221b4b501f0c7ae74fe0f427392990">6f2b704</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>
