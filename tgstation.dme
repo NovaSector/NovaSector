@@ -7190,7 +7190,6 @@
 #include "modular_nova\master_files\code\datums\atmosphere\planetary.dm"
 #include "modular_nova\master_files\code\datums\bodypart_overlays\mutant_bodypart_overlay.dm"
 #include "modular_nova\master_files\code\datums\brain_damage\special.dm"
-#include "modular_nova\master_files\code\datums\components\crafting.dm"
 #include "modular_nova\master_files\code\datums\components\damage_tracker.dm"
 #include "modular_nova\master_files\code\datums\components\fullauto.dm"
 #include "modular_nova\master_files\code\datums\components\grillable.dm"

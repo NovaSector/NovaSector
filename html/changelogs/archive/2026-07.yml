@@ -863,3 +863,32 @@
       or invisible if they met certain criteria
   - admin: select equipment now just shows one direction of previews, greatly reducing
       lag
+2026-07-24:
+  Happyowl93:
+  - bugfix: you should be able to hit cave spawners with melee items again
+  - bugfix: you can place lattices over ice again.
+  Kashargul:
+  - bugfix: tgui UI testing with more than one test file
+  Melbert:
+  - code_imp: Roughly doubled the performance speed of the crafting UI, report anything
+      broken with it
+  PapaMichael:
+  - bugfix: It no longer looks like you have accessories attached after you've removed
+      them.
+  SmArtKar:
+  - bugfix: Fixed meteor changelings being killed by defense sats
+  - bugfix: Fixed negative moles left by gas scrubbers
+  SyncIt21:
+  - bugfix: monkey powder reaction gives multiple monkeys
+  YesterdaysPromise:
+  - bugfix: Plastitanium wall fillings now fill up the walls correctly at rate of
+      1 per wall, and correctly make survival pod walls.
+  lelandkemble:
+  - bugfix: medbots can no longer be thrown, all bots no longer have AA
+  nPocToDark:
+  - qol: Raptor eggs now floor placeable (even in lava). It's now easier to immerse
+      them in lava to accelerate their growth.
+  vinylspiders:
+  - rscdel: eighties floor is updated to its tg version
+  - bugfix: fixed tails and ears not updating on your dummy when changing the pref
+      until you change species or switch characters

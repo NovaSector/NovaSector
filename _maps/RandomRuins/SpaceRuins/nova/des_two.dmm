@@ -8090,7 +8090,7 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Iq" = (
-/obj/structure/fireplace/nova{
+/obj/structure/fireplace{
 	pixel_x = 0
 	},
 /obj/machinery/button/door/directional/north{

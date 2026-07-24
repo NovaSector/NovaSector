@@ -39,12 +39,7 @@
 			gent.aroused = prefs.arousal_preview
 			gent.update_sprite_suffix()
 	// NOVA EDIT ADDITION END
-	/* // NOVA EDIT REMOVAL START - we need this for mutant parts
-	if(value == target.dna.species.type) // we're already this species
-		return
-	*/ // NOVA EDIT REMOVAL END
-
-	target.set_species(value, icon_update = FALSE, pref_load = TRUE, replace_missing = TRUE, override_markings = prefs?.body_markings.Copy()) // NOVA EDIT CHANGE - Customization - ORIGINAL: target.set_species(value, icon_update = FALSE, pref_load = TRUE)
+	target.set_species(value, icon_update = FALSE, pref_load = TRUE)
 
 /datum/preference/choiced/species/compile_constant_data()
 	var/list/data = list()
