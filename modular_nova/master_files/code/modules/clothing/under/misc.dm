@@ -24,12 +24,84 @@
 	slot_flags = ITEM_SLOT_ICLOTHING | ITEM_SLOT_OCLOTHING
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	bodyshapes_with_variations = NONE
+	/// Default appearance data used when not showing an imprint.
+	var/default_icon
+	var/default_worn_icon
+	var/default_icon_state
+	var/default_worn_icon_state
+	/// Saved appearance data copied from an imprinted undersuit.
+	var/imprinted_icon
+	var/imprinted_worn_icon
+	var/imprinted_icon_state
+	var/imprinted_worn_icon_state
+	/// If TRUE, the harness is currently displaying its imprinted appearance.
+	var/use_imprinted_appearance = FALSE
 
 /obj/item/clothing/under/misc/nova/gear_harness/suit // Functionally the same, this is just so the loadout system allows you to pick either one
 
 /obj/item/clothing/under/misc/nova/gear_harness/Initialize(mapload)
 	. = ..()
 	allowed += GLOB.colonist_suit_allowed
+	default_icon = initial(icon)
+	default_worn_icon = initial(worn_icon)
+	default_icon_state = initial(icon_state)
+	default_worn_icon_state = initial(worn_icon_state)
+
+/obj/item/clothing/under/misc/nova/gear_harness/examine(mob/user)
+	. = ..()
+	. += span_notice("Use another jumpsuit on [src] to imprint its appearance.")
+	if(imprinted_icon_state)
+		. += span_notice("Alt-click [src] to switch between harness and imprinted look.")
+
+/obj/item/clothing/under/misc/nova/gear_harness/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attacking_item, /obj/item/clothing/under) && attacking_item != src)
+		balloon_alert(user, "imprinting...")
+		if(!do_after(user, 5 SECONDS, target = src))
+			balloon_alert(user, "imprint interrupted")
+			return
+
+		var/obj/item/clothing/under/imprint_source = attacking_item
+		imprinted_icon = imprint_source.icon
+		imprinted_worn_icon = imprint_source.worn_icon
+		imprinted_icon_state = imprint_source.icon_state
+		imprinted_worn_icon_state = imprint_source.worn_icon_state
+		use_imprinted_appearance = FALSE
+		apply_visual_state()
+		balloon_alert(user, "appearance imprinted")
+		return
+
+	return ..()
+
+/obj/item/clothing/under/misc/nova/gear_harness/click_alt(mob/user)
+	if(!can_use(user))
+		return NONE
+	if(!imprinted_icon_state)
+		balloon_alert(user, "no imprint")
+		return CLICK_ACTION_BLOCKING
+
+	balloon_alert(user, "switching...")
+	if(!do_after(user, 5 SECONDS, target = src))
+		balloon_alert(user, "switch interrupted")
+		return CLICK_ACTION_BLOCKING
+
+	use_imprinted_appearance = !use_imprinted_appearance
+	apply_visual_state()
+	balloon_alert(user, use_imprinted_appearance ? "imprint on" : "imprint off")
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/clothing/under/misc/nova/gear_harness/proc/apply_visual_state()
+	if(use_imprinted_appearance)
+		icon = imprinted_icon
+		worn_icon = imprinted_worn_icon
+		icon_state = imprinted_icon_state
+		worn_icon_state = imprinted_worn_icon_state
+	else
+		icon = default_icon
+		worn_icon = default_worn_icon
+		icon_state = default_icon_state
+		worn_icon_state = default_worn_icon_state
+
+	update_icon()
 
 /obj/item/clothing/under/misc/nova/gear_harness/eve
 	name = "collection of leaves"
