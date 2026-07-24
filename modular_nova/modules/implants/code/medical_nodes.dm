@@ -1,6 +1,7 @@
 /datum/techweb_node/cyber/cyber_implants/New()
 	design_ids += list(
 		"ci-scanner",
+		"ci-psionic-limiter",
 		"ci-botany",
 		"ci-janitor",
 		"ci-lighter",
