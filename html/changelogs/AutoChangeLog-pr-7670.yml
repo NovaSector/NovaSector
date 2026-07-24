@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes taur blood overlays being offset incorrectly"
-  - bugfix: "fixes taur getting blood shoe overlays"
