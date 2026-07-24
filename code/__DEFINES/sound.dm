@@ -21,6 +21,7 @@
 // NOVA EDIT START - JUKEBOX
 #define CHANNEL_JUKEBOX_START 1006
 #define CHANNEL_HEV 1005
+#define CHANNEL_HEADPHONES 1004
 //NOVA EDIT CHANGE END
 /* Calculates the volume of a sound based on distance
  *
