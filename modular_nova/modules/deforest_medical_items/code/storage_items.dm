@@ -397,7 +397,7 @@
 		/obj/item/bodybag,
 	))
 
-// Midrange bag for paramedics, hypospray and more flexible item wise than surgical, but restricted to small items only
+// Midrange bag for paramedics, more flexible item wise than surgical, but restricted to small items only
 /obj/item/storage/backpack/duffelbag/deforest_paramedic
 	name = "medical technician kit"
 	desc = "Compared to its sibling the first responder surgical kit, this variant is equipped with a hypospray hit for roving paramedics. Featuring rapid access pockets that are lightweight, it can however only hold smaller items."
@@ -430,15 +430,12 @@
 		/obj/item/stack/medical/bone_gel = 1,
 		/obj/item/stack/medical/wound_recovery = 1,
 		/obj/item/stack/medical/wound_recovery/rapid_coagulant = 1,
-		/obj/item/stack/medical/mesh/advanced = 2,
-		/obj/item/stack/medical/suture/medicated = 2,
+		/obj/item/stack/medical/mesh/advanced = 3,
+		/obj/item/stack/medical/suture/medicated = 3,
 		/obj/item/stack/medical/wrap/gauze/sterilized = 1,
 		/obj/item/storage/pill_bottle/painkiller = 1,
-		/obj/item/hypospray/mkii/piercing/atropine = 1,
-		/obj/item/reagent_containers/cup/vial/small/libital = 1,
-		/obj/item/reagent_containers/cup/vial/small/lenturi = 1,
-		/obj/item/reagent_containers/cup/vial/small/seiver = 1,
 		/obj/item/healthanalyzer/advanced = 1,
+		/obj/item/holosign_creator/medical/treatment_zone = 1,
 	)
 	generate_items_inside(items_inside,src)
 
