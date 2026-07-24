@@ -517,7 +517,7 @@
 		. |= SEE_MOBS
 		lighting_cutoff = max(lighting_cutoff, LIGHTING_CUTOFF_MEDIUM)
 
-	if (HAS_TRAIT(src, TRAIT_MINOR_NIGHT_VISION))
+	if(HAS_TRAIT(src, TRAIT_NIGHT_VISION))
 		lighting_cutoff = max(lighting_cutoff, LIGHTING_CUTOFF_LOW)
 
 	if(HAS_TRAIT(src, TRAIT_XRAY_VISION))
