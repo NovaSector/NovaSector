@@ -400,7 +400,7 @@
 // Midrange bag for paramedics, more flexible item wise than surgical, but restricted to small items only
 /obj/item/storage/backpack/duffelbag/deforest_paramedic
 	name = "medical technician kit"
-	desc = "Compared to its sibling the first responder surgical kit, this variant is equipped with a hypospray hit for roving paramedics. Featuring rapid access pockets that are lightweight, it can however only hold smaller items."
+	desc = "Features rapid access pockets that are lightweight, it can however only hold smaller items."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/storage.dmi'
 	icon_state = "technician"
 	lefthand_file = 'modular_nova/modules/deforest_medical_items/icons/inhands/cases_lefthand.dmi'
