@@ -6040,7 +6040,7 @@
 /obj/machinery/door/airlock/multi_tile/public/glass,
 /obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/awaymission/caves/maintsroom)
 "ug" = (
 /obj/structure/disposalpipe/segment,
@@ -6916,7 +6916,7 @@
 /area/awaymission/caves/maintsroom)
 "xg" = (
 /obj/structure/fans/tiny,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/awaymission/caves/maintsroom)
 "xh" = (
 /obj/structure/flora/tree/palm,

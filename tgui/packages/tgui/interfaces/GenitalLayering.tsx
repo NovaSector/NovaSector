@@ -1,7 +1,7 @@
 // THIS IS A NOVA SECTOR UI FILE
 import { useBackend } from '../backend';
 import { Button, NoticeBox, Section, Stack, Tabs } from 'tgui-core/components';
-import { BooleanLike } from 'tgui-core/react';
+import type { BooleanLike } from 'tgui-core/react';
 import { Window } from '../layouts';
 type GenitalEntry = {
   name: string;

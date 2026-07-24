@@ -14,18 +14,18 @@
 	resist_cooldown = CLICK_CD_SLOW
 
 /// Reinforce the breakout time on this, if that's your thing
-/obj/item/clothing/gloves/ball_mittens/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/clothing/gloves/ball_mittens/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	if(.)
 		return
-	if(!istype(attacking_item, /obj/item/restraints/handcuffs) || !initial(breakouttime))
+	if(!istype(tool, /obj/item/restraints/handcuffs) || !initial(breakouttime))
 		return
-	to_chat(user, span_notice("You reinforce the belts on [src] with [attacking_item]."))
+	to_chat(user, span_notice("You reinforce the belts on [src] with [tool]."))
 	name = "reinforced [initial(name)]"
 	clothing_flags = DANGEROUS_OBJECT
 	breakouttime = 100 SECONDS
-	qdel(attacking_item)
-	return TRUE
+	qdel(tool)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/clothing/gloves/ball_mittens/examine(mob/user)
 	. = ..()

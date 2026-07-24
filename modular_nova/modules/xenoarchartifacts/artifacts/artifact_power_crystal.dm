@@ -23,20 +23,20 @@
 				"It seems to draw you inward as you look it at.", "Something twinkles faintly as you look at it.",
 				"It's mesmerizing to behold.")
 
-/obj/machinery/power/crystal/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(default_unfasten_wrench(user, attacking_item))
+/obj/machinery/power/crystal/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(default_unfasten_wrench(user, tool))
 		anchored ? connect_to_network() : disconnect_from_network()
 		update_crystal()
-		return
+		return ITEM_INTERACT_SUCCESS
 
-	if(attacking_item.tool_behaviour == TOOL_WIRECUTTER) // If we want to remove the wiring
+	if(tool.tool_behaviour == TOOL_WIRECUTTER) // If we want to remove the wiring
 		if(wired)
 			user.visible_message(
 				span_notice("[user] starts cutting off the wiring of the [src]."),
 				span_notice("You start cutting off the wiring of the [src]."),
 				blind_message = span_hear("You hear cutting nearby."),
 			)
-			if(attacking_item.use_tool(src, user, 20, volume = 50))
+			if(tool.use_tool(src, user, 20, volume = 50))
 				user.visible_message(
 					span_notice("[user] cuts off the wiring of the [src]."),
 					span_notice("You cut off the wiring of the [src]."),
@@ -44,32 +44,33 @@
 				)
 				wired = FALSE
 				update_crystal()
-				return
+				return ITEM_INTERACT_SUCCESS
 		else
 			to_chat(user, span_red("There is currently no wiring on the [src]."))
-			return
+			return ITEM_INTERACT_BLOCKING
 
-	if(istype(attacking_item, /obj/item/stack/cable_coil)) // If we want to put the wiring
+	if(istype(tool, /obj/item/stack/cable_coil)) // If we want to put the wiring
 		if(!wired)
-			var/obj/item/stack/cable_coil/our_cable_coil = attacking_item
+			var/obj/item/stack/cable_coil/our_cable_coil = tool
 			if(!our_cable_coil.use(2))
 				to_chat(user, span_red("There's not enough wire to finish the task."))
-				return
+				return ITEM_INTERACT_BLOCKING
 			user.visible_message(
 				span_notice("[user] starts putting the wiring all over the [src]."),
 				span_notice("You start putting the wiring all over the [src]."),
 			)
-			if(attacking_item.use_tool(src, user, 20, volume = 50))
+			if(tool.use_tool(src, user, 20, volume = 50))
 				user.visible_message(
 					span_notice("[user] puts the wiring all over the [src]."),
 					span_notice("You put the wiring all over the [src]."),
 				)
 				wired = TRUE
 				update_crystal()
-			return
+				return ITEM_INTERACT_SUCCESS
+			return ITEM_INTERACT_BLOCKING
 		else
 			balloon_alert(user, "already wired!")
-			return
+			return ITEM_INTERACT_BLOCKING
 	return ..()
 
 /obj/machinery/power/crystal/attack_hand(mob/user)

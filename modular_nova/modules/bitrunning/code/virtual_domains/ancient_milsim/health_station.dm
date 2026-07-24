@@ -78,10 +78,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/health_station, 32)
 	. = ..()
 	open_options_menu(user)
 
-/obj/machinery/health_station/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	. = ..()
-	if(refill_pen(attacking_item, user))
-		return COMPONENT_NO_AFTERATTACK
+/obj/machinery/health_station/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(refill_pen(tool, user))
+		return ITEM_INTERACT_SUCCESS
 	return NONE
 
 /obj/machinery/health_station/wrench_act(mob/living/user, obj/item/tool)

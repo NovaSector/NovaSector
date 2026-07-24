@@ -424,54 +424,54 @@
 
 	playsound(src, 'sound/items/weapons/parry.ogg', 50, TRUE) // Play a feedback sound to really let players know we just did an upgrade
 
-/obj/structure/reagent_forge/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(!used_tray && istype(attacking_item, /obj/item/plate/oven_tray))
-		add_tray_to_forge(user, attacking_item)
-		return TRUE
+/obj/structure/reagent_forge/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!used_tray && istype(tool, /obj/item/plate/oven_tray))
+		add_tray_to_forge(user, tool)
+		return ITEM_INTERACT_SUCCESS
 
 	if(in_use) // If the forge is currently in use by someone (or there is a tray in it) then we cannot use it
 		if(used_tray)
 			balloon_alert(user, "remove [used_tray] first")
 		balloon_alert(user, "forge busy")
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(attacking_item, /obj/item/stack/sheet/mineral/wood)) // Wood is a weak fuel, and will only get the forge up to 50 temperature
-		refuel(attacking_item, user)
-		return TRUE
+	if(istype(tool, /obj/item/stack/sheet/mineral/wood)) // Wood is a weak fuel, and will only get the forge up to 50 temperature
+		refuel(tool, user)
+		return ITEM_INTERACT_SUCCESS
 
-	if(istype(attacking_item, /obj/item/stack/sheet/mineral/coal)) // Coal is a strong fuel that doesn't need bellows to heat up properly
-		refuel(attacking_item, user, TRUE)
-		return TRUE
+	if(istype(tool, /obj/item/stack/sheet/mineral/coal)) // Coal is a strong fuel that doesn't need bellows to heat up properly
+		refuel(tool, user, TRUE)
+		return ITEM_INTERACT_SUCCESS
 
-	if(istype(attacking_item, /obj/item/stack/ore))
-		smelt_ore(attacking_item, user)
-		return TRUE
+	if(istype(tool, /obj/item/stack/ore))
+		smelt_ore(tool, user)
+		return ITEM_INTERACT_SUCCESS
 
-	if(attacking_item.GetComponent(/datum/component/reagent_weapon))
-		handle_weapon_imbue(attacking_item, user)
-		return TRUE
+	if(tool.GetComponent(/datum/component/reagent_weapon))
+		handle_weapon_imbue(tool, user)
+		return ITEM_INTERACT_SUCCESS
 
-	if(attacking_item.GetComponent(/datum/component/reagent_clothing))
-		handle_clothing_imbue(attacking_item, user)
-		return TRUE
+	if(tool.GetComponent(/datum/component/reagent_clothing))
+		handle_clothing_imbue(tool, user)
+		return ITEM_INTERACT_SUCCESS
 
-	if(istype(attacking_item, /obj/item/ceramic))
-		handle_ceramics(attacking_item, user)
-		return TRUE
+	if(istype(tool, /obj/item/ceramic))
+		handle_ceramics(tool, user)
+		return ITEM_INTERACT_SUCCESS
 
-	if(istype(attacking_item, /obj/item/stack/sheet/glass))
-		handle_glass_sheet_melting(attacking_item, user)
-		return TRUE
+	if(istype(tool, /obj/item/stack/sheet/glass))
+		handle_glass_sheet_melting(tool, user)
+		return ITEM_INTERACT_SUCCESS
 
-	if(istype(attacking_item, /obj/item/glassblowing/metal_cup))
-		handle_metal_cup_melting(attacking_item, user)
-		return TRUE
+	if(istype(tool, /obj/item/glassblowing/metal_cup))
+		handle_metal_cup_melting(tool, user)
+		return ITEM_INTERACT_SUCCESS
 
-	if(istype(attacking_item, /obj/item/stack/rods))
+	if(istype(tool, /obj/item/stack/rods))
 		in_use = TRUE
-		smelt_iron_rods(attacking_item, user)
+		smelt_iron_rods(tool, user)
 		in_use = FALSE
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 
