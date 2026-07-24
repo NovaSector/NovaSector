@@ -93,7 +93,9 @@
 	if(facial_hair_gradient_style != SPRITE_ACCESSORY_NONE)
 		var/facial_hair_gradient_color = get_hair_gradient_color(GRADIENT_FACIAL_HAIR_KEY)
 		var/image/facial_hair_gradient_overlay = get_gradient_overlay(icon(sprite_accessory.icon, sprite_accessory.icon_state), -HAIR_LAYER, SSaccessories.facial_hair_gradients_list[facial_hair_gradient_style], facial_hair_gradient_color, dropped)
-		. += facial_hair_gradient_overlay
+		facial_hair_gradient_overlay.alpha = facial_hair_alpha
+		facial_hair_overlay.appearance_flags |= KEEP_TOGETHER
+		facial_hair_overlay.overlays += facial_hair_gradient_overlay
 
 	return .
 
@@ -130,8 +132,8 @@
 		hair_overlay.pixel_z = hair_sprite_accessory.y_offset
 		// NOVA EDIT ADDITION START - Species hair offset
 		if(LAZYFIND(owner?.dna?.species?.offset_features, OFFSET_HAIR))
-			hair_overlay.pixel_x += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_X]
-			hair_overlay.pixel_z += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_Y]
+			hair_overlay.pixel_x += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_W]
+			hair_overlay.pixel_z += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_Z]
 		// NOVA EDIT ADDITION END
 		// Emissive blocker
 		if(blocks_emissive != EMISSIVE_BLOCK_NONE)
@@ -159,10 +161,11 @@
 			hair_gradient_overlay.pixel_z = hair_sprite_accessory.y_offset
 			// NOVA EDIT ADDITION START - Species hair offset
 			if(LAZYFIND(owner?.dna?.species?.offset_features, OFFSET_HAIR))
-				hair_gradient_overlay.pixel_x += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_X]
-				hair_gradient_overlay.pixel_z += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_Y]
+				hair_gradient_overlay.pixel_w += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_W]
+				hair_gradient_overlay.pixel_z += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_Z]
 			// NOVA EDIT ADDITION END
-			. += hair_gradient_overlay
+			hair_overlay.appearance_flags |= KEEP_TOGETHER
+			hair_overlay.overlays += hair_gradient_overlay
 
 	return .
 
