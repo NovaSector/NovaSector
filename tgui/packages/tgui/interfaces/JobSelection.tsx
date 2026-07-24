@@ -22,6 +22,11 @@ type Job = {
   used_slots: number;
   prioritized: BooleanLike;
   description: string;
+  required_experience?: {
+    experience_type: string;
+    required_playtime: number;
+    required_playtime_text?: string;
+  };
 };
 
 type Department = {
@@ -52,6 +57,10 @@ function JobEntry(props: JobEntryProps) {
   const { jobName, job, department, onClick } = props;
 
   const jobIcon = JOB2ICON[jobName] || null;
+  const requiredExperience = job.required_experience;
+  const requiredPlaytimeText =
+    requiredExperience?.required_playtime_text ||
+    `${Math.ceil((requiredExperience?.required_playtime || 0) / 60)}h`;
 
   return (
     <Button
@@ -93,7 +102,22 @@ function JobEntry(props: JobEntryProps) {
             <Icon name={jobIcon} />
           </Stack.Item>
         )}
-        <Stack.Item grow>{job.command ? <b>{jobName}</b> : jobName}</Stack.Item>
+        <Stack.Item grow>
+          {job.command ? <b>{jobName}</b> : jobName}
+          {!!requiredExperience && (
+            <Box
+              color="black"
+              fontSize="0.85rem"
+              style={{
+                lineHeight: 1.15,
+                whiteSpace: 'normal',
+              }}
+            >
+              <b>{requiredPlaytimeText}</b> as{' '}
+              {requiredExperience.experience_type}
+            </Box>
+          )}
+        </Stack.Item>
         <Stack.Item>
           <span
             style={{

@@ -203,7 +203,7 @@
 			return FALSE
 	else
 		var/mob/living/brain/mmi_brainmob = mmi.brainmob
-		if(!CONFIG_GET(flag/allow_ai) || (mmi_brainmob && is_banned_from(mmi_brainmob.ckey, JOB_AI)))
+		if(!CONFIG_GET(flag/allow_ai) || (mmi_brainmob && (is_banned_from(mmi_brainmob.ckey, JOB_AI) || get_playtime_banned_role(mmi_brainmob.ckey, JOB_AI))))
 			if(!QDELETED(src) && !QDELETED(user) && !QDELETED(mmi) && user.is_holding(mmi) && Adjacent(user))
 				balloon_alert(user, "[mmi] won't fit!")
 			return FALSE
