@@ -22,7 +22,7 @@
 	if(has_status_effect(/datum/status_effect/climax_cooldown) || !client?.prefs?.read_preference(/datum/preference/toggle/erp))
 		return
 
-	if(HAS_TRAIT(src, TRAIT_NEVERBONER) || has_status_effect(/datum/status_effect/climax_cooldown) || (!has_vagina() && !has_penis()))
+	if(HAS_TRAIT(src, TRAIT_NO_CLIMAX) || HAS_TRAIT(src, TRAIT_NO_LIBIDO) || has_status_effect(/datum/status_effect/climax_cooldown) || (!has_vagina() && !has_penis()))
 		visible_message(span_purple("[src] twitches, trying to cum, but with no result."), \
 			span_purple("You can't have an orgasm!"), pref_to_check = /datum/preference/toggle/erp)
 		return TRUE
@@ -185,6 +185,7 @@
 			apply_status_effect(/datum/status_effect/climax_cooldown)
 			if(self_orgasm)
 				add_mood_event("orgasm", /datum/mood_event/climaxself)
+			SEND_SIGNAL(src, COMSIG_MOB_CLIMAXED)
 			return TRUE
 
 	if(climax_choice == CLIMAX_VAGINA || climax_choice == CLIMAX_BOTH)
@@ -201,6 +202,7 @@
 	apply_status_effect(/datum/status_effect/climax_cooldown)
 	if(self_orgasm)
 		add_mood_event("orgasm", /datum/mood_event/climaxself)
+	SEND_SIGNAL(src, COMSIG_MOB_CLIMAXED)
 	return TRUE
 
 #undef CLIMAX_VAGINA

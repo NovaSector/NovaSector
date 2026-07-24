@@ -117,3 +117,6 @@
 /// Gets called on the target, with (hiding, play_feedback = TRUE) as its args.
 /// Used for `/datum/element/can_hide`
 #define COMSIG_MOVABLE_TOGGLE_HIDING "movable_toggle_hiding"
+
+/// Signal sent whenever a mob climaxes via /mob/living/carbon/human/proc/climax()
+#define COMSIG_MOB_CLIMAXED "mob_climaxed"
