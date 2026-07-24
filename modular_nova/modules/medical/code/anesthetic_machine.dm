@@ -66,17 +66,18 @@
 		return FALSE
 	visible_message(span_notice("[user] retracts [attached_mask] back into [src]."))
 
-/obj/machinery/anesthetic_machine/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(!istype(attacking_item, /obj/item/tank))
+/obj/machinery/anesthetic_machine/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/tank))
 		return ..()
 
 	if(attached_tank) // If there is an attached tank, remove it and drop it on the floor
 		attached_tank.forceMove(loc)
 
-	attacking_item.forceMove(src) // Put new tank in, set it as attached tank
-	visible_message(span_notice("[user] inserts [attacking_item] into [src]."))
-	attached_tank = attacking_item
+	tool.forceMove(src) // Put new tank in, set it as attached tank
+	visible_message(span_notice("[user] inserts [tool] into [src]."))
+	attached_tank = tool
 	update_icon()
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/anesthetic_machine/click_alt(mob/user)
 	if(!attached_tank)

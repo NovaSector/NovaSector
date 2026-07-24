@@ -7,7 +7,6 @@
 		SPECIES_MAMMAL = 1,
 		SPECIES_INSECT = 1,
 	)
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	organ_type = /obj/item/organ/fluff
 
 /datum/sprite_accessory/fluff/moth/none
@@ -16,7 +15,7 @@
 	factual = FALSE
 	natural_spawn = FALSE
 
-/datum/sprite_accessory/fluff/moth/is_hidden(mob/living/carbon/human/human)
+/datum/sprite_accessory/fluff/moth/is_hidden(mob/living/carbon/human/human, datum/bodypart_overlay/mutant/bodypart_overlay)
 	if((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR))
 		return TRUE
 

@@ -50,18 +50,19 @@
 	if(!uses)
 		desc = "[initial(desc)] Looks like it's been used up."
 
-/obj/item/autosurgeon/bodypart/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, bodypart_type))
+/obj/item/autosurgeon/bodypart/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, bodypart_type))
 		if(storedbodypart)
 			to_chat(user, span_alert("[src] already has an implant stored."))
-			return
+			return ITEM_INTERACT_BLOCKING
 		else if(!uses)
 			to_chat(user, span_alert("[src] has already been used up."))
-			return
-		if(!user.transferItemToLoc(attacking_item, src))
-			return
-		storedbodypart = attacking_item
-		to_chat(user, span_notice("You insert the [attacking_item] into [src]."))
+			return ITEM_INTERACT_BLOCKING
+		if(!user.transferItemToLoc(tool, src))
+			return ITEM_INTERACT_BLOCKING
+		storedbodypart = tool
+		to_chat(user, span_notice("You insert the [tool] into [src]."))
+		return ITEM_INTERACT_SUCCESS
 	else
 		return ..()
 

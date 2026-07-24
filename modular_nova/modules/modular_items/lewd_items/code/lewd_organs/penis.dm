@@ -7,42 +7,29 @@
 	slot = ORGAN_SLOT_PENIS
 	mutantpart_key = ORGAN_SLOT_PENIS
 	drop_when_organ_spilling = FALSE
-	var/girth = 9
-	var/sheath = SHEATH_NONE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/genital/penis
+	var/girth = 9
 
 /datum/bodypart_overlay/mutant/genital/penis
 	feature_key = ORGAN_SLOT_PENIS
 	layers = list(
-		EXTERNAL_FRONT_UNDER_CLOTHES = UNDER_UNIFORM_LAYER,
+		EXTERNAL_FRONT_UNDER_CLOTHES = PENIS_LAYER,
 		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
 	)
-
-	/// Layer as high as possible
-	layer_above_all = -(BODY_FRONT_LAYER - 0.02)
-	layer_above_undies = -(UNIFORM_LAYER - 0.02)
-	layer_below_undies = -(UNIFORM_LAYER + 0.04)
-
-/datum/bodypart_overlay/mutant/genital/penis/underwear_check()
-	if(!istype(owner))
-		return FALSE
-	else
-		if(owner.underwear_visibility & UNDERWEAR_HIDE_UNDIES)
-			return FALSE
-		else
-			return TRUE
-
+	genital_stack_rank = 2
+	offset_location = ENTIRE_BODY
+	/// The shaft accessory as picked in prefs. sprite_datum points here when unsheathed.
+	var/datum/sprite_accessory/genital/shaft_datum
+	/// The sheath accessory, or null for sheathless penises.
+	var/datum/sprite_accessory/genital/sheath/sheath_datum
 
 /obj/item/organ/genital/penis/get_description_string(datum/sprite_accessory/genital/penis/penis)
 	var/returned_string = ""
 	var/genital_descriptor = LOWER_TEXT(get_genital_descriptor(penis))
 	var/pname = genital_descriptor + "[length(get_genital_descriptor(penis)) ? " " : ""]"
-	if(sheath != SHEATH_NONE && aroused != AROUSAL_FULL) //Hidden in sheath
-		switch(sheath)
-			if(SHEATH_NORMAL)
-				returned_string = "You see a sheath."
-			if(SHEATH_SLIT)
-				returned_string = "You see a slit." ///Typo fix.
+	if(is_sheathed())
+		var/datum/bodypart_overlay/mutant/genital/penis/our_overlay = bodypart_overlay
+		returned_string = "You see a [LOWER_TEXT(our_overlay.sheath_datum.name)]."
 		if(aroused == AROUSAL_PARTIAL)
 			returned_string += " There's a [pname]penis poking out of it."
 	else
@@ -75,18 +62,67 @@
 		passed_string += "_s"
 	icon_state = passed_string
 
+/datum/bodypart_overlay/mutant/genital/penis/set_appearance_from_dna(datum/dna/dna, accessory_name, feature_key, obj/item/bodypart/limb)
+	. = ..()
+	if(!.)
+		return
+	// The base proc just set sprite_datum to the shaft - remember it so we can swap back.
+	shaft_datum = sprite_datum
+	var/sheath_name = dna.features["penis_sheath"]
+	sheath_datum = null
+	if(sheath_name && sheath_name != SPRITE_ACCESSORY_NONE)
+		var/datum/sprite_accessory/genital/sheath/style = SSaccessories.sprite_accessories[FEATURE_SHEATH][sheath_name]
+		if(istype(style))
+			sheath_datum = style
+
+/// Points sprite_datum at the sheath or the shaft
+/datum/bodypart_overlay/mutant/genital/penis/proc/set_sheathed(sheathed)
+	if(sheathed && !sheath_datum)
+		sheathed = FALSE // Can't sheath without a sheath.
+	sprite_datum = sheathed ? sheath_datum : shaft_datum
+
+/// Resolves and applies a sheath style by accessory name. Null/"None" clears it.
+/datum/bodypart_overlay/mutant/genital/penis/proc/set_sheath_style(sheath_name)
+	sheath_datum = null
+	if(sheath_name && sheath_name != SPRITE_ACCESSORY_NONE)
+		var/datum/sprite_accessory/genital/sheath/style = SSaccessories.sprite_accessories[FEATURE_SHEATH]?[sheath_name]
+		if(istype(style))
+			sheath_datum = style
+
+/// Re-resolves the sheath from the owner's DNA and refreshes the sprite.
+/obj/item/organ/genital/penis/proc/refresh_sheath()
+	var/datum/bodypart_overlay/mutant/genital/penis/our_overlay = bodypart_overlay
+	our_overlay?.set_sheath_style(owner?.dna?.features["penis_sheath"])
+	update_sprite_suffix()
+	owner?.update_body()
+
+/// Whether this penis has a sheath at all, regardless of arousal state.
+/// Contrast is_sheathed(), which is whether it's currently retracted into it.
+/obj/item/organ/genital/penis/proc/has_sheath()
+	var/datum/bodypart_overlay/mutant/genital/penis/our_overlay = bodypart_overlay
+	return !isnull(our_overlay?.sheath_datum)
+
+/// Whether the penis is currently hidden in its sheath.
+/obj/item/organ/genital/penis/proc/is_sheathed()
+	var/datum/bodypart_overlay/mutant/genital/penis/our_overlay = bodypart_overlay
+	return our_overlay?.sheath_datum && aroused != AROUSAL_FULL
+
+/obj/item/organ/genital/penis/update_sprite_suffix()
+	// Swap the active datum BEFORE the base proc computes/stamps the suffix,
+	// so the suffix and the datum can never describe different sprites.
+	var/datum/bodypart_overlay/mutant/genital/penis/our_overlay = bodypart_overlay
+	our_overlay?.set_sheathed(is_sheathed())
+	return ..()
+
 /obj/item/organ/genital/penis/get_sprite_size_string()
-	if(aroused != AROUSAL_FULL && sheath != SHEATH_NONE) //Sheath time!
-		var/poking_out = 0
-		if(aroused == AROUSAL_PARTIAL)
-			poking_out = 1
-		return "[LOWER_TEXT(sheath)]_[poking_out]"
+	if(is_sheathed())
+		var/datum/bodypart_overlay/mutant/genital/penis/our_overlay = bodypart_overlay
+		var/poking_out = (aroused == AROUSAL_PARTIAL) ? 1 : 0
+		return "[our_overlay.sheath_datum.icon_state]_[poking_out]"
 
 	var/size_affix
 	var/measured_size = floor(genital_size)
-	var/is_erect = 0
-	if(aroused == AROUSAL_FULL)
-		is_erect = 1
+	var/is_erect = (aroused == AROUSAL_FULL) ? 1 : 0
 	if(measured_size < 1)
 		measured_size = 1
 	switch(measured_size)
@@ -118,9 +154,6 @@
 	return ..()
 
 /obj/item/organ/genital/penis/build_from_accessory(datum/sprite_accessory/genital/accessory, datum/dna/DNA)
-	var/datum/sprite_accessory/genital/penis/snake = accessory
-	if(snake.can_have_sheath)
-		sheath = DNA.features["penis_sheath"]
 	if(DNA.features["penis_uses_skintones"])
 		uses_skintones = accessory.has_skintone_shading
 	return ..()

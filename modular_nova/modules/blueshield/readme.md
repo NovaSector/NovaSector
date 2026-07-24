@@ -15,7 +15,7 @@ Adds the blueshield job to the game. It does not however add the blueshield offi
 
 ### Defines:
 
-- #define JOB_DISPLAY_ORDER_BLUESHIELD 34
+- #define JOB_DISPLAY_ORDER_BLUESHIELD 21
 - #define ACCESS_BLUESHIELD 71
 
 ### Master file additions

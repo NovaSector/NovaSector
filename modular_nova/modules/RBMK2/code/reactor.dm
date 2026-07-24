@@ -135,8 +135,8 @@
 				heat_overlay.alpha = min( (rod_mix.temperature - T0C) * (1/500) * 255, 255)
 			. += heat_overlay
 
-		if(!active && !jammed && rod_mix.gases[/datum/gas/tritium])
-			var/meter_icon_num = ceil( min(rod_mix.gases[/datum/gas/tritium][MOLES] / 10, 1) * 5)
+		if(!active && !jammed && rod_mix.moles[/datum/gas/tritium])
+			var/meter_icon_num = ceil( min(rod_mix.moles[/datum/gas/tritium] / 10, 1) * 5)
 			if(meter_icon_num > 0)
 				var/rod_mix_pressure = rod_mix.return_pressure()
 				var/mutable_appearance/meter_overlay = mutable_appearance(icon, "platform_rod_glow_[meter_icon_num]")
@@ -443,7 +443,7 @@
 	// Used as a comparison point for the progress bar
 	data["rod_pressure_limit"] = stored_rod?.pressure_limit || 0
 	// Look for specifically tritium, don't need to show moderators.
-	data["rod_trit_moles"] = stored_rod?.air_contents.gases[/datum/gas/tritium][MOLES] || 0
+	data["rod_trit_moles"] = stored_rod?.air_contents.moles[/datum/gas/tritium] || 0
 	// rod temperature
 	data["rod_mix_temperature"] = stored_rod?.air_contents.temperature || 0
 

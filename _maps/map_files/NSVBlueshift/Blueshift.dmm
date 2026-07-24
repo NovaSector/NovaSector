@@ -76,7 +76,7 @@
 /obj/effect/landmark/event_spawn,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/weather/snow,
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "abl" = (
 /obj/structure/window/reinforced/spawner/directional/south,
@@ -20078,7 +20078,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
 	},
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "ebG" = (
 /turf/closed/wall,
@@ -24229,7 +24229,7 @@
 	dir = 4
 	},
 /obj/effect/mapping_helpers/airalarm/tlv_cold_room,
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "eQK" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -26802,7 +26802,7 @@
 	},
 /obj/item/seeds/watermelon,
 /obj/item/food/grown/wheat,
-/obj/item/food/grown/watermelon,
+/obj/item/food/grown/melonlike/watermelon,
 /obj/item/food/grown/banana,
 /obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/iron/dark/side{
@@ -34504,7 +34504,7 @@
 /obj/machinery/portable_atmospherics/canister/anesthetic_mix,
 /obj/effect/turf_decal/weather/snow,
 /obj/effect/turf_decal/weather/snow/corner,
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "gVx" = (
 /obj/structure/cable,
@@ -41396,6 +41396,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/port/upper)
 "isR" = (
@@ -43595,7 +43596,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/weather/snow,
 /obj/effect/turf_decal/weather/snow/corner,
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "iRf" = (
 /obj/machinery/light/small/directional/east,
@@ -49684,7 +49685,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/weather/snow,
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "kaN" = (
 /obj/effect/turf_decal/bot,
@@ -53680,7 +53681,7 @@
 "kPK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/weather/snow,
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "kQd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -54118,7 +54119,7 @@
 /obj/effect/turf_decal/bot_white{
 	color = "#435a88"
 	},
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "kVJ" = (
 /obj/machinery/atmospherics/components/binary/pump{
@@ -55444,7 +55445,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
 	},
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "ljF" = (
 /obj/effect/spawner/random/trash/mess,
@@ -60570,7 +60571,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
 	},
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "mmN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -61275,7 +61276,7 @@
 /obj/effect/turf_decal/bot_white{
 	color = "#435a88"
 	},
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "mvq" = (
 /obj/structure/reagent_dispensers/plumbed{
@@ -66585,7 +66586,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
 	},
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "nzn" = (
 /obj/machinery/recharger{
@@ -67129,7 +67130,7 @@
 /obj/effect/turf_decal/bot_white{
 	color = "#435a88"
 	},
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "nFg" = (
 /obj/effect/landmark/firealarm_sanity,
@@ -69676,7 +69677,7 @@
 	},
 /obj/item/seeds/potato,
 /obj/item/food/grown/wheat,
-/obj/item/food/grown/watermelon,
+/obj/item/food/grown/melonlike/watermelon,
 /obj/item/food/grown/grapes,
 /obj/item/food/grown/tomato,
 /turf/open/floor/iron/dark/side{
@@ -79116,7 +79117,7 @@
 /obj/effect/turf_decal/bot_white{
 	color = "#435a88"
 	},
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "pZm" = (
 /obj/machinery/computer/security/telescreen/entertainment/directional/west,
@@ -90111,7 +90112,7 @@
 /obj/effect/turf_decal/bot_white{
 	color = "#435a88"
 	},
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "shr" = (
 /obj/structure/table,
@@ -95898,6 +95899,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/port/upper)
 "toK" = (
@@ -106956,7 +106958,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "vxA" = (
 /obj/effect/turf_decal/caution/stand_clear/red,
@@ -111709,7 +111711,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 6
 	},
-/turf/open/floor/iron/white,
+/turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
 "wsK" = (
 /obj/structure/table/wood,
