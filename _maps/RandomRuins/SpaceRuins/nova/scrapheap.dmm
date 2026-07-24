@@ -467,7 +467,7 @@
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "mk" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/trog,
+/mob/living/basic/trog,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
@@ -864,7 +864,7 @@
 "xL" = (
 /obj/machinery/light/broken/directional/east,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/trog,
+/mob/living/basic/trog,
 /turf/open/floor/iron,
 /area/ruin/space/has_grav/powered/nova/scrapheap)
 "xY" = (
