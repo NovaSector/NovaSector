@@ -11,6 +11,7 @@
 		TRAIT_CAN_STRIP,
 		TRAIT_LITERATE,
 		TRAIT_MUTANT_COLORS,
+		TRAIT_PASSTABLE,
 	)
 	digitigrade_customization = DIGITIGRADE_NEVER
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
@@ -74,12 +75,3 @@
 	tesh.dna.mutant_bodyparts[FEATURE_TAIL] = build_mutant_part("Teshari (Default)", list(base_color, base_color, ear_color))
 	regenerate_organs(tesh, src, visual_only = TRUE)
 	tesh.update_body_parts(TRUE)
-
-/datum/species/teshari/on_species_gain(mob/living/carbon/human/new_teshari, datum/species/old_species, pref_load, regenerate_icons)
-	. = ..()
-	passtable_on(new_teshari, SPECIES_TRAIT)
-
-/datum/species/teshari/on_species_loss(mob/living/carbon/C, datum/species/new_species, pref_load)
-	. = ..()
-	passtable_off(C, SPECIES_TRAIT)
-

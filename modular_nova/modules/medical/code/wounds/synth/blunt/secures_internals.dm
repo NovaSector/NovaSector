@@ -192,8 +192,9 @@
 
 		else if (iscarbon(user)) // doesn't matter if we're shock immune, it's set to 0 anyway
 			var/mob/living/carbon/carbon_user = user
-			if (carbon_user.gloves)
-				stun_chance *= carbon_user.gloves.siemens_coefficient
+			var/obj/item/clothing/gloves = carbon_user.get_item_by_slot(ITEM_SLOT_HANDS)
+			if (gloves)
+				stun_chance *= gloves.siemens_coefficient
 
 			if (ishuman(user))
 				var/mob/living/carbon/human/human_user = user

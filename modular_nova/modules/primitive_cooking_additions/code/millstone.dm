@@ -91,17 +91,17 @@
 
 	deconstruct(TRUE)
 
-/obj/structure/millstone/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/storage/bag))
+/obj/structure/millstone/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/storage/bag))
 		if(length(contents) >= maximum_contained_items)
 			balloon_alert(user, "already full")
-			return TRUE
+			return ITEM_INTERACT_SUCCESS
 
-		if(!length(attacking_item.contents))
+		if(!length(tool.contents))
 			balloon_alert(user, "nothing to transfer!")
-			return TRUE
+			return ITEM_INTERACT_SUCCESS
 
-		for(var/obj/item/food/grown/target_item in attacking_item.contents)
+		for(var/obj/item/food/grown/target_item in tool.contents)
 			if(length(contents) >= maximum_contained_items)
 				break
 
@@ -113,19 +113,19 @@
 		else
 			balloon_alert(user, "transferred")
 
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
-	if(!(istype(attacking_item, /obj/item/food/grown) || istype(attacking_item, /obj/item/grown)))
+	if(!(istype(tool, /obj/item/food/grown) || istype(tool, /obj/item/grown)))
 		balloon_alert(user, "can only mill plants")
 		return ..()
 
 	if(length(contents) >= maximum_contained_items)
 		balloon_alert(user, "already full")
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	attacking_item.forceMove(src)
-	balloon_alert(user, "transferred [attacking_item]")
-	return TRUE
+	tool.forceMove(src)
+	balloon_alert(user, "transferred [tool]")
+	return ITEM_INTERACT_SUCCESS
 
 /// Takes the content's seeds and spits them out on the turf, as well as grinding whatever the contents may be
 /obj/structure/millstone/proc/mill_it_up(mob/living/carbon/human/user)

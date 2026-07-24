@@ -9,6 +9,17 @@
 /// Examine Panel NSFW ooc notes—requires you to click a tab to see
 #define EXAMINE_DNA_OOC_NOTES_NSFW "ooc_notes_nsfw"
 
+/// Examine text when a person has low arousal
+#define ERP_FLAVOR_DNA_LOW_AROUSAL "erp_low_arousal_text"
+/// Examine text when a person has medium arousal
+#define ERP_FLAVOR_DNA_MEDIUM_AROUSAL "erp_medium_arousal_text"
+/// Examine text when a person has high arousal
+#define ERP_FLAVOR_DNA_HIGH_AROUSAL "erp_high_arousal_text"
+/// Flavor text when licking someone
+#define ERP_FLAVOR_DNA_TASTE "erp_taste"
+/// Flavor text when smelling someone
+#define ERP_FLAVOR_DNA_SCENT "erp_scent"
+
 //We start from 30 to not interfere with TG species defines, should they add more
 /// We're using all three mutcolor features for our skin coloration
 #define MUTCOLOR_MATRIXED	30
@@ -82,11 +93,6 @@
 #define TESTICLES_MIN_SIZE 0
 #define TESTICLES_MAX_SIZE 8
 
-#define SHEATH_NONE	SPRITE_ACCESSORY_NONE
-#define SHEATH_NORMAL "Sheath"
-#define SHEATH_SLIT	"Slit"
-#define SHEATH_MODES list(SHEATH_NONE, SHEATH_NORMAL, SHEATH_SLIT)
-
 /// Used for making species blueprint singletons for GLOB.default_mutant_bodyparts
 #define MUTPART_BLUEPRINT new /datum/mutant_bodypart/species_blueprint
 
@@ -114,11 +120,13 @@
 
 // Genitals
 #define FEATURE_PENIS "penis"
+#define FEATURE_SHEATH "sheath"
 #define FEATURE_WOMB "womb"
 #define FEATURE_VAGINA "vagina"
 #define FEATURE_TESTICLES "testicles"
 #define FEATURE_BREASTS "breasts"
 #define FEATURE_ANUS "anus"
+#define FEATURE_BUTT "butt"
 
 
 #define MANDATORY_FEATURE_LIST list(\
@@ -133,7 +141,7 @@
 	"penis_size" = 13,\
 	"penis_girth" = 9,\
 	"penis_taur_mode" = TRUE,\
-	"penis_sheath" = SHEATH_NONE,\
+	"penis_sheath" = SPRITE_ACCESSORY_NONE,\
 	"balls_size" = 1,\
 	"body_size" = BODY_SIZE_NORMAL,\
 	"custom_species" = null,\
@@ -145,6 +153,9 @@
 	"vagina_uses_skincolor" = TRUE,\
 	"breasts_uses_skintones" = TRUE,\
 	"breasts_uses_skincolor" = TRUE,\
+	"butt_size" = 1,\
+	"butt_uses_skintones" = TRUE,\
+	"butt_uses_skincolor" = TRUE,\
 )
 
 #define AROUSAL_CANT 0

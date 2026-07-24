@@ -20,9 +20,9 @@
 	color_src = USE_MATRIXED_COLORS
 	dimension_x = 64
 	center = TRUE
-	relevent_layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER, UNDER_UNIFORM_LAYER, ABOVE_BODY_FRONT_HEAD_LAYER)
 	organ_type = /obj/item/organ/taur_body/horselike // horselike by default, dont forget to override if you make another bodytype
 	flags_for_organ = SPRITE_ACCESSORY_HIDE_SHOES
+	use_custom_mod_icon = TRUE
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/taur_mode = NONE
 	taur_mode = BODYSHAPE_TAUR_GENERIC /// So that every taur would crop clothes
@@ -34,7 +34,7 @@
 	/// The offset we get from laying down. Negative values move us down
 	var/laydown_offset = 0
 
-/datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target)
+/datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target, datum/bodypart_overlay/mutant/bodypart_overlay)
 	var/obj/item/organ/taur_body/taur_body = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
 	if (taur_body?.hide_self)
 		return TRUE

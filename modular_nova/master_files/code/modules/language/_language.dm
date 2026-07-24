@@ -22,6 +22,9 @@
 	secret = TRUE
 
 /datum/language/monkey
+	secret = FALSE
+	
+/datum/language/wormspeak
 	secret = TRUE
 
 /datum/language/mushroom

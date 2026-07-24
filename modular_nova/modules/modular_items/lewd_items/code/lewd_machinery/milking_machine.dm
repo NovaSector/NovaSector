@@ -300,17 +300,17 @@
 	return FALSE
 
 // Attack handler for various item
-/obj/structure/chair/milking_machine/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(!istype(attacking_item, /obj/item/reagent_containers) || (attacking_item.item_flags & ABSTRACT) || !attacking_item.is_open_container())
+/obj/structure/chair/milking_machine/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/reagent_containers) || (tool.item_flags & ABSTRACT) || !tool.is_open_container())
 		return ..()
 
-	var/obj/item/reagent_containers/used_container = attacking_item
+	var/obj/item/reagent_containers/used_container = tool
 	if(!user.transferItemToLoc(used_container, src))
-		return FALSE
+		return ITEM_INTERACT_BLOCKING
 
 	replace_beaker(user, used_container)
 	SStgui.update_uis(src)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 // Beaker change handler
 /obj/structure/chair/milking_machine/proc/replace_beaker(mob/living/user, obj/item/reagent_containers/new_beaker)

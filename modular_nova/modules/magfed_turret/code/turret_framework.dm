@@ -96,17 +96,6 @@
 		APPLY_FACTION_AND_ALLIES_FROM(turret, user)
 
 /obj/item/storage/toolbox/emergency/turret/mag_fed/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(!is_type_in_list(tool, list(/obj/item/wrench, /obj/item/screwdriver, /obj/item/multitool, /obj/item/toy/crayon/spraycan)))
-		return ITEM_INTERACT_BLOCKING
-	if(!tool.toolspeed)
-		return ITEM_INTERACT_BLOCKING
-
-	return NONE
-
-/obj/item/storage/toolbox/emergency/turret/mag_fed/item_interaction(mob/living/user, obj/item/tool, list/modifiers) // This was changed but not updated???? I guess no one uses the tarkon ones gawd DAHM
-	if(istype(tool, /obj/item/toy/crayon/spraycan))
-		return attackby(tool, user) //This is entirely just so people can use the gagsification for the toy turret.
-
 	if(setting_change && tool.tool_behaviour == TOOL_SCREWDRIVER)
 		if(!tool.use_tool(src, user, 2 SECONDS, volume = 20))
 			return ITEM_INTERACT_BLOCKING
@@ -816,36 +805,38 @@
 
 ////// Operation Handling //////
 
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers) // This hasn't been changed upstream yet.
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/item_interaction(mob/living/user, obj/item/tool, list/modifiers) // This hasn't been changed upstream yet.
 	var/obj/item/storage/toolbox/emergency/turret/mag_fed/auto_loader = mag_box?.resolve()
 	if(isnull(auto_loader))
 		mag_box = null
-	if(attacking_item.type in auto_loader.atom_storage.can_hold)
+	if(tool.type in auto_loader.atom_storage.can_hold)
 		balloon_alert(user, "attempting to load...")
 		if(!do_after(user, 1 SECONDS, src))
 			balloon_alert(user, "failed to load!")
-		insert_mag(attacking_item, user)
-		return
+		insert_mag(tool, user)
+		return ITEM_INTERACT_SUCCESS
 
-	if(istype(attacking_item, /obj/item/card/id))
+	if(istype(tool, /obj/item/card/id))
 		if(!in_faction(user))
 			balloon_alert(user, "access denied!")
-			return
+			return ITEM_INTERACT_BLOCKING
 
 	if(in_faction(user))
-		if(istype(attacking_item, /obj/item/target_designator))
-			var/obj/item/target_designator/controller = attacking_item
+		if(istype(tool, /obj/item/target_designator))
+			var/obj/item/target_designator/controller = tool
 			if(length(controller.linked_turrets) >= controller.turret_limit)
 				balloon_alert(user, "turret limit reached!")
-				return
+				return ITEM_INTERACT_BLOCKING
 			if(linkage) //should help both preventing dual-controlling AND double-linking causing odd issues with ally system
 				balloon_alert(user, "turret already linked!")
-				return
+				return ITEM_INTERACT_BLOCKING
 			linkage = WEAKREF(controller)
 			controller.linked_turrets += src
 			RegisterSignal(controller, COMSIG_QDELETING, PROC_REF(on_qdeleted), TRUE) //True otherwise it causes a runtime for overwriting parent qdeling. Dont know where to go elsewise.
 			balloon_alert(user, "turret linked!")
-			return
+			return ITEM_INTERACT_SUCCESS
+
+	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/wrench_act(mob/living/user, obj/item/attacking_item)
 	if(atom_integrity == max_integrity)

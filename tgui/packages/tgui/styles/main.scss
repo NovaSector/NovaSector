@@ -52,6 +52,7 @@
 @include meta.load-css('./interfaces/CivCargoHoldTerminal.scss');
 @include meta.load-css('./interfaces/EventLogger.scss');
 // NOVA EDIT ADDITION START
+@include meta.load-css('./interfaces/JobsAltTitles.scss');
 @include meta.load-css('./interfaces/ClockworkResearch.scss');
 @include meta.load-css('./interfaces/ClockworkSlab.scss');
 @include meta.load-css('./interfaces/LimbsPage.scss');

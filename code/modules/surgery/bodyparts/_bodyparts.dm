@@ -1467,7 +1467,7 @@
 			accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[digi_modifier][body_zone][gender_modifier]", -BODYPARTS_LAYER)
 			accessory_overlay.alpha = markings_alpha
 			if(marking[2])
-				emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
+				emissive = emissive_appearance(accessory_overlay.icon, accessory_overlay.icon_state, offset_spokesman, offset_spokesman = offset_spokesman, layer = accessory_overlay.layer)
 			if(override_color)
 				accessory_overlay.color = override_color
 			else
@@ -1489,7 +1489,7 @@
 				accessory_overlay = mutable_appearance(body_marking.icon, "[body_marking.icon_state]_[render_limb_string]", -aux_layer)
 				accessory_overlay.alpha = markings_alpha
 				if (marking[2])
-					emissive = emissive_appearance_copy(accessory_overlay, offset_spokesman)
+					emissive = emissive_appearance(accessory_overlay.icon, accessory_overlay.icon_state, offset_spokesman = offset_spokesman, layer = accessory_overlay.layer)
 				if(override_color)
 					accessory_overlay.color = override_color
 				else
@@ -1554,21 +1554,24 @@
  * If you pass a typepath, the proc will avoid creating duplicates.
  * * update: Whether to call update procs after adding the overlay.
  * Set this to FALSE if you are adding multiple overlays at once.
+ *
+ * Returns the overlay that was added, or null if it was not added.
  */
 /obj/item/bodypart/proc/add_bodypart_overlay(datum/bodypart_overlay/overlay, update = TRUE)
 	if(ispath(overlay, /datum/bodypart_overlay))
 		if(locate(overlay) in bodypart_overlays)
-			return
+			return null
 		overlay = new overlay()
 
 	LAZYADD(bodypart_overlays, overlay)
 	overlay.added_to_limb(src)
 	if(!update)
-		return
+		return overlay
 	if(isnull(owner))
 		update_icon_dropped()
 	else if(!(owner.living_flags & STOP_OVERLAY_UPDATE_BODY_PARTS))
 		owner.update_body_parts()
+	return overlay
 
 /**
  * Removes a bodypart overlay from the limb
