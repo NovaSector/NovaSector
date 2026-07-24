@@ -1,0 +1,5 @@
+author: "Paxilmaniac, sergeirocks100"
+delete-after: True
+changes:
+  - rscadd: "There is now an emergency ration single pack for sale at cargo."
+  - rscadd: "Two new sides have been added to the pool of sides for the emergency ration; a pumpkin toaster pastry, and some eggplant jerky."
