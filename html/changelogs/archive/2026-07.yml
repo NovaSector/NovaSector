@@ -867,6 +867,8 @@
   Happyowl93:
   - bugfix: you should be able to hit cave spawners with melee items again
   - bugfix: you can place lattices over ice again.
+  JerryWester:
+  - rscadd: Added new surgical operation for implanting an RSD phylactery
   Kashargul:
   - bugfix: tgui UI testing with more than one test file
   Melbert:
@@ -875,6 +877,10 @@
   PapaMichael:
   - bugfix: It no longer looks like you have accessories attached after you've removed
       them.
+  Paxilmaniac, sergeirocks100:
+  - rscadd: There is now an emergency ration single pack for sale at cargo.
+  - rscadd: Two new sides have been added to the pool of sides for the emergency ration;
+      a pumpkin toaster pastry, and some eggplant jerky.
   SmArtKar:
   - bugfix: Fixed meteor changelings being killed by defense sats
   - bugfix: Fixed negative moles left by gas scrubbers
