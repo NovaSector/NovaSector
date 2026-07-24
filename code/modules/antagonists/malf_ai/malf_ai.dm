@@ -21,9 +21,13 @@
 	///malf on_gain sound effect. Set here so Infected AI can override
 	var/malf_sound = 'sound/music/antag/malf.ogg'
 
-/datum/antagonist/malf_ai/New(give_objectives = TRUE)
+// NOVA EDIT CHANGE BEGIN - Antags are objectiveless by default, so an unpassed arg has to defer to the subtype's own default - ORIGINAL: /datum/antagonist/malf_ai/New(give_objectives = TRUE)
+/datum/antagonist/malf_ai/New(give_objectives)
 	. = ..()
+	if(isnull(give_objectives)) // Nothing was passed, so keep whatever this subtype declares.
+		return
 	src.give_objectives = give_objectives
+// NOVA EDIT CHANGE END
 
 /datum/antagonist/malf_ai/on_gain()
 	if(owner.current && !isAI(owner.current))
@@ -238,7 +242,7 @@
 	///The player, to who is this AI slaved
 	var/datum/mind/boss
 
-/datum/antagonist/malf_ai/infected/New(give_objectives = TRUE, datum/mind/new_boss)
+/datum/antagonist/malf_ai/infected/New(give_objectives, datum/mind/new_boss) // NOVA EDIT CHANGE - see parent - ORIGINAL: /datum/antagonist/malf_ai/infected/New(give_objectives = TRUE, datum/mind/new_boss)
 	. = ..()
 	if(new_boss)
 		boss = new_boss
