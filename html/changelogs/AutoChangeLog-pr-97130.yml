@@ -1,0 +1,4 @@
+author: "Melbert"
+delete-after: True
+changes:
+  - rscdel: "Newscasters no longer have tiny 2x2 pixel animation upon receiving a muted alert"
