@@ -13,9 +13,6 @@
 	var/list/overlay_indexes_to_color
 	/// Whether or not this overlay can be affected by MODsuit-related procs.
 	var/modsuit_affected = FALSE
-	/// Additional information we might want to add to the cache_key, stored into a list.
-	/// Should only ever contain strings.
-	var/list/cache_key_extra_information
 	/// A simple cache of what the last icon_states built were.
 	/// It's really only there to help with debugging what's happening.
 	var/list/last_built_icon_states
@@ -58,8 +55,10 @@
 	. = list()
 	. += "[get_base_icon_state()]"
 	. += "[get_feature_key_for_overlay()]"
-	if(LAZYLEN(cache_key_extra_information))
-		. += cache_key_extra_information // We can do it like this because it's meant to be a list of strings anyway. BYOND list operations actually being useful for once.
+
+	// MOD overlays on mutant parts
+	if(modsuit_affected && sprite_datum?.mod_overlay_active(limb?.owner))
+		. += "MOD_[sprite_datum.get_hardlight_theme_key(limb?.owner)]"
 
 	if(islist(draw_color))
 		for(var/sub_color in draw_color)
@@ -110,14 +109,14 @@
 	var/index = 1
 
 	var/mob/living/carbon/human/owner = limb?.owner
-	var/mutable_appearance/mod_overlay
-	var/icon/custom_mod_icon = sprite_datum.get_custom_mod_icon(owner)
 
 	last_built_icon_states = list()
-	LAZYCLEARLIST(cache_key_extra_information)
 
-	if(custom_mod_icon)
-		mod_overlay = get_singular_image(layer_index = layer_index, layer_real = layer_real, owner = owner, icon_override = custom_mod_icon, limb = limb)
+	var/mutable_appearance/mod_overlay
+	if(sprite_datum.mod_overlay_active(owner))
+		mod_overlay = mutable_appearance(layer = layer_real)
+		if(sprite_datum.center)
+			center_image(mod_overlay, sprite_datum.special_x_dimension ? sprite_datum.get_special_x_dimension(owner) : sprite_datum.dimension_x, sprite_datum.dimension_y)
 
 	switch(sprite_datum.color_src)
 		if(USE_MATRIXED_COLORS)
@@ -130,7 +129,9 @@
 				index++
 
 				if(mod_overlay)
-					mod_overlay.add_overlay(sprite_datum.get_custom_mod_icon(owner, color_layer_image))
+					var/icon/mod_icon = sprite_datum.get_custom_mod_icon(owner, color_layer_image)
+					if(mod_icon)
+						mod_overlay.add_overlay(mutable_appearance(mod_icon))
 
 		else
 			var/mutable_appearance/image_to_return = get_singular_image(build_icon_state_nova(gender, layer_index), layer_index, layer_real, owner, limb = limb)
@@ -138,7 +139,9 @@
 			overlay_indexes_to_color += index
 
 			if(mod_overlay)
-				mod_overlay.add_overlay(sprite_datum.get_custom_mod_icon(owner, image_to_return))
+				var/icon/mod_icon = sprite_datum.get_custom_mod_icon(owner, image_to_return)
+				if(mod_icon)
+					mod_overlay.add_overlay(mutable_appearance(mod_icon))
 
 	if(sprite_datum.has_inner)
 		returned_images += get_singular_image(build_icon_state_nova(gender, layer_index, feature_key_suffix = "inner"), layer_index, layer_real, owner, limb = limb)
@@ -146,7 +149,6 @@
 	// Gets the icon_state of a single or matrix colored accessory and overlays it with a texture
 	if(mod_overlay)
 		returned_images += mod_overlay
-		LAZYADD(cache_key_extra_information, "MOD")
 
 	return returned_images
 
@@ -257,35 +259,22 @@
  * there's going to be issues with how the emissives are generated, so it won't
  * add them if the limb is missing, somehow.
  */
-/datum/bodypart_overlay/mutant/proc/add_emissives(list/image/overlays, obj/item/bodypart/limb)
+/datum/bodypart_overlay/mutant/proc/add_emissives(list/mutable_appearance/overlays, obj/item/bodypart/limb)
 	if(!limb || !length(emissive_eligibility_by_color_index))
 		return overlays
 
-	var/list/image/emissives
+	var/list/mutable_appearance/emissives
 	var/max = min(MAX_MATRIXED_COLORS, length(overlays)) // only care about the first 3 indexes
 	for(var/index = 1 to max)
 		if(emissive_eligibility_by_color_index[index])
-			LAZYADD(emissives, emissive_appearance_copy(overlays[index], limb))
+			var/mutable_appearance/overlay = overlays[index]
+			var/mutable_appearance/new_emissive = emissive_appearance(overlay.icon, overlay.icon_state, offset_spokesman = limb, layer = overlay.layer)
+			// emissive_appearance() builds a fresh appearance from scratch, so it doesn't inherit the pixel_w/pixel_z offset center_image() applies to wide sprites (taur, wings, etc.) - without
+			new_emissive.pixel_w = overlay.pixel_w
+			new_emissive.pixel_z = overlay.pixel_z
+			LAZYADD(emissives, new_emissive)
 
 	return emissives ? (overlays + emissives) : overlays
-
-/**
- * Helper to set the MOD-related info on the overlay, useful for MODsuit overlays.
- *
- * Arguments:
- * * status - boolean of whether or not this overlay should currently be under the
- * effect of MODsuit overlays.
- */
-/datum/bodypart_overlay/mutant/proc/set_modsuit_status(status)
-	if(!modsuit_affected)
-		return
-
-	// Honestly refactor this later if it's not actually useful for anything else ever (which is likely going to be the case).
-	if(status)
-		LAZYADD(cache_key_extra_information, "MOD")
-		return
-
-	LAZYREMOVE(cache_key_extra_information, "MOD")
 
 
 #undef MAX_MATRIXED_COLORS

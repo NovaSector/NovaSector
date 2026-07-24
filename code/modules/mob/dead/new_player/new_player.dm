@@ -143,9 +143,11 @@
 			return "[jobtitle] requires you to have flavour text for your character."
 		if(JOB_UNAVAILABLE_AUGMENT)
 			return "[jobtitle] is restricted due to your selected body augments."
-		if(JOB_UNAVAILABLE_PLAYTIME_BAN)
-			return "You need more playtime before you can play [jobtitle]."
-		// NOVA EDIT ADDITION END
+		if(JOB_UNAVAILABLE_MEDREC)
+			return "[jobtitle] requires you to have medical records text for your character."
+		if(JOB_UNAVAILABLE_SECREC)
+			return "[jobtitle] requires you to have security records text for your character."
+		//NOVA EDIT END
 		if(JOB_UNAVAILABLE_ANTAG_INCOMPAT)
 			return "[jobtitle] is not compatible with some antagonist role assigned to you."
 		if(JOB_UNAVAILABLE_AGE)
@@ -223,7 +225,7 @@
 	var/atom/destination = mind.assigned_role.get_latejoin_spawn_point()
 	if(!destination)
 		CRASH("Failed to find a latejoin spawn point.")
-	var/mob/living/character = create_character(destination)
+	var/mob/living/character = create_character(destination, forced_slot = client.prefs.default_slot)
 	if(!character)
 		CRASH("Failed to create a character for latejoin.")
 	transfer_character()
@@ -308,11 +310,20 @@
 		if(!employmentCabinet.virgin)
 			employmentCabinet.addFile(employee)
 
-/// Creates, assigns and returns the new_character to spawn as. Assumes a valid mind.assigned_role exists.
-/mob/dead/new_player/proc/create_character(atom/destination)
+/**
+ * Creates, assigns and returns the new_character to spawn as.
+ * Assumes a valid mind.assigned_role exists.
+ *
+ * * destination - where to spawn the character
+ * * forced_slot - if provided, will load whatever character is in that slot instead of their active slot
+ */
+/mob/dead/new_player/proc/create_character(atom/destination, forced_slot)
 	spawning = TRUE
-
 	hide_title_screen() // NOVA EDIT ADDITION - titlescreen
+
+	var/spawned_slot = isnum(forced_slot) ? forced_slot : LAZYACCESS(client.prefs.job_assigned_profiles, mind.assigned_role.title)
+	if(isnum(spawned_slot) && client.prefs.default_slot != spawned_slot)
+		client.prefs.load_character(spawned_slot) // if this fails, we will simply load their current slot anyways
 
 	mind.active = FALSE //we wish to transfer the key manually
 	var/mob/living/spawning_mob = mind.assigned_role.get_spawn_mob(client, destination)

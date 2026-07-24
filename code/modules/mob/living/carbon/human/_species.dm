@@ -291,35 +291,25 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		var/obj/item/organ/new_organ = get_mutant_organ_type_for_slot(slot)
 		var/old_organ_type = old_species?.get_mutant_organ_type_for_slot(slot)
 
-		// if we have an extra organ that before changing that the species didnt have, remove it
-		if(!new_organ)
-			/* // NOVA EDIT REMOVAL START = Original
-			if(existing_organ && (old_organ_type == existing_organ.type || replace_current))
-				existing_organ.Remove(organ_holder)
-				qdel(existing_organ)
+		/* // NOVA EDIT REMOVAL START
+		if(existing_organ && !existing_organ.get_replaceability(new_organ, old_organ_type, old_species, replace_current)) // NOVA EDIT REMOVAL
 			continue
-			*/ // NOVA EDIT REMOVAL END
-			// NOVA EDIT ADDITION START
+		// if we have an extra organ that before changing that the species didnt have, remove it
+		else if(!new_organ)
+		*/ // NOVA EDIT REMOVAL END
+		// NOVA EDIT ADDITION START
+		if(!new_organ)
 			if(existing_organ)
 				var/existing_organ_feature_key = existing_organ.bodypart_overlay?.feature_key
-				var/keep_in_mutant_bodyparts = existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key]
 				if(old_organ_type == existing_organ.type || replace_current || existing_organ_feature_key)
-					if(keep_in_mutant_bodyparts)
-						existing_organ.Remove(organ_holder, special = TRUE, movement_flags = KEEP_IN_MUTANT_BODYPARTS)
-					else
-						existing_organ.Remove(organ_holder, special = TRUE)
+					var/keep_in_mutant_bodyparts = existing_organ_feature_key && organ_holder.dna.mutant_bodyparts[existing_organ_feature_key]
+					existing_organ.Remove(organ_holder, special = TRUE, movement_flags = keep_in_mutant_bodyparts ? KEEP_IN_MUTANT_BODYPARTS : NONE)
 					qdel(existing_organ)
 			continue
-			// NOVA EDIT ADDITION END
 
-		if(existing_organ && allow_customizable_dna_features) // NOVA EDIT CHANGE - Though sometimes we might want to do that. - ORIGINAL: if(existing_organ)
-			// we dont want to remove organs that were not from the old species (such as from freak surgery or prosthetics)
-			if(existing_organ.type != old_organ_type && !replace_current)
-				continue
-
-			// we don't want to remove organs that are the same as the new one
-			if(existing_organ.type == new_organ)
-				continue
+		if(existing_organ && allow_customizable_dna_features && !existing_organ.get_replaceability(new_organ, old_organ_type, old_species, replace_current))
+			continue
+		// NOVA EDIT ADDITION END
 
 		if(visual_only && (!initial(new_organ.bodypart_overlay) && !initial(new_organ.visual)))
 			continue
@@ -1371,12 +1361,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if((suit_flags & STOPSPRESSUREDAMAGE) && (head_flags & STOPSPRESSUREDAMAGE))
 		return
 
-	for(var/gas_id in environment.gases)
-		var/gas_amount = environment.gases[gas_id][MOLES]
-		switch(gas_id)
-			if(/datum/gas/antinoblium) // Antinoblium - irradiates the target.
-				if(gas_amount >= MOLES_GAS_VISIBLE && SPT_PROB(1, gas_amount * seconds_per_tick))
-					SSradiation.irradiate(human)
+	var/antinoblium_moles = environment.moles[/datum/gas/antinoblium]
+	if (antinoblium_moles >= MOLES_GAS_VISIBLE && SPT_PROB(1, antinoblium_moles * seconds_per_tick))
+		SSradiation.irradiate(human)
 
 ////////////
 //  Stun  //

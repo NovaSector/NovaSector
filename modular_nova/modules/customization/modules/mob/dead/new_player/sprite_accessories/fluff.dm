@@ -15,7 +15,7 @@
 	factual = FALSE
 	natural_spawn = FALSE
 
-/datum/sprite_accessory/fluff/moth/is_hidden(mob/living/carbon/human/human)
+/datum/sprite_accessory/fluff/moth/is_hidden(mob/living/carbon/human/human, datum/bodypart_overlay/mutant/bodypart_overlay)
 	if((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR))
 		return TRUE
 

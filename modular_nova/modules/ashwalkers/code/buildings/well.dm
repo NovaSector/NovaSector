@@ -14,7 +14,7 @@
 	reagents.expose(user, TOUCH, 20) //Covers target in 20u of fuel.
 	to_chat(user, span_warning("You touch the pool of fuel, only to get fuel all over yourself! It would be wise to wash this off with water."))
 
-/obj/structure/water_source/fuel_well/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/structure/water_source/fuel_well/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	flick("puddle-oil-splash", src)
 	return ..()
 
@@ -90,28 +90,28 @@
 	tool.play_tool_sound(src)
 	deconstruct()
 
-//I don't enjoy the fact it is an attackby, but the parent obj uses this proc, so I'm putting the cover check here as well
-/obj/structure/water_source/brick_well/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/stack/sheet/mineral/wood))
+//I don't enjoy the fact it is an item_interaction, but the parent obj uses this proc, so I'm putting the cover check here as well
+/obj/structure/water_source/brick_well/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stack/sheet/mineral/wood))
 		if(well_covered)
 			to_chat(user, span_notice("[src] is already covered..."))
-			return
+			return ITEM_INTERACT_BLOCKING
 
-		if(!attacking_item.use(3))
+		if(!tool.use(3))
 			to_chat(user, span_warning("[src] requires three pieces of wood to construct a cover!"))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		to_chat(user, span_notice("You begin to build a cover."))
 		if(!do_after(user, 5 SECONDS, target = src))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		to_chat(user, span_notice("You built a cover."))
 		well_covered = TRUE
 		add_overlay("well_cover")
-		return
+		return ITEM_INTERACT_SUCCESS
 
 	if(!cover_work())
 		to_chat(user, span_warning("[src] needs to have [get_turf(src)] dug out to work!"))
-		return
+		return ITEM_INTERACT_BLOCKING
 
 	return ..()
