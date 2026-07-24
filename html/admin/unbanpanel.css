@@ -1,61 +1,62 @@
-body {
-  margin: 0;
+.middle {
+  width: 80px;
 }
 
-.searchbar {
-  overflow: hidden;
-  background-color: #272727;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  font-weight: bold;
-  text-align: center;
-  line-height: 30px;
-  z-index: 1;
+.playtimesource {
+  width: 190px;
 }
 
-.main {
-  padding: 16px;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.banbox {
-  position: relative;
-  width: 90%;
-  display: table;
-  flex-direction: column;
-  border: 1px solid #161616;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 10px;
-  border-radius: 3px;
-}
-
-.header {
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-.container {
-  display: table;
-  width: 100%;
+.right {
+  width: 150px;
 }
 
 .reason {
-  display: table-cell;
-  width: 90%;
+  resize: none;
+  min-height: 40px;
+  width: 340px;
 }
 
-.edit {
-  display: table-cell;
-  width: 10%;
+.rolegroup {
+  padding: 3px;
+  width: 430px;
+  border: none;
+  text-align: center;
+  outline: none;
+  display: inline-block;
 }
 
-.banned {
-  background-color: #ff5555;
+.playtimeroles {
+  min-width: 900px;
 }
 
-.unbanned {
-  background-color: #00b75c;
+.playtimeroles .column {
+  width: 430px;
+}
+
+.long {
+  width: 860px;
+}
+
+.content {
+  text-align: center;
+}
+
+.abstract {
+  background-color: #708090;
+}
+
+.ghostandotherroles {
+  background-color: #5c00e6;
+}
+
+.antagonistpositions {
+  background-color: #6d3f40;
+}
+
+.playtimebanoptions {
+  background-color: #445a67;
+}
+
+.no_department {
+  background-color: #111cf7;
 }
