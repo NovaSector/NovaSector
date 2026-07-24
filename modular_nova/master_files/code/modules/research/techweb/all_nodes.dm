@@ -379,3 +379,79 @@
 	)
 	return ..()
 
+/////// Roundstart Techweb/////////
+
+/datum/techweb_node
+	/// Whether this node starts unlocked if the enable_nova_techweb_starting_nodes config is ENABLED
+	var/nova_starting_node = TRUE
+
+/datum/techweb_node/New()
+	if(nova_starting_node && CONFIG_GET(flag/enable_nova_techweb_starting_nodes))
+		starting_node = TRUE
+	return ..()
+
+// Linter stuff
+/datum/techweb_node/error_node
+	nova_starting_node = FALSE
+
+// Nova stuff
+/datum/techweb_node/adv_vision
+	nova_starting_node = FALSE
+
+/datum/techweb_node/borg_shapeshifter
+	nova_starting_node = FALSE
+
+// bepis stuff
+/datum/techweb_node/light_apps
+	nova_starting_node = FALSE
+
+/datum/techweb_node/extreme_office
+	nova_starting_node = FALSE
+
+/datum/techweb_node/spec_eng
+	nova_starting_node = FALSE
+
+/datum/techweb_node/aus_security
+	nova_starting_node = FALSE
+
+/datum/techweb_node/interrogation
+	nova_starting_node = FALSE
+
+/datum/techweb_node/sticky_advanced
+	nova_starting_node = FALSE
+
+/datum/techweb_node/tackle_advanced
+	nova_starting_node = FALSE
+
+/datum/techweb_node/mod_experimental
+	nova_starting_node = FALSE
+
+/datum/techweb_node/posisphere
+	nova_starting_node = FALSE
+
+/datum/techweb_node/donk_shell
+	nova_starting_node = FALSE
+
+// Alien Stuff
+/datum/techweb_node/alientech
+	nova_starting_node = FALSE
+
+/datum/techweb_node/alien_surgery
+	nova_starting_node = FALSE
+
+/datum/techweb_node/alien_engi
+	nova_starting_node = FALSE
+
+// Ilegal tech
+/datum/techweb_node/syndicate_basic
+	nova_starting_node = FALSE
+
+/datum/techweb_node/unregulated_bluespace
+	nova_starting_node = FALSE
+
+// Tarkon
+/datum/techweb_node/tarkon
+	nova_starting_node = FALSE
+
+/datum/techweb_node/tarkonturret
+	nova_starting_node = FALSE

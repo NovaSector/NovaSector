@@ -70,12 +70,12 @@
 	icon = 'modular_nova/master_files/icons/turf/floors/floor.dmi'
 	icon_state = "vinefloor"
 
-/turf/open/floor/plating/kudzu/attackby(obj/item/attacking_item, mob/user, list/modifiers)
-	if(istype(attacking_item, /obj/item/scythe) || istype(attacking_item, /obj/item/wirecutters))
+/turf/open/floor/plating/kudzu/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/scythe) || istype(tool, /obj/item/wirecutters))
 		to_chat(user, span_notice("You cull [src]."))
 		playsound(src, 'sound/items/weapons/bladeslice.ogg', 75, TRUE)
 		ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 	return ..()
 
 // Turns CO2 into oxygen
