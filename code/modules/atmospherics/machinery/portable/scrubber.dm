@@ -66,24 +66,27 @@
 
 	var/turf/epicentre = get_turf(src)
 	if(isopenturf(epicentre))
-		scrub(epicentre.return_air())
-	for(var/turf/open/openturf as anything in epicentre.get_atmos_adjacent_turfs(alldir = TRUE))
-		scrub(openturf.return_air())
-	//NOVA EDIT ADDITION
-	for(var/turf/open/open_turf in view(3, src))
-		if(open_turf.pollution)
-			open_turf.pollution.scrub_amount(POLLUTION_HEIGHT_DIVISOR)
-	//NOVA EDIT END
+		if(scrub(epicentre.return_air()))
+			epicentre.air_update_turf(FALSE, FALSE)
+	var/list/turfs_to_scrub = epicentre.get_atmos_adjacent_turfs(alldir = TRUE) // NOVA EDIT ADDITION
+	for(var/turf/open/openturf as anything in turfs_to_scrub) // NOVA EDIT CHANGE - ORIGINAL: for(var/turf/open/openturf as anything in epicentre.get_atmos_adjacent_turfs(alldir = TRUE))
+		if(scrub(openturf.return_air()))
+			openturf.air_update_turf(FALSE, FALSE)
+		//NOVA EDIT ADDITION START
+		if(openturf.pollution)
+			openturf.pollution.scrub_amount(POLLUTION_HEIGHT_DIVISOR)
+		//NOVA EDIT ADDITION END
 	return ..()
 
 /**
  * Called in process_atmos(), handles the scrubbing of the given gas_mixture
  * Arguments:
  * * mixture: the gas mixture to be scrubbed
+ * Returns: TRUE if anything was scrubbed, FALSE otherwise
  */
 /obj/machinery/portable_atmospherics/scrubber/proc/scrub(datum/gas_mixture/environment)
 	if(air_contents.return_pressure() >= overpressure_m * ONE_ATMOSPHERE)
-		return
+		return FALSE
 
 	var/list/cached_moles = environment.moles
 
@@ -111,6 +114,7 @@
 	environment.garbage_collect()
 	//Remix the resulting gases
 	air_contents.merge(filtered_out)
+	return TRUE
 
 /obj/machinery/portable_atmospherics/scrubber/emp_act(severity)
 	. = ..()
@@ -235,7 +239,8 @@
 	if(!holding)
 		var/turf/T = get_turf(src)
 		for(var/turf/AT in T.get_atmos_adjacent_turfs(alldir = TRUE))
-			scrub(AT.return_air())
+			if(scrub(AT.return_air()))
+				AT.air_update_turf(FALSE, FALSE)
 
 	return ..()
 
