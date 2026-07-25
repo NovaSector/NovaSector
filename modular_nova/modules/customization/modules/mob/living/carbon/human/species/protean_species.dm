@@ -165,7 +165,7 @@
 	if(gainer)
 		UnregisterSignal(gainer, list(COMSIG_CARBON_GAIN_ORGAN, COMSIG_ATTEMPT_CARBON_ATTACH_LIMB))
 		// Clean up traits that may be active if protean is transformed or in critical state
-		REMOVE_TRAIT(gainer, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
+		gainer.set_stat(STABLE)
 		gainer.remove_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown)
 	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(gainer)
 	if(suit?.stored_modsuit)

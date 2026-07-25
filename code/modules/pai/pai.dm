@@ -173,7 +173,7 @@
 
 /mob/living/silicon/pai/get_status_tab_items()
 	. = ..()
-	if(!stat)
+	if(!IS_UNCONSCIOUS_OR_CRIT(src))
 		. += "Emitter Integrity: [holochassis_health * (100 / HOLOCHASSIS_MAX_HEALTH)]."
 	else
 		. += "Systems nonfunctional."
@@ -275,15 +275,6 @@
 	icon_state = resting ? "[chassis]_rest" : "[chassis]"
 	held_state = "[chassis]"
 	return ..()
-
-/mob/living/silicon/pai/set_stat(new_stat)
-	. = ..()
-	update_stat()
-
-/mob/living/silicon/pai/on_knockedout_trait_loss(datum/source)
-	. = ..()
-	set_stat(CONSCIOUS)
-	update_stat()
 
 /**
  * Resolves the weakref of the pai's master.

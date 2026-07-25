@@ -5,7 +5,7 @@
  */
 /client/verb/drop_item()
 	set hidden = TRUE
-	if(!iscyborg(mob) && mob.stat == CONSCIOUS)
+	if(!iscyborg(mob) && !IS_UNCONSCIOUS_OR_CRIT(mob))
 		mob.dropItemToGround(mob.get_active_held_item())
 	return
 /**
@@ -161,7 +161,7 @@
 		COOLDOWN_START(src, move_delay, 1 SECONDS)
 		to_chat(src, span_warning("You're restrained! You can't move!"))
 		return TRUE
-	return mob.resist_grab(TRUE)
+	return !mob.resist_grab(TRUE)
 
 
 /**

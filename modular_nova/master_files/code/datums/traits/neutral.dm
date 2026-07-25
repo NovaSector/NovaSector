@@ -93,7 +93,7 @@
 	pcooldown = world.time + pcooldown_time
 	var/mob/living/carbon/human/user = quirk_holder
 	if(user && istype(user))
-		if(user.stat == CONSCIOUS)
+		if(!IS_UNCONSCIOUS_OR_CRIT(user))
 			if(prob(20))
 				user.emote("laugh")
 				addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, emote), "laugh"), 5 SECONDS)

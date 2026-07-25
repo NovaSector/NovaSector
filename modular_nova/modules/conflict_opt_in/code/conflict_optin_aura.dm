@@ -27,7 +27,7 @@
 		return FALSE
 	if(!client)
 		return FALSE
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		balloon_alert(src, "can't show statuses")
 		return FALSE
 	if(!COOLDOWN_FINISHED(src, conflict_opt_in_aura_cooldown))

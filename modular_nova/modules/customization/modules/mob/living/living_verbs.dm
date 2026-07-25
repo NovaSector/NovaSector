@@ -9,7 +9,7 @@ GLOBAL_DATUM_INIT(temporary_flavor_text_vis, /obj/effect/overlay/indicator/tempo
 	set name = "Set Temporary Flavor Text"
 	set desc = "Allows you to set a temporary flavor text."
 
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(usr, span_warning("You can't set your temporary flavor text now..."))
 		return
 

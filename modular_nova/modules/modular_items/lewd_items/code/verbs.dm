@@ -4,7 +4,7 @@
 
 	if(!has_status_effect(/datum/status_effect/climax_cooldown))
 		if(tgui_alert(usr, "Are you sure you want to cum?", "Climax", list("Yes", "No")) == "Yes")
-			if(stat != CONSCIOUS)
+			if(IS_UNCONSCIOUS_OR_CRIT(src))
 				to_chat(usr, span_warning("You can't climax right now..."))
 				return
 			else

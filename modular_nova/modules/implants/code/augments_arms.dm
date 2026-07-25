@@ -282,7 +282,7 @@
 
 	var/mob/user = usr
 
-	if(user.stat || !in_range(user, src))
+	if(IS_UNCONSCIOUS_OR_CRIT(user) || !in_range(user, src))
 		return
 
 	if (recent_spin > world.time)

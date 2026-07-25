@@ -10,7 +10,7 @@
 		return AI_BEHAVIOR_INSTANT | AI_BEHAVIOR_FAILED
 
 	var/mob/living/basic/slime/slime_pawn = controller.pawn
-	if(!istype(slime_pawn) || slime_pawn.stat)
+	if(!istype(slime_pawn) || IS_UNCONSCIOUS_OR_CRIT(slime_pawn))
 		return AI_BEHAVIOR_INSTANT | AI_BEHAVIOR_FAILED
 
 	var/current_mood = slime_pawn.current_mood

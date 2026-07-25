@@ -257,7 +257,7 @@
 
 /mob/living/silicon/ai/get_status_tab_items()
 	. = ..()
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		. += "Systems nonfunctional"
 		return
 	. += "System integrity: [(health + 100) * 0.5]%"
@@ -269,7 +269,7 @@
 		var/robot_status = "Nominal"
 		if(connected_robot.shell)
 			robot_status = "AI SHELL"
-		else if(connected_robot.stat != CONSCIOUS || !connected_robot.client)
+		else if(IS_UNCONSCIOUS_OR_CRIT(connected_robot) || !connected_robot.client)
 			robot_status = "OFFLINE"
 		else if(!connected_robot.cell || connected_robot.cell.charge <= 0)
 			robot_status = "DEPOWERED"
@@ -416,7 +416,7 @@
 	copied_mmi.brain?.suicided = suicided // we can't guarantee that the MMI has a brain... sigh
 
 	if(copied_mmi.brainmob.stat == DEAD && !suicided)
-		copied_mmi.brainmob.set_stat(CONSCIOUS)
+		copied_mmi.brainmob.set_stat(STABLE)
 
 	copied_mmi.update_appearance()
 	return copied_mmi
@@ -1131,6 +1131,22 @@
 	if(ai_voicechanger?.changing_voice)
 		return ai_voicechanger.say_name
 	return ..()
+
+/mob/living/silicon/ai/init_unconscious_appearance()
+	var/image/static_overlay = image('icons/effects/effects.dmi', null, "static_base")
+	static_overlay.blend_mode = BLEND_INSET_OVERLAY
+
+	var/image/static_image = image('icons/mob/silicon/ai.dmi', src, "ai-empty")
+	static_image.appearance_flags |= KEEP_TOGETHER
+	static_image.overlays += static_overlay
+	static_image.override = TRUE
+	static_image.name = "unknown AI"
+	add_alt_appearance(
+		/datum/atom_hud/alternate_appearance/basic/unconscious_obscurity,
+		"[REF(src)]_unconscious",
+		static_image,
+		NONE,
+	)
 
 /mob/living/silicon/ai/proc/set_control_disabled(control_disabled)
 	SEND_SIGNAL(src, COMSIG_SILICON_AI_SET_CONTROL_DISABLED, control_disabled)

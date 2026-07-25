@@ -35,7 +35,7 @@
 			if(arousal_flavor_text)
 				. += arousal_flavor_text
 
-	if(stat >= DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH) || src == user || !has_status_effect(/datum/status_effect/spanked) || !is_bottomless())
+	if(IS_DEAD_OR_FAKING(src) || IS_UNCONSCIOUS(src) || src == user || !has_status_effect(/datum/status_effect/spanked) || !is_bottomless())
 		return
 
 	. += span_purple("[user.p_Their()] butt has a red tint to it.") + "\n"

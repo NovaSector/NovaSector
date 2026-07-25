@@ -405,7 +405,7 @@
 /obj/structure/windoor_assembly/verb/flip()
 	set name = "Flip Windoor Assembly"
 	set src in oview(1)
-	if(usr.stat != CONSCIOUS || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED))
+	if(IS_UNCONSCIOUS_OR_CRIT(usr) || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED))
 		return
 
 	if(isliving(usr))

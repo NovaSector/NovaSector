@@ -337,7 +337,7 @@ GLOBAL_LIST_INIT(genital_arousal_options, list(
 
 /datum/genital_layering_panel/ui_status(mob/user, datum/ui_state/state)
 	// Self-service only, conscious only, and close if every genital vanished.
-	if(QDELETED(owner) || user != owner || user.stat != CONSCIOUS || !length(eligible_genitals()))
+	if(QDELETED(owner) || user != owner || IS_UNCONSCIOUS_OR_CRIT(user) || !length(eligible_genitals()))
 		return UI_CLOSE
 	return UI_INTERACTIVE
 
@@ -401,7 +401,7 @@ GLOBAL_LIST_INIT(genital_arousal_options, list(
 	set name = "Expose/Hide genitals"
 	set desc = "Change which genitals show through clothes and how they layer."
 
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(usr, span_warning("You can't toggle genitals visibility right now..."))
 		return
 
@@ -419,7 +419,7 @@ GLOBAL_LIST_INIT(genital_arousal_options, list(
 	set name = "Toggle Arousal"
 	set desc = "Allows you to toggle how aroused your private parts are."
 
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(usr, span_warning("You can't toggle arousal right now..."))
 		return
 
