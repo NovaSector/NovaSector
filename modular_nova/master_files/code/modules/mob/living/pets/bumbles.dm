@@ -125,6 +125,7 @@
 
 /// Bumbles rests or sits up. Chance to trigger is gated by a random_chance decorator in the tree.
 /datum/bt_node/ai_behavior/bumbles_rest
+	time_between_perform = 200 SECONDS
 
 /datum/bt_node/ai_behavior/bumbles_rest/setup(datum/ai_controller/controller)
 	. = ..()
@@ -135,10 +136,10 @@
 /datum/bt_node/ai_behavior/bumbles_rest/perform(seconds_per_tick, datum/ai_controller/controller)
 	var/mob/living/living_pawn = controller.pawn
 	if(!istype(living_pawn))
-		return AI_BEHAVIOR_INSTANT | AI_BEHAVIOR_FAILED
+		return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
 
 	living_pawn.set_resting(!living_pawn.resting)
-	return AI_BEHAVIOR_INSTANT | AI_BEHAVIOR_SUCCEEDED
+	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED
 
 /// Buzz
 /datum/bt_node/ai_behavior/random_speech/bumbles

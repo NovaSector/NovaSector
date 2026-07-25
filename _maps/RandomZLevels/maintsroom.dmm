@@ -897,7 +897,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/maintsroom)
 "dd" = (
-/mob/living/basic/evilborgs/evilborg/peace{
+/mob/living/basic/evilborgs/evilborg/bigguy{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/red/off,
@@ -9452,7 +9452,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "FT" = (
-/mob/living/basic/evilborgs/evilborg/protect{
+/mob/living/basic/evilborgs/evilborg/dogstrong{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/green,
