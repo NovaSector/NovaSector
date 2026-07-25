@@ -338,8 +338,9 @@
 *	EMPATH BONUS
 */
 
-/mob/living/carbon/human/examine(mob/user)
-	. = ..()
+/// Examine lines letting empaths read how aroused we are. Called by /mob/living/carbon/human/examine().
+/mob/living/carbon/human/proc/get_empath_examine(mob/user)
+	. = list()
 	var/mob/living/examiner = user
 	if(stat >= DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH) || src == examiner || !HAS_TRAIT(examiner, TRAIT_SEE_MASK_WHISPER)) // See mask whisper is for the empath quirk. This is more performant than GetComponent()...
 		return

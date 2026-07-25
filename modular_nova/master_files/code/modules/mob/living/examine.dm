@@ -1,6 +1,10 @@
+// The single override of this proc for humans - add new examine lines here rather than overriding it again.
 /mob/living/carbon/human/examine(mob/user)
 	. = ..()
+	. += get_dnr_examine(user)
 	insert_examine_headshot(., user)
+	. += get_empath_examine(user)
+	. += get_arousal_examine(user)
 
 // Hooked per subtype rather than on /mob/living/silicon: AIs and cyborgs append their parent's lines at the
 // end of their own, so hooking the parent would bury the headshot in the middle of the examine.
@@ -31,10 +35,9 @@
 		return
 
 	// The link is validated when it's set, but make sure nothing can break out of the src attribute anyway.
-	var/static/list/forbidden_characters = list("'", "\"", "<", ">", " ")
-	for(var/character in forbidden_characters)
-		if(findtext(headshot_url, character))
-			return
+	var/static/regex/forbidden_characters = regex(@{"['"<> ]"})
+	if(forbidden_characters.Find(headshot_url))
+		return
 
 	examine_list.Insert(1, "<span class='examine_headshot'><img src='[headshot_url]'></span>")
 

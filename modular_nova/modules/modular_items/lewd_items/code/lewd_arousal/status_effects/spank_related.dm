@@ -26,8 +26,9 @@
 	duration = 300 SECONDS
 	alert_type = null
 
-/mob/living/carbon/human/examine(mob/user)
-	. = ..()
+/// Examine lines for our arousal flavor text and a freshly spanked rear. Called by /mob/living/carbon/human/examine().
+/mob/living/carbon/human/proc/get_arousal_examine(mob/user)
+	. = list()
 	if(arousal && ishuman(user))
 		var/mob/living/carbon/human/examiner = user
 		if(examiner.can_see_erp_flavor(src))

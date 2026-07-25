@@ -1093,13 +1093,6 @@ h2.alert {
   flex-grow: 1;
 }
 
-// NOVA EDIT ADDITION BEGIN - Headshots are photos, not sprites, so undo the pixelated `img` rule above
-.examine_headshot img {
-  image-rendering: auto;
-  border-color: hsla(220, 40%, 25%, 0.35);
-}
-// NOVA EDIT ADDITION END
-
 // NOVA EDIT CHANGE BEGIN - Remove neon colors, replaced with less saturated
 /*
 $alert-stripe-colors: (
@@ -1441,5 +1434,11 @@ $border-width-px: $border-width * 1px;
   100% {
     color: #9b6000;
   }
+}
+
+// Headshots are photos, not sprites, so undo the pixelated `img` rule from earlier in this file
+.examine_headshot img {
+  image-rendering: auto;
+  border-color: hsla(220, 40%, 25%, 0.35);
 }
 // NOVA EDIT ADDITION END
