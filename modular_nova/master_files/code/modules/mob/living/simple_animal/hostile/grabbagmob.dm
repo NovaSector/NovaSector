@@ -91,7 +91,7 @@
 	ai_movement = /datum/ai_movement/basic_avoidance
 
 /datum/bt_node/ai_behavior/random_speech/bigcrab
-	speech_chance = 30
+	speech_chance = 3
 	emote_see = list("snaps")
 
 /mob/living/basic/trog
@@ -138,7 +138,7 @@
 	ai_movement = /datum/ai_movement/basic_avoidance
 
 /datum/bt_node/ai_behavior/random_speech/trog
-	speech_chance = 30
+	speech_chance = 3
 	emote_see = list("screeches")
 
 /mob/living/basic/plantmutant
@@ -185,7 +185,7 @@
 	ai_movement = /datum/ai_movement/basic_avoidance
 
 /datum/bt_node/ai_behavior/random_speech/plantmutant
-	speech_chance = 30
+	speech_chance = 3
 	emote_see = list("gnashes")
 
 /mob/living/basic/cazador
@@ -236,7 +236,7 @@
 	ai_movement = /datum/ai_movement/basic_avoidance
 
 /datum/bt_node/ai_behavior/random_speech/cazador
-	speech_chance = 30
+	speech_chance = 3
 	emote_see = list("buzzes")
 
 /mob/living/basic/mutantliz
@@ -279,7 +279,7 @@
 	ai_movement = /datum/ai_movement/basic_avoidance
 
 /datum/bt_node/ai_behavior/random_speech/mutantliz
-	speech_chance = 30
+	speech_chance = 3
 	emote_see = list("roars")
 
 /mob/living/basic/scorpion
@@ -363,6 +363,6 @@
 	ai_movement = /datum/ai_movement/basic_avoidance
 
 /datum/bt_node/ai_behavior/random_speech/syndimouse
-	speech_chance = 30
+	speech_chance = 3
 	emote_hear = list("aggressively squeaks")
 	emote_see = list("squeaks.", "practices CQC.", "cocks the bolt of a tiny CR20.", "plots to steal DAT DISK!", "fiddles with a tiny radio.")
