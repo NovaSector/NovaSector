@@ -919,3 +919,12 @@
       until you change species or switch characters
   - bugfix: fixes taur blood overlays being offset incorrectly
   - bugfix: fixes taur getting blood shoe overlays
+2026-07-25:
+  Balls2zawall:
+  - balance: Due to the loss of a DeForest brand chemical production facility in a
+      chain reaction chemical detonation, Heavy-Duty Technician kits are no longer
+      being shipped with included hyposprays.
+  vinylspiders:
+  - bugfix: bumbles the bee has been taken to the doctor and it turns out that they're
+      actually fine, they were just loudly flopping around for the attention
+  - bugfix: fixes spiders not laying webs
