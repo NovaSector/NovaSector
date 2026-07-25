@@ -31,10 +31,9 @@
 		return
 
 	// The link is validated when it's set, but make sure nothing can break out of the src attribute anyway.
-	var/static/list/forbidden_characters = list("'", "\"", "<", ">", " ")
-	for(var/character in forbidden_characters)
-		if(findtext(headshot_url, character))
-			return
+	var/static/regex/forbidden_characters = regex("['\"<> ]")
+	if(forbidden_characters.Find(headshot_url))
+		return
 
 	examine_list.Insert(1, "<span class='examine_headshot'><img src='[headshot_url]'></span>")
 
