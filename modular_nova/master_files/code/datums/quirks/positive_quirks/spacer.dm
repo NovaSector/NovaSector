@@ -14,19 +14,23 @@ GLOBAL_LIST_INIT(spacer_height_choices, list(
 	"Tallest" = HUMAN_HEIGHT_TALLEST,
 ))
 
+/datum/quirk/spacer_born/add(client/client_source)
+	modded_height = GLOB.spacer_height_choices[client_source?.prefs?.read_preference(/datum/preference/choiced/spacer_height)]
+	return ..()
+
 /datum/preference/choiced/spacer_height
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "spacer_height"
 	savefile_identifier = PREFERENCE_CHARACTER
 
 /datum/preference/choiced/spacer_height/init_possible_values()
-	return list("Random") + assoc_to_keys(GLOB.spacer_height_choices)
+	return assoc_to_keys(GLOB.spacer_height_choices)
 
 /datum/preference/choiced/spacer_height/is_accessible(datum/preferences/preferences)
 	return ..() && (/datum/quirk/spacer_born::name in preferences.all_quirks)
 
 /datum/preference/choiced/spacer_height/create_default_value()
-	return init_possible_values()[1]
+	return /datum/quirk/spacer_born::modded_height
 
 /datum/quirk_constant_data/spacer_height
 	associated_typepath = /datum/quirk/spacer_born
