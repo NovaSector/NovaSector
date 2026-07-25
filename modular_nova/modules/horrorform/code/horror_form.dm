@@ -48,7 +48,7 @@
 				C.broken = TRUE
 				C.open()
 
-	var/mob/living/simple_animal/hostile/true_changeling/new_mob = new(get_turf(user))
+	var/mob/living/basic/true_changeling/new_mob = new(get_turf(user))
 
 	//Currently this is a thing as changeling ID's are not longer a thing
 	//Feel free to re-add them whomever wants to -Azarak

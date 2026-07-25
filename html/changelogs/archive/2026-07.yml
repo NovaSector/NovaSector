@@ -863,3 +863,68 @@
       or invisible if they met certain criteria
   - admin: select equipment now just shows one direction of previews, greatly reducing
       lag
+2026-07-24:
+  CabinetOnFire:
+  - bugfix: Repairbots fix windows and other things reliably again
+  - rscadd: Monkeys now know how to yakety sax and how to shove people into walls
+  - bugfix: Monkeys no longer trip on monkeys.
+  - bugfix: Fixes cats getting permanent zoomies after being chased away by a superior
+      male
+  CabinetOnFire, Iamgoofball, SmartKar, Ben10omintrix:
+  - refactor: Replaces our AI system with behavior trees, porting all datum/ai to
+      it
+  Happyowl93:
+  - bugfix: you should be able to hit cave spawners with melee items again
+  - bugfix: you can place lattices over ice again.
+  ItzLollipop:
+  - bugfix: Fixed right dir for **m_butt_pair_5_s_ADJ_primary**.
+  - image: Modified **m_butt_pair_8_s_ADJ_primary** to closer resemble the shape of
+      **m_butt_pair_8_ADJ_primary** for left and right dir.
+  JerryWester:
+  - rscadd: Added new surgical operation for implanting an RSD phylactery
+  Kashargul:
+  - bugfix: tgui UI testing with more than one test file
+  - bugfix: biome install being skipped after a dependency update
+  Melbert:
+  - code_imp: Roughly doubled the performance speed of the crafting UI, report anything
+      broken with it
+  PapaMichael:
+  - bugfix: It no longer looks like you have accessories attached after you've removed
+      them.
+  Paxilmaniac, sergeirocks100:
+  - rscadd: There is now an emergency ration single pack for sale at cargo.
+  - rscadd: Two new sides have been added to the pool of sides for the emergency ration;
+      a pumpkin toaster pastry, and some eggplant jerky.
+  SmArtKar:
+  - bugfix: Fixed meteor changelings being killed by defense sats
+  - bugfix: Fixed negative moles left by gas scrubbers
+  - qol: Watcher gaze visuals no longer flicker if you turn around after the ability
+      has already been activated and is finishing the animation
+  - bugfix: Fixed watcher gaze runtimes
+  SyncIt21:
+  - bugfix: monkey powder reaction gives multiple monkeys
+  YesterdaysPromise:
+  - bugfix: Plastitanium wall fillings now fill up the walls correctly at rate of
+      1 per wall, and correctly make survival pod walls.
+  lelandkemble:
+  - bugfix: medbots can no longer be thrown, all bots no longer have AA
+  nPocToDark:
+  - qol: Raptor eggs now floor placeable (even in lava). It's now easier to immerse
+      them in lava to accelerate their growth.
+  - rscadd: Rabbits, stoats, MOTHROACHES, sheeps, foxes, lizards and penguins now
+      available to growing in cytology growing vats.
+  vinylspiders:
+  - rscdel: eighties floor is updated to its tg version
+  - bugfix: fixed tails and ears not updating on your dummy when changing the pref
+      until you change species or switch characters
+  - bugfix: fixes taur blood overlays being offset incorrectly
+  - bugfix: fixes taur getting blood shoe overlays
+2026-07-25:
+  Balls2zawall:
+  - balance: Due to the loss of a DeForest brand chemical production facility in a
+      chain reaction chemical detonation, Heavy-Duty Technician kits are no longer
+      being shipped with included hyposprays.
+  vinylspiders:
+  - bugfix: bumbles the bee has been taken to the doctor and it turns out that they're
+      actually fine, they were just loudly flopping around for the attention
+  - bugfix: fixes spiders not laying webs
