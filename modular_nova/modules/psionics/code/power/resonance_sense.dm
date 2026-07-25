@@ -141,6 +141,7 @@
 	desc = "Pulse your senses for nearby active psionic signatures."
 	button_icon_state = "psi_resonance_sense"
 	point_cost = 0
+	variant_type = /datum/psionic_rank_variant/resonance_sense
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/resonance_sense,
 		/datum/psionic_rank_variant/resonance_sense/trace,
@@ -155,7 +156,7 @@
 	if(!istype(living_owner))
 		return FALSE
 
-	var/datum/psionic_rank_variant/resonance_sense/form = get_selected_variant_as_type(/datum/psionic_rank_variant/resonance_sense)
+	var/datum/psionic_rank_variant/resonance_sense/form = get_form()
 	if(!form)
 		return FALSE
 	if(!form.traces_signature)
@@ -196,7 +197,7 @@
 	if(!istype(living_owner))
 		return FALSE
 
-	var/datum/psionic_rank_variant/resonance_sense/form = get_selected_variant_as_type(/datum/psionic_rank_variant/resonance_sense)
+	var/datum/psionic_rank_variant/resonance_sense/form = get_form()
 	if(!form)
 		return FALSE
 	if(form.traces_signature)

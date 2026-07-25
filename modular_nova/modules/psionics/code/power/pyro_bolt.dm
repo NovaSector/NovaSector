@@ -75,6 +75,7 @@
 	psionic_flags = PSIONIC_THERMAL
 	school = PSIONIC_SCHOOL_FLUX
 	needs_hands = TRUE
+	variant_type = /datum/psionic_rank_variant/pyro_bolt
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/pyro_bolt/epsilon,
 		/datum/psionic_rank_variant/pyro_bolt,
@@ -95,7 +96,7 @@
 	if(!istype(living_owner))
 		return FALSE
 
-	var/datum/psionic_rank_variant/pyro_bolt/form = get_selected_variant_as_type(/datum/psionic_rank_variant/pyro_bolt)
+	var/datum/psionic_rank_variant/pyro_bolt/form = get_form()
 	if(!form)
 		return FALSE
 
@@ -111,12 +112,12 @@
 	if(!istype(psionic_projectile))
 		return .
 
-	var/datum/psionic_rank_variant/pyro_bolt/form = get_selected_variant_as_type(/datum/psionic_rank_variant/pyro_bolt)
+	var/datum/psionic_rank_variant/pyro_bolt/form = get_form()
 	if(!form)
 		return .
 
-	psionic_projectile.psionic_charge_cost = form.get_block_charge_cost(src)
-	psionic_projectile.psionic_block_message = form.get_block_message(src)
+	psionic_projectile.psionic_charge_cost = form.block_charge_cost
+	psionic_projectile.psionic_block_message = form.block_message
 
 /obj/item/psionic_pyro_hand
 	name = "\improper psionic flame"

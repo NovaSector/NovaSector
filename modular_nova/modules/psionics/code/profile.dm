@@ -507,51 +507,6 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 	return null
 
-/datum/component/psionic_profile/proc/get_power_tier(datum/psionic_power/power, list/visited_powers)
-	var/power_tier = max(round(power.required_school_points / 2) + 1, 1)
-	if(!length(power.required_powers))
-		return power_tier
-
-	if(!visited_powers)
-		visited_powers = list()
-	visited_powers += power
-	for(var/required_power_type in power.required_powers)
-		var/datum/psionic_power/required_power = get_psionic_power_for_action(required_power_type)
-		if(!required_power || (required_power in visited_powers))
-			continue
-
-		power_tier = max(power_tier, get_power_tier(required_power, visited_powers) + 1)
-
-	return power_tier
-
-/datum/component/psionic_profile/proc/get_power_ui_data(datum/psionic_power/power)
-	var/lock_reason = get_power_lock_reason(power)
-	var/datum/action/cooldown/psionic/action_type = power.action_type
-	var/list/required_power_paths = list()
-	var/list/required_power_names = list()
-	if(length(power.required_powers))
-		for(var/required_power_type in power.required_powers)
-			required_power_paths += "[required_power_type]"
-			var/datum/psionic_power/required_power = get_psionic_power_for_action(required_power_type)
-			required_power_names += required_power ? required_power.get_name() : "[required_power_type]"
-	return list(
-		"action_type" = "[action_type]",
-		"name" = power.get_name(),
-		"desc" = power.get_desc(),
-		"cost" = power.get_cost(),
-		"required_school_points" = power.required_school_points,
-		"required_powers" = required_power_paths,
-		"required_power_names" = required_power_names,
-		"minimum_rank" = power.get_minimum_rank(),
-		"variants" = power.get_variant_data(),
-		"tier" = get_power_tier(power),
-		"learned" = (action_type in known_powers),
-		"can_buy" = isnull(lock_reason),
-		"lock_reason" = lock_reason,
-		"icon" = initial(action_type.button_icon),
-		"icon_state" = initial(action_type.button_icon_state),
-	)
-
 /datum/component/psionic_profile/ui_state(mob/user)
 	return GLOB.always_state
 
@@ -571,6 +526,70 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		ui = new(user, src, "PsionicImprinting", "Psionic Imprinting")
 		ui.open()
 
+/// Groups the catalog by school once. The catalog never changes after build, so neither does this.
+/proc/get_psionic_powers_by_school()
+	var/static/list/powers_by_school
+	if(powers_by_school)
+		return powers_by_school
+
+	powers_by_school = list()
+	for(var/datum/psionic_power/power as anything in get_psionic_power_catalog())
+		var/power_school = power.get_school_type()
+		if(!power_school)
+			continue
+		LAZYADD(powers_by_school[power_school], power)
+
+	return powers_by_school
+
+/datum/component/psionic_profile/ui_static_data(mob/user)
+	var/list/data = list()
+	data["schools"] = list()
+
+	var/list/powers_by_school = get_psionic_powers_by_school()
+	for(var/school_type in get_psionic_school_catalog())
+		var/list/school_powers = powers_by_school[school_type]
+		if(!length(school_powers))
+			continue
+
+		var/datum/psionic_school/school = get_psionic_school(school_type)
+		var/list/power_data = list()
+		for(var/datum/psionic_power/power as anything in school_powers)
+			var/datum/action/cooldown/psionic/action_type = power.action_type
+			var/list/required_power_paths = list()
+			var/list/required_power_names = list()
+			for(var/required_power_type in power.required_powers)
+				required_power_paths += "[required_power_type]"
+				var/datum/psionic_power/required_power = get_psionic_power_for_action(required_power_type)
+				required_power_names += required_power ? required_power.get_name() : "[required_power_type]"
+
+			power_data += list(list(
+				"action_type" = "[action_type]",
+				"name" = power.get_name(),
+				"desc" = power.get_desc(),
+				"cost" = power.get_cost(),
+				"required_school_points" = power.required_school_points,
+				"required_powers" = required_power_paths,
+				"required_power_names" = required_power_names,
+				"minimum_rank" = power.get_minimum_rank(),
+				"variants" = power.get_variant_data(),
+				"tier" = power.get_tier(),
+				"icon" = initial(action_type.button_icon),
+				"icon_state" = initial(action_type.button_icon_state),
+			))
+
+		data["schools"] += list(list(
+			"id" = "[school_type]",
+			"key" = school.ui_key,
+			"name" = school.name,
+			"desc" = school.desc,
+			"icon" = school.ui_icon,
+			"icon_state" = school.ui_icon_state,
+			"color" = school.ui_color,
+			"powers" = power_data,
+		))
+
+	return data
+
 /datum/component/psionic_profile/ui_data(mob/user)
 	decay_strain()
 	var/list/data = list()
@@ -582,38 +601,27 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	data["spent_points"] = spent_points
 	data["strain"] = round(strain)
 	data["max_strain"] = max_strain
-	data["schools"] = list()
+	data["school_state"] = list()
+	data["power_state"] = list()
 
-	var/list/powers_by_school = list()
-	for(var/datum/psionic_power/power as anything in get_psionic_power_catalog())
-		var/power_school = power.get_school_type()
-		if(!power_school)
-			continue
-		LAZYADD(powers_by_school[power_school], power)
-
+	var/list/powers_by_school = get_psionic_powers_by_school()
 	for(var/school_type in get_psionic_school_catalog())
 		var/list/school_powers = powers_by_school[school_type]
 		if(!length(school_powers))
 			continue
 
-		var/datum/psionic_school/school = get_psionic_school(school_type)
-		var/list/power_data = list()
-		for(var/datum/psionic_power/power as anything in school_powers)
-			power_data += list(get_power_ui_data(power))
-
-		data["schools"] += list(list(
-			"id" = "[school_type]",
-			"key" = school.ui_key,
-			"name" = school.name,
-			"desc" = school.desc,
+		data["school_state"]["[school_type]"] = list(
 			"spent_points" = get_spent_school_points(school_type),
 			"attuned" = is_school_attuned(school_type),
 			"strain_discount" = get_school_strain_discount(school_type),
-			"icon" = school.ui_icon,
-			"icon_state" = school.ui_icon_state,
-			"color" = school.ui_color,
-			"powers" = power_data,
-		))
+		)
+		for(var/datum/psionic_power/power as anything in school_powers)
+			var/lock_reason = get_power_lock_reason(power)
+			data["power_state"]["[power.action_type]"] = list(
+				"learned" = (power.action_type in known_powers),
+				"can_buy" = isnull(lock_reason),
+				"lock_reason" = lock_reason,
+			)
 
 	return data
 

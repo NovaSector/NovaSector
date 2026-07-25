@@ -26,6 +26,7 @@
 	school = PSIONIC_SCHOOL_FLUX
 	needs_hands = TRUE
 	requires_concentration = TRUE
+	variant_type = /datum/psionic_rank_variant/lightning_spear
 	rank_variant_types = list(/datum/psionic_rank_variant/lightning_spear)
 	projectile_type = /obj/projectile/psionic/lightning_spear
 	projectile_sound = 'sound/effects/magic/lightningshock.ogg'
@@ -45,7 +46,7 @@
 
 /datum/action/cooldown/psionic/pointed/projectile/lightning_spear/psionic_activate(atom/target)
 	var/mob/living/living_owner = owner
-	var/datum/psionic_rank_variant/lightning_spear/form = get_selected_variant_as_type(/datum/psionic_rank_variant/lightning_spear)
+	var/datum/psionic_rank_variant/lightning_spear/form = get_form()
 	if(!istype(living_owner) || !form)
 		return FALSE
 	is_charging = TRUE
@@ -118,12 +119,12 @@
 	if(!istype(lightning_spear))
 		return .
 
-	var/datum/psionic_rank_variant/lightning_spear/form = get_selected_variant_as_type(/datum/psionic_rank_variant/lightning_spear)
+	var/datum/psionic_rank_variant/lightning_spear/form = get_form()
 	if(!form)
 		return .
 
-	lightning_spear.psionic_charge_cost = form.get_block_charge_cost(src)
-	lightning_spear.psionic_block_message = form.get_block_message(src)
+	lightning_spear.psionic_charge_cost = form.block_charge_cost
+	lightning_spear.psionic_block_message = form.block_message
 	lightning_spear.shock_damage = form.shock_damage
 	lightning_spear.light_color = get_manifestation_color()
 

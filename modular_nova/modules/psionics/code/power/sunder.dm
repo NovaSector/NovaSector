@@ -30,6 +30,7 @@
 	deactive_msg = "You let the rupture pattern fade."
 	no_living_target_alert = "no living psion!"
 	dead_target_alert = "mind silent!"
+	variant_type = /datum/psionic_rank_variant/sunder
 	rank_variant_types = list(/datum/psionic_rank_variant/sunder)
 
 
@@ -40,7 +41,7 @@
 
 	var/mob/living/living_owner = owner
 	var/mob/living/living_target = target
-	var/datum/psionic_rank_variant/sunder/form = get_selected_variant_as_type(/datum/psionic_rank_variant/sunder)
+	var/datum/psionic_rank_variant/sunder/form = get_form()
 	return can_sunder_target(living_owner, living_target, form, TRUE)
 
 /datum/action/cooldown/psionic/pointed/living_target/sunder/proc/can_sunder_target(mob/living/living_owner, mob/living/living_target, datum/psionic_rank_variant/sunder/form, feedback = FALSE)
@@ -66,7 +67,7 @@
 
 	var/turf/source_turf = get_turf(living_owner)
 	var/turf/target_turf = get_turf(living_target)
-	if(!source_turf || !target_turf || source_turf.z != target_turf.z || get_dist(source_turf, target_turf) > form.get_cast_range(src))
+	if(!source_turf || !target_turf || source_turf.z != target_turf.z || get_dist(source_turf, target_turf) > form.get_value(src, "cast_range"))
 		if(feedback)
 			living_owner.balloon_alert(living_owner, "too far away!")
 		return FALSE
@@ -76,7 +77,7 @@
 /datum/action/cooldown/psionic/pointed/living_target/sunder/psionic_activate(atom/target)
 	var/mob/living/living_owner = owner
 	var/mob/living/living_target = target
-	var/datum/psionic_rank_variant/sunder/form = get_selected_variant_as_type(/datum/psionic_rank_variant/sunder)
+	var/datum/psionic_rank_variant/sunder/form = get_form()
 	if(!can_sunder_target(living_owner, living_target, form, TRUE))
 		return FALSE
 
@@ -86,7 +87,7 @@
 		ignored_mobs = living_target,
 	)
 	to_chat(living_target, span_userdanger("A cold pressure hooks into your psionic focus!"))
-	if(!do_after(living_owner, form.sunder_time, target = living_target, timed_action_flags = IGNORE_HELD_ITEM))
+	if(!do_after(living_owner, form.sunder_time, target = living_target, timed_action_flags = IGNORE_HELD_ITEM, interaction_key = REF(src)))
 		living_owner.balloon_alert(living_owner, "focus broken!")
 		return FALSE
 	if(!can_sunder_target(living_owner, living_target, form, TRUE))
@@ -100,7 +101,7 @@
 		ignored_mobs = living_target,
 	)
 	to_chat(living_target, span_userdanger("Your psionic focus collapses into static!"))
-	new /obj/effect/temp_visual/psionic_sunder(target_turf, get_manifestation_color())
+	new /obj/effect/temp_visual/psionic/sunder(target_turf, get_manifestation_color())
 	playsound(target_turf, 'sound/effects/magic/magic_block_mind.ogg', 70, TRUE)
 	return TRUE
 
@@ -129,22 +130,18 @@
 /datum/status_effect/psionic_sundered/get_examine_text()
 	return span_warning("[owner.p_Their()] psionic focus looks frayed.")
 
-/obj/effect/temp_visual/psionic_sunder
+/obj/effect/temp_visual/psionic/sunder
 	name = "psionic rupture"
 	icon_state = "purplecrack"
 	duration = 1.5 SECONDS
 	alpha = 210
 	randomdir = TRUE
+	psionic_light_range = 1.5
+	psionic_light_power = 0.8
 
-/obj/effect/temp_visual/psionic_sunder/Initialize(mapload, manifestation_color)
+/obj/effect/temp_visual/psionic/sunder/Initialize(mapload, manifestation_color)
 	. = ..()
-	if(!manifestation_color)
-		manifestation_color = PSIONIC_DEFAULT_COLOR
-	add_atom_colour(color_transition_filter(manifestation_color, SATURATION_OVERRIDE), FIXED_COLOUR_PRIORITY)
-	set_light(1.5, 0.8, manifestation_color)
 	add_filter("psionic_sunder_static", 1, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
-	var/filter = get_filter("psionic_sunder_static")
-	animate(filter, radius = 18, size = 0.5, time = duration)
-	animate(src, alpha = 0, time = duration, easing = EASE_OUT)
+	animate(get_filter("psionic_sunder_static"), radius = 18, size = 0.5, time = duration)
 
 #undef PSIONIC_SUNDER_DURATION

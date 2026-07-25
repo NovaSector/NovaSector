@@ -29,18 +29,9 @@
 	/// Visual alpha used while this barrier form is maintained.
 	var/barrier_alpha = 115
 
-/datum/psionic_rank_variant/psionic_barrier/proc/get_block_strain_gain()
-	return block_strain_gain
-
-/datum/psionic_rank_variant/psionic_barrier/proc/get_block_strain_multiplier()
-	return block_strain_multiplier
-
-/datum/psionic_rank_variant/psionic_barrier/proc/get_barrier_alpha()
-	return barrier_alpha
-
 /datum/psionic_rank_variant/psionic_barrier/get_description(datum/action/cooldown/psionic/action)
 	var/form_description = description || get_name(action)
-	return "[form_description] ([get_block_strain_gain()] minimum strain, [round(get_block_strain_multiplier() * 100)]% impact strain per block)"
+	return "[form_description] ([block_strain_gain] minimum strain, [round(block_strain_multiplier * 100)]% impact strain per block)"
 
 /datum/psionic_rank_variant/psionic_barrier/beta
 	rank = PSIONIC_RANK_BETA
@@ -59,6 +50,7 @@
 	school = PSIONIC_SCHOOL_FLUX
 	maintain_end_message = "The psionic barrier dissolves."
 	maintain_end_sound = 'sound/vehicles/mecha/mech_shield_drop.ogg'
+	variant_type = /datum/psionic_rank_variant/psionic_barrier
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/psionic_barrier,
 		/datum/psionic_rank_variant/psionic_barrier/beta,
@@ -77,7 +69,7 @@
 	if(!can_maintain(living_owner, profile))
 		return FALSE
 
-	var/datum/psionic_rank_variant/psionic_barrier/form = get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier)
+	var/datum/psionic_rank_variant/psionic_barrier/form = get_form()
 	if(!form)
 		return FALSE
 
@@ -105,7 +97,7 @@
 	return isturf(living_owner.loc)
 
 /datum/action/cooldown/psionic/psionic_barrier/maintain_tick(mob/living/living_owner, datum/component/psionic_profile/profile, seconds_per_tick)
-	if(!get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier))
+	if(!get_form())
 		return FALSE
 
 	return ..()
@@ -124,7 +116,7 @@
 	if(!form || !barrier_visual || QDELETED(barrier_visual))
 		return
 
-	barrier_visual.set_barrier_alpha(form.get_barrier_alpha())
+	barrier_visual.set_barrier_alpha(form.barrier_alpha)
 
 /datum/action/cooldown/psionic/psionic_barrier/on_rank_variant_selected(mob/living/living_owner, datum/psionic_rank_variant/variant)
 	. = ..()
@@ -139,74 +131,68 @@
 /datum/action/cooldown/psionic/psionic_barrier/proc/on_pre_bullet(mob/living/source, obj/projectile/hitting_projectile, def_zone, piercing_hit)
 	SIGNAL_HANDLER
 
-	var/mob/living/living_owner = owner
-	if(!istype(living_owner) || source != living_owner)
-		return NONE
-
-	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	if(!can_maintain(living_owner, profile))
-		stop_maintaining(living_owner, silent = TRUE)
-		return NONE
-	var/datum/psionic_rank_variant/psionic_barrier/form = get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier)
+	var/datum/psionic_rank_variant/psionic_barrier/form = get_ready_barrier_form(source)
 	if(!form)
-		stop_maintaining(living_owner, silent = TRUE)
-		return NONE
-	if(!barrier_covers_projectile(living_owner, hitting_projectile))
-		return NONE
-	if(!profile.try_gain_strain(get_projectile_strain(hitting_projectile, form), src))
-		stop_maintaining(living_owner, silent = TRUE)
 		return NONE
 
-	if(barrier_visual && !QDELETED(barrier_visual))
-		barrier_visual.sync_to_owner(living_owner)
-		barrier_visual.show_impact()
-	living_owner.visible_message(
-		span_warning("[living_owner]'s psionic barrier scatters [hitting_projectile]."),
-		span_notice("Your psionic barrier catches [hitting_projectile]."),
-	)
-	playsound(living_owner, 'sound/vehicles/mecha/mech_shield_deflect.ogg', 50, TRUE)
+	var/projectile_pressure = max(hitting_projectile.damage, 0) + max(hitting_projectile.stamina, 0)
+	if(istype(hitting_projectile, /obj/projectile/bullet/pulse))
+		var/obj/projectile/bullet/pulse/pulse_projectile = hitting_projectile
+		projectile_pressure += max(pulse_projectile.secondary_damage, 0)
+
+	if(!try_barrier_block(form, get_projectile_source_angle(source, hitting_projectile), projectile_pressure, hitting_projectile))
+		return NONE
+
 	return COMPONENT_BULLET_BLOCKED
 
 /datum/action/cooldown/psionic/psionic_barrier/proc/on_check_block(mob/living/source, atom/hit_by, damage, attack_text, attack_type, armour_penetration, damage_type)
 	SIGNAL_HANDLER
 
-	var/mob/living/living_owner = owner
-	if(!istype(living_owner) || source != living_owner)
-		return FAILED_BLOCK
 	if(attack_type == PROJECTILE_ATTACK || damage <= 0)
 		return FAILED_BLOCK
 
-	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	if(!can_maintain(living_owner, profile))
-		stop_maintaining(living_owner, silent = TRUE)
-		return FAILED_BLOCK
-	var/datum/psionic_rank_variant/psionic_barrier/form = get_selected_variant_as_type(/datum/psionic_rank_variant/psionic_barrier)
+	var/datum/psionic_rank_variant/psionic_barrier/form = get_ready_barrier_form(source)
 	if(!form)
+		return FAILED_BLOCK
+	if(!try_barrier_block(form, get_atom_source_angle(source, hit_by), max(damage, 0), attack_text))
+		return FAILED_BLOCK
+
+	return SUCCESSFUL_BLOCK
+
+/// Returns the active form if the barrier can still stand, tearing it down and returning null if not.
+/datum/action/cooldown/psionic/psionic_barrier/proc/get_ready_barrier_form(mob/living/source)
+	var/mob/living/living_owner = owner
+	if(!istype(living_owner) || source != living_owner)
+		return null
+
+	var/datum/psionic_rank_variant/psionic_barrier/form = get_form()
+	if(form && can_maintain(living_owner, living_owner.get_psionic_profile()))
+		return form
+
+	stop_maintaining(living_owner, silent = TRUE)
+	return null
+
+/// Charges strain for one deflection and plays the shared block feedback.
+/datum/action/cooldown/psionic/psionic_barrier/proc/try_barrier_block(datum/psionic_rank_variant/psionic_barrier/form, source_angle, impact_pressure, blocked_text)
+	var/mob/living/living_owner = owner
+	if(!barrier_covers_source_angle(living_owner, source_angle))
+		return FALSE
+
+	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
+	var/block_strain = max(form.block_strain_gain, round(impact_pressure * form.block_strain_multiplier))
+	if(!profile.try_gain_strain(block_strain, src))
 		stop_maintaining(living_owner, silent = TRUE)
-		return FAILED_BLOCK
-	if(!barrier_covers_atom(living_owner, hit_by))
-		return FAILED_BLOCK
-	if(!profile.try_gain_strain(get_attack_strain(damage, form), src))
-		stop_maintaining(living_owner, silent = TRUE)
-		return FAILED_BLOCK
+		return FALSE
 
 	if(barrier_visual && !QDELETED(barrier_visual))
 		barrier_visual.sync_to_owner(living_owner)
 		barrier_visual.show_impact()
 	living_owner.visible_message(
-		span_warning("[living_owner]'s psionic barrier turns aside [attack_text]."),
-		span_notice("Your psionic barrier catches [attack_text]."),
+		span_warning("[living_owner]'s psionic barrier turns aside [blocked_text]."),
+		span_notice("Your psionic barrier catches [blocked_text]."),
 	)
 	playsound(living_owner, 'sound/vehicles/mecha/mech_shield_deflect.ogg', 50, TRUE)
-	return SUCCESSFUL_BLOCK
-
-/datum/action/cooldown/psionic/psionic_barrier/proc/barrier_covers_projectile(mob/living/living_owner, obj/projectile/hitting_projectile)
-	var/source_angle = get_projectile_source_angle(living_owner, hitting_projectile)
-	return barrier_covers_source_angle(living_owner, source_angle)
-
-/datum/action/cooldown/psionic/psionic_barrier/proc/barrier_covers_atom(mob/living/living_owner, atom/hit_by)
-	var/source_angle = get_atom_source_angle(living_owner, hit_by)
-	return barrier_covers_source_angle(living_owner, source_angle)
+	return TRUE
 
 /datum/action/cooldown/psionic/psionic_barrier/proc/barrier_covers_source_angle(mob/living/living_owner, source_angle)
 	if(isnull(source_angle))
@@ -252,18 +238,6 @@
 		return get_angle(owner_turf, source_turf)
 
 	return null
-
-/datum/action/cooldown/psionic/psionic_barrier/proc/get_projectile_strain(obj/projectile/hitting_projectile, datum/psionic_rank_variant/psionic_barrier/form)
-	var/projectile_pressure = max(hitting_projectile.damage, 0) + max(hitting_projectile.stamina, 0)
-	if(istype(hitting_projectile, /obj/projectile/bullet/pulse))
-		var/obj/projectile/bullet/pulse/pulse_projectile = hitting_projectile
-		projectile_pressure += max(pulse_projectile.secondary_damage, 0)
-
-	return max(form.get_block_strain_gain(), round(projectile_pressure * form.get_block_strain_multiplier()))
-
-/datum/action/cooldown/psionic/psionic_barrier/proc/get_attack_strain(damage, datum/psionic_rank_variant/psionic_barrier/form)
-	var/attack_pressure = max(damage, 0)
-	return max(form.get_block_strain_gain(), round(attack_pressure * form.get_block_strain_multiplier()))
 
 /datum/action/cooldown/psionic/psionic_barrier/proc/on_owner_dir_change(datum/source, olddir, newdir)
 	SIGNAL_HANDLER

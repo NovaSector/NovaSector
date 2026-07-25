@@ -27,6 +27,7 @@
 	psionic_flags = PSIONIC_KINETIC
 	school = PSIONIC_SCHOOL_GRAVITY
 	maintain_end_message = "You settle back to the ground."
+	variant_type = /datum/psionic_rank_variant/levitate
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/levitate,
 		/datum/psionic_rank_variant/levitate/delta,
@@ -51,7 +52,7 @@
 	if(!istype(living_owner))
 		return FALSE
 
-	var/datum/psionic_rank_variant/levitate/form = get_selected_variant_as_type(/datum/psionic_rank_variant/levitate)
+	var/datum/psionic_rank_variant/levitate/form = get_form()
 	if(!form)
 		return FALSE
 

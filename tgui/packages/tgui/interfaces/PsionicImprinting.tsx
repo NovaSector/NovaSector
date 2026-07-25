@@ -23,7 +23,9 @@ type PsionicPowerVariant = {
   description: string;
 };
 
-type PsionicPower = {
+// The catalog half arrives through static data; only the per-power and per-school
+// state below changes as points are spent, so the two are merged client-side.
+type PsionicPowerCatalogEntry = {
   action_type: string;
   name: string;
   desc: string;
@@ -34,26 +36,36 @@ type PsionicPower = {
   minimum_rank?: string;
   variants: PsionicPowerVariant[];
   tier: number;
-  learned: BooleanLike;
-  can_buy: BooleanLike;
-  lock_reason?: string;
   icon: string;
   icon_state: string;
 };
 
-type PsionicSchool = {
+type PsionicPowerState = {
+  learned: BooleanLike;
+  can_buy: BooleanLike;
+  lock_reason?: string;
+};
+
+type PsionicSchoolCatalogEntry = {
   id: string;
   key: string;
   name: string;
   desc: string;
-  spent_points: number;
-  attuned: BooleanLike;
-  strain_discount: number;
   icon: string;
   icon_state: string;
   color: string;
-  powers: PsionicPower[];
+  powers: PsionicPowerCatalogEntry[];
 };
+
+type PsionicSchoolState = {
+  spent_points: number;
+  attuned: BooleanLike;
+  strain_discount: number;
+};
+
+type PsionicPower = PsionicPowerCatalogEntry & PsionicPowerState;
+type PsionicSchool = PsionicSchoolCatalogEntry &
+  PsionicSchoolState & { powers: PsionicPower[] };
 
 type PsionicImprintingData = {
   rank: string;
@@ -64,8 +76,32 @@ type PsionicImprintingData = {
   spent_points: number;
   strain: number;
   max_strain: number;
-  schools: PsionicSchool[];
+  schools: PsionicSchoolCatalogEntry[];
+  school_state: Record<string, PsionicSchoolState>;
+  power_state: Record<string, PsionicPowerState>;
 };
+
+const EMPTY_SCHOOL_STATE: PsionicSchoolState = {
+  spent_points: 0,
+  attuned: 0,
+  strain_discount: 0,
+};
+
+const EMPTY_POWER_STATE: PsionicPowerState = { learned: 0, can_buy: 0 };
+
+const mergeSchools = (
+  schools: PsionicSchoolCatalogEntry[],
+  schoolState: Record<string, PsionicSchoolState>,
+  powerState: Record<string, PsionicPowerState>,
+): PsionicSchool[] =>
+  schools.map((school) => ({
+    ...school,
+    ...(schoolState?.[school.id] || EMPTY_SCHOOL_STATE),
+    powers: school.powers.map((power) => ({
+      ...power,
+      ...(powerState?.[power.action_type] || EMPTY_POWER_STATE),
+    })),
+  }));
 
 const POWER_NODE_WIDTH = 420;
 const POWER_NODE_MIN_HEIGHT = 126;
@@ -175,7 +211,11 @@ const buildPowerLayout = (powers: PsionicPower[]): PowerLayout => {
 
 export const PsionicImprinting = () => {
   const { data } = useBackend<PsionicImprintingData>();
-  const { schools = [] } = data;
+  const schools = mergeSchools(
+    data.schools || [],
+    data.school_state,
+    data.power_state,
+  );
   const [selectedSchoolId, setSelectedSchoolId] = useState<string | undefined>(
     schools[0]?.id,
   );

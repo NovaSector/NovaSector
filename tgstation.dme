@@ -9498,6 +9498,7 @@
 #include "modular_nova\modules\psionics\code\admin_vv.dm"
 #include "modular_nova\modules\psionics\code\anti_psionics.dm"
 #include "modular_nova\modules\psionics\code\designs.dm"
+#include "modular_nova\modules\psionics\code\effects.dm"
 #include "modular_nova\modules\psionics\code\helpers.dm"
 #include "modular_nova\modules\psionics\code\hud.dm"
 #include "modular_nova\modules\psionics\code\items.dm"

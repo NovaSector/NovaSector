@@ -25,49 +25,21 @@
 /datum/psionic_rank_variant/proc/get_name(datum/action/cooldown/psionic/action)
 	return variant_name || rank
 
-/datum/psionic_rank_variant/proc/get_strain_gain(datum/action/cooldown/psionic/action)
-	if(!isnull(strain_gain))
-		return strain_gain
+/// Resolves [var_name] against this form, falling back to the action's own value when unset.
+/datum/psionic_rank_variant/proc/get_value(datum/action/cooldown/psionic/action, var_name)
+	var/variant_value = vars[var_name]
+	if(!isnull(variant_value))
+		return variant_value
 
-	return action.strain_gain
-
-/datum/psionic_rank_variant/proc/get_active_strain_gain_per_second(datum/action/cooldown/psionic/action)
-	if(!isnull(active_strain_gain_per_second))
-		return active_strain_gain_per_second
-
-	return action.active_strain_gain_per_second
-
-/datum/psionic_rank_variant/proc/get_cooldown_time(datum/action/cooldown/psionic/action)
-	if(!isnull(cooldown_time))
-		return cooldown_time
-
-	return action.cooldown_time
-
-/datum/psionic_rank_variant/proc/get_cast_range(datum/action/cooldown/psionic/pointed/action)
-	if(!isnull(cast_range))
-		return cast_range
-
-	return action.cast_range
-
-/datum/psionic_rank_variant/proc/get_active_msg(datum/action/cooldown/psionic/pointed/action)
-	return active_msg || action.active_msg
-
-/datum/psionic_rank_variant/proc/get_deactive_msg(datum/action/cooldown/psionic/pointed/action)
-	return deactive_msg || action.deactive_msg
-
-/datum/psionic_rank_variant/proc/get_block_charge_cost(datum/action/cooldown/psionic/action)
-	return block_charge_cost
-
-/datum/psionic_rank_variant/proc/get_block_message(datum/action/cooldown/psionic/action)
-	return block_message
+	return action.vars[var_name]
 
 /datum/psionic_rank_variant/proc/get_description(datum/action/cooldown/psionic/action)
 	var/form_description = description || get_name(action)
-	var/strain_description = "[get_strain_gain(action)] strain"
-	var/active_strain_gain = get_active_strain_gain_per_second(action)
+	var/strain_description = "[get_value(action, "strain_gain")] strain"
+	var/active_strain_gain = get_value(action, "active_strain_gain_per_second")
 	if(active_strain_gain > 0)
 		strain_description += ", [active_strain_gain] strain/s"
-	return "[form_description] ([strain_description], [get_cooldown_time(action) / 10]s cooldown)"
+	return "[form_description] ([strain_description], [get_value(action, "cooldown_time") / 10]s cooldown)"
 
 /datum/action/cooldown/psionic
 	name = "Psionic Ability"
@@ -88,6 +60,10 @@
 	var/active_strain_gain_per_second = 0
 	/// Psionic category flags used by counters.
 	var/psionic_flags = PSIONIC_INTRUSIVE
+	/// Anti-psionic charge cost to block this ability. 0 means it bypasses blocking.
+	var/block_charge_cost = 0
+	/// Balloon alert shown to the caster when this ability is blocked.
+	var/block_message = "blocked!"
 	/// Anomaly resonance school this ability belongs to.
 	var/datum/psionic_school/school
 	/// If TRUE, this action can be used during burnout.
@@ -106,16 +82,10 @@
 	var/maintain_end_message
 	/// Sound played to the psion when the maintained effect ends non-silently.
 	var/maintain_end_sound
-	/// Ordered psionic rank variant datum types this action can use.
+	/// Ordered psionic rank variant datum types this action can use, lowest rank first.
 	var/list/rank_variant_types
-	/// Cached rank variant datums.
-	var/list/rank_variants
-
-/datum/action/cooldown/psionic/Destroy()
-	for(var/datum/psionic_rank_variant/variant as anything in rank_variants)
-		qdel(variant)
-	rank_variants = null
-	return ..()
+	/// Form subtype this action's mechanics expect, resolved by get_form().
+	var/datum/psionic_rank_variant/variant_type = /datum/psionic_rank_variant
 
 /datum/action/cooldown/psionic/Remove(mob/remove_from)
 	stop_maintaining(remove_from, silent = TRUE)
@@ -163,18 +133,7 @@
 			button.desc += "<br><b>Right-click</b> to cycle unlocked forms."
 
 /datum/action/cooldown/psionic/proc/get_rank_variants()
-	if(rank_variants)
-		return rank_variants
-
-	rank_variants = list()
-	for(var/variant_type in rank_variant_types)
-		if(!ispath(variant_type, /datum/psionic_rank_variant))
-			continue
-
-		var/datum/psionic_rank_variant/variant = new variant_type
-		rank_variants += variant
-
-	return rank_variants
+	return get_psionic_rank_variants(rank_variant_types)
 
 /datum/action/cooldown/psionic/proc/get_rank_variant(variant_rank)
 	for(var/datum/psionic_rank_variant/variant as anything in get_rank_variants())
@@ -207,10 +166,8 @@
 
 	return unlocked_variants[length(unlocked_variants)]
 
-/datum/action/cooldown/psionic/proc/get_selected_variant_as_type(variant_type)
-	if(!ispath(variant_type, /datum/psionic_rank_variant))
-		return null
-
+/// Returns the selected form when it matches this action's [variant_type], else null.
+/datum/action/cooldown/psionic/proc/get_form()
 	var/mob/living/living_owner = owner
 	if(!istype(living_owner))
 		return null
@@ -251,25 +208,19 @@
 	living_owner.balloon_alert(living_owner, "[LOWER_TEXT(get_rank_variant_name(variant))] selected")
 	to_chat(living_owner, span_notice("[name] will manifest as [get_rank_variant_description(variant)]."))
 
-/datum/action/cooldown/psionic/proc/get_psionic_strain_gain(datum/component/psionic_profile/profile)
+/// Resolves [var_name] from the selected form, falling back to this action's own value.
+/datum/action/cooldown/psionic/proc/get_variant_value(datum/component/psionic_profile/profile, var_name)
 	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
 	if(variant)
-		return variant.get_strain_gain(src)
+		return variant.get_value(src, var_name)
 
-	return strain_gain
-
-/datum/action/cooldown/psionic/proc/get_psionic_active_strain_gain_per_second(datum/component/psionic_profile/profile)
-	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
-	if(variant)
-		return variant.get_active_strain_gain_per_second(src)
-
-	return active_strain_gain_per_second
+	return vars[var_name]
 
 /datum/action/cooldown/psionic/proc/try_gain_active_strain(datum/component/psionic_profile/profile, seconds_per_tick)
 	if(!profile)
 		return FALSE
 
-	var/active_strain_gain = get_psionic_active_strain_gain_per_second(profile)
+	var/active_strain_gain = get_variant_value(profile, "active_strain_gain_per_second")
 	if(active_strain_gain <= 0 || seconds_per_tick <= 0)
 		return TRUE
 
@@ -278,13 +229,6 @@
 		return TRUE
 
 	return profile.try_gain_strain(strain_to_gain, src)
-
-/datum/action/cooldown/psionic/proc/get_psionic_cooldown_time(datum/component/psionic_profile/profile)
-	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
-	if(variant)
-		return variant.get_cooldown_time(src)
-
-	return cooldown_time
 
 /// Returns the manifestation color of the owner's psionic profile, falling back to the default.
 /datum/action/cooldown/psionic/proc/get_manifestation_color()
@@ -579,14 +523,14 @@
 		return FALSE
 	if(!start_concentration(living_owner, profile, TRUE))
 		return FALSE
-	var/activation_strain_gain = get_psionic_strain_gain(profile)
+	var/activation_strain_gain = get_variant_value(profile, "strain_gain")
 	if(activation_strain_gain && !profile.try_gain_strain(activation_strain_gain, src))
 		stop_concentration(living_owner)
 		return FALSE
 	// A blocked cast was still cast: the strain sticks and the cooldown starts.
 	if(try_block_target(target, profile))
 		stop_concentration(living_owner)
-		StartCooldown(get_psionic_cooldown_time(profile))
+		StartCooldown(get_variant_value(profile, "cooldown_time"))
 		return TRUE
 	// A cast that never resolved (interrupted channel, invalid state) refunds its strain
 	// and drops the readied targeting state so the button does not stay lit.
@@ -601,36 +545,19 @@
 	// Maintained effects keep concentrating; one-shot casts release it here.
 	if(!maintaining)
 		stop_concentration(living_owner)
-	StartCooldown(get_psionic_cooldown_time(profile))
+	StartCooldown(get_variant_value(profile, "cooldown_time"))
 	return TRUE
 
-/// Returns the charge cost to block this ability, 0 if it cannot be blocked.
-/// Override in subclasses for variant-specific costs.
-/datum/action/cooldown/psionic/proc/get_block_charge_cost(datum/component/psionic_profile/profile)
-	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
-	if(variant)
-		return variant.get_block_charge_cost(src)
-
-	return 0
-
-/// Returns the caster-facing block alert for the selected form.
-/datum/action/cooldown/psionic/proc/get_block_message(datum/component/psionic_profile/profile)
-	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
-	if(variant)
-		return variant.get_block_message(src)
-
-	return "blocked!"
-
 /// Checks whether [target] blocks this ability and emits standard caster feedback if it does.
-/// Returns TRUE if blocked. Called automatically by Activate() when get_block_charge_cost() is positive.
+/// Returns TRUE if blocked. Called automatically by Activate() when the block charge cost is positive.
 /datum/action/cooldown/psionic/proc/try_block_target(atom/target, datum/component/psionic_profile/profile)
-	var/block_cost = get_block_charge_cost(profile)
+	var/block_cost = get_variant_value(profile, "block_charge_cost")
 	if(block_cost <= 0)
 		return FALSE
 	if(!isliving(target))
 		return FALSE
 	var/mob/living/living_target = target
-	return living_target.try_block_psionics(owner, psionic_flags, charge_cost = block_cost, alert = get_block_message(profile))
+	return living_target.try_block_psionics(owner, psionic_flags, charge_cost = block_cost, alert = get_variant_value(profile, "block_message"))
 
 /datum/action/cooldown/psionic/proc/is_valid_target(atom/target)
 	return TRUE
@@ -660,6 +587,21 @@
 	if(!deactive_msg)
 		deactive_msg = "You let [src] fade."
 
+/// Whether the selected form casts on the psion instead of arming a click intercept.
+/datum/action/cooldown/psionic/pointed/proc/is_self_cast_form()
+	return FALSE
+
+/datum/action/cooldown/psionic/pointed/Trigger(mob/clicker, trigger_flags, atom/target)
+	if((trigger_flags & TRIGGER_SECONDARY_ACTION) || !isnull(target) || is_maintaining() || !is_self_cast_form())
+		return ..()
+
+	var/mob/user = clicker || owner
+	var/datum/action/cooldown/already_set = user?.click_intercept
+	if(istype(already_set))
+		already_set.unset_click_ability(user, refund_cooldown = (already_set != src))
+
+	return PreActivate(user)
+
 /datum/action/cooldown/psionic/pointed/set_click_ability(mob/on_who)
 	if(!IsAvailable(feedback = TRUE))
 		return FALSE
@@ -672,7 +614,7 @@
 	var/mob/living/living_owner = on_who
 	if(istype(living_owner))
 		profile = living_owner.get_psionic_profile()
-	to_chat(on_who, span_notice("[get_psionic_active_msg(profile)] <b>Left-click a target.</b>"))
+	to_chat(on_who, span_notice("[get_variant_value(profile, "active_msg")] <b>Left-click a target.</b>"))
 	build_all_button_icons()
 
 /datum/action/cooldown/psionic/pointed/unset_click_ability(mob/on_who, refund_cooldown = TRUE)
@@ -685,22 +627,30 @@
 		var/mob/living/living_owner = on_who
 		if(istype(living_owner))
 			profile = living_owner.get_psionic_profile()
-		to_chat(on_who, span_notice("[get_psionic_deactive_msg(profile)]"))
+		to_chat(on_who, span_notice("[get_variant_value(profile, "deactive_msg")]"))
 	build_all_button_icons()
 
+/// Reimplements the parent instead of temporarily swapping unset_after_click around it:
+/// PreActivate() sleeps for channelled and prompt-driven powers, and a mutated flag must not span that.
 /datum/action/cooldown/psionic/pointed/InterceptClickOn(mob/living/clicker, params, atom/target)
-	var/was_unset_after_click = unset_after_click
-	if(unset_after_click)
-		unset_after_click = should_unset_after_psionic_click(clicker)
-	. = ..(clicker, params, target)
-	unset_after_click = was_unset_after_click
+	if(!IsAvailable(feedback = TRUE))
+		return FALSE
+	if(!target)
+		return FALSE
+	if(!PreActivate(target))
+		return FALSE
+
+	if(unset_after_click && should_unset_after_psionic_click(clicker))
+		unset_click_ability(clicker, refund_cooldown = FALSE)
+	clicker.next_click = world.time + click_cd_override
+	return TRUE
 
 /datum/action/cooldown/psionic/pointed/proc/should_unset_after_psionic_click(mob/living/clicker)
 	if(!istype(clicker))
 		return TRUE
 
 	var/datum/component/psionic_profile/profile = clicker.get_psionic_profile()
-	return !profile || get_psionic_cooldown_time(profile) > 0
+	return !profile || get_variant_value(profile, "cooldown_time") > 0
 
 /datum/action/cooldown/psionic/pointed/is_valid_target(atom/target)
 	var/mob/living/living_owner = owner
@@ -711,32 +661,11 @@
 		to_chat(living_owner, span_warning("You cannot focus [src] on yourself."))
 		return FALSE
 	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
-	if(!get_turf(target) || get_dist(get_turf(living_owner), get_turf(target)) > get_psionic_cast_range(profile))
+	if(!get_turf(target) || get_dist(get_turf(living_owner), get_turf(target)) > get_variant_value(profile, "cast_range"))
 		living_owner.balloon_alert(living_owner, "too far away!")
 		return FALSE
 
 	return TRUE
-
-/datum/action/cooldown/psionic/pointed/proc/get_psionic_cast_range(datum/component/psionic_profile/profile)
-	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
-	if(variant)
-		return variant.get_cast_range(src)
-
-	return cast_range
-
-/datum/action/cooldown/psionic/pointed/proc/get_psionic_active_msg(datum/component/psionic_profile/profile)
-	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
-	if(variant)
-		return variant.get_active_msg(src)
-
-	return active_msg
-
-/datum/action/cooldown/psionic/pointed/proc/get_psionic_deactive_msg(datum/component/psionic_profile/profile)
-	var/datum/psionic_rank_variant/variant = get_selected_rank_variant(profile)
-	if(variant)
-		return variant.get_deactive_msg(src)
-
-	return deactive_msg
 
 /datum/action/cooldown/psionic/pointed/living_target
 	/// If TRUE, dead living mobs can be targeted.
@@ -843,8 +772,7 @@
 		return FALSE
 
 	projectile_hand_visual = new_hand_visual
-	RegisterSignal(projectile_hand_visual, COMSIG_QDELETING, PROC_REF(on_projectile_hand_visual_deleted))
-	RegisterSignal(projectile_hand_visual, COMSIG_ITEM_DROPPED, PROC_REF(on_projectile_hand_visual_dropped))
+	RegisterSignals(projectile_hand_visual, list(COMSIG_QDELETING, COMSIG_ITEM_DROPPED), PROC_REF(on_projectile_hand_visual_lost))
 	return TRUE
 
 /datum/action/cooldown/psionic/pointed/projectile/proc/remove_projectile_hand_visual(mob/hand_owner)
@@ -858,16 +786,7 @@
 	QDEL_NULL(projectile_hand_visual)
 	removing_projectile_hand_visual = FALSE
 
-/datum/action/cooldown/psionic/pointed/projectile/proc/on_projectile_hand_visual_deleted(datum/source)
-	SIGNAL_HANDLER
-
-	projectile_hand_visual = null
-	if(removing_projectile_hand_visual || QDELETED(owner))
-		return
-	if(owner.click_intercept == src)
-		unset_click_ability(owner, refund_cooldown = TRUE)
-
-/datum/action/cooldown/psionic/pointed/projectile/proc/on_projectile_hand_visual_dropped(datum/source, mob/living/dropper)
+/datum/action/cooldown/psionic/pointed/projectile/proc/on_projectile_hand_visual_lost(datum/source)
 	SIGNAL_HANDLER
 
 	projectile_hand_visual = null

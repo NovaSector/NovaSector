@@ -71,7 +71,7 @@
 	biomend_beam = living_owner.Beam(
 		biomend_target,
 		icon_state = "medbeam",
-		maxdistance = get_psionic_cast_range(profile) + 1,
+		maxdistance = get_variant_value(profile, "cast_range") + 1,
 		beam_type = /obj/effect/ebeam/medical,
 		beam_color = manifestation_color,
 	)
@@ -98,7 +98,7 @@
 		return FALSE
 	var/turf/owner_turf = get_turf(living_owner)
 	var/turf/target_turf = get_turf(biomend_target)
-	if(!owner_turf || !target_turf || get_dist(owner_turf, target_turf) > get_psionic_cast_range(profile))
+	if(!owner_turf || !target_turf || get_dist(owner_turf, target_turf) > get_variant_value(profile, "cast_range"))
 		return FALSE
 	if(!has_healable_organic_damage(biomend_target))
 		stop_maintaining(living_owner, silent = TRUE)

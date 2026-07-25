@@ -109,6 +109,28 @@
 
 	return null
 
+/// Rank variants are immutable configuration, so one shared instance per type serves every action.
+/proc/get_psionic_rank_variant_catalog()
+	var/static/list/catalog
+	if(catalog)
+		return catalog
+
+	catalog = list()
+	for(var/variant_type in subtypesof(/datum/psionic_rank_variant))
+		catalog[variant_type] = new variant_type
+
+	return catalog
+
+/proc/get_psionic_rank_variants(list/variant_types)
+	var/list/catalog = get_psionic_rank_variant_catalog()
+	var/list/variants = list()
+	for(var/variant_type in variant_types)
+		var/datum/psionic_rank_variant/variant = catalog[variant_type]
+		if(variant)
+			variants += variant
+
+	return variants
+
 /datum/psionic_power
 	/// Points that must already be spent in this power's school before it can be imprinted.
 	var/required_school_points = 0
@@ -120,6 +142,8 @@
 	var/cached_minimum_rank
 	/// UI-ready form data (rank, name, description), cached at catalog build.
 	var/list/cached_variant_data
+	/// Prerequisite depth used to lay the power out in the imprinting tree, cached at catalog build.
+	var/cached_tier
 
 /datum/psionic_power/proc/get_name()
 	if(!action_type)
@@ -152,30 +176,37 @@
 
 	return get_psionic_school(school_type)
 
-/datum/psionic_power/proc/get_action_rank_variant_types()
-	if(!ispath(action_type, /datum/action/cooldown/psionic))
-		return list()
-
-	var/datum/action/cooldown/psionic/action = new action_type
-	var/list/action_rank_variant_types = list()
-	if(length(action.rank_variant_types))
-		action_rank_variant_types = action.rank_variant_types.Copy()
-	qdel(action)
-	return action_rank_variant_types
-
 /datum/psionic_power/proc/get_minimum_rank()
 	return cached_minimum_rank
 
 /datum/psionic_power/proc/get_variant_data()
 	return cached_variant_data || list()
 
-/// Instantiates the action once to snapshot form metadata, avoiding per-query action churn.
+/datum/psionic_power/proc/get_tier()
+	return cached_tier
+
+/// Depth of this power's prerequisite chain. Cycle-safe via [visited_powers].
+/datum/psionic_power/proc/calculate_tier(list/visited_powers)
+	var/power_tier = max(round(required_school_points / 2) + 1, 1)
+	if(!length(required_powers))
+		return power_tier
+
+	visited_powers = (visited_powers?.Copy() || list()) + src
+	for(var/required_power_type in required_powers)
+		var/datum/psionic_power/required_power = get_psionic_power_for_action(required_power_type)
+		if(!required_power || (required_power in visited_powers))
+			continue
+
+		power_tier = max(power_tier, required_power.calculate_tier(visited_powers) + 1)
+
+	return power_tier
+
+/// Snapshots form metadata from an already-built [action], avoiding per-query action churn.
 /// Must run after get_catalog_error() has validated this power.
-/datum/psionic_power/proc/build_cache()
+/datum/psionic_power/proc/build_cache(datum/action/cooldown/psionic/action)
 	cached_minimum_rank = null
 	cached_variant_data = list()
 
-	var/datum/action/cooldown/psionic/action = new action_type
 	var/minimum_rank_level
 	for(var/datum/psionic_rank_variant/variant as anything in action.get_rank_variants())
 		cached_variant_data += list(list(
@@ -187,9 +218,8 @@
 		if(isnull(minimum_rank_level) || variant_rank_level < minimum_rank_level)
 			cached_minimum_rank = variant.rank
 			minimum_rank_level = variant_rank_level
-	qdel(action)
 
-/datum/psionic_power/proc/get_catalog_error()
+/datum/psionic_power/proc/get_catalog_error(datum/action/cooldown/psionic/action)
 	if(!ispath(action_type, /datum/action/cooldown/psionic))
 		return "has no valid psionic action_type"
 	if(initial(action_type.point_cost) < 0)
@@ -198,12 +228,19 @@
 		return "has no action school"
 	if(!get_school())
 		return "uses an unknown action school [get_school_type()]"
-	var/list/action_rank_variant_types = get_action_rank_variant_types()
-	if(!length(action_rank_variant_types))
+	if(!length(action.rank_variant_types))
 		return "has no action rank variants"
-	for(var/variant_type in action_rank_variant_types)
+	var/previous_rank_level = 0
+	for(var/variant_type in action.rank_variant_types)
 		if(!ispath(variant_type, /datum/psionic_rank_variant))
 			return "has a non-psionic rank variant [variant_type]"
+
+		// get_selected_rank_variant() treats the last unlocked form as the best one.
+		var/datum/psionic_rank_variant/variant = get_psionic_rank_variant_catalog()[variant_type]
+		var/variant_rank_level = get_psionic_rank_level(variant.rank)
+		if(variant_rank_level < previous_rank_level)
+			return "lists rank variant [variant_type] out of ascending rank order"
+		previous_rank_level = variant_rank_level
 	if(length(required_powers))
 		for(var/required_power_type in required_powers)
 			if(!ispath(required_power_type, /datum/action/cooldown/psionic))
@@ -220,18 +257,23 @@
 	var/list/cataloged_actions = list()
 	for(var/power_type in subtypesof(/datum/psionic_power))
 		var/datum/psionic_power/power = new power_type
-		var/catalog_error = power.get_catalog_error()
+		var/datum/action/cooldown/psionic/action = ispath(power.action_type, /datum/action/cooldown/psionic) ? new power.action_type : null
+		var/catalog_error = power.get_catalog_error(action)
+		if(!catalog_error && cataloged_actions[power.action_type])
+			catalog_error = "duplicates psionic action [power.action_type]"
 		if(catalog_error)
 			stack_trace("[power.type] [catalog_error].")
+			qdel(action)
 			qdel(power)
 			continue
-		if(cataloged_actions[power.action_type])
-			stack_trace("[power.type] duplicates psionic action [power.action_type].")
-			qdel(power)
-			continue
+
 		cataloged_actions[power.action_type] = TRUE
-		power.build_cache()
+		power.build_cache(action)
+		qdel(action)
 		catalog += power
+
+	for(var/datum/psionic_power/power as anything in catalog)
+		power.cached_tier = power.calculate_tier()
 
 	return catalog
 

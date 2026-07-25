@@ -47,6 +47,7 @@
 	needs_hands = TRUE
 	maintain_end_message = "The psiblade disperses."
 	maintain_end_sound = 'sound/items/weapons/saberoff.ogg'
+	variant_type = /datum/psionic_rank_variant/psiblade
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/psiblade/epsilon,
 		/datum/psionic_rank_variant/psiblade,
@@ -74,10 +75,7 @@
 	if(!profile)
 		return FALSE
 
-	var/datum/psionic_rank_variant/selected_variant = get_selected_rank_variant(profile)
-	var/datum/psionic_rank_variant/psiblade/form
-	if(istype(selected_variant, /datum/psionic_rank_variant/psiblade))
-		form = selected_variant
+	var/datum/psionic_rank_variant/psiblade/form = get_form()
 	if(!form?.blade_type)
 		return FALSE
 
@@ -89,8 +87,7 @@
 		return FALSE
 
 	psiblade = new_psiblade
-	RegisterSignal(psiblade, COMSIG_QDELETING, PROC_REF(on_psiblade_deleted))
-	RegisterSignal(psiblade, COMSIG_ITEM_DROPPED, PROC_REF(on_psiblade_dropped))
+	RegisterSignals(psiblade, list(COMSIG_QDELETING, COMSIG_ITEM_DROPPED), PROC_REF(on_psiblade_lost))
 	start_maintaining(living_owner)
 
 	living_owner.visible_message(
@@ -112,16 +109,7 @@
 	QDEL_NULL(psiblade)
 	removing_psiblade = FALSE
 
-/datum/action/cooldown/psionic/psiblade/proc/on_psiblade_deleted(datum/source)
-	SIGNAL_HANDLER
-
-	psiblade = null
-	if(removing_psiblade || QDELETED(owner))
-		return
-	var/mob/living/living_owner = owner
-	stop_maintaining(living_owner, silent = TRUE)
-
-/datum/action/cooldown/psionic/psiblade/proc/on_psiblade_dropped(datum/source, mob/living/dropper)
+/datum/action/cooldown/psionic/psiblade/proc/on_psiblade_lost(datum/source)
 	SIGNAL_HANDLER
 
 	psiblade = null

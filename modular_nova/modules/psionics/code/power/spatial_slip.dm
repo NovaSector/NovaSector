@@ -41,11 +41,11 @@
 	playsound(source_turf, 'sound/machines/airlock/airlockopen.ogg', 60, TRUE)
 	playsound(target_turf, 'sound/effects/magic/wand_teleport.ogg', 60, TRUE)
 
-	var/obj/effect/temp_visual/psionic_spatial_slip/source_effect = new(source_turf, manifestation_color)
+	var/obj/effect/temp_visual/psionic/spatial_slip/source_effect = new(source_turf, manifestation_color)
 	if(source_turf == target_turf)
 		return
 
-	var/obj/effect/temp_visual/psionic_spatial_slip/target_effect = new(target_turf, manifestation_color)
+	var/obj/effect/temp_visual/psionic/spatial_slip/target_effect = new(target_turf, manifestation_color)
 	var/beam_center_x = ICON_SIZE_X / 2
 	var/beam_center_y = ICON_SIZE_Y / 2
 	source_effect.Beam(
@@ -60,7 +60,7 @@
 		override_target_pixel_y = beam_center_y - target_effect.pixel_z,
 	)
 
-/obj/effect/temp_visual/psionic_spatial_slip
+/obj/effect/temp_visual/psionic/spatial_slip
 	name = "psionic fold"
 	icon = 'icons/effects/96x96.dmi'
 	icon_state = "hierophant_telegraph_teleport"
@@ -70,16 +70,4 @@
 	duration = 0.9 SECONDS
 	alpha = 190
 	randomdir = FALSE
-
-/obj/effect/temp_visual/psionic_spatial_slip/Initialize(mapload, manifestation_color)
-	. = ..()
-	if(!manifestation_color)
-		manifestation_color = PSIONIC_DEFAULT_COLOR
-
-	var/icon/tinted_icon = icon(icon, icon_state)
-	tinted_icon.ColorTone(manifestation_color)
-	tinted_icon.Insert(tinted_icon, icon_state = icon_state)
-	icon = tinted_icon
-
-	set_light(2, 0.7, manifestation_color)
-	animate(src, alpha = 0, time = duration, easing = EASE_OUT)
+	psionic_light_range = 2

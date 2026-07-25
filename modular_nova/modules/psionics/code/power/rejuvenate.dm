@@ -51,7 +51,7 @@
 		span_notice("Soft light gathers between [caster] and [carbon_target]."),
 		span_purple("You begin drawing [carbon_target]'s body back into rhythm."),
 	)
-	if(!do_after(caster, 12 SECONDS, target = carbon_target, timed_action_flags = IGNORE_HELD_ITEM))
+	if(!do_after(caster, 12 SECONDS, target = carbon_target, timed_action_flags = IGNORE_HELD_ITEM, interaction_key = REF(src)))
 		caster.balloon_alert(caster, "focus broken!")
 		return FALSE
 	var/datum/component/psionic_profile/profile = caster.get_psionic_profile()

@@ -98,6 +98,7 @@
 	point_cost = 1
 	psionic_flags = PSIONIC_KINETIC
 	school = PSIONIC_SCHOOL_GRAVITY
+	variant_type = /datum/psionic_rank_variant/kinetic_shove
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/kinetic_shove/epsilon,
 		/datum/psionic_rank_variant/kinetic_shove,
@@ -113,41 +114,20 @@
 	psionic_flags = PSIONIC_KINETIC
 	school = PSIONIC_SCHOOL_GRAVITY
 	needs_hands = TRUE
+	variant_type = /datum/psionic_rank_variant/kinetic_pull
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/kinetic_pull,
 	)
 
-/datum/action/cooldown/psionic/pointed/kinetic_shove/Trigger(mob/clicker, trigger_flags, atom/target)
-	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
-		return ..()
-
-	var/datum/psionic_rank_variant/kinetic_shove/form = get_kinetic_form()
-	if(!form?.radial_shove)
-		return ..()
-
-	var/mob/user = clicker || owner
-	var/datum/action/cooldown/already_set = user?.click_intercept
-	if(already_set == src)
-		unset_click_ability(user, refund_cooldown = FALSE)
-	else if(istype(already_set))
-		already_set.unset_click_ability(user, refund_cooldown = TRUE)
-
-	var/was_click_to_activate = click_to_activate
-	click_to_activate = FALSE
-	. = ..()
-	click_to_activate = was_click_to_activate
-
-/datum/action/cooldown/psionic/pointed/kinetic_shove/proc/get_kinetic_form()
-	return get_selected_variant_as_type(/datum/psionic_rank_variant/kinetic_shove)
+/datum/action/cooldown/psionic/pointed/kinetic_shove/is_self_cast_form()
+	var/datum/psionic_rank_variant/kinetic_shove/form = get_form()
+	return !!form?.radial_shove
 
 /datum/action/cooldown/psionic/pointed/kinetic_shove/try_block_target(atom/target, datum/component/psionic_profile/profile)
 	return FALSE
 
-/datum/action/cooldown/psionic/pointed/kinetic_pull/proc/get_pull_form()
-	return get_selected_variant_as_type(/datum/psionic_rank_variant/kinetic_pull)
-
 /datum/action/cooldown/psionic/pointed/kinetic_shove/is_valid_target(atom/target)
-	var/datum/psionic_rank_variant/kinetic_shove/form = get_kinetic_form()
+	var/datum/psionic_rank_variant/kinetic_shove/form = get_form()
 	if(form?.radial_shove)
 		return TRUE
 	if(form?.directional_wave)
@@ -195,7 +175,7 @@
 	if(!istype(living_owner))
 		return FALSE
 
-	var/datum/psionic_rank_variant/kinetic_shove/form = get_kinetic_form()
+	var/datum/psionic_rank_variant/kinetic_shove/form = get_form()
 	if(!form)
 		return FALSE
 
@@ -217,7 +197,7 @@
 	if(!istype(pulled_item))
 		return FALSE
 
-	var/datum/psionic_rank_variant/kinetic_pull/form = get_pull_form()
+	var/datum/psionic_rank_variant/kinetic_pull/form = get_form()
 	if(!form)
 		return FALSE
 
@@ -403,8 +383,8 @@
 
 /datum/action/cooldown/psionic/pointed/kinetic_shove/proc/show_kinetic_wave_effects(list/wave_turfs, wave_direction, manifestation_color)
 	for(var/turf/wave_turf as anything in wave_turfs)
-		new /obj/effect/temp_visual/psionic_kinetic_fracture(wave_turf, manifestation_color)
-		new /obj/effect/temp_visual/dir_setting/psionic_kinetic_distortion(wave_turf, wave_direction, manifestation_color)
+		new /obj/effect/temp_visual/psionic/kinetic_fracture(wave_turf, manifestation_color)
+		new /obj/effect/temp_visual/dir_setting/psionic/kinetic_distortion(wave_turf, wave_direction, manifestation_color)
 		wave_turf.Shake(pixelshiftx = 1, pixelshifty = 1, duration = 0.4 SECONDS)
 
 /datum/action/cooldown/psionic/pointed/kinetic_shove/proc/damage_kinetic_wave_structures(turf/wave_turf, mob/living/living_owner, datum/psionic_rank_variant/kinetic_shove/form)
@@ -504,44 +484,32 @@
 	if(!(center_direction in GLOB.cardinals))
 		center_direction = SOUTH
 
-	new /obj/effect/temp_visual/dir_setting/psionic_kinetic_distortion(center_turf, center_direction, manifestation_color)
+	new /obj/effect/temp_visual/dir_setting/psionic/kinetic_distortion(center_turf, center_direction, manifestation_color)
 	for(var/spark_direction in GLOB.cardinals)
 		var/turf/spark_turf = get_step(center_turf, spark_direction)
 		if(!spark_turf)
 			continue
 
-		new /obj/effect/temp_visual/dir_setting/psionic_kinetic_distortion(spark_turf, spark_direction, manifestation_color)
+		new /obj/effect/temp_visual/dir_setting/psionic/kinetic_distortion(spark_turf, spark_direction, manifestation_color)
 
 	living_owner.Shake(pixelshiftx = 1, pixelshifty = 1, duration = 0.4 SECONDS)
 
-/obj/effect/temp_visual/psionic_kinetic_fracture
+/obj/effect/temp_visual/psionic/kinetic_fracture
 	name = "psionic fracture"
 	icon_state = "purplecrack"
 	duration = 1.5 SECONDS
 	alpha = 180
 	randomdir = TRUE
+	psionic_light_range = 1.4
 
-/obj/effect/temp_visual/psionic_kinetic_fracture/Initialize(mapload, manifestation_color)
-	. = ..()
-	if(!manifestation_color)
-		manifestation_color = PSIONIC_DEFAULT_COLOR
-	add_atom_colour(color_transition_filter(manifestation_color, SATURATION_OVERRIDE), FIXED_COLOUR_PRIORITY)
-	set_light(1.4, 0.7, manifestation_color)
-	animate(src, alpha = 0, time = duration, easing = EASE_OUT)
-
-/obj/effect/temp_visual/dir_setting/psionic_kinetic_distortion
+/obj/effect/temp_visual/dir_setting/psionic/kinetic_distortion
 	name = "psionic distortion"
 	icon_state = "shieldsparkles"
 	duration = 0.6 SECONDS
 	alpha = 140
 	randomdir = FALSE
 
-/obj/effect/temp_visual/dir_setting/psionic_kinetic_distortion/Initialize(mapload, set_dir, manifestation_color)
+/obj/effect/temp_visual/dir_setting/psionic/kinetic_distortion/Initialize(mapload, set_dir, manifestation_color)
 	. = ..()
-	if(!manifestation_color)
-		manifestation_color = PSIONIC_DEFAULT_COLOR
-	add_atom_colour(color_transition_filter(manifestation_color, SATURATION_OVERRIDE), FIXED_COLOUR_PRIORITY)
 	add_filter("psionic_kinetic_ripple", 1, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
-	var/filter = get_filter("psionic_kinetic_ripple")
-	animate(filter, radius = 16, size = 1, time = duration)
-	animate(src, alpha = 0, time = duration, easing = EASE_OUT)
+	animate(get_filter("psionic_kinetic_ripple"), radius = 16, size = 1, time = duration)
