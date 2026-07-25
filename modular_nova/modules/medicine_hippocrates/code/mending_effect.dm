@@ -2,14 +2,10 @@
  * MEDICINE_HIPPOCRATES - mending
  *
  * Sutures and meshes stop dumping their whole heal into a limb the instant they're applied. Instead
- * they leave the limb mending over time. Reapplying refreshes that limb's timer rather than stacking
- * a second dose, so you can't burst a fight's worth of damage off in a couple of clicks - but on a
- * single limb the total healing over the effect's lifetime beats the instant version, which makes
- * them nicer for patching people up out of combat.
+ * they leave the limb mending over time.
  *
- * One status effect per mob tracks every mending limb, and it heals at a single global rate (the best
- * dressing applied), spread across those limbs. Suturing many limbs lets you choose where the healing
- * goes; it does not multiply how fast you heal overall.
+ * One status effect per mob tracks every mending limb. Each limb mends at its own rate, so treating
+ * several limbs treats several limbs-
  */
 
 /// Index into a mending_limbs entry: brute healed per second.
@@ -74,35 +70,14 @@
 
 	return mending[MENDING_BRUTE_RATE] >= brute_rate && mending[MENDING_BURN_RATE] >= burn_rate
 
-/datum/status_effect/mending/proc/distribute_budget(list/wants, budget)
-	var/list/granted = list()
-	if(!length(wants) || budget <= 0)
-		return granted
-
-	var/list/ordered = sortTim(wants, GLOBAL_PROC_REF(cmp_numeric_asc), associative = TRUE)
-	var/remaining = budget
-	var/count = length(ordered)
-	for(var/obj/item/bodypart/limb as anything in ordered)
-		var/give = min(wants[limb], remaining / count)
-		if(give > 0)
-			granted[limb] = give
-			remaining -= give
-		count--
-	return granted
-
 /datum/status_effect/mending/tick(seconds_between_ticks)
 	var/mob/living/carbon/carbon_owner = owner
 	if(!istype(carbon_owner))
 		qdel(src)
 		return
 
-	// Global throughput cap: the whole effect heals at the best single dressing's rate, no matter how
-	// many limbs are mending. Suturing five limbs heals the same total per second as suturing one - it
-	// just lets you spread that healing where you want it, rather than multiplying it.
-	var/brute_rate = 0
-	var/burn_rate = 0
-	var/list/brute_wants = list()
-	var/list/burn_wants = list()
+	var/healed_anything = FALSE
+	var/overlays_changed = FALSE
 	// Copied because finished limbs get dropped from the list as we go.
 	for(var/body_zone in mending_limbs.Copy())
 		var/list/mending = mending_limbs[body_zone]
@@ -114,33 +89,14 @@
 			mending_limbs -= body_zone
 			continue
 
-		brute_rate = max(brute_rate, mending[MENDING_BRUTE_RATE])
-		burn_rate = max(burn_rate, mending[MENDING_BURN_RATE])
-		var/brute_want = min(mending[MENDING_BRUTE_RATE] * seconds_between_ticks, limb.brute_dam)
-		var/burn_want = min(mending[MENDING_BURN_RATE] * seconds_between_ticks, limb.burn_dam)
-		if(brute_want > 0)
-			brute_wants[limb] = brute_want
-		if(burn_want > 0)
-			burn_wants[limb] = burn_want
-
-		if(mending[MENDING_TIME_LEFT] <= 0)
-			mending_limbs -= body_zone
-
-	var/list/brute_granted = distribute_budget(brute_wants, brute_rate * seconds_between_ticks)
-	var/list/burn_granted = distribute_budget(burn_wants, burn_rate * seconds_between_ticks)
-
-	var/list/healed_limbs = brute_granted.Copy()
-	for(var/limb in burn_granted)
-		healed_limbs[limb] = TRUE
-
-	var/healed_anything = FALSE
-	var/overlays_changed = FALSE
-	for(var/obj/item/bodypart/limb as anything in healed_limbs)
-		var/brute = brute_granted[limb]
-		var/burn = burn_granted[limb]
+		var/brute = min(mending[MENDING_BRUTE_RATE] * seconds_between_ticks, limb.brute_dam)
+		var/burn = min(mending[MENDING_BURN_RATE] * seconds_between_ticks, limb.burn_dam)
 		if(brute > 0 || burn > 0)
 			healed_anything = TRUE
 			overlays_changed |= limb.heal_damage(brute = brute, burn = burn, updating_health = FALSE)
+
+		if(mending[MENDING_TIME_LEFT] <= 0)
+			mending_limbs -= body_zone
 
 	if(healed_anything)
 		carbon_owner.updatehealth()

@@ -19,6 +19,7 @@
 	if((!mending_brute_rate && !mending_burn_rate) || !CONFIG_GET(flag/medicine_hippocrates))
 		return ..()
 
+	var/obj/item/bodypart/affecting = patient.get_bodypart(healed_zone)
 	// Suppress the instant heal for the duration of the parent call - everything else the parent does
 	// (the visible message, bleed control, burn wound treatment, post_heal_effects) still applies.
 	// Nothing between here and the restore sleeps, so this can't be observed by anything else.
@@ -30,8 +31,10 @@
 	heal_brute = stored_heal_brute
 	heal_burn = stored_heal_burn
 
-	if(.)
-		patient.start_mending(healed_zone, mending_brute_rate, mending_burn_rate, mending_duration)
+	// Only mend damage we can actually treat, otherwise a purely bleeding limb ends up "mending"
+	// nothing, and stays saturated against further treatment for the whole duration.
+	if(. && affecting && ((mending_brute_rate && affecting.brute_dam > 0) || (mending_burn_rate && affecting.burn_dam > 0)))
+		patient.start_mending(affecting.body_zone, mending_brute_rate, mending_burn_rate, mending_duration)
 
 /**
  * Once a limb is mending, its brute/burn damage stops coming off on contact, so the upstream checks

@@ -26,7 +26,5 @@
 #define LIVER_LOAD_STRAIN_LOAD 1.5
 /// How long the overmedicated status effect sticks around after the last metabolism tick that refreshed it.
 #define LIVER_LOAD_STRAIN_DURATION (12 SECONDS)
-/// Liver quality multiplier used when the patient has no liver at all - unfiltered, everything hits twice as hard.
-#define LIVER_LOAD_NO_LIVER_QUALITY 0.5
-/// Worst liver quality multiplier a ruined-but-present liver can give.
+/// Worst liver quality multiplier a ruined liver can give.
 #define LIVER_LOAD_MIN_LIVER_QUALITY 0.25

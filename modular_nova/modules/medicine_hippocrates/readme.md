@@ -31,9 +31,10 @@ deliberately left at zero load.
 Sutures and meshes no longer dump their whole heal into a limb the moment they're applied. They leave
 the limb _mending_ instead.
 
-Reapplying refreshes the limb's timer (and upgrades its rate, if the new dressing is better) rather
-than stacking a second dose, so you can't burst a fight's worth of damage off in a few clicks. Bleed control and burn wound treatment are untouched, so
-they still work as normal for treating wounds.
+Reapplying refreshes the limb's timer (and upgrades its rate, if the new
+dressing is better) rather than stacking a second dose, so you can't burst a fight's worth of damage
+off in a few clicks. Each limb mends at its own rate. Bleed control and burn wound treatment are
+untouched, so they still work as normal for treating wounds.
 
 ### TG Proc/File Changes:
 
@@ -55,13 +56,15 @@ exist to serve this module and are meaningless without it:
   `proc/post_heal_effects` — these live in `modular_nova/modules/food_replicator` and derive their
   oxyloss top-up from how much they just healed, which mending zeroes out, so they read their nominal
   heal value instead.
+- `/datum/reagent/medicine/c2/synthflesh`: `proc/expose_mob` — synthflesh heals topically rather than
+  through `on_mob_life()`, so it needs its own hook to feel liver load.
 
 ### Defines:
 
 - `code/__DEFINES/~nova_defines/medicine_hippocrates.dm`: `LIVER_LOAD_BRUTE`, `LIVER_LOAD_BURN`,
   `LIVER_LOAD_TOXIN`, `LIVER_LOAD_OXYGEN`, `LIVER_LOAD_ALL`, `LIVER_LOAD_FREE_LOAD`,
   `LIVER_LOAD_MIN_EFFICIENCY`, `LIVER_LOAD_STRAIN_LOAD`, `LIVER_LOAD_STRAIN_DURATION`,
-  `LIVER_LOAD_NO_LIVER_QUALITY`, `LIVER_LOAD_MIN_LIVER_QUALITY`
+  `LIVER_LOAD_MIN_LIVER_QUALITY`
 
 ### Included files that are not contained in this module:
 

@@ -17,14 +17,8 @@ GLOBAL_LIST_INIT(liver_load_pools, list(LIVER_LOAD_BRUTE, LIVER_LOAD_BURN, LIVER
 	/// Cached healing multiplier from liver load, recomputed every metabolism tick in compute_metabolization().
 	var/liver_load_efficiency = 1
 
-/datum/reagents
-	/// Combined load per liver load pool, positionally matching GLOB.liver_load_pools. Rebuilt at most once per world tick.
-	var/list/liver_load_pool_totals
-	/// world.time the liver load pools were last rebuilt at, so we only pay for it once per Life() tick.
-	var/liver_load_pools_updated = -1
-
 /**
- * Rebuilds (or returns the cached) combined load for each liver load pool in this holder.
+ * Combined load for each liver load pool in this holder, positionally matching GLOB.liver_load_pools.
  *
  * Loads are divided by how healthy the patient's liver is.
  *
@@ -34,12 +28,6 @@ GLOBAL_LIST_INIT(liver_load_pools, list(LIVER_LOAD_BRUTE, LIVER_LOAD_BURN, LIVER
  * * affected_mob - the carbon metabolizing these reagents.
  */
 /datum/reagents/proc/get_liver_load_pools(mob/living/carbon/affected_mob)
-	if(liver_load_pools_updated == world.time)
-		return liver_load_pool_totals
-
-	liver_load_pools_updated = world.time
-	liver_load_pool_totals = null
-
 	if(!CONFIG_GET(flag/medicine_hippocrates) || isnull(affected_mob))
 		return null
 
@@ -56,18 +44,18 @@ GLOBAL_LIST_INIT(liver_load_pools, list(LIVER_LOAD_BRUTE, LIVER_LOAD_BURN, LIVER
 	if(isnull(totals))
 		return null
 
-	// A failing liver clears less of the load, so everything in the pools weighs more.
-	var/liver_quality = LIVER_LOAD_NO_LIVER_QUALITY
+	// Metabolism is driven by the liver organ itself, so anyone reaching this point has a working one.
 	var/obj/item/organ/liver/liver = affected_mob.get_organ_slot(ORGAN_SLOT_LIVER)
-	if(liver)
-		liver_quality = max((liver.maxHealth - liver.damage) / liver.maxHealth, LIVER_LOAD_MIN_LIVER_QUALITY)
+	if(isnull(liver))
+		return null
+
+	// A failing liver clears less of the load, so everything in the pools weighs more.
+	var/liver_quality = max((liver.maxHealth - liver.damage) / liver.maxHealth, LIVER_LOAD_MIN_LIVER_QUALITY)
 
 	var/worst_load = 0
 	for(var/index in 1 to length(totals))
 		totals[index] /= liver_quality
 		worst_load = max(worst_load, totals[index])
-
-	liver_load_pool_totals = totals
 
 	if(worst_load >= LIVER_LOAD_STRAIN_LOAD)
 		affected_mob.apply_status_effect(/datum/status_effect/liver_strain, worst_load)
@@ -75,7 +63,7 @@ GLOBAL_LIST_INIT(liver_load_pools, list(LIVER_LOAD_BRUTE, LIVER_LOAD_BURN, LIVER
 	return totals
 
 /// Returns a fresh, zeroed set of liver load pool totals.
-/proc/new_liver_load_pools()
+/datum/reagents/proc/new_liver_load_pools()
 	var/list/pools = new /list(length(GLOB.liver_load_pools))
 	for(var/index in 1 to length(pools))
 		pools[index] = 0
@@ -87,12 +75,16 @@ GLOBAL_LIST_INIT(liver_load_pools, list(LIVER_LOAD_BRUTE, LIVER_LOAD_BURN, LIVER
  *
  * Arguments:
  * * affected_mob - the carbon metabolizing this reagent.
+ * * load_holder - the holder to read pools from. Defaults to our own, but topically applied medicines
+ * live in a patch or spray rather than the patient, so they pass the patient's holder instead.
  */
-/datum/reagent/medicine/proc/get_liver_load_efficiency(mob/living/carbon/affected_mob)
-	if(!liver_load || !liver_load_flags || isnull(holder))
+/datum/reagent/medicine/proc/get_liver_load_efficiency(mob/living/carbon/affected_mob, datum/reagents/load_holder)
+	if(isnull(load_holder))
+		load_holder = holder
+	if(!liver_load || !liver_load_flags || isnull(load_holder))
 		return 1
 
-	var/list/totals = holder.get_liver_load_pools(affected_mob)
+	var/list/totals = load_holder.get_liver_load_pools(affected_mob)
 	if(isnull(totals))
 		return 1
 
@@ -115,8 +107,12 @@ GLOBAL_LIST_INIT(liver_load_pools, list(LIVER_LOAD_BRUTE, LIVER_LOAD_BURN, LIVER
  * back for the actual consumption, so an overloaded liver wastes the chem instead of stretching it.
  */
 /datum/reagent/medicine/compute_metabolization(mob/living/carbon/affected_mob, seconds_per_tick)
+	liver_load_efficiency = 1
 	var/metabolized_volume = ..()
-	liver_load_efficiency = get_liver_load_efficiency(affected_mob)
+	// metabolization_ratio also scales overdose_process() and addiction gain, so leaving an overdose
+	// unscaled stops a loaded liver from making overdosing safer.
+	if(!overdosed)
+		liver_load_efficiency = get_liver_load_efficiency(affected_mob)
 	return metabolized_volume * liver_load_efficiency
 
 /datum/reagent/medicine/metabolize_reagent(mob/living/carbon/affected_mob, seconds_per_tick, metabolized_volume)
