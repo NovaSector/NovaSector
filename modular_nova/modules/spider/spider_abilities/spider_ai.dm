@@ -12,6 +12,17 @@
 	. = ..()
 	typecache = typecacheof(typecache)
 
+// Cameras and lights are gathered by the same target source, but cameras are the bigger stealth threat, so prefer destroying one over a light whenever both are in view instead of picking randomly.
+/datum/bt_node/ai_behavior/acquire_target/update_interaction_target/spider_surveillance
+
+/datum/bt_node/ai_behavior/acquire_target/update_interaction_target/spider_surveillance/pick_final_target(datum/ai_controller/controller, list/filtered_targets)
+	var/list/cameras = list()
+	for(var/obj/machinery/camera/camera in filtered_targets)
+		cameras += camera
+	if(length(cameras))
+		return pick(cameras)
+	return ..()
+
 /datum/bt_node/ai_behavior/random_speech/insect
 	speech_chance = 5
 	sound = list('sound/mobs/non-humanoids/insect/chitter.ogg')
