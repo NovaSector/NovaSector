@@ -3,8 +3,8 @@
 	. = ..()
 	. += get_dnr_examine(user)
 	insert_examine_headshot(., user)
-	. += get_empath_examine(user)
 	. += get_arousal_examine(user)
+	. += get_empath_examine(user)
 
 // Hooked per subtype rather than on /mob/living/silicon: AIs and cyborgs append their parent's lines at the
 // end of their own, so hooking the parent would bury the headshot in the middle of the examine.
