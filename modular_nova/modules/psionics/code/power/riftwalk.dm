@@ -131,7 +131,7 @@
 	if(isliving(entered_atom))
 		var/mob/living/living_traveler = entered_atom
 		living_traveler.changeNext_move(disorient_time)
-		living_traveler.ai_controller?.CancelActions()
+		living_traveler.ai_controller?.cancel_current_plan()
 
 	addtimer(CALLBACK(destination_rift, PROC_REF(clear_recent_traveler), traveler_ref), 0.5 SECONDS)
 	playsound(src, 'sound/effects/magic/wand_teleport.ogg', 50)
