@@ -60,7 +60,7 @@
 GAME_VERB(/obj/item/gun/ballistic/revolver, spin, "Spin Chamber", null)
 	spin_chamber(usr)
 
-/obj/item/gun/ballistic/revolver/verb/spin_chamber(mob/living/user)
+/obj/item/gun/ballistic/revolver/proc/spin_chamber(mob/living/user)
 	if(!istype(user) || IS_UNCONSCIOUS_OR_CRIT(user) || !in_range(user, src))
 		return
 
