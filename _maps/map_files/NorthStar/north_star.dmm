@@ -70739,7 +70739,6 @@
 /turf/open/floor/iron/white,
 /area/station/science/lower)
 "sil" = (
-/obj/item/restraints/legcuffs/beartrap/prearmed,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor2/port/fore)
