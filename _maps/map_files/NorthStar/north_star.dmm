@@ -47602,7 +47602,6 @@
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "mkE" = (
-/obj/item/wrench,
 /obj/item/radio/intercom/directional/south,
 /obj/effect/spawner/random/trash/cigpack,
 /turf/open/floor/iron,
