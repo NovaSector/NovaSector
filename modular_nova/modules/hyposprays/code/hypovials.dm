@@ -3,7 +3,7 @@
 	/// Should we open a greyscale menu when the user reskins this?
 	var/update_greyscale
 	/// The icon state to switch to when applying a custom greyscale
-	var/base_icon_state = /datum/atom_skin/hypovial/sterile::new_icon_state
+	var/base_icon_state = "hypovial"
 
 /datum/atom_skin/hypovial/apply(atom/apply_to, mob/user)
 	. = ..()
@@ -136,7 +136,7 @@
 
 /datum/atom_skin/hypovial/large
 	abstract_type = /datum/atom_skin/hypovial/large
-	base_icon_state = /datum/atom_skin/hypovial/large/sterile::new_icon_state
+	base_icon_state = "hypoviallarge"
 
 /datum/atom_skin/hypovial/large/sterile
 	preview_name = "Sterile"
@@ -212,7 +212,7 @@
 
 /datum/atom_skin/hypovial/interdyne_medium
 	abstract_type = /datum/atom_skin/hypovial/interdyne_medium
-	base_icon_state = /datum/atom_skin/hypovial/interdyne_medium/sterile::new_icon_state
+	base_icon_state = "hypovial-interdyne"
 
 /datum/atom_skin/hypovial/interdyne_medium/sterile
 	preview_name = "Sterile"
