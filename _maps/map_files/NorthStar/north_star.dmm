@@ -1084,7 +1084,6 @@
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/rd)
 "anO" = (
-/obj/effect/spawner/random/contraband/landmine,
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
@@ -23765,7 +23764,6 @@
 /obj/effect/turf_decal/tile/yellow{
 	dir = 4
 	},
-/obj/effect/spawner/random/contraband/landmine,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/floor2/starboard/aft)
 "ghg" = (
@@ -32496,11 +32494,6 @@
 /obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
-"iuP" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/contraband/landmine,
-/turf/open/floor/mineral/plastitanium/pod/light,
-/area/station/maintenance/floor1/port/fore)
 "iuT" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/line{
@@ -42519,11 +42512,6 @@
 /obj/machinery/vending/wardrobe/chef_wardrobe,
 /turf/open/floor/wood/large,
 /area/station/service/kitchen/kitchen_backroom)
-"kXW" = (
-/obj/effect/turf_decal/bot,
-/obj/effect/spawner/random/contraband/landmine,
-/turf/open/floor/engine,
-/area/station/maintenance/floor1/starboard/fore)
 "kXZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -63188,7 +63176,6 @@
 /area/station/service/library/lounge)
 "qiR" = (
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
-/obj/effect/spawner/random/contraband/landmine,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/service/kitchen/abandoned)
@@ -67473,7 +67460,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/spawner/random/contraband/landmine,
 /turf/open/floor/iron,
 /area/station/maintenance/floor3/starboard/aft)
 "rmd" = (
@@ -76936,7 +76922,6 @@
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "tLf" = (
-/obj/effect/spawner/random/contraband/landmine,
 /turf/open/floor/iron,
 /area/station/maintenance/floor4/starboard)
 "tLg" = (
@@ -83112,11 +83097,6 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/surgery/aft)
-"vqe" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/contraband/landmine,
-/turf/open/floor/mineral/plastitanium/pod/light,
-/area/station/maintenance/floor4/port)
 "vqp" = (
 /obj/structure/closet/secure_closet/hydroponics,
 /obj/effect/turf_decal/tile/green/full,
@@ -114415,7 +114395,7 @@ hYm
 oic
 ygd
 skW
-kXW
+bxf
 eey
 oic
 oic
@@ -116000,7 +115980,7 @@ hJy
 upS
 plI
 mcu
-iuP
+qez
 hJy
 hJy
 owI
@@ -314918,7 +314898,7 @@ vEa
 iZA
 fTa
 fTa
-vqe
+wtL
 fXs
 dek
 dek
