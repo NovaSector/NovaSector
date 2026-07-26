@@ -1,7 +1,7 @@
 {
 	"version": 1,
 	"map_name": "NorthStar",
-	"map_path": "custom",
+	"map_path": "map_files/NorthStar",
 	"map_file": "north_star.dmm",
 	"shuttles": {
 		"emergency": "emergency_northstar",
