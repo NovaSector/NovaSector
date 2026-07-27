@@ -80535,10 +80535,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/floor2/aft)
-"uDd" = (
-/obj/effect/landmark/start/blueshield,
-/turf/open/floor/carpet,
-/area/station/command/heads_quarters/captain)
 "uDr" = (
 /obj/machinery/light/small/directional/north,
 /obj/effect/decal/cleanable/dirt,
@@ -312211,7 +312207,7 @@ abP
 vLW
 aEP
 wnO
-uDd
+wnO
 bxc
 vLW
 mqi
