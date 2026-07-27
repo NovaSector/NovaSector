@@ -1048,6 +1048,12 @@
   - code_imp: Mass pickup also waits to update when it's done picking up, you MIIIGHT
       notice if you're picking up an especially large amount of things but probably
       not?
+  - bugfix: Attempting to use the right click menu to input some command (like point)
+      at an entity that you are hallucinating won't spit out a weird broken command
+      in your command bar.
+  - admin: Several verbs no longer show a list of every X in the game world when you
+      enter them via command line or verb panel. They will instead limit themselves
+      to every X in view of your character.
   PapaMichael:
   - bugfix: The Ghost Menu's Extra View Distance field now remembers your current
       extra view distance between openings
@@ -1070,6 +1076,7 @@
   - bugfix: Fixed hair gradients, again
   - code_imp: Optimized damage and wound code
   - refactor: Brought down all inventory slots on humans to /obj/item
+  - bugfix: Fixed revolvers runtiming when non-player mobs try to spin them
   SmArtKar, Kapu1178:
   - refactor: Datumized do_after()s
   TealSeer:
@@ -1095,6 +1102,11 @@
   - image: Added unique belt/suit storage sprites for carp, ratvar, and narsie plushies.
   antropod:
   - bugfix: Fix scrubber not updating turfs
+  - bugfix: Fixes material tiles not having material after prying and placing back.
+  hry-gh:
+  - code_imp: the backend to all verbs in the game has been played with, please report
+      any issues to github
+  - qol: the escape menu now runs clientside, and should be considerably more responsive
   lelandkemble:
   - bugfix: the firepit structure that spawns somewhere(probably on icebox) can now
       be lit
