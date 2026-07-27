@@ -10198,6 +10198,7 @@
 /obj/item/assembly/mousetrap,
 /obj/item/storage/box/mousetraps,
 /obj/machinery/light/directional/east,
+/obj/item/storage/photo_album/bar,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "aSR" = (
@@ -23048,7 +23049,7 @@
 /area/station/service/chapel/monastery)
 "cen" = (
 /obj/structure/table/wood,
-/obj/item/storage/photo_album,
+/obj/item/storage/photo_album/chapel,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/monastery)
 "ceo" = (
@@ -26015,7 +26016,7 @@
 /area/station/service/library)
 "czt" = (
 /obj/structure/table/wood/fancy,
-/obj/item/storage/photo_album,
+/obj/item/storage/photo_album/library,
 /turf/open/floor/carpet,
 /area/station/service/library)
 "czu" = (
@@ -32489,6 +32490,7 @@
 	},
 /obj/structure/table,
 /obj/item/toy/cards/deck,
+/obj/item/storage/photo_album/prison,
 /turf/open/floor/iron,
 /area/station/security/prison)
 "gVy" = (
