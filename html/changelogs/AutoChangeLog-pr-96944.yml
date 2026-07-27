@@ -1,0 +1,4 @@
+author: "antropod"
+delete-after: True
+changes:
+  - bugfix: "Fixes material tiles not having material after prying and placing back."
