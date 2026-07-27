@@ -20654,7 +20654,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
 "fVE" = (
-/obj/machinery/computer/upload/ai,
+/obj/machinery/ai_law_rack/base/core,
 /obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/circuit/green,
 /area/station/ai/upload/chamber)
@@ -43068,11 +43068,10 @@
 "moY" = (
 /obj/structure/table/wood/fancy/green,
 /obj/effect/spawner/random/aimodule/harmless,
-/obj/item/ai_module/supplied/freeform{
+/obj/item/ai_module/law/supplied/freeform{
 	pixel_x = 2;
 	pixel_y = 3
 	},
-/obj/item/ai_module/reset,
 /obj/item/radio/intercom/directional/north,
 /obj/effect/spawner/round_default_module,
 /obj/machinery/light/directional/north,
@@ -46037,7 +46036,6 @@
 	},
 /obj/structure/table/wood/fancy/red,
 /obj/effect/spawner/random/aimodule/harmful,
-/obj/item/ai_module/reset/purge,
 /turf/open/floor/circuit/red,
 /area/station/ai/upload/chamber)
 "nkF" = (
@@ -53453,7 +53451,6 @@
 /turf/open/floor/wood/large,
 /area/station/commons/dorms/room4)
 "pzO" = (
-/obj/machinery/computer/upload/borg,
 /obj/machinery/status_display/ai/directional/north,
 /turf/open/floor/circuit/green,
 /area/station/ai/upload/chamber)
@@ -59673,7 +59670,7 @@
 	},
 /obj/structure/table/wood/fancy/blue,
 /obj/effect/spawner/random/aimodule/neutral,
-/obj/item/ai_module/supplied/freeform,
+/obj/item/ai_module/law/supplied/freeform,
 /turf/open/floor/circuit,
 /area/station/ai/upload/chamber)
 "rrA" = (
@@ -80892,7 +80889,6 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/aicard,
-/obj/item/ai_module/reset,
 /turf/open/floor/iron,
 /area/station/engineering/storage/tech)
 "xAc" = (

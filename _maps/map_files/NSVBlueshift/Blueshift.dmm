@@ -10898,9 +10898,6 @@
 /turf/open/floor/wood,
 /area/station/service/library)
 "ckV" = (
-/obj/machinery/computer/upload/borg{
-	dir = 4
-	},
 /obj/effect/turf_decal/delivery/white,
 /turf/open/floor/iron/dark,
 /area/station/ai/upload/chamber)
@@ -23903,12 +23900,12 @@
 /obj/structure/table,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/east,
-/obj/item/ai_module/core/freeformcore{
+/obj/item/ai_module/law/core/freeformcore{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/ai_module/core/full/custom,
-/obj/item/ai_module/core/full/asimov{
+/obj/item/ai_module/law/core/full/custom,
+/obj/item/ai_module/law/core/full/asimov{
 	pixel_x = -3;
 	pixel_y = -3
 	},
@@ -31604,7 +31601,7 @@
 /obj/structure/table,
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/north,
-/obj/item/ai_module/supplied/oxygen{
+/obj/item/ai_module/law/supplied/oxygen{
 	pixel_x = -3;
 	pixel_y = -3
 	},
@@ -39108,7 +39105,7 @@
 	},
 /area/station/hallway/secondary/command)
 "hTG" = (
-/obj/machinery/computer/upload/ai{
+/obj/machinery/ai_law_rack/base/core{
 	dir = 8
 	},
 /obj/effect/turf_decal/delivery/white,
@@ -55169,10 +55166,7 @@
 	name = "engineering camera"
 	},
 /obj/structure/cable,
-/obj/item/ai_module/reset{
-	pixel_y = 8
-	},
-/obj/item/ai_module/core/full/custom{
+/obj/item/ai_module/law/core/full/custom{
 	pixel_y = -4
 	},
 /obj/machinery/door/window/brigdoor/left/directional/west{
@@ -59275,18 +59269,14 @@
 /area/station/commons/dorms)
 "lYQ" = (
 /obj/structure/table,
-/obj/item/ai_module/supplied/quarantine{
+/obj/item/ai_module/law/supplied/quarantine{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/ai_module/supplied/freeform,
-/obj/item/ai_module/reset{
-	pixel_x = -3;
-	pixel_y = -3
-	},
+/obj/item/ai_module/law/supplied/freeform,
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
-/obj/item/ai_module/core/full/armadyne_safeguard,
+/obj/item/ai_module/law/core/full/armadyne_safeguard,
 /obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron,
 /area/station/ai/upload/chamber)
@@ -76574,11 +76564,7 @@
 /obj/structure/table,
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/item/ai_module/supplied/protect_station,
-/obj/item/ai_module/reset/purge{
-	pixel_x = -3;
-	pixel_y = -3
-	},
+/obj/item/ai_module/law/supplied/protect_station,
 /obj/machinery/door/window/brigdoor/left/directional/west{
 	id = list("ai_upload");
 	name = "High-Risk Modules"

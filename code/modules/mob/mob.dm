@@ -1228,7 +1228,7 @@
 	if(client) // NOVA EDIT ADDITION - Update the mob chat color list, adding the new name
 		GLOB.chat_colors_by_mob_name[name] = list(chat_color, chat_color_darkened) // NOVA EDIT ADDITION
 	log_mob_tag("TAG: [tag] RENAMED: [key_name(src)]")
-
+	SEND_SIGNAL(src, COMSIG_MOB_FULLY_RENAMED, oldname, newname)
 	return TRUE
 
 ///Updates GLOB.manifest records with new name , see mob/living/carbon/human

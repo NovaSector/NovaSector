@@ -509,9 +509,9 @@
 	bubble_icon = "syndibot"
 	UnlinkSelf()
 	ionpulse = TRUE
-	laws = new /datum/ai_laws/ninja_override()
+	replace_law_set(/datum/ai_laws/ninja_override)
 	//model.transform_to(pick(/obj/item/robot_model/syndicate, /obj/item/robot_model/syndicate_medical, /obj/item/robot_model/saboteur)) // NOVA EDIT REMOVAL
-	//NOVA EDIT ADDITION START - Role Selection
+	// NOVA EDIT ADDITION START - Role Selection
 	var/list/modelselected = list(
 		"Assault" = "/obj/item/robot_model/ninja",
 		"Medical" = "/obj/item/robot_model/ninja/ninja_medical",
@@ -519,7 +519,7 @@
 	)
 	var/choice = input(src,"What role do you wish to become?","Select Role") in sort_list(modelselected)
 	model.transform_to(modelselected[choice])
-	//NOVA EDIT ADDITION END
+	// NOVA EDIT ADDITION END
 
 	var/datum/antagonist/ninja/ninja_antag = ninja.mind.has_antag_datum(/datum/antagonist/ninja)
 	if(!ninja_antag)
