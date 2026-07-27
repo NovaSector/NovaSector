@@ -28562,13 +28562,6 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/station/science/xenobiology)
-"hrQ" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
-/obj/effect/landmark/start/blueshield,
-/turf/open/floor/iron/dark,
-/area/station/command/bridge)
 "hrW" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
@@ -40300,13 +40293,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/checker,
 /area/station/commons/vacant_room/commissary)
-"krA" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 8
-	},
-/obj/machinery/vending/access/command,
-/turf/open/floor/iron,
-/area/station/hallway/floor4/fore)
 "krF" = (
 /obj/machinery/door/airlock/external{
 	name = "External Airlock"
@@ -49045,7 +49031,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/obj/structure/closet/secure_closet/blueshield,
+/obj/machinery/vending/access/command,
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -310178,7 +310164,7 @@ rrX
 rrX
 djJ
 svK
-hrQ
+bDC
 rrX
 rrX
 iBb
@@ -312237,7 +312223,7 @@ khk
 gfb
 rEU
 hLL
-krA
+vIS
 vIS
 tuy
 qDD
