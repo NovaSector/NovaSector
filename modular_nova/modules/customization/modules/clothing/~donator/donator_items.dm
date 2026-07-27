@@ -74,9 +74,9 @@
 	name = "stellar bouquet"
 	result = /obj/item/bouquet/stellar
 	reqs = list(
-		/obj/item/food/grown/poppy/lily = 2,
-		/obj/item/food/grown/rose = 2,
-		/obj/item/food/grown/poppy/geranium = 2,
+		/obj/item/food/grown/flower/poppy/lily = 2,
+		/obj/item/food/grown/flower/rose = 2,
+		/obj/item/food/grown/flower/poppy/geranium = 2,
 		/obj/item/stack/sheet/mineral/silver = 1,
 	)
 	category = CAT_ENTERTAINMENT
