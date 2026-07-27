@@ -18385,13 +18385,12 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/trimline/blue/filled/corner,
+/obj/machinery/computer/security/telescreen/aiupload/directional/west,
 /obj/machinery/turretid{
-	control_area = "/area/station/ai_monitored/turret_protected/ai_upload";
-	icon_state = "control_stun";
-	name = "AI Upload turret control";
+	control_area = "/area/station/ai/upload/chamber";
+	name = "AI Upload Turret Control";
 	pixel_y = 28
 	},
-/obj/machinery/computer/security/telescreen/aiupload/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/ai/upload/foyer)
 "eIq" = (
@@ -28929,7 +28928,7 @@
 "hwN" = (
 /obj/machinery/camera/autoname/directional/south,
 /obj/machinery/turretid{
-	control_area = "/area/station/ai_monitored/turret_protected/aisat_interior";
+	control_area = "/area/station/ai/satellite/interior";
 	name = "Antechamber Turret Control";
 	pixel_y = -32
 	},
@@ -32148,13 +32147,11 @@
 "inl" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/machinery/turretid{
-	icon_state = "control_stun";
-	name = "AI Chamber turret control";
-	pixel_x = 3;
-	pixel_y = -23
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/turretid{
+	name = "AI Chamber Turret Control";
+	pixel_y = -32
+	},
 /turf/open/floor/circuit,
 /area/station/ai/satellite/chamber)
 "inq" = (
