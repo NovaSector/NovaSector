@@ -273,7 +273,7 @@
 		icon = 'icons/obj/medical/chemical_tanks.dmi' // NOVA EDIT ADDITION - undoes override
 
 /obj/structure/reagent_dispensers/fueltank/boom(damage_type = BRUTE, guaranteed_violent = FALSE) //NOVA EDIT CHANGE
-	stack_trace("Exploded at [get_area_name] ([x], [y], [z]) [AREACOORD(src)]")
+	stack_trace("Exploded at [get_area_name(src)] ([x], [y], [z])")
 	if(damage_type == BURN || guaranteed_violent)
 		explosion(src, heavy_impact_range = 1, light_impact_range = 5, flame_range = 5)
 		qdel(src)
