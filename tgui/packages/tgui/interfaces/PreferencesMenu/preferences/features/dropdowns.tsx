@@ -64,6 +64,7 @@ export function FeatureDropdownInput(props: DropdownInputProps) {
   const { serverData, disabled, buttons, handleSetValue, value } = props;
   const dropdownOptions = serverData ? generateOptions(serverData) : [];
   const displayText = serverData?.display_names?.[value] || String(value);
+  const searchable = dropdownOptions.length > 10; // NOVA EDIT ADDITION - searchable if over 10 elements
   return (
     <Dropdown
       buttons={buttons}
@@ -73,6 +74,8 @@ export function FeatureDropdownInput(props: DropdownInputProps) {
       options={dropdownOptions}
       selected={value}
       width="100%"
+      searchInput={searchable} // NOVA EDIT ADDITION
+      styledInput={searchable} // NOVA EDIT ADDITION
     />
   );
 }

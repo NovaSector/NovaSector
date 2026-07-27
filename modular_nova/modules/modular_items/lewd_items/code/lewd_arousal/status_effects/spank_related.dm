@@ -26,8 +26,9 @@
 	duration = 300 SECONDS
 	alert_type = null
 
-/mob/living/carbon/human/examine(mob/user)
-	. = ..()
+/// Examine lines for our arousal flavor text and a freshly spanked rear. Called by /mob/living/carbon/human/examine().
+/mob/living/carbon/human/proc/get_arousal_examine(mob/user)
+	. = list()
 	if(arousal && ishuman(user))
 		var/mob/living/carbon/human/examiner = user
 		if(examiner.can_see_erp_flavor(src))
@@ -35,7 +36,7 @@
 			if(arousal_flavor_text)
 				. += arousal_flavor_text
 
-	if(stat >= DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH) || src == user || !has_status_effect(/datum/status_effect/spanked) || !is_bottomless())
+	if(IS_DEAD_OR_FAKING(src) || IS_UNCONSCIOUS(src) || src == user || !has_status_effect(/datum/status_effect/spanked) || !is_bottomless())
 		return
 
 	. += span_purple("[user.p_Their()] butt has a red tint to it.") + "\n"
@@ -45,13 +46,13 @@
 		return ""
 
 	if(arousal >= AROUSAL_HIGH)
-		var/high_flavor = client.prefs.read_preference(/datum/preference/text/erp_flavor/high_arousal)
+		var/high_flavor = dna.features[ERP_FLAVOR_DNA_HIGH_AROUSAL]
 		return high_flavor ? span_userlove(high_flavor) + "\n" : ""
 	if(arousal >= AROUSAL_MEDIUM)
-		var/medium_flavor = client.prefs.read_preference(/datum/preference/text/erp_flavor/medium_arousal)
+		var/medium_flavor = dna.features[ERP_FLAVOR_DNA_MEDIUM_AROUSAL]
 		return medium_flavor ? span_userlove(medium_flavor) + "\n" : ""
 	if(arousal >= AROUSAL_LOW)
-		var/low_flavor = client.prefs.read_preference(/datum/preference/text/erp_flavor/low_arousal)
+		var/low_flavor = dna.features[ERP_FLAVOR_DNA_LOW_AROUSAL]
 		return low_flavor ? span_purple(low_flavor) + "\n" : ""
 	return ""
 

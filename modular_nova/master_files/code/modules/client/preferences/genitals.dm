@@ -280,17 +280,23 @@
 	var/passed_initial_check = ..(preferences)
 	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
 	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_genitals)
-	var/part_enabled = is_factual_sprite_accessory(relevant_mutant_bodypart, preferences.read_preference(/datum/preference/choiced/genital/penis))
+	var/penis_choice = preferences.read_preference(/datum/preference/choiced/genital/penis)
+	var/datum/sprite_accessory/genital/penis/penis_accessory = SSaccessories.sprite_accessories[FEATURE_PENIS][penis_choice]
+	if(!penis_accessory?.can_have_sheath)
+		return FALSE
+	var/part_enabled = is_factual_sprite_accessory(relevant_mutant_bodypart, penis_choice)
 	return erp_allowed && part_enabled && (passed_initial_check || allowed)
 
-/datum/preference/choiced/penis_sheath/init_possible_values()
-	return SHEATH_MODES
-
-/datum/preference/choiced/penis_sheath/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["penis_sheath"] = value
-
 /datum/preference/choiced/penis_sheath/create_default_value()
-	return SHEATH_NONE
+	return /datum/sprite_accessory/genital/sheath/none::name
+
+/datum/preference/choiced/penis_sheath/init_possible_values()
+	return assoc_to_keys_features(SSaccessories.sprite_accessories[FEATURE_SHEATH])
+
+/datum/preference/choiced/penis_sheath/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	var/datum/preference/choiced/penis_sheath/penis_sheath_pref = GLOB.preference_entries[/datum/preference/choiced/penis_sheath]
+	if(penis_sheath_pref.is_accessible(preferences))
+		target.dna.features["penis_sheath"] = value
 
 // TESTES
 

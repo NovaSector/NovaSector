@@ -28,7 +28,7 @@
 	var/obj/item/clothing/head/cone_of_shame/bad_dog/thecone = new
 	if(iscarbon(target))
 		var/mob/living/carbon/shamed = target
-		var/obj/item/worn_necky = shamed.wear_neck
+		var/obj/item/worn_necky = target.get_item_by_slot(ITEM_SLOT_NECK)
 		if(istype(worn_necky))
 			shamed.dropItemToGround(worn_necky)
 		if(shamed.equip_to_slot_if_possible(thecone, ITEM_SLOT_NECK, qdel_on_fail = TRUE, disable_warning = TRUE, redraw_mob = TRUE))
@@ -52,16 +52,40 @@
 	if (!iscarbon(target))
 		to_chat(user, span_warning("This must be used on a carbon mob."), confidential = TRUE)
 		return
-	var/list/items = list(
-		/obj/item/clothing/head/costume/maid_headband = ITEM_SLOT_HEAD,
-		/obj/item/clothing/neck/maid_neck_cover = ITEM_SLOT_NECK,
-		/obj/item/clothing/gloves/maid_arm_covers = ITEM_SLOT_GLOVES,
-		/obj/item/clothing/under/costume/maid = ITEM_SLOT_ICLOTHING,
+	var/list/outfit_options = list(
+		"Maid Uniform - Frilly" = list(
+			/obj/item/clothing/head/costume/maid_headband = ITEM_SLOT_HEAD,
+			/obj/item/clothing/under/costume/maid = ITEM_SLOT_ICLOTHING,
+		),
+		"Maid Uniform (Light Blue)" = list(
+			/obj/item/clothing/head/maid_headband = ITEM_SLOT_HEAD,
+			/obj/item/clothing/neck/maid_neck_cover = ITEM_SLOT_NECK,
+			/obj/item/clothing/gloves/maid_arm_covers = ITEM_SLOT_GLOVES,
+			/obj/item/clothing/under/maid_costume = ITEM_SLOT_ICLOTHING,
+		),
+		"Maid Uniform" = list(
+			/obj/item/clothing/head/costume/nova/maid = ITEM_SLOT_HEAD,
+			/obj/item/clothing/under/costume/nova/maid_uniform = ITEM_SLOT_ICLOTHING,
+		),
+		"Maid Uniform (Alternative)" = list(
+			/obj/item/clothing/head/costume/nova/maid = ITEM_SLOT_HEAD,
+			/obj/item/clothing/under/costume/nova/maid_uniform_alt = ITEM_SLOT_ICLOTHING,
+		),
+		"Syndiemaid" = list(
+			/obj/item/clothing/head/costume/maid_headband/syndicate/loadout_headband = ITEM_SLOT_HEAD,
+			/obj/item/clothing/under/syndicate/nova/maid/loadout_maid = ITEM_SLOT_ICLOTHING,
+			/obj/item/clothing/gloves/tactical_maid = ITEM_SLOT_GLOVES,
+		),
 	)
-	var/mob/living/carbon/human/shamed = target
+	var/chosen_outfit = tgui_input_list(user, "Which maid outfit should be applied?", "Maid-ification", outfit_options)
+	if(!chosen_outfit)
+		return
+	var/list/items = outfit_options[chosen_outfit]
+	var/mob/living/carbon/shamed = target
 	for(var/path, slot in items)
 		target.dropItemToGround(target.get_item_by_slot(slot))
 		var/obj/item/clothing/new_item = new path
 		if(target.equip_to_slot_or_del(new_item, slot))
 			smite_item_protection(new_item)
-	shamed.visible_message(span_warning("A maid uniform appears on [shamed]!"))
+	if(!QDELETED(shamed))
+		shamed.visible_message(span_warning("A maid uniform appears on [shamed]!"))

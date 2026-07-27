@@ -89,14 +89,14 @@
 		ascarbon.balloon_alert(ascarbon, "restrained!")
 		return
 
-	passwindow_on(owner, type)
+	ADD_TRAIT(owner, TRAIT_PASSWINDOW, type)
 
 	holosynth_drop_unkept_items(owner)
 	step(owner, dir_to_move)
 	if(wumpee.fulltile)
 		step(owner, dir_to_move)
 
-	passwindow_off(owner, type)
+	REMOVE_TRAIT(owner, TRAIT_PASSWINDOW, type)
 
 /// Returns TRUE if the destination tile past the window can't be entered (wall, dense obstacle, etc.).
 /// Unshocked grilles and directional (half-tile) windows don't count — holosynths phase through

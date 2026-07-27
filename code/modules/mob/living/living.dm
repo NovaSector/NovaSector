@@ -19,6 +19,7 @@
 	SSpoints_of_interest.make_point_of_interest(src)
 	update_fov()
 	gravity_setup()
+	init_unconscious_appearance()
 
 /mob/living/prepare_huds()
 	..()
@@ -27,6 +28,10 @@
 /mob/living/proc/prepare_data_huds()
 	med_hud_set_health()
 	med_hud_set_status()
+
+/// Inits the unconscious alt appearance for when other mobs see us while unconscious
+/mob/living/proc/init_unconscious_appearance()
+	return
 
 /mob/living/Destroy()
 	for(var/datum/status_effect/effect as anything in status_effects)
@@ -426,9 +431,7 @@
 		log_combat(AM, AM.pulledby, "pulled from", src)
 		AM.pulledby.stop_pulling() //an object can't be pulled by two mobs at once.
 
-	pulling = AM
-	AM.set_pulledby(src)
-
+	set_pulling(AM)
 	SEND_SIGNAL(src, COMSIG_LIVING_START_PULL, AM, state, force)
 
 	if(!supress_message)
@@ -550,9 +553,7 @@
 
 //mob verbs are a lot faster than object verbs
 //for more info on why this is not atom/pull, see examinate() in mob.dm
-/mob/living/verb/pulled(atom/movable/thing_pulled as mob|obj in oview(1))
-	set name = "Pull"
-
+GAME_VERB(/mob/living, pulled, "Pull", null, atom/movable/thing_pulled as mob|obj in oview(1))
 	if(istype(thing_pulled) && Adjacent(thing_pulled))
 		start_pulling(thing_pulled)
 
@@ -576,8 +577,7 @@
 	log_message("points at [pointing_at]", LOG_EMOTE)
 	visible_message(span_infoplain("[span_name("[src]")] points at [pointing_at]."), span_notice("You point at [pointing_at]."))
 
-/mob/living/verb/succumb(whispered as num|null)
-	set hidden = TRUE
+GAME_VERB_HIDDEN(/mob/living, succumb, "succumb", whispered as num|null)
 	if (!CAN_SUCCUMB(src))
 		if(HAS_TRAIT(src, TRAIT_SUCCUMB_OVERRIDE))
 			if(whispered)
@@ -636,10 +636,8 @@
 
 // MOB PROCS //END
 
-/* NOVA EDIT REMOVAL BEGIN - Handled in [modular_nova/master_files/code/modules/sleep/code/mob/living/living.dm]
-/mob/living/proc/mob_sleep()
-	set name = "Sleep"
-	set hidden = TRUE
+/* // NOVA EDIT REMOVAL BEGIN - Handled in [modular_nova/master_files/code/modules/sleep/code/mob/living/living.dm]
+GAME_VERB_PROC(/mob/living, mob_sleep, "Sleep", null)
 
 	if(IsSleeping())
 		to_chat(src, span_warning("You are already sleeping!"))
@@ -647,7 +645,7 @@
 	else
 		if(tgui_alert(usr, "You sure you want to sleep for a while?", "Sleep", list("Yes", "No")) == "Yes")
 			SetSleeping(400) //Short nap
-NOVA EDIT REMOVAL END */
+*/ //NOVA EDIT REMOVAL END
 
 
 /mob/proc/get_contents()
@@ -751,7 +749,7 @@ NOVA EDIT REMOVAL END */
 	if(istype(potential_spine))
 		get_up_time *= potential_spine.athletics_boost_multiplier
 
-	// if(!instant && !do_after(src, get_up_time, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE)) // NOVA EDIT REMOVAL
+	// if(!instant && !do_after(src, get_up_time, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, cog_icon = null)) // NOVA EDIT REMOVAL
 	// NOVA EDIT ADDITION START
 	var/stam = get_stamina_loss()
 	switch(FLOOR(stam,1))
@@ -764,12 +762,12 @@ NOVA EDIT REMOVAL END */
 	if(!instant)
 		if(get_up_time > GET_UP_MEDIUM SECONDS) //Slow getups are easily noticable
 			visible_message(span_notice("[src] weakly attempts to stand up."), span_notice("You weakly attempt to stand up."))
-			if(!do_after(src, get_up_time, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE))
+			if(!do_after(src, get_up_time, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, cog_icon = null))
 				if(!body_position == STANDING_UP)
 					visible_message(span_warning("[src] fails to stand up."), span_warning("You fail to stand up."))
 				return
 		else
-			if(!do_after(src, get_up_time, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, hidden = TRUE))
+			if(!do_after(src, get_up_time, src, timed_action_flags = (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE|IGNORE_HELD_ITEM), extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob/living, rest_checks_callback)), interaction_key = DOAFTER_SOURCE_GETTING_UP, cog_icon = null))
 				return
 	if(pulledby && pulledby.grab_state)
 		to_chat(src, span_warning("You fail to stand up, you're restrained!"))
@@ -949,8 +947,9 @@ NOVA EDIT REMOVAL END */
 		fully_heal(full_heal_flags)
 
 	if(stat == DEAD && can_be_revived() || (full_heal_flags & HEAL_ADMIN)) //in some cases you can't revive (e.g. no brain) //NOVA EDIT ADDITION - DNR TRAIT - Added: " || (full_heal_flags & HEAL_ADMIN)"
+		REMOVE_TRAIT(src, TRAIT_DISSECTED, AUTOPSY_TRAIT)
 		set_suicide(FALSE)
-		set_stat(UNCONSCIOUS) //the mob starts unconscious,
+		set_stat(HARD_CRIT) //the mob starts unconscious,
 		updatehealth() //then we check if the mob should wake up.
 		if(full_heal_flags & HEAL_ADMIN)
 			get_up(TRUE)
@@ -1084,9 +1083,11 @@ NOVA EDIT REMOVAL END */
 /// Checks if we are actually able to ressuscitate this mob.
 /// (We don't want to revive then to have them instantly die again)
 /mob/living/proc/can_be_revived()
-	if(health <= HEALTH_THRESHOLD_DEAD)
-		return FALSE
-	return TRUE
+	if(HAS_TRAIT(src, TRAIT_NODEATH))
+		return TRUE
+	if(health > HEALTH_THRESHOLD_DEAD)
+		return TRUE
+	return FALSE
 
 /mob/living/proc/update_damage_overlays()
 	return
@@ -1098,7 +1099,8 @@ NOVA EDIT REMOVAL END */
 		if (!buckled.anchored)
 			buckled.moving_from_pull = moving_from_pull
 			. = buckled.Move(newloc, direct, glide_size)
-			buckled.moving_from_pull = null
+			if(buckled) //buckled can become unbuckled, apparently
+				buckled.moving_from_pull = null
 		return
 
 	var/old_direction = dir
@@ -1236,10 +1238,11 @@ NOVA EDIT REMOVAL END */
 			resist_restraints() //trying to remove cuffs.
 
 /mob/proc/resist_grab(moving_resist)
-	return 1 //returning 0 means we successfully broke free
+	return FALSE
 
 /mob/living/resist_grab(moving_resist)
-	. = TRUE
+	if(HAS_TRAIT(src, TRAIT_INCAPACITATED))
+		return FALSE
 
 	var/list/grab_stats = list(
 		// Our effective grab state.
@@ -1317,17 +1320,23 @@ NOVA EDIT REMOVAL END */
 			to_chat(pulledby, span_warning("[src] breaks free of your grip!"))
 			log_combat(pulledby, src, "broke grab")
 			pulledby.stop_pulling()
-			return FALSE
-		else
-			adjust_stamina_loss(damage_on_resist_fail) //Do some stamina damage if we fail to resist
-			visible_message(span_danger("[src] struggles as they fail to break free of [pulledby]'s grip!"), \
-							span_warning("You struggle as you fail to break free of [pulledby]'s grip!"), null, null, pulledby)
-			to_chat(pulledby, span_danger("[src] struggles as they fail to break free of your grip!"))
+			return TRUE
+
+		adjust_stamina_loss(damage_on_resist_fail) //Do some stamina damage if we fail to resist
+		visible_message(
+			span_danger("[src] struggles as they fail to break free of [pulledby]'s grip!"),
+			span_warning("You struggle as you fail to break free of [pulledby]'s grip!"),
+			null,
+			null,
+			pulledby,
+		)
+		to_chat(pulledby, span_danger("[src] struggles as they fail to break free of your grip!"))
 		if(moving_resist && client) //we resisted by trying to move
 			client.move_delay = world.time + 4 SECONDS
-	else
-		pulledby.stop_pulling()
 		return FALSE
+
+	pulledby.stop_pulling()
+	return TRUE
 
 /mob/living/proc/resist_buckle()
 	buckled.user_unbuckle_mob(src,src)
@@ -1442,7 +1451,7 @@ NOVA EDIT REMOVAL END */
 	if(!istype(target))
 		CRASH("Missing target arg for can_perform_action")
 
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(src, span_warning("You are not conscious enough for this action!"))
 		return FALSE
 
@@ -1646,10 +1655,10 @@ NOVA EDIT REMOVAL END */
 				new_mob.SetInvisibility(INVISIBILITY_NONE)
 				new_mob.job = JOB_CYBORG
 				created_robot.lawupdate = FALSE
-				created_robot.connected_ai = null
+				created_robot.set_connected_ai(null)
 				created_robot.mmi.transfer_identity(src) //Does not transfer key/client.
-				created_robot.clear_inherent_laws(announce = FALSE)
-				created_robot.clear_zeroth_law(announce = FALSE)
+				created_robot.laws.clear_inherent_laws()
+				created_robot.laws.clear_zeroth_law()
 
 		if(WABBAJACK_SLIME)
 			new_mob = new /mob/living/basic/slime/random(loc)
@@ -2070,10 +2079,10 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	//Check the amount of clients exists on the Z level we're leaving from,
 	//this excludes us because at this point we are not registered to any z level.
 	var/old_level_new_clients = (registered_z ? SSmobs.clients_by_zlevel[registered_z].len : null)
-	//No one is left after we're gone, shut off inactive ones
+	//No one is left after we're gone, recalculate AI status so eligible ones shut off
 	if(registered_z && old_level_new_clients == 0)
-		for(var/datum/ai_controller/controller as anything in GLOB.ai_controllers_by_zlevel[registered_z])
-			controller.set_ai_status(AI_STATUS_OFF)
+		for(var/datum/ai_controller/controller as anything in SSai_controllers.ai_controllers_by_zlevel[registered_z])
+			controller.set_ai_status(controller.get_expected_ai_status())
 
 	if(new_z)
 		//Check the amount of clients exists on the Z level we're moving towards, excluding ourselves.
@@ -2083,7 +2092,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 		SSmobs.clients_by_zlevel[new_z] += src
 
 		if(new_level_old_clients == 0) //No one was here before, wake up all the AIs.
-			for (var/datum/ai_controller/controller as anything in GLOB.ai_controllers_by_zlevel[new_z])
+			for (var/datum/ai_controller/controller as anything in SSai_controllers.ai_controllers_by_zlevel[new_z])
 				//We don't set them directly on, for instances like AIs acting while dead and other cases that may exist in the future.
 				//This isn't a problem for AIs with a client since the client will prevent this from being called anyway.
 				controller.set_ai_status(controller.get_expected_ai_status())
@@ -2094,29 +2103,17 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	..()
 	update_z(new_turf?.z)
 
-/mob/living/mouse_drop_receive(atom/dropping, atom/user, params)
-	var/mob/living/U = user
-	if(isliving(dropping))
-		var/mob/living/M = dropping
-		if(M.can_be_held && U.pulling == M)
-			/* // NOVA EDIT REMOVAL START
-			M.mob_try_pickup(U)//blame kevinz
-			return//dont open the mobs inventory if you are picking them up
-			*/ // NOVA EDIT REMOVAL END
-			return M.mob_try_pickup(U) // NOVA EDIT ADDITION - don't open the mob's inventory if you are picking them up
-	return ..()
+/mob/living/proc/set_name()
+	if(identifier == 0)
+		identifier = rand(1, 999)
+	name = "[name] ([identifier])"
+	real_name = name
 
 /mob/living/proc/mob_pickup(mob/living/user)
 	var/obj/item/mob_holder/holder = new inhand_holder_type(get_turf(src), src, held_state, head_icon, held_lh, held_rh, worn_slot_flags)
 	SEND_SIGNAL(src, COMSIG_LIVING_SCOOPED_UP, user, holder)
 	user.visible_message(span_warning("[user] scoops up [src]!"))
 	user.put_in_hands(holder)
-
-/mob/living/proc/set_name()
-	if(identifier == 0)
-		identifier = rand(1, 999)
-	name = "[name] ([identifier])"
-	real_name = name
 
 /mob/living/proc/mob_try_pickup(mob/living/user, instant=FALSE)
 	if(!ishuman(user) && (user.mob_size <= mob_size || user.num_hands == 0))
@@ -2510,66 +2507,65 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 
 /mob/living/set_stat(new_stat)
 	. = ..()
-	if(isnull(.))
+	if(isnull(.) || . == stat)
 		return
 
-	if(. <= UNCONSCIOUS || new_stat >= UNCONSCIOUS)
-		update_eyes()
+	// All the traits associated with any of a mob's stat
+	// Adding any traits below should also be done in here
+	var/list/removed_traits = list(
+		TRAIT_DEAF,
+		TRAIT_FLOORED,
+		TRAIT_HANDS_BLOCKED,
+		TRAIT_INCAPACITATED,
+		TRAIT_KNOCKEDOUT,
+		TRAIT_FORCE_WHISPER,
+	)
+	// All the traits associated with the mob's current stat
+	var/list/added_traits = list()
 
-	switch(.) //Previous stat.
-		if(CONSCIOUS)
-			if(stat >= UNCONSCIOUS)
-				ADD_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT)
-			add_traits(list(TRAIT_HANDS_BLOCKED, TRAIT_INCAPACITATED, TRAIT_FLOORED), STAT_TRAIT)
+	switch(stat) // Current stat
+		if(STABLE)
+			log_combat(src, src, "left crit")
+
 		if(SOFT_CRIT)
-			if(stat >= UNCONSCIOUS)
-				ADD_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT) //adding trait sources should come before removing to avoid unnecessary updates
-			if(pulledby)
-				REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)
-		if(UNCONSCIOUS)
-			if(stat != HARD_CRIT)
-				cure_blind(UNCONSCIOUS_TRAIT)
-		if(HARD_CRIT)
-			if(stat != UNCONSCIOUS)
-				cure_blind(UNCONSCIOUS_TRAIT)
-			REMOVE_TRAIT(src, TRAIT_DEAF, STAT_TRAIT)
-		if(DEAD)
-			REMOVE_TRAIT(src, TRAIT_DEAF, STAT_TRAIT)
-			remove_from_dead_mob_list()
-			add_to_alive_mob_list()
-	switch(stat) //Current stat.
-		if(CONSCIOUS)
-			if(. >= UNCONSCIOUS)
-				REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT)
-			remove_traits(list(TRAIT_HANDS_BLOCKED, TRAIT_INCAPACITATED, TRAIT_FLOORED, TRAIT_CRITICAL_CONDITION), STAT_TRAIT)
-			log_combat(src, src, "regained consciousness")
-		if(SOFT_CRIT)
-			if(pulledby)
-				ADD_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT) //adding trait sources should come before removing to avoid unnecessary updates
-			if(. >= UNCONSCIOUS)
-				REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, TRAIT_KNOCKEDOUT)
-			ADD_TRAIT(src, TRAIT_CRITICAL_CONDITION, STAT_TRAIT)
 			log_combat(src, src, "entered soft crit")
-		if(UNCONSCIOUS)
-			if(. != HARD_CRIT)
-				become_blind(UNCONSCIOUS_TRAIT)
-			if(health <= crit_threshold && !HAS_TRAIT(src, TRAIT_NOSOFTCRIT))
-				ADD_TRAIT(src, TRAIT_CRITICAL_CONDITION, STAT_TRAIT)
-			else
-				REMOVE_TRAIT(src, TRAIT_CRITICAL_CONDITION, STAT_TRAIT)
-			log_combat(src, src, "lost consciousness")
+			added_traits.Add(
+				TRAIT_FLOORED,
+				TRAIT_HANDS_BLOCKED,
+				TRAIT_INCAPACITATED,
+				TRAIT_FORCE_WHISPER,
+			)
+
 		if(HARD_CRIT)
-			if(. != UNCONSCIOUS)
-				become_blind(UNCONSCIOUS_TRAIT)
-			ADD_TRAIT(src, TRAIT_CRITICAL_CONDITION, STAT_TRAIT)
-			ADD_TRAIT(src, TRAIT_DEAF, STAT_TRAIT)
 			log_combat(src, src, "entered hard crit")
+			added_traits.Add(
+				TRAIT_DEAF,
+				TRAIT_FLOORED,
+				TRAIT_HANDS_BLOCKED,
+				TRAIT_INCAPACITATED,
+				TRAIT_KNOCKEDOUT,
+			)
+
 		if(DEAD)
-			REMOVE_TRAIT(src, TRAIT_CRITICAL_CONDITION, STAT_TRAIT)
-			ADD_TRAIT(src, TRAIT_DEAF, STAT_TRAIT)
-			remove_from_alive_mob_list()
-			add_to_dead_mob_list()
 			log_combat(src, src, "died")
+			added_traits.Add(
+				TRAIT_DEAF,
+				TRAIT_FLOORED,
+				TRAIT_HANDS_BLOCKED,
+				TRAIT_INCAPACITATED,
+				TRAIT_KNOCKEDOUT,
+			)
+
+	if(stat == DEAD)
+		remove_from_alive_mob_list()
+		add_to_dead_mob_list()
+	else if(. == DEAD)
+		remove_from_dead_mob_list()
+		add_to_alive_mob_list()
+
+	add_traits(added_traits, STAT_TRAIT)
+	remove_traits(removed_traits - added_traits, STAT_TRAIT)
+	update_succumb_action()
 
 ///Reports the event of the change in value of the buckled variable.
 /mob/living/proc/set_buckled(new_buckled)
@@ -2602,14 +2598,6 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 /mob/living/set_pulledby(new_pulledby)
 	. = ..()
 	update_incapacitated()
-	if(. == FALSE) //null is a valid value here, we only want to return if FALSE is explicitly passed.
-		return
-	if(pulledby)
-		if(!. && stat == SOFT_CRIT)
-			ADD_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)
-	else if(. && stat == SOFT_CRIT)
-		REMOVE_TRAIT(src, TRAIT_IMMOBILIZED, PULLED_WHILE_SOFTCRIT_TRAIT)
-
 
 /// Updates the grab state of the mob and updates movespeed
 /mob/living/setGrabState(newstate)
@@ -2703,7 +2691,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 
 /mob/living/perform_hand_swap(held_index)
 	//safeguard for one-handed mobs lol
-	if(num_hands == 1)
+	if(length(held_items) == 1)
 		held_index = 1
 
 	return ..()
@@ -3120,7 +3108,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	var/comparative_fitness = their_fitness_level ? our_fitness_level / their_fitness_level : 1
 
 	if (comparative_fitness > 2)
-		scouter.set_jitter_if_lower(comparative_fitness SECONDS)
+		//scouter.set_jitter_if_lower(comparative_fitness SECONDS) // NOVA EDIT REMOVAL
 		return "[span_notice("You'd estimate [p_their()] fitness level at about...")] [span_boldwarning("What?!? [our_fitness_level]???")]"
 
 	return span_notice("You'd estimate [p_their()] fitness level at about [our_fitness_level]. [comparative_fitness <= 0.33 ? "Pathetic." : ""]")
@@ -3168,3 +3156,17 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 		remove_verb(src, /mob/living/verb/pulled)
 	else
 		add_verb(src, /mob/living/verb/pulled)
+
+/// Generic helper to add a static-y humanoid appearance shown to other mobs when unconscious
+/mob/living/proc/add_generic_humanoid_static_appearance()
+	SHOULD_NOT_OVERRIDE(TRUE)
+
+	var/image/static_image = image('icons/effects/effects.dmi', src, "static")
+	static_image.override = TRUE
+	static_image.name = "unknown humanoid"
+	add_alt_appearance(
+		/datum/atom_hud/alternate_appearance/basic/unconscious_obscurity,
+		"[REF(src)]_unconscious",
+		static_image,
+		NONE,
+	)

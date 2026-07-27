@@ -12,7 +12,7 @@
 		SPECIES_KOBOLD = 1,
 	)
 
-/datum/sprite_accessory/snouts/is_hidden(mob/living/carbon/human/human)
+/datum/sprite_accessory/snouts/is_hidden(mob/living/carbon/human/human, datum/bodypart_overlay/mutant/bodypart_overlay)
 	return !!(human.obscured_slots & HIDESNOUT)
 
 /obj/item/organ/snout
@@ -24,14 +24,6 @@
 
 /datum/bodypart_overlay/mutant/snout/override_color(rgb_value)
 	return draw_color
-
-/datum/bodypart_overlay/mutant/snout/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
-	if(!..())
-		return FALSE
-	var/mob/living/carbon/human/human = owner || bodypart_owner.owner
-	if(!istype(human))
-		return TRUE
-	return !sprite_datum.is_hidden(human)
 
 /obj/item/organ/snout/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_USE_MUZZLED_SPRITE)

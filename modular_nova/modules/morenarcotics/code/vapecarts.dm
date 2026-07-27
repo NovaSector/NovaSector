@@ -36,22 +36,23 @@
 		to_chat(user, span_notice("You empty [src] of all reagents."))
 		reagents.clear_reagents()
 
-/obj/item/reagent_containers/vapecart/empty/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if (istype(attacking_item, /obj/item/pen) || istype(attacking_item, /obj/item/toy/crayon))
+/obj/item/reagent_containers/vapecart/empty/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if (istype(tool, /obj/item/pen) || istype(tool, /obj/item/toy/crayon))
 		if(!user.is_literate())
 			to_chat(user, span_notice("You scribble illegibly on the label of the vape cart!"))
-			return
+			return ITEM_INTERACT_BLOCKING
 		var/new_title = stripped_input(user, "What would you like to label the vape cart?", name, null, 53)
 		if(!user.can_perform_action(src))
-			return
-		if(user.get_active_held_item() != attacking_item)
-			return
+			return ITEM_INTERACT_BLOCKING
+		if(user.get_active_held_item() != tool)
+			return ITEM_INTERACT_BLOCKING
 		if(new_title)
 			labelled = TRUE
 			name = "[new_title]"
 		else
 			labelled = FALSE
 			update_name()
+		return ITEM_INTERACT_SUCCESS
 	else
 		return ..()
 

@@ -20,7 +20,7 @@
 
 /obj/item/ammo_box/magazine/miecz
 	name = "\improper Miecz submachinegun magazine"
-	desc = "A standard size magazine for Miecz submachineguns, holds twenty eight rounds."
+	desc = "A standard size magazine for Miecz submachineguns, holds twenty four rounds."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "miecz_mag"
@@ -29,7 +29,7 @@
 
 	ammo_type = /obj/item/ammo_casing/c27_54cesarzowa
 	caliber = CALIBER_CESARZOWA
-	max_ammo = 28
+	max_ammo = 24
 
 /obj/item/ammo_box/magazine/miecz/spawns_empty
 	start_empty = TRUE

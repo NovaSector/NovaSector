@@ -252,7 +252,7 @@
 	cyborg.model = new_model
 	cyborg.update_module_innate()
 	new_model.rebuild_modules()
-	cyborg.radio.recalculateChannels()
+	cyborg.radio?.recalculateChannels() // NOVA EDIT CHANGE - ORIGINAL: cyborg.radio.recalculateChannels()
 	cyborg.set_modularInterface_theme()
 	cyborg.diag_hud_set_health()
 	cyborg.diag_hud_set_status()
@@ -482,6 +482,7 @@
 	name = "Janitor"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
+		/obj/item/borg/cleaner_box,
 		/obj/item/screwdriver/cyborg,
 		/obj/item/crowbar/cyborg,
 		/obj/item/stack/tile/iron/base/cyborg, // haha jani will have old tiles >:D

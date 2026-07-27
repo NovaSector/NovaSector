@@ -98,6 +98,7 @@
 				/obj/item/clothing/under/dress/nova/giant_scarf = 5,
 				/obj/item/clothing/under/pants/nova/shorted_overall = 5,
 				/obj/item/clothing/under/misc/nova/gear_harness = 5,
+				/obj/item/clothing/under/misc/nova/modskin = 5,
 				/obj/item/clothing/under/shorts/nova/shortershorts = 5,
 				/obj/item/clothing/under/camo/gags = 5,
 			),

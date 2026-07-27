@@ -2,8 +2,9 @@
 	key = FEATURE_EARS
 	organ_type = /obj/item/organ/ears_external
 	color_src = USE_MATRIXED_COLORS
+	use_custom_mod_icon = TRUE
 
-/datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer)
+/datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
 	if(!(wearer.obscured_slots & HIDEHAIR))
 		return (key in wearer.try_hide_mutant_parts)
 	if(key in wearer.try_hide_mutant_parts)
@@ -184,6 +185,11 @@
 /datum/sprite_accessory/ears/external/elephant
 	name = "Elephant"
 	icon_state = "elephant"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/external/experiment
+	name = "Experiment"
+	icon_state = "expear"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/ears/external/fennec

@@ -55,21 +55,23 @@
 	else
 		. += span_warning("\The [src] does not have a power source installed.")
 
-/obj/item/kinky_shocker/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	var/obj/item/stock_parts/power_store/cell/powercell = attacking_item
+/obj/item/kinky_shocker/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	var/obj/item/stock_parts/power_store/cell/powercell = tool
 	if(!istype(powercell))
 		return ..()
 	if(cell)
 		to_chat(user, span_warning("[src] already has a cell!"))
+		return ITEM_INTERACT_BLOCKING
 	else
 		if(powercell.maxcharge < cell_hit_cost)
 			to_chat(user, span_notice("[src] requires a higher capacity cell."))
-			return
+			return ITEM_INTERACT_BLOCKING
 		if(!user.transferItemToLoc(powercell, src))
-			return
+			return ITEM_INTERACT_BLOCKING
 		cell = powercell
 		to_chat(user, span_notice("You install a cell in [src]."))
 		update_appearance()
+		return ITEM_INTERACT_SUCCESS
 
 /obj/item/kinky_shocker/click_alt(mob/user)
 	tryremovecell(user)

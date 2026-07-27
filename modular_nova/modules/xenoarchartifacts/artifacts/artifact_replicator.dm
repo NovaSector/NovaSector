@@ -134,21 +134,22 @@
 	popup.set_content(dat)
 	popup.open()
 
-/obj/machinery/replicator/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(attacking_item.item_flags & (ABSTRACT | DROPDEL))
+/obj/machinery/replicator/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(tool.item_flags & (ABSTRACT | DROPDEL))
 		user.visible_message(
-			span_notice("[user] tries to insert [attacking_item] into [src], but the opening is too small."),
-			span_notice("[attacking_item] doesn't fit into [src]."),
+			span_notice("[user] tries to insert [tool] into [src], but the opening is too small."),
+			span_notice("[tool] doesn't fit into [src]."),
 		)
-		return
-	if(!user.transferItemToLoc(attacking_item, src))
-		to_chat(user, span_warning("\The [attacking_item] is stuck to your hand, you cannot put it in the machine!"))
-		return TRUE
-	stored_materials.Add(attacking_item)
+		return ITEM_INTERACT_BLOCKING
+	if(!user.transferItemToLoc(tool, src))
+		to_chat(user, span_warning("\The [tool] is stuck to your hand, you cannot put it in the machine!"))
+		return ITEM_INTERACT_BLOCKING
+	stored_materials.Add(tool)
 	visible_message(
-		span_notice("[user] inserts [attacking_item] into [src]."),
-		span_notice("You insert [attacking_item] into [src]."),
+		span_notice("[user] inserts [tool] into [src]."),
+		span_notice("You insert [tool] into [src]."),
 	)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/replicator/Topic(href, href_list)
 	. = ..()

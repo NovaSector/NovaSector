@@ -1,7 +1,4 @@
-/mob/living/carbon/human/verb/lick(mob/living/carbon/human/target in get_adjacent_humans())
-	set name = "Lick"
-	set category = "IC"
-
+GAME_VERB(/mob/living/carbon/human, lick, "Lick", "IC", mob/living/carbon/human/target in get_adjacent_humans())
 	if(!istype(target))
 		return FALSE
 	if(!get_organ_slot(ORGAN_SLOT_TONGUE))
@@ -10,7 +7,7 @@
 	if(!can_use_erp_flavor_verb(target, "doesn't feel like being touched right now."))
 		return FALSE
 
-	var/taste = target.client?.prefs?.read_preference(/datum/preference/text/erp_flavor/taste)
+	var/taste = target.dna.features[ERP_FLAVOR_DNA_TASTE]
 	if(!taste)
 		to_chat(src, span_warning("[target] doesn't seem to have a taste."))
 		return FALSE
@@ -19,16 +16,13 @@
 	to_chat(target, span_notice("[src] licks you."))
 	return TRUE
 
-/mob/living/carbon/human/verb/smell(mob/living/carbon/human/target in get_adjacent_humans())
-	set name = "Smell"
-	set category = "IC"
-
+GAME_VERB(/mob/living/carbon/human, smell, "Smell", "IC", mob/living/carbon/human/target in get_adjacent_humans())
 	if(!istype(target))
 		return FALSE
 	if(!can_use_erp_flavor_verb(target, "doesn't feel like being approached that close right now."))
 		return FALSE
 
-	var/scent = target.client?.prefs?.read_preference(/datum/preference/text/erp_flavor/smell)
+	var/scent = target.dna.features[ERP_FLAVOR_DNA_SCENT]
 	if(!scent)
 		to_chat(src, span_warning("[target] doesn't seem to have a smell."))
 		return FALSE

@@ -1,0 +1,35 @@
+services:
+  tts-pocket:
+    container_name: tts-pocket
+    build: .
+    ports:
+      - "5002:5002"
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
+    environment:
+      TTS_AUTHORIZATION_TOKEN: ${TTS_AUTHORIZATION_TOKEN:?set TTS_AUTHORIZATION_TOKEN in the host env or .env file}
+      POCKETTTS_LANGUAGE: ${POCKETTTS_LANGUAGE:-english}
+      POCKETTTS_QUANTIZE: ${POCKETTTS_QUANTIZE:-1}
+      POCKETTTS_ENABLE_PITCH: ${POCKETTTS_ENABLE_PITCH:-1}
+      POCKETTTS_PRELOAD_MODEL: ${POCKETTTS_PRELOAD_MODEL:-0}
+      POCKETTTS_PRELOAD_VOICES: ${POCKETTTS_PRELOAD_VOICES:-0}
+      POCKETTTS_BACKGROUND_WARMUP: ${POCKETTTS_BACKGROUND_WARMUP:-1}
+      POCKETTTS_WARMUP_VOICES: ${POCKETTTS_WARMUP_VOICES:-all}
+      POCKETTTS_LOG_TIMINGS: ${POCKETTTS_LOG_TIMINGS:-1}
+      POCKETTTS_OGG_BITRATE: ${POCKETTTS_OGG_BITRATE:-64k}
+      POCKETTTS_WORKERS: ${POCKETTTS_WORKERS:-4}
+      POCKETTTS_THREADS: ${POCKETTTS_THREADS:-8}
+      POCKETTTS_TORCH_THREADS: ${POCKETTTS_TORCH_THREADS:-2}
+      POCKETTTS_WORKER_TIMEOUT: ${POCKETTTS_WORKER_TIMEOUT:-180}
+      HF_HOME: /app/cache/huggingface
+      XDG_CACHE_HOME: /app/cache
+      # Silence useless warnings
+      PYTHONWARNINGS: "ignore::UserWarning:torchao"
+    volumes:
+      - ./voices.json:/app/voices.json
+      - ./voices:/app/voices
+      - ./cache:/app/cache

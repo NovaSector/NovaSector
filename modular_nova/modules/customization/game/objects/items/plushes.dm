@@ -231,3 +231,21 @@
 	icon_state = "plushie_expie"
 	attack_verb_continuous = list("whines at", "claws")
 	attack_verb_simple = list("whine at", "claw")
+
+/obj/item/toy/plush/nova/robotics_shark
+	name = "wireshark"
+	desc = "Some say they're related to Ticipy. They've been to many different station's ports. They're a filter-feeder."
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/plushes_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/plushes_righthand.dmi'
+	icon_state = "robotics_shark"
+	inhand_icon_state = "robotics_shark"
+	attack_verb_continuous = list(
+		"captures",
+		"filters",
+		"multicasts",
+	)
+	attack_verb_simple = list(
+		"capture",
+		"filter",
+		"multicast",
+	)

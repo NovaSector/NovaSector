@@ -24,18 +24,18 @@
 	savefile_key = "low_arousal_text"
 
 /datum/preference/text/erp_flavor/low_arousal/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return
+	target.dna.features[ERP_FLAVOR_DNA_LOW_AROUSAL] = value
 
 /datum/preference/text/erp_flavor/medium_arousal
 	savefile_key = "medium_arousal_text"
 
 /datum/preference/text/erp_flavor/medium_arousal/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return
+	target.dna.features[ERP_FLAVOR_DNA_MEDIUM_AROUSAL] = value
 
 /datum/preference/text/erp_flavor/high_arousal
 	savefile_key = "high_arousal_text"
 
 /datum/preference/text/erp_flavor/high_arousal/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
-	return
+	target.dna.features[ERP_FLAVOR_DNA_HIGH_AROUSAL] = value
 
 #undef MAX_FLAVOR_ERP_TEXT_LEN

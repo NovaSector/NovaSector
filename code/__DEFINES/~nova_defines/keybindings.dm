@@ -5,6 +5,7 @@
 #define COMSIG_KB_CLIENT_LOOC_DOWN "keybinding_client_looc_down"
 #define COMSIG_KB_CLIENT_WHISPER_DOWN "keybinding_client_whisper_down"
 #define COMSIG_KB_LIVING_COMBAT_INDICATOR "keybinding_living_combat_indicator"
+#define COMSIG_KB_LIVING_CONFLICT_OPT_IN "keybinding_living_conflict_opt_in"
 #define COMSIG_KB_CARBON_TOGGLE_SAFETY "keybinding_carbon_toggle_safety"
 #define COMSIG_KB_CLIENT_DO_DOWN "keybinding_client_do_down"
 #define COMSIG_KB_CLIENT_DO_LONGER_DOWN "keybinding_client_do_longer_down"

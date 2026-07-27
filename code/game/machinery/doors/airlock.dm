@@ -574,12 +574,18 @@
 	else
 		icon_state = "[base_icon_state]closed"
 
-/* NOVA EDIT REMOVAL - AESTHETICS - OVERWRITTEN IN modular_nova/modules/aesthetics/airlock/code/airlock.dm
 /obj/machinery/door/airlock/update_overlays()
 	. = ..()
+	// NOVA EDIT ADDITION START - AESTHETICS - guard against being deleted mid-update, or having no overlays file at all
+	if(QDELETED(src))
+		return
+	if(isnull(overlays_file))
+		return
+	// NOVA EDIT ADDITION END
 
 	var/frame_state
-	var/light_state
+	var/light_state = AIRLOCK_LIGHT_POWERON // NOVA EDIT CHANGE - AESTHETICS - ORIGINAL: var/light_state
+	var/pre_light_color // NOVA EDIT ADDITION - AESTHETICS - drives the real light source below, not just the icon overlay
 	if(machine_stat & MAINT) // in the process of being emagged
 		frame_state = AIRLOCK_FRAME_CLOSED
 	else switch(airlock_state)
@@ -587,30 +593,81 @@
 			frame_state = AIRLOCK_FRAME_CLOSED
 			if(locked)
 				light_state = AIRLOCK_LIGHT_BOLTS
+				pre_light_color = AIRLOCK_BOLTS_LIGHT_COLOR // NOVA EDIT ADDITION - AESTHETICS
 			else if(emergency)
 				light_state = AIRLOCK_LIGHT_EMERGENCY
+				pre_light_color = AIRLOCK_EMERGENCY_LIGHT_COLOR // NOVA EDIT ADDITION - AESTHETICS
 			else if(has_active_reta_access())
 				light_state = AIRLOCK_LIGHT_RETA
+				pre_light_color = AIRLOCK_EMERGENCY_LIGHT_COLOR // NOVA EDIT ADDITION - AESTHETICS
+			// NOVA EDIT ADDITION START - AESTHETICS - fire alarm / engineering override light states (see modular_nova/modules/airlock_override)
+			else if(fire_active)
+				light_state = AIRLOCK_LIGHT_FIRE
+				pre_light_color = AIRLOCK_FIRE_LIGHT_COLOR
+			else if(engineering_override)
+				light_state = AIRLOCK_LIGHT_ENGINEERING
+				pre_light_color = AIRLOCK_ENGINEERING_LIGHT_COLOR
+			else
+				pre_light_color = AIRLOCK_POWERON_LIGHT_COLOR
+			// NOVA EDIT ADDITION END
 		if(AIRLOCK_DENY)
 			frame_state = AIRLOCK_FRAME_CLOSED
 			light_state = AIRLOCK_LIGHT_DENIED
+			pre_light_color = AIRLOCK_DENY_LIGHT_COLOR // NOVA EDIT ADDITION - AESTHETICS
 		if(AIRLOCK_CLOSING)
 			frame_state = AIRLOCK_FRAME_CLOSING
 			light_state = AIRLOCK_LIGHT_CLOSING
+			pre_light_color = AIRLOCK_ACCESS_LIGHT_COLOR // NOVA EDIT ADDITION - AESTHETICS
 		if(AIRLOCK_OPEN)
 			frame_state = AIRLOCK_FRAME_OPEN
+			// NOVA EDIT ADDITION START - AESTHETICS - tg doesn't show a status light while the door is open, we do
+			if(locked)
+				light_state = AIRLOCK_LIGHT_BOLTS
+				pre_light_color = AIRLOCK_BOLTS_LIGHT_COLOR
+			else if(emergency)
+				light_state = AIRLOCK_LIGHT_EMERGENCY
+				pre_light_color = AIRLOCK_EMERGENCY_LIGHT_COLOR
+			else if (has_active_reta_access())
+				light_state = AIRLOCK_LIGHT_RETA
+				pre_light_color = AIRLOCK_EMERGENCY_LIGHT_COLOR
+			else if(fire_active)
+				light_state = AIRLOCK_LIGHT_FIRE
+				pre_light_color = AIRLOCK_FIRE_LIGHT_COLOR
+			else if(engineering_override)
+				light_state = AIRLOCK_LIGHT_ENGINEERING
+				pre_light_color = AIRLOCK_ENGINEERING_LIGHT_COLOR
+			else
+				pre_light_color = AIRLOCK_POWERON_LIGHT_COLOR
+			light_state += "_open"
+			// NOVA EDIT ADDITION END
 		if(AIRLOCK_OPENING)
 			frame_state = AIRLOCK_FRAME_OPENING
 			light_state = AIRLOCK_LIGHT_OPENING
+			pre_light_color = AIRLOCK_ACCESS_LIGHT_COLOR // NOVA EDIT ADDITION - AESTHETICS
 
 	. += get_airlock_overlay(frame_state, icon, src, em_block = TRUE)
 	if(airlock_material)
 		. += get_airlock_overlay("[airlock_material]_[frame_state]", overlays_file, src, em_block = TRUE)
 	else
-		. += get_airlock_overlay("fill_[frame_state]", icon, src, em_block = TRUE)
+		. += get_airlock_overlay("fill_[frame_state + fill_state_suffix]", icon, src, em_block = TRUE) // NOVA EDIT CHANGE - AESTHETICS - ORIGINAL: . += get_airlock_overlay("fill_[frame_state]", icon, src, em_block = TRUE)
 
-	if(feedback && hasPower() && light_state)
+	if(feedback && hasPower() && has_environment_lights) // NOVA EDIT CHANGE - AESTHETICS - ORIGINAL: if(feedback && hasPower() && light_state)
 		. += get_airlock_overlay("lights_[light_state]", overlays_file, src, em_block = FALSE)
+		// NOVA EDIT ADDITION START - AESTHETICS - emissive glow, plus an actual light source to match
+		. += emissive_appearance(overlays_file, "lights_[light_state]", src, alpha = src.alpha)
+
+		if(multi_tile && filler)
+			filler.set_light(l_range = AIRLOCK_LIGHT_RANGE, l_power = AIRLOCK_LIGHT_POWER, l_color = pre_light_color, l_on = TRUE)
+
+		set_light(l_range = AIRLOCK_LIGHT_RANGE, l_power = AIRLOCK_LIGHT_POWER, l_color = pre_light_color, l_on = TRUE)
+	else
+		set_light(l_on = FALSE)
+		// NOVA EDIT ADDITION END
+
+	// NOVA EDIT ADDITION START - AESTHETICS - greyscale accent color overlay
+	if(greyscale_accent_color)
+		. += get_airlock_overlay("[frame_state]_accent", overlays_file, src, em_block = TRUE, state_color = greyscale_accent_color)
+	// NOVA EDIT ADDITION END
 
 	if(panel_open)
 		. += get_airlock_overlay("panel_[frame_state][security_level ? "_protected" : null]", overlays_file, src, em_block = TRUE)
@@ -657,7 +714,6 @@
 					floorlight.pixel_w = -32
 					floorlight.pixel_z = 0
 			. += floorlight
-*/
 
 /obj/machinery/door/airlock/run_animation(animation, force_type = DEFAULT_DOOR_CHECKS)
 	if(animation == DOOR_DENY_ANIMATION)
@@ -669,7 +725,7 @@
 
 /obj/machinery/door/airlock/animation_effects(animation, force_type = DEFAULT_DOOR_CHECKS)
 	if(force_type == BYPASS_DOOR_CHECKS)
-		playsound(src, forcedOpen, 30, TRUE) //NOVA EDIT CHANGE - AESTHETICS - ORIGINAL: playsound(src, soundin = 'sound/machines/airlock/airlockforced.ogg', vol = 30, vary = TRUE)
+		playsound(src, forced_open_sound, 30, TRUE) //NOVA EDIT CHANGE - AESTHETICS - ORIGINAL: playsound(src, soundin = 'sound/machines/airlock/airlockforced.ogg', vol = 30, vary = TRUE)
 		return
 
 	switch(animation)
@@ -1128,7 +1184,7 @@
 			update_appearance()
 			return ITEM_INTERACT_SUCCESS
 
-		return NONE
+		return ..()
 
 	if(istype(tool, /obj/item/pai_cable))
 		var/obj/item/pai_cable/cable = tool
@@ -1179,7 +1235,7 @@
 		update_appearance()
 		return ITEM_INTERACT_SUCCESS
 
-	return NONE
+	return ..()
 
 
 /obj/machinery/door/airlock/try_to_weld(obj/item/weldingtool/W, mob/living/user)

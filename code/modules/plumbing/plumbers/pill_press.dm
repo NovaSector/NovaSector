@@ -10,7 +10,7 @@
 	/// selected size of the product
 	var/current_volume = 10
 	/// maximum printable volume of the product
-	var/max_volume = 100 // NOVA EDIT CHANGE - ORIGINAL var/max_volume = 50
+	var/max_volume = 120 // NOVA EDIT CHANGE - ORIGINAL var/max_volume = 50
 	/// prefix for the product name
 	var/product_name = "factory"
 	/// Selected duration of produced pills, if they're selected
@@ -21,7 +21,7 @@
 	var/obj/item/reagent_containers/packaging_type
 	///Category of packaging
 	var/packaging_category
-	buffer = 100 // NOVA EDIT ADDITION - Increases the standard plumbing machine buffer to account for the increased max volume
+	buffer = 120 // NOVA EDIT ADDITION - Increases the standard plumbing machine buffer to account for the increased max volume
 
 /obj/machinery/plumbing/pill_press/Initialize(mapload, layer)
 	. = ..()

@@ -152,6 +152,10 @@
 	name = "Tacticool Turtleneck"
 	item_path = /obj/item/clothing/under/syndicate/tacticool
 
+/datum/loadout_item/under/miscellaneous/modskin
+	name = "M.O.D. Skinsuit (Colorable)"
+	item_path = /obj/item/clothing/under/misc/nova/modskin
+
 /*
 *	FORMAL UNDERSUITS
 */

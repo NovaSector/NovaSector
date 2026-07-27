@@ -35,5 +35,5 @@
 
 /datum/quirk/item_quirk/breather/nitrogen_breather/remove()
 	. = ..()
-	quirk_holder.clear_alert(ALERT_NOT_ENOUGH_N2O)
+	quirk_holder.clear_alert(ALERT_NOT_ENOUGH_NITRO)
 	quirk_holder.clear_alert(ALERT_TOO_MUCH_OXYGEN)

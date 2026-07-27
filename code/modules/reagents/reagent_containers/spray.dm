@@ -138,9 +138,8 @@
 		current_range = spray_range
 	to_chat(user, span_notice("You switch the nozzle setting to [stream_mode ? "\"stream\"":"\"spray\""]."))
 
-/obj/item/reagent_containers/spray/verb/empty()
-	set name = "Empty Spray Bottle"
-	set src in usr
+GAME_VERB_SRC(/obj/item/reagent_containers/spray, empty, usr, "Empty Spray Bottle", null)
+
 	if(usr.incapacitated)
 		return
 	if (tgui_alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", list("Yes", "No")) != "Yes")
@@ -233,7 +232,7 @@
 /obj/item/reagent_containers/spray/pepper/empty //for protolathe printing
 	list_reagents = null
 
-/obj/item/reagent_containers/spray/pepper/suicide_act(mob/living/carbon/user)
+/obj/item/reagent_containers/spray/pepper/suicide_act(mob/living/user)
 	user.visible_message(span_suicide("[user] begins huffing \the [src]! It looks like [user.p_theyre()] getting a dirty high!"))
 	return OXYLOSS
 
