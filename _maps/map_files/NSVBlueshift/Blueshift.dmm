@@ -79492,15 +79492,6 @@
 	dir = 6
 	},
 /area/station/security/prison)
-"qdo" = (
-/obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/station/engineering/atmos)
 "qdq" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/structure/disposalpipe/segment{
@@ -156507,7 +156498,7 @@ cPS
 vOJ
 cPS
 vOJ
-qdo
+dLS
 aVK
 dLZ
 jVL
