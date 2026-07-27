@@ -27,7 +27,7 @@
 		return FALSE
 	if(!client)
 		return FALSE
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		balloon_alert(src, "can't show statuses")
 		return FALSE
 	if(!COOLDOWN_FINISHED(src, conflict_opt_in_aura_cooldown))
@@ -61,11 +61,7 @@
 	to_chat(src, span_notice("The conflict opt-in is visible now."))
 	return TRUE
 
-/mob/living/verb/show_conflict_opt_in_verb()
-	set name = "Show Conflict Opt-In"
-	set category = "IC"
-	set desc = "Display nearby conflict opt-in statuses."
-
+GAME_VERB_DESC(/mob/living, show_conflict_opt_in_verb, "Show Conflict Opt-In", "Display nearby conflict opt-in statuses.", "IC")
 	show_conflict_opt_in()
 
 /datum/keybinding/living/conflict_opt_in

@@ -20,15 +20,16 @@
 	breakouttime = 1 SECONDS
 	resist_cooldown = CLICK_CD_SLOW
 
-/obj/item/clothing/suit/straight_jacket/latex_straight_jacket/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers) //That part allows reinforcing this item with normal straightjacket
-	if(!istype(attacking_item, /obj/item/clothing/suit/straight_jacket))
+/obj/item/clothing/suit/straight_jacket/latex_straight_jacket/item_interaction(mob/living/user, obj/item/tool, list/modifiers) //That part allows reinforcing this item with normal straightjacket
+	if(!istype(tool, /obj/item/clothing/suit/straight_jacket))
 		return ..()
 	var/obj/item/clothing/suit/straight_jacket/latex_straight_jacket/reinforced/reinforced_jacket = new()
 	remove_item_from_storage(user)
 	user.put_in_hands(reinforced_jacket)
-	to_chat(user, span_notice("You reinforce the belts on [src] with [attacking_item]."))
-	qdel(attacking_item)
+	to_chat(user, span_notice("You reinforce the belts on [src] with [tool]."))
+	qdel(tool)
 	qdel(src)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/clothing/suit/straight_jacket/latex_straight_jacket/reinforced
 	name = "latex straight jacket"

@@ -897,7 +897,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/awaymission/caves/maintsroom)
 "dd" = (
-/mob/living/basic/evilborgs/evilborg/peace{
+/mob/living/basic/evilborgs/evilborg/bigguy{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/red/off,
@@ -6040,7 +6040,7 @@
 /obj/machinery/door/airlock/multi_tile/public/glass,
 /obj/structure/fans/tiny,
 /obj/effect/decal/cleanable/blood/tracks,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/awaymission/caves/maintsroom)
 "ug" = (
 /obj/structure/disposalpipe/segment,
@@ -6916,7 +6916,7 @@
 /area/awaymission/caves/maintsroom)
 "xg" = (
 /obj/structure/fans/tiny,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/awaymission/caves/maintsroom)
 "xh" = (
 /obj/structure/flora/tree/palm,
@@ -9139,7 +9139,6 @@
 /area/awaymission/caves/maintsroom)
 "ES" = (
 /obj/structure/table/reinforced,
-/obj/item/ai_module/reset/purge,
 /turf/open/floor/circuit/red/anim,
 /area/awaymission/caves/maintsroom)
 "EU" = (
@@ -9452,7 +9451,7 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "FT" = (
-/mob/living/basic/evilborgs/evilborg/protect{
+/mob/living/basic/evilborgs/evilborg/dogstrong{
 	faction = list("hostile","cult")
 	},
 /turf/open/floor/circuit/green,
@@ -12951,8 +12950,8 @@
 /area/awaymission/caves/maintsroom)
 "RE" = (
 /obj/structure/table/reinforced,
-/obj/item/aiupgrade/surveillance_upgrade,
-/obj/item/malf_upgrade,
+/obj/item/ai_module/upgrade/surveillance,
+/obj/item/ai_module/combat,
 /obj/item/mmi/posibrain,
 /turf/open/floor/circuit/red/anim,
 /area/awaymission/caves/maintsroom)

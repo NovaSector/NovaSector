@@ -171,6 +171,7 @@
 		return
 
 	mermaid_body.Insert(user)
+	user.update_body() // to update the underwear, so socks will go away.
 
 /obj/item/organ/taur_body/serpentine
 	left_leg_name = "upper serpentine body"
@@ -295,6 +296,10 @@
 	if(left_leg_to_remove)
 		left_leg_to_remove.drop_limb(special = TRUE, move_to_floor = FALSE)
 		left_leg_to_remove.moveToNullspace()
+
+	var/obj/item/bodypart/leg/left/leftover_left_leg = receiver.get_bodypart(BODY_ZONE_L_LEG)
+	if(leftover_left_leg)
+		qdel(leftover_left_leg)
 	new_left_leg.replace_limb(receiver)
 	new_left_leg.bodyshape |= external_bodyshapes
 
@@ -302,6 +307,9 @@
 	if(right_leg_to_remove)
 		right_leg_to_remove.drop_limb(special = TRUE, move_to_floor = FALSE)
 		right_leg_to_remove.moveToNullspace()
+	var/obj/item/bodypart/leg/right/leftover_right_leg = receiver.get_bodypart(BODY_ZONE_R_LEG)
+	if(leftover_right_leg)
+		qdel(leftover_right_leg)
 	new_right_leg.replace_limb(receiver)
 	new_right_leg.bodyshape |= external_bodyshapes
 
@@ -309,7 +317,7 @@
 
 	var/datum/bodypart_overlay/mutant/taur_body/overlay = bodypart_overlay
 	if(overlay.can_lay_down)
-		add_verb(receiver, /obj/item/organ/taur_body/proc/toggle_laying)
+		ASSIGN_GAME_VERB(receiver, /obj/item/organ/taur_body, toggle_laying)
 
 	if(hardened_soles)
 		owner_blocked_feet_before_insert = (receiver.dna.species.no_equip_flags & ITEM_SLOT_FEET)
@@ -352,7 +360,7 @@
 	old_right_leg = null
 
 	// We don't call `synchronize_bodytypes()` here, because it's already going to get called in the parent because `external_bodyshapes` has a value.
-	remove_verb(organ_owner, /obj/item/organ/taur_body/proc/toggle_laying)
+	UNASSIGN_GAME_VERB(organ_owner, /obj/item/organ/taur_body, toggle_laying)
 
 	if(hardened_soles)
 		if(!owner_blocked_feet_before_insert)
@@ -398,10 +406,7 @@
 // Only works if the owner is a human with a valid taur body organ. This also can only be triggered if the taur body overlay supports laying down.
 // This prevents laying down if the owner is already resting, IE: Prone. Manages the mob's density and adds in a specific sound if laying within gravity.
 
-/obj/item/organ/taur_body/proc/toggle_laying()
-	set category = "IC"
-	set name = "(Taur) Toggle Laying Down"
-
+GAME_VERB_PROC(/obj/item/organ/taur_body, toggle_laying, "(Taur) Toggle Laying Down", "IC")
 	var/mob/living/carbon/human/owner = src
 	if(!istype(owner))
 		return

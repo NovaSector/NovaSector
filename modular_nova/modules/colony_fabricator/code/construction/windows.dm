@@ -9,36 +9,37 @@
 	glass_amount = 1
 	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 0.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.5)
 
-/obj/structure/grille/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(!istype(attacking_item, /obj/item/stack/sheet/plastic_wall_panel))
+/obj/structure/grille/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/stack/sheet/plastic_wall_panel))
 		return ..()
 
 	if(broken)
-		return
-	var/obj/item/stack/stack_in_question = attacking_item
+		return ITEM_INTERACT_BLOCKING
+	var/obj/item/stack/stack_in_question = tool
 	if(stack_in_question.get_amount() < 1)
 		to_chat(user, span_warning("You need at least one plastic panel for that!"))
-		return
+		return ITEM_INTERACT_BLOCKING
 	var/dir_to_set = SOUTHWEST
 	if(!anchored)
 		to_chat(user, span_warning("[src] needs to be fastened to the floor first!"))
-		return
+		return ITEM_INTERACT_BLOCKING
 	for(var/obj/structure/window/window_on_turf in loc)
 		to_chat(user, span_warning("There is already a window there!"))
-		return
+		return ITEM_INTERACT_BLOCKING
 	if(!clear_tile(user))
-		return
+		return ITEM_INTERACT_BLOCKING
 	to_chat(user, span_notice("You start placing the window..."))
 	if(!do_after(user, 1 SECONDS, target = src))
-		return
+		return ITEM_INTERACT_BLOCKING
 	if(!src.loc || !anchored) //Grille broken or unanchored while waiting
-		return
+		return ITEM_INTERACT_BLOCKING
 	for(var/obj/structure/window/window_on_turf in loc) //Another window already installed on grille
-		return
+		return ITEM_INTERACT_BLOCKING
 	if(!clear_tile(user))
-		return
+		return ITEM_INTERACT_BLOCKING
 	var/obj/structure/window/new_window = new /obj/structure/window/fulltile/colony_fabricator(drop_location())
 	new_window.setDir(dir_to_set)
 	new_window.state = 0
 	stack_in_question.use(1)
 	to_chat(user, span_notice("You place [new_window] on [src]."))
+	return ITEM_INTERACT_SUCCESS
