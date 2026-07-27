@@ -406,7 +406,7 @@
 	SIGNAL_HANDLER
 
 	// Skip if unconscious
-	if(slime.stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(slime))
 		return
 
 	var/healing = TRUE
@@ -455,7 +455,7 @@
 
 	// PASSIVE HEALING
 	if(slime.get_blood_volume() >= BLOOD_VOLUME_NORMAL && healing)
-		if(slime.stat != CONSCIOUS)
+		if(IS_UNCONSCIOUS_OR_CRIT(slime))
 			return
 		var/need_mob_update
 		need_mob_update += slime.heal_overall_damage(brute = SPECIES_SLIME_PASSIVE_REGEN_BRUTE * seconds_per_tick, burn = SPECIES_SLIME_PASSIVE_REGEN_BURN * seconds_per_tick, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)

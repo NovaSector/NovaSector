@@ -229,3 +229,9 @@ SAVEFILE_UPLOAD_LIMIT 2000
 
 ## Uncomment to disable the Star rank restrictions
 #ENABLE_NOVA_STAR_RESTRICTIONS 0
+
+## Uncomment to make the supermatter superheat and blast mobs away instead of dusting them when touched
+#DISABLE_SM_DUSTING
+
+## Uncomment to force techweb base tech nodes to start unlocked instead of using the vanilla tg settings
+#ENABLE_NOVA_TECHWEB_STARTING_NODES

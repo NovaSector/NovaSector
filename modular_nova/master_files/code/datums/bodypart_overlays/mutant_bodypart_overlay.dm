@@ -131,7 +131,7 @@
 				if(mod_overlay)
 					var/icon/mod_icon = sprite_datum.get_custom_mod_icon(owner, color_layer_image)
 					if(mod_icon)
-						mod_overlay.add_overlay(mod_icon)
+						mod_overlay.add_overlay(mutable_appearance(mod_icon))
 
 		else
 			var/mutable_appearance/image_to_return = get_singular_image(build_icon_state_nova(gender, layer_index), layer_index, layer_real, owner, limb = limb)
@@ -141,7 +141,7 @@
 			if(mod_overlay)
 				var/icon/mod_icon = sprite_datum.get_custom_mod_icon(owner, image_to_return)
 				if(mod_icon)
-					mod_overlay.add_overlay(mod_icon)
+					mod_overlay.add_overlay(mutable_appearance(mod_icon))
 
 	if(sprite_datum.has_inner)
 		returned_images += get_singular_image(build_icon_state_nova(gender, layer_index, feature_key_suffix = "inner"), layer_index, layer_real, owner, limb = limb)
@@ -268,7 +268,11 @@
 	for(var/index = 1 to max)
 		if(emissive_eligibility_by_color_index[index])
 			var/mutable_appearance/overlay = overlays[index]
-			LAZYADD(emissives, emissive_appearance(overlay.icon, overlay.icon_state, offset_spokesman = limb, layer = overlay.layer))
+			var/mutable_appearance/new_emissive = emissive_appearance(overlay.icon, overlay.icon_state, offset_spokesman = limb, layer = overlay.layer)
+			// emissive_appearance() builds a fresh appearance from scratch, so it doesn't inherit the pixel_w/pixel_z offset center_image() applies to wide sprites (taur, wings, etc.) - without
+			new_emissive.pixel_w = overlay.pixel_w
+			new_emissive.pixel_z = overlay.pixel_z
+			LAZYADD(emissives, new_emissive)
 
 	return emissives ? (overlays + emissives) : overlays
 

@@ -78,7 +78,7 @@
 		return TRUE
 	else
 		// NOVA EDIT ADDITION START
-		if(HAS_TRAIT(src, TRAIT_QUICKREFLEXES) && (src.stat != UNCONSCIOUS) && !INCAPACITATED_IGNORING(src, INCAPABLE_RESTRAINTS))
+		if(HAS_TRAIT(src, TRAIT_QUICKREFLEXES) && !IS_UNCONSCIOUS(src) && !INCAPACITATED_IGNORING(src, INCAPABLE_RESTRAINTS))
 			visible_message(span_warning("[user] tries to pet [src], but it moves out of the way."))
 			return TRUE
 		// NOVA EDIT ADDITION END

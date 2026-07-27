@@ -7,17 +7,19 @@
 	/// Our loaded vial.
 	var/obj/item/rna_vial/loaded_vial
 
-/obj/item/rna_extractor/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if((istype(attacking_item, /obj/item/rna_vial) && loaded_vial != null))
+/obj/item/rna_extractor/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if((istype(tool, /obj/item/rna_vial) && loaded_vial != null))
 		to_chat(user, span_warning("[src] can not hold more than one vial!"))
-		return FALSE
-	if(istype(attacking_item, /obj/item/rna_vial))
-		if(!user.transferItemToLoc(attacking_item, src))
-			return FALSE
-		to_chat(user, span_notice("You insert [attacking_item] into [src]!"))
-		loaded_vial = attacking_item
+		return ITEM_INTERACT_BLOCKING
+	if(istype(tool, /obj/item/rna_vial))
+		if(!user.transferItemToLoc(tool, src))
+			return ITEM_INTERACT_BLOCKING
+		to_chat(user, span_notice("You insert [tool] into [src]!"))
+		loaded_vial = tool
 		playsound(loc, 'sound/items/weapons/autoguninsert.ogg', 35, 1)
 		update_appearance()
+		return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 /obj/item/rna_extractor/attack_self(mob/living/user)
 	if(user.incapacitated)
@@ -165,20 +167,21 @@
 		timer_id = null
 	return ..()
 
-/obj/machinery/rnd/rna_recombinator/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
+/obj/machinery/rnd/rna_recombinator/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(user.combat_mode)
-		return FALSE
+		return ITEM_INTERACT_BLOCKING
 	if(!is_insertion_ready(user))
-		return FALSE
-	if(!istype(attacking_item, /obj/item/rna_vial))
-		return FALSE
-	if(!user.transferItemToLoc(attacking_item, src))
-		return FALSE
-	loaded_item = attacking_item
-	to_chat(user, span_notice("You insert [attacking_item] to into [src] reciprocal."))
+		return ITEM_INTERACT_BLOCKING
+	if(!istype(tool, /obj/item/rna_vial))
+		return ITEM_INTERACT_BLOCKING
+	if(!user.transferItemToLoc(tool, src))
+		return ITEM_INTERACT_BLOCKING
+	loaded_item = tool
+	to_chat(user, span_notice("You insert [tool] to into [src] reciprocal."))
 	flick("h_lathe_load", src)
 	update_appearance()
 	playsound(loc, 'sound/items/weapons/autoguninsert.ogg', 35, 1)
+	return ITEM_INTERACT_SUCCESS
 
 
 /obj/machinery/rnd/rna_recombinator/ui_interact(mob/user)
