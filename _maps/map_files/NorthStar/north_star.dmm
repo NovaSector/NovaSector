@@ -3753,6 +3753,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/light/cold/no_nightlight/directional/north,
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/white/side{
 	dir = 4
 	},
@@ -11445,7 +11446,7 @@
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
 /obj/item/storage/medkit/emergency,
 /obj/item/storage/box/evidence,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/smooth_large,
 /area/station/security/checkpoint/supply)
 "cRY" = (
 /obj/machinery/door/airlock/public/glass/incinerator/atmos_interior,
@@ -13322,7 +13323,6 @@
 "drA" = (
 /obj/effect/turf_decal/trimline/purple/line,
 /obj/machinery/light/cold/no_nightlight/directional/north,
-/obj/machinery/firealarm/directional/north,
 /obj/effect/turf_decal/trimline/purple/filled/corner{
 	dir = 1
 	},
@@ -25425,7 +25425,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/machinery/digital_clock/directional/east,
+/obj/machinery/newscaster/directional/east,
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
@@ -29120,6 +29120,7 @@
 	},
 /obj/structure/disposalpipe/trunk/multiz,
 /obj/machinery/light/small/directional/north,
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/white,
 /area/station/science/lobby)
 "hzE" = (
@@ -41655,6 +41656,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/firealarm/directional/south{
+	pixel_x = -6
+	},
 /turf/open/floor/iron/white,
 /area/station/science/lobby)
 "kJq" = (
@@ -41744,6 +41748,10 @@
 "kKr" = (
 /turf/closed/wall,
 /area/station/medical/pharmacy)
+"kKt" = (
+/obj/structure/sign/departments/security,
+/turf/closed/wall/r_wall,
+/area/station/security/checkpoint/engineering)
 "kKz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/duct,
@@ -43181,7 +43189,9 @@
 /obj/machinery/camera/directional/west{
 	c_tag = "Science - R&D Lab"
 	},
-/obj/machinery/firealarm/directional/north,
+/obj/machinery/firealarm/directional/north{
+	pixel_x = 6
+	},
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/science/lab)
@@ -52818,7 +52828,7 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/secure_closet/security/cargo,
 /obj/machinery/newscaster/directional/south,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/smooth_large,
 /area/station/security/checkpoint/supply)
 "nvh" = (
 /obj/structure/chair/sofa/bench{
@@ -63685,6 +63695,10 @@
 /obj/structure/sign/departments/restroom/directional/west,
 /turf/open/openspace,
 /area/station/hallway/floor3/aft)
+"qjV" = (
+/obj/structure/sign/departments/security,
+/turf/closed/wall,
+/area/station/security/checkpoint/science)
 "qkm" = (
 /obj/structure/sink/directional/south,
 /obj/structure/mirror/directional/north,
@@ -65600,7 +65614,12 @@
 	pixel_y = 6
 	},
 /obj/item/restraints/handcuffs/cable/yellow,
-/obj/machinery/newscaster/directional/west,
+/obj/machinery/requests_console/directional/west{
+	department = "Security Post - Engineering";
+	name = "Security Post Requests Console"
+	},
+/obj/effect/mapping_helpers/requests_console/assistance,
+/obj/effect/mapping_helpers/requests_console/information,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/checkpoint/engineering)
 "qFX" = (
@@ -65767,6 +65786,10 @@
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/command/heads_quarters/ce)
+"qIg" = (
+/obj/structure/sign/departments/security,
+/turf/closed/wall/r_wall,
+/area/station/security/checkpoint/supply)
 "qIv" = (
 /obj/effect/turf_decal/trimline/purple/warning,
 /turf/open/floor/mineral/plastitanium/pod/dark,
@@ -68718,13 +68741,13 @@
 /area/station/medical/treatment_center)
 "rwG" = (
 /obj/effect/turf_decal/trimline/purple/line,
-/obj/machinery/airalarm/directional/north,
 /obj/machinery/camera/directional/north{
 	c_tag = "Science - Foyer #4"
 	},
 /obj/effect/turf_decal/trimline/purple/filled/corner{
 	dir = 4
 	},
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/iron/white,
 /area/station/science/lobby)
 "rwM" = (
@@ -71477,7 +71500,12 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/turf/open/floor/iron/dark,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/side{
+	dir = 6
+	},
 /area/station/security/checkpoint/engineering)
 "skU" = (
 /turf/open/floor/iron/dark/side{
@@ -73669,7 +73697,6 @@
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor3/port/aft)
 "sOs" = (
-/obj/machinery/airalarm/directional/south,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -95182,9 +95209,6 @@
 /area/station/maintenance/floor4/starboard/fore)
 "yiJ" = (
 /obj/structure/table/reinforced,
-/obj/machinery/computer/security/telescreen/engine_waste/directional/north{
-	pixel_y = 28
-	},
 /obj/machinery/recharger{
 	pixel_x = -6;
 	pixel_y = 4
@@ -95194,10 +95218,7 @@
 	pixel_y = 3
 	},
 /obj/machinery/light/directional/west,
-/obj/machinery/requests_console/directional/west{
-	department = "Security Post - Engineering";
-	name = "Security Post Requests Console"
-	},
+/obj/machinery/computer/security/telescreen/engine_waste/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/checkpoint/engineering)
 "yiK" = (
@@ -123304,7 +123325,7 @@ rbT
 ijL
 rbT
 hLP
-qHv
+qIg
 mVL
 kbM
 mVL
@@ -136433,7 +136454,7 @@ mvT
 fjr
 qHB
 qfh
-rIh
+kKt
 yiJ
 qFT
 rIh
@@ -186267,7 +186288,7 @@ nWJ
 gEb
 kgA
 rDF
-lWy
+qjV
 drA
 fFu
 bfh
