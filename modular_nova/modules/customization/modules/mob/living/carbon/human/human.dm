@@ -96,7 +96,7 @@
 	set name = "Toggle underwear visibility"
 	set desc = "Allows you to toggle which underwear should show or be hidden. Underwear will obscure genitals."
 
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(usr, span_warning("You can't toggle underwear visibility right now..."))
 		return
 
@@ -165,7 +165,7 @@
 	)
 
 	// Stat check
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(usr, span_warning("You can't do this right now..."))
 		return
 
@@ -259,7 +259,7 @@
 	set name = "Feign Impairment"
 	set desc = "Pretend to be impaired for a defined duration."
 
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(usr, span_warning("You can't do this right now..."))
 		return
 

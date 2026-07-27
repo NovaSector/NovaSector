@@ -53,7 +53,7 @@
 	. = ..()
 
 	// Dead
-	if(stat)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		icon_state = "[initial(icon_state)][is_slow ? "_old" : ""][shaved ? "_shaved" : ""]_dead"
 		return
 

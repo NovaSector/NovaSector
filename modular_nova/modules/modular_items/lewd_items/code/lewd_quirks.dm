@@ -341,7 +341,7 @@
 /mob/living/carbon/human/examine(mob/user)
 	. = ..()
 	var/mob/living/examiner = user
-	if(stat >= DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH) || src == examiner || !HAS_TRAIT(examiner, TRAIT_SEE_MASK_WHISPER)) // See mask whisper is for the empath quirk. This is more performant than GetComponent()...
+	if(src == examiner || IS_DEAD_OR_FAKING(src) || IS_UNCONSCIOUS(src) || !HAS_TRAIT(examiner, TRAIT_SEE_MASK_WHISPER)) // See mask whisper is for the empath quirk. This is more performant than GetComponent()...
 		return
 
 	if(examiner.client?.prefs?.read_preference(/datum/preference/toggle/erp))

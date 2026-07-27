@@ -31,13 +31,9 @@
 	ai_controller = /datum/ai_controller/basic_controller/bumbles
 
 	/// List of flower types that can be attacked to smell, or are targetted by AI.
-	var/list/flower_types = list(
+	var/static/list/flower_types = list(
 		/obj/item/bouquet,
-		/obj/item/food/grown/poppy,
-		/obj/item/food/grown/sunflower,
-		/obj/item/food/grown/moonflower,
-		/obj/item/food/grown/rose,
-		/obj/item/food/grown/harebell,
+		/obj/item/food/grown/flower
 	)
 
 /mob/living/basic/pet/bumbles/Initialize(mapload)
@@ -46,7 +42,7 @@
 	AddElement(/datum/element/simple_flying)
 	add_verb(src, /mob/living/proc/toggle_resting)
 
-	ai_controller.set_blackboard_key(BB_BASIC_FOODS, flower_types)
+	ai_controller.set_blackboard_key(BB_BASIC_FOODS, typecacheof(flower_types))
 
 	RegisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(smell_flower))
 
