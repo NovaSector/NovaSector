@@ -16,6 +16,7 @@
 	new /obj/item/clothing/under/rank/security/head_of_security/nova/alt(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/nova/alt/skirt(src)
 	new /obj/item/clothing/shoes/jackboots/sec/blue(src)
+	new /obj/item/clothing/suit/armor/hos/flak(src)
 
 /obj/item/storage/bag/garment/warden/blue
 	name = "warden's alternate garment bag"

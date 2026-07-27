@@ -396,6 +396,12 @@
 	new_icon_state = "trenchcloak"
 	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 
+/datum/atom_skin/hos_coat/flak
+	preview_name = "Flak"
+	new_icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	new_icon_state = "hos_flak"
+	new_worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+
 /obj/item/clothing/suit/armor/hos
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
