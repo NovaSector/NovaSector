@@ -188,7 +188,11 @@
 
 /obj/machinery/atmospherics/components/pipeline_expansion(datum/pipeline/reference)
 	if(reference)
-		return list(nodes[parents.Find(reference)])
+		var/parent_index = parents.Find(reference)
+		if(!parent_index)
+			stack_trace("pipeline_expansion() called on [type] with a pipeline reference that isn't one of its parents. Nearby: ([x], [y], [z])")
+			return list()
+		return list(nodes[parent_index])
 	return ..()
 
 /obj/machinery/atmospherics/components/set_pipenet(datum/pipeline/reference, obj/machinery/atmospherics/target_component)
