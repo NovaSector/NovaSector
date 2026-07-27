@@ -1,5 +1,0 @@
-author: "QuiteLiterallyAnything"
-delete-after: True
-changes:
-  - bugfix: "Tramstation's hidden Syndicate outpost is no longer considered a \"vacant room\" station area."
-  - map: "Tramstation's hidden Syndicate outpost has been given lighting and a bit of detailing."
