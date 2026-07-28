@@ -90,6 +90,20 @@
 	cast_range = 5
 	/// Speed used when pulling the item toward the psion.
 	var/pull_speed = 2
+	/// If TRUE, this form hauls a living target instead of an item.
+	var/pulls_mobs = FALSE
+
+/datum/psionic_rank_variant/kinetic_pull/delta
+	rank = PSIONIC_RANK_DELTA
+	variant_name = "haul"
+	description = "A heavy tug that drags a living target off balance and to your feet."
+	strain_gain = 18
+	cooldown_time = 16 SECONDS
+	cast_range = 6
+	block_charge_cost = 1
+	block_message = "grip slips!"
+	pull_speed = 3
+	pulls_mobs = TRUE
 
 /datum/action/cooldown/psionic/pointed/kinetic_shove
 	name = "Kinetic Shove"
@@ -117,6 +131,7 @@
 	variant_type = /datum/psionic_rank_variant/kinetic_pull
 	rank_variant_types = list(
 		/datum/psionic_rank_variant/kinetic_pull,
+		/datum/psionic_rank_variant/kinetic_pull/delta,
 	)
 
 /datum/action/cooldown/psionic/pointed/kinetic_shove/is_self_cast_form()
@@ -151,6 +166,32 @@
 	if(!istype(living_owner))
 		return FALSE
 
+	var/datum/psionic_rank_variant/kinetic_pull/form = get_form()
+	if(!form)
+		return FALSE
+	if(form.pulls_mobs)
+		return is_valid_haul_target(living_owner, target)
+
+	return is_valid_item_target(living_owner, target)
+
+/datum/action/cooldown/psionic/pointed/kinetic_pull/proc/is_valid_haul_target(mob/living/living_owner, atom/target)
+	var/mob/living/living_target = target
+	if(!istype(living_target))
+		living_owner.balloon_alert(living_owner, "nothing to haul!")
+		return FALSE
+	if(!isturf(living_target.loc))
+		living_owner.balloon_alert(living_owner, "not loose!")
+		return FALSE
+	if(living_target.buckled)
+		living_owner.balloon_alert(living_owner, "buckled down!")
+		return FALSE
+	if(living_target.anchored || living_target.move_resist >= MOVE_FORCE_STRONG)
+		living_owner.balloon_alert(living_owner, "too heavy!")
+		return FALSE
+
+	return TRUE
+
+/datum/action/cooldown/psionic/pointed/kinetic_pull/proc/is_valid_item_target(mob/living/living_owner, atom/target)
 	var/obj/item/item_target = target
 	if(!istype(item_target))
 		living_owner.balloon_alert(living_owner, "not an item!")
@@ -193,12 +234,44 @@
 	if(!istype(living_owner))
 		return FALSE
 
-	var/obj/item/pulled_item = target
-	if(!istype(pulled_item))
-		return FALSE
-
 	var/datum/psionic_rank_variant/kinetic_pull/form = get_form()
 	if(!form)
+		return FALSE
+	if(form.pulls_mobs)
+		return haul_target(living_owner, target, form)
+
+	return pull_item(living_owner, target, form)
+
+/datum/action/cooldown/psionic/pointed/kinetic_pull/proc/haul_target(mob/living/living_owner, atom/target, datum/psionic_rank_variant/kinetic_pull/form)
+	var/mob/living/hauled_target = target
+	var/turf/owner_turf = get_turf(living_owner)
+	if(!istype(hauled_target) || !owner_turf)
+		return FALSE
+
+	hauled_target.pulledby?.stop_pulling()
+	if(!hauled_target.safe_throw_at(
+		owner_turf,
+		max(get_dist(hauled_target, living_owner), 1),
+		form.pull_speed,
+		living_owner,
+		spin = FALSE,
+		gentle = TRUE,
+	))
+		living_owner.balloon_alert(living_owner, "too heavy!")
+		return FALSE
+
+	living_owner.visible_message(
+		span_warning("[hauled_target] is dragged toward [living_owner] by invisible force."),
+		span_purple("You haul [hauled_target] toward you."),
+		ignored_mobs = hauled_target,
+	)
+	to_chat(hauled_target, span_userdanger("Invisible force hooks into you and drags you forward!"))
+	playsound(get_turf(hauled_target), 'sound/effects/gravhit.ogg', 50, TRUE)
+	return TRUE
+
+/datum/action/cooldown/psionic/pointed/kinetic_pull/proc/pull_item(mob/living/living_owner, atom/target, datum/psionic_rank_variant/kinetic_pull/form)
+	var/obj/item/pulled_item = target
+	if(!istype(pulled_item))
 		return FALSE
 
 	if(get_turf(pulled_item) == get_turf(living_owner))

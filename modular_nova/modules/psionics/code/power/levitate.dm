@@ -56,6 +56,8 @@
 	if(!form)
 		return FALSE
 
+	// Anchoring and levitating are opposite holds on the same body, so the newer one wins.
+	end_anchor(living_owner)
 	living_owner.AddElement(/datum/element/forced_gravity, gravity = 0, can_override = TRUE)
 	ADD_TRAIT(living_owner, TRAIT_SILENT_FOOTSTEPS, PSIONIC_LEVITATION_TRAIT_SOURCE)
 	apply_levitation_form(living_owner, form)
@@ -77,6 +79,13 @@
 
 	var/datum/psionic_rank_variant/levitate/levitation_form = variant
 	apply_levitation_form(living_owner, levitation_form)
+
+/// Drops a maintained Anchor, which cannot coexist with a hold that lifts the psion off the floor.
+/datum/action/cooldown/psionic/levitate/proc/end_anchor(mob/living/living_owner)
+	var/datum/component/psionic_profile/profile = living_owner.get_psionic_profile()
+	var/datum/action/cooldown/psionic/anchor/anchoring = profile?.granted_actions[/datum/action/cooldown/psionic/anchor]
+	if(anchoring?.is_maintaining())
+		anchoring.stop_maintaining(living_owner)
 
 /datum/action/cooldown/psionic/levitate/proc/apply_levitation_form(mob/living/living_owner, datum/psionic_rank_variant/levitate/form)
 	if(!istype(living_owner) || !form)
