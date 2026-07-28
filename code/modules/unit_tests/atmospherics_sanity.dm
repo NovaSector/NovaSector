@@ -130,6 +130,13 @@
 			forbidden_areas += forbidden_area
 
 /datum/unit_test/atmospherics_sanity/Run()
+	// Roundstart shuttle docking (and other early-init events) can destroy pipes that overlap their
+	// docking bay footprint, queuing the surviving neighbors for a pipenet rebuild rather than leaving
+	// them disconnected. That rebuild normally happens on the next SSair.fire(), but this test can run
+	// before that fire cycle occurs, racing against it and seeing the still-disconnected state. Force
+	// the rebuild queue to flush before crawling so we're never checking a stale, mid-repair network.
+	while(length(SSair.rebuild_queue) || length(SSair.expansion_queue))
+		SSair.process_rebuilds()
 	prepare_crawl()
 	for(var/area/start_area as anything in starting_areas)
 		ASYNC
