@@ -87,12 +87,12 @@
 	return ITEM_INTERACT_SUCCESS
 
 
-/obj/item/clockwork/replica_fabricator/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/clockwork/replica_fabricator/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	if(!IS_CLOCK(user))
 		return
 
-	attempt_convert_materials(attacking_item, user)
+	attempt_convert_materials(tool, user)
 
 
 /obj/item/clockwork/replica_fabricator/attack_self_secondary(mob/user, modifiers)

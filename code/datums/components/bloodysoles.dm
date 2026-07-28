@@ -312,7 +312,12 @@
 		return
 
 	wielder.remove_overlay(SHOES_LAYER)
-	if(!total_bloodiness || is_obscured())
+	//if(!total_bloodiness || is_obscured()) // NOVA EDIT REMOVAL - See below
+	// NOVA EDIT ADDITION START
+	var/mob/living/carbon/human/human_wielder = wielder
+	// Taurs (and anything else that hides its shoes) have nothing to smear shoeblood onto
+	if(!total_bloodiness || is_obscured() || (human_wielder.bodyshape & BODYSHAPE_HIDE_SHOES))
+	// NOVA EDIT ADDITION END
 		wielder.update_worn_shoes()
 		return
 

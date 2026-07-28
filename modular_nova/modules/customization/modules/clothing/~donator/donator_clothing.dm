@@ -1216,17 +1216,18 @@
 	. = ..()
 	handle_sight_updating(user)
 
-/obj/item/clothing/glasses/welding/steampunk_goggles/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(!istype(attacking_item, /obj/item/clothing/glasses/welding))
+/obj/item/clothing/glasses/welding/steampunk_goggles/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/clothing/glasses/welding))
 		return ..()
 
 	if(welding_upgraded)
 		to_chat(user, span_warning("\The [src] was already upgraded to have welding protection!"))
-		return
-	qdel(attacking_item)
+		return ITEM_INTERACT_BLOCKING
+	qdel(tool)
 	welding_upgraded = TRUE
 	to_chat(user, span_notice("You upgrade \the [src] with some welding shutters, offering you the ability to toggle welding protection!"))
 	actions += new /datum/action/item_action/toggle_steampunk_goggles_welding_protection(src)
+	return ITEM_INTERACT_SUCCESS
 
 /// Proc that handles the whole toggling the welding protection on and off, with user feedback.
 /obj/item/clothing/glasses/welding/steampunk_goggles/proc/toggle_shutters(mob/user)
@@ -1441,14 +1442,16 @@
 		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [src.name]."), span_notice("You show \the [src.name]."))
 	add_fingerprint(user)
 
-/obj/item/card/fuzzy_license/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/card/fuzzy_license/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(user.ckey != "fuzlet")
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(attacking_item, /obj/item/pen) || istype(attacking_item, /obj/item/toy/crayon))
+	if(istype(tool, /obj/item/pen) || istype(tool, /obj/item/toy/crayon))
 		var/choice = input(user, "Select the license type", "License Type Selection") as null|anything in possible_types
 		if(!isnull(choice))
 			name = "license to [choice]"
+			return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 // Donation reward for 1ceres
 /obj/item/clothing/suit/jacket/gorlex_harness
