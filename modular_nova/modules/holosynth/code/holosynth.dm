@@ -107,7 +107,6 @@
 		var/obj/item/holosynth_pen/owner_projector = new /obj/item/holosynth_pen(get_turf(species_holder), species_holder)
 		if(chest)
 			chest.owner_projector_ref = WEAKREF(owner_projector)
-		//RegisterSignal(owner_projector, COMSIG_ITEM_PICKUP, PROC_REF(pen_picked_up))
 		species_holder.put_in_hands(owner_projector)
 
 /datum/species/synthetic/holosynth/on_species_loss(mob/living/carbon/target, datum/species/new_species, pref_load)
