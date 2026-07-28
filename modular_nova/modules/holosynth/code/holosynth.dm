@@ -92,7 +92,9 @@
 			species_holder.cut_overlay(chest.glow)
 		chest.glow = makeHologramHolosynth(species_holder)
 	var/datum/action/innate/holosynth_toggle_phase/phase_toggle = new(species_holder)
+	var/datum/action/innate/holosynth_toggle_passtable/table_toggle = new(species_holder)
 	phase_toggle.Grant(species_holder)
+	table_toggle.Grant(species_holder)
 	if(!isdummy(species_holder))
 		RegisterSignal(species_holder, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED, PROC_REF(attach_scanline), override = TRUE)
 	RegisterSignal(species_holder, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_mob_disrupted))
@@ -121,6 +123,8 @@
 		species_holder.cut_overlay(chest.glow)
 		chest.glow = null
 	for(var/datum/action/innate/holosynth_toggle_phase/phase_toggle in species_holder.actions)
+		qdel(phase_toggle)
+	for(var/datum/action/innate/holosynth_toggle_passtable/phase_toggle in species_holder.actions)
 		qdel(phase_toggle)
 	UNASSIGN_GAME_VERB(species_holder, /mob/living/carbon/human, holosynth_adjust_transparency)
 	UNASSIGN_GAME_VERB(species_holder, /mob/living/carbon/human, holosynth_toggle_scanline)

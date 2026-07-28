@@ -8788,6 +8788,7 @@
 #include "modular_nova\modules\holosynth\code\holopassthrough.dm"
 #include "modular_nova\modules\holosynth\code\holoray_trail.dm"
 #include "modular_nova\modules\holosynth\code\holosynth.dm"
+#include "modular_nova\modules\holosynth\code\holosynth_passtable.dm"
 #include "modular_nova\modules\holosynth\code\holosynth_prefs.dm"
 #include "modular_nova\modules\holosynth\code\holosynth_projector.dm"
 #include "modular_nova\modules\holosynth\code\holosynth_wounds.dm"
