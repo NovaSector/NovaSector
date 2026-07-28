@@ -8,10 +8,6 @@
  * and that it actually kills people.
  */
 /datum/unit_test/nuke_cinematic
-	// This detonates a real nuke on the actual loaded station map (not an isolated test zone),
-	// permanently destroying structures/pipes near the observer_start landmark. Must run after
-	// every other test that assumes the station map is intact (e.g. atmospherics_sanity).
-	priority = TEST_AFTER_CREATE_AND_DESTROY
 	/// Used to track via signal if the correct cinematic / animation is playing.
 	var/cinematic_playing = NOT_PLAYING_ANIMATION
 	/// Tracks what typepath of cinematic is being played.
