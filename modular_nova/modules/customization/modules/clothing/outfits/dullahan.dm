@@ -4,7 +4,7 @@
 	subspace_transmission =  TRUE
 
 /obj/item/radio/headset/dullahan/ui_status(mob/user, datum/ui_state/state)
-	if(!user.stat)
+	if(!IS_UNCONSCIOUS_OR_CRIT(user))
 		return UI_INTERACTIVE
 
 // Sets things up for the second radio key. This is gross but until someone refactors radio code to be less stupid this will have to do.

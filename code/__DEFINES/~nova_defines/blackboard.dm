@@ -19,6 +19,16 @@
 #define BB_HIDING_COOLDOWN_MAXIMUM "BB_hiding_cooldown_maximum"
 /// The probability (in %) that the mob will stop hiding randomly every process.
 #define BB_HIDING_RANDOM_STOP_HIDING_CHANCE "BB_hiding_random_stop_hiding_chance"
+/// The dust pile a chinchilla is currently heading to roll in.
+#define BB_DUST_TARGET "bb_dust_target"
+/// Cooldown timer between dust baths.
+#define BB_DUST_COOLDOWN "bb_dust_cooldown"
+/// Whether bumbles is currently resting, used to gate idle wandering.
+#define BB_BUMBLES_RESTING "bb_bumbles_resting"
+/// Target that retaliated against us and should be fought back, separate from the flee target.
+#define BB_RETALIATE_TARGET "bb_retaliate_target"
+/// Target a borgi is currently taking pot-shots at while emagged.
+#define BB_BORGI_EMAG_TARGET "bb_borgi_emag_target"
 
 /// The default vision range when hiding, if none is specified.
 #define DEFAULT_HIDING_AGGRO_RANGE 2

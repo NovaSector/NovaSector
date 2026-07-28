@@ -98,10 +98,8 @@
 	RegisterSignal(species_holder, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_mob_disrupted))
 	RegisterSignal(species_holder, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(on_mob_disrupted))
 	RegisterSignal(species_holder, COMSIG_LIVING_ELECTROCUTE_ACT, PROC_REF(on_mob_disrupted))
-	add_verb(species_holder, list(
-		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
-		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
-	))
+	ASSIGN_GAME_VERB(species_holder, /mob/living/carbon/human, holosynth_adjust_transparency)
+	ASSIGN_GAME_VERB(species_holder, /mob/living/carbon/human, holosynth_toggle_scanline)
 
 	if(!isdummy(species_holder))
 		var/obj/item/holosynth_pen/owner_projector = new /obj/item/holosynth_pen(get_turf(species_holder), species_holder)
@@ -124,10 +122,8 @@
 		chest.glow = null
 	for(var/datum/action/innate/holosynth_toggle_phase/phase_toggle in species_holder.actions)
 		qdel(phase_toggle)
-	remove_verb(species_holder, list(
-		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
-		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
-	))
+	UNASSIGN_GAME_VERB(species_holder, /mob/living/carbon/human, holosynth_adjust_transparency)
+	UNASSIGN_GAME_VERB(species_holder, /mob/living/carbon/human, holosynth_toggle_scanline)
 
 	var/comps_to_delete = list(
 		species_holder.GetComponent(/datum/component/glass_passer/holosynth),
@@ -340,11 +336,7 @@ GLOBAL_DATUM_INIT(holo_scanline, /obj/effect/abstract/holo_scanline, new)
 // -- Runtime verbs -------------------------------------------------------
 // Added on species gain, removed on species loss. Both update the dna feature and ask the species to refresh.
 
-/mob/living/carbon/human/proc/holosynth_adjust_transparency()
-	set name = "Adjust Hologram Transparency"
-	set category = "IC"
-	set src = usr
-
+GAME_VERB_PROC(/mob/living/carbon/human, holosynth_adjust_transparency, "Adjust Hologram Transparency", "IC")
 	var/datum/species/synthetic/holosynth/species = dna?.species
 	if(!istype(species))
 		return
@@ -354,11 +346,7 @@ GLOBAL_DATUM_INIT(holo_scanline, /obj/effect/abstract/holo_scanline, new)
 	dna?.features["holo_transparency"] = new_value
 	species.refresh_opacity(src)
 
-/mob/living/carbon/human/proc/holosynth_toggle_scanline()
-	set name = "Toggle Hologram Flicker"
-	set category = "IC"
-	set src = usr
-
+GAME_VERB_PROC(/mob/living/carbon/human, holosynth_toggle_scanline, "Toggle Hologram Flicker", "IC")
 	var/datum/species/synthetic/holosynth/species = dna?.species
 	if(!istype(species))
 		return

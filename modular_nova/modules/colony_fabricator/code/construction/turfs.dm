@@ -84,7 +84,6 @@ GLOBAL_LIST_INIT(plastic_wall_panel_recipes, list(
 	turf_type = /turf/open/floor/catwalk_floor/colony_fabricator
 	merge_type = /obj/item/stack/tile/catwalk_tile/colony_lathe
 	tile_reskin_types = null
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 7.5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/stack/tile/iron/colony
 	name = "prefab floor tiles"
