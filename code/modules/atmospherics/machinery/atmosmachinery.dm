@@ -107,8 +107,6 @@
 	update_name()
 
 /obj/machinery/atmospherics/Destroy()
-	if(is_station_level(z)) // TEMP DEBUG
-		stack_trace("ATMOS-DEBUG-DESTROY: [type] destroyed at ([x],[y],[z]) area=[get_area(src)]")
 	for(var/i in 1 to device_type)
 		nullify_node(i)
 

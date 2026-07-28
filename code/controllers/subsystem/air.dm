@@ -713,13 +713,11 @@ SUBSYSTEM_DEF(air)
 // all atmos machinery has to initialize before the first
 // pipenet can be built.
 /datum/controller/subsystem/air/proc/setup_pipenets()
-	stack_trace("ATMOS-DEBUG-SETUP: starting setup_pipenets() with [length(atmos_machinery)] machines, world.time=[world.time]") // TEMP DEBUG
 	for (var/obj/machinery/atmospherics/AM in atmos_machinery)
 		var/list/targets = AM.get_rebuild_targets()
 		for(var/datum/pipeline/build_off as anything in targets)
 			build_off.build_pipeline_blocking(AM)
 		CHECK_TICK
-	stack_trace("ATMOS-DEBUG-SETUP: finished setup_pipenets() with [length(atmos_machinery)] machines, world.time=[world.time]") // TEMP DEBUG
 
 GLOBAL_LIST_EMPTY(colored_turfs)
 GLOBAL_LIST_EMPTY(colored_images)

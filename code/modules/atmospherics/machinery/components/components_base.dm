@@ -156,9 +156,6 @@
 	if(!reference)
 		CRASH("nullify_pipenet(null) called by [type] on [COORD(src)]")
 
-	if(is_station_level(z)) // TEMP DEBUG
-		stack_trace("ATMOS-DEBUG-NULLIFY: [type] at ([x],[y],[z]) area=[get_area(src)] disconnecting from pipeline")
-
 	for (var/i in 1 to parents.len)
 		if (parents[i] == reference)
 			reference.other_airs -= airs[i] // Disconnects from the pipeline side
