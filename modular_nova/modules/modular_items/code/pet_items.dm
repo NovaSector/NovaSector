@@ -8,7 +8,7 @@
 /obj/item/pet_food/interact_with_atom(mob/living/basic/interacting_with, mob/living/user, list/modifiers)
 	if(!istype(interacting_with) || user.combat_mode)
 		return NONE
-	if(interacting_with.stat)
+	if(IS_UNCONSCIOUS_OR_CRIT(interacting_with))
 		to_chat(user, span_warning("The pet is dead!"))
 		return ITEM_INTERACT_BLOCKING
 	if(!is_path_in_list(interacting_with.type, assoc_to_values(GLOB.possible_player_pet)))
