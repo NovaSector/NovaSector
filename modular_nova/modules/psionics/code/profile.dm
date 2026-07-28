@@ -138,8 +138,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	// new_profile means someone passed a pre-built instance, which carries no usable args.
 	if(new_profile)
 		return
-	if(add_source(source, points))
-		learn_starting_powers(starting_powers)
+	add_source(source, points)
+	learn_starting_powers(starting_powers)
 
 /datum/component/psionic_profile/Destroy(force)
 	if(psion)
@@ -512,6 +512,10 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 /datum/component/psionic_profile/ui_status(mob/user, datum/ui_state/state)
 	if(user != psion)
+		return UI_CLOSE
+	// Opening the menu is gated by the action's check flags, but nothing closes an already-open
+	// window, so imprinting has to be blocked here for a psion who is cuffed, crit, or dead.
+	if(psion.stat != CONSCIOUS || HAS_TRAIT(psion, TRAIT_INCAPACITATED))
 		return UI_CLOSE
 
 	return ..()

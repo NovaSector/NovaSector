@@ -77,7 +77,7 @@
 	wave_width = 3
 	wave_brute_damage = 35
 	structure_damage = 75
-	wall_break_chance = 25
+	wall_break_chance = 10
 	active_msg = "Space buckles around your hand. Pick a direction."
 	deactive_msg = "The pressure in your hand collapses."
 

@@ -207,7 +207,7 @@
 	inhand_icon_state = "psiblade_alpha"
 	force = 40
 	armour_penetration = 35
-	block_chance = 75
+	block_chance = 50
 	wound_bonus = -10
 	light_range = 6
 	psionic_rank = PSIONIC_RANK_ALPHA

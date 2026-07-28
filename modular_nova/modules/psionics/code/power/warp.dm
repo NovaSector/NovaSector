@@ -1,5 +1,5 @@
 /datum/psionic_power/warp
-	required_school_points = 1
+	required_school_points = 2
 	required_powers = list(/datum/action/cooldown/psionic/spatial_slip)
 	action_type = /datum/action/cooldown/psionic/pointed/warp
 

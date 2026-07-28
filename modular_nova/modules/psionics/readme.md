@@ -15,7 +15,7 @@ Psionics are not spells. They do not use spell actions or antimagic checks; bloc
 - Psionic imprinting TGUI and strain HUD.
 - Rank ladder from Lambda to Alpha. Delta and above start capped to Gamma by a psionic limiter implant when gained from the roundstart quirk; ranks above Gamma also get gun restriction traits.
 - Individual power cooldowns, profile strain, burnout, and rank-specific power forms where needed.
-- Psionic dampener cuffs, a psionic dampener head item, and reusable protection/restriction components.
+- Psionic dampener cuffs, and reusable protection/restriction components.
 - School commitment and anomaly-core attunement, both of which reduce strain in that school.
 
 ### TG Proc/File Changes:

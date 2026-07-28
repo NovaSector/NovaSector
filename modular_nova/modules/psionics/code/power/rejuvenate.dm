@@ -9,7 +9,7 @@
 	description = "A strenuous attempt to restart a recently dead organic body."
 	cooldown_time = 2 MINUTES
 	cast_range = 3
-	strain_gain = 100
+	strain_gain = 80
 	block_charge_cost = 0
 
 /datum/action/cooldown/psionic/pointed/living_target/rejuvenate

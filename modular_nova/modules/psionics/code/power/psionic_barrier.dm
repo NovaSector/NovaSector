@@ -22,6 +22,7 @@
 	description = "A translucent directional barrier."
 	cooldown_time = 0
 	strain_gain = 0
+	active_strain_gain_per_second = 2
 	/// Minimum strain gained for each blocked attack.
 	var/block_strain_gain = 10
 	/// Fraction of incoming attack pressure converted to strain.
@@ -31,12 +32,13 @@
 
 /datum/psionic_rank_variant/psionic_barrier/get_description(datum/action/cooldown/psionic/action)
 	var/form_description = description || get_name(action)
-	return "[form_description] ([block_strain_gain] minimum strain, [round(block_strain_multiplier * 100)]% impact strain per block)"
+	return "[form_description] ([get_value(action, "active_strain_gain_per_second")] strain/s, [block_strain_gain] minimum strain, [round(block_strain_multiplier * 100)]% impact strain per block)"
 
 /datum/psionic_rank_variant/psionic_barrier/beta
 	rank = PSIONIC_RANK_BETA
 	variant_name = "reinforced barrier"
 	description = "A brighter directional barrier that divides incoming impact."
+	active_strain_gain_per_second = 1
 	block_strain_gain = 6
 	block_strain_multiplier = 0.5
 	barrier_alpha = 210

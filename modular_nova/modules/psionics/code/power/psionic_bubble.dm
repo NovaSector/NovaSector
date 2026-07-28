@@ -26,7 +26,7 @@
 
 /datum/action/cooldown/psionic/pointed/living_target/psionic_bubble/psionic_activate(atom/target)
 	var/mob/living/living_target = target
-	living_target.apply_status_effect(/datum/status_effect/psionic_bubble, 30 SECONDS)
+	living_target.apply_status_effect(/datum/status_effect/psionic_bubble)
 	to_chat(owner, span_purple("You wrap [living_target] in a psionic bubble."))
 	to_chat(living_target, span_notice("A psionic bubble closes around you."))
 	return TRUE

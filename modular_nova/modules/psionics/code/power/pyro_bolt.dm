@@ -37,9 +37,9 @@
 /datum/psionic_rank_variant/pyro_bolt/delta
 	rank = PSIONIC_RANK_DELTA
 	variant_name = "rapid bolt"
-	description = "One thermal bolt with no psionic recharge pause."
+	description = "One thermal bolt with a short psionic recharge pause."
 	strain_gain = 5
-	cooldown_time = 0
+	cooldown_time = 1.5 SECONDS
 	projectiles_per_fire = 1
 	projectile_spread = 0
 

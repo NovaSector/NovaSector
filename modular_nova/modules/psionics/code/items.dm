@@ -103,16 +103,3 @@
 /obj/item/restraints/handcuffs/psionic_dampener/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/block_host_psionics, inventory_flags = ITEM_SLOT_HANDCUFFED)
-
-/obj/item/clothing/head/psionic_dampener
-	name = "psionic dampener"
-	desc = "A close-worn lattice that scatters psionic phenomena before they can resolve."
-	icon = 'icons/obj/clothing/head/costume.dmi'
-	worn_icon = 'icons/mob/clothing/head/costume.dmi'
-	icon_state = "foilhat"
-	inhand_icon_state = null
-	w_class = WEIGHT_CLASS_SMALL
-
-/obj/item/clothing/head/psionic_dampener/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/psionic_protection, charges = 6, inventory_flags = ITEM_SLOT_HEAD)
