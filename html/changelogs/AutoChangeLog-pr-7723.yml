@@ -1,0 +1,4 @@
+author: "Happyowl93"
+delete-after: True
+changes:
+  - bugfix: "ammo stacks should stop creating new bullets when clicked on them very fast."
