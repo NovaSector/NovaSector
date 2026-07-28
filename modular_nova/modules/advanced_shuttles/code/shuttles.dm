@@ -96,6 +96,7 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	connectable = FALSE //connecting_computer change: since icon_state is not a typical console, it cannot be connectable.
 	no_destination_swap = TRUE
+	generate_map_preview = FALSE
 
 	///[world.time] when console last announced departure
 	var/last_depart_announce

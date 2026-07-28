@@ -4,12 +4,8 @@ GLOBAL_DATUM_INIT(temporary_flavor_text_vis, /obj/effect/overlay/indicator/tempo
 	icon = 'modular_nova/modules/indicators/icons/temporary_flavor_text_indicator.dmi'
 	icon_state = "flavor"
 
-/mob/living/verb/set_temporary_flavor()
-	set category = "IC"
-	set name = "Set Temporary Flavor Text"
-	set desc = "Allows you to set a temporary flavor text."
-
-	if(stat != CONSCIOUS)
+GAME_VERB_DESC(/mob/living, set_temporary_flavor, "Set Temporary Flavor Text", "Allows you to set a temporary flavor text.", "IC")
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(usr, span_warning("You can't set your temporary flavor text now..."))
 		return
 

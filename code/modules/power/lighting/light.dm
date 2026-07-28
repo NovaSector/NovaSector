@@ -548,7 +548,7 @@
 // if a light is turned off, it won't activate emergency power
 /obj/machinery/light/proc/turned_off()
 	var/area/local_area = get_room_area()
-	return !local_area.lightswitch && local_area.power_light || flickering || constant_flickering //NOVA EDIT CHANGE - ORIGINAL : return !local_area.lightswitch && local_area.power_light || flickering
+	return (local_area && !local_area.lightswitch && local_area.power_light) || flickering || constant_flickering // NOVA EDIT CHANGE - ORIGINAL: return (local_area && !local_area.lightswitch && local_area.power_light) || flickering
 
 // returns whether this light has power
 // true if area has power and lightswitch is on
@@ -557,8 +557,8 @@
 	//NOVA EDIT ADDITION BEGIN
 	if(isnull(local_area))
 		return FALSE
-	//NOVA EDIT END
-	return local_area.lightswitch && local_area.power_light
+	//NOVA EDIT ADDITION END
+	return local_area && local_area.lightswitch && local_area.power_light
 
 // returns whether this light has emergency power
 // can also return if it has access to a certain amount of that power
@@ -801,6 +801,11 @@
 		if(!istype(get_area(src), area_type))
 			continue
 		INVOKE_ASYNC(src, PROC_REF(flicker))
+
+/obj/machinery/light/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents)
+	. = ..()
+	if(!QDELING(src))
+		update(FALSE)
 
 /obj/machinery/light/floor
 	name = "floor light"

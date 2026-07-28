@@ -184,10 +184,11 @@
 	if(!Adjacent(user))
 		to_chat(user, span_warning("You can't reach [src] from here!"))
 		return TRUE
-	if(iscarbon(user))
-		var/mob/living/carbon/human_to_test = user
-		if(human_to_test.gloves)
-			if(!istype(human_to_test.gloves, /obj/item/clothing/gloves/latex))
+	var/mob/living/carbon/carbon_to_test = user
+	if(istype(user))
+		var/obj/item/clothing/gloves/gloves = carbon_to_test.get_item_by_slot(ITEM_SLOT_HANDS)
+		if(gloves)
+			if(!istype(gloves, /obj/item/clothing/gloves/latex))
 				try_toggle_effects(TRIGGER_TOUCH)
 		else
 			try_toggle_effects(TRIGGER_TOUCH)
@@ -232,7 +233,7 @@
 	if((first_effect?.trigger & TRIGGER_ATMOS) || (secondary_effect?.trigger & TRIGGER_ATMOS))
 		var/turf/our_turf = get_turf(src)
 		var/datum/gas_mixture/env = our_turf.return_air()
-		var/loc_gases = env.gases
+		var/loc_gases = env.moles
 		if(env)
 			//COLD ACTIVATION
 			if(env.temperature < 225)
@@ -244,19 +245,19 @@
 			else toggle_effects_off(TRIGGER_HEAT)
 			//PLASMA GAS ACTIVATION.
 			//Update 07.05.2024. No one remembers phoron anymore :( People say "plasma"
-			if(loc_gases[/datum/gas/plasma] && loc_gases[/datum/gas/plasma][MOLES] >= 10)
+			if(loc_gases[/datum/gas/plasma] >= 10)
 				toggle_effects_on(TRIGGER_PLASMA)
 			else toggle_effects_off(TRIGGER_PLASMA)
 			//OXYGEN GAS ACTIVATION
-			if(loc_gases[/datum/gas/oxygen] && loc_gases[/datum/gas/oxygen][MOLES] >= 10)
+			if(loc_gases[/datum/gas/oxygen] >= 10)
 				toggle_effects_on(TRIGGER_OXY)
 			else toggle_effects_off(TRIGGER_OXY)
 			//CO2 GAS ACTIVATION
-			if(loc_gases[/datum/gas/carbon_dioxide] && loc_gases[/datum/gas/carbon_dioxide][MOLES] >= 10)
+			if(loc_gases[/datum/gas/carbon_dioxide] >= 10)
 				toggle_effects_on(TRIGGER_CO2)
 			else toggle_effects_off(TRIGGER_CO2)
 			//NITROGEN GAS ACTIVATION
-			if(loc_gases[/datum/gas/nitrogen] && loc_gases[/datum/gas/nitrogen][MOLES] >= 10)
+			if(loc_gases[/datum/gas/nitrogen] >= 10)
 				toggle_effects_on(TRIGGER_NITRO)
 			else toggle_effects_off(TRIGGER_NITRO)
 	//TRIGGER_PROXY ACTIVATION
@@ -274,10 +275,11 @@
 			try_toggle_effects(TRIGGER_FORCE)
 	if(world.time >= last_time_touched + touch_cooldown)
 		last_time_touched = world.time
-		if(iscarbon(what_bumped))
-			var/mob/living/carbon/human_to_test = what_bumped
-			if(human_to_test.gloves)
-				if(!istype(human_to_test.gloves, /obj/item/clothing/gloves/latex))
+		if(istype(what_bumped))
+			var/mob/living/carbon/carbon_to_test = what_bumped
+			var/obj/item/clothing/gloves/gloves = carbon_to_test.get_item_by_slot(ITEM_SLOT_HANDS)
+			if(gloves)
+				if(gloves && !istype(gloves, /obj/item/clothing/gloves/latex))
 					try_toggle_effects(TRIGGER_TOUCH)
 			else
 				try_toggle_effects(TRIGGER_TOUCH)
@@ -302,30 +304,30 @@
 			return TRUE
 	return FALSE
 
-/obj/machinery/artifact/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/reagent_containers))
-		if(attacking_item.reagents.has_reagent(/datum/reagent/hydrogen, 1) || attacking_item.reagents.has_reagent(/datum/reagent/water, 1))
+/obj/machinery/artifact/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/reagent_containers))
+		if(tool.reagents.has_reagent(/datum/reagent/hydrogen, 1) || tool.reagents.has_reagent(/datum/reagent/water, 1))
 			try_toggle_effects(TRIGGER_WATER)
-		else if(attacking_item.reagents.has_reagent(/datum/reagent/toxin/acid, 1, check_subtypes = TRUE))
+		else if(tool.reagents.has_reagent(/datum/reagent/toxin/acid, 1, check_subtypes = TRUE))
 			try_toggle_effects(TRIGGER_ACID)
-		else if(check_for_volatile(attacking_item))
+		else if(check_for_volatile(tool))
 			try_toggle_effects(TRIGGER_VOLATILE)
-		else if(attacking_item.reagents.has_reagent(/datum/reagent/toxin, 1, check_subtypes = TRUE) || attacking_item.reagents.has_reagent(/datum/reagent/consumable/ethanol/neurotoxin, 1))
+		else if(tool.reagents.has_reagent(/datum/reagent/toxin, 1, check_subtypes = TRUE) || tool.reagents.has_reagent(/datum/reagent/consumable/ethanol/neurotoxin, 1))
 			try_toggle_effects(TRIGGER_TOXIN)
 	else
-		if(istype(attacking_item, /obj/item/melee/baton))
-			var/obj/item/melee/baton/Batong = attacking_item
+		if(istype(tool, /obj/item/melee/baton))
+			var/obj/item/melee/baton/Batong = tool
 			if(Batong.active)
 				try_toggle_effects(TRIGGER_ENERGY)
-		else if(istype(attacking_item, /obj/item/melee/energy))
+		else if(istype(tool, /obj/item/melee/energy))
 			try_toggle_effects(TRIGGER_ENERGY)
-		else if (istype(attacking_item, /obj/item/xenoarch/handheld_scanner))
-			var/obj/item/xenoarch/handheld_scanner/scanner = attacking_item
+		else if (istype(tool, /obj/item/xenoarch/handheld_scanner))
+			var/obj/item/xenoarch/handheld_scanner/scanner = tool
 			get_scan(user, scanner)
 	if(first_effect?.trigger == TRIGGER_HEAT || secondary_effect?.trigger == TRIGGER_HEAT)
-		if(attacking_item.get_temperature() > 700)
+		if(tool.get_temperature() > 700)
 			try_toggle_effects(TRIGGER_HEAT)
-			return
+			return ITEM_INTERACT_SUCCESS
 	return ..()
 
 /**

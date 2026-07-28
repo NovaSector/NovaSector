@@ -34,6 +34,22 @@
 	emp_retention = 0.5
 	max_armor_class = 100
 
+/// Stamina-only shield
+/obj/item/clothing/accessory/energy_shield/syndicate/stamina
+	name = "\improper Low energy shield projector"
+	desc = "A specialist barrier fine-tuned to wavelengths typically associated disabler beams, incidentally also stopping low-energy projectiles like rubber shot; lethal rounds will pass through unhindered. \
+		The low intensity emitters conform to any body armor. Typically used by those who confront the law."
+	max_shield_health = 100
+	recharge_delay = 20 SECONDS
+	recharge_rate = 10
+	shield_color = "#ffaa33"
+	blocks_projectiles = FALSE
+	blocks_melee = FALSE
+
+/obj/item/clothing/accessory/energy_shield/syndicate/stamina/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_SCARBOROUGH)
+
 /// Syndicate shield tuned for projectile interception only. Transparent to melee.
 /obj/item/clothing/accessory/energy_shield/syndicate/phasic
 	name = "\improper Gorlex phasic deflector"

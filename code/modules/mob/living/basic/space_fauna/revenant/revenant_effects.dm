@@ -26,7 +26,7 @@
 /datum/status_effect/revenant/revealed/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_REVENANT_REVEALED, TRAIT_STATUS_EFFECT(id))
 
-	owner.incorporeal_move = INCORPOREAL_MOVE_JAUNT
+	owner.incorporeal_move = HAS_TRAIT(owner, TRAIT_REVENANT_REVEALED) ? FALSE : INCORPOREAL_MOVE_JAUNT // NOVA EDIT CHANGE - ORIGINAL: owner.incorporeal_move = INCORPOREAL_MOVE_JAUNT
 	owner.RemoveInvisibility(type)
 	owner.update_appearance(UPDATE_ICON)
 	owner.update_mob_action_buttons()

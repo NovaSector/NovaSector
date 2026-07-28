@@ -177,6 +177,8 @@
 		/obj/item/trash/vendor_trash/moth_bag = 1,
 		/obj/item/trash/vendor_trash/lizard_bag = 1,
 		/obj/item/trash/vendor_trash/lizard_box = 1,
+		/obj/item/trash/empty_side_pack/ration = 1,
+		/obj/item/trash/empty_side_pack/ration/bag = 1,
 		// NOVA EDIT END
 	)
 

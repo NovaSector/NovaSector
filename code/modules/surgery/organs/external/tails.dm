@@ -156,8 +156,10 @@
 /datum/bodypart_overlay/mutant/tail/get_base_icon_state()
 	return "[wagging ? "wagging_" : ""][sprite_datum.icon_state]" //add the wagging tag if we be wagging
 
+/* // NOVA EDIT REMOVAL START - No.
 /datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
 	return ..() && !(bodypart_owner.owner?.obscured_slots & HIDEJUMPSUIT)
+*/ // NOVA EDIT REMOVAL END
 
 /obj/item/organ/tail/cat
 	name = "tail"

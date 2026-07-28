@@ -239,11 +239,8 @@
 	var/exhaustion_limit = new_owner.mind?.get_skill_modifier(/datum/skill/athletics, SKILL_VALUE_MODIFIER)
 	if(duration + bonus_time >= exhaustion_limit)
 		duration = exhaustion_limit
-	//	NOVA EDIT ADDITION START - squelch workout notificiation, swimming really spams this - hope this gets changes upstream sometime
-		to_chat(new_owner, span_warning("You can feel your muscles burn from exhaustion!"))
-	/*	to_chat(new_owner, span_userdanger("Your muscles are exhausted! Might be a good idea to sleep..."))
-		new_owner.emote("scream")
-		NOVA EDIT ADDITION END	*/
+		to_chat(new_owner, span_warning("You can feel your muscles burn from exhaustion!")) // NOVA EDIT CHANGE - ORIGINAL: to_chat(new_owner, span_userdanger("Your muscles are exhausted! Might be a good idea to sleep..."))
+		//INVOKE_ASYNC(new_owner, TYPE_PROC_REF(/mob, emote), "scream") // NOVA EDIT REMOVAL - squelch workout notificiation, swimming really spams this - hope this gets changes upstream sometime
 		return // exhaustion_limit
 
 	return bonus_time
