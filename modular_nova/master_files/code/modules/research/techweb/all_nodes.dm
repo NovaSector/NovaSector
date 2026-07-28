@@ -326,6 +326,8 @@
 	design_ids += list(
 		"soulcatcher_device",
 		"rsd_interface",
+		"surgery_implant_phylactery",
+		"surgery_implant_phylactery_mechanic",
 	)
 	return ..()
 

@@ -421,11 +421,9 @@
 	if(greyscale_config_inhand_right)
 		righthand_file = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_right, greyscale_colors)
 
-/obj/item/verb/move_to_top()
-	set name = "Move To Top"
-	set src in oview(1)
+GAME_VERB_SRC(/obj/item, move_to_top, oview(1), "Move To Top", null)
 
-	if(!isturf(loc) || usr.stat != CONSCIOUS || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED) || anchored)
+	if(!isturf(loc) || IS_UNCONSCIOUS_OR_CRIT(usr) || HAS_TRAIT(usr, TRAIT_HANDS_BLOCKED) || anchored)
 		return
 
 	if(isliving(usr))
@@ -842,9 +840,7 @@
 
 	return M.can_equip(src, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action = indirect_action)
 
-/obj/item/verb/verb_pickup()
-	set src in oview(1)
-	set name = "Pick up"
+GAME_VERB_SRC(/obj/item, verb_pickup, oview(1), "Pick up", null)
 
 	if(usr.incapacitated || !Adjacent(usr))
 		return
@@ -979,14 +975,11 @@
 		. = SFX_DESECRATION
 
 /// Creates an ignition hotspot if item is lit and located on turf, in mask, or in hand
-/obj/item/proc/open_flame(flame_heat=700)
+/obj/item/proc/open_flame(flame_heat = 700, mob_slots = ITEM_SLOT_MASK|ITEM_SLOT_HANDS)
 	var/turf/location = loc
 	if(ismob(location))
 		var/mob/pyromanic = location
-		var/success = FALSE
-		if(src == pyromanic.get_item_by_slot(ITEM_SLOT_MASK) || (src in pyromanic.held_items))
-			success = TRUE
-		if(success)
+		if((pyromanic.get_slot_by_item(src) & mob_slots))
 			location = get_turf(pyromanic)
 	if(isturf(location))
 		location.hotspot_expose(flame_heat, 5)
@@ -1813,7 +1806,7 @@
 /// Common proc used by painting tools like spraycans and palettes that can access the entire 24 bits color space.
 /obj/item/proc/pick_painting_tool_color(mob/user, default_color)
 	var/chosen_color = tgui_color_picker(user, "Pick new color", "[src]", default_color)
-	if(!chosen_color || QDELETED(src) || IS_DEAD_OR_INCAP(user) || !user.is_holding(src))
+	if(!chosen_color || QDELETED(src) || user.incapacitated || !user.is_holding(src))
 		return
 	set_painting_tool_color(chosen_color)
 
@@ -1873,7 +1866,7 @@
 		if(ishuman(target))
 			var/mob/living/carbon/human/victim_human = target
 			if(victim_human.key && !victim_human.client) // AKA braindead
-				if(victim_human.stat <= SOFT_CRIT && LAZYLEN(victim_human.afk_thefts) <= AFK_THEFT_MAX_MESSAGES)
+				if(!IS_UNCONSCIOUS(victim_human) && LAZYLEN(victim_human.afk_thefts) <= AFK_THEFT_MAX_MESSAGES)
 					var/list/new_entry = list(list(user.name, "tried equipping you with [equipping]", world.time))
 					LAZYADD(victim_human.afk_thefts, new_entry)
 
