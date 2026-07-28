@@ -151,3 +151,5 @@ WaylandSmithy = Game Master
 NamelessFairy = Game Master
 WalterMeldron = Game Master
 san7890 = Game Master
+charlottesugar = Game Master
+sqnztb = Host

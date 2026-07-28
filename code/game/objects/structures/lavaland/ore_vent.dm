@@ -365,6 +365,7 @@
 		return
 
 	for(var/mob/living/miner in range(7, src)) //Give the miners who are near the vent points and xp.
+		SEND_SIGNAL(miner, COMSIG_LIVING_ON_VENT_WIN, src)
 		var/obj/item/card/id/user_id_card = miner.get_idcard(TRUE)
 		if(miner.stat <= SOFT_CRIT)
 			miner.mind?.adjust_experience(/datum/skill/mining, MINING_SKILL_BOULDER_SIZE_XP * boulder_size)
@@ -539,7 +540,7 @@
 		animate(visual, alpha = 0, time = 4.5 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
 
 	if(artifact_chance)
-		var/atom/movable/flick_visual/rare = flick_overlay_view(mutable_appearance('icons/effects/vent_overlays.dmi', "rare_ore"), 4.5 SECONDS)
+		var/atom/movable/flick_visual/rare = flick_overlay_view(mutable_appearance('modular_nova/master_files/icons/effects/vent_overlays.dmi', "artifact"), 4.5 SECONDS) // NOVA EDIT - Changed 'rare_ore' to 'artifact' for icon_state
 		animate(rare, alpha = 0, time = 4.5 SECONDS, easing = CIRCULAR_EASING|EASE_IN)
 
 

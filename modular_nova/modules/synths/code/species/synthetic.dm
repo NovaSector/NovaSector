@@ -193,7 +193,7 @@
 	emag_effect = TRUE
 	playsound(source.loc, 'sound/misc/interference.ogg', 50)
 	to_chat(source, span_warning("Alert: Security breach detected in central processing unit. Error Code: 540-EXO"))
-	if(source.stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(source))
 		to_chat(user, span_warning("The cryptographic sequencer would probably not do anything to [source] in their current state..."))
 		return
 	source.visible_message(span_danger("[user] slides the cryptographic sequencer across [source]'s head[forced_speech == 0 ? "!" : " yet nothing happens..?"]"), span_userdanger("[user] slides the cryptographic sequencer across your head!"))

@@ -1039,12 +1039,12 @@
 
 /datum/loadout_item/head/donator/fraxinella
 	name = "Flower - Fraxinella"
-	item_path = /obj/item/food/grown/poppy/geranium/fraxinella
+	item_path = /obj/item/food/grown/flower/poppy/geranium/fraxinella
 	group = "Miscellaneous"
 
 /datum/loadout_item/head/donator/rainbow_bunch
 	name = "Flower - Rainbow Bunch"
-	item_path = /obj/item/food/grown/rainbow_flower
+	item_path = /obj/item/food/grown/flower/rainbow_flower
 	group = "Miscellaneous"
 
 /datum/loadout_item/head/donator/rainbow_bunch/get_item_information()

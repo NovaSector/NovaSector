@@ -409,13 +409,14 @@
 				for(var/thing in my_turf)
 					AM = thing
 					if(!AM.anchored && !AM.pulledby && !isobserver(AM) && (AM.move_resist < INFINITY))
-						if(iscarbon(AM))
-							var/mob/living/carbon/C = AM
-							if(!(C.shoes && C.shoes.clothing_flags))
-								step(C, dir)
-								if(prob(60) && C.body_position != LYING_DOWN)
-									to_chat(C, span_userdanger("The current knocks you down!"))
-									C.Knockdown(1 SECONDS)
+						var/mob/living/carbon/carbon = AM
+						if(istype(carbon))
+							var/obj/item/clothing/shoes/shoes = carbon.get_item_by_slot(ITEM_SLOT_FEET)
+							if(!(shoes && shoes.clothing_flags))
+								step(carbon, dir)
+								if(prob(60) && carbon.body_position != LYING_DOWN)
+									to_chat(carbon, span_userdanger("The current knocks you down!"))
+									carbon.Knockdown(1 SECONDS)
 						else
 							step(AM, dir)
 
@@ -458,7 +459,8 @@
 			if(falling_carbon.stat >= DEAD)
 				return
 
-			if(falling_carbon.wear_mask && falling_carbon.wear_mask.flags_cover & MASKCOVERSMOUTH)
+			var/obj/item/clothing/mask/wear_mask = falling_carbon.get_item_by_slot(ITEM_SLOT_MASK)
+			if(wear_mask && wear_mask.flags_cover & MASKCOVERSMOUTH)
 				to_chat(falling_carbon, span_userdanger("You fall in the [reagents_to_text()]!"))
 			else
 				var/datum/reagents/tempr = take_reagents_flat(CHOKE_REAGENTS_INGEST_ON_FALL_AMOUNT)

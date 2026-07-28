@@ -6,6 +6,8 @@
 
 /datum/outfit/player_loadout/equip(mob/living/carbon/human/user, visualsOnly)
 	. = ..()
+	if(!user.client)
+		return // no client to pull a loadout from (e.g. a preview dummy) - nothing to equip
 	user.equip_outfit_and_loadout(new /datum/outfit(), user.client.prefs)
 
 /*

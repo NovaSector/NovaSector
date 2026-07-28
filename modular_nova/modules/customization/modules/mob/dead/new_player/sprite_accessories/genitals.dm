@@ -14,7 +14,7 @@
 	/// The biggest size that this sprite accessory goes up to for the skintone version (used for icon_state)
 	var/skintone_max_sprite_size_affix
 
-/datum/sprite_accessory/genital/is_hidden(mob/living/carbon/human/target_mob)
+/datum/sprite_accessory/genital/is_hidden(mob/living/carbon/human/target_mob, datum/bodypart_overlay/mutant/bodypart_overlay)
 	var/obj/item/organ/genital/badonkers = target_mob?.get_organ_slot(associated_organ_slot)
 	if(!badonkers)
 		return TRUE

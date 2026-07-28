@@ -33,18 +33,18 @@
 
 	if (has_exploitables_override)
 		if (!has_exploitable_menu)
-			add_verb(current, /mob/proc/view_exploitables_verb)
+			ASSIGN_GAME_VERB(current, /mob, view_exploitables_verb)
 			has_exploitable_menu = TRUE
 			to_chat(current, span_danger(VIEW_CREW_EXPLOITABLES_GAIN_TEXT))
 		return
 
 	if(!has_exploitable_menu && can_see_exploitables)
-		add_verb(current, /mob/proc/view_exploitables_verb)
+		ASSIGN_GAME_VERB(current, /mob, view_exploitables_verb)
 		has_exploitable_menu = TRUE
 		to_chat(current, span_danger(VIEW_CREW_EXPLOITABLES_GAIN_TEXT))
 
 	else if(has_exploitable_menu && !can_see_exploitables)
-		remove_verb(current, /mob/proc/view_exploitables_verb)
+		UNASSIGN_GAME_VERB(current, /mob, view_exploitables_verb)
 		has_exploitable_menu = FALSE
 
 

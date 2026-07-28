@@ -1,7 +1,4 @@
-/mob/living/carbon/human/verb/lick(mob/living/carbon/human/target in get_adjacent_humans())
-	set name = "Lick"
-	set category = "IC"
-
+GAME_VERB(/mob/living/carbon/human, lick, "Lick", "IC", mob/living/carbon/human/target in get_adjacent_humans())
 	if(!istype(target))
 		return FALSE
 	if(!get_organ_slot(ORGAN_SLOT_TONGUE))
@@ -19,10 +16,7 @@
 	to_chat(target, span_notice("[src] licks you."))
 	return TRUE
 
-/mob/living/carbon/human/verb/smell(mob/living/carbon/human/target in get_adjacent_humans())
-	set name = "Smell"
-	set category = "IC"
-
+GAME_VERB(/mob/living/carbon/human, smell, "Smell", "IC", mob/living/carbon/human/target in get_adjacent_humans())
 	if(!istype(target))
 		return FALSE
 	if(!can_use_erp_flavor_verb(target, "doesn't feel like being approached that close right now."))
