@@ -1,0 +1,4 @@
+author: "Happyowl93"
+delete-after: True
+changes:
+  - rscadd: "You can now peer into the distance with Alt+right click."
