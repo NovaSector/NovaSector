@@ -68,8 +68,7 @@
  * Anomalies
  */
 /datum/round_event_control/anomaly/anomaly_bioscrambler
-	max_occurrences = 1
-	weight = LOW_EVENT_FREQ
+	max_occurrences = 0
 
 /datum/round_event_control/anomaly/anomaly_bluespace
 	max_occurrences = 2
