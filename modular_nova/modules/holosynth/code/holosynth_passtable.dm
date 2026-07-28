@@ -23,7 +23,7 @@
 /datum/action/innate/holosynth_toggle_passtable/Destroy(force)
 	if(owner)
 		owner.remove_traits(list(TRAIT_PASSTABLE, TRAIT_IGNORE_ELEVATION), type)
-	owner.remove_movespeed_modifier(/datum/movespeed_modifier/holosynth_passtable)
+		owner.remove_movespeed_modifier(/datum/movespeed_modifier/holosynth_passtable)
 	return ..()
 
 /datum/action/innate/holosynth_toggle_passtable/is_action_active(atom/movable/screen/movable/action_button/current_button)
