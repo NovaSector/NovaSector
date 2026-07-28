@@ -26,7 +26,6 @@
 	forbidden_areas = list()
 	crawled_areas = list()
 	remaining_areas = list()
-
 	// NOVA EDIT ADDITION START
 	while(length(SSair.rebuild_queue) || length(SSair.expansion_queue))
 		SSair.process_rebuilds()
