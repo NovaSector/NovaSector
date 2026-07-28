@@ -71,3 +71,18 @@
 			var/dist = get_dist(hearing_mob.loc, distant_source.loc)
 			var/vol = clamp(40 - ((dist - 3) * 5) * volume_pref_modifier, 0, 40) // Every tile decreases sound volume by 5
 			hearing_mob.playsound_local(distant_source, takeoff ? takeoff_sound : landing_sound, vol)
+
+/// Returns FALSE if a turf is blocked by a dense object
+/// or has objects in its contents that aren't whitelisted
+/obj/docking_port/mobile/supply/proc/turf_is_occupied(turf/open/shuttle_turf)
+	var/static/list/ignored_objects = typecacheof(list(
+		/obj/effect,
+		/obj/machinery/light,
+		/obj/machinery/button,
+		/obj/machinery/conveyor_switch,
+	))
+	for(var/obj/object in shuttle_turf.contents)
+		if(object.density)
+			return TRUE
+		if(!is_type_in_typecache(object, ignored_objects))
+			return TRUE
