@@ -207,7 +207,8 @@ export const BehaviorTreeCompilerTarget = new Juke.Target({
     });
   },
   executes: async () => {
-    await Juke.exec('python', ['tools/build_bt.py']);
+    const suffix = process.platform == 'win32' ? '.bat' : '';
+    await Juke.exec(`tools/bootstrap/python${suffix}`, ['tools/build_bt.py']);
   },
 });
 
@@ -239,8 +240,9 @@ export const DmTarget = new Juke.Target({
     NamedVersionFile,
   ],
   outputs: ({ get }) => {
-    if (get(DmVersionParameter)) {
-      return []; // Always rebuild when dm version is provided
+    if (get(DmVersionParameter) || get(DefineParameter).length > 0) {
+      // Always rebuild when a dm version or explicit CLI defines are provided to ensure juke re-runs
+      return [];
     }
     return [`${DME_NAME}.dmb`, `${DME_NAME}.rsc`];
   },

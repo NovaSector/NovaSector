@@ -11,7 +11,7 @@
 	req_dna = 15
 	req_absorbs = 1
 	req_human = 1
-	req_stat = UNCONSCIOUS
+	req_stat = SOFT_CRIT
 
 /datum/action/changeling/horror_form/sting_action(mob/living/carbon/human/user)
 	..()

@@ -9139,7 +9139,6 @@
 /area/awaymission/caves/maintsroom)
 "ES" = (
 /obj/structure/table/reinforced,
-/obj/item/ai_module/reset/purge,
 /turf/open/floor/circuit/red/anim,
 /area/awaymission/caves/maintsroom)
 "EU" = (
@@ -12951,8 +12950,8 @@
 /area/awaymission/caves/maintsroom)
 "RE" = (
 /obj/structure/table/reinforced,
-/obj/item/aiupgrade/surveillance_upgrade,
-/obj/item/malf_upgrade,
+/obj/item/ai_module/upgrade/surveillance,
+/obj/item/ai_module/combat,
 /obj/item/mmi/posibrain,
 /turf/open/floor/circuit/red/anim,
 /area/awaymission/caves/maintsroom)
