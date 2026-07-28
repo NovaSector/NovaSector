@@ -20,8 +20,9 @@
 	to_chat(owner, span_notice("Table phasing [table_toggle ? "enabled" : "disabled"]."))
 	build_all_button_icons(UPDATE_BUTTON_BACKGROUND)
 
-/datum/action/innate/holosynth_toggle_passtable/Destroy()
-	owner.remove_traits(list(TRAIT_PASSTABLE, TRAIT_IGNORE_ELEVATION), type)
+/datum/action/innate/holosynth_toggle_passtable/Destroy(force)
+	if(owner)
+		owner.remove_traits(list(TRAIT_PASSTABLE, TRAIT_IGNORE_ELEVATION), type)
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/holosynth_passtable)
 	return ..()
 
