@@ -8090,7 +8090,7 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/ruin/space/has_grav/nova/des_two/cargo)
 "Iq" = (
-/obj/structure/fireplace/nova{
+/obj/structure/fireplace{
 	pixel_x = 0
 	},
 /obj/machinery/button/door/directional/north{
@@ -9071,10 +9071,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research/robotics)
 "Mz" = (
-/obj/item/ai_module/reset/purge{
-	pixel_y = -4
-	},
-/obj/item/ai_module/supplied/freeform{
+/obj/item/ai_module/law/supplied/freeform{
 	pixel_y = 7
 	},
 /obj/item/mmi/posibrain{
