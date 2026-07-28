@@ -23,3 +23,6 @@
 
 /obj/item/wrench/combat
 	icon = 'icons/obj/tools.dmi'
+
+/obj/item/wrench/bolter
+	icon = 'icons/obj/tools.dmi'

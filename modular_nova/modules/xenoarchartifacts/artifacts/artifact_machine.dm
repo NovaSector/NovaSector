@@ -304,30 +304,30 @@
 			return TRUE
 	return FALSE
 
-/obj/machinery/artifact/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/reagent_containers))
-		if(attacking_item.reagents.has_reagent(/datum/reagent/hydrogen, 1) || attacking_item.reagents.has_reagent(/datum/reagent/water, 1))
+/obj/machinery/artifact/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/reagent_containers))
+		if(tool.reagents.has_reagent(/datum/reagent/hydrogen, 1) || tool.reagents.has_reagent(/datum/reagent/water, 1))
 			try_toggle_effects(TRIGGER_WATER)
-		else if(attacking_item.reagents.has_reagent(/datum/reagent/toxin/acid, 1, check_subtypes = TRUE))
+		else if(tool.reagents.has_reagent(/datum/reagent/toxin/acid, 1, check_subtypes = TRUE))
 			try_toggle_effects(TRIGGER_ACID)
-		else if(check_for_volatile(attacking_item))
+		else if(check_for_volatile(tool))
 			try_toggle_effects(TRIGGER_VOLATILE)
-		else if(attacking_item.reagents.has_reagent(/datum/reagent/toxin, 1, check_subtypes = TRUE) || attacking_item.reagents.has_reagent(/datum/reagent/consumable/ethanol/neurotoxin, 1))
+		else if(tool.reagents.has_reagent(/datum/reagent/toxin, 1, check_subtypes = TRUE) || tool.reagents.has_reagent(/datum/reagent/consumable/ethanol/neurotoxin, 1))
 			try_toggle_effects(TRIGGER_TOXIN)
 	else
-		if(istype(attacking_item, /obj/item/melee/baton))
-			var/obj/item/melee/baton/Batong = attacking_item
+		if(istype(tool, /obj/item/melee/baton))
+			var/obj/item/melee/baton/Batong = tool
 			if(Batong.active)
 				try_toggle_effects(TRIGGER_ENERGY)
-		else if(istype(attacking_item, /obj/item/melee/energy))
+		else if(istype(tool, /obj/item/melee/energy))
 			try_toggle_effects(TRIGGER_ENERGY)
-		else if (istype(attacking_item, /obj/item/xenoarch/handheld_scanner))
-			var/obj/item/xenoarch/handheld_scanner/scanner = attacking_item
+		else if (istype(tool, /obj/item/xenoarch/handheld_scanner))
+			var/obj/item/xenoarch/handheld_scanner/scanner = tool
 			get_scan(user, scanner)
 	if(first_effect?.trigger == TRIGGER_HEAT || secondary_effect?.trigger == TRIGGER_HEAT)
-		if(attacking_item.get_temperature() > 700)
+		if(tool.get_temperature() > 700)
 			try_toggle_effects(TRIGGER_HEAT)
-			return
+			return ITEM_INTERACT_SUCCESS
 	return ..()
 
 /**

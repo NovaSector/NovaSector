@@ -12,7 +12,7 @@
 /datum/antagonist/on_removal()
 	. = ..()
 	for(var/recipe_datum in antag_recipes)
-		owner.unteach_crafting_recipe(recipe_datum)
+		owner.forget_crafting_recipe(recipe_datum)
 
 /datum/antagonist/ashwalker
 	antag_recipes = list(
