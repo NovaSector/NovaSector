@@ -256,7 +256,7 @@
 		return TRUE
 	if(action_disabled || !istype(living_owner) || !profile)
 		return FALSE
-	if(living_owner.stat != CONSCIOUS)
+	if(living_owner.stat >= SOFT_CRIT)
 		return FALSE
 	if(HAS_TRAIT(living_owner, TRAIT_INCAPACITATED))
 		return FALSE
@@ -422,7 +422,7 @@
 /datum/action/cooldown/psionic/proc/can_maintain(mob/living/living_owner, datum/component/psionic_profile/profile)
 	if(action_disabled || !istype(living_owner) || !profile)
 		return FALSE
-	if(living_owner.stat != CONSCIOUS)
+	if(living_owner.stat >= SOFT_CRIT)
 		return FALSE
 	if(HAS_TRAIT(living_owner, TRAIT_INCAPACITATED))
 		return FALSE

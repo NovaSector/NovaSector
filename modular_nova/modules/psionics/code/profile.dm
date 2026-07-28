@@ -515,7 +515,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		return UI_CLOSE
 	// Opening the menu is gated by the action's check flags, but nothing closes an already-open
 	// window, so imprinting has to be blocked here for a psion who is cuffed, crit, or dead.
-	if(psion.stat != CONSCIOUS || HAS_TRAIT(psion, TRAIT_INCAPACITATED))
+	var/mob/living/open_for = psion
+	if(open_for.stat >= SOFT_CRIT || HAS_TRAIT(open_for, TRAIT_INCAPACITATED))
 		return UI_CLOSE
 
 	return ..()
