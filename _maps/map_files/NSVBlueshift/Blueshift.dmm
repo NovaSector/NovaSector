@@ -6701,8 +6701,6 @@
 /area/space/nearstation)
 "bsN" = (
 /obj/item/radio/intercom/directional/north,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/camera/directional/south{
 	c_tag = "Security - Shuttle Bay East"
 	},
@@ -10738,6 +10736,8 @@
 	pixel_x = 8;
 	pixel_y = 3
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/security/execution/transfer)
 "ciT" = (
@@ -19524,6 +19524,8 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/stairs/old,
 /area/station/security/execution/transfer)
 "dVD" = (
@@ -20750,6 +20752,7 @@
 "ejd" = (
 /obj/structure/railing/corner/end,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/security/execution/transfer)
 "eje" = (
@@ -21506,6 +21509,12 @@
 /obj/structure/rack/shelf,
 /turf/open/floor/iron/dark,
 /area/station/cargo/warehouse)
+"erG" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark,
+/area/station/security/execution/transfer)
 "erM" = (
 /obj/machinery/atmospherics/components/trinary/filter/atmos/o2{
 	dir = 4
@@ -43512,6 +43521,14 @@
 	dir = 8
 	},
 /area/station/science/xenobiology)
+"iQy" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/security/execution/transfer)
 "iQD" = (
 /obj/machinery/door/airlock/maintenance,
 /obj/effect/mapping_helpers/airlock/abandoned,
@@ -45910,8 +45927,6 @@
 /obj/structure/railing{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/stairs,
 /area/station/security/execution/transfer)
 "jpC" = (
@@ -56707,6 +56722,13 @@
 /obj/effect/mapping_helpers/airlock/access/all/medical/morgue,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
+"lyg" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/station/security/execution/transfer)
 "lyv" = (
 /obj/machinery/navbeacon{
 	codes_txt = "patrol;next_patrol=hallup12";
@@ -67538,8 +67560,6 @@
 /obj/machinery/door/airlock/security/glass{
 	name = "Security Shuttlebay"
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /turf/open/floor/iron,
 /area/station/security/execution/transfer)
@@ -69374,6 +69394,8 @@
 "odg" = (
 /obj/machinery/newscaster/directional/west,
 /obj/effect/landmark/firealarm_sanity,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/stairs/old,
 /area/station/security/execution/transfer)
 "odj" = (
@@ -93932,6 +93954,7 @@
 "sVu" = (
 /obj/structure/railing/corner/end/flip,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/security/execution/transfer)
 "sVz" = (
@@ -101853,8 +101876,6 @@
 /area/station/science/genetics)
 "uwI" = (
 /obj/effect/turf_decal/vg_decals/numbers/one,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/station/security/execution/transfer)
 "uwN" = (
@@ -109305,11 +109326,6 @@
 	},
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/captain/private)
-"vUC" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron,
-/area/station/security/execution/transfer)
 "vUH" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/structure/cable,
@@ -113858,6 +113874,8 @@
 /area/station/medical/medbay/central)
 "wOH" = (
 /obj/effect/turf_decal/stripes,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/security/execution/transfer)
 "wOR" = (
@@ -120462,8 +120480,6 @@
 /turf/open/floor/plating,
 /area/station/hallway/primary/port)
 "yfU" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/iron,
@@ -144546,15 +144562,15 @@ aIF
 iFX
 smY
 ejd
-doG
-doG
-mhN
+iQy
+iQy
+lyg
 ciS
 wOH
 odg
 dVC
-euE
-glU
+oyI
+erG
 euE
 euE
 euE
@@ -144811,7 +144827,7 @@ ixK
 uqK
 hZI
 mfE
-glU
+erG
 euE
 euE
 euE
@@ -145317,7 +145333,7 @@ euE
 euE
 euE
 euE
-oyI
+euE
 euE
 euE
 euE
@@ -145574,7 +145590,7 @@ faw
 euE
 euE
 euE
-oyI
+euE
 inc
 euE
 euE
@@ -146088,7 +146104,7 @@ euE
 euE
 euE
 inc
-oyI
+euE
 euE
 faw
 euE
@@ -146345,7 +146361,7 @@ euE
 piH
 euE
 euE
-oyI
+euE
 euE
 kWs
 piH
@@ -146859,7 +146875,7 @@ dwK
 mgt
 iHC
 mhN
-vUC
+jHK
 mhN
 iHC
 xYh
@@ -147630,7 +147646,7 @@ iRb
 xJs
 jMz
 sIh
-vUC
+jHK
 hZI
 uda
 wJg
