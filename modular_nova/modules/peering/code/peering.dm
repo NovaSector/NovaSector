@@ -8,19 +8,10 @@
 /// The clicked turf must be at least this many tiles away for us to peer toward it.
 #define PEER_MIN_DISTANCE 3
 
-/mob/living
-	/// TRUE while our view is shifted from peering into the distance.
-	var/peering = FALSE
-
 /mob/living/AltClickSecondaryOn(atom/target)
 	if(peer_into_distance(get_turf(target)))
 		return
 	return ..()
-
-/mob/living/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
-	. = ..()
-	if(peering)
-		stop_peering()
 
 /**
  * Lean and peer toward a distant turf, sliding the view that way for some extra sightline.
@@ -54,33 +45,49 @@
 	face_atom(target) // turn to look where we're peering
 	var/offset_x = clamp(target.x - our_turf.x, -PEER_MAX_OFFSET, PEER_MAX_OFFSET)
 	var/offset_y = clamp(target.y - our_turf.y, -PEER_MAX_OFFSET, PEER_MAX_OFFSET)
-	// The offset lives on the client, not us, so anything that repoints the view or takes us
-	// out of commission without moving us (death and camera/mech/AI/ghost perspective swaps
-	// via reset_perspective, or dropping into soft/hard crit via set_stat) would otherwise
-	// leave it stuck crooked. Listen for those while peering so we can snap it back.
-	if(!peering)
-		RegisterSignals(src, list(COMSIG_MOB_RESET_PERSPECTIVE, COMSIG_MOB_LOGOUT, COMSIG_MOB_STATCHANGE), PROC_REF(cancel_peering))
-	peering = TRUE
+	AddElement(/datum/element/peering, offset_x, offset_y)
 	visible_message(
 		span_notice("[src] easily peers into the distance."),
 		span_notice("You peer into the distance."),
 	)
-	animate(client, pixel_x = ICON_SIZE_X * offset_x, pixel_y = ICON_SIZE_Y * offset_y, time = 1.1 SECONDS, easing = SINE_EASING)
 	return TRUE
 
-/mob/living/proc/cancel_peering(datum/source)
-	SIGNAL_HANDLER
-	stop_peering()
+/**
+ * Holds a mob's view shifted off of itself while it peers into the distance,
+ * and slides it back on whenever anything would leave the view stuck crooked.
+ */
+/datum/element/peering
+	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
+
+/datum/element/peering/Attach(datum/target, offset_x = 0, offset_y = 0)
+	. = ..()
+	if(!isliving(target))
+		return ELEMENT_INCOMPATIBLE
+	var/mob/living/peerer = target
+	if(!peerer.client)
+		return ELEMENT_INCOMPATIBLE
+	// The offset lives on the client, not the mob, so anything that repoints the view or takes
+	// them out of commission without moving them (death and camera/mech/AI/ghost perspective
+	// swaps via reset_perspective, or dropping into soft/hard crit via set_stat) would otherwise
+	// leave it stuck crooked. Listen for those, and for moving, so we can snap it back.
+	RegisterSignals(
+		peerer,
+		list(COMSIG_MOB_RESET_PERSPECTIVE, COMSIG_MOB_LOGOUT, COMSIG_MOB_STATCHANGE, COMSIG_MOVABLE_MOVED),
+		PROC_REF(stop_peering),
+		override = TRUE,
+	)
+	animate(peerer.client, pixel_x = ICON_SIZE_X * offset_x, pixel_y = ICON_SIZE_Y * offset_y, time = 1.1 SECONDS, easing = SINE_EASING)
+
+/datum/element/peering/Detach(mob/living/source, ...)
+	UnregisterSignal(source, list(COMSIG_MOB_RESET_PERSPECTIVE, COMSIG_MOB_LOGOUT, COMSIG_MOB_STATCHANGE, COMSIG_MOVABLE_MOVED))
+	if(source.client)
+		animate(source.client, pixel_x = 0, pixel_y = 0, time = 0.2 SECONDS, easing = SINE_EASING)
+	return ..()
 
 /// Smoothly slides the view back onto the mob and clears the peering state.
-/mob/living/proc/stop_peering()
-	if(!peering)
-		return
-	peering = FALSE
-	UnregisterSignal(src, list(COMSIG_MOB_RESET_PERSPECTIVE, COMSIG_MOB_LOGOUT, COMSIG_MOB_STATCHANGE))
-	if(!client)
-		return
-	animate(client, pixel_x = 0, pixel_y = 0, time = 0.2 SECONDS, easing = SINE_EASING)
+/datum/element/peering/proc/stop_peering(mob/living/source)
+	SIGNAL_HANDLER
+	source.RemoveElement(/datum/element/peering)
 
 #undef PEER_MAX_OFFSET
 #undef PEER_MIN_DISTANCE
