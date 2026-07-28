@@ -1,0 +1,4 @@
+author: "amsy2"
+delete-after: True
+changes:
+  - rscadd: "Added a toggle ability for holosynths to pass through tables (at cost of a slowdown)"
