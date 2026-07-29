@@ -142,7 +142,7 @@
 		step_towards(dragged, well_turf)
 
 /// Everything the well can currently act on. The caster is exempt, and anything holding its own
-/// footing — magnetic boots, an anchored psion, a bolted machine — is skipped rather than dragged.
+/// footing (magnetic boots, an anchored psion, a bolted machine) is skipped rather than dragged.
 /obj/effect/psionic_gravity_well/proc/get_pullable_atoms(turf/well_turf)
 	var/mob/living/caster = caster_ref?.resolve()
 	var/list/pullable = list()

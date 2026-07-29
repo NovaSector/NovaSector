@@ -21,7 +21,7 @@
 	return quirk_dampener_covers(psionic_flags)
 
 /// Checks whether this mob can currently project psionics.
-/// `TRAIT_PSIONIC_DAMPENER` suppresses casting; `TRAIT_RESIST_PSYCHIC` does not, by design —
+/// `TRAIT_PSIONIC_DAMPENER` suppresses casting; `TRAIT_RESIST_PSYCHIC` does not, by design:
 /// resistance is receive-only (see `can_block_psionics`), not a casting lockout.
 /// The quirk-sourced dampener locks out only the mental categories it shields.
 /mob/proc/can_cast_psionics(psionic_flags = PSIONIC_ALL)

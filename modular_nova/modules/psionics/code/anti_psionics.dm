@@ -65,12 +65,12 @@
 	clear_affected_mob()
 
 /// Called after [affected_mob] is set. Override in subclasses for side effects (e.g. button updates).
-/// Only fires for item parents — direct-mob applications skip this to avoid double feedback.
+/// Only fires for item parents; direct-mob applications skip this to avoid double feedback.
 /datum/component/psionic_interference/proc/on_applied(mob/living/target)
 	return
 
 /// Called before [affected_mob] is cleared. Override in subclasses for side effects (e.g. button updates).
-/// Only fires for item parents — direct-mob applications skip this to avoid double feedback.
+/// Only fires for item parents; direct-mob applications skip this to avoid double feedback.
 /datum/component/psionic_interference/proc/on_cleared(mob/living/target)
 	return
 
