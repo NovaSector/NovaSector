@@ -1131,3 +1131,11 @@
       (Blob, zombies, or a severe enough disease)
   - map: Add Tombstone Escape Shuttle that can be unlocked via a biohazard event.
       (Blob, zombies, or a severe enough disease)
+2026-07-29:
+  Happyowl93:
+  - bugfix: ammo stacks should stop creating new bullets when clicked on them very
+      fast.
+  - rscadd: You can now peer into the distance with Alt+right click.
+  amsy2:
+  - rscadd: Added a toggle ability for holosynths to pass through tables (at cost
+      of a slowdown)
