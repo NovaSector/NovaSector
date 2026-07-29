@@ -343,7 +343,7 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	var/list/empty_turfs = list()
 	for(var/area/shuttle/shuttle_area as anything in shuttle_areas)
 		for(var/turf/open/floor/shuttle_floor in shuttle_area.get_turfs_from_all_zlevels())
-			if(turf_is_occupied(shuttle_floor)) // NOVA EDIT CHANGE - Enhanced checks that a turf is unavailable - if(shuttle_floor.is_blocked_turf())
+			if(turf_is_occupied(shuttle_floor)) // NOVA EDIT CHANGE - Enhanced checks that a turf is unavailable - ORIGINAL: if(shuttle_floor.is_blocked_turf())
 				continue
 			empty_turfs += shuttle_floor
 
