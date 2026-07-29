@@ -9,6 +9,9 @@
 		var/list/moles = air.moles
 		var/miasma_moles = moles[/datum/gas/miasma]
 
+		if(!miasma_moles)
+			return
+
 		//Replace miasma with oxygen
 		var/cleaned_air = miasma_moles
 		moles[/datum/gas/miasma] -= cleaned_air
