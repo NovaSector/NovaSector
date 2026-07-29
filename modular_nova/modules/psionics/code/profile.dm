@@ -443,6 +443,12 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	if(!ispath(action_type, /datum/action/cooldown/psionic))
 		return FALSE
 	var/datum/psionic_power/catalog_power = get_psionic_power_for_action(action_type)
+	// Explicit-cost grants (starting powers, admin) skip the lock-reason path below, so the
+	// ERP preference gate has to hold unconditionally here.
+	if(catalog_power?.is_lewd() && !allows_lewd_powers())
+		if(!silent)
+			to_chat(psion, span_warning("That discipline cannot be imprinted."))
+		return FALSE
 	var/uses_catalog_cost = isnull(cost)
 	if(uses_catalog_cost)
 		cost = catalog_power ? catalog_power.get_cost() : 1
@@ -487,8 +493,14 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	decay_strain()
 	ui_interact(user)
 
+/// Whether this profile's psion has ERP preferences enabled, allowing lewd disciplines.
+/datum/component/psionic_profile/proc/allows_lewd_powers()
+	return !!psion?.client?.prefs?.read_preference(/datum/preference/toggle/erp)
+
 /datum/component/psionic_profile/proc/get_power_lock_reason(datum/psionic_power/power)
 	if(!power)
+		return "That discipline cannot be imprinted."
+	if(power.is_lewd() && !allows_lewd_powers())
 		return "That discipline cannot be imprinted."
 	if(power.action_type in known_powers)
 		return "You already know that discipline."
@@ -566,6 +578,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		var/datum/psionic_school/school = get_psionic_school(school_type)
 		var/list/power_data = list()
 		for(var/datum/psionic_power/power as anything in school_powers)
+			if(power.is_lewd() && !allows_lewd_powers())
+				continue
 			var/datum/action/cooldown/psionic/action_type = power.action_type
 			var/list/required_power_paths = list()
 			var/list/required_power_names = list()
@@ -583,6 +597,7 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 				"required_powers" = required_power_paths,
 				"required_power_names" = required_power_names,
 				"minimum_rank" = power.get_minimum_rank(),
+				"lewd" = power.is_lewd(),
 				"variants" = power.get_variant_data(),
 				"tier" = power.get_tier(),
 				"icon" = initial(action_type.button_icon),
@@ -628,6 +643,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 			"strain_discount" = get_school_strain_discount(school_type),
 		)
 		for(var/datum/psionic_power/power as anything in school_powers)
+			if(power.is_lewd() && !allows_lewd_powers())
+				continue
 			var/lock_reason = get_power_lock_reason(power)
 			data["power_state"]["[power.action_type]"] = list(
 				"learned" = (power.action_type in known_powers),

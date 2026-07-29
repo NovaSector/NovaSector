@@ -34,6 +34,7 @@ type PsionicPowerCatalogEntry = {
   required_powers: string[];
   required_power_names: string[];
   minimum_rank?: string;
+  lewd: BooleanLike;
   variants: PsionicPowerVariant[];
   tier: number;
   icon: string;
@@ -102,6 +103,10 @@ const mergeSchools = (
       ...(powerState?.[power.action_type] || EMPTY_POWER_STATE),
     })),
   }));
+
+// Lewd powers keep their own accent instead of the school color so they read
+// as a distinct, opt-in branch of the tree.
+const LEWD_NODE_COLOR = '#ff64c8';
 
 const POWER_NODE_WIDTH = 420;
 const POWER_NODE_MIN_HEIGHT = 126;
@@ -404,6 +409,7 @@ const PowerNode = (props: {
   const hasPowerPrereqs = !!(
     power.required_powers?.length || requiredPowerNames.length
   );
+  const nodeColor = power.lewd ? LEWD_NODE_COLOR : school.color;
 
   return (
     <Button
@@ -411,6 +417,7 @@ const PowerNode = (props: {
         'PsionicImprinting__node',
         learned && 'PsionicImprinting__node--learned',
         !learned && !canBuy && 'PsionicImprinting__node--locked',
+        !!power.lewd && 'PsionicImprinting__node--lewd',
       ]
         .filter(Boolean)
         .join(' ')}
@@ -422,13 +429,13 @@ const PowerNode = (props: {
           : `${power.name}: ${power.desc}`
       }
       onClick={() => act('imprint', { action_type: power.action_type })}
-      style={{ borderColor: school.color }}
+      style={{ borderColor: nodeColor }}
     >
       <Stack align="center" fill>
         <Stack.Item>
           <Box
             className="PsionicImprinting__nodeIcon"
-            style={{ boxShadow: `0 0 10px ${school.color}` }}
+            style={{ boxShadow: `0 0 10px ${nodeColor}` }}
           >
             <DmIcon
               icon={power.icon}

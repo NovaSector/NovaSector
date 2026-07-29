@@ -129,6 +129,22 @@
     opacity: 0.62;
   }
 
+  &__node--lewd {
+    background: linear-gradient(
+      135deg,
+      rgba(200, 90, 255, 0.2),
+      rgba(60, 0, 60, 0.28)
+    );
+  }
+
+  &__node--lewd#{&}__node--learned {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 100, 200, 0.24),
+      rgba(60, 0, 60, 0.24)
+    );
+  }
+
   &__nodeIcon {
     width: 42px;
     height: 42px;

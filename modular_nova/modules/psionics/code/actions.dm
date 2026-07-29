@@ -60,6 +60,8 @@
 	var/active_strain_gain_per_second = 0
 	/// Psionic category flags used by counters.
 	var/psionic_flags = PSIONIC_INTRUSIVE
+	/// If TRUE, this is an ERP power: hidden from imprinting and uncastable without the ERP preference on both parties.
+	var/lewd = FALSE
 	/// Anti-psionic charge cost to block this ability. 0 means it bypasses blocking.
 	var/block_charge_cost = 0
 	/// Balloon alert shown to the caster when this ability is blocked.
@@ -477,6 +479,10 @@
 		if(feedback)
 			living_owner.balloon_alert(living_owner, "not awakened!")
 		return FALSE
+	if(lewd && !living_owner.client?.prefs?.read_preference(/datum/preference/toggle/erp))
+		if(feedback)
+			living_owner.balloon_alert(living_owner, "erp preferences disabled!")
+		return FALSE
 	if(requires_concentration && concentration_turf)
 		if(feedback)
 			living_owner.balloon_alert(living_owner, "already concentrating!")
@@ -664,6 +670,11 @@
 	if(!get_turf(target) || get_dist(get_turf(living_owner), get_turf(target)) > get_variant_value(profile, "cast_range"))
 		living_owner.balloon_alert(living_owner, "too far away!")
 		return FALSE
+	if(lewd && isliving(target) && target != living_owner)
+		var/mob/living/living_target = target
+		if(!living_target.check_erp_prefs(/datum/preference/toggle/erp, living_owner))
+			living_owner.balloon_alert(living_owner, "their preferences forbid this!")
+			return FALSE
 
 	return TRUE
 

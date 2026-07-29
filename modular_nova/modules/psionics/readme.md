@@ -20,6 +20,7 @@ Psionics are not spells. They do not use spell actions or antimagic checks; bloc
 - Psionic dampener cuffs, a charge-limited psionic nullification headband, a handheld psionic resonance scanner for non-psion detection, and reusable protection/restriction components.
 - School commitment and anomaly-core attunement, both of which reduce strain in that school.
 - The Psionic Dampener quirk only shields the mind (intrusive/sensory psionics); non-quirk `TRAIT_PSIONIC_DAMPENER` sources still suppress everything.
+- ERP-gated lewd disciplines, hidden from imprinting and uncastable unless both parties have the ERP preference enabled.
 
 ### TG Proc/File Changes:
 

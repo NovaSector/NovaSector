@@ -163,6 +163,12 @@
 
 	return max(initial(action_type.point_cost), 0)
 
+/datum/psionic_power/proc/is_lewd()
+	if(!action_type)
+		return FALSE
+
+	return initial(action_type.lewd)
+
 /datum/psionic_power/proc/get_school_type()
 	if(!action_type)
 		return null
@@ -245,6 +251,12 @@
 		for(var/required_power_type in required_powers)
 			if(!ispath(required_power_type, /datum/action/cooldown/psionic))
 				return "has a non-psionic required power [required_power_type]"
+
+			// A lewd prerequisite of a non-lewd power would leave a visible node with an invisible parent
+			// in the imprinting tree of a psion whose ERP preference hides lewd powers.
+			var/datum/action/cooldown/psionic/required_action_type = required_power_type
+			if(!is_lewd() && initial(required_action_type.lewd))
+				return "is a non-lewd power with lewd prerequisite [required_power_type]"
 
 	return null
 
