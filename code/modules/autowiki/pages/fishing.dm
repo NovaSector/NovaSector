@@ -427,7 +427,7 @@
 		var/filename = SANITIZE_FILENAME("[state]_wiki_lure")
 		output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishLure", list(
 			"name" = escape_value(full_capitalize(initial(lure.name))),
-			"desc" = escape_value(initial(lure.name)),
+			"description" = escape_value(initial(lure.description)),
 			"icon" = filename,
 			"catchables" = build_catchables(SSfishing.lure_catchables[lure]),
 		))
