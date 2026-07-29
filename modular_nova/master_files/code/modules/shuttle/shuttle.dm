@@ -80,24 +80,25 @@
 			var/vol = clamp(40 - ((dist - 3) * 5) * volume_pref_modifier, 0, 40) // Every tile decreases sound volume by 5
 			hearing_mob.playsound_local(distant_source, takeoff ? takeoff_sound : landing_sound, vol)
 
-/// Returns FALSE if a turf is blocked by a dense object
-/// or has objects in its contents that aren't whitelisted
-/obj/docking_port/mobile/supply/proc/turf_is_occupied(turf/open/shuttle_turf)
+/obj/docking_port/mobile/supply
+	/// Number of times there's been an announcement for there being a lot of blocking objects on the shuttle
+	var/static/many_turfs_blocked_warnings = 0
+	/// These *objects* will not be considered as blocking a tile
 	var/static/list/ignored_objects = typecacheof(list(
 		/obj/effect,
 		/obj/machinery/light,
 		/obj/machinery/button,
 		/obj/machinery/conveyor_switch,
 	))
+
+/// Returns FALSE if a turf is blocked by a dense object
+/// or has objects in its contents that aren't whitelisted
+/obj/docking_port/mobile/supply/proc/turf_is_occupied(turf/open/shuttle_turf)
 	for(var/obj/object in shuttle_turf.contents)
 		if(object.density)
 			return TRUE
 		if(!is_type_in_typecache(object, ignored_objects))
 			return TRUE
-
-/obj/docking_port/mobile/supply
-	/// Number of times there's been an announcement for there being a lot of blocking objects on the shuttle
-	var/static/many_turfs_blocked_warnings = 0
 
 /// Announces that all turfs are blocked and orders aren't being confirmed
 /obj/docking_port/mobile/supply/proc/announce_all_turfs_blocked()
