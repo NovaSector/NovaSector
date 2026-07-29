@@ -4341,7 +4341,7 @@
 /area/station/maintenance/abandon_psych)
 "beQ" = (
 /obj/structure/table,
-/obj/item/ai_module/supplied/freeform,
+/obj/item/ai_module/law/supplied/freeform,
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/ai/upload/chamber)
@@ -28762,7 +28762,6 @@
 /area/station/common/night_club)
 "hId" = (
 /obj/structure/table,
-/obj/item/ai_module/reset,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/ai/upload/chamber)
 "hIq" = (
@@ -42734,10 +42733,6 @@
 /obj/item/aicard{
 	pixel_x = 6;
 	pixel_y = -1
-	},
-/obj/item/ai_module/reset{
-	pixel_x = -1;
-	pixel_y = 4
 	},
 /obj/item/multitool{
 	pixel_x = -7;
@@ -59152,7 +59147,7 @@
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "pOY" = (
-/obj/machinery/computer/upload/ai,
+/obj/machinery/ai_law_rack/base/core,
 /turf/open/floor/iron/large,
 /area/station/ai/upload/chamber)
 "pOZ" = (
@@ -81916,9 +81911,6 @@
 	},
 /area/station/cargo/miningfoyer)
 "vSr" = (
-/obj/machinery/computer/upload/borg{
-	dir = 1
-	},
 /turf/open/floor/iron/large,
 /area/station/ai/upload/chamber)
 "vSw" = (

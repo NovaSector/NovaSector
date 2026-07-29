@@ -43,10 +43,8 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	var/obj/item/soulcatcher_holder/soul_holder = parent
 	if(istype(soul_holder) && ismob(soul_holder.loc))
 		var/mob/living/soulcatcher_owner = soul_holder.loc
-		add_verb(soulcatcher_owner, list(
-			/mob/living/proc/soulcatcher_say,
-			/mob/living/proc/soulcatcher_emote,
-		))
+		ASSIGN_GAME_VERB(soulcatcher_owner, /mob/living, soulcatcher_say)
+		ASSIGN_GAME_VERB(soulcatcher_owner, /mob/living, soulcatcher_emote)
 
 /datum/component/soulcatcher/Destroy(force)
 	GLOB.soulcatchers -= src
@@ -64,10 +62,8 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 		soulcatcher_owner = parent_nif.linked_mob
 
 	if(istype(soulcatcher_owner))
-		remove_verb(soulcatcher_owner, list(
-			/mob/living/proc/soulcatcher_say,
-			/mob/living/proc/soulcatcher_emote,
-		))
+		UNASSIGN_GAME_VERB(soulcatcher_owner, /mob/living, soulcatcher_say)
+		UNASSIGN_GAME_VERB(soulcatcher_owner, /mob/living, soulcatcher_emote)
 
 	return ..()
 
@@ -423,9 +419,7 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 	var/mob/dead/observer/observer = usr
 	observer.join_soulcatcher()
 
-/mob/dead/observer/verb/join_soulcatcher()
-	set name = "Enter Soulcatcher"
-
+GAME_VERB(/mob/dead/observer, join_soulcatcher, "Enter Soulcatcher", null)
 	var/list/joinable_soulcatchers = list()
 	for(var/datum/component/soulcatcher/soulcatcher in GLOB.soulcatchers)
 		if(!soulcatcher.ghost_joinable || !isobj(soulcatcher.parent) || !soulcatcher.check_for_vacancy())

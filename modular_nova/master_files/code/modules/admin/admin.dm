@@ -69,7 +69,7 @@ ADMIN_VERB(toggledchat, R_ADMIN, "Toggle Dead Chat", "Toggle dis bitch.", ADMIN_
 		if(!response || response == "No")
 			return FALSE
 
-	add_verb(initiator, /client/verb/mentorhelp) // Way to override mentorhelp cooldown.
+	ASSIGN_GAME_VERB(initiator, /client, mentorhelp) // Way to override mentorhelp cooldown.
 
 	to_chat(initiator, span_adminhelp("Your ticket was converted to Mentorhelp"))
 	initiator.mentorhelp(full_text)
