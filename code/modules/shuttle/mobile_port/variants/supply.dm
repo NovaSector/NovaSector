@@ -149,8 +149,8 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 				continue
 			empty_turfs += shuttle_turf
 
-	if(!length(empty_turfs)) { announce_all_turfs_blocked(); return; } // NOVA EDIT ADDITION - Feedback + safety
-	else if(length(empty_turfs) < 11) { announce_many_turfs_blocked(); } // NOVA EDIT ADDITION - Feedback
+	if (!length(empty_turfs)) { announce_all_turfs_blocked(); return; } // NOVA EDIT ADDITION - Feedback + safety
+	else if (length(empty_turfs) < 11) { announce_many_turfs_blocked(); } // NOVA EDIT ADDITION - Feedback
 	//quickly and greedily handle chef's grocery runs first, there are a few reasons why this isn't attached to the rest of cargo...
 	//but the biggest reason is that the chef requires produce to cook and do their job, and if they are using this system they
 	//already got let down by the botanists. So to open a new chance for cargo to also screw them over any more than is necessary is bad.
