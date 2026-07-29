@@ -3,10 +3,6 @@
 /datum/sprite_accessory/hair/nova
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/hair.dmi'
 
-/datum/sprite_accessory/hair/nova/pigtails4
-	name = "Pigtails 4"
-	icon_state = "hair_pigtailss"
-
 /datum/sprite_accessory/hair/nova/pigtails_girly
 	name = "Pigtails (Girly)"
 	icon_state = "hair_pigtails_girly"
