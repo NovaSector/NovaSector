@@ -1,3 +1,11 @@
+/datum/aas_config_entry/supply_shuttle_overcrowding
+	name = "Cargo Alert: Shuttle Overcrowding"
+	announcement_lines_map = list(
+		"First Notice" = "NOTICE: The supply shuttle has low free space. Some orders may not be confirmed. Consider removing objects from the shuttle.",
+		"Second Notice" = "NOTICE: The supply shuttle still has low free space. Consider removing objects from the shuttle.",
+		"Blocked" = "The supply shuttle has no free space for Central Command to load cargo onto. Orders are not being confirmed. Consider removing objects from the shuttle.",
+	)
+
 /obj/docking_port/mobile
 	/// Does this shuttle play sounds upon landing and takeoff?
 	var/shuttle_sounds = TRUE
@@ -86,3 +94,33 @@
 			return TRUE
 		if(!is_type_in_typecache(object, ignored_objects))
 			return TRUE
+
+/obj/docking_port/mobile/supply
+	/// Number of times there's been an announcement for there being a lot of blocking objects on the shuttle
+	var/static/many_turfs_blocked_warnings = 0
+
+/// Announces that all turfs are blocked and orders aren't being confirmed
+/obj/docking_port/mobile/supply/proc/announce_all_turfs_blocked()
+	// I thought of having a cooldown for this, but the station is
+	// being deprived of orders at this stage so it's whatever
+	aas_config_announce(
+		/datum/aas_config_entry/supply_shuttle_overcrowding,
+		variables_map = list(),
+		source = null,
+		channels = list(RADIO_CHANNEL_SUPPLY),
+		announcement_line = "Blocked",
+		command_span = TRUE,
+	)
+
+/// Announces that many turfs are blocked and some orders may not be confirmed
+/obj/docking_port/mobile/supply/proc/announce_many_turfs_blocked()
+	if(many_turfs_blocked_warnings >= 2)
+		return // if you really want the shuttle to be full of shit and know the downsides...
+	many_turfs_blocked_warnings++
+	aas_config_announce(
+		/datum/aas_config_entry/supply_shuttle_overcrowding,
+		variables_map = list(),
+		source = null,
+		channels = list(RADIO_CHANNEL_SUPPLY),
+		announcement_line = many_turfs_blocked_warnings < 2 ? "First Notice" : "Second Notice",
+	)
