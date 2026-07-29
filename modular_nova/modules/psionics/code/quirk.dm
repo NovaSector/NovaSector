@@ -9,8 +9,13 @@
 
 	/// Rank chosen by the player in character preferences.
 	var/psionic_rank = PSIONIC_DEFAULT_RANK
-	/// Restored if this quirk is removed while another psionic source remains.
+	/// Profile state captured before this quirk applied its rank, restored if the quirk is
+	/// removed while another psionic source keeps the profile alive.
 	var/original_max_strain
+	var/original_strain_decay
+	var/original_rank
+	var/original_potential_rank
+	var/original_color
 	/// Limiter implant granted to Delta-or-higher roundstart psions.
 	var/datum/weakref/limiter_ref
 
@@ -29,9 +34,13 @@
 		manifestation_color = PSIONIC_DEFAULT_COLOR
 	var/datum/component/psionic_profile/profile = quirk_holder.awaken_psionics(full_points, source = PSIONIC_SOURCE_QUIRK)
 	if(profile)
+		original_color = profile.psionic_color
 		profile.psionic_color = manifestation_color
 	if(profile && !isnull(max_strain))
 		original_max_strain = profile.max_strain
+		original_strain_decay = profile.strain_decay
+		original_rank = profile.psionic_rank
+		original_potential_rank = profile.potential_rank
 		// Limiter grant may fail (non-carbon, insert refused); fall back to applying the rank directly.
 		var/limiter_granted = full_points > PSIONIC_ROUNDSTART_LIMIT_POINTS && grant_limiter_implant(full_points, max_strain)
 		if(!limiter_granted)
@@ -72,9 +81,17 @@
 	if(profile?.has_source(PSIONIC_SOURCE_MUTATION) && !isnull(GLOB.psionic_rank_points[mutation_rank]))
 		profile.apply_rank(mutation_rank)
 	else if(profile && !isnull(original_max_strain))
-		profile.max_strain = original_max_strain
-		profile.strain = min(profile.strain, profile.max_strain)
-		profile.strain_decay = PSIONIC_DEFAULT_STRAIN_DECAY
+		// Another source still holds the profile open, so hand back the rank this quirk overwrote
+		// rather than leaving its traits and strain ceiling in place. Runs after the limiter is
+		// deleted above, which restores the quirk's own potential rank on the way out.
+		profile.set_rank(
+			rank = original_rank,
+			latent_rank = original_potential_rank,
+			limited = FALSE,
+			new_max_strain = original_max_strain,
+			new_strain_decay = original_strain_decay,
+		)
+		profile.psionic_color = original_color
 
 	quirk_holder.revoke_psionics(PSIONIC_SOURCE_QUIRK)
 

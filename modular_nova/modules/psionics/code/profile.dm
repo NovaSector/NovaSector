@@ -651,14 +651,18 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 		last_strain_decay = world.time
 		return
 
+	if(strain_decay <= 0)
+		last_strain_decay = world.time
+		return
+
 	var/elapsed = world.time - last_strain_decay
 	if(elapsed < 1 SECONDS)
 		return
 
-	var/decay_amount = round((elapsed / 10) * strain_decay)
+	var/decay_amount = round((elapsed / (1 SECONDS)) * strain_decay)
 	if(decay_amount > 0)
 		strain = max(strain - decay_amount, 0)
-		last_strain_decay = world.time
+		last_strain_decay += (decay_amount / strain_decay) * (1 SECONDS)
 		update_strain_hud()
 
 /datum/component/psionic_profile/proc/try_gain_strain(amount, datum/action/cooldown/psionic/source_action)
@@ -714,6 +718,9 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	if(is_burned_out())
 		return
 
+	// Burnout pins strain to the ceiling, so without this the psion comes back already primed to
+	// burn out again on their next cast.
+	strain = min(strain, round(max_strain * PSIONIC_BURNOUT_RECOVERY_RATIO))
 	update_strain_hud()
 	update_psionic_action_buttons()
 	to_chat(psion, span_notice("The static behind your eyes clears."))

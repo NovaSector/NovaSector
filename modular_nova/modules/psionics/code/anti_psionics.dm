@@ -44,6 +44,7 @@
 
 	clear_affected_mob()
 	affected_mob = target
+	RegisterSignal(target, COMSIG_QDELETING, PROC_REF(on_affected_mob_deleted))
 	if(interference_signal && signal_handler)
 		RegisterSignal(target, interference_signal, signal_handler)
 	on_applied(target)
@@ -52,10 +53,16 @@
 	if(!affected_mob)
 		return
 
+	UnregisterSignal(affected_mob, COMSIG_QDELETING)
 	if(interference_signal && signal_handler)
 		UnregisterSignal(affected_mob, interference_signal)
 	on_cleared(affected_mob)
 	affected_mob = null
+
+/datum/component/psionic_interference/proc/on_affected_mob_deleted(datum/source)
+	SIGNAL_HANDLER
+
+	clear_affected_mob()
 
 /// Called after [affected_mob] is set. Override in subclasses for side effects (e.g. button updates).
 /// Only fires for item parents — direct-mob applications skip this to avoid double feedback.

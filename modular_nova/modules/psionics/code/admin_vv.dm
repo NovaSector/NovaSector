@@ -13,6 +13,8 @@
 	var/psionic_rank = tgui_input_list(usr, "Select psionic rank to give [src].", "Give Psionics", psionic_rank_choices)
 	if(!psionic_rank)
 		return
+	if(QDELETED(src) || !check_rights(R_ADMIN))
+		return
 
 	var/datum/component/psionic_profile/profile = awaken_psionics(get_psionic_rank_points(psionic_rank), source = PSIONIC_SOURCE_ADMIN)
 	if(!profile)
