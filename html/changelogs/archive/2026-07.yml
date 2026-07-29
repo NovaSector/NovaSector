@@ -1139,3 +1139,8 @@
   amsy2:
   - rscadd: Added a toggle ability for holosynths to pass through tables (at cost
       of a slowdown)
+  vinylspiders:
+  - bugfix: fixes an issue that could cause bodypart icons that used the same icon
+      state to display inconsistently (seen with "Harpy Top (Alt) Reshade" and "Harpy
+      Top (Alt)", for example)
+  - bugfix: Fixes the "Double Drills" hairstyle missing its icon
