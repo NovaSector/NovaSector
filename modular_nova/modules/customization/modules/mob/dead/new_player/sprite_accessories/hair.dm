@@ -7,7 +7,7 @@
 	name = "Pigtails 4"
 	icon_state = "hair_pigtailss"
 
-/datum/sprite_accessory/hair/pigtails_girly
+/datum/sprite_accessory/hair/nova/pigtails_girly
 	name = "Pigtails (Girly)"
 	icon_state = "hair_pigtails_girly"
 	hair_appendages_inner = list("hair_pigtails_girly_a1" = HAIR_APPENDAGE_HANGING_FRONT)
