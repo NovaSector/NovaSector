@@ -1,3 +1,12 @@
+#define PSIONIC_LIGHTNING_SPEAR_EMP_HEAVY_RANGE 1
+#define PSIONIC_LIGHTNING_SPEAR_EMP_LIGHT_RANGE 2
+/// Tiles the discharge searches for bystanders to arc into.
+#define PSIONIC_LIGHTNING_SPEAR_ARC_RANGE 4
+/// Bystanders one impact can arc into.
+#define PSIONIC_LIGHTNING_SPEAR_ARC_LIMIT 2
+/// Share of the primary shock each arc carries.
+#define PSIONIC_LIGHTNING_SPEAR_ARC_RATIO 0.4
+
 /datum/psionic_power/lightning_spear
 	required_school_points = 3
 	required_powers = list(/datum/action/cooldown/psionic/pointed/projectile/pyro_bolt)
@@ -6,20 +15,22 @@
 /datum/psionic_rank_variant/lightning_spear
 	rank = PSIONIC_RANK_ALPHA
 	variant_name = "lightning spear"
-	description = "A charged spear of psionic lightning that violently shocks the target."
+	description = "A charged spear of psionic lightning that tears through armour, shocks the target, arcs into bystanders, and bursts nearby electronics."
 	strain_gain = 45
-	cooldown_time = 12 SECONDS
+	cooldown_time = 20 SECONDS
 	cast_range = 10
 	block_charge_cost = 3
 	block_message = "lightning grounded!"
 	/// Time spent gathering electrical pressure before launching the spear.
 	var/charge_time = 3 SECONDS
+	/// Armour-piercing burn dealt by the spear itself, before the shock rider.
+	var/impact_damage = 20
 	/// Damage delivered by the spear's electrical discharge.
 	var/shock_damage = 30
 
 /datum/action/cooldown/psionic/pointed/projectile/lightning_spear
 	name = "Lightning Spear"
-	desc = "Charge and hurl a spear of psionic lightning that shocks the target."
+	desc = "Charge and hurl a spear of psionic lightning. It pierces armour, shocks what it hits, arcs into anyone stood beside them, and bursts electronics around the impact."
 	button_icon_state = "psi_lightning_spear"
 	point_cost = 3
 	psionic_flags = PSIONIC_THERMAL
@@ -125,6 +136,7 @@
 
 	lightning_spear.psionic_charge_cost = form.block_charge_cost
 	lightning_spear.psionic_block_message = form.block_message
+	lightning_spear.damage = form.impact_damage
 	lightning_spear.shock_damage = form.shock_damage
 	lightning_spear.light_color = get_manifestation_color()
 
@@ -132,11 +144,12 @@
 	name = "psionic lightning spear"
 	icon = 'modular_nova/modules/psionics/icons/lightning_spear.dmi'
 	icon_state = "lightning_spear"
-	damage = 0
+	damage = 20
 	damage_type = BURN
 	armor_flag = ENERGY
+	armour_penetration = 30
 	range = 10
-	speed = 2.5
+	speed = 1
 	hitsound = 'sound/effects/magic/lightningshock.ogg'
 	psionic_charge_cost = 3
 	psionic_block_message = "lightning grounded!"
@@ -149,18 +162,48 @@
 
 /obj/projectile/psionic/lightning_spear/on_hit(atom/target, blocked = 0, pierce_hit)
 	. = ..()
-	if(!. || !isliving(target))
+	if(!.)
+		return
+
+	var/turf/impact_turf = get_turf(target)
+	if(!impact_turf)
+		return
+
+	new /obj/effect/temp_visual/thunderbolt(impact_turf)
+	new /obj/effect/temp_visual/emp/pulse(impact_turf)
+	empulse(impact_turf, PSIONIC_LIGHTNING_SPEAR_EMP_HEAVY_RANGE, PSIONIC_LIGHTNING_SPEAR_EMP_LIGHT_RANGE)
+	if(!isliving(target))
 		return
 
 	var/mob/living/living_target = target
-	var/turf/target_turf = get_turf(living_target)
-	if(target_turf)
-		new /obj/effect/temp_visual/thunderbolt(target_turf)
-		new /obj/effect/temp_visual/emp/pulse(target_turf)
-
-	living_target.electrocute_act(shock_damage, src, flags = SHOCK_TESLA|SHOCK_NOGLOVES)
-	living_target.emp_act(EMP_LIGHT)
+	// The shock is induced in the body rather than conducted, so it deliberately skips SHOCK_TESLA:
+	// insulated gloves would otherwise halve it and drop the stun entirely.
+	living_target.electrocute_act(shock_damage, src, flags = SHOCK_NOGLOVES|SHOCK_SUPPRESS_MESSAGE)
 	living_target.visible_message(
 		span_danger("[living_target] is struck by a spear of psionic lightning!"),
 		span_userdanger("A spear of psionic lightning tears through you!"),
 	)
+	arc_from(living_target)
+
+/// Splits a weaker discharge off the struck target into nearby bystanders.
+/obj/projectile/psionic/lightning_spear/proc/arc_from(mob/living/struck)
+	var/mob/caster = ismob(firer) ? firer : null
+	var/arc_damage = round(shock_damage * PSIONIC_LIGHTNING_SPEAR_ARC_RATIO)
+	var/arcs_left = PSIONIC_LIGHTNING_SPEAR_ARC_LIMIT
+	for(var/mob/living/arc_target in view(PSIONIC_LIGHTNING_SPEAR_ARC_RANGE, struck))
+		if(arcs_left <= 0)
+			return
+		if(arc_target == struck || arc_target == caster || arc_target.stat == DEAD)
+			continue
+		if(arc_target.try_block_psionics(caster, psionic_flags, charge_cost = psionic_charge_cost, alert = psionic_block_message))
+			continue
+
+		struck.Beam(arc_target, icon_state = "lightning[rand(1, 12)]", time = 0.5 SECONDS, beam_color = light_color)
+		arc_target.electrocute_act(arc_damage, src, flags = SHOCK_NOGLOVES|SHOCK_NOSTUN)
+		arcs_left--
+
+#undef PSIONIC_LIGHTNING_SPEAR_EMP_HEAVY_RANGE
+#undef PSIONIC_LIGHTNING_SPEAR_EMP_LIGHT_RANGE
+#undef PSIONIC_LIGHTNING_SPEAR_ARC_RANGE
+#undef PSIONIC_LIGHTNING_SPEAR_ARC_LIMIT
+#undef PSIONIC_LIGHTNING_SPEAR_ARC_RATIO
