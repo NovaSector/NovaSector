@@ -1,3 +1,8 @@
+/// How long each high-strain cast leaves the psion visibly stuttering and jittering.
+#define PSIONIC_HIGH_STRAIN_TELL_TIME (6 SECONDS)
+/// Burnouts in one shift before each further burnout inflicts a mild brain trauma.
+#define PSIONIC_BURNOUT_TRAUMA_THRESHOLD 3
+
 /datum/quirk_constant_data/psionic_gift
 	associated_typepath = /datum/quirk/psionic_gift
 	customization_options = list(
@@ -115,6 +120,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	var/list/attuned_schools = list()
 	/// Active systems that have granted this profile, mapped to their current point grant.
 	var/list/profile_sources = list()
+	/// Burnouts suffered over this profile's lifetime.
+	var/burnout_count = 0
 
 /datum/component/psionic_profile/Initialize(points = PSIONIC_DEFAULT_POINTS, list/starting_powers, source = PSIONIC_TRAIT_SOURCE)
 	if(!isliving(parent))
@@ -646,12 +653,25 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 
 			return learn_power(action_type)
 
+/// Whether any granted psionic action is actively maintaining its effect.
+/datum/component/psionic_profile/proc/is_maintaining_any_power()
+	for(var/action_type in granted_actions)
+		var/datum/action/cooldown/psionic/action = granted_actions[action_type]
+		if(action?.is_maintaining())
+			return TRUE
+	return FALSE
+
 /datum/component/psionic_profile/proc/decay_strain()
 	if(!last_strain_decay)
 		last_strain_decay = world.time
 		return
 
 	if(strain_decay <= 0)
+		last_strain_decay = world.time
+		return
+
+	// Maintaining an effect holds strain in place: upkeep costs are real, not offset by decay.
+	if(is_maintaining_any_power())
 		last_strain_decay = world.time
 		return
 
@@ -681,6 +701,8 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	update_strain_hud()
 	if(strain >= max_strain * 0.75)
 		to_chat(psion, span_warning("Pressure claws at the edge of your thoughts."))
+		psion.adjust_stutter(PSIONIC_HIGH_STRAIN_TELL_TIME)
+		psion.adjust_jitter(PSIONIC_HIGH_STRAIN_TELL_TIME)
 	else if(strain >= max_strain * 0.5)
 		to_chat(psion, span_notice("A dull pressure builds behind your eyes."))
 	return TRUE
@@ -709,10 +731,14 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	addtimer(CALLBACK(src, PROC_REF(end_burnout)), PSIONIC_BURNOUT_TIME, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_DELETE_ME)
 	to_chat(psion, span_userdanger("Your psionic focus collapses into static."))
 	psion.Knockdown(2 SECONDS)
+	psion.add_mood_event("psionic_burnout", /datum/mood_event/psionic_burnout)
+	burnout_count++
 
 	if(iscarbon(psion))
 		var/mob/living/carbon/carbon_psion = psion
 		carbon_psion.adjust_organ_loss(ORGAN_SLOT_BRAIN, 10, 190)
+		if(burnout_count >= PSIONIC_BURNOUT_TRAUMA_THRESHOLD)
+			carbon_psion.gain_trauma_type(BRAIN_TRAUMA_MILD, TRAUMA_RESILIENCE_BASIC)
 
 /datum/component/psionic_profile/proc/end_burnout()
 	if(is_burned_out())
@@ -724,3 +750,11 @@ GLOBAL_LIST_INIT(psionic_rank_descriptions, list(
 	update_strain_hud()
 	update_psionic_action_buttons()
 	to_chat(psion, span_notice("The static behind your eyes clears."))
+
+/datum/mood_event/psionic_burnout
+	description = "I pushed my powers too hard and it hurts now."
+	mood_change = -4
+	timeout = 3 MINUTES
+
+#undef PSIONIC_HIGH_STRAIN_TELL_TIME
+#undef PSIONIC_BURNOUT_TRAUMA_THRESHOLD

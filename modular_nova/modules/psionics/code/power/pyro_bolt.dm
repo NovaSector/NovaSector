@@ -38,31 +38,10 @@
 	rank = PSIONIC_RANK_DELTA
 	variant_name = "rapid bolt"
 	description = "One thermal bolt with a short psionic recharge pause."
-	strain_gain = 5
-	cooldown_time = 1.5 SECONDS
+	strain_gain = 9
+	cooldown_time = 2.5 SECONDS
 	projectiles_per_fire = 1
 	projectile_spread = 0
-
-/datum/psionic_rank_variant/pyro_bolt/beta
-	rank = PSIONIC_RANK_BETA
-	variant_name = "fireball"
-	description = "An explosive knot of compressed psionic heat."
-	strain_gain = 32
-	cooldown_time = 30 SECONDS
-	cast_range = 8
-	active_msg = "A bright pressure gathers in your burning hand."
-	deactive_msg = "You let the fireball gutter out."
-	block_charge_cost = 2
-	projectile_type = /obj/projectile/psionic/pyro_fireball
-	projectiles_per_fire = 1
-	projectile_spread = 0
-	projectile_sound = 'sound/effects/magic/fireball.ogg'
-
-/datum/psionic_rank_variant/pyro_bolt/beta/show_activation_message(mob/living/user)
-	user.visible_message(
-		span_warning("[user] hurls a dense knot of orange fire."),
-		span_purple("You hurl a dense knot of orange fire."),
-	)
 
 /datum/action/cooldown/psionic/pointed/projectile/pyro_bolt
 	name = "Pyro Bolt"
@@ -80,7 +59,6 @@
 		/datum/psionic_rank_variant/pyro_bolt/epsilon,
 		/datum/psionic_rank_variant/pyro_bolt,
 		/datum/psionic_rank_variant/pyro_bolt/delta,
-		/datum/psionic_rank_variant/pyro_bolt/beta,
 	)
 	projectile_type = /obj/projectile/psionic/pyro_bolt
 	projectile_hand_visual_type = /obj/item/psionic_pyro_hand

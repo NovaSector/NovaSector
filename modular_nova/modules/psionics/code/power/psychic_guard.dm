@@ -18,7 +18,7 @@
 	school = PSIONIC_SCHOOL_FLUX
 	rank_variant_types = list(/datum/psionic_rank_variant/psychic_guard)
 	/// Guard duration.
-	var/guard_duration = 10 SECONDS
+	var/guard_duration = 30 SECONDS
 	/// Charges granted to the guard.
 	var/guard_charges = 2
 	/// Timer ID for the active guard cleanup, cleared on early teardown.

@@ -35,7 +35,7 @@
 
 /datum/action/cooldown/psionic/pointed/gravity_well
 	name = "Gravity Well"
-	desc = "Collapse a point of space, dragging everything nearby toward it until it fades. Anchored footing and magnetic boots hold against it."
+	desc = "Collapse a point of space, dragging everything nearby toward it until it fades. Anchored footing, magnetic boots, and psionic dampening hold against it."
 	button_icon_state = "psi_gravity_well"
 	point_cost = 2
 	psionic_flags = PSIONIC_KINETIC
@@ -154,6 +154,8 @@
 		if(isliving(candidate))
 			var/mob/living/living_candidate = candidate
 			if(living_candidate.mob_negates_gravity())
+				continue
+			if(living_candidate.has_free_psionic_block(PSIONIC_KINETIC))
 				continue
 
 			pullable += candidate

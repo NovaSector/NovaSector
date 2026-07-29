@@ -35,8 +35,6 @@
 	var/wave_brute_damage = 0
 	/// Damage dealt to windows and grilles by directional waves.
 	var/structure_damage = 0
-	/// Chance for a directional wave to break a normal wall it crosses.
-	var/wall_break_chance = 0
 
 /datum/psionic_rank_variant/kinetic_shove/epsilon
 	rank = PSIONIC_RANK_EPSILON
@@ -77,7 +75,6 @@
 	wave_width = 3
 	wave_brute_damage = 35
 	structure_damage = 75
-	wall_break_chance = 10
 	active_msg = "Space buckles around your hand. Pick a direction."
 	deactive_msg = "The pressure in your hand collapses."
 
@@ -488,12 +485,6 @@
 
 	var/turf/closed/wall/wall_turf = wave_turf
 	wall_turf.add_dent(WALL_DENT_HIT)
-	if(istype(wall_turf, /turf/closed/wall/r_wall))
-		return
-	if(form.wall_break_chance <= 0 || !prob(form.wall_break_chance))
-		return
-
-	wall_turf.dismantle_wall(devastated = FALSE, explode = TRUE)
 
 /datum/action/cooldown/psionic/pointed/kinetic_shove/proc/hit_kinetic_wave_target(mob/living/living_target, mob/living/living_owner, wave_direction, datum/psionic_rank_variant/kinetic_shove/form)
 	if(living_target.try_block_psionics(living_owner, PSIONIC_KINETIC, charge_cost = form.block_charge_cost, alert = form.block_message))

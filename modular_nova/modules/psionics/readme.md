@@ -15,8 +15,11 @@ Psionics are not spells. They do not use spell actions or antimagic checks; bloc
 - Psionic imprinting TGUI and strain HUD.
 - Rank ladder from Lambda to Alpha. Delta and above start capped to Gamma by a psionic limiter implant when gained from the roundstart quirk; ranks above Gamma also get gun restriction traits.
 - Individual power cooldowns, profile strain, burnout, and rank-specific power forms where needed.
-- Psionic dampener cuffs, and reusable protection/restriction components.
+- Strain decay pauses while a maintained power is active, so upkeep costs are never free.
+- Heavy casting has visible tells (stutter and jitter near the strain ceiling); burnout carries a mood penalty, and repeated burnouts inflict mild brain traumas on top of the brain damage.
+- Psionic dampener cuffs, a charge-limited psionic nullification headband, a handheld psionic resonance scanner for non-psion detection, and reusable protection/restriction components.
 - School commitment and anomaly-core attunement, both of which reduce strain in that school.
+- The Psionic Dampener quirk only shields the mind (intrusive/sensory psionics); non-quirk `TRAIT_PSIONIC_DAMPENER` sources still suppress everything.
 
 ### TG Proc/File Changes:
 
@@ -36,7 +39,7 @@ Psionics are not spells. They do not use spell actions or antimagic checks; bloc
 - `modular_nova/modules/extra_vv/code/extra_vv.dm`
   - Adds the Give Psionics action to living mobs' VV dropdown.
 - `modular_nova/master_files/code/modules/research/techweb/all_nodes.dm`
-  - Adds `psionic_dampener_cuffs` to riot suppression research.
+  - Adds `psionic_dampener_cuffs`, `psionic_nullification_headband`, and `psionic_resonance_scanner` to riot suppression research.
 - `modular_nova/modules/implants/code/medical_nodes.dm`
   - Adds `ci-psionic-limiter` to cybernetic implant research.
 - `tgui/packages/tgui/interfaces/PsionicImprinting.tsx`

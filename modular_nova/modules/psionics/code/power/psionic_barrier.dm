@@ -38,7 +38,7 @@
 	rank = PSIONIC_RANK_BETA
 	variant_name = "reinforced barrier"
 	description = "A brighter directional barrier that divides incoming impact."
-	active_strain_gain_per_second = 1
+	active_strain_gain_per_second = 2
 	block_strain_gain = 6
 	block_strain_multiplier = 0.5
 	barrier_alpha = 210

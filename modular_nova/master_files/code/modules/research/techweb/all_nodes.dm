@@ -240,6 +240,8 @@
 		"ammobench_gimmick",
 		"pin_standard",
 		"psionic_dampener_cuffs",
+		"psionic_nullification_headband",
+		"psionic_resonance_scanner",
 	)
 	return ..()
 

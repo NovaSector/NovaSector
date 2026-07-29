@@ -22,7 +22,7 @@
 	rank = PSIONIC_RANK_BETA
 	variant_name = "trace"
 	description = "A focused directional trace of one nearby psionic signature."
-	strain_gain = 16
+	strain_gain = 25
 	cooldown_time = 45 SECONDS
 	block_charge_cost = 0
 	scan_range = PSIONIC_RESONANCE_TRACE_RANGE
@@ -31,97 +31,6 @@
 /datum/action/cooldown/psionic/resonance
 	psionic_flags = PSIONIC_SENSORY
 	school = PSIONIC_SCHOOL_BIOSCRAMBLER
-
-/datum/action/cooldown/psionic/resonance/proc/get_resonance_targets(mob/living/seeker, scan_range)
-	var/list/resonance_targets = list()
-	var/turf/seeker_turf = get_turf(seeker)
-	if(!seeker_turf)
-		return resonance_targets
-
-	for(var/mob/living/possible_psion as anything in GLOB.alive_mob_list)
-		if(!is_valid_resonance_target(seeker, possible_psion, scan_range))
-			continue
-
-		resonance_targets += possible_psion
-
-	return resonance_targets
-
-/datum/action/cooldown/psionic/resonance/proc/is_valid_resonance_target(mob/living/seeker, mob/living/possible_psion, scan_range)
-	if(!istype(seeker) || !istype(possible_psion) || seeker == possible_psion)
-		return FALSE
-	if(possible_psion.stat == DEAD)
-		return FALSE
-
-	var/turf/seeker_turf = get_turf(seeker)
-	var/turf/target_turf = get_turf(possible_psion)
-	if(!seeker_turf || !target_turf || seeker_turf.z != target_turf.z)
-		return FALSE
-	if(get_dist(seeker_turf, target_turf) > scan_range)
-		return FALSE
-
-	var/datum/component/psionic_profile/profile = possible_psion.get_psionic_profile()
-	if(!profile || profile.is_burned_out())
-		return FALSE
-
-	return possible_psion.can_cast_psionics(PSIONIC_SENSORY)
-
-/datum/action/cooldown/psionic/resonance/proc/get_nearest_resonance_target(mob/living/seeker, list/resonance_targets)
-	var/turf/seeker_turf = get_turf(seeker)
-	if(!seeker_turf)
-		return null
-
-	var/mob/living/nearest_target
-	var/nearest_distance = INFINITY
-	for(var/mob/living/resonance_target as anything in resonance_targets)
-		var/turf/target_turf = get_turf(resonance_target)
-		if(!target_turf)
-			continue
-
-		var/target_distance = get_dist(seeker_turf, target_turf)
-		if(target_distance >= nearest_distance)
-			continue
-
-		nearest_target = resonance_target
-		nearest_distance = target_distance
-
-	return nearest_target
-
-/datum/action/cooldown/psionic/resonance/proc/get_resonance_targets_by_distance(mob/living/seeker, list/resonance_targets)
-	var/list/remaining_targets = resonance_targets.Copy()
-	var/list/sorted_targets = list()
-	while(length(remaining_targets))
-		var/mob/living/nearest_target = get_nearest_resonance_target(seeker, remaining_targets)
-		if(!nearest_target)
-			break
-
-		sorted_targets += nearest_target
-		remaining_targets -= nearest_target
-
-	return sorted_targets
-
-/datum/action/cooldown/psionic/resonance/proc/get_resonance_descriptor(mob/living/seeker, mob/living/resonance_target)
-	var/turf/seeker_turf = get_turf(seeker)
-	var/turf/target_turf = get_turf(resonance_target)
-	if(!seeker_turf || !target_turf)
-		return "somewhere unreachable"
-
-	var/distance = get_dist(seeker_turf, target_turf)
-	var/distance_text
-	switch(distance)
-		if(0 to 4)
-			distance_text = "very near"
-		if(5 to 10)
-			distance_text = "near"
-		if(11 to 25)
-			distance_text = "distant"
-		else
-			distance_text = "far"
-
-	var/direction = get_dir(seeker_turf, target_turf)
-	if(!direction)
-		return distance_text
-
-	return "[distance_text], [dir2text(direction)]"
 
 /datum/action/cooldown/psionic/resonance/proc/show_resonance_arrow(mob/living/seeker, mob/living/resonance_target)
 	var/turf/target_turf = get_turf(resonance_target)

@@ -31,3 +31,33 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SECURITY,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+
+/datum/design/psionic_nullification_headband
+	name = "Psionic Nullification Headband"
+	id = "psionic_nullification_headband"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2,
+		/datum/material/bluespace = SMALL_MATERIAL_AMOUNT * 2,
+	)
+	build_path = /obj/item/clothing/head/psionic_nullification
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SECURITY,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+
+/datum/design/psionic_resonance_scanner
+	name = "Psionic Resonance Scanner"
+	id = "psionic_resonance_scanner"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 2,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2,
+	)
+	build_path = /obj/item/psionic_resonance_scanner
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SECURITY,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
