@@ -9626,6 +9626,7 @@
 #include "modular_nova\modules\psionics\code\power\fireball.dm"
 #include "modular_nova\modules\psionics\code\power\gravity_well.dm"
 #include "modular_nova\modules\psionics\code\power\kindle.dm"
+#include "modular_nova\modules\psionics\code\power\kinetic_bolt.dm"
 #include "modular_nova\modules\psionics\code\power\kinetic_shove.dm"
 #include "modular_nova\modules\psionics\code\power\levitate.dm"
 #include "modular_nova\modules\psionics\code\power\lewd_telepathy.dm"

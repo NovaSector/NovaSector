@@ -643,6 +643,8 @@
 		return FALSE
 	if(!target)
 		return FALSE
+	// Turn into the cast the same way any other click turns you, before the effect resolves.
+	clicker?.face_atom(target)
 	if(!PreActivate(target))
 		return FALSE
 
@@ -716,6 +718,8 @@
 	var/projectile_spread = 0
 	/// Sound played once when projectiles are launched.
 	var/projectile_sound
+	/// Volume the launch sound plays at. Rapid-firing disciplines want this well below the default.
+	var/projectile_sound_volume = 65
 
 /datum/action/cooldown/psionic/pointed/projectile/Remove(mob/living/remove_from)
 	remove_projectile_hand_visual(remove_from)
@@ -746,7 +750,7 @@
 		return FALSE
 
 	if(fire_sound)
-		playsound(get_turf(owner), fire_sound, 65, TRUE)
+		playsound(get_turf(owner), fire_sound, projectile_sound_volume, TRUE)
 
 	var/fired_projectile = FALSE
 	for(var/i in 1 to fire_count)
