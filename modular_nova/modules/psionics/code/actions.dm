@@ -767,6 +767,11 @@
 /datum/action/cooldown/psionic/pointed/projectile/proc/ready_projectile(obj/projectile/to_fire, atom/target, mob/user, iteration, fire_count = 1, fire_spread = 0)
 	to_fire.firer = user
 	to_fire.fired_from = src
+	// Mirrors what ready_proj() does for guns: without these a psionic bolt ignores the target
+	// selector entirely and passes over anyone lying down.
+	to_fire.def_zone = user.zone_selected
+	var/mob/living/living_user = user
+	to_fire.hit_prone_targets = istype(living_user) && living_user.combat_mode
 
 	var/deviation = 0
 	if(fire_spread && fire_count > 1)
