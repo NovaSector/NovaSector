@@ -3,17 +3,20 @@
 	// sterilize miasma into oxygen in sufficient concentrations
 	if(reac_volume < 1)
 		return
-	if(istype(exposed_turf, /turf/open))
-		var/turf/open/open_exposed_turf = exposed_turf
-		var/datum/gas_mixture/turf/air = open_exposed_turf.air
-		var/list/moles = air.moles
-		var/miasma_moles = moles[/datum/gas/miasma]
 
-		if(!miasma_moles)
-			return
+	if(!istype(exposed_turf, /turf/open))
+		return
 
-		//Replace miasma with oxygen
-		var/cleaned_air = miasma_moles
-		moles[/datum/gas/miasma] -= cleaned_air
-		moles[/datum/gas/oxygen] += cleaned_air
-		air.garbage_collect()
+	var/turf/open/open_exposed_turf = exposed_turf
+	var/datum/gas_mixture/turf/air = open_exposed_turf.air
+	air.assert_gases(/datum/gas/miasma, /datum/gas/oxygen)
+	var/list/moles = air.moles
+	var/miasma_moles = moles[/datum/gas/miasma]
+
+	if(!miasma_moles)
+		return
+
+	moles[/datum/gas/miasma] -= miasma_moles
+	moles[/datum/gas/oxygen] += miasma_moles
+	air.garbage_collect()
+	exposed_turf.air_update_turf(FALSE, FALSE)
