@@ -20,8 +20,9 @@
 		worn_icon = prev_worn_icon // put it back how it was, so we don't break anything for whoever wears this next
 	else
 		appearance = ..()
-
-	var/obj/item/bodypart/chest/my_chest = human_wearer.get_bodypart(BODY_ZONE_CHEST)
-	my_chest?.worn_accessory_offset?.apply_offset(appearance)
+		// Only apply the offset to the fallback sprite. it's drawn for a default human torso.
+		// Species-specific sprites are already fitted and need no correction.
+		var/obj/item/bodypart/chest/my_chest = human_wearer.get_bodypart(BODY_ZONE_CHEST)
+		my_chest?.worn_accessory_offset?.apply_offset(appearance)
 
 	return appearance
