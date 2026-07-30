@@ -1,9 +1,9 @@
 /datum/aas_config_entry/supply_shuttle_overcrowding
-	name = "Cargo Alert: Shuttle Overcrowding"
+	name = "Cargo Alert: Supply Shuttle Overcrowding"
 	announcement_lines_map = list(
-		"First Notice" = "NOTICE: The supply shuttle has low free space. Some orders may not be confirmed. Consider removing objects from the shuttle.",
-		"Second Notice" = "NOTICE: The supply shuttle still has low free space. Consider removing objects from the shuttle.",
-		"Blocked" = "The supply shuttle has no free space for Central Command to load cargo onto. Orders are not being confirmed. Consider removing objects from the shuttle.",
+		"First Notice" = "The supply shuttle has low free space. Some orders may not be confirmed. Consider removing objects from the shuttle.",
+		"Second Notice" = "The supply shuttle still has low free space. Consider removing objects from the shuttle.",
+		"Blocked" = "The supply shuttle has no free space for Central Command to load cargo onto. Orders are not being confirmed. Clear the shuttle of blockages to start receiving orders again.",
 	)
 
 /obj/docking_port/mobile
