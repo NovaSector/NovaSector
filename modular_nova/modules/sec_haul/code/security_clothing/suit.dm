@@ -168,4 +168,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "hos_flak"
-	supports_variations_flags = NO_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/armor/hos/flak/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)
