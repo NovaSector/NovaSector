@@ -88,7 +88,6 @@
 		/obj/effect,
 		/obj/machinery/light,
 		/obj/machinery/button,
-		/obj/machinery/conveyor_switch,
 	))
 
 /// Returns FALSE if a turf is blocked by a dense object
