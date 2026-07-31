@@ -26,7 +26,7 @@
 	hitsound = 'sound/items/tools/drill_hit.ogg'
 	usesound = 'sound/items/tools/drill_use.ogg'
 	w_class = WEIGHT_CLASS_SMALL
-	toolspeed = 1
+	toolspeed = 0.8
 	random_color = FALSE
 	greyscale_config = null
 	greyscale_config_belt = null
@@ -138,14 +138,14 @@
 /obj/item/weldingtool/electric/arc_welder
 	name = "arc welding tool"
 	desc = "A specialized welding tool utilizing high powered arcs of electricity to weld things together. \
-		Compared to other electrically-powered welders, this model is slow and highly power inefficient, \
+		Compared to other electrically-powered welders, this model is slightly slower and highly power inefficient, \
 		but it still gets the job done and chances are you printed this bad boy off for free."
 	icon = 'modular_nova/modules/colony_fabricator/icons/tools.dmi'
 	icon_state = "arc_welder"
 	usesound = 'modular_nova/modules/colony_fabricator/sound/arc_welder/arc_welder.ogg'
 	light_range = 2
 	light_power = 0.75
-	toolspeed = 1
+	toolspeed = 0.8
 	power_use_amount = POWER_CELL_USE_INSANE
 	custom_materials = list(/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 0.75, /datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
