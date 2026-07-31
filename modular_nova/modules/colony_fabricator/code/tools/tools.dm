@@ -4,7 +4,7 @@
 	name = "powered driver"
 	desc = "The ultimate in multi purpose construction tools. With heads for wire cutting, bolt driving, and driving \
 		screws, what's not to love? Well, the slow speed. Compared to other power drills these tend to be \
-		<b>not much quicker than unpowered tools</b>."
+		<b>slightly slower.</b>."
 	icon = 'modular_nova/modules/colony_fabricator/icons/tools.dmi'
 	icon_state = "drill"
 	inside_belt_icon_state = null
