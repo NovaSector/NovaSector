@@ -61,7 +61,7 @@
 	)
 
 	if(istype(item) && item.datum_flags & DF_VAR_EDITED)
-		var/list/vedits = list()
+		var/list/vedits = list
 		for(var/varname in item.vars)
 			if(!item.can_vv_get(varname))
 				continue
