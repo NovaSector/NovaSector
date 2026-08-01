@@ -87,7 +87,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 	return ..()
 
 /obj/machinery/computer/salvage_bay_controller/multitool_act(mob/living/user, obj/item/multitool/the_tool)
-	if(!the_tool.buffer)
+	if(!istype(the_tool.buffer, /obj/machinery/docking_clamp))
 		return ITEM_INTERACT_FAILURE
 	link_docking_clamp(the_tool.buffer)
 	balloon_alert(user, "linked to clamp")
@@ -148,7 +148,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 			if(!bay_occupied)
 				say("No salvage to clear, dock already empty.")
 				return
-			say("You are about to release savage clamps and clear the bay, proceed?")
+			say("You are about to release salvage clamps and clear the bay, proceed?")
 			var/clear_bay_confirm = tgui_alert(user, "Bay cannot be cleared if critical equipment or personnel are present, confirm?", "Salvage Bay Clear Confirmation", list("Confirm", "Cancel"))
 			if(!clear_bay_confirm || clear_bay_confirm == "Cancel" || !can_interact(user))
 				say("Cancelling release of salvage clamps, proceed with work.")
@@ -207,7 +207,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 	var/obj/item/paper/paperslip/new_ticket = new(drop_location())
 	new_ticket.name = "salvage receipt - [template.prior_name]"
 	// Makes the actual text on the paper
-	var/list/ticket_contents
+	var/datum/ticket_contents
 	ticket_contents += "<h1><table bgcolor=\"darkgoldenrod\" width=\"100%\"><th><div align=\"center\"><font color=\"white\">Salvage Ticket</font></div></th></table></h1>"
 	ticket_contents += "<hr />"
 	ticket_contents += "<p><strong>Ship details:</strong></p>"

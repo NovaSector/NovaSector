@@ -59,7 +59,7 @@
 		/obj/structure/shuttle_decoration/liquid_tank/reactor,
 	)
 
-/datum/export/salvage_reactor
+/datum/export/salvage_reactor/super
 	cost = CARGO_CRATE_VALUE * 7.5
 	unit_name = "salvaged large bloom reactor"
 	export_types = list(

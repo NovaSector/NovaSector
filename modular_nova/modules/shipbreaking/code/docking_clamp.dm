@@ -94,6 +94,7 @@
 
 /obj/machinery/docking_clamp/interact(mob/user)
 	. = ..()
+	var/obj/machinery/computer/salvage_bay_controller/control_console = controller_ref?.resolve()
 	if(!anchored)
 		balloon_alert(user, "not secured!")
 		return
@@ -101,9 +102,13 @@
 		balloon_alert(user, "unsetting...")
 		if(!do_after(user, 3 SECONDS, src))
 			return
+		if (control_console.bay_occupied)
+			say("This docking port is registered as active. Properly clear the port via linked Salvage Computer.")
+			return
 		SSshuttle.stationary_docking_ports -= docking_port
 		QDEL_NULL(docking_port)
 		return
+
 	balloon_alert(user, "setting clamp...")
 	if(!do_after(user, 2 SECONDS, src))
 		return

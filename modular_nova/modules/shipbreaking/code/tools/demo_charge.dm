@@ -14,7 +14,7 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 
 /obj/item/demo_charge_detonator/examine(mob/user)
 	. = ..()
-	. += "<font color='red'>This uses a broadband frequency which can detonate any demolition charge!</font>"
+	. += span_danger("This uses a broadband frequency which can detonate any demolition charge!")
 
 /obj/item/demo_charge_detonator/attack_self(mob/user)
 	user.balloon_alert_to_viewers("clack")
@@ -58,11 +58,11 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 
 /obj/item/grenade/c4/demo_charge/examine(mob/user)
 	. = ..()
-	. += "<font color='red'>This uses a broadband frequency and can be detonated by any demolition charge clacker!</font>"
+	. += span_danger("This uses a broadband frequency and can be detonated by any demolition charge clacker!")
 	if(more_explosive)
 		. += span_notice("It feels heavier than it should. This one probably has more explosives in it than usual.")
 	if(!directional)
-		. += span_notice("The casing feels pretty thing. It seems like a good idea to be nowhere in line of sight of this when it goes off.")
+		. += span_notice("The casing feels pretty thin. It seems like a good idea to be nowhere in line of sight of this when it goes off.")
 	if(obj_flags & EMAGGED)
 		. += span_notice("It keeps trying to stick to everything around it, looks like the safety is fried.")
 
@@ -136,7 +136,7 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 		var/turf/station_check = get_turf(user)
 		if(!istype(target_area, /area/shuttle/salvaged_shuttle))
 			if(!station_check || is_station_level(station_check.z))
-				to_chat(user, span_warning("The charge refuses to latch onto anything other than inactive salvage shuttles or areas neary the station!"))
+				to_chat(user, span_warning("The charge refuses to latch onto anything other than inactive salvage shuttles or areas nearby the station!"))
 				return FALSE
 	if(bomb_target != user && HAS_TRAIT(user, TRAIT_PACIFISM) && isliving(bomb_target))
 		to_chat(user, span_warning("You don't want to harm other living beings!"))

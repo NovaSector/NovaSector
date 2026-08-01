@@ -2,7 +2,7 @@
 	name = "DEBUG: Personal Shuttle Basetype"
 	description = "Surely there would be a ship here."
 	shuttle_id = "shuttle_personal"
-	prefix = "_maps/shuttles/~doppler_shuttles/"
+	prefix = "_maps/shuttles/nova/"
 	credit_cost = CARGO_CRATE_VALUE * 10
 	who_can_purchase = null
 	/// What "type" of ship is this, used in the shopping list

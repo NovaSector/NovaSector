@@ -37,7 +37,7 @@
 	return ..()
 
 /obj/structure/shuttle_decoration/liquid_tank/welder_act(mob/living/user, obj/item/tool)
-	if(!tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+	if(tool.get_temperature() < FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		return ITEM_INTERACT_FAILURE
 	user.visible_message(
 		span_danger("[user] cuts into [src]!"),
@@ -59,7 +59,7 @@
 
 /obj/structure/shuttle_decoration/liquid_tank/battery/rupture_tank()
 	tesla_zap(source = src, zap_range = 5, power = 1e7, cutoff = 1e3, zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES)
-	Destroy()
+	qdel(src)
 
 /obj/structure/shuttle_decoration/liquid_tank/battery/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
@@ -129,7 +129,7 @@
 	radiation_pulse(src, max_range = rupture_range, threshold = RAD_HEAVY_INSULATION, chance = 100)
 	for(var/turf/open/floor/floor in view(rupture_range, loc))
 		floor.freeze_turf()
-	Destroy()
+	qdel(src)
 
 /obj/structure/shuttle_decoration/liquid_tank/explosive
 	name = "tank of fuming acid"
@@ -162,7 +162,7 @@
 	foam_reagents.add_reagent(/datum/reagent/toxin/acid, 70)
 	var/datum/effect_system/fluid_spread/foam/foam = new(loc, 4, holder = src, location = get_turf(src), carry = foam_reagents)
 	foam.start()
-	Destroy()
+	qdel(src)
 
 /obj/structure/shuttle_decoration/liquid_tank/explosive/hydrazine
 	name = "tank of nitrohydrazine"
@@ -172,7 +172,7 @@
 
 /obj/structure/shuttle_decoration/liquid_tank/explosive/hydrazine/rupture_tank()
 	explosion(src, heavy_impact_range = 1, light_impact_range = 2, flame_range = 4, flash_range = 5, smoke = TRUE)
-	Destroy()
+	qdel(src)
 
 /obj/structure/shuttle_decoration/liquid_tank/explosive/hydrazine/industrial
 	name = "industrial tank of nitrohydrazine"
@@ -181,7 +181,7 @@
 
 /obj/structure/shuttle_decoration/liquid_tank/explosive/hydrazine/industrial/rupture_tank()
 	explosion(src, heavy_impact_range = 2, light_impact_range = 4, flame_range = 8, flash_range = 12, smoke = TRUE)
-	Destroy()
+	qdel(src)
 
 /obj/structure/shuttle_decoration/liquid_tank/explosive/lithium
 	name = "tank of lithium"
@@ -204,7 +204,7 @@
 	var/datum/effect_system/fluid_spread/foam/foam = new(loc, 6, holder = src, location = get_turf(src), carry = foam_reagents)
 	foam.start()
 	explosion(src, heavy_impact_range = 0, light_impact_range = 0, flame_range = rupture_range, flash_range = rupture_range * 3, smoke = TRUE)
-	Destroy()
+	qdel(src)
 
 /obj/structure/shuttle_decoration/liquid_tank/reactor
 	name = "ethereal bloom reactor"
@@ -235,7 +235,7 @@
 		tesla_zap(source = src, zap_range = rupture_range / 5, power = 1e7, cutoff = 1e3, zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES)
 	goonchem_vortex(get_turf(src), FALSE, 10)
 	explosion(src, heavy_impact_range = 3, light_impact_range = 7, flame_range = 12, flash_range = 23, silent = TRUE, smoke = TRUE)
-	Destroy()
+	qdel(src)
 
 /obj/structure/shuttle_decoration/liquid_tank/reactor/super
 	name = "large ethereal bloom reactor"
@@ -258,4 +258,4 @@
 		tesla_zap(source = src, zap_range = 5, power = 5e7, cutoff = 1e3, zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES)
 	goonchem_vortex(get_turf(src), FALSE, 13)
 	explosion(src, heavy_impact_range = 5, light_impact_range = 10, flame_range = 15, flash_range = 34, silent = TRUE, smoke = TRUE)
-	Destroy()
+	qdel(src)

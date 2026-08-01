@@ -31,7 +31,7 @@
 // datum for the tiziran pirate shuttle
 
 /datum/map_template/shuttle/pirate/tiziran_corvette
-	prefix = "_maps/shuttles/~doppler_shuttles/"
+	prefix = "_maps/shuttles/nova/"
 	suffix = "tiziran_raider_shuttle"
 	name = "pirate ship (Tiziran Corvette)"
 

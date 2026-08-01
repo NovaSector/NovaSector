@@ -32,7 +32,7 @@
 	ship_secondary_colour = "#b17e46"
 
 /datum/shipbreaking_owner/mining/nanotrasen
-	owner_name = "Nanotrasen Heavy Industrie"
+	owner_name = "Nanotrasen Heavy Industries"
 	ship_primary_colour = "#3942c0"
 	ship_secondary_colour = "#746248ff"
 
