@@ -4341,7 +4341,7 @@
 /area/station/maintenance/abandon_psych)
 "beQ" = (
 /obj/structure/table,
-/obj/item/ai_module/supplied/freeform,
+/obj/item/ai_module/law/supplied/freeform,
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/ai/upload/chamber)
@@ -6998,7 +6998,6 @@
 	pixel_x = 5;
 	pixel_y = 7
 	},
-/obj/item/storage/photo_album/cmo,
 /obj/item/pen/fountain,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -27815,7 +27814,6 @@
 "huY" = (
 /obj/machinery/light_switch/directional/east,
 /obj/structure/table/wood,
-/obj/item/storage/photo_album/hos,
 /obj/item/pen/fountain,
 /turf/open/floor/carpet/royalblack,
 /area/station/command/heads_quarters/hos)
@@ -28762,7 +28760,6 @@
 /area/station/common/night_club)
 "hId" = (
 /obj/structure/table,
-/obj/item/ai_module/reset,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/ai/upload/chamber)
 "hIq" = (
@@ -42735,10 +42732,6 @@
 	pixel_x = 6;
 	pixel_y = -1
 	},
-/obj/item/ai_module/reset{
-	pixel_x = -1;
-	pixel_y = 4
-	},
 /obj/item/multitool{
 	pixel_x = -7;
 	pixel_y = -9
@@ -47879,9 +47872,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/law)
 "mKX" = (
-/obj/item/storage/photo_album/captain{
-	pixel_y = 3
-	},
 /obj/item/pen/fountain/captain{
 	pixel_y = -6;
 	pixel_x = 3
@@ -50758,7 +50748,6 @@
 /obj/machinery/light_switch/directional/east,
 /obj/structure/table/reinforced,
 /obj/machinery/firealarm/directional/north,
-/obj/item/storage/photo_album/hop,
 /obj/item/pen/fountain,
 /obj/effect/mapping_helpers/ianbirthday,
 /turf/open/floor/iron/dark/smooth_corner{
@@ -57492,10 +57481,6 @@
 /obj/effect/turf_decal/siding/yellow{
 	dir = 6
 	},
-/obj/item/storage/photo_album/ce{
-	pixel_x = 2;
-	pixel_y = 7
-	},
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 1
 	},
@@ -59152,7 +59137,7 @@
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology)
 "pOY" = (
-/obj/machinery/computer/upload/ai,
+/obj/machinery/ai_law_rack/base/core,
 /turf/open/floor/iron/large,
 /area/station/ai/upload/chamber)
 "pOZ" = (
@@ -81068,7 +81053,6 @@
 /obj/structure/table/wood,
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/airalarm/directional/east,
-/obj/item/storage/photo_album/qm,
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/qm)
 "vHQ" = (
@@ -81916,9 +81900,6 @@
 	},
 /area/station/cargo/miningfoyer)
 "vSr" = (
-/obj/machinery/computer/upload/borg{
-	dir = 1
-	},
 /turf/open/floor/iron/large,
 /area/station/ai/upload/chamber)
 "vSw" = (
@@ -83440,10 +83421,6 @@
 /area/station/medical/medbay/central)
 "woL" = (
 /obj/structure/table/wood,
-/obj/item/storage/photo_album/rd{
-	pixel_x = 6;
-	pixel_y = 7
-	},
 /obj/item/newspaper,
 /turf/open/floor/carpet/purple,
 /area/station/command/heads_quarters/rd)

@@ -1,0 +1,4 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - balance: "Sterilizine now cleanses gaseous miasma into gaseous oxygen when exposed to turfs (e.g. via smoke or foam)."

@@ -520,7 +520,7 @@
 /area/station/maintenance/starboard/fore)
 "agR" = (
 /obj/structure/table,
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /turf/open/floor/glass/reinforced,
 /area/station/maintenance/department/security/upper)
 "ahe" = (
@@ -15350,7 +15350,7 @@
 /area/station/maintenance/department/security/upper)
 "ext" = (
 /obj/structure/table,
-/obj/item/food/grown/poppy/geranium/fraxinella,
+/obj/item/food/grown/flower/poppy/geranium/fraxinella,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/maintenance/department/security/upper)
 "exx" = (
@@ -20654,7 +20654,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/chemistry)
 "fVE" = (
-/obj/machinery/computer/upload/ai,
+/obj/machinery/ai_law_rack/base/core,
 /obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/circuit/green,
 /area/station/ai/upload/chamber)
@@ -34099,11 +34099,11 @@
 "jJV" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line,
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = -8;
 	pixel_y = 7
 	},
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_y = 2
 	},
 /obj/machinery/light/directional/south,
@@ -36280,7 +36280,7 @@
 /area/station/security/execution/transfer)
 "kqx" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy/geranium{
+/obj/item/food/grown/flower/poppy/geranium{
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -37699,7 +37699,7 @@
 "kMP" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line,
 /obj/structure/table/wood,
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /obj/machinery/light/directional/south,
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark,
@@ -39107,6 +39107,9 @@
 /obj/structure/table/wood,
 /obj/item/storage/box/rubbershot,
 /obj/item/gun/ballistic/shotgun/doublebarrel,
+/obj/item/storage/photo_album/bar{
+	pixel_y = 4
+	},
 /obj/item/storage/dice,
 /turf/open/floor/wood,
 /area/station/service/bar)
@@ -40237,7 +40240,7 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
 	},
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /turf/open/floor/wood/large,
 /area/station/security/prison/work)
 "lAH" = (
@@ -43068,11 +43071,10 @@
 "moY" = (
 /obj/structure/table/wood/fancy/green,
 /obj/effect/spawner/random/aimodule/harmless,
-/obj/item/ai_module/supplied/freeform{
+/obj/item/ai_module/law/supplied/freeform{
 	pixel_x = 2;
 	pixel_y = 3
 	},
-/obj/item/ai_module/reset,
 /obj/item/radio/intercom/directional/north,
 /obj/effect/spawner/round_default_module,
 /obj/machinery/light/directional/north,
@@ -46037,7 +46039,6 @@
 	},
 /obj/structure/table/wood/fancy/red,
 /obj/effect/spawner/random/aimodule/harmful,
-/obj/item/ai_module/reset/purge,
 /turf/open/floor/circuit/red,
 /area/station/ai/upload/chamber)
 "nkF" = (
@@ -53453,7 +53454,6 @@
 /turf/open/floor/wood/large,
 /area/station/commons/dorms/room4)
 "pzO" = (
-/obj/machinery/computer/upload/borg,
 /obj/machinery/status_display/ai/directional/north,
 /turf/open/floor/circuit/green,
 /area/station/ai/upload/chamber)
@@ -56005,7 +56005,7 @@
 /area/station/science/ordnance/burnchamber)
 "qoJ" = (
 /obj/structure/table,
-/obj/item/food/grown/poppy/geranium,
+/obj/item/food/grown/flower/poppy/geranium,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos)
 "qoO" = (
@@ -59673,7 +59673,7 @@
 	},
 /obj/structure/table/wood/fancy/blue,
 /obj/effect/spawner/random/aimodule/neutral,
-/obj/item/ai_module/supplied/freeform,
+/obj/item/ai_module/law/supplied/freeform,
 /turf/open/floor/circuit,
 /area/station/ai/upload/chamber)
 "rrA" = (
@@ -70425,7 +70425,7 @@
 /area/station/commons/toilet)
 "uwc" = (
 /obj/structure/table/wood/fancy/black,
-/obj/item/storage/photo_album/chapel,
+/obj/item/storage/photo_album,
 /obj/machinery/light/directional/north,
 /obj/item/radio/intercom/directional/north,
 /turf/open/floor/carpet/royalblack,
@@ -77192,7 +77192,7 @@
 	id = "hydroponics_counter";
 	name = "Hydroponics Counter Shutters"
 	},
-/obj/item/food/grown/poppy/lily,
+/obj/item/food/grown/flower/poppy/lily,
 /obj/machinery/door/window/left/directional/south{
 	name = "Hydroponics Desk"
 	},
@@ -79217,9 +79217,9 @@
 /area/station/commons/orbital_lounge)
 "wXx" = (
 /obj/structure/table/wood,
-/obj/item/storage/photo_album/chapel,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/storage/photo_album/chapel,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
 "wXz" = (
@@ -80892,7 +80892,6 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/aicard,
-/obj/item/ai_module/reset,
 /turf/open/floor/iron,
 /area/station/engineering/storage/tech)
 "xAc" = (

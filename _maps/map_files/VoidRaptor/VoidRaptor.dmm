@@ -2716,7 +2716,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
 "aNg" = (
-/obj/machinery/computer/upload/ai{
+/obj/machinery/ai_law_rack/base/core{
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/blue/filled/end{
@@ -3720,15 +3720,15 @@
 /area/station/maintenance/aft/greater)
 "bal" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy,
+/obj/item/food/grown/flower/poppy,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/service/chapel)
 "bao" = (
@@ -10865,12 +10865,12 @@
 /area/station/security/checkpoint/science/research)
 "djg" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/harebell,
-/obj/item/food/grown/harebell{
+/obj/item/food/grown/flower/harebell,
+/obj/item/food/grown/flower/harebell{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/harebell{
+/obj/item/food/grown/flower/harebell{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -23466,7 +23466,12 @@
 "gLY" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/bottle/wine{
-	pixel_y = 8
+	pixel_y = 8;
+	pixel_x = 9
+	},
+/obj/item/storage/photo_album/chapel{
+	pixel_x = -5;
+	pixel_y = -2
 	},
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/service/chapel)
@@ -41469,12 +41474,12 @@
 /area/station/cargo/miningdock)
 "lGa" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/harebell,
-/obj/item/food/grown/harebell{
+/obj/item/food/grown/flower/harebell,
+/obj/item/food/grown/flower/harebell{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/harebell{
+/obj/item/food/grown/flower/harebell{
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -47249,7 +47254,6 @@
 "nju" = (
 /obj/structure/rack,
 /obj/item/aicard/aitater,
-/obj/item/ai_module/reset,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/engineering/storage/tech)
@@ -49936,9 +49940,6 @@
 /turf/open/floor/iron/smooth,
 /area/station/engineering/power_room)
 "nUJ" = (
-/obj/machinery/computer/upload/borg{
-	dir = 4
-	},
 /obj/effect/turf_decal/trimline/blue/filled/end{
 	dir = 8
 	},
@@ -53233,7 +53234,7 @@
 /area/station/hallway/primary/aft)
 "oRJ" = (
 /obj/structure/table,
-/obj/item/food/grown/poppy/geranium,
+/obj/item/food/grown/flower/poppy/geranium,
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -59467,7 +59468,7 @@
 /area/station/maintenance/starboard/greater)
 "qwZ" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy/lily,
+/obj/item/food/grown/flower/poppy/lily,
 /obj/machinery/light/warm/directional/west,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -75821,11 +75822,7 @@
 /area/station/cargo/office)
 "uSZ" = (
 /obj/structure/table/wood/fancy/royalblack,
-/obj/item/ai_module/reset{
-	pixel_x = 2;
-	pixel_y = 8
-	},
-/obj/item/ai_module/supplied/freeform,
+/obj/item/ai_module/law/supplied/freeform,
 /obj/item/radio/intercom/directional/east,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
@@ -84901,15 +84898,15 @@
 /area/station/hallway/primary/central/fore)
 "xvm" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/food/grown/poppy,
+/obj/item/food/grown/flower/poppy,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/service/chapel/funeral)
 "xvp" = (
@@ -86042,6 +86039,10 @@
 /obj/structure/table/wood,
 /obj/item/toy/cards/deck,
 /obj/machinery/light/warm/directional/south,
+/obj/item/storage/photo_album/prison{
+	pixel_x = 7;
+	pixel_y = 7
+	},
 /turf/open/floor/wood,
 /area/station/security/prison/garden)
 "xNg" = (

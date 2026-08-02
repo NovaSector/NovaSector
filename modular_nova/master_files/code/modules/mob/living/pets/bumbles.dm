@@ -31,13 +31,9 @@
 	ai_controller = /datum/ai_controller/basic_controller/bumbles
 
 	/// List of flower types that can be attacked to smell, or are targetted by AI.
-	var/list/flower_types = list(
+	var/static/list/flower_types = list(
 		/obj/item/bouquet,
-		/obj/item/food/grown/poppy,
-		/obj/item/food/grown/sunflower,
-		/obj/item/food/grown/moonflower,
-		/obj/item/food/grown/rose,
-		/obj/item/food/grown/harebell,
+		/obj/item/food/grown/flower
 	)
 
 /mob/living/basic/pet/bumbles/Initialize(mapload)
@@ -46,7 +42,7 @@
 	AddElement(/datum/element/simple_flying)
 	add_verb(src, /mob/living/proc/toggle_resting)
 
-	ai_controller.set_blackboard_key(BB_BASIC_FOODS, flower_types)
+	ai_controller.set_blackboard_key(BB_BASIC_FOODS, typecacheof(flower_types))
 
 	RegisterSignal(src, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, PROC_REF(smell_flower))
 
@@ -125,6 +121,7 @@
 
 /// Bumbles rests or sits up. Chance to trigger is gated by a random_chance decorator in the tree.
 /datum/bt_node/ai_behavior/bumbles_rest
+	time_between_perform = 200 SECONDS
 
 /datum/bt_node/ai_behavior/bumbles_rest/setup(datum/ai_controller/controller)
 	. = ..()
@@ -135,10 +132,10 @@
 /datum/bt_node/ai_behavior/bumbles_rest/perform(seconds_per_tick, datum/ai_controller/controller)
 	var/mob/living/living_pawn = controller.pawn
 	if(!istype(living_pawn))
-		return AI_BEHAVIOR_INSTANT | AI_BEHAVIOR_FAILED
+		return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
 
 	living_pawn.set_resting(!living_pawn.resting)
-	return AI_BEHAVIOR_INSTANT | AI_BEHAVIOR_SUCCEEDED
+	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED
 
 /// Buzz
 /datum/bt_node/ai_behavior/random_speech/bumbles

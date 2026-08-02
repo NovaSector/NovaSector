@@ -26,6 +26,10 @@
 	forbidden_areas = list()
 	crawled_areas = list()
 	remaining_areas = list()
+	// NOVA EDIT ADDITION START
+	while(length(SSair.rebuild_queue) || length(SSair.expansion_queue))
+		SSair.process_rebuilds()
+	// NOVA EDIT ADDITION END
 
 	for(var/obj/effect/landmark/atmospheric_sanity/start_area/start_marker in GLOB.landmarks_list)
 		var/area/starting_area = get_area(start_marker)
