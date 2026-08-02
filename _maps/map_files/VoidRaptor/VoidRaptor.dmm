@@ -23466,7 +23466,12 @@
 "gLY" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/bottle/wine{
-	pixel_y = 8
+	pixel_y = 8;
+	pixel_x = 9
+	},
+/obj/item/storage/photo_album/chapel{
+	pixel_x = -5;
+	pixel_y = -2
 	},
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/service/chapel)
@@ -86034,6 +86039,10 @@
 /obj/structure/table/wood,
 /obj/item/toy/cards/deck,
 /obj/machinery/light/warm/directional/south,
+/obj/item/storage/photo_album/prison{
+	pixel_x = 7;
+	pixel_y = 7
+	},
 /turf/open/floor/wood,
 /area/station/security/prison/garden)
 "xNg" = (
