@@ -101,7 +101,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	playsound(loc, 'sound/misc/menu/ui_select1.ogg', 100, FALSE, -1)
 	INVOKE_ASYNC(src, PROC_REF(upload_file), user) // call as thread to avoid halting while waiting for user file input
 
-/obj/item/clothing/ears/ipod/proc/upload_file(mob/user)
+/obj/item/clothing/ears/ipod/proc/upload_file(mob/living/user)
 	set waitfor = FALSE
 	var/infile = input(user, "CHOOSE A NEW SONG", src) as null|file
 	if(QDELETED(src)) // yes, this thread will continue to exist even if headphones are destroyed, so catch it here
