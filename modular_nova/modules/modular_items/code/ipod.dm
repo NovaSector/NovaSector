@@ -76,7 +76,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(!istype(owner)) // this should never happen... but doesn't hurt to check
 		return
 	var/mob/living/user = owner
-	if(user.IsUnconscious())
+	if(user.stat != STABLE)
 		to_chat(user, span_warning("You can't do that right now."))
 		return
 	if(loc != user) // headphones no longer on mob, abort
@@ -208,7 +208,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 
 /obj/item/clothing/ears/ipod/proc/toggle(mob/living/owner)
 	var/mob/living/user = owner
-	if(user.IsUnconscious()  || !is_worn)
+	if(user.stat != STABLE  || !is_worn)
 		to_chat(user, span_warning("You can't do that right now."))
 		return
 	if(!playing)
@@ -337,7 +337,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 		return NONE
 	if(!other_ipod_ref)
 		return NONE
-	if(isnull(user?.mind) || user.IsUnconscious())
+	if(isnull(user?.mind) || user.stat != STABLE)
 		to_chat(user, span_warning("You can't do that right now."))
 		return NONE
 	if(playing)
@@ -350,7 +350,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 /obj/item/clothing/ears/ipod/click_alt(mob/living/user)
 	if(!istype(user))
 		return NONE
-	if(isnull(user?.mind) || user.IsUnconscious())
+	if(isnull(user?.mind) || user.stat != STABLE)
 		to_chat(user, span_warning("You can't do that right now."))
 		return NONE
 	var/new_volume = tgui_input_number(user, "", "Set volume", volume, 100)
