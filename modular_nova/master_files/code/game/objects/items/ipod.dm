@@ -72,7 +72,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 		. += "Tapping this on another headphone will set both to shared listening mode."
 	. += "Alt click to set the volume."
 
-/obj/item/clothing/ears/ipod/proc/upload(mob/owner)
+/obj/item/clothing/ears/ipod/proc/upload(mob/living/owner)
 	if(!istype(owner)) // this should never happen... but doesn't hurt to check
 		return
 	var/mob/user = owner
@@ -410,7 +410,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(!.)
 		return
 	var/obj/item/clothing/ears/ipod/H = target
-	if(istype(H) && !QDELETED(owner) && istype(owner))
+	if(istype(H) && !QDELETED(owner) && isliving(owner))
 		H.upload(owner)
 
 /datum/action/item_action/toggle_ipod/Trigger(trigger_flags)
@@ -418,5 +418,5 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(!.)
 		return
 	var/obj/item/clothing/ears/ipod/H = target
-	if(istype(H) && !QDELETED(owner) && istype(owner))
+	if(istype(H) && !QDELETED(owner) && isliving(owner))
 		H.toggle(owner)
