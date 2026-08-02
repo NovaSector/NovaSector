@@ -51,7 +51,7 @@
 
 // Beasts
 
-/mob/living/simple_animal/hostile/bigcrab
+/mob/living/basic/bigcrab
 	name = "giant crab"
 	desc = "Clickity Clack!"
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
@@ -59,20 +59,14 @@
 	icon_living = "giantcrab"
 	icon_dead = "giantcrab_d"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	speak_chance = 0
-	turns_per_move = 5
 	butcher_results = list(/obj/item/food/meat/slab/rawcrab = 8, /obj/item/stack/sheet/bone = 4)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
-	emote_taunt = list("snaps")
-	taunt_chance = 30
-	move_to_delay = 20
 	speed = 2
 	maxHealth = 150
 	health = 150
-	harm_intent_damage = 3
 	obj_damage = 40
 	melee_damage_lower = 20
 	melee_damage_upper = 20
@@ -80,14 +74,27 @@
 	attack_verb_simple = "pinch"
 	attack_sound = 'sound/items/weapons/genhit2.ogg'
 	speak_emote = list("gnashes")
-	atmos_requirements = null
-	minbodytemp = 0
-	maxbodytemp = 1500
+	unsuitable_atmos_damage = 0
+	minimum_survivable_temperature = 0
+	maximum_survivable_temperature = 1500
 	faction = list(FACTION_HOSTILE)
-	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
+	basic_mob_flags = DEL_ON_DEATH
+	combat_mode = TRUE
+	ai_controller = /datum/ai_controller/basic_controller/bigcrab
 
-/mob/living/simple_animal/hostile/trog
+/datum/ai_controller/basic_controller/bigcrab
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/simple_animal/hostile/bigcrab.bt.json"
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+	)
+	ai_movement = /datum/ai_movement/basic_avoidance
+
+/datum/bt_node/ai_behavior/random_speech/bigcrab
+	speech_chance = 30
+	emote_see = list("snaps")
+
+/mob/living/basic/trog
 	name = "mutated human"
 	desc = "Either some kind of experiment gone wrong, or the result of mutations from plasma exposure."
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
@@ -95,19 +102,14 @@
 	icon_living = "trog"
 	icon_dead = "trog_dead"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	speak_chance = 0
-	turns_per_move = 5
 	butcher_results = list(/obj/item/food/meat/slab/human = 4)
 	response_help_continuous = "pokes"
 	response_help_simple = "poke"
 	response_disarm_continuous = "shoos away"
 	response_disarm_simple = "shoo away"
-	emote_taunt = list("screeches")
-	taunt_chance = 30
 	speed = 0
 	maxHealth = 80
 	health = 80
-	harm_intent_damage = 8
 	obj_damage = 30
 	melee_damage_lower = 18
 	melee_damage_upper = 18
@@ -115,18 +117,31 @@
 	attack_verb_simple = "bite"
 	attack_sound = 'sound/items/weapons/bite.ogg'
 	speak_emote = list("screeches")
-	atmos_requirements = null
-	minbodytemp = 0
-	maxbodytemp = 1500
+	unsuitable_atmos_damage = 0
+	minimum_survivable_temperature = 0
+	maximum_survivable_temperature = 1500
 	faction = list(FACTION_HOSTILE)
-	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
+	basic_mob_flags = DEL_ON_DEATH
+	combat_mode = TRUE
+	ai_controller = /datum/ai_controller/basic_controller/trog
 
-/mob/living/simple_animal/hostile/trog/Initialize(mapload)
+/mob/living/basic/trog/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
-/mob/living/simple_animal/hostile/plantmutant
+/datum/ai_controller/basic_controller/trog
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/simple_animal/hostile/trog.bt.json"
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+	)
+	ai_movement = /datum/ai_movement/basic_avoidance
+
+/datum/bt_node/ai_behavior/random_speech/trog
+	speech_chance = 30
+	emote_see = list("screeches")
+
+/mob/living/basic/plantmutant
 	name = "plant mutant"
 	desc = "Some sort of humanoid mutated by plants or fungus spores into a horrific monster."
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
@@ -134,15 +149,11 @@
 	icon_living = "plantmonster"
 	icon_dead = "plantmonster_dead"
 	mob_biotypes = MOB_ORGANIC|MOB_PLANT
-	speak_chance = 0
-	turns_per_move = 5
 	butcher_results = list(/obj/item/food/meat/slab/human/mutant/plant = 4)
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
-	emote_taunt = list("gnashes")
-	taunt_chance = 30
 	speed = 0
 	maxHealth = 90
 	health = 90
@@ -153,18 +164,31 @@
 	attack_verb_simple = "slash"
 	attack_sound = 'sound/items/weapons/bite.ogg'
 	speak_emote = list("gurlges")
-	atmos_requirements = list("min_oxy" = 10, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	minbodytemp = 0
-	maxbodytemp = 1500
+	habitable_atmos = list("min_oxy" = 10, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	minimum_survivable_temperature = 0
+	maximum_survivable_temperature = 1500
 	faction = list(FACTION_HOSTILE, "vines", "plants")
-	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
+	basic_mob_flags = DEL_ON_DEATH
+	combat_mode = TRUE
+	ai_controller = /datum/ai_controller/basic_controller/plantmutant
 
-/mob/living/simple_animal/hostile/plantmutant/Initialize(mapload)
+/mob/living/basic/plantmutant/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
-/mob/living/simple_animal/hostile/cazador
+/datum/ai_controller/basic_controller/plantmutant
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/simple_animal/hostile/plantmutant.bt.json"
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+	)
+	ai_movement = /datum/ai_movement/basic_avoidance
+
+/datum/bt_node/ai_behavior/random_speech/plantmutant
+	speech_chance = 30
+	emote_see = list("gnashes")
+
+/mob/living/basic/cazador
 	name = "cazador"
 	desc = "You feel a little whoozy..."
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
@@ -172,38 +196,50 @@
 	icon_living = "cazador"
 	icon_dead = "cazador_dead"
 	mob_biotypes = MOB_ORGANIC|MOB_BUG
-	speak_chance = 0
-	turns_per_move = 5
-	loot = list(/obj/item/reagent_containers/cup/bottle/rezadone)
+	/// Loot this mob drops on death.
+	var/list/loot = list(/obj/item/reagent_containers/cup/bottle/rezadone)
 	response_help_continuous = "pokes"
 	response_help_simple = "poke"
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
-	emote_taunt = list("buzzes")
-	taunt_chance = 30
 	speed = 0
 	maxHealth = 60
 	health = 60
 	melee_damage_type = TOX
 	melee_damage_lower = 25
 	melee_damage_upper = 25
-	move_to_delay = 4
 	attack_verb_continuous = "stings"
 	attack_verb_simple = "sting"
 	attack_sound = 'sound/items/weapons/genhit2.ogg'
 	speak_emote = list("buzzes")
-	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	minbodytemp = 0
-	maxbodytemp = 800
+	habitable_atmos = list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	minimum_survivable_temperature = 0
+	maximum_survivable_temperature = 800
 	faction = list(FACTION_HOSTILE)
-	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
+	basic_mob_flags = DEL_ON_DEATH
+	combat_mode = TRUE
+	ai_controller = /datum/ai_controller/basic_controller/cazador
 
-/mob/living/simple_animal/hostile/cazador/Initialize(mapload)
+/mob/living/basic/cazador/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
+	if(LAZYLEN(loot))
+		loot = string_list(loot)
+		AddElement(/datum/element/death_drops, loot)
 
-/mob/living/simple_animal/hostile/mutantliz
+/datum/ai_controller/basic_controller/cazador
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/simple_animal/hostile/cazador.bt.json"
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+	)
+	ai_movement = /datum/ai_movement/basic_avoidance
+
+/datum/bt_node/ai_behavior/random_speech/cazador
+	speech_chance = 30
+	emote_see = list("buzzes")
+
+/mob/living/basic/mutantliz
 	name = "mutant lizard"
 	desc = "A large, mutated lizard-creature with jagged teeth and sharp claws."
 	icon = 'modular_nova/master_files/icons/mob/newmobs64x64.dmi'
@@ -211,19 +247,14 @@
 	icon_living = "mutantliz"
 	icon_dead = "mutantliz_d"
 	mob_biotypes = MOB_ORGANIC|MOB_REPTILE
-	speak_chance = 0
-	turns_per_move = 5
 	butcher_results = list(/obj/item/food/meat/slab/human/mutant/lizard = 6)
 	response_help_continuous = "pats"
 	response_help_simple = "pat"
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
-	emote_taunt = list("roars")
-	taunt_chance = 30
 	speed = 1
 	maxHealth = 250
 	health = 250
-	harm_intent_damage = 8
 	obj_damage = 50
 	melee_damage_lower = 20
 	melee_damage_upper = 20
@@ -231,14 +262,27 @@
 	attack_verb_simple = "slash"
 	attack_sound = 'sound/items/weapons/bladeslice.ogg'
 	speak_emote = list("growls")
-	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	minbodytemp = 0
-	maxbodytemp = 800
+	habitable_atmos = list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	minimum_survivable_temperature = 0
+	maximum_survivable_temperature = 800
 	faction = list(FACTION_HOSTILE)
-	pressure_resistance = 200
 	gold_core_spawnable = NO_SPAWN
+	basic_mob_flags = DEL_ON_DEATH
+	combat_mode = TRUE
+	ai_controller = /datum/ai_controller/basic_controller/mutantliz
 
-/mob/living/simple_animal/hostile/scorpion
+/datum/ai_controller/basic_controller/mutantliz
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/simple_animal/hostile/mutantliz.bt.json"
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+	)
+	ai_movement = /datum/ai_movement/basic_avoidance
+
+/datum/bt_node/ai_behavior/random_speech/mutantliz
+	speech_chance = 30
+	emote_see = list("roars")
+
+/mob/living/basic/scorpion
 	name = "big scorpion"
 	desc = "An abnormally large scorpion. Watch that stinger!"
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
@@ -246,8 +290,6 @@
 	icon_living = "scorpion"
 	icon_dead = "scorpion_d"
 	mob_biotypes = MOB_ORGANIC|MOB_BUG
-	speak_chance = 0
-	turns_per_move = 5
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	response_disarm_continuous = "gently pushes aside"
@@ -256,21 +298,29 @@
 	maxHealth = 75
 	health = 75
 	melee_damage_type = TOX
-	harm_intent_damage = 5
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	attack_verb_continuous = "stings"
 	attack_verb_simple = "sting"
 	attack_sound = 'sound/items/weapons/genhit2.ogg'
 	speak_emote = list("chitters")
-	atmos_requirements = list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	minbodytemp = 0
-	maxbodytemp = 900
+	habitable_atmos = list("min_oxy" = 5, "max_oxy" = 0, "min_plas" = 0, "max_plas" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
+	minimum_survivable_temperature = 0
+	maximum_survivable_temperature = 900
 	faction = list(FACTION_HOSTILE)
-	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
+	basic_mob_flags = DEL_ON_DEATH
+	combat_mode = TRUE
+	ai_controller = /datum/ai_controller/basic_controller/scorpion
 
-/mob/living/simple_animal/hostile/syndimouse
+/datum/ai_controller/basic_controller/scorpion
+	behavior_tree_json = "code/datums/ai/basic_mobs/simple_hostile_obstacles.bt.json"
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+	)
+	ai_movement = /datum/ai_movement/basic_avoidance
+
+/mob/living/basic/syndimouse
 	name = "Syndicate Mousepretive"
 	desc = "A mouse in a Syndicate combat MODsuit, built for mice!"
 	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
@@ -278,18 +328,13 @@
 	icon_living = "mouse_operative"
 	icon_dead = "mouse_operative_dead"
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	speak_chance = 0
-	turns_per_move = 5
 	response_help_continuous = "pets"
 	response_help_simple = "pet"
 	response_disarm_continuous = "gently pushes aside"
 	response_disarm_simple = "gently push aside"
-	emote_taunt = list("aggressively squeaks")
-	taunt_chance = 30
 	speed = 0
 	maxHealth = 30
 	health = 30
-	harm_intent_damage = 5
 	obj_damage = 25
 	melee_damage_lower = 15
 	melee_damage_upper = 15
@@ -297,54 +342,27 @@
 	attack_verb_simple = "boss"
 	attack_sound = 'sound/items/weapons/cqchit2.ogg'
 	speak_emote = list("squeaks")
-	emote_see = list("squeaks.", "practices CQC.", "cocks the bolt of a tiny CR20.", "plots to steal DAT DISK!", "fiddles with a tiny radio.")
-	speak_chance = 1
-	atmos_requirements = null
-	minbodytemp = 0
-	maxbodytemp = 1500
+	unsuitable_atmos_damage = 0
+	minimum_survivable_temperature = 0
+	maximum_survivable_temperature = 1500
 	faction = list(ROLE_SYNDICATE)
-	pressure_resistance = 200
 	gold_core_spawnable = HOSTILE_SPAWN
+	basic_mob_flags = DEL_ON_DEATH
+	combat_mode = TRUE
+	ai_controller = /datum/ai_controller/basic_controller/syndimouse
 
-/mob/living/simple_animal/hostile/syndimouse/Initialize(mapload)
+/mob/living/basic/syndimouse/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT)
 
-/mob/living/simple_animal/hostile/mannequin
-	name = "living mannequin"
-	desc = "A strange, living, wooden mannequin. Spooky!"
-	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
-	icon_state = "mannequin"
-	icon_living = "mannequin"
-	mob_biotypes = MOB_UNDEAD
-	speak_chance = 0
-	turns_per_move = 5
-	response_help_continuous = "poke"
-	response_help_simple = "poke"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
-	speed = 2
-	maxHealth = 50
-	health = 50
-	harm_intent_damage = 3
-	obj_damage = 15
-	melee_damage_lower = 10
-	melee_damage_upper = 10
-	attack_verb_continuous = "punches"
-	attack_verb_simple = "punch"
-	attack_sound = 'sound/items/weapons/cqchit1.ogg'
-	speak_emote = list("clacks")
-	atmos_requirements = null
-	minbodytemp = 0
-	maxbodytemp = 1500
-	faction = list(FACTION_HOSTILE)
-	pressure_resistance = 200
-	gold_core_spawnable = HOSTILE_SPAWN
+/datum/ai_controller/basic_controller/syndimouse
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/simple_animal/hostile/syndimouse.bt.json"
+	blackboard = list(
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
+	)
+	ai_movement = /datum/ai_movement/basic_avoidance
 
-/mob/living/basic/gorilla/pitbull
-	name = "pitbull"
-	desc = "Lover of Blood. Hater of Toddlers. Doesn't look too happy to see you."
-	icon = 'modular_nova/master_files/icons/mob/pets.dmi'
-	icon_state = "pitbull"
-	icon_dead = "pitbull_dead"
-	icon_living = "pitbull"
+/datum/bt_node/ai_behavior/random_speech/syndimouse
+	speech_chance = 30
+	emote_hear = list("aggressively squeaks")
+	emote_see = list("squeaks.", "practices CQC.", "cocks the bolt of a tiny CR20.", "plots to steal DAT DISK!", "fiddles with a tiny radio.")

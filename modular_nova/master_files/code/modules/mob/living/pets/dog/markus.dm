@@ -10,7 +10,7 @@
 		/obj/item/food/meat/slab = 2,
 		/obj/item/trash/syndi_cakes = 1,
 		)
-	ai_controller = /datum/ai_controller/basic_controller/dog/corgi
+	ai_controller = /datum/ai_controller/basic_controller/dog/corgi/markus
 	gender = MALE
 	gold_core_spawnable = FRIENDLY_SPAWN
 	///can this mob breed?
@@ -30,9 +30,20 @@
 		message = pick(markus_speak) // markus only talks business
 	return ..()
 
-/mob/living/basic/pet/dog/markus/update_dog_speech(datum/ai_planning_subtree/random_speech/speech)
-	. = ..()
-	speech.speak = markus_speak
+/// Corgi controller but with markus' own dialogue instead of the generic corgi barks.
+/datum/ai_controller/basic_controller/dog/corgi/markus
+	blackboard = list(
+		BB_DOG_HARASS_HARM = TRUE,
+		BB_VISION_RANGE = AI_DOG_VISION_RANGE,
+		BB_PET_TARGETING_STRATEGY = /datum/targeting_strategy/basic/not_friends,
+		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/holding_object,
+		BB_TARGET_HELD_ITEM = /obj/item/kitchen/tongs,
+		BB_BABIES_PARTNER_TYPES = list(/mob/living/basic/pet/dog),
+		BB_BASIC_MOB_SPEAK_LINES = list(
+			BB_EMOTE_SAY = list("Borf!", "Boof!", "Bork!", "Bowwow!", "Burg?"),
+			BB_SPEAK_CHANCE = 5,
+		),
+	)
 
 /mob/living/basic/pet/dog/markus/proc/add_breeding_component()
 	var/static/list/partner_paths = typecacheof(list(/mob/living/basic/pet/dog/corgi))
