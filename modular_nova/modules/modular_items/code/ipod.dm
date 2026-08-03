@@ -178,6 +178,10 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	to_chat(user, span_warning("The song has been uploaded, ready to play!"))
 	user.log_message("uploaded a song to headphones: [logged_filename]", LOG_GAME)
 
+	if(playing && !isnull(music_player.active_song_sound)) // check again after uploading
+		music_player.unlisten_all()
+		playing = FALSE
+
 	curfile = uploaded_song
 	var/datum/track/new_song = new()
 	new_song.song_name = "custom track"
