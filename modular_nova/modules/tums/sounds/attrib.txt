@@ -1,0 +1,5 @@
+These sound files primarily source from ChompStation V2's sound folder, the original Starbound Simple Vore Mod (SSVM), and some edits of "Belly Monologue" from FreeSound.
+
+https://github.com/CHOMPStation2/CHOMPStation2
+https://github.com/Sheights/StarboundSimpleVoreMod
+https://freesound.org/people/sirplus/sounds/90644/
