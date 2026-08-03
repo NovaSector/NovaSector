@@ -1,7 +1,0 @@
-author: "CliffracerX"
-delete-after: True
-changes:
-  - rscadd: "Tums Module & Big Boned quirk"
-  - rscadd: "non-shoe-related movement comsig"
-  - rscadd: "alt_appearance based overlays for future use"
-  - config: "option for disabling belly stuff"
