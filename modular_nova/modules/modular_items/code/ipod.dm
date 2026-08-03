@@ -139,6 +139,9 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(filelength > 6485760)
 		to_chat(user, span_warning("Error: Too big, 6MB or less!"))
 		return
+	if(filelength < 4096)
+		to_chat(user, span_warning("Error: Not a valid OOG or MP3!"))
+		return
 
 	GLOB.ipod_last_upload = world.time
 	var/real_round_time = world.timeofday - SSticker.real_round_start_time
