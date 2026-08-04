@@ -288,22 +288,38 @@ def main() -> int:
         bt_files = sorted(code_dir.glob('**/*.bt.json'))
         print(f'Found {len(bt_files)} .bt.json source files in {code_dir}')
         for src_path in bt_files:
-            # Strip known top-level roots so code/ and modular_nova/ share one generated tree.
-            rel = strip_known_root(src_path.relative_to(repo_root).as_posix())  # "datums/ai/dog/dog.bt.json" # NOVA EDIT CHANGE - ORIGINAL: rel = src_path.relative_to(repo_root).as_posix()
-            tree_name = rel[:-len('.json')]                   # "datums/ai/dog/dog.bt"
-            compiled_path = generated_dir / f'{tree_name}.compiled.json'
+            rel_to_repo = src_path.relative_to(repo_root).as_posix()  # "code/datums/ai/dog/dog.bt.json"
+            rel_flat = strip_known_root(rel_to_repo)  # "datums/ai/dog/dog.bt.json"
 
-            prior = produced.get(compiled_path)
-            if prior is not None:
-                print(
-                    f'ERROR: {src_path.relative_to(repo_root)} and {prior.relative_to(repo_root)} '
-                    f'both compile to {compiled_path.relative_to(repo_root)}',
-                    file=sys.stderr,
-                )
-                errors += 1
+            # NOVA EDIT ADDITION START - BT output compatibility for runtime + upstream tooling
+            # Original upstream behavior emitted only rooted paths under build/behavior_trees/code/... .
+            # Nova runtime expects flattened paths without top-level code/ or modular_nova/ prefixes.
+            # Emit both layouts to preserve runtime compatibility while satisfying CI/build expectations.
+            compiled_paths: list[Path] = [
+                generated_dir / f'{rel_flat[:-len(".json")]}.compiled.json',
+                generated_dir / f'{rel_to_repo[:-len(".json")]}.compiled.json',
+            ]
+            # NOVA EDIT ADDITION END
+
+            # Deduplicate while preserving order in case a path resolves identically.
+            unique_compiled_paths: list[Path] = list(dict.fromkeys(compiled_paths))
+
+            path_collision = False
+            for compiled_path in unique_compiled_paths:
+                prior = produced.get(compiled_path)
+                if prior is not None:
+                    print(
+                        f'ERROR: {src_path.relative_to(repo_root)} and {prior.relative_to(repo_root)} '
+                        f'both compile to {compiled_path.relative_to(repo_root)}',
+                        file=sys.stderr,
+                    )
+                    errors += 1
+                    path_collision = True
+                    continue
+                produced[compiled_path] = src_path
+                generated_paths.add(compiled_path)
+            if path_collision:
                 continue
-            produced[compiled_path] = src_path
-            generated_paths.add(compiled_path)
 
             # compile json
             try:
@@ -324,13 +340,15 @@ def main() -> int:
 
             # either write or check depending on flag
             if check_mode:
-                existing = compiled_path.read_text(encoding='utf-8', newline='') if compiled_path.exists() else ''
-                if existing != compiled_text:
-                    print(f'OUT OF DATE: {compiled_path.relative_to(repo_root)}', file=sys.stderr)
-                    dirty += 1
+                for compiled_path in unique_compiled_paths:
+                    existing = compiled_path.read_text(encoding='utf-8', newline='') if compiled_path.exists() else ''
+                    if existing != compiled_text:
+                        print(f'OUT OF DATE: {compiled_path.relative_to(repo_root)}', file=sys.stderr)
+                        dirty += 1
             else:
-                compiled_path.parent.mkdir(parents=True, exist_ok=True)
-                compiled_path.write_text(compiled_text, encoding='utf-8', newline='')
+                for compiled_path in unique_compiled_paths:
+                    compiled_path.parent.mkdir(parents=True, exist_ok=True)
+                    compiled_path.write_text(compiled_text, encoding='utf-8', newline='')
 
     # Remove stale compiled files that no longer correspond to a source tree —
     stale = [p for p in generated_dir.rglob('*.compiled.json') if p not in generated_paths]
