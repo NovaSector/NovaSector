@@ -197,7 +197,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(other_ipod_ref)
 		var/obj/item/clothing/ears/ipod/other_ipod = other_ipod_ref.resolve()
 		if(!QDELETED(other_ipod) && istype(other_ipod)) // other headphones ref is valid, stop playing and update their song info
-			other_ipod.stop_other_headphones()
+			stop_other_headphones()
 			var/datum/track/new_song_other = new()
 			new_song_other.song_name = current_song.song_name
 			new_song_other.song_path = current_song.song_path
