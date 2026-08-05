@@ -113,11 +113,11 @@
 	name = "Winter Coat - Brass"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/ratvar
 
-/datum/loadout_item/suit/winter_coat/christmas
+/datum/loadout_item/suit/wintercoat/christmas
 	name = "Winter Coat - Christmas"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/christmas
 
-/datum/loadout_item/suit/winter_coat/christmas/green
+/datum/loadout_item/suit/wintercoat/christmas/green
 	name = "Winter Coat - Christmas (Green)"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/christmas/green
 
