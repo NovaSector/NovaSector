@@ -277,7 +277,7 @@ GLOBAL_VAR_INIT(ipod_last_play, 0) //last time of the last played track, to prev
 	if(!istype(wearer))
 		return
 	wearer.log_message("was shared a song by [user] on headphones: [curfile]", LOG_GAME)
-	if(isnull(wearer?.mind))
+	if(isnull(wearer?.mind) || wearer.stat != STABLE)
 		return
 	if(other_ipod.playing && !isnull(other_ipod.music_player.active_song_sound))
 		other_ipod.music_player.unlisten_all()
