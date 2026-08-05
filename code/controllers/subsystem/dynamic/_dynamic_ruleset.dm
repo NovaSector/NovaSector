@@ -286,6 +286,8 @@
 			continue
 		if(is_banned_from(candidate.ckey, list(ROLE_SYNDICATE, jobban_flag || pref_flag)))
 			continue
+		if(get_playtime_banned_role(candidate.ckey, list(ROLE_SYNDICATE, jobban_flag || pref_flag)))
+			continue
 		if(!is_valid_candidate(candidate, candidate_client))
 			continue
 		valid_candidates += candidate
@@ -324,6 +326,8 @@
 	if(!candidate_client.prefs.read_preference(/datum/preference/toggle/be_antag))
 		return FALSE
 	else if(is_banned_from(candidate_client.ckey, BAN_ANTAGONIST))
+		return FALSE
+	else if(get_playtime_banned_role(candidate_client.ckey, BAN_ANTAGONIST))
 		return FALSE
 	// NOVA EDIT ADDITION END
 	return TRUE

@@ -81,7 +81,14 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 			if(job_availability != JOB_AVAILABLE)
 				if (job_datum.job_flags & JOB_HIDE_WHEN_EMPTY)
 					continue
-				job_data["unavailable_reason"] = get_job_unavailable_error_message(job_availability, job_datum.title)
+				job_data["unavailable_reason"] = job_availability == JOB_UNAVAILABLE_PLAYTIME_BAN ? get_playtime_ban_unavailable_message(owner.ckey, job_datum.title) : get_job_unavailable_error_message(job_availability, job_datum.title)
+				if(job_availability == JOB_UNAVAILABLE_PLAYTIME_BAN)
+					job_data["required_experience"] = get_playtime_ban_required_experience(owner.ckey, job_datum.title)
+				else if(job_availability == JOB_UNAVAILABLE_PLAYTIME)
+					job_data["required_experience"] = list(
+						"experience_type" = job_datum.get_exp_req_type(),
+						"required_playtime" = job_datum.required_playtime_remaining(owner.client),
+					)
 
 			if(job_datum.total_positions < 0)
 				department_data["open_slots"] = "∞"

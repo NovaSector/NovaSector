@@ -27,6 +27,8 @@
 	/// Mock ban cache to avoid runtimes when testing bans
 	var/ban_cache = null
 	var/ban_cache_start = 0
+	var/playtime_ban_cache = null
+	var/playtime_ban_cache_start = 0
 
 	// Mock BYOND version will always be the same as the server's BYOND version.
 	var/byond_version

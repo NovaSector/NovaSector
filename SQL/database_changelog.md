@@ -2,19 +2,37 @@ Any time you make a change to the schema files, remember to increment the databa
 
 Make sure to also update `DB_MAJOR_VERSION` and `DB_MINOR_VERSION`, which can be found in `code/__DEFINES/subsystem.dm`.
 
-The latest database version is 5.38 (5.34 for /tg/); The query to update the schema revision table is:
+The latest database version is 5.39 (5.34 for /tg/); The query to update the schema revision table is:
 
 ```sql
-INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 38);
+INSERT INTO `schema_revision` (`major`, `minor`) VALUES (5, 39);
 ```
 
 or
 
 ```sql
-INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 38);
+INSERT INTO `SS13_schema_revision` (`major`, `minor`) VALUES (5, 39);
 ```
 
 In any query remember to add a prefix to the table names if you use one.
+
+---
+
+Version 5.39, 19 April 2026, by SilverWolves
+adds playtime bans and playtime notes expiration
+
+```sql
+ALTER TABLE `ban`
+  ADD COLUMN `required_playtime_type` VARCHAR(32) NULL DEFAULT NULL AFTER `role`,
+  ADD COLUMN `start_playtime` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `required_playtime_type`,
+  ADD COLUMN `playtime_duration` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `start_playtime`,
+  ADD COLUMN `target_playtime` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `playtime_duration`,
+  ADD INDEX `idx_ban_playtime_active` (`ckey`,`role`,`unbanned_datetime`,`target_playtime`);
+
+ALTER TABLE `messages`
+  ADD COLUMN `expire_playtime` INT(11) UNSIGNED NULL DEFAULT NULL AFTER `playtime`,
+  ADD COLUMN `expire_playtime_type` VARCHAR(32) NULL DEFAULT NULL AFTER `expire_playtime`;
+```
 
 ---
 

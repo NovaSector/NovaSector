@@ -27,7 +27,7 @@
  */
 /datum/pai_candidate/proc/check_ready()
 	var/mob/candidate_mob = get_mob_by_key(ckey)
-	if(!candidate_mob?.client || !isobserver(candidate_mob) || is_banned_from(ckey, ROLE_PAI))
+	if(!candidate_mob?.client || !isobserver(candidate_mob) || is_banned_from(ckey, ROLE_PAI) || get_playtime_banned_role(ckey, ROLE_PAI))
 		SSpai.candidates -= ckey
 		return FALSE
 	if(!ready)

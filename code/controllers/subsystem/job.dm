@@ -679,7 +679,7 @@ SUBSYSTEM_DEF(job)
 			var/mob/dead/new_player/player = i
 			if(!(player.ready == PLAYER_READY_TO_PLAY && player.mind && is_unassigned_job(player.mind.assigned_role)))
 				continue //This player is not ready
-			if(is_banned_from(player.ckey, job.title) || QDELETED(player))
+			if(is_banned_from(player.ckey, job.title) || get_playtime_banned_role(player.ckey, job.title) || QDELETED(player))
 				banned++
 				continue
 			if(!job.player_old_enough(player.client))
@@ -978,6 +978,11 @@ SUBSYSTEM_DEF(job)
 	if(required_playtime_remaining)
 		job_debug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_PLAYTIME, possible_job.title)], Player: [player], MissingTime: [required_playtime_remaining][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_PLAYTIME
+
+	var/playtime_ban_remaining = get_playtime_ban_remaining(player.ckey, possible_job.title)
+	if(playtime_ban_remaining)
+		job_debug("[debug_prefix] Error: [get_playtime_ban_unavailable_message(player.ckey, possible_job.title)], Player: [player], MissingTime: [playtime_ban_remaining][add_job_to_log ? ", Job: [possible_job]" : ""]")
+		return JOB_UNAVAILABLE_PLAYTIME_BAN
 
 	// Run the banned check last since it should be the rarest check to fail and can access the database.
 	if(is_banned_from(player.ckey, possible_job.title))

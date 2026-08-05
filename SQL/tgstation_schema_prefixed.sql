@@ -75,6 +75,10 @@ CREATE TABLE `SS13_ban` (
   `server_port` SMALLINT(5) UNSIGNED NOT NULL,
   `round_id` INT(11) UNSIGNED NULL,
   `role` VARCHAR(32) NULL DEFAULT NULL,
+  `required_playtime_type` VARCHAR(32) NULL DEFAULT NULL,
+  `start_playtime` INT(11) UNSIGNED NULL DEFAULT NULL,
+  `playtime_duration` INT(11) UNSIGNED NULL DEFAULT NULL,
+  `target_playtime` INT(11) UNSIGNED NULL DEFAULT NULL,
   `global_ban` TINYINT(1) UNSIGNED NOT NULL DEFAULT '1',
   `expiration_time` DATETIME NULL DEFAULT NULL,
   `applies_to_admins` TINYINT(1) UNSIGNED NOT NULL DEFAULT '0',
@@ -96,6 +100,7 @@ CREATE TABLE `SS13_ban` (
   PRIMARY KEY (`id`),
   KEY `idx_ban_isbanned` (`ckey`,`role`,`unbanned_datetime`,`expiration_time`),
   KEY `idx_ban_isbanned_details` (`ckey`,`ip`,`computerid`,`role`,`unbanned_datetime`,`expiration_time`),
+  KEY `idx_ban_playtime_active` (`ckey`,`role`,`unbanned_datetime`,`target_playtime`),
   KEY `idx_ban_count` (`bantime`,`a_ckey`,`applies_to_admins`,`unbanned_datetime`,`expiration_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -342,6 +347,8 @@ CREATE TABLE `SS13_messages` (
   `expire_timestamp` datetime DEFAULT NULL,
   `severity` enum('high','medium','minor','none') DEFAULT NULL,
   `playtime` int(11) unsigned NULL DEFAULT NULL,
+  `expire_playtime` int(11) unsigned NULL DEFAULT NULL,
+  `expire_playtime_type` varchar(32) NULL DEFAULT NULL,
   `lasteditor` varchar(32) DEFAULT NULL,
   `edits` text,
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',

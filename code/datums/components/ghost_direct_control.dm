@@ -129,6 +129,9 @@
 	if (is_banned_from(harbinger.ckey, list(ban_type)))
 		to_chat(harbinger, span_warning("You are banned from playing as this role!"))
 		return
+	if (get_playtime_banned_role(harbinger.ckey, ban_type))
+		to_chat(harbinger, span_warning(get_playtime_ban_unavailable_message(harbinger.ckey, ban_type, "this role")))
+		return
 	if (!(GLOB.ghost_role_flags & GHOSTROLE_SPAWNER))
 		to_chat(harbinger, span_warning("Ghost roles have been temporarily disabled!"))
 		return

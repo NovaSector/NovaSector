@@ -265,6 +265,7 @@ export type PreferencesMenuData = {
     {
       experience_type: string;
       required_playtime: number;
+      required_playtime_text?: string;
     }
   >;
   job_preferences: JobPreference[];
