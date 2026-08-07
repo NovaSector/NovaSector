@@ -287,7 +287,9 @@
 		if(pb_knockback > 0 && ismob(pbtarget))
 			var/mob/PBT = pbtarget
 			var/atom/throw_target = get_edge_target_turf(PBT, user.dir)
-			PBT.throw_at(throw_target, pb_knockback, 2)
+			//NOVA EDIT CHANGE BEGIN - ORIGINAL: PBT.throw_at(throw_target, pb_knockback, 2)
+			PBT.throw_at(throw_target, pb_knockback, 2, gentle = TRUE)
+			//NOVA EDIT CHANGE END
 	else if(!tk_firing(user))
 		user.visible_message(
 			span_danger("[user] fires [src]!"),

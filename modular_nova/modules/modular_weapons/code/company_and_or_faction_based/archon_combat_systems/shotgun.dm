@@ -266,7 +266,7 @@
 	if(amped)
 		fire_sound = amped_fire_sound
 		recoil = amped_recoil
-		pb_knockback = 5 // i hope you're throwing them into a wall
+		pb_knockback = 5
 		balloon_alert(user, "barrels amped")
 	else
 		fire_sound = base_fire_sound
