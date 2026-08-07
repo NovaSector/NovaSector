@@ -1,0 +1,16 @@
+2026-08-03:
+  CliffracerX:
+  - rscadd: Tums Module & Big Boned quirk
+  - rscadd: non-shoe-related movement comsig
+  - rscadd: alt_appearance based overlays for future use
+  - config: option for disabling belly stuff
+  Hatterhat:
+  - balance: Sterilizine now cleanses gaseous miasma into gaseous oxygen when exposed
+      to turfs (e.g. via smoke or foam).
+  Hollandasie:
+  - rscadd: Adds alt variants of shot mammal snout
+  vinylspiders:
+  - bugfix: fixed an issue where female teshari were getting dimorphic gender shaping
+      (resulting in missing pixels from their uniforms in weird spots)
+  - bugfix: fixed an issue where teshari accessories were not aligning to the correct
+      spot

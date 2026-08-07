@@ -33,10 +33,8 @@
 	if(!typing_indicators)
 		return FALSE
 	/// Special exemptions
-	/* NOVA EDIT REMOVAL START - This removal allows Abductors to have typing indicators
-	if(isabductor(mob))
+	if(HAS_MIND_TRAIT(mob, TRAIT_HIDE_THINKING_INDICATOR) && !isabductor(mob)) // NOVA EDIT CHANGE - ORIGINAL: if(HAS_MIND_TRAIT(mob, TRAIT_HIDE_THINKING_INDICATOR))
 		return FALSE
-	*/ // NOVA EDIT REMOVAL END
 	ADD_TRAIT(mob, TRAIT_THINKING_IN_CHARACTER, CURRENTLY_TYPING_TRAIT)
 	mob.create_thinking_indicator()
 

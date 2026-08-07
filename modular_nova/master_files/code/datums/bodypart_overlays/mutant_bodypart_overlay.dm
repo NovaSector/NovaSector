@@ -55,6 +55,7 @@
 	. = list()
 	. += "[get_base_icon_state()]"
 	. += "[get_feature_key_for_overlay()]"
+	. += "[sprite_datum.get_special_icon(limb?.owner)]"
 
 	// MOD overlays on mutant parts
 	if(modsuit_affected && sprite_datum?.mod_overlay_active(limb?.owner))

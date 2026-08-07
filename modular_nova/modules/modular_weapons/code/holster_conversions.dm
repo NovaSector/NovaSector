@@ -1,5 +1,6 @@
 /datum/crafting_recipe/charge_holster
 	name = "Energy Shoulder Holster Conversion"
+	crafting_flags = parent_type::crafting_flags | CRAFT_COLLECT_REQUIREMENTS
 	desc = "Retool a regular shoulder holster into one that can't hold regular sidearms, but can recharge energy weapons."
 	result = /obj/item/storage/belt/holster/energy
 	reqs = list(
@@ -27,6 +28,7 @@
 
 /datum/crafting_recipe/supercharge_holster
 	name = "High-Output Energy Shoulder Holster Conversion"
+	crafting_flags = parent_type::crafting_flags | CRAFT_COLLECT_REQUIREMENTS
 	desc = "Sacrifice the second holster in return for extra charging throughput on your energy holster. \
 		Do you lose the ability to have two guns? Yes. Do you have a faster wearable recharger? Also yes."
 	result = /obj/item/storage/belt/holster/energy/onegun

@@ -6998,7 +6998,6 @@
 	pixel_x = 5;
 	pixel_y = 7
 	},
-/obj/item/storage/photo_album/cmo,
 /obj/item/pen/fountain,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -27815,7 +27814,6 @@
 "huY" = (
 /obj/machinery/light_switch/directional/east,
 /obj/structure/table/wood,
-/obj/item/storage/photo_album/hos,
 /obj/item/pen/fountain,
 /turf/open/floor/carpet/royalblack,
 /area/station/command/heads_quarters/hos)
@@ -47874,9 +47872,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/law)
 "mKX" = (
-/obj/item/storage/photo_album/captain{
-	pixel_y = 3
-	},
 /obj/item/pen/fountain/captain{
 	pixel_y = -6;
 	pixel_x = 3
@@ -50753,7 +50748,6 @@
 /obj/machinery/light_switch/directional/east,
 /obj/structure/table/reinforced,
 /obj/machinery/firealarm/directional/north,
-/obj/item/storage/photo_album/hop,
 /obj/item/pen/fountain,
 /obj/effect/mapping_helpers/ianbirthday,
 /turf/open/floor/iron/dark/smooth_corner{
@@ -57486,10 +57480,6 @@
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/siding/yellow{
 	dir = 6
-	},
-/obj/item/storage/photo_album/ce{
-	pixel_x = 2;
-	pixel_y = 7
 	},
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 1
@@ -81063,7 +81053,6 @@
 /obj/structure/table/wood,
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/machinery/airalarm/directional/east,
-/obj/item/storage/photo_album/qm,
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/qm)
 "vHQ" = (
@@ -83432,10 +83421,6 @@
 /area/station/medical/medbay/central)
 "woL" = (
 /obj/structure/table/wood,
-/obj/item/storage/photo_album/rd{
-	pixel_x = 6;
-	pixel_y = 7
-	},
 /obj/item/newspaper,
 /turf/open/floor/carpet/purple,
 /area/station/command/heads_quarters/rd)

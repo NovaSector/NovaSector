@@ -184,7 +184,7 @@
 "zf" = (
 /obj/structure/window/green_glass_pane,
 /obj/structure/curtain/bounty,
-/turf/closed/indestructible/wood,
+/turf/open/floor/stone,
 /area/misc/condo)
 "zz" = (
 /obj/machinery/light_switch/directional/south,
