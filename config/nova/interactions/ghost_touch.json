@@ -1,0 +1,28 @@
+{
+	"name": "Ghost touch",
+	"description": "Trail an unseen caress across their skin from afar.",
+	"usage": "other",
+	"category": "Sex (Foreplay)",
+	"distance_allowed": 1,
+	"interaction_requires": [
+		"psionics"
+	],
+	"message": [
+		"%USER% watches %TARGET%, who shivers as if caressed by something unseen.",
+		"%USER% traces a slow line through the air, and %TARGET%'s skin prickles.",
+		"%USER% curls %USER_PRONOUN_THEIR% fingers from afar, and %TARGET% arches slightly."
+	],
+	"user_messages": [
+		"<span class='purple'>You trail a phantom caress across %TARGET%'s skin.</span>",
+		"<span class='purple'>You drag unseen fingertips down %TARGET%'s body from afar.</span>"
+	],
+	"target_messages": [
+		"<span class='purple'>A phantom caress trails across your skin, though no one is touching you!</span>",
+		"<span class='purple'>Unseen fingertips drag slowly down your body!</span>"
+	],
+	"user_arousal": 1,
+	"target_pleasure": 2,
+	"target_arousal": 3,
+	"lewd": 1,
+	"color": "pink"
+}

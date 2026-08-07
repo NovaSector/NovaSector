@@ -5,6 +5,8 @@
 	. = ..()
 	VV_DROPDOWN_OPTION(VV_HK_SEND_CRYO, "Send to Cryogenic Storage")
 	VV_DROPDOWN_OPTION(VV_HK_LOAD_PREFS, "Load Prefs Onto Mob")
+	if(isliving(src))
+		VV_DROPDOWN_OPTION(VV_HK_GIVE_PSIONICS, "Give Psionics")
 
 /mob/vv_do_topic(list/href_list)
 	. = ..()
@@ -14,6 +16,10 @@
 
 	if(href_list[VV_HK_LOAD_PREFS])
 		vv_load_prefs()
+
+	if(href_list[VV_HK_GIVE_PSIONICS] && isliving(src))
+		var/mob/living/living_mob = src
+		living_mob.vv_give_psionics()
 
 /**
  * Sends said person to a cryopod.
