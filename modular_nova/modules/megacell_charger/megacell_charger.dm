@@ -1,4 +1,4 @@
-// 	#define STANDARD_BATTERY_RATE (STANDARD_BATTERY_VALUE WATTS) // 1 MW
+// STANDARD_BATTERY_RATE (STANDARD_BATTERY_VALUE WATTS) // 1 MW
 // code\__DEFINES\power.dm
 // Adds a cell charger specifically for handling megacells. We have an aesthetic overwrite for normal cells on the original code, leaving the original sprites up for grabs from the rsc.
 // This repurposes pre-existing assets to fill a hole we had.
@@ -19,7 +19,6 @@
 	icon = 'icons/obj/machines/cell_charger.dmi'
 	/// The charge overlay icon file for the cell charge lights
 	var/charging_icon = "cell"
-	connector_type = null
 
 /obj/item/stock_parts/power_store/battery/high
 	charging_icon = "hcell"
