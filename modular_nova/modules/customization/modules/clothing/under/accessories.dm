@@ -251,7 +251,7 @@
 
 /datum/atom_skin/pride_pin/nova/man_loving_man
 	preview_name = "Man-Loving-Man / Gay Pride"
-	new_icon_state = "pride_mlm"
+	new_icon_state = "pride_gay"
 
 /datum/atom_skin/pride_pin/nova/genderfluid
 	preview_name = "Genderfluid Pride"
