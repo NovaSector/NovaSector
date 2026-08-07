@@ -70,7 +70,7 @@
 	name = "frontier crowbar"
 	desc = "A large crowbar with a plastic grip coated with orange paint in the middle, commonly printed from a colony fabricator."
 	icon_state = "crowbar_orange"
-	worn_icon_state = "crowbar_orange"
+
 
 /obj/item/crowbar/large/emergency
 	name = "emergency crowbar"
