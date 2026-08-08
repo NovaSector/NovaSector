@@ -119,14 +119,18 @@
 	PROTECTED_PROC(TRUE)
 
 	if(!(new_listener in listeners))
-		RegisterSignal(new_listener, COMSIG_QDELETING, PROC_REF(listener_deleted))
+		if(new_listener != parent)
+			RegisterSignal(new_listener, COMSIG_QDELETING, PROC_REF(listener_deleted))
 
 		if(isnull(new_listener.client))
 			RegisterSignal(new_listener, COMSIG_MOB_LOGIN, PROC_REF(listener_login))
 			return
 		if(preference_signal)
-			RegisterSignals(new_listener, list(COMSIG_MOVABLE_MOVED, preference_signal), PROC_REF(listener_moved))
-		else
+			if(new_listener == parent)
+				RegisterSignal(new_listener, preference_signal, PROC_REF(listener_moved))
+			else
+				RegisterSignals(new_listener, list(COMSIG_MOVABLE_MOVED, preference_signal), PROC_REF(listener_moved))
+		else if(new_listener != parent)
 			RegisterSignal(new_listener, COMSIG_MOVABLE_MOVED, PROC_REF(listener_moved))
 
 		RegisterSignals(new_listener, list(SIGNAL_ADDTRAIT(TRAIT_DEAF), SIGNAL_REMOVETRAIT(TRAIT_DEAF)), PROC_REF(listener_deaf))
@@ -195,23 +199,16 @@
 
 	listeners -= no_longer_listening
 	no_longer_listening.stop_sound_channel(our_channel)
+	var/list/unregister_signals = list(
+		COMSIG_MOB_LOGIN,
+		SIGNAL_ADDTRAIT(TRAIT_DEAF),
+		SIGNAL_REMOVETRAIT(TRAIT_DEAF),
+	)
+	if(no_longer_listening != parent)
+		unregister_signals += list(COMSIG_QDELETING, COMSIG_MOVABLE_MOVED)
 	if(preference_signal)
-		UnregisterSignal(no_longer_listening, list(
-			COMSIG_MOB_LOGIN,
-			COMSIG_QDELETING,
-			COMSIG_MOVABLE_MOVED,
-			preference_signal,
-			SIGNAL_ADDTRAIT(TRAIT_DEAF),
-			SIGNAL_REMOVETRAIT(TRAIT_DEAF),
-		))
-	else
-		UnregisterSignal(no_longer_listening, list(
-			COMSIG_MOB_LOGIN,
-			COMSIG_QDELETING,
-			COMSIG_MOVABLE_MOVED,
-			SIGNAL_ADDTRAIT(TRAIT_DEAF),
-			SIGNAL_REMOVETRAIT(TRAIT_DEAF),
-		))
+		unregister_signals += preference_signal
+	UnregisterSignal(no_longer_listening, unregister_signals)
 
 /datum/threed_sound/proc/update_listener(mob/listener)
 	PROTECTED_PROC(TRUE)
