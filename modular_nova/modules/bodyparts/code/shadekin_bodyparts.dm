@@ -5,12 +5,14 @@
 /obj/item/bodypart/head/mutant/shadekin
 	icon_greyscale = BODYPART_ICON_SHADEKIN
 	limb_id = SPECIES_SHADEKIN
+	is_dimorphic = TRUE
 	brute_modifier = 1.2
 	burn_modifier = 1.2
 
 /obj/item/bodypart/chest/mutant/shadekin
 	icon_greyscale = BODYPART_ICON_SHADEKIN
 	limb_id = SPECIES_SHADEKIN
+	is_dimorphic = TRUE
 	brute_modifier = 1.2
 	burn_modifier = 1.2
 

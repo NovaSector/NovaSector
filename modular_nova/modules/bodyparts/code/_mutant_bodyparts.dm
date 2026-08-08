@@ -37,7 +37,6 @@
 /obj/item/bodypart/head/mutant
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = SPECIES_MAMMAL
-	is_dimorphic = FALSE
 
 /obj/item/bodypart/chest/mutant
 	icon_greyscale = BODYPART_ICON_MAMMAL

@@ -345,6 +345,7 @@
 	icon = BODYPART_ICON_SYNTHMAMMAL
 	icon_state = "synthmammal"
 	color_src = MUTANT_COLOR
+	dimorphic = TRUE
 
 /datum/sprite_accessory/synth_head/lizard
 	name = "Lizard Head"

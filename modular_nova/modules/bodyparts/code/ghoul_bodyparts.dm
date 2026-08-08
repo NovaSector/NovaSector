@@ -4,6 +4,7 @@
 // Ghouls!
 /obj/item/bodypart/head/mutant/ghoul
 	icon_greyscale = BODYPART_ICON_GHOUL
+	is_dimorphic = FALSE
 	bodytype = parent_type::bodytype | BODYTYPE_GHOUL
 	limb_id = SPECIES_GHOUL
 	brute_modifier = GHOUL_BRUTE_MODIFIER
