@@ -1,0 +1,144 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/turf_decal/tile/dark/diagonal_edge,
+/obj/effect/turf_decal/tile/dark/full,
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"c" = (
+/obj/structure/cable,
+/obj/item/reagent_containers/cup/soda_cans/grey_bull,
+/obj/effect/turf_decal/tile/dark/diagonal_edge,
+/obj/effect/turf_decal/tile/dark/full,
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"h" = (
+/obj/structure/cable,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/effect/turf_decal/tile/yellow/full,
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"m" = (
+/turf/template_noop,
+/area/template_noop)
+"n" = (
+/obj/structure/cable,
+/obj/machinery/power/tracker,
+/obj/item/circuitboard/computer/solar_control,
+/obj/item/stack/cable_coil/five,
+/obj/item/stack/sheet/iron/five,
+/obj/item/stack/cable_coil/thirty,
+/obj/item/stack/rods/ten,
+/obj/effect/turf_decal/tile/dark/diagonal_edge,
+/obj/effect/turf_decal/tile/dark/full,
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"B" = (
+/obj/structure/cable,
+/obj/item/stack/sheet/titaniumglass,
+/obj/item/stack/sheet/titaniumglass,
+/obj/item/stack/sheet/titaniumglass,
+/obj/item/stack/sheet/titaniumglass,
+/obj/item/stack/sheet/titaniumglass,
+/obj/item/stack/sheet/titaniumglass,
+/obj/item/stack/sheet/titaniumglass,
+/obj/item/stack/sheet/titaniumglass,
+/obj/effect/turf_decal/tile/yellow/full,
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"H" = (
+/obj/structure/cable,
+/obj/item/screwdriver/red,
+/obj/item/wrench,
+/obj/effect/turf_decal/tile/yellow/full,
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"L" = (
+/obj/structure/cable,
+/obj/item/stack/sheet/glass,
+/obj/item/stack/sheet/glass,
+/obj/effect/turf_decal/tile/yellow/full,
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"O" = (
+/obj/effect/turf_decal/tile/yellow/full,
+/obj/structure/cable,
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"Q" = (
+/obj/machinery/power/solar,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/yellow/full,
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+"X" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/dark/diagonal_edge,
+/obj/effect/turf_decal/tile/dark/full,
+/obj/item/crowbar/large/old,
+/turf/open/floor/plastic{
+	initial_gas_mix = "TEMP=2.7"
+	},
+/area/template_noop)
+
+(1,1,1) = {"
+m
+Q
+O
+Q
+m
+"}
+(2,1,1) = {"
+Q
+h
+c
+H
+Q
+"}
+(3,1,1) = {"
+O
+a
+n
+a
+O
+"}
+(4,1,1) = {"
+Q
+L
+X
+B
+Q
+"}
+(5,1,1) = {"
+m
+Q
+O
+Q
+m
+"}
