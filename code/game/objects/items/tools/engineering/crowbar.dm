@@ -66,6 +66,12 @@
 	worn_icon_state = "crowbar"
 	toolspeed = 0.7
 
+/obj/item/crowbar/large/orange
+	name = "frontier crowbar"
+	desc = "A large crowbar with a plastic grip coated with orange paint in the middle, commonly printed from a colony fabricator."
+	icon_state = "crowbar_orange"
+
+
 /obj/item/crowbar/large/emergency
 	name = "emergency crowbar"
 	desc = "It's a bulky crowbar. It almost seems deliberately designed to not be able to fit inside of a backpack."

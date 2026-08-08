@@ -17,6 +17,7 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_ARCHON)
 
 /datum/crafting_recipe/riot_sol_super
+	crafting_flags = parent_type::crafting_flags | CRAFT_COLLECT_REQUIREMENTS
 	name = "M64 to KOLBEN/NACHTREIHER Shotgun Conversion"
 	desc = "Bring order to chaos."
 	result = /obj/item/gun/ballistic/shotgun/riot/sol/super/empty
@@ -65,6 +66,7 @@
 
 /datum/crafting_recipe/doublebarrel_super
 	name = "Double-Barrel Shotgun to Lammergeier O/U Conversion"
+	crafting_flags = parent_type::crafting_flags | CRAFT_COLLECT_REQUIREMENTS
 	desc = "Sighting correction A-OK. 90... 95... I won't miss."
 	result = /obj/item/gun/ballistic/shotgun/doublebarrel/super/empty
 	reqs = list(

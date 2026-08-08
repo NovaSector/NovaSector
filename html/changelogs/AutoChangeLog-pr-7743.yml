@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - bugfix: "crocin now takes ethanol instead of carbon in its recipe"
