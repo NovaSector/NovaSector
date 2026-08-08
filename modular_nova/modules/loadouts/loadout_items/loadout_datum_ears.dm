@@ -37,3 +37,7 @@
 /datum/loadout_item/ears/frontier_radio
 	name = "Frontier Radio Headset"
 	item_path = /obj/item/radio/headset/headset_frontier_colonist
+
+/datum/loadout_item/ears/ipod
+	name = "iZune Spaceman Headphones"
+	item_path = /obj/item/clothing/ears/ipod

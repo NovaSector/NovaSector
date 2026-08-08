@@ -136,4 +136,5 @@
 
 	premium_nova = list(
 		/obj/item/clothing/under/dress/wedding_dress/ribbon = 1,
+		/obj/item/clothing/ears/ipod = 5,
 	)

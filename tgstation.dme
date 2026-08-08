@@ -9141,6 +9141,7 @@
 #include "modular_nova\modules\modular_items\code\fan.dm"
 #include "modular_nova\modules\modular_items\code\fock.dm"
 #include "modular_nova\modules\modular_items\code\furniture.dm"
+#include "modular_nova\modules\modular_items\code\ipod.dm"
 #include "modular_nova\modules\modular_items\code\makeshift.dm"
 #include "modular_nova\modules\modular_items\code\materials.dm"
 #include "modular_nova\modules\modular_items\code\modular_glasses.dm"
