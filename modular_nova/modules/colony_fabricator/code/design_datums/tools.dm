@@ -36,9 +36,9 @@
 	name = "Crowbar"
 	id = "colony_crowbar"
 	build_type = COLONY_FABRICATOR
-	build_path = /obj/item/crowbar
+	build_path = /obj/item/crowbar/large/orange
 	materials = list(
-		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5,
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.7,
 	)
 	category = list(
 		RND_CATEGORY_INITIAL,

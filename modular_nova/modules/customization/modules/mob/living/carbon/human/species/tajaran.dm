@@ -7,7 +7,7 @@
 		TRAIT_LITERATE,
 		TRAIT_HATED_BY_DOGS,
 		TRAIT_MUTANT_COLORS,
-		TRAIT_CATLIKE_GRACE,
+		TRAIT_CATLIKE_INSTINCT,
 		TRAIT_WATER_HATER,
 	)
 	mutanttongue = /obj/item/organ/tongue/cat/tajaran

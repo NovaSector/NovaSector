@@ -224,6 +224,10 @@
 	name = "Mammal, Short ALT 3"
 	icon_state = "scanidalt3"
 
+/datum/sprite_accessory/snouts/mammal/tajaran/scanidalt4
+	name = "Mammal, Short ALT 4"
+	icon_state = "scanidalt4"
+
 /datum/sprite_accessory/snouts/mammal/tajaran/normal
 	name = "Tajaran, normal"
 	icon_state = "ntajaran"
@@ -396,6 +400,10 @@
 /datum/sprite_accessory/snouts/mammal/top/tajaran/fscanidalt3
 	name = "Mammal, Short ALT 3 (Top)"
 	icon_state = "fscanidalt3"
+
+/datum/sprite_accessory/snouts/mammal/top/tajaran/fscanidalt4
+	name = "Mammal, Short ALT 4 (Top)"
+	icon_state = "fscanidalt4"
 
 /datum/sprite_accessory/snouts/mammal/top/fwolf
 	name = "Mammal, Thick (Top)"

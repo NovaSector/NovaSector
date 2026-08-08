@@ -1131,3 +1131,70 @@
       (Blob, zombies, or a severe enough disease)
   - map: Add Tombstone Escape Shuttle that can be unlocked via a biohazard event.
       (Blob, zombies, or a severe enough disease)
+2026-07-29:
+  Happyowl93:
+  - bugfix: ammo stacks should stop creating new bullets when clicked on them very
+      fast.
+  - rscadd: You can now peer into the distance with Alt+right click.
+  amsy2:
+  - rscadd: Added a toggle ability for holosynths to pass through tables (at cost
+      of a slowdown)
+  vinylspiders:
+  - bugfix: fixes an issue that could cause bodypart icons that used the same icon
+      state to display inconsistently (seen with "Harpy Top (Alt) Reshade" and "Harpy
+      Top (Alt)", for example)
+  - bugfix: Fixes the "Double Drills" hairstyle missing its icon
+2026-07-30:
+  Aliceee2ch:
+  - bugfix: Bardrobe is now using service budget instead of medical.
+  ArcaneMusic:
+  - bugfix: Selling organs in cargo once again works properly. As a reminder, Normal
+      human organs sell for 20 credits. The organs of a roundstart human are worth
+      10x as much, however.
+  Justice12354:
+  - bugfix: Reloading your lionhunter's rifle no longer makes your ammo box invisible
+  - bugfix: Nightwatcher's Lantern now costs what it should cost (2 knowledge points)
+  Melbert:
+  - bugfix: Fix slot assigned job saving
+  - code_imp: Slightly changed the logic for blindness and unconscious hud effects,
+      report any oddities
+  - spellcheck: Renames "Hot Chili" to "Chili Con Carne"
+  - spellcheck: Renames "Cold Chili" to "Chili Frio"
+  - qol: Chili Con Carne, Chili Sin Carne, Chili Con Carnival, and Chili Frio are
+      now all in the "Mexican" cuisine category
+  - qol: You can now use ghost chilis in the chili recipes, making "Ghost Chili Con
+      Carne" or "Ghost Chili Sin Carne".
+  - bugfix: Performing an action with an internal cooldown (like resisting) will no
+      longer cancel timed actions
+  - code_imp: Slightly changed logic for selecting random reagents for stuff like
+      toxic bees, report anything weird with it
+  - rscdel: Mobs will no longer log their initial name change (I.e. "name changed
+      from (nothing) to John Doe")
+  - map: '[Kilostation] Redid lighting over the whole station to be more ambient/moody
+      and less overlit'
+  - map: '[Kilostation] Many small tweaks and nudges, primarily with decals or pipe
+      runs'
+  PapaMichael:
+  - balance: Pirates prioritize spawning their leaders
+  - admin: Admins can configure Heavy Pirates
+  - bugfix: Bar, Library, and Chapel photo albums can now be found on all stations
+  - bugfix: Removed duplicate photo albums from Catwalk and Nebula
+  SmArtKar:
+  - code_imp: Optimized revenant abilities
+  - code_imp: Improves gas tank window performance
+  - bugfix: Fixed cardboard cutouts having an incorrect assistant sprite
+  - bugfix: Fixed some effects not updating hair when they should
+  - code_imp: Optimized particle lighting
+  Thunder12345:
+  - bugfix: High frequency blades kept in the suit storage slot no longer look outdated.
+  kyunkyunkyun:
+  - bugfix: You can once again scan pod people's health with advanced/debug health
+      analyzers.
+  - bugfix: Regal condor's magazine now properly accepts .45 instead of 10mm.
+  lelandkemble:
+  - bugfix: You can now load printed mech generators
+  - bugfix: You can place items within bodybags by clicking on them again
+  tigercat2000:
+  - bugfix: ByondUi/TGUI Map elements should never have the small map bug again
+  - bugfix: ByondUi/TGUI Map elements will no longer layout incorrectly if you refresh
+      the page in some circumstances
