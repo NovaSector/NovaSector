@@ -1,0 +1,4 @@
+author: "Moonridden"
+delete-after: True
+changes:
+  - admin: "Introduces a new type of autosurgeon, the Multisurgeon, which can handle a list of implants in one action and item."
