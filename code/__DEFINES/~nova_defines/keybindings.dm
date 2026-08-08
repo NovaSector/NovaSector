@@ -12,3 +12,4 @@
 #define COMSIG_KB_MOB_CTRL_ACTIVATEINHAND_DOWN "keybinding_mob_ctrl_activateinhand_down"
 #define COMSIG_KB_MOVEMENT_ARMY_CRAWL_DOWN "keybinding_movement_army_crawl_down"
 #define COMSIG_KB_ADMIN_ESP_DOWN "keybinding_admin_esp_down"
+#define COMSIG_KB_NOTIFYADMINS_DOWN "keybinding_notify_admins_down"

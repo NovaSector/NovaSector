@@ -205,3 +205,8 @@ GLOBAL_VAR_INIT(ghost_role_flags, ALL)
 #define SMITE_DELAY (1<<1)
 /// Stuns the target for a short duration, ignores stun immunity
 #define SMITE_STUN (1<<2)
+
+// NOVA EDIT ADDITION START
+/// Role-ban string for the "ping admins" OOC verb/hotkey.
+#define BAN_ADMIN_NOTIFY "Admin Notify"
+// NOVA EDIT END

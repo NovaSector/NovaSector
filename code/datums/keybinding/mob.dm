@@ -246,3 +246,34 @@
 	if(.)
 		return
 	user.movement_locked = FALSE
+
+// NOVA EDIT ADDITION START
+// Logic for the processing of our hotkey. So people can't accidentally fat finger notify us.
+// Keybindings are silly singletons so I can't put this logic there
+/datum/keybinding/mob/notify_admins
+	hotkey_keys = list(UNBOUND_KEY)// unbound by default
+	name = "notify_admins"
+	full_name = "Notify Admins (Hold)"
+	description = "Hold for 2 seconds to notify admins to come observe you."
+	keybind_signal = COMSIG_KB_NOTIFYADMINS_DOWN
+
+/datum/keybinding/mob/notify_admins/down(client/user, turf/target, mousepos_x, mousepos_y)
+	. = ..()
+	if(.)
+		return
+	if(user.notify_admins_hold_timer)
+		return TRUE
+	to_chat(user, span_notice("Keep holding to notify admins..."))
+	user.notify_admins_hold_timer = addtimer(CALLBACK(src, PROC_REF(trigger_notify), user), 2 SECONDS, TIMER_STOPPABLE)
+	return TRUE
+
+/datum/keybinding/mob/notify_admins/up(client/user, turf/target)
+	. = ..()
+	if(user.notify_admins_hold_timer)
+		deltimer(user.notify_admins_hold_timer)
+		user.notify_admins_hold_timer = null
+
+/datum/keybinding/mob/notify_admins/proc/trigger_notify(client/user)
+	user.notify_admins_hold_timer = null
+	user.notify_admins()
+// NOVA EDIT END
