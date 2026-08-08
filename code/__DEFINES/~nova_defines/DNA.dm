@@ -93,11 +93,6 @@
 #define TESTICLES_MIN_SIZE 0
 #define TESTICLES_MAX_SIZE 8
 
-#define SHEATH_NONE	SPRITE_ACCESSORY_NONE
-#define SHEATH_NORMAL "Sheath"
-#define SHEATH_SLIT	"Slit"
-#define SHEATH_MODES list(SHEATH_NONE, SHEATH_NORMAL, SHEATH_SLIT)
-
 /// Used for making species blueprint singletons for GLOB.default_mutant_bodyparts
 #define MUTPART_BLUEPRINT new /datum/mutant_bodypart/species_blueprint
 
@@ -125,6 +120,7 @@
 
 // Genitals
 #define FEATURE_PENIS "penis"
+#define FEATURE_SHEATH "sheath"
 #define FEATURE_WOMB "womb"
 #define FEATURE_VAGINA "vagina"
 #define FEATURE_TESTICLES "testicles"
@@ -145,7 +141,7 @@
 	"penis_size" = 13,\
 	"penis_girth" = 9,\
 	"penis_taur_mode" = TRUE,\
-	"penis_sheath" = SHEATH_NONE,\
+	"penis_sheath" = SPRITE_ACCESSORY_NONE,\
 	"balls_size" = 1,\
 	"body_size" = BODY_SIZE_NORMAL,\
 	"custom_species" = null,\

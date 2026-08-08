@@ -155,3 +155,7 @@
 /datum/design/telesci_gps/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
+
+/datum/design/shuttle_blueprints/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR

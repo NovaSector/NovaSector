@@ -396,6 +396,7 @@
 	desc = "An adorable stuffed toy that resembles a space carp."
 	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/toy/plush/carpplushie"
+	worn_icon = "carp"
 	post_init_icon_state = "map_plushie_carp"
 	greyscale_config = /datum/greyscale_config/plush_carp
 	greyscale_colors = "#cc99ff#000000"
@@ -416,6 +417,7 @@
 	name = "\improper Ratvar plushie"
 	desc = "An adorable plushie of the clockwork justiciar himself with new and improved spring arm action."
 	icon_state = "plushvar"
+	worn_icon = "ratvar"
 	divine = TRUE
 	var/obj/item/toy/plush/narplush/clash_target
 	gender = MALE //he's a boy, right?
@@ -426,7 +428,7 @@
 		return
 	var/obj/item/toy/plush/narplush/P = locate() in range(1, src)
 	if(P && istype(P.loc, /turf/open) && !P.clashing)
-		clash_of_the_plushies(P)
+		INVOKE_ASYNC(src, PROC_REF(clash_of_the_plushies), P)
 
 /obj/item/toy/plush/ratplush/proc/clash_of_the_plushies(obj/item/toy/plush/narplush/P)
 	clash_target = P
@@ -503,6 +505,7 @@
 	name = "\improper Nar'Sie plushie"
 	desc = "A small stuffed doll of the elder goddess Nar'Sie. Who thought this was a good children's toy?"
 	icon_state = "narplush"
+	worn_icon = "narsie"
 	divine = TRUE
 	var/clashing
 	gender = FEMALE //it's canon if the toy is
@@ -511,7 +514,7 @@
 	. = ..()
 	var/obj/item/toy/plush/ratplush/P = locate() in range(1, src)
 	if(P && istype(P.loc, /turf/open) && !P.clash_target && !clashing)
-		P.clash_of_the_plushies(src)
+		INVOKE_ASYNC(P, TYPE_PROC_REF(/obj/item/toy/plush/ratplush, clash_of_the_plushies), src)
 
 /obj/item/toy/plush/lizard_plushie
 	name = "lizard plushie"

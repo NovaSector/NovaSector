@@ -22,7 +22,7 @@
 	name = "Sylveon Bow"
 	icon_state = "sylveon_bow"
 
-/datum/sprite_accessory/neck_accessory/is_hidden(mob/living/carbon/human/wearer)
+/datum/sprite_accessory/neck_accessory/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
 	var/obj/item/clothing/head/worn_neck = wearer.wear_neck
 	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
 	if((worn_neck?.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR))

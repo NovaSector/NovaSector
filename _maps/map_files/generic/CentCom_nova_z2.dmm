@@ -5429,7 +5429,7 @@
 	density = 1
 	},
 /obj/effect/decal/fakelattice,
-/turf/open/floor/pod/light{
+/turf/open/floor/mineral/plastitanium/pod/light{
 	density = 1
 	},
 /area/centcom/holding/cafepark)
@@ -7797,7 +7797,7 @@
 	dir = 9
 	},
 /obj/structure/rack/wooden,
-/obj/item/food/grown/poppy/geranium,
+/obj/item/food/grown/flower/poppy/geranium,
 /obj/structure/railing/wooden_fencing{
 	dir = 1
 	},

@@ -97,21 +97,21 @@
 	to_chat(user, span_danger("You crack the holobadge security checks."))
 	return TRUE
 
-/obj/item/clothing/accessory/badge/holo/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/card/id))
+/obj/item/clothing/accessory/badge/holo/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/card/id))
 
 		var/obj/item/card/id/id_card = null
 
-		if(istype(attacking_item, /obj/item/card/id))
-			id_card = attacking_item
+		if(istype(tool, /obj/item/card/id))
+			id_card = tool
 
 		if((ACCESS_SECURITY in id_card.access) || (obj_flags & EMAGGED))
 			to_chat(user, "You imprint your ID details onto the badge.")
 			set_name(user.real_name)
 			badge_string = id_card.assignment
-		else
-			to_chat(user, "[src] rejects your insufficient access rights.")
-		return
+			return ITEM_INTERACT_SUCCESS
+		to_chat(user, "[src] rejects your insufficient access rights.")
+		return ITEM_INTERACT_BLOCKING
 	return ..()
 
 /obj/item/storage/box/holobadge

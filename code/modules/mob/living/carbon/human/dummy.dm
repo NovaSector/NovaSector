@@ -7,7 +7,7 @@
 
 INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 
-/mob/living/carbon/human/dummy/Initialize(mapload)
+/mob/living/carbon/human/dummy/Initialize(mapload, datum/species/species)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_GODMODE, INNATE_TRAIT)
 	ADD_TRAIT(src, TRAIT_PREVENT_BLINKING, INNATE_TRAIT)
@@ -193,9 +193,10 @@ GLOBAL_LIST_EMPTY(dummy_mob_list)
 		if(ishuman(target))
 			var/mob/living/carbon/human/human_target = target
 			human_target.copy_clothing_prefs(copycat)
-			// NOVA EDIT
-			target?.client?.prefs?.apply_prefs_to(copycat, TRUE)
-			// NOVA EDIT END
+			// NOVA EDIT ADDITION START
+			if(target?.client?.prefs)
+				target.client.prefs.apply_prefs_to(copycat, icon_updates = FALSE)
+			// NOVA EDIT ADDITION END
 
 		copycat.updateappearance(icon_update=TRUE, mutcolor_update=TRUE, mutations_overlay_update=TRUE)
 	else

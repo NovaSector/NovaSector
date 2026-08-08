@@ -70,12 +70,12 @@
 	icon = 'modular_nova/master_files/icons/turf/floors/floor.dmi'
 	icon_state = "vinefloor"
 
-/turf/open/floor/plating/kudzu/attackby(obj/item/attacking_item, mob/user, list/modifiers)
-	if(istype(attacking_item, /obj/item/scythe) || istype(attacking_item, /obj/item/wirecutters))
+/turf/open/floor/plating/kudzu/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/scythe) || istype(tool, /obj/item/wirecutters))
 		to_chat(user, span_notice("You cull [src]."))
 		playsound(src, 'sound/items/weapons/bladeslice.ogg', 75, TRUE)
 		ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 	return ..()
 
 // Turns CO2 into oxygen
@@ -91,11 +91,11 @@
 		return
 
 	var/datum/gas_mixture/gas_mix = current_turf.air
-	if(!gas_mix.gases[/datum/gas/carbon_dioxide])
+	if(!gas_mix.moles[/datum/gas/carbon_dioxide])
 		return
 
 	var/moles_to_replace = GAS_MUTATION_REMOVAL_MULTIPLIER * vine_object.growth_stage
-	gas_mix.gases[/datum/gas/carbon_dioxide][MOLES] = max(gas_mix.gases[/datum/gas/carbon_dioxide][MOLES] - moles_to_replace, 0)
+	gas_mix.moles[/datum/gas/carbon_dioxide] = max(gas_mix.moles[/datum/gas/carbon_dioxide] - moles_to_replace, 0)
 	gas_mix.garbage_collect()
 
 	var/happy_atmos = "oxygen=[moles_to_replace];TEMP=296"

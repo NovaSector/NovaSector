@@ -53,6 +53,12 @@
 	var/datum/component/soulcatcher_user/user_component = AddComponent(/datum/component/soulcatcher_user)
 	soulcatcher_action.soulcatcher_user_component = WEAKREF(user_component)
 
+	// These verbs are overridden below but they're not hidden by default. hide them from the verb panel too
+	remove_verb(src, /mob/living/verb/subtle)
+	remove_verb(src, /mob/living/verb/subtler)
+	remove_verb(src, /mob/verb/whisper_verb)
+	remove_verb(src, /mob/living/verb/container_emote)
+
 /// Toggles whether or not the soul inside the soulcatcher can see the outside world. Returns the state of the `outside_sight` variable.
 /mob/living/soulcatcher_soul/proc/toggle_sight()
 	outside_sight = !outside_sight
@@ -89,10 +95,7 @@
 	return TRUE
 
 /// Checks if the mob wants to leave the soulcatcher. If they do and are able to leave, they are booted out.
-/mob/living/soulcatcher_soul/verb/leave_soulcatcher()
-	set name = "Leave Soulcatcher"
-	set category = "IC"
-
+GAME_VERB(/mob/living/soulcatcher_soul, leave_soulcatcher, "Leave Soulcatcher", "IC")
 	if(!able_to_leave)
 		to_chat(src, span_warning("You are unable to leave the soulcatcher."))
 		return FALSE
@@ -156,23 +159,18 @@
 	return TRUE
 
 /mob/living/soulcatcher_soul/subtle()
-	set hidden = TRUE
 	return FALSE
 
 /mob/living/soulcatcher_soul/subtler()
-	set hidden = TRUE
 	return FALSE
 
 /mob/living/soulcatcher_soul/whisper_verb()
-	set hidden = TRUE
 	return FALSE
 
 /mob/living/soulcatcher_soul/container_emote()
-	set hidden = TRUE
 	return FALSE
 
 /mob/living/soulcatcher_soul/resist()
-	set hidden = TRUE
 	return FALSE
 
 /// Assuming we have a previous body a present mind on our soul, we are going to transfer the mind back to the old body.

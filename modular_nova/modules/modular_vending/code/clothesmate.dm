@@ -200,6 +200,7 @@
 				/obj/item/clothing/shoes/high_heels = 5,
 				/obj/item/clothing/shoes/jackboots/toeless = 5,
 				/obj/item/clothing/shoes/fancy_heels = 5,
+				/obj/item/clothing/shoes/fancy_heels/sandals = 5,
 			),
 		),
 

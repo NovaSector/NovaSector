@@ -406,7 +406,7 @@
 	SIGNAL_HANDLER
 
 	// Skip if unconscious
-	if(slime.stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(slime))
 		return
 
 	var/healing = TRUE
@@ -455,7 +455,7 @@
 
 	// PASSIVE HEALING
 	if(slime.get_blood_volume() >= BLOOD_VOLUME_NORMAL && healing)
-		if(slime.stat != CONSCIOUS)
+		if(IS_UNCONSCIOUS_OR_CRIT(slime))
 			return
 		var/need_mob_update
 		need_mob_update += slime.heal_overall_damage(brute = SPECIES_SLIME_PASSIVE_REGEN_BRUTE * seconds_per_tick, burn = SPECIES_SLIME_PASSIVE_REGEN_BURN * seconds_per_tick, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
@@ -1172,15 +1172,24 @@
 
 		if("Penis Sheath")
 			var/obj/item/organ/genital/penis/schlong = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
+			if(isnull(schlong))
+				to_chat(alterer, span_warning("There's no penis to sheath!"))
+				return
+			var/datum/bodypart_overlay/mutant/genital/penis/our_overlay = schlong.bodypart_overlay
+			var/datum/sprite_accessory/genital/penis/shaft = our_overlay?.shaft_datum
+			if(!shaft?.can_have_sheath)
+				to_chat(alterer, span_warning("That kind of penis can't have a sheath!"))
+				return
 			var/new_sheath = tgui_input_list(
 				alterer,
 				"Choose your penis sheath",
 				"DNA Alteration",
-				SHEATH_MODES,
+				assoc_to_keys(SSaccessories.sprite_accessories[FEATURE_SHEATH]),
 			)
-			if(new_sheath)
-				alterer.dna.features["penis_sheath"] = new_sheath
-				schlong.sheath = new_sheath
+			if(!new_sheath)
+				return
+			alterer.dna.features["penis_sheath"] = new_sheath
+			schlong.refresh_sheath()
 
 		if("Penis Taur Mode")
 			alterer.dna.features["penis_taur_mode"] = !alterer.dna.features["penis_taur_mode"]

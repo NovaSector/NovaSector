@@ -86,9 +86,9 @@
 	anchored = TRUE
 	climbable = TRUE
 
-/obj/structure/railing/stone/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/structure/railing/stone/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	to_chat(user, span_notice("You frown as you realise this wall is in fact made of stone, and cannot be uprooted from the ground and dragged along with a mere wrench."))
-	return
+	return ITEM_INTERACT_BLOCKING
 
 /obj/structure/railing/stone/left
 	icon_state = "cobble-wall-left"
@@ -121,8 +121,8 @@
 	idle_power_usage = 0
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
-/obj/machinery/button/dungeon/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(attacking_item.tool_behaviour == TOOL_SCREWDRIVER)
+/obj/machinery/button/dungeon/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(tool.tool_behaviour == TOOL_SCREWDRIVER)
 		to_chat(user, span_notice("You prod around the rim of the bricks and try and jam it in. Looks like it isn't coming out this way."))
-		return
+	return ITEM_INTERACT_BLOCKING
 // Let's not open the maintenance panel of a stone brick.

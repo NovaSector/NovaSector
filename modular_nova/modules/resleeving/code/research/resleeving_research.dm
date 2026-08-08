@@ -14,3 +14,11 @@
 	)
 	build_path = /obj/item/rsd_interface
 
+/datum/design/surgery/implant_phylactery
+	id = "surgery_implant_phylactery"
+	surgery = /datum/surgery_operation/organ/implant_phylactery
+	research_icon_state = "surgery_head"
+
+/datum/design/surgery/implant_phylactery/mechanic
+	id = "surgery_implant_phylactery_mechanic"
+	surgery = /datum/surgery_operation/organ/implant_phylactery/mechanic

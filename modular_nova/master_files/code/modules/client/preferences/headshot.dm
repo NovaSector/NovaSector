@@ -63,3 +63,10 @@
 
 /datum/preference/text/headshot/silicon/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
+
+/// Whether we see other people's headshots in the chat when we examine them.
+/datum/preference/toggle/show_headshot_on_examine
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	default_value = TRUE
+	savefile_key = "show_headshot_on_examine"
+	savefile_identifier = PREFERENCE_PLAYER

@@ -592,7 +592,7 @@
 /obj/structure/sign/flag/hc/directional/north,
 /obj/effect/mob_spawn/ghost_role/human/hc_officer,
 /obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "fj" = (
 /obj/effect/turf_decal/tile/yellow/half{
@@ -674,7 +674,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "gy" = (
 /obj/effect/turf_decal/tile/dark_red/half/contrasted{
@@ -1022,7 +1022,7 @@
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
 /obj/item/clothing/gloves/color/black/security/depgag/white,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "jp" = (
 /obj/structure/plaque/static_plaque/golden/commission/ks13/hc_police,
@@ -1237,7 +1237,7 @@
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
 /obj/item/clothing/gloves/color/black/security/depgag/white,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "lu" = (
 /turf/closed/wall/mineral/titanium/spaceship/nodiagonal,
@@ -1802,7 +1802,7 @@
 	},
 /obj/effect/mob_spawn/ghost_role/human/hc_officer,
 /obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "qr" = (
 /obj/structure/bed,
@@ -1856,7 +1856,7 @@
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
 /obj/item/clothing/gloves/color/black/security/depgag/white,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "qE" = (
 /obj/structure/lattice,
@@ -2564,7 +2564,7 @@
 /obj/structure/closet/emcloset/wall{
 	pixel_y = -32
 	},
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "xI" = (
 /obj/structure/cable,
@@ -2699,7 +2699,7 @@
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
 /obj/item/clothing/gloves/color/black/security/depgag/white,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "ze" = (
 /obj/structure/cable,
@@ -3112,7 +3112,7 @@
 	dir = 4
 	},
 /obj/machinery/door/window/brigdoor/left/directional/west,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "BZ" = (
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -3220,7 +3220,7 @@
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
 /obj/item/clothing/gloves/color/black/security/depgag/white,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "CR" = (
 /obj/structure/fans/tiny,
@@ -3415,7 +3415,7 @@
 	dir = 4
 	},
 /obj/machinery/door/window/brigdoor/left/directional/west,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "Fe" = (
 /obj/effect/turf_decal/tile/dark_blue/half{
@@ -3470,7 +3470,7 @@
 "FI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "FP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -3516,7 +3516,7 @@
 /obj/machinery/light/no_nightlight/directional/west,
 /obj/effect/mob_spawn/ghost_role/human/hc_officer,
 /obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "Gx" = (
 /obj/effect/turf_decal/tile/dark_blue/anticorner{
@@ -3806,7 +3806,7 @@
 /area/shuttle/hc_cops/engineering)
 "Jw" = (
 /obj/machinery/door/window/brigdoor/left/directional/west,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "Jz" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/east,
@@ -3964,7 +3964,7 @@
 /obj/item/clothing/head/security_garrison,
 /obj/item/clothing/neck/tie/blue,
 /obj/item/clothing/gloves/color/black/security/depgag/white,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "KI" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
@@ -4081,7 +4081,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "Lr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
@@ -4712,7 +4712,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/door/window/brigdoor/left/directional/west,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "Qz" = (
 /obj/structure/sign/flag/nanotrasen/directional/south,
@@ -4997,7 +4997,7 @@
 /area/shuttle/hc_cops/hydroponics)
 "Th" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "Tt" = (
 /obj/effect/turf_decal/tile/dark_blue/half,
@@ -5550,7 +5550,7 @@
 	},
 /obj/effect/mob_spawn/ghost_role/human/hc_officer,
 /obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/floor/pod/dark,
+/turf/open/floor/mineral/plastitanium/pod/dark,
 /area/shuttle/hc_cops/ready_room)
 "YP" = (
 /obj/effect/turf_decal/stripes/line{

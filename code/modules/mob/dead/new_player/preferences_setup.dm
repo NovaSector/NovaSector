@@ -119,6 +119,7 @@
 	)
 	*/ // NOVA EDIT REMOVAL END
 	// NOVA EDIT ADDITION START
+	var/needs_update = preview_pref != previous_preview_pref
 	switch(preview_pref)
 		if(PREVIEW_PREF_JOB)
 			mannequin.job = preview_job.title
@@ -151,9 +152,10 @@
 				if(gent)
 					gent.aroused = AROUSAL_FULL
 					gent.update_sprite_suffix()
+					needs_update = TRUE
 
 	mannequin.dna.update_body_size()
-	if(preview_pref != previous_preview_pref)
+	if(needs_update)
 		mannequin.update_body()
 	// NOVA EDIT ADDITION END
 

@@ -17,8 +17,9 @@
 		SPECIES_MAMMAL = 1,
 	)
 	organ_type = /obj/item/organ/wings/custom
+	use_custom_mod_icon = TRUE
 
-/datum/sprite_accessory/wings/is_hidden(mob/living/carbon/human/wearer)
+/datum/sprite_accessory/wings/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
 	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
 	if(isnull(wearer.w_uniform) && isnull(worn_suit))
 		return FALSE
@@ -29,28 +30,7 @@
 	if(istype(worn_suit))
 		return FALSE
 	// Hide accessory if flagged to do so, taking species exceptions in account
-	return (wearer.obscured_slots & HIDEJUMPSUIT)
-
-/datum/bodypart_overlay/mutant/wings/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
-	if(!..())
-		return FALSE
-	if(isnull(owner || bodypart_owner.owner))
-		return TRUE
-
-	var/mob/living/carbon/human/wearer = owner || bodypart_owner.owner
-	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
-	if(isnull(wearer.w_uniform) && isnull(worn_suit))
-		return TRUE
-
-	// Can hide if wearing uniform
-	if(feature_key in wearer.try_hide_mutant_parts)
-		return FALSE
-
-	// Exception for MODs
-	if(istype(worn_suit))
-		return TRUE
-
-	return !(bodypart_owner.owner.obscured_slots & HIDEJUMPSUIT)
+	return (wearer.obscured_slots & bodypart_overlay?.slot_blocker)
 
 /datum/sprite_accessory/wings/none
 	name = SPRITE_ACCESSORY_NONE
@@ -93,7 +73,7 @@
 	key = FEATURE_WINGS_OPEN
 	color_src = USE_ONE_COLOR
 
-/datum/sprite_accessory/wings_open/is_hidden(mob/living/carbon/human/wearer)
+/datum/sprite_accessory/wings_open/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
 	var/obj/item/clothing/worn_suit = wearer.wear_suit
 	if(isnull(wearer.w_uniform) && isnull(worn_suit))
 		return FALSE
