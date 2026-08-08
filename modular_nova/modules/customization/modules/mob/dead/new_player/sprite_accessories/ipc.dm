@@ -232,8 +232,8 @@
 
 /datum/sprite_accessory/synth_chassis/mammal
 	name = "Mammal Chassis"
-	icon = BODYPART_ICON_SYNTHMAMMAL
-	icon_state = "synthmammal"
+	icon = BODYPART_ICON_MAMMAL
+	icon_state = "mammal"
 	color_src = MUTANT_COLOR
 	dimorphic = TRUE
 	is_digi_compatible = TRUE
@@ -342,8 +342,8 @@
 
 /datum/sprite_accessory/synth_head/mammal
 	name = "Mammal Head"
-	icon = BODYPART_ICON_SYNTHMAMMAL
-	icon_state = "synthmammal"
+	icon = BODYPART_ICON_MAMMAL
+	icon_state = "mammal"
 	color_src = MUTANT_COLOR
 	dimorphic = TRUE
 
