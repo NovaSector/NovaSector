@@ -719,7 +719,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	if(islist(sound))
 		var/list/sounds = sound
 		var/list/possible_sounds = sounds.Copy()
-		var/gender = astype(user, /mob/living/carbon/human)?.physique || user.gender
+		var/gender = user.gender // NOVA EDIT CHANGE - ORIGINAL: var/gender = astype(user, /mob/living/carbon/human)?.physique || user.gender
 		if(gender in possible_sounds)
 			possible_sounds = possible_sounds[gender]
 			if(!islist(possible_sounds))

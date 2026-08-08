@@ -8,6 +8,8 @@
 /datum/dna_block/feature/mutant_color/apply_to_mob(mob/living/carbon/human/target, dna_hash)
 	target.dna.features[feature_key] = sanitize_hexcolor(get_block(dna_hash))
 
+// NOVA EDIT REMOVAL START - Customization
+/*
 /// Features tied to a sprite accessory
 /datum/dna_block/feature/accessory
 	abstract_type = /datum/dna_block/feature/accessory

@@ -8698,7 +8698,6 @@
 #include "modular_nova\modules\emergency_rations\code\rations.dm"
 #include "modular_nova\modules\emergency_spacesuit\code\emergency_spacesuit.dm"
 #include "modular_nova\modules\emote_panel\code\emote_panel.dm"
-#include "modular_nova\modules\emotes\code\dna_screams.dm"
 #include "modular_nova\modules\emotes\code\emotes.dm"
 #include "modular_nova\modules\emotes\code\laugh_datums.dm"
 #include "modular_nova\modules\emotes\code\laugh_emotes.dm"
