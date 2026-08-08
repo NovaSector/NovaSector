@@ -76,7 +76,7 @@
 			target.adjust_arousal(2)
 			target.adjust_pain(4)
 			target.apply_status_effect(/datum/status_effect/spanked)
-			if(HAS_TRAIT(target, TRAIT_MASOCHISM || TRAIT_BIMBO))
+			if(HAS_TRAIT(target, TRAIT_MASOCHISM || TRAIT_AMOROUS))
 				target.add_mood_event("pervert spanked", /datum/mood_event/perv_spanked)
 			if(prob(10) && (target.stat != DEAD))
 				target.apply_status_effect(/datum/status_effect/subspace)
