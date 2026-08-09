@@ -22,7 +22,6 @@
 	species_cookie = /obj/item/food/meat/slab
 	coldmod = 1.5
 	heatmod = 0.67
-	death_sound = 'sound/mobs/humanoids/lizard/deathsound.ogg'
 	bodytemp_heat_damage_limit = BODYTEMP_HEAT_LAVALAND_SAFE
 	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT - 10)
 	species_cookie = /obj/item/food/meat/slab
@@ -54,16 +53,6 @@
 	features[FEATURE_MUTANT_COLOR_THREE] = main_color
 	features -= FEATURE_TAIL
 	return features
-
-/datum/species/monkey/kobold/get_scream_sound(mob/living/carbon/human/kobold)
-	return pick(
-		'sound/mobs/humanoids/lizard/lizard_scream_1.ogg',
-		'sound/mobs/humanoids/lizard/lizard_scream_2.ogg',
-		'sound/mobs/humanoids/lizard/lizard_scream_3.ogg',
-	)
-
-/datum/species/monkey/kobold/get_hiss_sound(mob/living/carbon/human/kobold)
-	return 'sound/mobs/humanoids/lizard/lizard_hiss.ogg'
 
 /datum/species/monkey/kobold/get_physical_attributes()
 	return "Kobolds are functionally identical to monkeys, but with the downsides of lizards."

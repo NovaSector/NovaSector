@@ -140,7 +140,10 @@
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/weh.ogg'
 
-/datum/emote/living/carbon/msqueak
+/datum/emote/living/moth
+	trait_required = null
+
+/datum/emote/living/moth/msqueak
 	key = "msqueak"
 	vary = TRUE
 
@@ -237,36 +240,19 @@
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/slime_pop.ogg'
 
-/datum/emote/living/meow
-	key = "meow"
-	key_third_person = "meows"
-	message = "meows!"
-	emote_type = EMOTE_AUDIBLE
-	vary = TRUE
-	sound = SFX_CAT_MEOW
-
-/datum/emote/living/hiss
-	key = "hiss"
-	key_third_person = "hisses"
-	message = "hisses!"
-	emote_type = EMOTE_AUDIBLE
+/datum/emote/living/carbon/hiss
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
+	sounds_by_mobtype = list(
+		/mob/living/carbon/human = 'modular_nova/modules/emotes/sound/emotes/hiss.ogg',
+		/mob/living/carbon/alien = SFX_HISS,
+	)
+
+/datum/emote/living/moth/mchitter
 	vary = TRUE
 
-/datum/emote/living/hiss/get_sound(mob/living/user)
-	if(isxenohybrid(user))
-		return SFX_HISS
-	else
-		return 'modular_nova/modules/emotes/sound/emotes/hiss.ogg'
-
-/datum/emote/living/carbon/mchitter
-	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
-	vary = TRUE
-
-/datum/emote/living/carbon/mchitter/get_sound(mob/living/user)
-	if(ismoth(user))
-		return 'sound/mobs/humanoids/moth/moth_chitter.ogg'
-	else
+/datum/emote/living/moth/mchitter/get_sound(mob/living/user)
+	. = ..()
+	if(!ismoth(user))
 		return 'sound/mobs/non-humanoids/insect/chitter.ogg'
 
 /datum/emote/living/sigh/get_sound(mob/living/user)
@@ -543,15 +529,11 @@
 	vary = TRUE
 	sound = 'modular_nova/modules/emotes/sound/voice/raptor_purr.ogg'
 
-/datum/emote/living/purr //Ported from CitRP originally by buffyuwu.
-	key = "purr"
-	key_third_person = "purrs!"
-	message = "purrs!"
-	emote_type = EMOTE_AUDIBLE
+/datum/emote/living/cat
+	trait_required = null
+
+/datum/emote/living/cat/purr
 	muzzle_ignore = TRUE
-	vary = TRUE
-	sound = SFX_CAT_PURR
-	manual_specific_emote_audio_cooldown = 5 SECONDS
 
 /datum/emote/living/moo
 	key = "moo"

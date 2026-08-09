@@ -480,7 +480,7 @@ GLOBAL_LIST_INIT(preference_entries_by_key, init_preference_entries_by_key())
 /datum/preference/choiced/species_feature/create_default_value()
 	return get_consistent_feature_entry(get_accessory_list())
 
-/datum/preference/choiced/species_feature/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	target.dna.features[feature_key] = value
 
 /// Returns what acessory list to draw from

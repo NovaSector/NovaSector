@@ -584,7 +584,9 @@
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
 	inhand_icon_state = "gasmask_captain"
 	animal_type = "wolf"
-	unique_death = 'modular_nova/master_files/sound/effects/wolfhead_curse.ogg'
+	emote_sounds = list(
+		/datum/emote/living/deathgasp::key = 'modular_nova/master_files/sound/effects/wolfhead_curse.ogg',
+	)
 	visor_flags_inv = HIDEFACIALHAIR | HIDESNOUT
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
