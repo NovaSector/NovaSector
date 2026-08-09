@@ -1,0 +1,4 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - qol: "[NOVA] Signer will once again bypass forced whispering from Soft-Spoken or other states."

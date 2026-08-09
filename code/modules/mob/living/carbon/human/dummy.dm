@@ -111,7 +111,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 
 /proc/create_consistent_human_dna(mob/living/carbon/human/target)
 	target.dna.features[FEATURE_MUTANT_COLOR] = COLOR_VIBRANT_LIME
-	target.dna.features[FEATURE_ETHEREAL_COLOR] = COLOR_WHITE
 	/*// NOVA EDIT REMOVAL START
 	for(var/feature_key in SSaccessories.feature_list)
 		target.dna.features[feature_key] = get_consistent_feature_entry(SSaccessories.feature_list[feature_key])
