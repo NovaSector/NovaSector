@@ -10,6 +10,12 @@
 /*
 	Adding has_custom_digi_sprite to TG stuff, as well as setting digi_icon_state to null on the boxers, because we have dedicated digi sprites for those
 */
+/datum/sprite_accessory/clothing/underwear/female_kinky
+	name = "Panties - Lingerie"
+	icon_state = "panties_kinky"
+	gender = FEMALE
+	has_custom_digi_sprite = TRUE
+
 /datum/sprite_accessory/clothing/underwear/male_briefs
 	has_custom_digi_sprite = TRUE
 
@@ -74,12 +80,6 @@
 	name = "Panties"
 	icon_state = "panties"
 	gender = FEMALE
-	
-/datum/sprite_accessory/clothing/underwear/female_kinky
-	name = "Panties - Lingerie"
-	icon_state = "panties_kinky"
-	gender = FEMALE
-	has_custom_digi_sprite = TRUE
 
 /datum/sprite_accessory/clothing/underwear/panties_slim
 	name = "Panties - Slim"
