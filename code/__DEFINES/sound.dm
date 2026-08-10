@@ -17,14 +17,14 @@
 /* NOVA EDIT - Update define for additional nova channels - ORIGINAL:
 #define CHANNEL_HIGHEST_AVAILABLE 1011
 */ // NOVA EDIT START
-#define CHANNEL_HIGHEST_AVAILABLE 1003
+#define CHANNEL_HIGHEST_AVAILABLE 1004
 // NOVA EDIT END
 
 #define MAX_INSTRUMENT_CHANNELS (128 * 6)
 
 // NOVA EDIT START - NEW CHANNELS
+#define CHANNEL_HEADPHONES 1006
 #define CHANNEL_HEV 1005
-#define CHANNEL_HEADPHONES 1004
 //NOVA EDIT CHANGE END
 /* Calculates the volume of a sound based on distance
  *
