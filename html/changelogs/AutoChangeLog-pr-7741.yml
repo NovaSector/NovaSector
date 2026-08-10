@@ -1,4 +1,0 @@
-author: "Hatterhat"
-delete-after: True
-changes:
-  - bugfix: "Crafting recipes for Nova-specific gun conversion kits and shoulder holsters should work again."
