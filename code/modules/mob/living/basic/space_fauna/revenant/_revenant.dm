@@ -189,7 +189,7 @@
 	. += "Unused Stolen Essence: [essence_excess] SE"
 	. += "Perfect Souls Stolen: [perfectsouls]"
 
-/mob/living/basic/revenant/update_health_hud()
+/mob/living/basic/revenant/update_health_hud(healthpercent)
 	if(isnull(hud_used))
 		return
 
