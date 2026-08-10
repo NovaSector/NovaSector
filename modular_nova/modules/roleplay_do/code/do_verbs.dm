@@ -1,4 +1,5 @@
-GAME_VERB(/mob, do_verb, "Do", "IC", message as message)
+GAME_VERB(/mob, do_verb, "Do", "IC")
+	VERB_ARG(message, VERB_ARG_TYPE_MESSAGE, VERB_ARG_SOURCE_INPUT)
 	if(GLOB.say_disabled)
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
 		return
