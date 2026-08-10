@@ -96,7 +96,7 @@
 		/datum/reagent/inverse/,
 		/datum/reagent/consumable/entpoly,
 		/datum/reagent/pax,
-		/datum/reagent/consumable/liquidelectricity/enriched,
+		/datum/reagent/consumable/liquidelectricity,
 		/datum/reagent/teslium,
 		/datum/reagent/eigenstate,
 		/datum/reagent/drug/pcp,
