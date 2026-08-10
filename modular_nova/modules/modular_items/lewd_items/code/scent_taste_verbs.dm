@@ -1,5 +1,6 @@
-GAME_VERB(/mob/living/carbon/human, lick, "Lick", "IC", mob/living/carbon/human/target in get_adjacent_humans())
-	if(!istype(target))
+GAME_VERB(/mob/living/carbon/human, lick, "Lick", "IC")
+	VERB_ARG_TYPED(target, VERB_ARG_TYPE_MOB, VERB_ARG_SOURCE_VIEW, /mob/living/carbon/human)
+	if(!istype(target) || !(target in get_adjacent_humans()))
 		return FALSE
 	if(!get_organ_slot(ORGAN_SLOT_TONGUE))
 		to_chat(src, span_warning("You don't have a tongue to lick with."))
@@ -16,8 +17,9 @@ GAME_VERB(/mob/living/carbon/human, lick, "Lick", "IC", mob/living/carbon/human/
 	to_chat(target, span_notice("[src] licks you."))
 	return TRUE
 
-GAME_VERB(/mob/living/carbon/human, smell, "Smell", "IC", mob/living/carbon/human/target in get_adjacent_humans())
-	if(!istype(target))
+GAME_VERB(/mob/living/carbon/human, smell, "Smell", "IC")
+	VERB_ARG_TYPED(target, VERB_ARG_TYPE_MOB, VERB_ARG_SOURCE_VIEW, /mob/living/carbon/human)
+	if(!istype(target) || !(target in get_adjacent_humans()))
 		return FALSE
 	if(!can_use_erp_flavor_verb(target, "doesn't feel like being approached that close right now."))
 		return FALSE

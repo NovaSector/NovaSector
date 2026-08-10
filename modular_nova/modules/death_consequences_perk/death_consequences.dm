@@ -31,7 +31,8 @@
 	human_holder.cure_trauma_type(/datum/brain_trauma/severe/death_consequences, TRAUMA_RESILIENCE_ABSOLUTE)
 
 /// Adjusts the mob's linked death consequences trauma (see get_death_consequences_trauma())'s degradation by increment.
-GAME_VERB(/mob, adjust_degradation, "Adjust death degradation", "IC", increment as num)
+GAME_VERB(/mob, adjust_degradation, "Adjust death degradation", "IC")
+	VERB_ARG(increment, VERB_ARG_TYPE_NUM, VERB_ARG_SOURCE_INPUT)
 	if (isnull(mind))
 		to_chat(usr, span_warning("You have no mind!"))
 		return
