@@ -318,6 +318,19 @@
 /obj/item/clothing/under/dress/nova/giant_scarf/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/giant_scarf, initial_skin = "Plain")
 
+/obj/item/clothing/under/dress/nova/virgin_killer_sweater
+	name = "virgin killer sweater"
+	desc = "A revealing, backless sweater that leaves little to the imagination."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/nova/virgin_killer_sweater"
+	post_init_icon_state = "virgin_killer_sweater"
+	greyscale_config = /datum/greyscale_config/virgin_killer_sweater
+	greyscale_config_worn = /datum/greyscale_config/virgin_killer_sweater/worn
+	greyscale_colors = "#90babe"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	body_parts_covered = CHEST|GROIN
+
 /datum/atom_skin/midnight_gown
 	abstract_type = /datum/atom_skin/midnight_gown
 	greyscale_item_path = /obj/item/clothing/under/dress/nova/midnight_gown
