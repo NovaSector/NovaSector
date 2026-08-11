@@ -20,7 +20,7 @@
 /datum/reagent/carbondioxide
 	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 
-/datum/reagent/consumable/liquidelectricity/enriched
+/datum/reagent/consumable/liquidelectricity
 	process_flags = REAGENT_ORGANIC | REAGENT_SYNTHETIC
 
 /datum/reagent/medicine/syndicate_nanites //Used exclusively by Syndicate medical cyborgs
