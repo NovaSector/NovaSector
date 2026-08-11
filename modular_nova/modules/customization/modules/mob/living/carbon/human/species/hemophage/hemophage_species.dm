@@ -16,7 +16,7 @@
 		TRAIT_USES_SKINTONES,
 	)
 	inherent_biotypes = MOB_HUMANOID | MOB_ORGANIC
-	exotic_bloodtype = BLOOD_TYPE_UNIVERSAL
+	exotic_bloodtype = /datum/blood_type/universal
 	mutantheart = /obj/item/organ/heart/hemophage
 	mutantliver = /obj/item/organ/liver/hemophage
 	mutantstomach = /obj/item/organ/stomach/hemophage
