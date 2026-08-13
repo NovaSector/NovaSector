@@ -15,7 +15,6 @@
 /datum/design/permit_hud
 	name = "Gun Permit HUD glasses"
 	desc = "A heads-up display that scans humanoids in view, and displays if their current ID possesses a firearms permit or not."
-	id = "permit_glasses"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,

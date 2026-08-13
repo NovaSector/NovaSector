@@ -2,227 +2,223 @@
 // NEW NODES
 
 /datum/techweb_node/adv_vision
-	id = TECHWEB_NODE_ADVANCED_VISION
 	display_name = "Combat Cybernetic Eyes"
 	description = "Military grade combat implants to improve vision."
-	prereq_ids = list(TECHWEB_NODE_COMBAT_IMPLANTS, TECHWEB_NODE_ALIEN_SURGERY)
-	design_ids = list(
-		"ci-thermals",
-		"ci-xray",
-		"ci-thermals-moth",
-		"ci-xray-moth",
+	prerequisite_nodes = list(/datum/techweb_node/cyber/combat_implants, /datum/techweb_node/alien_surgery)
+	unlocked_designs = list(
+		/datum/design/cyberimp_thermals,
+		/datum/design/cyberimp_xray,
+		/datum/design/cyberimp_thermals/moth,
+		/datum/design/cyberimp_xray/moth,
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_MEDICAL)
 
 /datum/techweb_node/borg_shapeshifter
-	id = TECHWEB_NODE_BORG_SHAPESHIFTER
 	display_name = "Illegal Cyborg Addition"
 	description = "Some sort of experimental tool that was once used by an rival company."
-	prereq_ids = list(TECHWEB_NODE_SYNDICATE_BASIC)
-	design_ids = list("borg_shapeshifter_module")
+	prerequisite_nodes = list(/datum/techweb_node/syndicate_basic)
+	unlocked_designs = list(/datum/design/borg_shapeshifter_module)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 
 /datum/techweb_node/android_chassis
-	id = TECHWEB_NODE_ANDROID_CHASSIS
-	starting_node = TRUE
+	node_flags = TECHWEB_NODE_STARTER | TECHWEB_NODE_WIKI
 	display_name = "Android Technology"
 	description = "Shiny parts for your shiny friends!"
-	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
-	design_ids = list(
-		"synth_head",
-		"synth_chest",
-		"synth_l_arm",
-		"synth_r_arm",
-		"synth_l_leg",
-		"synth_r_leg",
-		"synth_l_d_leg",
-		"synth_r_d_leg",
-		"synth_diy",
+	prerequisite_nodes = list(/datum/techweb_node/robotics)
+	unlocked_designs = list(
+		/datum/design/synth_head,
+		/datum/design/synth_chest,
+		/datum/design/synth_l_arm,
+		/datum/design/synth_r_arm,
+		/datum/design/synth_l_leg,
+		/datum/design/synth_r_leg,
+		/datum/design/synth_l_d_leg,
+		/datum/design/synth_r_d_leg,
+		/datum/design/synth_diy,
 	)
 
 /datum/techweb_node/android_organs
-	id = TECHWEB_NODE_ANDROID_ORGANS
-	starting_node = TRUE
+	node_flags = TECHWEB_NODE_STARTER | TECHWEB_NODE_WIKI
 	display_name = "Android Organs"
 	description = "Internal Mechanisms for Synthetics and IPC's."
-	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
-	design_ids = list(
-		"synth_posi",
-		"synth_eyes",
-		"synth_tongue",
-		"synth_liver",
-		"synth_lungs",
-		"synth_stomach",
-		"synth_charger",
-		"synth_ears",
-		"synth_heart",
+	prerequisite_nodes = list(/datum/techweb_node/robotics)
+	unlocked_designs = list(
+		/datum/design/synth_posi,
+		/datum/design/synth_eyes,
+		/datum/design/synth_tongue,
+		/datum/design/synth_liver,
+		/datum/design/synth_heatsink,
+		/datum/design/synth_stomach,
+		/datum/design/synth_charger,
+		/datum/design/synth_ears,
+		/datum/design/synth_heart,
 	)
 
 // MODULAR ADDITIONS AND REMOVALS
 
 //Base Nodes
 /datum/techweb_node/atmos/New()
-	design_ids += list(
-		"vox_gas_filter",
-		"vaporizer",
+	unlocked_designs += list(
+		/datum/design/vox_gas_filter,
+		/datum/design/vaporizer,
 	)
 	return ..()
 
 /datum/techweb_node/construction/New()
-	design_ids += list(
-		"polarizer",
-		"airbag",
+	unlocked_designs += list(
+		/datum/design/polarizer,
+		/datum/design/airbag,
 	)
 	return ..()
 
 /datum/techweb_node/office_equip/New()
-	design_ids += list(
-		"gbp_machine",
-		"pen",
-		"d2",
-		"d4",
-		"d6",
-		"d8",
-		"d10",
-		"d00",
-		"d12",
-		"d20",
-		"d100",
-		"fudge",
+	unlocked_designs += list(
+		/datum/design/board/gbp_machine,
+		/datum/design/pen,
+		/datum/design/d2,
+		/datum/design/d4,
+		/datum/design/d6,
+		/datum/design/d8,
+		/datum/design/d10,
+		/datum/design/d00,
+		/datum/design/d12,
+		/datum/design/d20,
+		/datum/design/d100,
+		/datum/design/fudge,
 	)
 	return ..()
 
 /datum/techweb_node/augmentation/New()
-	design_ids += list(
-		"affection_module",
+	unlocked_designs += list(
+		/datum/design/affection_module,
 	)
 	return ..()
 
 /datum/techweb_node/medbay_equip/New()
-	design_ids += list(
-		"surgical_gown",
-		"anesthetic_machine",
-		"smartdartgun",
-		"cone_of_shame",
-		"defibrillator",
-		"medkit",
+	unlocked_designs += list(
+		/datum/design/surgical_gown,
+		/datum/design/anesthetic_machine,
+		/datum/design/smartdartgun,
+		/datum/design/cone_of_shame,
+		/datum/design/defibrillator,
+		/datum/design/medkit,
 	)
 	return ..()
 
 /datum/techweb_node/material_processing/New()
-	design_ids += list(
-		"spaceship_plates",
-		"spaceship_glass",
+	unlocked_designs += list(
+		/datum/design/spaceship_plates,
+		/datum/design/spaceship_glass,
 	)
 	return ..()
 
 /////////////////////////Biotech/////////////////////////
 
 /datum/techweb_node/medbay_equip_adv/New()
-	design_ids += list(
-		"monkey_helmet",
-		"brute2medicell",
-		"burn2medicell",
-		"toxin2medicell",
-		"oxy2medicell",
-		"relocatemedicell",
-		"tempmedicell",
-		"bodymedicell",
-		"clotmedicell",
+	unlocked_designs += list(
+		/datum/design/monkey_helmet,
+		/datum/design/medicell/brute2,
+		/datum/design/medicell/burn2,
+		/datum/design/medicell/toxin2,
+		/datum/design/medicell/oxy2,
+		/datum/design/medicell/utility/relocation,
+		/datum/design/medicell/utility/temp,
+		/datum/design/medicell/utility/body,
+		/datum/design/medicell/utility/clot,
 	)
 	return ..()
 
 /////////////////////////EMP tech/////////////////////////
 
 /datum/techweb_node/energy_manipulation/New()
-	design_ids += list(
-		"gownmedicell",
-		"bedmedicell",
-		"tray_goggles_prescription",
+	unlocked_designs += list(
+		/datum/design/medicell/utility/gown,
+		/datum/design/medicell/utility/bed,
+		/datum/design/tray_goggles_prescription,
 	)
 	return ..()
 
 ////////////////////////Computer tech////////////////////////
 
 /datum/techweb_node/consoles/New()
-	design_ids += list(
-		"nif_service_tools",
-		"idcard_guest",
+	unlocked_designs += list(
+		/datum/design/nif_service_tools,
+		/datum/design/id/visitor,
 	)
 	return ..()
 
 
 /datum/techweb_node/hud/New()
-	design_ids += list(
-		"health_hud_prescription",
-		"security_hud_prescription",
-		"diagnostic_hud_prescription",
-		"science_hud_prescription",
-		"health_hud_aviator",
-		"security_hud_aviator",
-		"diagnostic_hud_aviator",
-		"meson_hud_aviator",
-		"science_hud_aviator",
-		"health_hud_projector",
-		"security_hud_projector",
-		"diagnostic_hud_projector",
-		"meson_hud_projector",
-		"science_hud_projector",
-		"permit_glasses",
-		"nifsoft_money_sense",
-		"nifsoft_hud_kit",
-		"nifsoft_hud_science",
-		"nifsoft_hud_meson",
-		"nifsoft_hud_medical",
-		"nifsoft_hud_security",
-		"nifsoft_hud_diagnostic",
-		"nifsoft_hud_cargo",
+	unlocked_designs += list(
+		/datum/design/health_hud_prescription,
+		/datum/design/security_hud_prescription,
+		/datum/design/diagnostic_hud_prescription,
+		/datum/design/science_hud_prescription,
+		/datum/design/health_hud_aviator,
+		/datum/design/security_hud_aviator,
+		/datum/design/diagnostic_hud_aviator,
+		/datum/design/meson_hud_aviator,
+		/datum/design/science_hud_aviator,
+		/datum/design/health_hud_projector,
+		/datum/design/security_hud_projector,
+		/datum/design/diagnostic_hud_projector,
+		/datum/design/meson_hud_projector,
+		/datum/design/science_hud_projector,
+		/datum/design/permit_hud,
+		/datum/design/nifsoft_money_sense,
+		/datum/design/nif_hud_kit,
+		/datum/design/nifsoft_hud/science,
+		/datum/design/nifsoft_hud/meson,
+		/datum/design/nifsoft_hud/medical,
+		/datum/design/nifsoft_hud/security,
+		/datum/design/nifsoft_hud/diagnostic,
+		/datum/design/nifsoft_hud/cargo,
 	)
 	return ..()
 
 ////////////////////////Medical////////////////////////
 /datum/techweb_node/surgery/New()
-	design_ids += list(
-		"nif_surgery_tools",
+	unlocked_designs += list(
+		/datum/design/nif_surgery_tools,
 	)
 	return ..()
 
 /datum/techweb_node/medbay_equip_adv/New()
-	design_ids += list(
-		"self_actualization_device",
+	unlocked_designs += list(
+		/datum/design/board/self_actualization_device,
 	)
 	return ..()
 
 /datum/techweb_node/cyber/cyber_organs/New()
-	design_ids += list(
-		"cybernetic_tongue",
-		"cybernetic_tongue_lizard",
+	unlocked_designs += list(
+		/datum/design/cybernetic_tongue,
+		/datum/design/cybernetic_tongue/lizard,
 	)
 	return ..()
 
 // Modularly removes x-ray and thermals from here, it's in adv_vision instead
 /datum/techweb_node/cyber/cyber_organs_adv/New()
-	design_ids -= list(
-		"ci-thermals",
-		"ci-xray",
-		"ci-thermals-moth",
-		"ci-xray-moth",
+	unlocked_designs -= list(
+		/datum/design/cyberimp_thermals,
+		/datum/design/cyberimp_xray,
+		/datum/design/cyberimp_thermals/moth,
+		/datum/design/cyberimp_xray/moth,
 	)
 	return ..()
 
 ////////////////////////Tools////////////////////////
 
 /datum/techweb_node/hydroponics/New()
-	design_ids += list(
-		"salvemedicell",
+	unlocked_designs += list(
+		/datum/design/medicell/utility/salve,
 	)
 	return ..()
 
 /datum/techweb_node/sec_equip/New()
-	design_ids += list(
-		"nifsoft_remover",
-		"nif_detective_tools",
+	unlocked_designs += list(
+		/datum/design/nifsoft_remover,
+		/datum/design/nif_detective_tools,
 
 	)
 	return ..()
@@ -230,154 +226,154 @@
 /////////////////////////weaponry tech/////////////////////////
 
 /datum/techweb_node/basic_arms/New()
-	design_ids += list(
-		"ammo_workbench",
+	unlocked_designs += list(
+		/datum/design/board/ammo_workbench,
 	)
 	return ..()
 
 /datum/techweb_node/riot_supression/New()
-	design_ids += list(
-		"ammobench_gimmick",
-		"pin_standard",
+	unlocked_designs += list(
+		/datum/design/ammo_workbench_module_gimmick,
+		/datum/design/pin_standard,
 	)
 	return ..()
 
 /datum/techweb_node/electric_weapons/New()
-	design_ids += list(
-		"medigun_speed",
+	unlocked_designs += list(
+		/datum/design/medigun_speedkit,
 	)
 	return ..()
 
 /datum/techweb_node/exotic_ammo/New()
-	design_ids += list(
-		"c38_haywire",
-		"c38_haywire_mag",
-		"ammobench_niche",
-		"sec_dart_pen",
+	unlocked_designs += list(
+		/datum/design/c38_haywire,
+		/datum/design/c38_haywire_mag,
+		/datum/design/ammo_workbench_module_niche,
+		/datum/design/shotgun_dart_pen,
 	)
 	return ..()
 
 ////////////////////////Alien technology////////////////////////
 
 /datum/techweb_node/alien_surgery/New()
-	design_ids += list(
-		"brute3medicell",
-		"burn3medicell",
-		"oxy3medicell",
-		"toxin3medicell",
+	unlocked_designs += list(
+		/datum/design/medicell/brute3,
+		/datum/design/medicell/burn3,
+		/datum/design/medicell/oxy3,
+		/datum/design/medicell/toxin3,
 	)
 	return ..()
 
 /////////////////////////engineering tech/////////////////////////
 
 /datum/techweb_node/parts_upg/New()
-	design_ids += list(
-		"nif_general_tools",
+	unlocked_designs += list(
+		/datum/design/nif_general_tools,
 	)
 	return ..()
 
 /datum/techweb_node/fusion/New()
-	design_ids += list(
-		"engine_goggles_prescription",
+	unlocked_designs += list(
+		/datum/design/engine_goggles_prescription,
 	)
 	return ..()
 
 /datum/techweb_node/exp_tools/New()
-	design_ids += list(
-		"multi_cell_charger",
+	unlocked_designs += list(
+		/datum/design/board/cell_charger_multi,
 	)
 	return ..()
 
 /datum/techweb_node/chem_synthesis/New()
-	design_ids += list(
-		"hypokit",
-		"hypomkii",
-		"large_hypovial",
-		"medipen_atropine",
-		"medipen_epinephrine",
-		"medipen_oxandrolone",
-		"medipen_penacid",
-		"medipen_salacid",
-		"medipen_salbutamol",
-		"medipen_universal",
-		"medipen_universal_lowpressure",
-		"plumbing_eng",
+	unlocked_designs += list(
+		/datum/design/hypokit,
+		/datum/design/hypomkii,
+		/datum/design/hypovial/large,
+		/datum/design/medipen/atropine,
+		/datum/design/medipen/epinephrine,
+		/datum/design/medipen/oxandrolone,
+		/datum/design/medipen/penacid,
+		/datum/design/medipen/salacid,
+		/datum/design/medipen/salbutamol,
+		/datum/design/medipen/universal,
+		/datum/design/medipen/universal_lowpressure,
+		/datum/design/plumbing_eng,
 	)
 	return ..()
 
 /datum/techweb_node/mining/New()
-	design_ids += list(
-		"mesons_prescription",
-		"bsc_nt",
-		"lrm_board",
+	unlocked_designs += list(
+		/datum/design/mesons_prescription,
+		/datum/design/bsc_nt,
+		/datum/design/board/lrm,
 	)
 	return ..()
 
 /////////////////////////robotics tech/////////////////////////
 
 /datum/techweb_node/robotics/New()
-	design_ids += list(
-		"borg_upgrade_snacks",
-		"mini_soulcatcher",
+	unlocked_designs += list(
+		/datum/design/borg_snack_dispenser,
+		/datum/design/mini_soulcatcher,
 	)
 	return ..()
 
 /datum/techweb_node/passive_implants/New()
-	design_ids += list(
-		"soulcatcher_device",
-		"rsd_interface",
-		"surgery_implant_phylactery",
-		"surgery_implant_phylactery_mechanic",
+	unlocked_designs += list(
+		/datum/design/soulcatcher_device,
+		/datum/design/rsd_interface,
+		/datum/design/surgery/implant_phylactery,
+		/datum/design/surgery/implant_phylactery/mechanic,
 	)
 	return ..()
 
 /datum/techweb_node/borg_utility/New()
-	design_ids += list(
-		"borg_upgrade_clamp",
-		"borg_upgrade_brush",
-		"borg_upgrade_shrink",
-		"borg_upgrade_cargo_apparatus",
-		"borg_upgrade_cargo_teleporter",
+	unlocked_designs += list(
+		/datum/design/borg_upgrade_clamp,
+		/datum/design/borg_wirebrush,
+		/datum/design/borg_upgrade_shrink,
+		/datum/design/borg_upgrade_cargo_apparatus,
+		/datum/design/borgteleporter,
 	)
 	return ..()
 
 /datum/techweb_node/borg_engi/New()
-	design_ids += list(
-		"advanced_materials",
-		"borg_upgrade_welding",
-		"rld_cyborg",
-		"borg_upgrade_brped",
+	unlocked_designs += list(
+		/datum/design/advanced_materials,
+		/datum/design/borg_upgrade_welding,
+		/datum/design/rld,
+		/datum/design/borg_upgrade_brped,
 	)
 	return ..()
 
 /datum/techweb_node/borg_medical/New()
-	design_ids += list(
-		"borg_upgrade_surgicaltools",
-		"borg_upgrade_autopsyscanner",
-		"borg_upgrade_chemistrygripper",
+	unlocked_designs += list(
+		/datum/design/borg_upgrade_surgicaltools,
+		/datum/design/borg_upgrade_autopsyscanner,
+		/datum/design/borg_upgrade_chemistrygripper,
 	)
 	return ..()
 
 ///////////////////////// Applied Bluespace /////////////////////////
 
 /datum/techweb_node/applied_bluespace/New()
-	design_ids += list(
-		"plantbag_holding",
+	unlocked_designs += list(
+		/datum/design/plantbag_of_holding,
 	)
 	return ..()
 
 // modsuit stuff
 /datum/techweb_node/mod_security/New()
-	design_ids += list(
-		"mod_plating_security",
-		"mod_tether_grounded",
+	unlocked_designs += list(
+		/datum/design/mod_plating/security,
+		/datum/design/module/mod_tether_grounded,
 	)
 	return ..()
 
 /datum/techweb_node/mod_equip/New()
-	design_ids += list(
-		"mod_retract_plates",
-		"mod_magnetic_deploy",
+	unlocked_designs += list(
+		/datum/design/module/retract_plates,
+		/datum/design/module/magnetic_deploy,
 	)
 	return ..()
 
@@ -387,14 +383,8 @@
 	/// Whether this node starts unlocked if the enable_nova_techweb_starting_nodes config is ENABLED
 	var/nova_starting_node = TRUE
 
-/datum/techweb_node/New()
-	if(nova_starting_node && CONFIG_GET(flag/enable_nova_techweb_starting_nodes))
-		starting_node = TRUE
-	return ..()
-
-// Linter stuff
-/datum/techweb_node/error_node
-	nova_starting_node = FALSE
+// The node_flags application lives in /datum/techweb_node/New(), as a NOVA EDIT in
+// code/modules/research/techweb/_techweb_node.dm - upstream now defines that proc itself.
 
 // Nova stuff
 /datum/techweb_node/adv_vision

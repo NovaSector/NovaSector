@@ -45,6 +45,10 @@
 
 /datum/techweb_node/New()
 	. = ..()
+	// NOVA EDIT ADDITION BEGIN - Roundstart techweb
+	if(nova_starting_node && CONFIG_GET(flag/enable_nova_techweb_starting_nodes))
+		node_flags |= TECHWEB_NODE_STARTER
+	// NOVA EDIT ADDITION END
 	// Make lists associative for faster lookup
 	for(var/prerequisite_path in prerequisite_nodes)
 		prerequisite_nodes[prerequisite_path] = TRUE

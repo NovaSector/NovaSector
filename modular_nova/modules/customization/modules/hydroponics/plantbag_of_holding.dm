@@ -77,7 +77,6 @@
 
 /datum/design/plantbag_of_holding
 	name = "Plant Bag of Holding"
-	id = "plantbag_holding"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT*5, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = HALF_SHEET_MATERIAL_AMOUNT)
 	build_path = /obj/item/plantbag_of_holding_inert

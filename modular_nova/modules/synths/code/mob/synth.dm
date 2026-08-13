@@ -25,7 +25,6 @@
 /datum/design/synth_diy
 	name = "Android Frame"
 	desc = "An empty android frame. Compatible with compact positronic brains."
-	id = "synth_diy"
 	build_type = MECHFAB
 	construction_time = 30 SECONDS
 	materials = list(
