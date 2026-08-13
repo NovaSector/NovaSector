@@ -342,3 +342,31 @@
   - qol: Gizmos pulsed by assembies give feedback sounds
   - qol: Gizmo feedback alerts are shown to all nearby mobs, rather than just the
       pulser
+2026-08-13:
+  JohnFulpWillard:
+  - qol: Alien larva's 'Evolve' button now says when it's ready, rather than being
+      in the stat panel.
+  Melbert:
+  - bugfix: If a cuffed item enters an anchored object like a closet, the cuffee become
+      stuck to the anchored object, rather than the anchored object being stuck to
+      the cuffee.
+  - bugfix: You can no longer put cuffed objects in any object manually (i.e. by clicking
+      on it). This affects objects like grinders, deep fryers, and soup pots.
+  - qol: Cuffed item examine text is now shown in examine, rather than double-examine
+  - balance: Any mob can attempt to remove someone's cuffed item, rather than just
+      the cuffee. However it takes double the amount of time for non-cuffees.
+  TalkingCactus, sergeirocks100:
+  - image: The anthromorph and synthmammal sprites have been tweaked slightly, namely
+      by adding in some away-facing hand sprites, removing an unnecessary pixel from
+      the bottom of the male torso, and removing another pixel from the back of the
+      neck of the female head side sprites, as well as removing the ears from the
+      head side sprites.
+  - image: The plain body markings have been updated as described above, with the
+      exception of the female head sprite change.
+  - image: Away facing sprites on hand markings that were supposed to have them should
+      now display as they should. Do report if there's any oddities.
+  lelandkemble:
+  - map: Added several holopads to Kilostation
+  sergeirocks100:
+  - bugfix: The regular, midway, hearts, commie, freedom, and UK boxers, as well as
+      the long johns, should all now use their proper digitigrade sprites.
