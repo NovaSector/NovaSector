@@ -411,6 +411,7 @@
   mrmanlikesbt:
   - refactor: Techweb and design code has been refactored.
   - bugfix: Fixed anomaly cores not granting research points in the destructive analyzer.
+  - bugfix: Fixed exosuit fabricators
   TalkingCactus, sergeirocks100:
   - image: The anthromorph and synthmammal sprites have been tweaked slightly, namely
       by adding in some away-facing hand sprites, removing an unnecessary pixel from
