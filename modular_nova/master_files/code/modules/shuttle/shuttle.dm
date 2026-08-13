@@ -81,8 +81,8 @@
 			hearing_mob.playsound_local(distant_source, takeoff ? takeoff_sound : landing_sound, vol)
 
 /obj/docking_port/mobile/supply
-	/// Number of times there's been an announcement for there being a lot of blocking objects on the shuttle
-	var/static/many_turfs_blocked_warnings = 0
+	/// Number of times there's been an announcement for overcrowding on the shuttle
+	var/static/overcrowding_announcements = 0
 	/// These *objects* will not be considered as blocking a tile
 	var/static/list/ignored_objects = typecacheof(list(
 		/obj/effect,
@@ -91,7 +91,7 @@
 	))
 
 /// Returns FALSE if a turf is blocked by a dense object
-/// or has objects in its contents that aren't whitelisted
+/// or has objects in its contents that aren't ignored
 /obj/docking_port/mobile/supply/proc/turf_is_occupied(turf/open/shuttle_turf)
 	for(var/obj/object in shuttle_turf.contents)
 		if(object.density)
@@ -100,7 +100,7 @@
 			return TRUE
 
 /// Announces that all turfs are blocked and orders aren't being confirmed
-/obj/docking_port/mobile/supply/proc/announce_all_turfs_blocked()
+/obj/docking_port/mobile/supply/proc/announce_rejection()
 	// I thought of having a cooldown for this, but the station is
 	// being deprived of orders at this stage so it's whatever
 	aas_config_announce(
@@ -113,14 +113,14 @@
 	)
 
 /// Announces that many turfs are blocked and some orders may not be confirmed
-/obj/docking_port/mobile/supply/proc/announce_many_turfs_blocked()
-	if(many_turfs_blocked_warnings >= 2)
+/obj/docking_port/mobile/supply/proc/announce_overcrowding()
+	if(overcrowding_announcements >= 2)
 		return // if you really want the shuttle to be full of shit and know the downsides...
-	many_turfs_blocked_warnings++
+	overcrowding_announcements++
 	aas_config_announce(
 		/datum/aas_config_entry/supply_shuttle_overcrowding,
 		variables_map = list(),
 		source = null,
 		channels = list(RADIO_CHANNEL_SUPPLY),
-		announcement_line = many_turfs_blocked_warnings < 2 ? "First Notice" : "Second Notice",
+		announcement_line = overcrowding_announcements < 2 ? "First Notice" : "Second Notice",
 	)
