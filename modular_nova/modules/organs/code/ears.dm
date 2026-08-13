@@ -85,7 +85,7 @@
 
 	return ..()
 
-/datum/status_effect/sensitive_hearing/get_examine_text()
+/datum/status_effect/sensitive_hearing/get_examine_text(mob/examiner)
 	var/hearing_examine_text = "[owner.p_They()] [owner.p_have()] [owner.p_their()] ears perked up, listening closely to whisper-quiet sounds."
 	if(HAS_TRAIT(owner, TRAIT_SENSITIVE_HEARING))
 		hearing_examine_text = "[owner.p_Theyre()] listening intently for whisper-quiet sounds."
