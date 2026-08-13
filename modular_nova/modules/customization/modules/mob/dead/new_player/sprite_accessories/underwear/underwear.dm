@@ -8,7 +8,7 @@
 	return icon_state
 
 /*
-	Adding has_custom_digi_sprite to TG stuff
+	Adding has_custom_digi_sprite to TG stuff, as well as setting digi_icon_state to null on the boxers, because we have dedicated digi sprites for those
 */
 /datum/sprite_accessory/clothing/underwear/female_kinky
 	name = "Panties - Lingerie"
@@ -21,27 +21,35 @@
 
 /datum/sprite_accessory/clothing/underwear/male_boxers
 	has_custom_digi_sprite = TRUE
+	digi_icon_state = null
 
 /datum/sprite_accessory/clothing/underwear/male_stripe
 	has_custom_digi_sprite = TRUE
+	digi_icon_state = null
 
 /datum/sprite_accessory/clothing/underwear/male_midway
 	has_custom_digi_sprite = TRUE
+	digi_icon_state = null
 
 /datum/sprite_accessory/clothing/underwear/male_longjohns
 	has_custom_digi_sprite = TRUE
+	digi_icon_state = null
 
 /datum/sprite_accessory/clothing/underwear/male_hearts
 	has_custom_digi_sprite = TRUE
+	digi_icon_state = null
 
 /datum/sprite_accessory/clothing/underwear/male_commie
 	has_custom_digi_sprite = TRUE
+	digi_icon_state = null
 
 /datum/sprite_accessory/clothing/underwear/male_usastripe
 	has_custom_digi_sprite = TRUE
+	digi_icon_state = null
 
 /datum/sprite_accessory/clothing/underwear/male_uk
 	has_custom_digi_sprite = TRUE
+	digi_icon_state = null
 
 /*
 	Modular Underwear past here
