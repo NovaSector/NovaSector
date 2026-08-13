@@ -1,0 +1,29 @@
+{
+	"name": "Phantom stroke (penis)",
+	"description": "Stroke their cock with an unseen psychic hand, from anywhere in sight.",
+	"usage": "other",
+	"category": "Sex (Foreplay)",
+	"distance_allowed": 1,
+	"interaction_requires": [
+		"psionics"
+	],
+	"message": [
+		"%USER% stares intently at %TARGET%, who squirms as if touched by unseen hands.",
+		"%USER% flexes %USER_PRONOUN_THEIR% fingers at a distance, and %TARGET% shudders.",
+		"%USER% narrows %USER_PRONOUN_THEIR% eyes at %TARGET%, whose hips twitch at nothing at all."
+	],
+	"user_messages": [
+		"<span class='purple'>You wrap a phantom hand around %TARGET%'s cock and stroke it from afar.</span>",
+		"<span class='purple'>You curl unseen fingers around %TARGET%'s shaft, pumping it slowly from a distance.</span>"
+	],
+	"target_messages": [
+		"<span class='purple'>An invisible hand wraps around your cock and begins to stroke!</span>",
+		"<span class='purple'>Phantom fingers curl around your shaft, pumping it slowly!</span>"
+	],
+	"target_required_parts": ["penis"],
+	"user_arousal": 2,
+	"target_pleasure": 5,
+	"target_arousal": 4,
+	"lewd": 1,
+	"color": "pink"
+}

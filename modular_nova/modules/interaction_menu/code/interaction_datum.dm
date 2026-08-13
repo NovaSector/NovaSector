@@ -84,6 +84,16 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 			if(INTERACTION_REQUIRE_TARGET_HAND)
 				if(!target.get_active_hand())
 					return FALSE
+			if(INTERACTION_REQUIRE_PSIONICS)
+				var/datum/component/psionic_profile/profile = user.get_psionic_profile()
+				if(!profile || profile.is_burned_out())
+					return FALSE
+				if(!user.can_cast_psionics(PSIONIC_INTRUSIVE))
+					return FALSE
+				// Side-effect-free trait check only: this proc runs on every menu build, so
+				// charge-consuming protection is handled in act() instead.
+				if(target != user && target.has_free_psionic_block(PSIONIC_INTRUSIVE))
+					return FALSE
 
 			else
 				CRASH("Unimplemented interaction requirement '[requirement]'")
@@ -91,6 +101,8 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 
 /datum/interaction/proc/act(mob/living/carbon/human/user, mob/living/carbon/human/target, use_subtler)
 	if(!allow_act(user, target))
+		return
+	if((INTERACTION_REQUIRE_PSIONICS in interaction_requires) && target != user && target.try_block_psionics(user, PSIONIC_INTRUSIVE))
 		return
 	if(!message)
 		message_admins("Interaction had a null message list. '[html_encode(name)]'")

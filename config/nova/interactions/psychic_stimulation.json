@@ -1,0 +1,28 @@
+{
+	"name": "Stimulate (mind)",
+	"description": "Reach into their mind and stroke its pleasure centers directly.",
+	"usage": "other",
+	"category": "Sex",
+	"distance_allowed": 1,
+	"interaction_requires": [
+		"psionics"
+	],
+	"message": [
+		"%USER% fixes %USER_PRONOUN_THEIR% gaze on %TARGET%, who gasps for no visible reason.",
+		"%USER% presses two fingers to %USER_PRONOUN_THEIR% temple, and %TARGET% shivers head to toe.",
+		"%USER% tilts %USER_PRONOUN_THEIR% head at %TARGET%, whose breath suddenly catches."
+	],
+	"user_messages": [
+		"<span class='purple'>You slip into %TARGET%'s mind and stroke its pleasure centers directly.</span>",
+		"<span class='purple'>You kindle a slow pulse of bliss deep inside %TARGET%'s mind.</span>"
+	],
+	"target_messages": [
+		"<span class='purple'>Something strokes the pleasure centers of your mind directly, bliss blooming from nowhere!</span>",
+		"<span class='purple'>A slow pulse of pure bliss blooms deep inside your mind!</span>"
+	],
+	"user_arousal": 1,
+	"target_pleasure": 6,
+	"target_arousal": 3,
+	"lewd": 1,
+	"color": "pink"
+}

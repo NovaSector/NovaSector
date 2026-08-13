@@ -1,0 +1,29 @@
+{
+	"name": "Phantom stroke (vagina)",
+	"description": "Tease their folds with an unseen psychic hand, from anywhere in sight.",
+	"usage": "other",
+	"category": "Sex (Foreplay)",
+	"distance_allowed": 1,
+	"interaction_requires": [
+		"psionics"
+	],
+	"message": [
+		"%USER% stares intently at %TARGET%, who squirms as if touched by unseen hands.",
+		"%USER% flexes %USER_PRONOUN_THEIR% fingers at a distance, and %TARGET% shudders.",
+		"%USER% narrows %USER_PRONOUN_THEIR% eyes at %TARGET%, whose thighs press together at nothing at all."
+	],
+	"user_messages": [
+		"<span class='purple'>You trace phantom fingers along %TARGET%'s folds from afar.</span>",
+		"<span class='purple'>You press an unseen palm against %TARGET%'s mound, rubbing slow circles from a distance.</span>"
+	],
+	"target_messages": [
+		"<span class='purple'>Invisible fingers trace along your folds!</span>",
+		"<span class='purple'>An unseen palm presses against your mound, rubbing slow circles!</span>"
+	],
+	"target_required_parts": ["vagina"],
+	"user_arousal": 2,
+	"target_pleasure": 5,
+	"target_arousal": 4,
+	"lewd": 1,
+	"color": "pink"
+}
