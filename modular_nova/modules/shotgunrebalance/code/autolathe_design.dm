@@ -1,7 +1,6 @@
 //12 Gauge
 /datum/design/shotgun_slug
 	name = "Shotgun Slug"
-	id = "shotgun_slug"
 	build_type = AUTOLATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
@@ -13,7 +12,6 @@
 
 /datum/design/buckshot_shell
 	name = "Buckshot Shell"
-	id = "buckshot_shell"
 	build_type = AUTOLATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
