@@ -4,6 +4,7 @@
 #define RND_SUBCATEGORY_TOOLS_XENOARCH_ADVANCED "/Xenoarchaeology Tools (Advanced)"
 
 /datum/design/xenoarch
+	abstract_type = /datum/design/xenoarch
 	build_type = PROTOLATHE | AWAY_LATHE
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SERVICE
 	materials = list(
@@ -12,6 +13,7 @@
 	)
 
 /datum/design/xenoarch/tool
+	abstract_type = /datum/design/xenoarch/tool
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_XENOARCH,
 	)
@@ -106,6 +108,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/xenoarch/tool/advanced
+	abstract_type = /datum/design/xenoarch/tool/advanced
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2 ,
 		/datum/material/glass = SMALL_MATERIAL_AMOUNT,
@@ -140,6 +143,7 @@
 	build_path = /obj/item/xenoarch/brush/adv
 
 /datum/design/xenoarch/equipment
+	abstract_type = /datum/design/xenoarch/equipment
 	// everything under this except the adv bag feels redundant because cloth/leather are there too
 	// but i guess we'll burn that bridge another time
 	category = list(
@@ -163,6 +167,7 @@
 	build_path = /obj/item/storage/bag/xenoarch/adv
 
 /datum/design/board/xenoarch
+	abstract_type = /datum/design/board/xenoarch
 	category = list(
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_XENOARCH,
 	)

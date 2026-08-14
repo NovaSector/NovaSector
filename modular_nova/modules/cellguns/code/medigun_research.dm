@@ -19,6 +19,7 @@
 	build_path = /obj/item/device/custom_kit/medigun_fastcharge
 
 /datum/design/medicell
+	abstract_type = /datum/design/medicell
 	name = "Base Medicell Design"
 	desc = "Hey, you shouldn't see this. Like... at all."
 	build_type = PROTOLATHE | AWAY_LATHE
@@ -138,6 +139,7 @@
 //Utility Medicells
 
 /datum/design/medicell/utility
+	abstract_type = /datum/design/medicell/utility
 	name = "Utility Medicell"
 	category = list(
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_MEDICALAMMO + RND_MEDICALAMMO_UTILITY,

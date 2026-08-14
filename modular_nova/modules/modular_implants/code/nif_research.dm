@@ -118,6 +118,7 @@
 	departmental_flags = ALL
 
 /datum/design/nifsoft_hud
+	abstract_type = /datum/design/nifsoft_hud
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
