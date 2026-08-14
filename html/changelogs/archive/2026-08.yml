@@ -408,6 +408,7 @@
   - bugfix: General Beepsky no longer provides an extra free esword when destroyed
   - qol: Added an examine hint on clogged vents that tells you about using a plunger
       on it
+  - map: Added several holopads to Kilostation
   mrmanlikesbt:
   - refactor: Techweb and design code has been refactored.
   - bugfix: Fixed anomaly cores not granting research points in the destructive analyzer.
@@ -422,8 +423,6 @@
       exception of the female head sprite change.
   - image: Away facing sprites on hand markings that were supposed to have them should
       now display as they should. Do report if there's any oddities.
-  lelandkemble:
-  - map: Added several holopads to Kilostation
   sergeirocks100:
   - bugfix: The regular, midway, hearts, commie, freedom, and UK boxers, as well as
       the long johns, should all now use their proper digitigrade sprites.
