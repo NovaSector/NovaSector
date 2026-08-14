@@ -1,4 +1,5 @@
 /datum/design/biogen/hc_clothing
+	abstract_type = /datum/design/biogen/hc_clothing
 	name = "HC Clothing Basetype"
 	materials = list(/datum/material/biomass = 200)
 	build_path = /obj/item/clothing/under

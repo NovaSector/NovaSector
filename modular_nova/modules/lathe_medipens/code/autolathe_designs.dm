@@ -1,5 +1,6 @@
 // Basetype for developer usage only. Shouldn't be visible ingame.
 /datum/design/medipen
+	abstract_type = /datum/design/medipen
 	name = "Medipen Basetype"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(

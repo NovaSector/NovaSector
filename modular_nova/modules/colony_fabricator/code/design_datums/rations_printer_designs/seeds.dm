@@ -1,4 +1,5 @@
 /datum/design/biogen/frontier_seeds
+	abstract_type = /datum/design/biogen/frontier_seeds
 	name = "Frontier Seeds Basetype"
 	materials = list(/datum/material/biomass = 25)
 	build_path = /obj/item/seeds

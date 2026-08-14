@@ -1,4 +1,5 @@
 /datum/design/biogen/frontier_equipment
+	abstract_type = /datum/design/biogen/frontier_equipment
 	name = "Frontier Equipment Basetype"
 	materials = list(/datum/material/biomass = 100)
 	build_path = /obj/item/storage

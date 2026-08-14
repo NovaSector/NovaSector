@@ -1,4 +1,5 @@
 /datum/design/biogen/deforest_medical
+	abstract_type = /datum/design/biogen/deforest_medical
 	name = "Frontier Medicine Basetype"
 	materials = list(/datum/material/biomass = 50)
 	build_path = /obj/item/stack/medical

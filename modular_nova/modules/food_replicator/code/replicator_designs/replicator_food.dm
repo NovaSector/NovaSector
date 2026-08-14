@@ -1,4 +1,5 @@
 /datum/design/biogen/hc_food
+	abstract_type = /datum/design/biogen/hc_food
 	name = "HC Food Basetype"
 	build_path = /obj/item/storage/box/colonial_rations
 	category = list(

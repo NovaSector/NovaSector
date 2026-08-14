@@ -1,4 +1,5 @@
 /datum/design/biogen/frontier_utensils
+	abstract_type = /datum/design/biogen/frontier_utensils
 	name = "Frontier Utensils"
 	materials = list(/datum/material/biomass = 10)
 	build_path = /obj/item/kitchen

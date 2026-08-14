@@ -1,4 +1,5 @@
 /datum/design/biogen/frontier_ration/ingredients
+	abstract_type = /datum/design/biogen/frontier_ration/ingredients
 	name = "Frontier Ingredients Basetype"
 	materials = list(/datum/material/biomass = 25)
 	build_path = /obj/item/food

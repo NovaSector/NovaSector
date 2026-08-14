@@ -1,5 +1,6 @@
 
 /datum/design/biogen/organic_bloodbag
+	abstract_type = /datum/design/biogen/organic_bloodbag
 	name = "Bloodbag Basetype"
 	build_path = /obj/item/reagent_containers/blood
 	materials = list(/datum/material/biomass = 100)

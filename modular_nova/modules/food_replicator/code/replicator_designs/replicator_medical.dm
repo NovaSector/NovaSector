@@ -1,4 +1,5 @@
 /datum/design/biogen/hc_medical
+	abstract_type = /datum/design/biogen/hc_medical
 	name = "HC Medical Basetype"
 	build_path = /obj/item/storage/pouch
 	materials = list(/datum/material/biomass = 250)
