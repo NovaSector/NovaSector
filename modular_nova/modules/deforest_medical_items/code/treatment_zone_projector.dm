@@ -38,7 +38,7 @@
 
 /datum/techweb_node/holographics/New()
 	. = ..()
-	unlocked_designs.Add(/datum/design/treatment_zone_projector)
+	unlocked_designs += /datum/design/treatment_zone_projector
 
 // Adds the funny projector to medical borgs
 
