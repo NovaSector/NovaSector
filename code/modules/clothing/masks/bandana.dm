@@ -81,6 +81,7 @@
 		user.visible_message(span_notice("[user] ties [src] up like a neckerchief."), span_notice("You tie [src] up like a neckerchief."))
 		flags_inv = NONE
 		flags_cover = NONE
+		supports_variations_flags = NONE //NOVA EDIT ADDITION - Needed so that it doesn't use the snout sprite for the neckerchief.
 		return CLICK_ACTION_SUCCESS
 
 	undyeable = initial(undyeable)
@@ -90,6 +91,7 @@
 	user.visible_message(span_notice("[user] unties the neckerchief."), span_notice("You untie the neckerchief."))
 	flags_inv = initial(flags_inv)
 	flags_cover = initial(flags_cover)
+	supports_variations_flags = initial(supports_variations_flags) //NOVA EDIT ADDITION - See above.
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/clothing/mask/bandana/red
