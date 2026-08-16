@@ -396,6 +396,16 @@
   - qol: Decreased the volume of slime footsteps.
   - qol: Slimes now have new HUD entries from the information that was previously
       in the stat panel.
+  TalkingCactus, sergeirocks100:
+  - image: The anthromorph and synthmammal sprites have been tweaked slightly, namely
+      by adding in some away-facing hand sprites, removing an unnecessary pixel from
+      the bottom of the male torso, and removing another pixel from the back of the
+      neck of the female head side sprites, as well as removing the ears from the
+      head side sprites.
+  - image: The plain body markings have been updated as described above, with the
+      exception of the female head sprite change.
+  - image: Away facing sprites on hand markings that were supposed to have them should
+      now display as they should. Do report if there's any oddities.
   Y0SH1M4S73R:
   - bugfix: revenants should far less frequently be rendered vulnerable for far longer
       than they should be
@@ -408,16 +418,6 @@
   - refactor: Techweb and design code has been refactored.
   - bugfix: Fixed anomaly cores not granting research points in the destructive analyzer.
   - bugfix: Fixed exosuit fabricators
-  TalkingCactus, sergeirocks100:
-  - image: The anthromorph and synthmammal sprites have been tweaked slightly, namely
-      by adding in some away-facing hand sprites, removing an unnecessary pixel from
-      the bottom of the male torso, and removing another pixel from the back of the
-      neck of the female head side sprites, as well as removing the ears from the
-      head side sprites.
-  - image: The plain body markings have been updated as described above, with the
-      exception of the female head sprite change.
-  - image: Away facing sprites on hand markings that were supposed to have them should
-      now display as they should. Do report if there's any oddities.
   sergeirocks100:
   - bugfix: The regular, midway, hearts, commie, freedom, and UK boxers, as well as
       the long johns, should all now use their proper digitigrade sprites.
@@ -437,3 +437,8 @@
       because their rendering was broken
   timothymtorres:
   - bugfix: Fix helmets being flammable when armor is not
+2026-08-16:
+  sergeirocks100:
+  - bugfix: Neckerchiefs should no longer look wonky if you have a snout.
+  sqnztb:
+  - bugfix: medical records shouldn't be bluescreening now
