@@ -7954,7 +7954,6 @@
 #include "modular_nova\modules\aesthetics\computer\code\computer.dm"
 #include "modular_nova\modules\aesthetics\decals\code\decals.dm"
 #include "modular_nova\modules\aesthetics\device\device.dm"
-#include "modular_nova\modules\aesthetics\directwindow\code\window.dm"
 #include "modular_nova\modules\aesthetics\disposals\code\disposals.dm"
 #include "modular_nova\modules\aesthetics\emitter\code\emitter.dm"
 #include "modular_nova\modules\aesthetics\firealarm\code\firealarm.dm"
