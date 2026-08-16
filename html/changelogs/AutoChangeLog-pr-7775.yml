@@ -1,0 +1,4 @@
+author: "sergeirocks100"
+delete-after: True
+changes:
+  - bugfix: "Neckerchiefs should no longer look wonky if you have a snout."
