@@ -3793,9 +3793,13 @@
 "ayu" = (
 /obj/structure/table/wood,
 /obj/item/storage/cans/sixbeer{
-	pixel_y = 6
+	pixel_y = 9;
+	pixel_x = 1
 	},
-/obj/item/lighter/skull,
+/obj/item/lighter/skull{
+	pixel_x = 8;
+	pixel_y = -3
+	},
 /turf/open/misc/asteroid,
 /area/station/commons/fitness/recreation/entertainment)
 "ayA" = (
@@ -33804,9 +33808,6 @@
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_yw,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/grass,
 /area/station/commons/fitness)
@@ -48355,9 +48356,6 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/flowers_pp,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /obj/structure/window/reinforced/spawner/directional/north,
 /turf/open/floor/grass,
 /area/station/commons/fitness)
