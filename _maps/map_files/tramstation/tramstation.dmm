@@ -5393,7 +5393,6 @@
 	dir = 1
 	},
 /obj/machinery/light/cold/directional/west,
-/obj/machinery/light/floor,
 /obj/machinery/airalarm/directional/west,
 /obj/machinery/light/floor,
 /turf/open/floor/grass,
