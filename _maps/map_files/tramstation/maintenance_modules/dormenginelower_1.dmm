@@ -32,19 +32,8 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/crew_quarters/dorms)
-"cN" = (
-/turf/open/floor/grass,
-/area/station/maintenance/central/lesser)
 "cV" = (
 /turf/closed/wall,
-/area/station/maintenance/central/lesser)
-"dh" = (
-/obj/structure/girder,
-/obj/item/stack/sheet/iron{
-	amount = 2
-	},
-/obj/effect/turf_decal/sand/plating,
-/turf/open/floor/plating,
 /area/station/maintenance/central/lesser)
 "dj" = (
 /obj/effect/decal/cleanable/dirt,
@@ -56,11 +45,6 @@
 /obj/structure/grille,
 /obj/structure/window/spawner/directional/south,
 /turf/open/floor/plating,
-/area/station/maintenance/central/lesser)
-"ex" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/barricade/wooden,
-/turf/open/floor/iron/smooth,
 /area/station/maintenance/central/lesser)
 "eB" = (
 /obj/effect/decal/cleanable/dirt,
@@ -177,19 +161,12 @@
 /obj/effect/spawner/random/engineering/atmospherics_portable,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/crew_quarters/dorms)
-"iV" = (
-/obj/item/clothing/glasses/meson,
-/turf/open/misc/asteroid,
-/area/station/maintenance/central/lesser)
 "jF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance/three,
 /obj/effect/spawner/random/engineering/material_cheap,
 /turf/open/floor/iron/smooth,
-/area/station/maintenance/central/lesser)
-"ko" = (
-/turf/open/misc/asteroid,
 /area/station/maintenance/central/lesser)
 "lx" = (
 /obj/effect/decal/cleanable/dirt,
@@ -239,10 +216,6 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/department/crew_quarters/dorms)
-"oa" = (
-/obj/structure/barricade/wooden,
-/turf/open/floor/grass,
-/area/station/maintenance/central/lesser)
 "of" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/girder,
@@ -281,10 +254,6 @@
 /obj/effect/turf_decal/sand/plating,
 /turf/open/floor/plating/airless,
 /area/station/asteroid)
-"qW" = (
-/obj/effect/spawner/random/engineering/toolbox,
-/turf/open/misc/asteroid,
-/area/station/maintenance/central/lesser)
 "ra" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/chair,
@@ -324,24 +293,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/central/lesser)
-"sN" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
-/obj/item/clothing/head/cone{
-	pixel_x = -10;
-	pixel_y = 14
-	},
-/obj/item/clothing/head/cone{
-	pixel_x = 10;
-	pixel_y = 14
-	},
-/turf/open/floor/catwalk_floor,
-/area/station/maintenance/central/lesser)
 "sS" = (
 /obj/machinery/plumbing/synthesizer{
 	reagent_id = /datum/reagent/water
@@ -357,9 +308,6 @@
 	},
 /obj/effect/spawner/random/engineering/canister,
 /turf/open/floor/iron/smooth,
-/area/station/maintenance/central/lesser)
-"tM" = (
-/turf/closed/wall/rock,
 /area/station/maintenance/central/lesser)
 "uc" = (
 /obj/effect/decal/cleanable/dirt,
@@ -439,15 +387,7 @@
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/department/crew_quarters/dorms)
 "zt" = (
-/obj/machinery/door/airlock/maintenance_hatch{
-	name = "Maintenance Hatch"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/central/lesser)
-"zv" = (
-/turf/open/misc/asteroid,
+/turf/closed/wall,
 /area/template_noop)
 "zF" = (
 /obj/item/assembly/mousetrap/armed,
@@ -466,10 +406,6 @@
 /obj/machinery/duct,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/department/crew_quarters/dorms)
-"Ad" = (
-/obj/structure/flora/bush/style_random,
-/turf/open/floor/grass,
-/area/template_noop)
 "As" = (
 /obj/machinery/door/airlock{
 	name = "Custodial Closet"
@@ -503,11 +439,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/central/lesser)
-"DC" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/trash/food_packaging,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/central/lesser)
 "DP" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
@@ -520,13 +451,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor,
-/area/station/maintenance/central/lesser)
-"DX" = (
-/obj/modular_map_root/tramstation{
-	key = "dormenginelower_attachment_b";
-	name = "dormenginelower_attachment_b"
-	},
-/turf/open/floor/plating,
 /area/station/maintenance/central/lesser)
 "DZ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -571,23 +495,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/central/lesser)
-"HM" = (
-/obj/effect/turf_decal/sand/plating,
-/turf/open/floor/plating,
-/area/station/maintenance/central/lesser)
-"Iw" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/cobweb,
-/obj/structure/rack,
-/obj/item/shovel{
-	pixel_x = -5
-	},
-/obj/item/pickaxe{
-	pixel_x = 5
-	},
-/obj/item/storage/bag/ore,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/central/lesser)
 "IA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
@@ -631,12 +538,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/central/lesser)
-"Mc" = (
-/obj/structure/door_assembly/door_assembly_mhatch,
-/obj/item/electronics/airlock,
-/obj/item/stack/cable_coil/five,
-/turf/open/misc/asteroid,
-/area/station/maintenance/central/lesser)
 "Ml" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/button/door/directional/south{
@@ -662,10 +563,6 @@
 /obj/machinery/duct,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/department/crew_quarters/dorms)
-"MN" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
-/area/station/maintenance/central/lesser)
 "MZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/canister/water_vapor,
@@ -693,11 +590,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/crew_quarters/dorms)
-"Px" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/trash/garbage,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/central/lesser)
 "PC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash/food_packaging,
@@ -733,16 +625,6 @@
 /obj/structure/rack,
 /obj/effect/spawner/random/engineering/toolbox,
 /obj/effect/spawner/random/engineering/flashlight,
-/turf/open/floor/iron/smooth,
-/area/station/maintenance/central/lesser)
-"Qz" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/spawner/random/structure/steam_vent,
-/turf/open/floor/plating,
-/area/station/maintenance/central/lesser)
-"QO" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/ore_box,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/central/lesser)
 "RF" = (
@@ -799,10 +681,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/template_noop)
-"UQ" = (
-/obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/floor/grass,
-/area/template_noop)
 "Vf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/directional/east,
@@ -817,16 +695,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/plating,
-/area/template_noop)
-"VT" = (
-/obj/item/stack/sheet/iron{
-	amount = 2
-	},
-/obj/effect/turf_decal/sand/plating,
-/turf/open/floor/plating,
-/area/station/maintenance/central/lesser)
-"Ws" = (
-/turf/open/floor/grass,
 /area/template_noop)
 "WR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -858,11 +726,6 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/external,
 /turf/open/floor/catwalk_floor,
-/area/station/maintenance/central/lesser)
-"ZQ" = (
-/obj/structure/girder,
-/obj/effect/turf_decal/sand/plating,
-/turf/open/floor/plating,
 /area/station/maintenance/central/lesser)
 
 (1,1,1) = {"
@@ -2493,9 +2356,9 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
+AN
+AN
+AN
 AN
 AN
 AN
@@ -2529,9 +2392,9 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
+AN
+AN
+AN
 AN
 AN
 AN
@@ -2565,9 +2428,9 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
+AN
+AN
+AN
 AN
 AN
 AN
@@ -2601,9 +2464,9 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
+AN
+AN
+AN
 AN
 AN
 AN
@@ -2637,9 +2500,9 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
+AN
+AN
+AN
 AN
 AN
 AN
@@ -2673,9 +2536,9 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
+AN
+AN
+AN
 AN
 AN
 AN
@@ -2705,16 +2568,16 @@ IK
 AN
 AN
 AN
-Ws
 AN
 AN
 AN
-gs
-gs
-gs
-gs
-gs
-gs
+AN
+AN
+AN
+AN
+AN
+AN
+AN
 AN
 AN
 AN
@@ -2741,17 +2604,6 @@ mg
 AN
 AN
 AN
-UQ
-zv
-AN
-AN
-gs
-gs
-gs
-gs
-gs
-gs
-cV
 AN
 AN
 AN
@@ -2760,6 +2612,17 @@ AN
 AN
 AN
 AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+zt
 xW
 gQ
 cV
@@ -2776,27 +2639,27 @@ mg
 (54,1,1) = {"
 AN
 AN
-Ws
-Ws
-Ws
-zv
-zv
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
 cV
-ZQ
-cV
-qW
-ko
-tM
-cV
-Iw
-QO
-Px
-CB
-Qz
-CB
-ex
-zt
-sN
+oU
 cV
 cV
 gs
@@ -2813,24 +2676,24 @@ mg
 AN
 AN
 AN
-Ws
-UQ
-Ws
-zv
-oa
-cN
-HM
-HM
-ko
-VT
-HM
-HM
-CB
-MN
-CB
-CB
-DC
-CB
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
 cV
 oU
 cV
@@ -2849,20 +2712,20 @@ IK
 AN
 AN
 AN
-zv
-zv
 AN
 AN
-tM
-dh
-Mc
-ko
-iV
-ZQ
-tM
-tM
-cV
-cV
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
 cV
 cV
 cV
@@ -2885,20 +2748,20 @@ IK
 AN
 AN
 AN
-Ad
 AN
 AN
 AN
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
 cV
 CB
 CB
@@ -2925,16 +2788,16 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
 cV
 CU
 CB
@@ -2961,16 +2824,16 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
 cV
 hX
 RF
@@ -2997,16 +2860,16 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
 cV
 fe
 LX
@@ -3033,16 +2896,16 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
 cV
 CB
 CB
@@ -3069,16 +2932,16 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
 cV
 cV
 cV
@@ -3105,20 +2968,20 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
 cV
 oU
 AN
@@ -3141,20 +3004,20 @@ AN
 AN
 AN
 AN
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-gs
-cV
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
+AN
 cV
 oU
 AN
@@ -3186,7 +3049,7 @@ cV
 cV
 cV
 cV
-DX
+cV
 cV
 cV
 cV
