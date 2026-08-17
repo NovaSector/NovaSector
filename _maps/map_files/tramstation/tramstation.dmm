@@ -11764,9 +11764,6 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/flowers_pp,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "cVd" = (
@@ -15852,9 +15849,6 @@
 	name = "curtain"
 	},
 /obj/effect/spawner/structure/window,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "eqK" = (
@@ -16628,9 +16622,6 @@
 "eCR" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/flora/bush/grassy,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "eCZ" = (
@@ -17824,9 +17815,6 @@
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_br,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "eZO" = (
@@ -17873,9 +17861,6 @@
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_yw,
 /obj/structure/window/reinforced/spawner/directional/north,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "fbj" = (
@@ -21660,6 +21645,8 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/cable,
 /obj/effect/landmark/navigate_destination/dorms,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "guL" = (
@@ -21691,9 +21678,6 @@
 "gvJ" = (
 /obj/structure/flora/bush/jungle/c/style_3,
 /obj/structure/window/reinforced/spawner/directional/north,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "gvO" = (
@@ -24008,9 +23992,6 @@
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_yw,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "hmR" = (
@@ -26819,12 +26800,12 @@
 /area/station/command/bridge)
 "irR" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/structure/table/glass,
 /obj/machinery/camera/directional/south{
 	network = list("ss13","medbay");
 	c_tag = "Medical - Main North"
 	},
 /obj/machinery/light/cold/directional/south,
+/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "isa" = (
@@ -32544,7 +32525,9 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	pixel_x = 3
+	},
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
 "kkF" = (
@@ -34190,9 +34173,6 @@
 	name = "curtain"
 	},
 /obj/effect/spawner/structure/window,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "kLI" = (
@@ -39005,9 +38985,6 @@
 /obj/structure/flora/grass/jungle/b,
 /obj/structure/flora/bush/flowers_pp,
 /obj/structure/window/reinforced/spawner/directional/north,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "mon" = (
@@ -43143,9 +43120,6 @@
 	name = "curtain"
 	},
 /obj/effect/spawner/structure/window,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "nPe" = (
@@ -43714,9 +43688,6 @@
 "nYH" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/window/reinforced/spawner/directional/north,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "nYL" = (
@@ -44559,9 +44530,6 @@
 /obj/structure/flora/bush/fullgrass,
 /obj/structure/flora/bush/lavendergrass,
 /obj/structure/window/reinforced/spawner/directional/north,
-/obj/machinery/door/firedoor/border_only{
-	dir = 1
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "oqy" = (
