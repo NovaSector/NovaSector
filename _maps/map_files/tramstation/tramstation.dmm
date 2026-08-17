@@ -11757,7 +11757,6 @@
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "cVa" = (
-/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/flowers_pp,
@@ -16623,12 +16622,8 @@
 /turf/open/floor/iron,
 /area/station/cargo/office)
 "eCR" = (
-/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/flora/bush/grassy,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
@@ -17821,7 +17816,6 @@
 /turf/open/floor/iron,
 /area/station/service/janitor)
 "eZI" = (
-/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/grassy,
@@ -24006,7 +24000,6 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/gravity_generator)
 "hmN" = (
-/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/grassy,
