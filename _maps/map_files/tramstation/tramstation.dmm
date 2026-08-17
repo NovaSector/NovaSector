@@ -7066,12 +7066,6 @@
 /obj/effect/turf_decal/sand/plating,
 /turf/open/floor/plating/airless,
 /area/station/escapepodbay)
-"buL" = (
-/obj/effect/turf_decal/trimline/neutral/filled/line{
-	dir = 4
-	},
-/turf/closed/wall,
-/area/station/commons/fitness)
 "buW" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 4
@@ -11771,9 +11765,6 @@
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "cVd" = (
@@ -15862,8 +15853,11 @@
 	name = "curtain"
 	},
 /obj/effect/spawner/structure/window,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/grass,
-/area/station/commons/dorms)
+/area/station/commons/fitness/recreation/entertainment)
 "eqK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -16636,7 +16630,6 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/flora/bush/grassy,
-/obj/structure/flora/bush/flowers_pp,
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
@@ -17837,9 +17830,6 @@
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_br,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
@@ -24025,9 +24015,6 @@
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_yw,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /obj/machinery/door/firedoor/border_only{
 	dir = 8
 	},
@@ -34217,8 +34204,11 @@
 	name = "curtain"
 	},
 /obj/effect/spawner/structure/window,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/grass,
-/area/station/commons/dorms)
+/area/station/commons/fitness/recreation/entertainment)
 "kLI" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 8
@@ -43170,8 +43160,11 @@
 	name = "curtain"
 	},
 /obj/effect/spawner/structure/window,
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
 /turf/open/floor/grass,
-/area/station/commons/dorms)
+/area/station/commons/fitness/recreation/entertainment)
 "nPe" = (
 /turf/open/floor/carpet,
 /area/station/medical/psychology)
@@ -93940,7 +93933,7 @@ tVv
 azd
 nvH
 bTN
-buL
+kpF
 kpF
 sVn
 paO
