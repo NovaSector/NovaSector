@@ -8,6 +8,7 @@
 // priority order. We neutralize upstream's here rather than dropping the core file, so the
 // upstream definition keeps mirroring cleanly.
 /datum/preference/choiced/mob_height/is_accessible(datum/preferences/preferences)
+	..() // parent is required by SHOULD_CALL_PARENT, but we hide this preference unconditionally
 	return FALSE
 
 /datum/preference/choiced/mob_height/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
