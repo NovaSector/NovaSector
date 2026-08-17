@@ -182,7 +182,6 @@
 /datum/design/airbag
 	name = "Airbag"
 	desc = "Keep that vacuum of space from sucking!"
-	id = "airbag"
 	build_type = PROTOLATHE | AWAY_LATHE | AUTOLATHE | COLONY_FABRICATOR
 	materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 5)
 	build_path = /obj/item/airbag

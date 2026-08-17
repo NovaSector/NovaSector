@@ -1,6 +1,6 @@
 /// Iron blood type for proteans
 /datum/blood_type/iron
-	name = BLOOD_TYPE_IRON
+	name = "FE"
 	dna_string = "Iron"
 	color = BLOOD_COLOR_IRON
 	reagent_type = /datum/reagent/iron
@@ -16,7 +16,7 @@
 	siemens_coeff = 1.5 // Electricity messes you up.
 	payday_modifier = 1 // 30 percent poorer
 
-	exotic_bloodtype = BLOOD_TYPE_IRON
+	exotic_bloodtype = /datum/blood_type/iron
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
 	meat = /obj/item/stack/sheet/iron

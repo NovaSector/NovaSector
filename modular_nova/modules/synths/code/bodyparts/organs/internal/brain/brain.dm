@@ -100,7 +100,6 @@
 /datum/design/synth_posi
 	name = "Compact Positronic Brain"
 	desc = "Inactive compact positronic brain."
-	id = "synth_posi"
 	build_type = MECHFAB
 	construction_time = 30 SECONDS
 	materials = list(

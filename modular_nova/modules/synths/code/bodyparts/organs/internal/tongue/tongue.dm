@@ -29,7 +29,6 @@
 /datum/design/synth_tongue
 	name = "Synthetic Tongue"
 	desc = "A fully-functional synthetic tongue, encased in soft silicone. Features include high-resolution vocals and taste receptors."
-	id = "synth_tongue"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(

@@ -73,8 +73,8 @@
 	cached_designs.Cut()
 
 	var/allow_any = isnull(allowed_department_flags)
-	for(var/design_id in stored_research.researched_designs)
-		var/datum/design/design = SSresearch.techweb_design_by_id(design_id)
+	for(var/design_path in stored_research.researched_designs)
+		var/datum/design/design = SSresearch.techweb_designs[design_path]
 
 		if(allow_any || ((design.departmental_flags & allowed_department_flags) && (design.build_type & allowed_buildtypes)))
 			cached_designs |= design

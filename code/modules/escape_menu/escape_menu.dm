@@ -142,6 +142,7 @@ GAME_VERB_HIDDEN(/client, reset_held_keys_verb, "Reset Held Keys")
 		"timeDilation" = "[round(SStime_track.time_dilation_current, 1)]",
 		"mapName" = SSmapping.current_map?.return_map_name(webmap_included = TRUE) || "Loading...",
 		"mapFeedbackLink" = SSmapping.current_map?.feedback_link,
+		"mapWebmap" = SSmapping.current_map?.mapping_url,
 		"canLeaveBody" = FALSE, // NOVA EDIT CHANGE - original: isliving(client?.mob) - Nova replaces the generic Leave Body page with the OPFOR/Ghost/Respawn buttons below
 		"canOpfor" = isliving(client?.mob), // NOVA EDIT ADDITION
 		"canRespawn" = !isliving(client?.mob), // NOVA EDIT ADDITION

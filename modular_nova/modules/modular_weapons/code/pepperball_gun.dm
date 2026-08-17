@@ -61,7 +61,6 @@
 
 /datum/design/pepperballs
 	name = "Pepperball Ammo Box"
-	id = "pepperballs"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,

@@ -26,7 +26,8 @@
 			if("open_examine_panel")
 				mob_examine_panel.ui_interact(usr) //datum has a examine_panel component, here we open the window
 			if("open_character_ad")
-				usr.client?.show_character_directory(specific_ad = real_name)
+				if(usr.client)
+					INVOKE_GAME_VERB(usr.client, usr.client, /client, show_character_directory, specific_ad = real_name)
 
 /mob/living/carbon/human/species/vox
 	race = /datum/species/vox

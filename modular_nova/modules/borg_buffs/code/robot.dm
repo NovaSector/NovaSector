@@ -141,7 +141,6 @@
 // Wirebrush for janiborg
 /datum/design/borg_wirebrush
 	name = "Wire-brush Module"
-	id = "borg_upgrade_brush"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/wirebrush
 	materials = list(

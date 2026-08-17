@@ -30,7 +30,6 @@
 
 /datum/design/kineticballs
 	name = "Ammo Box (Kinetic Balls)"
-	id = "kineticballs"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
