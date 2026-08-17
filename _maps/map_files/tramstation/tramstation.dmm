@@ -15842,9 +15842,6 @@
 "eqy" = (
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_yw,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
@@ -34193,9 +34190,6 @@
 /obj/structure/flora/grass/jungle,
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/flowers_br,
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
@@ -43149,9 +43143,6 @@
 /obj/structure/flora/bush/grassy,
 /obj/structure/flora/bush/sunny,
 /obj/structure/flora/bush/flowers_pp,
-/obj/machinery/door/firedoor/border_only{
-	dir = 4
-	},
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
