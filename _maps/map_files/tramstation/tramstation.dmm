@@ -1913,7 +1913,6 @@
 /area/station/commons/vacant_room)
 "agH" = (
 /obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/reagent_dispensers/beerkeg,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/service/bar/backroom)
@@ -8096,6 +8095,7 @@
 /obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/item/bikehorn/rubberducky,
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
 "bMg" = (
@@ -14361,7 +14361,6 @@
 "dNT" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/table/wood/fancy/blue,
-/obj/item/ai_module/supplied/freeform,
 /obj/effect/spawner/random/aimodule/neutral,
 /obj/machinery/door/window/left/directional/east{
 	name = "Neutral Modules";
@@ -14489,11 +14488,6 @@
 "dPT" = (
 /obj/structure/table/wood,
 /obj/item/radio/intercom/directional/north,
-/obj/item/food/grown/harebell,
-/obj/item/food/grown/harebell,
-/obj/item/food/grown/harebell,
-/obj/item/food/grown/harebell,
-/obj/item/food/grown/harebell,
 /obj/machinery/camera/directional/north{
 	c_tag = "Civilian - Chapel Monastary"
 	},
@@ -20458,9 +20452,6 @@
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/cmo)
 "fYw" = (
-/obj/machinery/computer/upload/borg{
-	dir = 8
-	},
 /obj/machinery/status_display/ai/directional/east,
 /turf/open/floor/circuit/green,
 /area/station/ai/upload/chamber)
@@ -20894,13 +20885,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron,
 /area/station/maintenance/port/central)
-"ggV" = (
-/obj/structure/table/wood,
-/obj/item/food/grown/poppy{
-	pixel_y = 2
-	},
-/turf/open/floor/iron/dark,
-/area/station/service/chapel)
 "ghg" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/catwalk_floor,
@@ -23912,7 +23896,6 @@
 "hkF" = (
 /obj/structure/table,
 /obj/item/aicard,
-/obj/item/ai_module/reset,
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage/tech)
 "hkN" = (
@@ -27169,9 +27152,6 @@
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/tram/mid)
 "ixC" = (
-/obj/machinery/computer/upload/ai{
-	dir = 8
-	},
 /obj/machinery/status_display/evac/directional/east,
 /turf/open/floor/circuit/green,
 /area/station/ai/upload/chamber)
@@ -30039,13 +30019,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/security/execution/transfer)
-"jvK" = (
-/obj/structure/fireplace/nova,
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/turf/open/floor/carpet/red,
-/area/station/service/cafeteria)
 "jvV" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -31779,10 +31752,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/aft)
-"jZJ" = (
-/obj/item/bikehorn/rubberducky,
-/turf/open/water/beach,
-/area/station/commons/fitness/recreation/entertainment)
 "jZM" = (
 /obj/effect/turf_decal/sand/plating,
 /turf/open/floor/plating,
@@ -34284,11 +34253,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
-"kMm" = (
-/obj/structure/table/wood,
-/obj/item/food/grown/harebell,
-/turf/open/floor/iron/dark,
-/area/station/service/chapel)
 "kMn" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /obj/effect/turf_decal/trimline/brown/filled/corner{
@@ -41947,7 +41911,6 @@
 "nrf" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/table/wood/fancy/red,
-/obj/item/ai_module/reset/purge,
 /obj/effect/spawner/random/aimodule/harmful,
 /obj/machinery/door/window/left/directional/east{
 	name = "Dangerous Modules";
@@ -45722,21 +45685,6 @@
 /area/station/hallway/secondary/exit)
 "oOT" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy{
-	pixel_y = 2
-	},
-/obj/item/food/grown/poppy{
-	pixel_y = 2
-	},
-/obj/item/food/grown/poppy{
-	pixel_y = 2
-	},
-/obj/item/food/grown/poppy{
-	pixel_y = 2
-	},
-/obj/item/food/grown/poppy{
-	pixel_y = 2
-	},
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/carpet,
 /area/station/service/chapel/monastery)
@@ -59447,11 +59395,6 @@
 "typ" = (
 /obj/structure/table/wood/fancy/green,
 /obj/effect/spawner/random/aimodule/harmless,
-/obj/item/ai_module/supplied/freeform{
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/ai_module/reset,
 /obj/item/radio/intercom/directional/east{
 	name = "ai intercom";
 	frequency = 1447
@@ -89123,7 +89066,7 @@ lGq
 lGq
 aWU
 gtZ
-jvK
+vyR
 juI
 qHF
 gtZ
@@ -96554,7 +96497,7 @@ abM
 gvJ
 xKR
 xPN
-jZJ
+xPN
 xPN
 xPN
 dQt
@@ -156203,8 +156146,8 @@ jLf
 fXB
 nuw
 kUo
-kMm
-ggV
+dVo
+dVo
 vCZ
 ikL
 tSp
