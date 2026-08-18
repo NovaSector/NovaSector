@@ -33,7 +33,7 @@
 	should_draw_greyscale = TRUE
 	change_exempt_flags = NONE
 	is_dimorphic = TRUE
-	wing_types = list(/obj/item/organ/wings/functional/robotic)
+	wing_types = list(/obj/item/organ/wings/robotic)
 	light_brute_msg = LIGHT_NANO_BRUTE
 	medium_brute_msg = MEDIUM_NANO_BRUTE
 	heavy_brute_msg = HEAVY_NANO_BRUTE

@@ -15,7 +15,10 @@
 	///Whether the owner of wings has flight thanks to the wings
 	var/granted_flight
 
+// Upstream's wing base type now defaults to the functional overlay, but our player-customized
+// wings are purely cosmetic and need the plain one to keep their chosen colors.
 /obj/item/organ/wings/custom
+	bodypart_overlay = /datum/bodypart_overlay/mutant/wings
 
 /datum/bodypart_overlay/mutant/wings
 	color_source = ORGAN_COLOR_OVERRIDE
@@ -236,20 +239,30 @@
 /datum/bodypart_overlay/mutant/wings/functional/locked/original_color/override_color(rgb_value)
 	return COLOR_WHITE // We want to keep those wings as their original color, because it looks better.
 
-/obj/item/organ/wings/functional
-	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/locked
-
-/obj/item/organ/wings/functional/angel
+// Upstream collapsed /obj/item/organ/wings/functional into the /obj/item/organ/wings base type, so
+// the "locked" overlay that every functional wing used to inherit has to be set per type now - the
+// base is shared with cosmetic wings and can't carry it anymore.
+/obj/item/organ/wings/angel
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/original_color
 
-/obj/item/organ/wings/functional/dragon
+/obj/item/organ/wings/dragon
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional
 
-/obj/item/organ/wings/functional/moth
+/obj/item/organ/wings/robotic
+	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional
+
+/obj/item/organ/wings/slime
+	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional
+
+/obj/item/organ/wings/skeleton
+	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/locked
+
+/obj/item/organ/wings/fly
+	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/locked
+
+// These two used to share a /functional/moth parent that carried the overlay for both.
+/obj/item/organ/wings/mothra
 	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/locked/original_color
 
-/obj/item/organ/wings/functional/robotic
-	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional
-
-/obj/item/organ/wings/functional/slime
-	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional
+/obj/item/organ/wings/megamoth
+	bodypart_overlay = /datum/bodypart_overlay/mutant/wings/functional/locked/original_color
