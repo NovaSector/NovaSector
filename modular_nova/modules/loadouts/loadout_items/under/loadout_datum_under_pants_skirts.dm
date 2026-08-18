@@ -256,6 +256,11 @@
 	reskin_datum = /datum/atom_skin/cableknit_sweater
 	group = "Casualwear"
 
+/datum/loadout_item/under/miscellaneous/virgin_killer_sweater
+	name = "Virgin Killer Sweater"
+	item_path = /obj/item/clothing/under/dress/nova/virgin_killer_sweater
+	group = "Casualwear"
+
 /datum/loadout_item/under/jumpsuit/turtleneck
 	name = "Turtleneck w/ Pants"
 	item_path = /obj/item/clothing/under/greyscale/turtleneck
