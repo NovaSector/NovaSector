@@ -110,7 +110,7 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
-/datum/techweb_node/alientech/New()
+/datum/techweb_node/alien/base/New()
 	unlocked_designs += list(
 		/datum/design/alien_tool_upgrade,
 	)

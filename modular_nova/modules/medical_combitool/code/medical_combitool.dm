@@ -198,7 +198,7 @@
 	)
 	return ..()
 
-/datum/techweb_node/alien_surgery/New()
+/datum/techweb_node/alien/surgery/New()
 	unlocked_designs += list(
 		/datum/design/alienbloodfilter,
 		/datum/design/alienbonesetter,
