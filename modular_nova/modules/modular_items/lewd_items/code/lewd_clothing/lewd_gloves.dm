@@ -22,7 +22,7 @@
 		return
 	to_chat(user, span_notice("You reinforce the belts on [src] with [tool]."))
 	name = "reinforced [initial(name)]"
-	clothing_flags = DANGEROUS_OBJECT
+	ADD_TRAIT(src, TRAIT_DANGEROUS_EQUIP, INNATE_TRAIT)
 	breakouttime = 100 SECONDS
 	qdel(tool)
 	return ITEM_INTERACT_SUCCESS
