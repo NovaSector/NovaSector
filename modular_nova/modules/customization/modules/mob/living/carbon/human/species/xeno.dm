@@ -1,4 +1,4 @@
-/datum/species/xeno 
+/datum/species/xeno
 	// A cloning mistake, crossing human and xenomorph DNA
 	name = "Xenomorph Hybrid"
 	id = SPECIES_XENO
