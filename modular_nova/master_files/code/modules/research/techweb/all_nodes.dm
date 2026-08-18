@@ -4,7 +4,7 @@
 /datum/techweb_node/adv_vision
 	display_name = "Combat Cybernetic Eyes"
 	description = "Military grade combat implants to improve vision."
-	prerequisite_nodes = list(/datum/techweb_node/cyber/combat_implants, /datum/techweb_node/alien_surgery)
+	prerequisite_nodes = list(/datum/techweb_node/cyber/combat_implants, /datum/techweb_node/alien/surgery)
 	unlocked_designs = list(
 		/datum/design/cyberimp_thermals,
 		/datum/design/cyberimp_xray,
@@ -255,7 +255,7 @@
 
 ////////////////////////Alien technology////////////////////////
 
-/datum/techweb_node/alien_surgery/New()
+/datum/techweb_node/alien/surgery/New()
 	unlocked_designs += list(
 		/datum/design/medicell/brute3,
 		/datum/design/medicell/burn3,
@@ -425,13 +425,7 @@
 	nova_starting_node = FALSE
 
 // Alien Stuff
-/datum/techweb_node/alientech
-	nova_starting_node = FALSE
-
-/datum/techweb_node/alien_surgery
-	nova_starting_node = FALSE
-
-/datum/techweb_node/alien_engi
+/datum/techweb_node/alien
 	nova_starting_node = FALSE
 
 // Ilegal tech

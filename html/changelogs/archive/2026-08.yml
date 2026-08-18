@@ -442,3 +442,12 @@
   - bugfix: Neckerchiefs should no longer look wonky if you have a snout.
   sqnztb:
   - bugfix: medical records shouldn't be bluescreening now
+2026-08-18:
+  Iajret:
+  - bugfix: Alien technodes no longer available roundstart
+  Maximal08:
+  - bugfix: Ashen Eyes description no longer states that they are a focus
+  PapaMichael:
+  - bugfix: The Destructive Analyzer properly unlocks research nodes again
+  TealSeer:
+  - bugfix: fixed icons in the biogenerator UI being broken
