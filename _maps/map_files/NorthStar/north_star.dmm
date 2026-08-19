@@ -1,6 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aah" = (
 /obj/machinery/rnd/experimentor,
+/obj/effect/turf_decal/stripes/end{
+	dir = 8
+	},
 /turf/open/floor/engine,
 /area/station/science/explab)
 "aak" = (
@@ -24978,8 +24981,14 @@
 "gvM" = (
 /obj/effect/turf_decal/tile/purple/opposingcorners,
 /obj/structure/table,
-/obj/item/folder/white,
+/obj/item/folder/white{
+	pixel_x = 6
+	},
 /obj/structure/cable,
+/obj/item/book/manual/wiki/experimentor{
+	pixel_x = -6;
+	pixel_y = 3
+	},
 /turf/open/floor/iron/white,
 /area/station/science/explab)
 "gvN" = (
@@ -26441,6 +26450,11 @@
 /obj/machinery/modular_computer/preset/id,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/qm)
+"gOa" = (
+/obj/effect/turf_decal/tile/purple/opposingcorners,
+/obj/machinery/gizmo/toggle/tucker_tubes,
+/turf/open/floor/iron/white,
+/area/station/science/explab)
 "gOd" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/camera/autoname/directional/west,
@@ -39940,6 +39954,12 @@
 /obj/structure/cable,
 /turf/open/floor/wood/tile,
 /area/station/service/library)
+"kmA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/engine,
+/area/station/science/explab)
 "kmG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -50576,6 +50596,7 @@
 "mTo" = (
 /obj/effect/turf_decal/tile/purple/opposingcorners,
 /obj/structure/closet/secure_closet/cytology,
+/obj/item/book/manual/wiki/cytology,
 /turf/open/floor/iron,
 /area/station/science/cytology)
 "mTs" = (
@@ -53152,6 +53173,13 @@
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/engine/air,
 /area/station/engineering/atmos)
+"nyo" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/engine,
+/area/station/science/explab)
 "nyr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -54381,6 +54409,10 @@
 /obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/large,
 /area/station/cargo/warehouse)
+"nOv" = (
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/engine,
+/area/station/science/explab)
 "nOw" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 5
@@ -56034,6 +56066,13 @@
 /obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hop)
+"okj" = (
+/obj/effect/spawner/random/gizmo,
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/engine,
+/area/station/science/explab)
 "okr" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
@@ -57950,10 +57989,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/grass,
 /area/station/medical/virology)
-"oJr" = (
-/obj/structure/sign/poster/official/terragov/directional/north,
-/turf/open/floor/iron/dark/small,
-/area/station/science/xenobiology)
 "oJs" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -59125,6 +59160,9 @@
 "oZv" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "Science - Experimentor"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
 /turf/open/floor/engine,
 /area/station/science/explab)
@@ -64952,6 +64990,9 @@
 /turf/open/floor/iron,
 /area/station/hallway/floor4/fore)
 "qyx" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
 /turf/open/floor/engine,
 /area/station/science/explab)
 "qyB" = (
@@ -73422,6 +73463,12 @@
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/office)
+"sKd" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/engine,
+/area/station/science/explab)
 "sKm" = (
 /turf/closed/wall,
 /area/station/medical/virology/isolation)
@@ -74344,6 +74391,12 @@
 	},
 /turf/open/floor/wood,
 /area/station/commons/dorms/apartment2)
+"sWe" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/station/science/explab)
 "sWf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/stripes{
@@ -84057,6 +84110,12 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/carpet/red,
 /area/station/service/theater)
+"vtg" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 5
+	},
+/turf/open/floor/engine,
+/area/station/science/explab)
 "vtj" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -87421,6 +87480,12 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/medical/abandoned)
+"wkq" = (
+/obj/effect/turf_decal/stripes/end{
+	dir = 4
+	},
+/turf/open/floor/engine,
+/area/station/science/explab)
 "wkr" = (
 /obj/item/storage/box/lights/bulbs,
 /obj/structure/rack,
@@ -93848,6 +93913,9 @@
 /area/station/maintenance/floor2/starboard/fore)
 "xOe" = (
 /obj/machinery/light/cold/no_nightlight/directional/north,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/station/science/explab)
 "xOr" = (
@@ -94191,7 +94259,7 @@
 /obj/item/storage/box/monkeycubes{
 	pixel_x = 5
 	},
-/obj/structure/sign/poster/official/random/directional/west,
+/obj/structure/sign/xenobio_guide/directional/west,
 /turf/open/floor/circuit,
 /area/station/science/xenobiology)
 "xTa" = (
@@ -184873,13 +184941,13 @@ gqP
 cwq
 cwq
 xuv
-qyx
-qyx
+kmA
+sKd
 qyx
 vxK
 jON
 jON
-jON
+gOa
 vxK
 wvv
 hVK
@@ -185132,7 +185200,7 @@ vlV
 xuv
 xOe
 aah
-qyx
+nyo
 lRi
 tGa
 myS
@@ -185388,8 +185456,8 @@ hcF
 pGR
 xuv
 oZv
-qyx
-qyx
+wkq
+nOv
 vxK
 rgy
 acF
@@ -185644,9 +185712,9 @@ gqP
 cwq
 cwq
 xuv
-qyx
-qyx
-qyx
+vtg
+sWe
+okj
 vxK
 abm
 gvM
@@ -256317,7 +256385,7 @@ ucA
 ucA
 nAH
 nAH
-oJr
+rSD
 bTy
 nqi
 hSP
