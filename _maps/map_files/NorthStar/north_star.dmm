@@ -10278,7 +10278,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "cBJ" = (
-/obj/machinery/door/airlock/medical{
+/obj/machinery/door/airlock/grunge{
 	name = "Morgue"
 	},
 /obj/structure/cable,
@@ -12487,10 +12487,14 @@
 /turf/open/floor/iron/white/textured_large,
 /area/station/service/chapel)
 "dfa" = (
-/obj/item/flashlight/lamp/green,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 6
+	},
 /obj/structure/table/wood,
-/obj/item/instrument/guitar,
 /obj/machinery/duct,
+/obj/item/tgui_book/manual/idc{
+	pixel_x = -9
+	},
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/cmo)
 "dff" = (
@@ -13975,6 +13979,7 @@
 "dAp" = (
 /obj/item/radio/intercom/directional/east,
 /obj/structure/bookcase/random/nonfiction,
+/obj/item/tgui_book/manual/dsm,
 /turf/open/floor/wood/parquet,
 /area/station/medical/psychology)
 "dAr" = (
@@ -18074,6 +18079,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
+/obj/effect/spawner/surgery_tray/full/deployed,
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/surgery/fore)
 "eDt" = (
@@ -27583,6 +27589,7 @@
 	},
 /obj/machinery/airalarm/directional/south,
 /obj/structure/sink/directional/north,
+/obj/effect/mapping_helpers/airalarm/surgery,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/aft)
 "hdX" = (
@@ -35202,6 +35209,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 1
 	},
+/obj/effect/spawner/surgery_tray/full/deployed,
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/surgery/aft)
 "jbu" = (
@@ -37180,6 +37188,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor1/port)
+"jCZ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/station/medical/cryo)
 "jDc" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/item/folder/white,
@@ -39506,6 +39518,7 @@
 /area/station/cargo/storage)
 "kgl" = (
 /obj/structure/table/reinforced,
+/obj/item/tgui_book/manual/idc,
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/pharmacy)
 "kgn" = (
@@ -48510,6 +48523,8 @@
 /area/station/hallway/floor1/fore)
 "mrW" = (
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/structure/rack,
+/obj/item/book/manual/wiki/plumbing,
 /turf/open/floor/iron/large,
 /area/station/medical/chemistry)
 "mrZ" = (
@@ -59407,6 +59422,9 @@
 /area/station/ai/satellite/hallway)
 "pdf" = (
 /obj/structure/closet/secure_closet/chief_medical,
+/obj/item/instrument/guitar,
+/obj/item/disk/computer/medical,
+/obj/item/disk/computer/medical,
 /turf/open/floor/wood/parquet,
 /area/station/command/heads_quarters/cmo)
 "pdh" = (
@@ -76894,6 +76912,12 @@
 	},
 /obj/structure/table/wood,
 /obj/structure/extinguisher_cabinet/directional/south,
+/obj/item/tgui_book/manual/idc{
+	pixel_x = 6
+	},
+/obj/item/tgui_book/manual/dsm{
+	pixel_x = -6
+	},
 /turf/open/floor/carpet/royalblue,
 /area/station/medical/break_room)
 "tBv" = (
@@ -79365,7 +79389,6 @@
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/rd)
 "ujd" = (
-/obj/effect/spawner/surgery_tray/full,
 /obj/item/reagent_containers/medigel/sterilizine{
 	pixel_x = 1
 	},
@@ -79379,6 +79402,10 @@
 /obj/structure/table/reinforced/rglass,
 /obj/effect/turf_decal/siding/white{
 	dir = 9
+	},
+/obj/item/book/manual/wiki/surgery{
+	pixel_x = -4;
+	pixel_y = 4
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/surgery/fore)
@@ -86746,6 +86773,7 @@
 	},
 /obj/machinery/airalarm/directional/south,
 /obj/structure/sink/directional/north,
+/obj/effect/mapping_helpers/airalarm/surgery,
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/fore)
 "wbf" = (
@@ -89578,6 +89606,13 @@
 /obj/structure/table/reinforced/rglass,
 /obj/effect/turf_decal/box/white,
 /obj/effect/turf_decal/tile/green/opposingcorners,
+/obj/item/tgui_book/manual/idc{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/book/manual/wiki/infections{
+	pixel_x = -5
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "wJB" = (
@@ -92839,7 +92874,6 @@
 /turf/open/floor/plating,
 /area/station/cargo/lobby)
 "xBi" = (
-/obj/effect/spawner/surgery_tray/full,
 /obj/item/reagent_containers/medigel/sterilizine{
 	pixel_x = 1
 	},
@@ -92853,6 +92887,10 @@
 /obj/structure/table/reinforced/rglass,
 /obj/effect/turf_decal/siding/white{
 	dir = 9
+	},
+/obj/item/book/manual/wiki/surgery{
+	pixel_x = -4;
+	pixel_y = 4
 	},
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/surgery/aft)
@@ -198344,7 +198382,7 @@ sOT
 twY
 twY
 qcr
-xcY
+jCZ
 otX
 gEZ
 dHR
@@ -198601,7 +198639,7 @@ scx
 dzM
 dzM
 qcr
-xcY
+jCZ
 nKY
 mjg
 ehO
@@ -198858,7 +198896,7 @@ ijd
 vOo
 vOo
 qcr
-xcY
+jCZ
 rEp
 gEZ
 dHR
