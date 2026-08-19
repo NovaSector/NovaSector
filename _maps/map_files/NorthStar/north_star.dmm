@@ -75604,16 +75604,6 @@
 	dir = 6
 	},
 /area/station/security/prison)
-"tmn" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/red/opposingcorners{
-	dir = 1
-	},
-/obj/structure/cable,
-/obj/effect/landmark/start/corrections_officer,
-/turf/open/floor/iron/dark,
-/area/station/security/brig)
 "tmq" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -327060,7 +327050,7 @@ jiM
 dSF
 kTI
 wkv
-xey
+kTI
 sJK
 ycM
 rCx
@@ -327315,7 +327305,7 @@ skD
 skD
 qBm
 qXp
-tmn
+qXp
 qXp
 kTI
 eWl
