@@ -11675,7 +11675,7 @@
 	dir = 10
 	},
 /obj/structure/rack,
-/obj/item/food/grown/poppy/geranium/fraxinella{
+/obj/item/food/grown/flower/poppy/geranium/fraxinella{
 	color = "#00FFFF";
 	desc = "A beautiful cyan flower. You get the feeling you won't see one like this here very often."
 	},
@@ -17291,7 +17291,7 @@
 /area/station/maintenance/floor2/port/aft)
 "esR" = (
 /obj/structure/table/wood/fancy/red,
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /turf/open/floor/iron/white/textured_large,
 /area/station/service/chapel)
 "esV" = (
@@ -34156,21 +34156,10 @@
 /turf/closed/wall/r_wall,
 /area/station/maintenance/floor2/starboard)
 "iOD" = (
-/obj/machinery/computer/upload/ai,
-/obj/structure/window/reinforced/spawner/directional/north,
-/obj/structure/window/reinforced/spawner/directional/east,
-/obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
 	},
-/obj/machinery/camera/directional/north{
-	c_tag = "AI Upload Chamber - Fore";
-	network = list("aiupload")
-	},
-/obj/machinery/door/window/right/directional/south{
-	name = "Upload Console Window";
-	req_access = list("ai_upload")
-	},
+/obj/machinery/ai_law_rack/base/core,
 /turf/open/floor/iron/dark,
 /area/station/ai/upload/chamber)
 "iOL" = (
@@ -46425,17 +46414,14 @@
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite)
 "lSI" = (
-/obj/machinery/computer/upload/borg,
-/obj/structure/window/reinforced/spawner/directional/north,
-/obj/structure/window/reinforced/spawner/directional/east,
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/machinery/door/window/left/directional/south{
-	name = "Cyborg Upload Console Window";
-	req_access = list("ai_upload")
-	},
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
 	},
+/obj/machinery/camera/directional/north{
+	c_tag = "AI Upload Chamber - Fore";
+	network = list("aiupload")
+	},
+/obj/item/kirbyplants/photosynthetic,
 /turf/open/floor/iron/dark,
 /area/station/ai/upload/chamber)
 "lSJ" = (
@@ -56512,7 +56498,7 @@
 /area/station/security/prison)
 "opR" = (
 /obj/structure/table/wood/fancy/red,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_y = 2
 	},
 /turf/open/floor/iron/white/textured_large,
@@ -65301,7 +65287,6 @@
 /area/station/hallway/secondary/exit/escape_pod)
 "qBW" = (
 /obj/structure/table,
-/obj/item/ai_module/reset,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
 	},
@@ -76665,7 +76650,7 @@
 "tyu" = (
 /obj/structure/table/wood/fancy/red,
 /obj/item/flashlight/flare/candle,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_y = 16
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -82978,7 +82963,7 @@
 "vfa" = (
 /obj/structure/table/wood/fancy/red,
 /obj/item/flashlight/flare/candle,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_x = -16;
 	pixel_y = 2
 	},
@@ -84663,9 +84648,6 @@
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 4
 	},
-/obj/item/kirbyplants/photosynthetic{
-	pixel_y = 10
-	},
 /turf/open/floor/iron/dark,
 /area/station/ai/upload/chamber)
 "vAe" = (
@@ -85815,7 +85797,6 @@
 /area/station/engineering/atmos)
 "vQf" = (
 /obj/structure/table,
-/obj/item/ai_module/reset/purge,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
 	},
@@ -85856,7 +85837,7 @@
 /area/station/command/heads_quarters/rd)
 "vQt" = (
 /obj/structure/table/bronze,
-/obj/item/food/grown/poppy{
+/obj/item/food/grown/flower/poppy{
 	pixel_y = 2
 	},
 /turf/open/floor/iron,
