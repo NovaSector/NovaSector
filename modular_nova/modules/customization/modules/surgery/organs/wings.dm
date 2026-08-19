@@ -4,16 +4,6 @@
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_WINGS
 	mutantpart_key = FEATURE_WINGS
-	///Whether the wings should grant flight on insertion.
-	var/unconditional_flight
-	///What species get flights thanks to those wings. Important for moth wings
-	var/list/flight_for_species
-	///Whether a wing can be opened by the *wing emote. The sprite use a "_open" suffix, before their layer
-	var/can_open
-	///Whether an openable wing is currently opened
-	var/is_open
-	///Whether the owner of wings has flight thanks to the wings
-	var/granted_flight
 
 // Upstream's wing base type now defaults to the functional overlay, but our player-customized
 // wings are purely cosmetic and need the plain one to keep their chosen colors.
@@ -26,15 +16,12 @@
 /datum/bodypart_overlay/mutant/wings/get_global_feature_list()
 	return SSaccessories.sprite_accessories[FEATURE_WINGS]
 
-//TODO: Well you know what this flight stuff is a bit complicated and hardcoded, this is enough for now
-
 /datum/bodypart_overlay/mutant/wings/override_color(rgb_value)
 	return draw_color
 
 /obj/item/organ/wings/moth
 	name = "moth wings"
 	desc = "A pair of fuzzy moth wings."
-	flight_for_species = list(SPECIES_MOTH)
 	///Our associated shadow jaunt spell, for all nightmares
 	var/datum/action/cooldown/spell/touch/moth_climb/our_climb
 	///Our associated terrorize spell, for antagonist nightmares
@@ -191,22 +178,6 @@
 		if(atom_content.density)
 			return TRUE
 	return FALSE
-
-/obj/item/organ/wings/flight
-	unconditional_flight = TRUE
-	can_open = TRUE
-
-/obj/item/organ/wings/flight/angel
-	name = "angel wings"
-	desc = "A pair of magnificent, feathery wings. They look strong enough to lift you up in the air."
-
-/obj/item/organ/wings/flight/dragon
-	name = "dragon wings"
-	desc = "A pair of intimidating, membranous wings. They look strong enough to lift you up in the air."
-
-/obj/item/organ/wings/flight/megamoth
-	name = "megamoth wings"
-	desc = "A pair of horrifyingly large, fuzzy wings. They look strong enough to lift you up in the air."
 
 /datum/bodypart_overlay/mutant/wings/functional
 	color_source = ORGAN_COLOR_INHERIT
