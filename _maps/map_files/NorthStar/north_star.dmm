@@ -24021,6 +24021,8 @@
 	},
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/small/red/directional/west,
+/obj/structure/sign/delam_procedure/directional/south,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 4
 	},
@@ -43838,9 +43840,9 @@
 /turf/closed/wall,
 /area/station/maintenance/floor3/port/aft)
 "lka" = (
-/obj/structure/closet/secure_closet/security,
 /obj/effect/turf_decal/bot,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
+/obj/structure/closet/l3closet/security,
 /obj/item/storage/medkit/emergency,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/science)
@@ -75151,15 +75153,9 @@
 /turf/open/floor/plating,
 /area/station/service/chapel/office)
 "teX" = (
-/obj/structure/closet/secure_closet/security,
 /obj/effect/turf_decal/bot,
-/obj/item/modular_computer/laptop/preset/security,
-/obj/item/radio{
-	desc = "An old handheld radio. You could use it, if you really wanted to.";
-	icon_state = "radio";
-	name = "old radio"
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/toolcloset,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/security/checkpoint/engineering)
 "tff" = (
@@ -95387,20 +95383,38 @@
 /area/station/cargo/warehouse)
 "yjd" = (
 /obj/effect/turf_decal/bot,
-/obj/structure/closet/secure_closet/security,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
 /obj/item/storage/medkit/emergency,
 /obj/item/storage/box/evidence,
+/obj/structure/closet/secure_closet/evidence{
+	req_one_access = null;
+	req_access = list("brig_entrance","cargo");
+	name = "customs evidence locker"
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/checkpoint/supply)
 "yjh" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/rack,
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = 4
-	},
-/obj/item/storage/toolbox/electrical,
 /obj/item/radio/intercom/directional/west,
+/obj/item/modular_computer/laptop/preset/security,
+/obj/item/radio{
+	desc = "An old handheld radio. You could use it, if you really wanted to.";
+	icon_state = "radio";
+	name = "old radio"
+	},
+/obj/item/clothing/head/cone{
+	pixel_y = -4
+	},
+/obj/item/clothing/head/cone{
+	pixel_y = -4
+	},
+/obj/item/clothing/head/cone{
+	pixel_y = -4
+	},
+/obj/item/clothing/head/cone{
+	pixel_y = -4
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/checkpoint/engineering)
 "yjJ" = (
