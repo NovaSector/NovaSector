@@ -87,7 +87,6 @@
 	name = "Alien Bonesetter"
 	desc = "An advanced bonesetter obtained throubh Abductor technology. \
 		Theoretically useful for directly treating fractures without surgical intervention. Theoretically."
-	id = "alien_bonesetter"
 	build_path = /obj/item/bonesetter/alien
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT,
@@ -111,7 +110,6 @@
 /datum/design/alienbloodfilter
 	name = "Alien Blood Filter"
 	desc = "An advanced blood filter obtained through Abductor technology."
-	id = "alien_bloodfilter"
 	build_path = /obj/item/blood_filter/alien
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT,
@@ -182,7 +180,6 @@
 /datum/design/combitool
 	name = "Medical Combitool"
 	desc = "This tool can be either used as a blood filter or bonesetter."
-	id = "combitool"
 	build_path = /obj/item/blood_filter/advanced
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6,
@@ -196,14 +193,14 @@
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/techweb_node/surgery_tools/New()
-	design_ids += list(
-		"combitool",
+	unlocked_designs += list(
+		/datum/design/combitool,
 	)
 	return ..()
 
-/datum/techweb_node/alien_surgery/New()
-	design_ids += list(
-		"alien_bloodfilter",
-		"alien_bonesetter",
+/datum/techweb_node/alien/surgery/New()
+	unlocked_designs += list(
+		/datum/design/alienbloodfilter,
+		/datum/design/alienbonesetter,
 	)
 	return ..()

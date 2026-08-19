@@ -63,7 +63,7 @@
 		emote("scream")
 
 /mob/living/basic/true_changeling/emote(act, m_type=1, message = null, intentional = TRUE)
-	if(stat)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		return
 	if(act == "scream")
 		message = span_emote("<B>[src]</B> makes a loud, bone-chilling roar!")

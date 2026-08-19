@@ -96,6 +96,7 @@
 				/obj/item/clothing/under/dress/skirt/nova/long = 5,
 				/obj/item/clothing/under/dress/skirt/nova/mini_skirt = 5,
 				/obj/item/clothing/under/dress/nova/giant_scarf = 5,
+				/obj/item/clothing/under/dress/nova/virgin_killer_sweater = 5,
 				/obj/item/clothing/under/pants/nova/shorted_overall = 5,
 				/obj/item/clothing/under/misc/nova/gear_harness = 5,
 				/obj/item/clothing/under/misc/nova/modskin = 5,
@@ -200,6 +201,7 @@
 				/obj/item/clothing/shoes/high_heels = 5,
 				/obj/item/clothing/shoes/jackboots/toeless = 5,
 				/obj/item/clothing/shoes/fancy_heels = 5,
+				/obj/item/clothing/shoes/fancy_heels/sandals = 5,
 			),
 		),
 

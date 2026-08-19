@@ -406,7 +406,7 @@
 	SIGNAL_HANDLER
 
 	// Skip if unconscious
-	if(slime.stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(slime))
 		return
 
 	var/healing = TRUE
@@ -455,7 +455,7 @@
 
 	// PASSIVE HEALING
 	if(slime.get_blood_volume() >= BLOOD_VOLUME_NORMAL && healing)
-		if(slime.stat != CONSCIOUS)
+		if(IS_UNCONSCIOUS_OR_CRIT(slime))
 			return
 		var/need_mob_update
 		need_mob_update += slime.heal_overall_damage(brute = SPECIES_SLIME_PASSIVE_REGEN_BRUTE * seconds_per_tick, burn = SPECIES_SLIME_PASSIVE_REGEN_BURN * seconds_per_tick, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
@@ -519,7 +519,7 @@
 			if(SPT_PROB(5, seconds_per_tick))
 				slime_person.adjust_nutrition((rand(5,25)))
 
-/datum/status_effect/slime_washing/get_examine_text()
+/datum/status_effect/slime_washing/get_examine_text(mob/examiner)
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
 
 /*
@@ -573,7 +573,7 @@
 	. = ..()
 	owner.remove_movespeed_modifier(/datum/movespeed_modifier/status_effect/slime_hydrophobia, update=TRUE)
 
-/datum/status_effect/slime_hydrophobia/get_examine_text()
+/datum/status_effect/slime_hydrophobia/get_examine_text(mob/examiner)
 	return span_notice("[owner.p_They()] is oozing out an oily coating onto [owner.p_their()] outer membrane, water rolling right off.")
 
 /datum/species/jelly/get_species_description()

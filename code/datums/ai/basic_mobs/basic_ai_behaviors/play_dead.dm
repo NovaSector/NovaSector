@@ -4,7 +4,7 @@
 
 /datum/bt_node/ai_behavior/play_dead/setup(datum/ai_controller/controller)
 	var/mob/living/basic/pawn = controller.pawn
-	if(!istype(pawn) || pawn.stat)
+	if(!istype(pawn) || IS_UNCONSCIOUS_OR_CRIT(pawn))
 		return FALSE
 	INVOKE_ASYNC(pawn, TYPE_PROC_REF(/mob, emote), "deathgasp", intentional = FALSE)
 	ADD_TRAIT(pawn, TRAIT_FAKEDEATH, BASIC_MOB_DEATH_TRAIT)
@@ -18,7 +18,7 @@
 /datum/bt_node/ai_behavior/play_dead/finish_action(datum/ai_controller/controller, succeeded)
 	. = ..()
 	var/mob/living/basic/pawn = controller.pawn
-	if(QDELETED(pawn) || pawn.stat)
+	if(QDELETED(pawn) || IS_UNCONSCIOUS_OR_CRIT(pawn))
 		return
 	pawn.visible_message(span_notice("[pawn] miraculously springs back to life!"))
 	REMOVE_TRAIT(pawn, TRAIT_FAKEDEATH, BASIC_MOB_DEATH_TRAIT)

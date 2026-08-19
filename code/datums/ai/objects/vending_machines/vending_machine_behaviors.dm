@@ -12,7 +12,7 @@
 
 /datum/bt_node/ai_behavior/find_vendor_target/perform(seconds_per_tick, datum/ai_controller/controller)
 	for(var/mob/living/living_target in oview(vision_range, controller.pawn))
-		if(living_target.stat || living_target.incorporeal_move)
+		if(IS_UNCONSCIOUS_OR_CRIT(living_target) || living_target.incorporeal_move)
 			continue
 		controller.set_blackboard_key(target_key, living_target)
 		return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED

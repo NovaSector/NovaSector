@@ -34,7 +34,7 @@
 	. = ..()
 
 	GLOB.new_player_list += src
-	add_verb(src, /mob/dead/new_player/proc/reset_menu_hud)
+	ASSIGN_GAME_VERB(src, /mob/dead/new_player, reset_menu_hud)
 
 /mob/dead/new_player/Destroy()
 	GLOB.new_player_list -= src
@@ -327,18 +327,23 @@
 
 	mind.active = FALSE //we wish to transfer the key manually
 	var/mob/living/spawning_mob = mind.assigned_role.get_spawn_mob(client, destination)
-	if(QDELETED(src) || !HAS_CONNECTED_PLAYER(src))
-		return // Disconnected while checking for the appearance ban.
+	if(QDELETED(src))
+		return
+
+	// Annoyingly the AI mob yoinks our client on init so we have to check for it here
+	var/client/player_client = src.client || spawning_mob.client
+	if(isnull(player_client))
+		return
 
 	if(!isAI(spawning_mob)) // Unfortunately there's still snowflake AI code out there.
 		// transfer_to sets mind to null
 		var/datum/mind/preserved_mind = mind
-		preserved_mind.original_character_slot_index = client.prefs.default_slot
+		preserved_mind.original_character_slot_index = player_client.prefs.default_slot
 		preserved_mind.transfer_to(spawning_mob) //won't transfer key since the mind is not active
 		preserved_mind.set_original_character(spawning_mob)
 
-	LAZYADD(persistent_client.joined_as_slots, "[client.prefs.default_slot]")
-	client.init_verbs()
+	LAZYADD(player_client.persistent_client.joined_as_slots, "[player_client.prefs.default_slot]")
+	player_client.init_verbs()
 	. = spawning_mob
 	new_character = .
 
@@ -411,13 +416,11 @@
 		I.ui_interact(src)
 
 	// Add verb for re-opening the interview panel, fixing chat and re-init the verbs for the stat panel
-	add_verb(src, /mob/dead/new_player/proc/open_interview)
+	ASSIGN_GAME_VERB(src, /mob/dead/new_player, open_interview)
 	add_verb(client, /client/verb/fix_tgui_panel)
 
 ///Resets the Lobby Menu HUD, recreating and reassigning it to the new player
-/mob/dead/new_player/proc/reset_menu_hud()
-	set name = "Reset Lobby Menu HUD"
-	set category = "OOC"
+GAME_VERB_PROC(/mob/dead/new_player, reset_menu_hud, "Reset Lobby Menu HUD", "OOC")
 	var/mob/dead/new_player/new_player = usr
 	if(!COOLDOWN_FINISHED(new_player, reset_hud_cooldown))
 		to_chat(new_player, span_warning("You must wait <b>[DisplayTimeText(COOLDOWN_TIMELEFT(new_player, reset_hud_cooldown))]</b> before resetting the Lobby Menu HUD again!"))

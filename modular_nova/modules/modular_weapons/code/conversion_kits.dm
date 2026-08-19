@@ -39,6 +39,7 @@
 
 /datum/crafting_recipe/mosin_pro
 	name = "Sakhno to Xhihao 'Rengo' Conversion"
+	crafting_flags = parent_type::crafting_flags | CRAFT_COLLECT_REQUIREMENTS
 	desc = "It's actually really easy to change the stock on your Sakhno. Anyone can do it. It takes roughly thirty seconds and a screwdriver."
 	result = /obj/item/gun/ballistic/rifle/sporterized/empty
 	reqs = list(

@@ -64,8 +64,9 @@
 	else
 		set_hud_image_inactive(DNR_HUD)
 
-/mob/living/carbon/human/examine(mob/user)
-	. = ..()
+/// Examine lines warning HUD users that we're not to be revived. Called by /mob/living/carbon/human/examine().
+/mob/living/carbon/human/proc/get_dnr_examine(mob/user)
+	. = list()
 
 	if(stat != DEAD && HAS_TRAIT(src, TRAIT_DNR) && (HAS_TRAIT(user, TRAIT_SECURITY_HUD) || HAS_TRAIT(user, TRAIT_MEDICAL_HUD)))
 		. += "\n[span_boldwarning("This individual is unable to be revived, and may be permanently dead if allowed to die!")]"
@@ -93,7 +94,7 @@
 	pcooldown = world.time + pcooldown_time
 	var/mob/living/carbon/human/user = quirk_holder
 	if(user && istype(user))
-		if(user.stat == CONSCIOUS)
+		if(!IS_UNCONSCIOUS_OR_CRIT(user))
 			if(prob(20))
 				user.emote("laugh")
 				addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, emote), "laugh"), 5 SECONDS)

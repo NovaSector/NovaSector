@@ -449,8 +449,8 @@
 			item_dropping.forceMove(newloc)
 
 	has_unequipped(item_dropping, silent)
-	SEND_SIGNAL(item_dropping, COMSIG_ITEM_POST_UNEQUIP, force, newloc, no_move, invdrop, silent)
-	SEND_SIGNAL(src, COMSIG_MOB_UNEQUIPPED_ITEM, item_dropping, force, newloc, no_move, invdrop, silent)
+	SEND_SIGNAL(item_dropping, COMSIG_ITEM_POST_UNEQUIP, force, newloc, no_move, invdrop, silent, hand_index)
+	SEND_SIGNAL(src, COMSIG_MOB_UNEQUIPPED_ITEM, item_dropping, force, newloc, no_move, invdrop, silent, hand_index)
 	return TRUE
 
 /**
@@ -649,9 +649,7 @@
 		qdel(item)
 	return FALSE
 
-/mob/verb/quick_equip()
-	set name = "quick-equip"
-	set hidden = TRUE
+GAME_VERB_HIDDEN(/mob, quick_equip, "quick-equip")
 
 	DEFAULT_QUEUE_OR_CALL_VERB(VERB_CALLBACK(src, PROC_REF(execute_quick_equip)))
 

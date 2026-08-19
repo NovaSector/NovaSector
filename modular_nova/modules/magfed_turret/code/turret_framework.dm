@@ -856,36 +856,33 @@
 		balloon_alert(user, "repaired!")
 	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/attackby_secondary(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers) //IM TIRED OF MISMATCHED VAR NAMES. IT'S ATTACK_ITEM ON MAIN, WHY WEAPON HERE?
-	. = ..()
-	if(. == SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN)
-		return
+/obj/machinery/porta_turret/syndicate/toolbox/mag_fed/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
 	if(in_faction(user))
-		if(istype(attacking_item, /obj/item/target_designator))
+		if(istype(tool, /obj/item/target_designator))
 			var/obj/item/target_designator/owner_check = linkage?.resolve()
-			if(attacking_item != owner_check) //cant unlink if not the same one
+			if(tool != owner_check) //cant unlink if not the same one
 				balloon_alert(user, "turret not linked!")
-				return
-			var/obj/item/target_designator/controller = attacking_item
+				return ITEM_INTERACT_BLOCKING
+			var/obj/item/target_designator/controller = tool
 			linkage = null
 			controller.linked_turrets -= src
 			balloon_alert(user, "turret unlinked!")
-			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+			return ITEM_INTERACT_SUCCESS
 
-	if(attacking_item.tool_behaviour != TOOL_WRENCH)
-		return SECONDARY_ATTACK_CALL_NORMAL
+	if(tool.tool_behaviour != TOOL_WRENCH)
+		return NONE
 
-	if(!attacking_item.toolspeed)
-		return SECONDARY_ATTACK_CALL_NORMAL
+	if(!tool.toolspeed)
+		return NONE
 
 	if(!claptrap_moment)
 		balloon_alert(user, "deconstructing...")
-	if(!attacking_item.use_tool(src, user, 5 SECONDS, volume = 20))
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	if(!tool.use_tool(src, user, 5 SECONDS, volume = 20))
+		return ITEM_INTERACT_BLOCKING
 
-	attacking_item.play_tool_sound(src, 50)
+	tool.play_tool_sound(src, 50)
 	deconstruct(TRUE)
-	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/porta_turret/syndicate/toolbox/mag_fed/click_alt_secondary(mob/user)
 	. = ..()

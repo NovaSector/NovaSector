@@ -264,15 +264,11 @@ def main() -> int:
             repo_root = Path(sys.argv[idx + 1]).resolve()
 
     generated_dir = repo_root / 'build' / 'behavior_trees'
-    #code_dir = repo_root / 'code' // NOVA EDIT REMOVAL
     generated_dir.mkdir(parents=True, exist_ok=True)
 
     print('Parsing DM defines...')
     defines = parse_defines(repo_root)
     print(f'  Resolved {len(defines)} defines.')
-
-    bt_files = sorted(repo_root.glob('code/**/*.bt.json')) + sorted(repo_root.glob('modular_nova/**/*.bt.json')) # NOVA EDIT CHANGE - ORIGINAL: bt_files = sorted(repo_root.glob('code/**/*.bt.json'))
-    print(f'Found {len(bt_files)} .bt.json source files.')
 
     errors = 0
     dirty = 0
@@ -281,50 +277,78 @@ def main() -> int:
     produced: dict[Path, Path] = {}
     generated_paths: set[Path] = set()
 
-    for src_path in bt_files:
-        # The compiled file mirrors the source path relative to its root (code/ or modular_nova/), so trees that share a basename dont fucking break. # NOVA EDIT CHANGE - ORIGINAL: # The compiled file mirrors the source path relative to code/, so trees that share a basename dont fucking break.
-        rel = strip_known_root(src_path.relative_to(repo_root).as_posix())  # "datums/ai/dog/dog.bt.json" # NOVA EDIT CHANGE - ORIGINAL: rel = src_path.relative_to(code_dir).as_posix()  # "datums/ai/dog/dog.bt.json"
-        tree_name = rel[:-len('.json')]                   # "datums/ai/dog/dog.bt"
-        compiled_path = generated_dir / f'{tree_name}.compiled.json'
+    code_dirs = [
+        repo_root / 'code',
+        repo_root / 'modular_nova',  # NOVA EDIT CHANGE - ORIGINAL: code_dirs only included repo_root / 'code'
+    ]
 
-        prior = produced.get(compiled_path)
-        if prior is not None:
-            print(
-                f'ERROR: {src_path.relative_to(repo_root)} and {prior.relative_to(repo_root)} '
-                f'both compile to {compiled_path.relative_to(repo_root)}',
-                file=sys.stderr,
-            )
-            errors += 1
+    for code_dir in code_dirs:
+        if not code_dir.is_dir():
             continue
-        produced[compiled_path] = src_path
-        generated_paths.add(compiled_path)
+        bt_files = sorted(code_dir.glob('**/*.bt.json'))
+        print(f'Found {len(bt_files)} .bt.json source files in {code_dir}')
+        for src_path in bt_files:
+            rel_to_repo = src_path.relative_to(repo_root).as_posix()  # "code/datums/ai/dog/dog.bt.json"
+            rel_flat = strip_known_root(rel_to_repo)  # "datums/ai/dog/dog.bt.json"
 
-        # compile json
-        try:
-            src_json = json.loads(src_path.read_text(encoding='utf-8'))
-        except Exception as exc:
-            print(f'ERROR reading {src_path.relative_to(repo_root)}: {exc}', file=sys.stderr)
-            errors += 1
-            continue
+            # NOVA EDIT ADDITION START - BT output compatibility for runtime + upstream tooling
+            # Original upstream behavior emitted only rooted paths under build/behavior_trees/code/... .
+            # Nova runtime expects flattened paths without top-level code/ or modular_nova/ prefixes.
+            # Emit both layouts to preserve runtime compatibility while satisfying CI/build expectations.
+            compiled_paths: list[Path] = [
+                generated_dir / f'{rel_flat[:-len(".json")]}.compiled.json',
+                generated_dir / f'{rel_to_repo[:-len(".json")]}.compiled.json',
+            ]
+            # NOVA EDIT ADDITION END
 
-        try:
-            compiled = compile_node(src_json, defines)
-        except Exception as exc:
-            print(f'ERROR compiling {src_path.relative_to(repo_root)}: {exc}', file=sys.stderr)
-            errors += 1
-            continue
+            # Deduplicate while preserving order in case a path resolves identically.
+            unique_compiled_paths: list[Path] = list(dict.fromkeys(compiled_paths))
 
-        compiled_text = json.dumps(compiled, separators=(',', ':')) + '\n'
+            path_collision = False
+            for compiled_path in unique_compiled_paths:
+                prior = produced.get(compiled_path)
+                if prior is not None:
+                    print(
+                        f'ERROR: {src_path.relative_to(repo_root)} and {prior.relative_to(repo_root)} '
+                        f'both compile to {compiled_path.relative_to(repo_root)}',
+                        file=sys.stderr,
+                    )
+                    errors += 1
+                    path_collision = True
+                    continue
+                produced[compiled_path] = src_path
+                generated_paths.add(compiled_path)
+            if path_collision:
+                continue
 
-        # either write or check depending on flag
-        if check_mode:
-            existing = compiled_path.read_text(encoding='utf-8', newline='') if compiled_path.exists() else ''
-            if existing != compiled_text:
-                print(f'OUT OF DATE: {compiled_path.relative_to(repo_root)}', file=sys.stderr)
-                dirty += 1
-        else:
-            compiled_path.parent.mkdir(parents=True, exist_ok=True)
-            compiled_path.write_text(compiled_text, encoding='utf-8', newline='')
+            # compile json
+            try:
+                src_json = json.loads(src_path.read_text(encoding='utf-8'))
+            except Exception as exc:
+                print(f'ERROR reading {src_path.relative_to(repo_root)}: {exc}', file=sys.stderr)
+                errors += 1
+                continue
+
+            try:
+                compiled = compile_node(src_json, defines)
+            except Exception as exc:
+                print(f'ERROR compiling {src_path.relative_to(repo_root)}: {exc}', file=sys.stderr)
+                errors += 1
+                continue
+
+            compiled_text = json.dumps(compiled, separators=(',', ':')) + '\n'
+
+            # either write or check depending on flag
+            if check_mode:
+                for compiled_path in unique_compiled_paths:
+                    existing = compiled_path.read_text(encoding='utf-8', newline='') if compiled_path.exists() else ''
+                    if existing != compiled_text:
+                        print(f'OUT OF DATE: {compiled_path.relative_to(repo_root)}', file=sys.stderr)
+                        dirty += 1
+            else:
+                for compiled_path in unique_compiled_paths:
+                    compiled_path.parent.mkdir(parents=True, exist_ok=True)
+                    compiled_path.write_text(compiled_text, encoding='utf-8', newline='')
 
     # Remove stale compiled files that no longer correspond to a source tree —
     stale = [p for p in generated_dir.rglob('*.compiled.json') if p not in generated_paths]

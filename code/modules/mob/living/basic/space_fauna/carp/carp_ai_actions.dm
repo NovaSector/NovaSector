@@ -129,7 +129,7 @@
 	for(var/mob/living/dead_pal in oview(MAGICARP_SPELL_TARGET_SEEK_RANGE, living_pawn))
 		if(!isturf(dead_pal.loc))
 			continue
-		if(!dead_pal.stat || dead_pal.health > 0)
+		if(!IS_UNCONSCIOUS_OR_CRIT(dead_pal) || dead_pal.health > 0)
 			continue
 		if(living_pawn.see_invisible < dead_pal.invisibility)
 			continue

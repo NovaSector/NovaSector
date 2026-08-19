@@ -54,7 +54,7 @@
 /datum/martial_art/blood_steal
 	name = "Blood Steal"
 	id = MARTIALART_BLOODSTEAL
-	help_verb = /mob/living/proc/blood_steal_help
+	help_verb = "Access Core Imprint"
 	smashes_tables = TRUE
 	///Weakref to a machine that's just parried
 	VAR_PRIVATE/datum/weakref/parrying_machine
@@ -273,15 +273,13 @@
 /// Displays help information about the Blood Steal martial art abilities
 /// This verb shows the user information about the Feedbacker and Knuckleblaster attacks,
 /// as well as the active defense mode for parrying projectiles
-/mob/living/proc/blood_steal_help()
-	set name = "Access Core Imprint"
-	set desc = "You try to remember some of the core Blood Steal protocols."
-	set category = "Blood Steal"
-	to_chat(usr, "<b><i>You try to remember core Blood Steal protocols.</i></b>")
+/datum/martial_art/blood_steal/get_style_help()
+	. = list()
+	. += "<b><i>You try to remember core Blood Steal protocols.</i></b>"
 
-	to_chat(usr, "[span_notice("Feedbacker")]: Punch. Deal extra damage and steal blood, converting some damage dealt as health.")
-	to_chat(usr, "[span_notice("Knuckleblaster")]: Shove. Knocks opponent away. Deals negligible brute and stamina damage.")
+	. += "[span_notice("Feedbacker")]: Punch. Deal extra damage and steal blood, converting some damage dealt as health."
+	. += "[span_notice("Knuckleblaster")]: Shove. Knocks opponent away. Deals negligible brute and stamina damage."
 
-	to_chat(usr, "<b><i>In addition, by having your throw mode on when being shot at, you enter an active defense mode where you have a perfect, yet single-projectile parry with a moderately long refresh cooldown.</i></b>")
+	. += "<b><i>In addition, by having your throw mode on when being shot at, you enter an active defense mode where you have a perfect, yet single-projectile parry with a moderately long refresh cooldown.</i></b>"
 
 #undef MARTIALART_BLOODSTEAL

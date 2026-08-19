@@ -325,9 +325,7 @@
 		icon_state = initial(icon_state)
 	return ..()
 
-/obj/item/paper/verb/rename()
-	set name = "Rename paper"
-	set src in usr
+GAME_VERB_SRC(/obj/item/paper, rename, usr, "Rename paper", null)
 
 	if(!usr.can_read(src) || usr.is_blind() || INCAPACITATED_IGNORING(usr, INCAPABLE_RESTRAINTS|INCAPABLE_GRAB) || (isobserver(usr) && !isAdminGhostAI(usr)))
 		return
@@ -341,7 +339,7 @@
 	var/n_name = tgui_input_text(usr, "Enter a paper label", "Paper Labelling", max_length = MAX_NAME_LEN)
 	if(isnull(n_name) || n_name == "")
 		return
-	if(((loc == usr || istype(loc, /obj/item/clipboard)) && usr.stat == CONSCIOUS))
+	if(((loc == usr || istype(loc, /obj/item/clipboard)) && !IS_UNCONSCIOUS_OR_CRIT(usr)))
 		name = "paper[(n_name ? "- '[n_name]'" : null)]"
 	add_fingerprint(usr)
 	update_static_data()
@@ -418,8 +416,8 @@
 	return new_plane
 
 /obj/item/paper/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	// Enable picking paper up by clicking on it with the clipboard or paper bin
-	if(istype(tool, /obj/item/clipboard) || istype(tool, /obj/item/paper_bin))
+	// Enable picking paper up by clicking on it with a clipboard, paper bin, or folder
+	if(istype(tool, /obj/item/clipboard) || istype(tool, /obj/item/paper_bin) || istype(tool, /obj/item/folder))
 		tool.item_interaction(user, src)
 		return ITEM_INTERACT_SUCCESS
 

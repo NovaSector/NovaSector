@@ -8,12 +8,12 @@
 	AddComponent(/datum/component/interactable)
 	//Removing ERP IC verbs depending on config
 	if(CONFIG_GET(flag/disable_erp_preferences))
-		verbs -= /mob/living/carbon/human/verb/toggle_genitals
-		verbs -= /mob/living/carbon/human/verb/toggle_arousal
+		UNASSIGN_GAME_VERB(src, /mob/living/carbon/human, toggle_genitals)
+		UNASSIGN_GAME_VERB(src, /mob/living/carbon/human, toggle_arousal)
 	if(CONFIG_GET(flag/disable_erp_preferences))
-		verbs -= /mob/living/carbon/human/verb/climax_verb
+		UNASSIGN_GAME_VERB(src, /mob/living/carbon/human, climax_verb)
 	if(CONFIG_GET(flag/disable_lewd_items))
-		verbs -= /mob/living/carbon/human/verb/safeword
+		UNASSIGN_GAME_VERB(src, /mob/living/carbon/human, safeword)
 
 
 /mob/living/carbon/human/Destroy()

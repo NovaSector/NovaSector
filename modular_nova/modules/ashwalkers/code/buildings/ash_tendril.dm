@@ -90,7 +90,7 @@
 //this is the nova override
 /obj/structure/lavaland/ash_walker/consume()
 	for(var/mob/living/viewable_living in view(src, 1)) //Only for corpse right next to/on same tile
-		if(!viewable_living.stat)
+		if(!IS_UNCONSCIOUS_OR_CRIT(viewable_living))
 			continue
 
 		viewable_living.unequip_everything()

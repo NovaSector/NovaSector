@@ -95,7 +95,6 @@
 	desc = "An experimental nanite-integrated smart superalloy designed to perform dialectical synthesis \
 		between the thesis of combined tools and the antithesis of standalone alien tools. \
 		Or kitbashing, if you're not a nerd."
-	id = "alien_tool_upgrade"
 	build_path = /obj/item/alien_tool_upgrade
 	build_type = PROTOLATHE | AWAY_LATHE
 	// price could probably be tuned tbh
@@ -111,8 +110,8 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE
 
-/datum/techweb_node/alientech/New()
-	design_ids += list(
-		"alien_tool_upgrade",
+/datum/techweb_node/alien/base/New()
+	unlocked_designs += list(
+		/datum/design/alien_tool_upgrade,
 	)
 	return ..()
