@@ -126,6 +126,6 @@ they get called in files like interdyne_crates.dm and interdyne_kits.dm
 	name = "\improper interdyne oxygen bandage box"
 	desc = "An Interdyne box filled with first aid medical patches, produced for oxy-loss purposes"
 
-/obj/item/storage/box/bandages/interdyne/toxin/PopulateContents()
+/obj/item/storage/box/bandages/interdyne/oxygen/PopulateContents()
 	for(var/i in 1 to 5)
 		new /obj/item/reagent_containers/applicator/patch/salbutamol(src)
