@@ -2019,10 +2019,20 @@
 /area/station/maintenance/floor3/port/fore)
 "azu" = (
 /obj/structure/table/wood,
-/obj/item/gun/ballistic/shotgun/doublebarrel,
+/obj/item/gun/ballistic/shotgun/doublebarrel{
+	pixel_y = -5
+	},
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/machinery/newscaster/directional/north,
-/obj/item/ammo_casing/shotgun/dart,
+/obj/item/ammo_casing/shotgun/dart{
+	pixel_y = -5
+	},
+/obj/item/storage/photo_album/bar{
+	pixel_y = 4
+	},
+/obj/item/camera{
+	pixel_y = 10
+	},
 /turf/open/floor/iron/checker,
 /area/station/service/bar)
 "azI" = (
@@ -6220,6 +6230,10 @@
 /area/station/maintenance/floor1/starboard/aft)
 "byE" = (
 /obj/structure/table,
+/obj/item/storage/photo_album/prison,
+/obj/item/camera{
+	pixel_y = 4
+	},
 /turf/open/floor/iron,
 /area/station/security/prison)
 "byH" = (
@@ -10515,10 +10529,7 @@
 /area/station/service/abandoned_gambling_den)
 "cFM" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Nanotrasen Consultant's Office";
-	name = "Nanotrasen Consultant's Fax Machine"
-	},
+/obj/machinery/fax/heads/nanotrasen_consultant,
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "cFQ" = (
@@ -15696,10 +15707,7 @@
 /area/station/service/lawoffice)
 "dWu" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Captain's Office";
-	name = "Captain's Fax Machine"
-	},
+/obj/machinery/fax/heads/captain,
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/captain)
 "dWv" = (
@@ -31079,10 +31087,7 @@
 /area/station/maintenance/floor3/port)
 "hZq" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Chief Medical Officer's Office";
-	name = "Chief Medical Officer's Fax Machine"
-	},
+/obj/machinery/fax/heads/cmo,
 /obj/machinery/duct,
 /obj/structure/sign/poster/official/random/directional/south,
 /turf/open/floor/wood/parquet,
@@ -41577,10 +41582,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
-/obj/machinery/fax{
-	fax_name = "Head of Security's Office";
-	name = "Head of Security's Fax Machine"
-	},
+/obj/machinery/fax/heads/hos,
 /obj/structure/table/wood,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hos)
@@ -45862,10 +45864,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/table/glass,
-/obj/machinery/fax{
-	fax_name = "Research Director's Office";
-	name = "Research Director's Fax Machine"
-	},
+/obj/machinery/fax/heads/rd,
 /turf/open/floor/iron/large,
 /area/station/command/heads_quarters/rd)
 "lLO" = (
@@ -65979,10 +65978,7 @@
 /turf/open/floor/catwalk_floor/iron,
 /area/station/maintenance/floor2/starboard/fore)
 "qLH" = (
-/obj/machinery/fax{
-	fax_name = "Head of Personnel's Office";
-	name = "Head of Personnel's Fax Machine"
-	},
+/obj/machinery/fax/heads/hop,
 /obj/structure/table,
 /turf/open/floor/carpet/blue,
 /area/station/command/heads_quarters/hop)
@@ -71520,10 +71516,7 @@
 /area/station/security/brig)
 "skM" = (
 /obj/structure/table/wood,
-/obj/machinery/fax{
-	fax_name = "Quartermaster's Office";
-	name = "Quartermaster's Fax Machine"
-	},
+/obj/machinery/fax/heads/qm,
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/qm)
@@ -81492,10 +81485,7 @@
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
 "uMP" = (
-/obj/machinery/fax{
-	fax_name = "Chief Engineer's Office";
-	name = "Chief Engineer's Fax Machine"
-	},
+/obj/machinery/fax/heads/ce,
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/dark/textured,
