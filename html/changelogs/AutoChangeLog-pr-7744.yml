@@ -1,0 +1,4 @@
+author: "Arceniu"
+delete-after: True
+changes:
+  - bugfix: "fixed a misc radio channels(cybersun, guild, faction/solfed)"
