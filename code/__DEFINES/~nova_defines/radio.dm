@@ -11,8 +11,8 @@
 #define FREQ_INTERDYNE 1209
 
 #define RADIO_CHANNEL_GUILD "Guild"
-#define RADIO_KEY_GUILD ","
-#define RADIO_TOKEN_GUILD ":,"
+#define RADIO_KEY_GUILD "1"
+#define RADIO_TOKEN_GUILD ":1"
 
 #define FREQ_GUILD 1214
 
