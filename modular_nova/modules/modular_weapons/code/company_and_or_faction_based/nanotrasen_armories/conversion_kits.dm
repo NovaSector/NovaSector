@@ -104,7 +104,7 @@
 
 /datum/crafting_recipe/c38_speedloader_plus
 	name = ".38 Speedloader Expansion"
-	crafting_flags = parent_type::crafting_flags | CRAFT_COLLECT_REQUIREMENTS
+	crafting_flags = parent_type::crafting_flags | CRAFT_COLLECT_REQUIREMENTS | CRAFT_SKIP_MATERIALS_PARITY
 	desc = "Six rounds is two less than eight, which makes reloading an eight-round cylinder with a six-round speedloader both annoying and suboptimal. \
 		This, however, is a fixable problem."
 	result = /obj/item/ammo_box/speedloader/c38/hicap/empty
@@ -120,7 +120,6 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 10 SECONDS
 	category = CAT_WEAPON_RANGED
-	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 
 /datum/crafting_recipe/c38_speedloader_plus/New()
 	..()
