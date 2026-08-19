@@ -2851,6 +2851,7 @@
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/effect/turf_decal/tile/green/full,
 /obj/structure/table/reinforced,
+/obj/effect/spawner/random/food_or_drink/keg,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/service/bar)
 "aLz" = (
@@ -38446,8 +38447,7 @@
 /area/station/science/cytology)
 "jTO" = (
 /obj/machinery/airalarm/directional/east,
-/obj/structure/table/wood,
-/obj/effect/spawner/random/food_or_drink/keg,
+/obj/structure/closet/secure_closet/security/service,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "jTS" = (
