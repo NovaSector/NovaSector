@@ -13170,10 +13170,9 @@
 /turf/closed/wall/r_wall,
 /area/station/cargo/miningdock)
 "dpK" = (
-/obj/machinery/door/window/brigdoor/left/directional/west{
-	req_access = list("security");
+/obj/machinery/door/window/brigdoor/left/directional/east{
 	name = "Engineering Cell";
-	dir = 4
+	req_access = list("security")
 	},
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/catwalk_floor/iron,
