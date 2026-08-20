@@ -195,12 +195,12 @@
 	var/list/items_inside = list()
 	generate_items_inside(items_inside,src)
 
-/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy
+/obj/item/storage/medkit/tactical/premium/interdyne/medium/tox_oxy
 	name = "\improper Interdyne Critical Tox-Oxy Kit"
 	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools. Meant for treating critical toxins"
 	icon_state = "interdyne_toxin"
 
-/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy/PopulateContents()
+/obj/item/storage/medkit/tactical/premium/interdyne/medium/tox_oxy/PopulateContents()
 	var/list/items_inside = list(
 		/obj/item/storage/pill_bottle/multiver = 1,
 		/obj/item/reagent_containers/syringe/convermol = 2,

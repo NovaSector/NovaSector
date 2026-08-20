@@ -116,13 +116,13 @@
 /datum/supply_pack/companies/medical/interdyne/medium_kit_oxytoxloss
 	name = "Interdyne Tox-Oxy Trauma Kit"
 	desc = "A kit filled with oxygen and toxins related ailments, made by doctors, for doctors."
-	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy)
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/tox_oxy)
 	cost = CARGO_CRATE_VALUE * 3.5
 
 /datum/supply_pack/companies/medical/interdyne/medium_kit_oxytoxloss_bulk
 	name = "Multi Pack of Interdyne Tox-Oxy Trauma Kits"
 	desc = "Multiple trauma kits filled with oxygen and toxins related ailments, made by doctors, for doctors."
-	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy = 3)
+	contains = list(/obj/item/storage/medkit/tactical/premium/interdyne/medium/tox_oxy = 3)
 	cost = CARGO_CRATE_VALUE * 9
 
 /datum/supply_pack/companies/medical/interdyne/firstaidkit
