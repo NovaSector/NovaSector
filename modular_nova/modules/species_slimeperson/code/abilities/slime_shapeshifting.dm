@@ -61,11 +61,11 @@
 		return
 
 	available_choices = deep_copy_list(SSaccessories.sprite_accessories)
-	for(var/feature_key, parts_list in available_choices)
-		for(var/parts, part in parts_list)
-			var/datum/sprite_accessory/part_accessory = part
-			if(part_accessory.locked)
-				parts_list -= part_accessory
+	for(var/parts_list in available_choices)
+		for(var/parts in available_choices[parts_list])
+			var/datum/sprite_accessory/part = available_choices[parts_list][parts]
+			if(part.locked)
+				available_choices[parts_list] -= parts
 
 /datum/action/innate/alter_form/unrestricted
 	slime_restricted = FALSE
@@ -168,7 +168,7 @@
 
 	var/new_mutant_colour = tgui_color_picker(
 		alterer,
-		"Choose your character's new [color_choice == "All" ? "" : LOWER_TEXT(color_choice)] color:",
+		"Choose your character's new [color_choice = "All" ? "" : LOWER_TEXT(color_choice)] color:",
 		"Form Alteration",
 		alterer.dna.features[color_target]
 	)
@@ -342,9 +342,8 @@
  */
 /datum/action/innate/alter_form/proc/alter_parts(mob/living/carbon/human/alterer)
 	var/list/mutant_part_list = list()
-	var/erp_disabled = CONFIG_GET(flag/disable_erp_preferences)
 	for(var/datum/dna_block/feature/mutant/block as anything in subtypesof(/datum/dna_block/feature/mutant))
-		if(erp_disabled && (block::feature_key in ORGAN_ERP_LIST))
+		if(CONFIG_GET(flag/disable_erp_preferences) && (block::feature_key in ORGAN_ERP_LIST))
 			continue
 		mutant_part_list[block::feature_key] = block
 	var/chosen_key = tgui_input_list(
@@ -379,6 +378,7 @@
 		else
 			var/obj/item/organ/got_organ = alterer.get_organ_slot(chosen_key)
 			if(got_organ)
+				got_organ.Remove(alterer)
 				qdel(got_organ)
 			else
 				alterer.dna.mutant_bodyparts -= chosen_key
@@ -394,11 +394,11 @@
 			var/slot = initial(organ_path.slot)
 			var/obj/item/organ/got_organ = alterer.get_organ_slot(slot)
 			if(got_organ)
+				got_organ.Remove(alterer)
 				qdel(got_organ)
 
 			var/obj/item/organ/replacement_organ = SSwardrobe.provide_type(selected_sprite_accessory.organ_type)
 			replacement_organ.sprite_accessory_flags = selected_sprite_accessory.flags_for_organ
-			replacement_organ.relevant_layers = selected_sprite_accessory.relevent_layers
 
 			var/datum/mutant_bodypart/new_mutant_bodypart = build_mutant_part(
 				selected_sprite_accessory.name,
@@ -517,15 +517,24 @@
 
 		if("Penis Sheath")
 			var/obj/item/organ/genital/penis/schlong = alterer.get_organ_slot(ORGAN_SLOT_PENIS)
+			if(isnull(schlong))
+				to_chat(alterer, span_warning("There's no penis to sheath!"))
+				return
+			var/datum/bodypart_overlay/mutant/genital/penis/our_overlay = schlong.bodypart_overlay
+			var/datum/sprite_accessory/genital/penis/shaft = our_overlay?.shaft_datum
+			if(!shaft?.can_have_sheath)
+				to_chat(alterer, span_warning("That kind of penis can't have a sheath!"))
+				return
 			var/new_sheath = tgui_input_list(
 				alterer,
 				"Choose your penis sheath",
 				"DNA Alteration",
-				SHEATH_MODES,
+				assoc_to_keys(SSaccessories.sprite_accessories[FEATURE_SHEATH]),
 			)
-			if(new_sheath)
-				alterer.dna.features["penis_sheath"] = new_sheath
-				schlong.sheath = new_sheath
+			if(!new_sheath)
+				return
+			alterer.dna.features["penis_sheath"] = new_sheath
+			schlong.refresh_sheath()
 
 		if("Penis Taur Mode")
 			alterer.dna.features["penis_taur_mode"] = !alterer.dna.features["penis_taur_mode"]

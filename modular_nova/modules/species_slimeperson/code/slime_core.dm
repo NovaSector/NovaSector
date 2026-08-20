@@ -53,7 +53,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	if(stored_items)
 		var/drop_loc = drop_location()
 		if(drop_loc)
-			drop_items_to_ground(drop_loc, explode = TRUE)
+			drop_items_to_ground(drop_loc)
 		else
 			QDEL_LAZYLIST(stored_items)
 
@@ -221,13 +221,13 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	. = ..()
 	UnregisterSignal(organ_owner, list(COMSIG_LIVING_DEATH, COMSIG_MOB_LOGIN))
 
-/obj/item/organ/brain/slime/proc/on_slime_death(mob/living/carbon/victim)
+/obj/item/organ/brain/slime/proc/on_slime_death(mob/living/carbon/victim, gibbed)
 	SIGNAL_HANDLER
 	if(is_reserved_level(victim.z) && !istype(get_area(victim), /area/shuttle))
 		return
 	if(IS_CHANGELING(victim))
 		return
-	if(gibbed)
+	if(gibbed || core_ejected)
 		return
 	var/turf/victim_loc = victim.drop_location()
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
@@ -273,7 +273,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	var/atom/core_loc = get_core_ejection_loc(victim, death_turf, loc_override)
 
 	// Store their items, drop their brain/core, and implants to the floor.
-	victim.drop_all_held_items()
 	store_item_slots(victim)
 	src.Remove(victim, special = TRUE) // Brain/Core
 	for(var/obj/item/implant/implants in victim) // Implants
@@ -407,6 +406,12 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
  * Processes different types of items and prepares them to be stored when the core is ejected.
  */
 /obj/item/organ/brain/slime/proc/process_items(mob/living/carbon/human/victim) // Handle all items to be stored into core.
+	for(var/obj/item/held_item as anything in victim.held_items.Copy())
+		if(QDELETED(held_item))
+			continue
+		victim.temporarilyRemoveItemFromInventory(held_item, force = TRUE, idrop = FALSE)
+		process_and_store_item(held_item, victim)
+
 	var/list/focus_slots = list(
 		ITEM_SLOT_SUITSTORE,
 		ITEM_SLOT_BELT,
@@ -450,14 +455,12 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		LAZYADD(stored_items, item)
 
 /// Drops a set of items to the ground.
-/obj/item/organ/brain/slime/proc/drop_items_to_ground(turf/turf, list/dropping = stored_items, explode = FALSE)
+/obj/item/organ/brain/slime/proc/drop_items_to_ground(turf/turf, list/dropping = stored_items)
 	for(var/atom/movable/item as anything in dropping)
 		if(!(item in stored_items))
 			continue
 		if(istype(item, /obj/item/implantcase)) // Delete implants that aren't re-implanted. For now.
 			qdel(item)
-		else if(explode)
-			brainmob.dropItemToGround(item)
 		else
 			item.forceMove(turf)
 		LAZYREMOVE(stored_items, item)
@@ -554,17 +557,17 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		body.blooper_pitch_range = blooper_pitch_range
 		body.blooper_volume = blooper_volume
 		body.blooper_speed = blooper_speed
-	stored_dna.copy_dna(body.dna, COPY_DNA_SE | COPY_DNA_SPECIES)
+	stored_dna?.copy_dna(body.dna, COPY_DNA_SE | COPY_DNA_SPECIES)
 	body.real_name = body.dna.real_name
 	body.name = body.dna.real_name
 	body.updateappearance(mutcolor_update = TRUE)
 	body.domutcheck()
 	body.forceMove(drop_location())
 
-	// If slime is not going to be nugget, let's keep them fed and re-equip them, currently not used, could probably make this work with cerulean or admin stuff.
+	// If slime is not going to be nugget, let's keep them fed and re-equip them, currently used for ahealing
 	if(!nugget)
 		body.set_nutrition(NUTRITION_LEVEL_FED)
-		reequip_items(body)
+		INVOKE_ASYNC(src, PROC_REF(reequip_items), body)
 	REMOVE_TRAIT(body, TRAIT_NO_TRANSFORM, REF(src))
 	replace_into(body)
 	if(nugget)
@@ -615,7 +618,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		if(core_item)
 			extract_specific_item(usr, list(core_item))
 
-ADMIN_VERB(cmd_admin_heal_slime, R_ADMIN, "Heal Slime Core", "Use this to heal Slime cores.", ADMIN_CATEGORY_DEBUG, obj/item/organ/brain/slime/core in GLOB.dead_slime_cores)
+ADMIN_VERB(cmd_admin_heal_slime, R_ADMIN, "Heal Slime Core", "Use this to heal Slime cores.", ADMIN_CATEGORY_DEBUG)
+	VERB_ARG_TYPED(core, VERB_ARG_TYPE_OBJ, VERB_ARG_SOURCE_WORLD, /obj/item/organ/brain/slime)
 	if(QDELETED(core))
 		to_chat(user, span_boldannounce("Invalid Slime Core."), confidential = TRUE)
 		return
