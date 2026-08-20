@@ -374,6 +374,7 @@
 		/datum/stock_part/scanning_module = 1,
 		/datum/stock_part/micro_laser = 1,
 	)
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT)
 
 ///Beacon to launch a new mining setup when activated. For testing and speed!
 /obj/item/boulder_beacon/lrm

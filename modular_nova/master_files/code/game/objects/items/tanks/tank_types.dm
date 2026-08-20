@@ -1,6 +1,6 @@
 // this only exists to inherit the air contents of the tanks used to craft it
 /obj/item/tank/internals/emergency_oxygen/double/empty/crafted
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/plastic = SMALL_MATERIAL_AMOUNT)
 
 /obj/item/tank/internals/emergency_oxygen/double/empty/crafted/on_craft_completion(list/components, datum/crafting_recipe/current_recipe, atom/crafter)
 	. = ..()

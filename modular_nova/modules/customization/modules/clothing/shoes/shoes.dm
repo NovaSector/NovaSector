@@ -268,6 +268,7 @@
 	post_init_icon_state = "knee_boots"
 	greyscale_config = /datum/greyscale_config/knee_boots
 	greyscale_config_worn = /datum/greyscale_config/knee_boots/worn
+	greyscale_config_worn_digi =/datum/greyscale_config/knee_boots/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/shoes/sport_boots
@@ -504,6 +505,18 @@
 	icon_state = "/obj/item/clothing/shoes/fancy_heels/darkgrey"
 	greyscale_colors = "#46464d"
 	flags_1 = null
+
+/obj/item/clothing/shoes/fancy_heels/sandals
+	name = "high-heeled sandals"
+	desc = "A pair of fancy high-heeled sandals that are much smaller on your feet."
+	greyscale_colors = "#252525"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/fancy_heels/sandals"
+	post_init_icon_state = "highheel_sandals"
+	greyscale_config = /datum/greyscale_config/heeledsandals
+	greyscale_config_worn = /datum/greyscale_config/heeledsandals/worn
+	greyscale_config_worn_digi = /datum/greyscale_config/heeledsandals/worn/digi
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 #undef MODULAR_SHOES_ICON
 #undef MODULAR_SHOES_WORN_ICON

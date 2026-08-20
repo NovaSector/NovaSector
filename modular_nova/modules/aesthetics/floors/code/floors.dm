@@ -172,6 +172,11 @@
 /turf/open/indestructible/cobble/corner
 	icon_state = "cobble_corner"
 
+/turf/open/floor/iron/white/textured_large/airless
+	initial_gas_mix = AIRLESS_ATMOS
+
+// TG Sprites - re-overridden back to point to their icon file
+
 /turf/open/floor/plating/reinforced
 	icon = 'icons/turf/floors.dmi'
 
@@ -184,5 +189,110 @@
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/iron/white/textured_large/airless
-	initial_gas_mix = AIRLESS_ATMOS
+/turf/open/floor/mineral/plastitanium/pod
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/asphalt
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/black
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/bluespace
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/bronze
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/cult
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/eighties
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/emissive_test
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/engine
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/grass
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/asteroid
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/basalt
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/grass
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/plating
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/pure_white
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/stairs
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/holofloor/wood
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/bluespace
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/grimy
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/solarpanel
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/stairs
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/terracotta
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/tgmcemblem
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/light
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/mineral
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/plastic
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/plating/abductor
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/plating/abductor2
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/plating/elevatorshaft
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/plating/foam
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/vault
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/white
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/wood
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/noslip
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/chasm/true/fakeout
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/catwalk_floor/iron_smooth
+	icon = 'icons/turf/floors/catwalk_plating.dmi'

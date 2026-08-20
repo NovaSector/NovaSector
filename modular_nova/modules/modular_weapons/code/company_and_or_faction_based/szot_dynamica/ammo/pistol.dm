@@ -26,7 +26,7 @@
 
 /obj/item/ammo_box/c27_54cesarzowa
 	name = "ammo box (.27-54 Cesarzowa piercing)"
-	desc = "A box of .27-54 Cesarzowa piercing pistol rounds, holds twenty eight cartridges."
+	desc = "A box of .27-54 Cesarzowa piercing pistol rounds, holds twenty four cartridges."
 
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/szot_dynamica/ammo.dmi'
 	icon_state = "27-54cesarzowa_box"
@@ -37,7 +37,7 @@
 
 	caliber = CALIBER_CESARZOWA
 	ammo_type = /obj/item/ammo_casing/c27_54cesarzowa
-	max_ammo = 28
+	max_ammo = 24
 
 // .27-54 Cesarzowa rubber
 // Small caliber pistol round meant to be fired out of something that shoots real quick like, this one is less lethal
@@ -61,7 +61,7 @@
 
 /obj/item/ammo_box/c27_54cesarzowa/rubber
 	name = "ammo box (.27-54 Cesarzowa rubber)"
-	desc = "A box of .27-54 Cesarzowa rubber pistol rounds, holds twenty eight cartridges."
+	desc = "A box of .27-54 Cesarzowa rubber pistol rounds, holds twenty four cartridges."
 
 	icon_state = "27-54cesarzowa_box_rubber"
 

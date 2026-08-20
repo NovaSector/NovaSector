@@ -10,6 +10,7 @@
 	lefthand_file = 'icons/mob/inhands/items/tiles_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/tiles_righthand.dmi'
 	icon = 'icons/obj/tiles.dmi'
+	worn_icon_state = null
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 1
 	throwforce = 1
@@ -87,7 +88,7 @@
 	return target_plating
 
 /obj/item/stack/tile/handle_openspace_click(turf/target, mob/user, list/modifiers)
-	target.attackby(src, user, list2params(modifiers))
+	target.base_item_interaction(user, src, list2params(modifiers))
 
 //Grass
 /obj/item/stack/tile/grass
@@ -1110,37 +1111,6 @@
 	turf_type = /turf/open/floor/circuit/red/anim
 	merge_type = /obj/item/stack/tile/circuit/red/anim
 
-//Pod floor
-/obj/item/stack/tile/pod
-	name = "pod floor tile"
-	singular_name = "pod floor tile"
-	desc = "A grooved floor tile."
-	icon_state = "tile_pod"
-	inhand_icon_state = "tile-pod"
-	turf_type = /turf/open/floor/pod
-	merge_type = /obj/item/stack/tile/pod
-	tile_reskin_types = list(
-		/obj/item/stack/tile/pod,
-		/obj/item/stack/tile/pod/light,
-		/obj/item/stack/tile/pod/dark,
-		)
-
-/obj/item/stack/tile/pod/light
-	name = "light pod floor tile"
-	singular_name = "light pod floor tile"
-	desc = "A lightly colored grooved floor tile."
-	icon_state = "tile_podlight"
-	turf_type = /turf/open/floor/pod/light
-	merge_type = /obj/item/stack/tile/pod/light
-
-/obj/item/stack/tile/pod/dark
-	name = "dark pod floor tile"
-	singular_name = "dark pod floor tile"
-	desc = "A darkly colored grooved floor tile."
-	icon_state = "tile_poddark"
-	turf_type = /turf/open/floor/pod/dark
-	merge_type = /obj/item/stack/tile/pod/dark
-
 /obj/item/stack/tile/plastic
 	name = "plastic tile"
 	singular_name = "plastic floor tile"
@@ -1220,6 +1190,13 @@
 	turf_type = /turf/open/floor/bronze/filled
 	merge_type = /obj/item/stack/tile/bronze/filled
 
+/obj/item/stack/tile/bronze/window
+	name = "bronze window tile"
+	singular_name = "bronze window floor tile"
+	icon_state = "tile_glass_bronze"
+	turf_type = /turf/open/floor/glass/bronze
+	merge_type = /obj/item/stack/tile/bronze/window
+
 /obj/item/stack/tile/cult
 	name = "engraved tile"
 	singular_name = "engraved floor tile"
@@ -1228,6 +1205,19 @@
 	turf_type = /turf/open/floor/cult
 	mats_per_unit = list(/datum/material/runedmetal=SMALL_MATERIAL_AMOUNT*5)
 	merge_type = /obj/item/stack/tile/cult
+	tile_reskin_types = list(
+		/obj/item/stack/tile/cult,
+		/obj/item/stack/tile/cult/window,
+	)
+
+/obj/item/stack/tile/cult/window
+	name = "engraved window tile"
+	singular_name = "engraved window tile"
+	desc = "A strange window tile made from runed metal. Doesn't seem to actually have any paranormal powers."
+	icon_state = "tile_glass_runic"
+	turf_type = /turf/open/floor/glass/cult
+	mats_per_unit = list(/datum/material/runedmetal=SMALL_MATERIAL_AMOUNT*5)
+	merge_type = /obj/item/stack/tile/cult/window
 
 /// Floor tiles used to test emissive turfs.
 /obj/item/stack/tile/emissive_test
@@ -1353,3 +1343,21 @@
 	turf_type = /turf/open/floor/glass/reinforced/plasma
 	merge_type = /obj/item/stack/tile/rglass/plasma
 	mats_per_unit = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.125, /datum/material/alloy/plasmaglass = SHEET_MATERIAL_AMOUNT * 0.25)
+
+/obj/item/stack/tile/glass/titanium
+	name = "titanium glass floor"
+	singular_name = "titanium glass floor tile"
+	desc = "Titanium glass window floors, for when you need something to separate you from the vast void of space."
+	icon_state = "tile_glass_titanium"
+	turf_type = /turf/open/floor/glass/titatanium
+	merge_type = /obj/item/stack/tile/glass/titanium
+	mats_per_unit = list(/datum/material/alloy/titaniumglass = SHEET_MATERIAL_AMOUNT * 0.25)
+
+/obj/item/stack/tile/glass/plastitanium
+	name = "plastitanium glass floor"
+	singular_name = "plasma glass floor tile"
+	desc = "Plastitatanium glass window floors, for when you don't want lava to burn your feet, but still like to see it."
+	icon_state = "tile_glass_plastitanium"
+	turf_type = /turf/open/floor/glass/plastitatanium
+	merge_type = /obj/item/stack/tile/glass/plastitanium
+	mats_per_unit = list(/datum/material/alloy/plastitaniumglass = SHEET_MATERIAL_AMOUNT * 0.25)

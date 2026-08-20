@@ -1,0 +1,6 @@
+Flask>=3.0,<4
+gunicorn>=22.0,<24
+numpy>=1.26,<3
+pocket-tts[quantize]==2.1.0
+pydub>=0.25,<0.26
+waitress>=3.0,<4

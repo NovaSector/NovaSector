@@ -40,6 +40,12 @@ export enum JobPriority {
   High = 3,
 }
 
+type JobPreference = {
+  job: string;
+  priority: JobPriority | null;
+  assigned_profile_slot: number | null;
+};
+
 export type Name = {
   can_randomize: BooleanLike;
   explanation: string;
@@ -81,6 +87,7 @@ export type Perk = {
 
 export type Department = {
   head?: string;
+  color?: string;
 };
 
 export type Job = {
@@ -228,6 +235,7 @@ export type CharacterPreferencesData = {
 
   names: Record<string, string>;
   vocals: Record<string, string>; // NOVA EDIT ADDITION
+  erp: Record<string, unknown>; // NOVA EDIT ADDITION
 
   misc: {
     gender: Gender;
@@ -259,13 +267,14 @@ export type PreferencesMenuData = {
       required_playtime: number;
     }
   >;
-  job_preferences: Record<string, JobPriority>;
+  job_preferences: JobPreference[];
 
   // NOVA EDIT ADDITION START
   preview_options: string[];
   preview_selection: string;
 
   erp_pref: BooleanLike;
+  erp_belly_pref: BooleanLike;
 
   job_alt_titles: Record<string, string>;
 
@@ -312,6 +321,7 @@ export type ServerData = {
   jobs: {
     departments: Record<string, Department>;
     jobs: Record<string, Job>;
+    jobs_sorted: string[];
   };
   names: {
     types: Record<string, Name>;

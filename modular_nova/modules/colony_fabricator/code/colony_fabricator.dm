@@ -73,8 +73,8 @@
 	cached_designs.Cut()
 
 	var/allow_any = isnull(allowed_department_flags)
-	for(var/design_id in stored_research.researched_designs)
-		var/datum/design/design = SSresearch.techweb_design_by_id(design_id)
+	for(var/design_path in stored_research.researched_designs)
+		var/datum/design/design = SSresearch.techweb_designs[design_path]
 
 		if(allow_any || ((design.departmental_flags & allowed_department_flags) && (design.build_type & allowed_buildtypes)))
 			cached_designs |= design
@@ -96,6 +96,7 @@
 	icon = 'modular_nova/modules/colony_fabricator/icons/packed_machines.dmi'
 	icon_state = "colony_lathe_packed"
 	w_class = WEIGHT_CLASS_BULKY
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 7.5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 	/// What structure is created by this item.
 	var/obj/type_to_deploy = /obj/machinery/rnd/production/colony_lathe
 	/// How long it takes to create the structure in question.

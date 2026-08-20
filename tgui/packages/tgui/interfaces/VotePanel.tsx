@@ -248,8 +248,7 @@ const ChoicesPanel = (props) => {
                   choice.name === user.singleSelection && (
                     <Icon align="right" mr={2} color="green" name="vote-yea" />
                   )}
-                {/* NOVA EDIT REMOVAL //{currentVote.displayStatistics ? `${choice.votes} Votes` : null} */}
-                {currentVote.displayStatistics || user.isLowerAdmin ? `${choice.votes} Votes` : null /* NOVA EDIT ADDITION */}
+                {(currentVote.displayStatistics || user.isLowerAdmin) ? `${choice.votes} Votes` : null}
               </LabeledList.Item>
               <LabeledList.Divider />
             </Box>

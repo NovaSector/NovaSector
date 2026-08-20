@@ -304,6 +304,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/plumbing/floor_pump/output/on/supply/
 	name = "engineering plumbing constructor"
 	desc = "A type of plumbing constructor designed to rapidly deploy the machines needed for logistics regarding fluids."
 	icon_state = "plumberer_engi"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 40, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 5, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
 	var/static/list/engineering_design_types = list(
 		//category 1 Synthesizers i.e devices which creates , reacts & destroys chemicals
 		"Synthesizers" = list(

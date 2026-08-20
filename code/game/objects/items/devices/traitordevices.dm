@@ -270,8 +270,7 @@ effective or pretty fucking useless.
 		return
 
 	var/turf/our_turf = get_turf(owner)
-	var/lumcount = our_turf?.get_lumcount() || 0
-	if(lumcount > 0.3)
+	if(our_turf?.check_lumcount_above(0.3))
 		// Decay charge while invisible+ in the light
 		charge = max(0, charge - (max_charge * 0.05) * seconds_per_tick)
 		build_all_button_icons(UPDATE_BUTTON_STATUS)
@@ -404,7 +403,7 @@ effective or pretty fucking useless.
 	desc = "A jury-rigged device that disrupts nearby radio communication. Its crude construction provides a significantly smaller area of effect compared to its Syndicate counterpart."
 	range = 5
 	disruptor_range = 3
-	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.5, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 0.5)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.55)
 
 /obj/item/jammer/makeshift/Initialize(mapload)
 	. = ..()

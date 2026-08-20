@@ -262,7 +262,7 @@
 	var/turf/limb_turf = get_turf(limb)
 	if(limb_turf)
 		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
-		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON))
+		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(/datum/blood_type/iron))
 	qdel(limb)
 
 /// -- back slot interception --

@@ -8,7 +8,6 @@
 	speak_emote = list("chirps", "huff-quacks")
 	butcher_results = list(/obj/item/food/meat/slab = 3)
 	gold_core_spawnable = FRIENDLY_SPAWN
-	can_be_held = TRUE
 	held_state = "fox"
 	melee_damage_lower = 5
 	melee_damage_upper = 5

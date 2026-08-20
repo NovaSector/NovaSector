@@ -152,7 +152,7 @@
 			to_chat(user, span_notice("You read the vitals readout on the inside of the stasis unit."))
 		else
 			to_chat(user, span_notice("You read the vitals readout on the side of the stasis unit."))
-		healthscan(user, occupant, SCANNER_VERBOSE, TRUE)
+		healthscan(user, occupant, mode = SCANNER_VERBOSE, scanpower = SCANPOWER_ADVANCED)
 	else
 		to_chat(user, span_warning("The vitals readout is blank, the stasis unit is unoccupied!"))
 

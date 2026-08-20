@@ -20,6 +20,7 @@
 
 /obj/item/clothing/suit/clockwork/speed
 	worn_icon_taur_snake = null
+	bodyshapes_with_variations = TRUE
 
 /obj/item/clothing/suit/clockwork/cloak
 	worn_icon_taur_snake = null

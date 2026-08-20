@@ -30,11 +30,13 @@
 	with a distinct lack of ability to snap into place when exposed to moisture."
 	icon_state = "magnet"
 	icon = 'modular_nova/modules/contractor/icons/modsuit_modules.dmi'
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/mod/module/springlock/contractor/on_part_activation() // This module is actually *not* a death trap
 	return
 
 /obj/item/mod/module/springlock/contractor/on_part_deactivation(deleting = FALSE)
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 	return
 
 /// This exists for the adminbus contractor modsuit. Do not use otherwise

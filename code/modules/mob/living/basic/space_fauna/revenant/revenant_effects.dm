@@ -1,6 +1,7 @@
 /// Parent type for all unique revenant status effects
 /datum/status_effect/revenant
 	id = STATUS_EFFECT_ID_ABSTRACT
+	processing_speed = STATUS_EFFECT_PRIORITY
 	alert_type = null
 
 /datum/status_effect/revenant/on_creation(mob/living/new_owner, duration)
@@ -26,7 +27,7 @@
 /datum/status_effect/revenant/revealed/on_remove()
 	REMOVE_TRAIT(owner, TRAIT_REVENANT_REVEALED, TRAIT_STATUS_EFFECT(id))
 
-	owner.incorporeal_move = INCORPOREAL_MOVE_JAUNT
+	owner.incorporeal_move = HAS_TRAIT(owner, TRAIT_REVENANT_REVEALED) ? FALSE : INCORPOREAL_MOVE_JAUNT // NOVA EDIT CHANGE - ORIGINAL: owner.incorporeal_move = INCORPOREAL_MOVE_JAUNT
 	owner.RemoveInvisibility(type)
 	owner.update_appearance(UPDATE_ICON)
 	owner.update_mob_action_buttons()

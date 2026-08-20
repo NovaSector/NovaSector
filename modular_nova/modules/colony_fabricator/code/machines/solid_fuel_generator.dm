@@ -45,12 +45,8 @@
 	desc = /obj/machinery/power/port_gen/pacman/solid_fuel::desc
 	icon_state = "fuel_generator_packed"
 	type_to_deploy = /obj/machinery/power/port_gen/pacman/solid_fuel
-	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10,
-		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
-	)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/titanium = SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT)
+
 /obj/machinery/power/port_gen/pacman/solid_fuel/Initialize(mapload)
 	. = ..()
 	QDEL_NULL(soundloop)

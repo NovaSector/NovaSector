@@ -28,21 +28,24 @@
 		handle_reagents()
 
 
-/obj/item/cigarette/pipe/crackpipe/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(is_type_in_list(attacking_item, list(/obj/item/reagent_containers/crack,/obj/item/reagent_containers/blacktar)))
-		to_chat(user, span_notice("You stuff [attacking_item] into [src]."))
+/obj/item/cigarette/pipe/crackpipe/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(is_type_in_list(tool, list(/obj/item/reagent_containers/crack,/obj/item/reagent_containers/blacktar)))
+		to_chat(user, span_notice("You stuff [tool] into [src]."))
 		smoketime = 2 * 60
-		name = "[attacking_item.name]-packed [initial(name)]"
-		if(attacking_item.reagents)
-			attacking_item.reagents.trans_to(src, attacking_item.reagents.total_volume, transferred_by = user)
-		qdel(attacking_item)
+		name = "[tool.name]-packed [initial(name)]"
+		if(tool.reagents)
+			tool.reagents.trans_to(src, tool.reagents.total_volume, transferred_by = user)
+		qdel(tool)
+		return ITEM_INTERACT_SUCCESS
 	else
-		var/lighting_text = attacking_item.ignition_effect(src,user)
+		var/lighting_text = tool.ignition_effect(src,user)
 		if(lighting_text)
 			if(smoketime > 0)
 				light(lighting_text)
+				return ITEM_INTERACT_SUCCESS
 			else
 				to_chat(user, span_warning("There is nothing to smoke!"))
+				return ITEM_INTERACT_BLOCKING
 		else
 			return ..()
 

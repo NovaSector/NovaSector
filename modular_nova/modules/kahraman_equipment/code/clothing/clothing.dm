@@ -194,6 +194,7 @@
 	resistance_flags = NONE
 	clothing_traits = list(TRAIT_QUICK_CARRY)
 
+
 /obj/item/clothing/gloves/frontier_colonist/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)

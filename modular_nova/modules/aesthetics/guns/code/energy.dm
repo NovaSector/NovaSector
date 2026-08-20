@@ -64,3 +64,105 @@
 	icon = 'modular_nova/modules/aesthetics/guns/icons/energy.dmi'
 	shaded_charge = TRUE
 	// also covers disabler SMG.
+
+// TG Sprites - re-overridden back to point to their icon file
+// (these subtypes never got custom art, so no need to duplicate the tg sprites in our file)
+
+/obj/item/gun/energy/alien/astrum
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/disabler/smoothbore
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/dueling
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/e_gun/dragnet
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/e_gun/mini/practice_phaser
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/e_gun/old
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/e_gun/stun
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/e_gun/turret
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/floragun
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/gravity_gun
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/laser/bluetag
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/laser/captain
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/laser/cybersun
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/laser/instakill
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/laser/musket
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/laser/pistol
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/laser/redtag
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/laser/retro
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/laser/soul
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/laser/thermal
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/lasercannon
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/photon
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/plasmacutter
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/pulse/carbine
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/pulse/pistol
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/recharge/ebow
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/recharge/fisher
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/recharge/kinetic_accelerator/cyborg
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/recharge/kinetic_accelerator/minebot
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/shrink_ray
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/taser/debug
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/temperature
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+
+/obj/item/gun/energy/wormhole_projector
+	icon = 'icons/obj/weapons/guns/energy.dmi'

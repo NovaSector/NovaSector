@@ -82,6 +82,12 @@
 /datum/config_entry/number/flavor_text_character_requirement
 	default = 150
 
+/datum/config_entry/flag/min_records_text
+	default = FALSE
+
+/datum/config_entry/number/records_text_character_requirement
+	default = 150
+
 /// Defines whether or not mentors can see ckeys alongside mobnames.
 /datum/config_entry/flag/mentors_mobname_only
 
@@ -143,4 +149,12 @@
 	default = 2000
 
 /datum/config_entry/flag/enable_nova_star_restrictions
-	default = TRUE
+	default = FALSE
+
+/// Whether the supermatter dusts consumed mobs outright (FALSE) or superheats and blasts them away instead (TRUE).
+/datum/config_entry/flag/disable_sm_dusting
+	default = FALSE
+
+/// Whether the techweb uses its default (vanilla) set of starting nodes (FALSE) or forces every node to start unlocked (TRUE).
+/datum/config_entry/flag/enable_nova_techweb_starting_nodes
+	default = FALSE

@@ -2,11 +2,11 @@
 /datum/component/robot_smoke
 
 /datum/component/robot_smoke/RegisterWithParent()
-	add_verb(parent, /mob/living/silicon/robot/proc/toggle_smoke)
+	ASSIGN_GAME_VERB(parent, /mob/living/silicon/robot, toggle_smoke)
 	RegisterSignal(parent, COMSIG_ATOM_DIR_CHANGE, PROC_REF(dir_change))
 
 /datum/component/robot_smoke/UnregisterFromParent()
-	remove_verb(parent, /mob/living/silicon/robot/proc/toggle_smoke)
+	UNASSIGN_GAME_VERB(parent, /mob/living/silicon/robot, toggle_smoke)
 	UnregisterSignal(parent, COMSIG_ATOM_DIR_CHANGE)
 
 /datum/component/robot_smoke/Destroy()
@@ -54,10 +54,7 @@
 		return
 	listener.allowed_z_levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
 
-/mob/living/silicon/robot/proc/toggle_smoke()
-	set name = "Toggle smoke"
-	set category = "AI Commands"
-
+GAME_VERB_PROC(/mob/living/silicon/robot, toggle_smoke, "Toggle smoke", "AI Commands")
 	if(particles)
 		dissipate()
 	else if (!stat && !robot_resting)
@@ -76,15 +73,6 @@
 	. = ..()
 	if(GetComponent(/datum/component/robot_smoke))
 		dissipate()
-
-/mob/living/silicon/robot/robot_lay_down()
-	. = ..()
-
-	if(GetComponent(/datum/component/robot_smoke))
-		if(robot_resting)
-			dissipate()
-		else
-			return
 
 // The smoke
 /particles/smoke/robot

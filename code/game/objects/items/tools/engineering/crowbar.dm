@@ -66,6 +66,12 @@
 	worn_icon_state = "crowbar"
 	toolspeed = 0.7
 
+/obj/item/crowbar/large/orange
+	name = "frontier crowbar"
+	desc = "A large crowbar with a plastic grip coated with orange paint in the middle, commonly printed from a colony fabricator."
+	icon_state = "crowbar_orange"
+
+
 /obj/item/crowbar/large/emergency
 	name = "emergency crowbar"
 	desc = "It's a bulky crowbar. It almost seems deliberately designed to not be able to fit inside of a backpack."
@@ -302,8 +308,8 @@
 	)
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4.75,
-		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 2.50,
 		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 1.75,
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 1.25,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 1.25,
 	)
 	radio_alert = TRUE

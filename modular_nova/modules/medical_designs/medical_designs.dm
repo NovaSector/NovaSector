@@ -1,6 +1,5 @@
 /datum/design/surgical_gown
 	name = "Surgical Gown"
-	id = "surgical_gown"
 	build_type = PROTOLATHE
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
@@ -13,7 +12,6 @@
 
 /datum/design/medkit
 	name = "Medkit"
-	id = "medkit"
 	build_type = PROTOLATHE
 	materials = list(
 		/datum/material/plastic =  SHEET_MATERIAL_AMOUNT * 2,
@@ -23,3 +21,6 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
+
+/obj/item/storage/medkit
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2)

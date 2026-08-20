@@ -153,7 +153,6 @@
 	greyscale_config_worn = /datum/greyscale_config/cheongsam/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/cheongsam/worn/digi
 	flags_1 = IS_PLAYER_COLORABLE_1
-	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/under/costume/nova/cheongsam/customtrim
 	greyscale_colors = "#2b2b2b#ffce5b#353535"

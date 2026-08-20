@@ -21,7 +21,7 @@
 		/obj/item/organ/alien/plasmavessel/roundstart,
 		/obj/item/organ/alien/resinspinner/roundstart,
 		)
-	exotic_bloodtype = BLOOD_TYPE_XENO
+	exotic_bloodtype = /datum/blood_type/xeno
 	heatmod = 2.5
 
 	payday_modifier = 1.0
@@ -31,13 +31,12 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/mutant/xenohybrid,
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left/mutant/xenohybrid,
 		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right/mutant/xenohybrid,
-		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/digitigrade/xenohybrid,
-		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/digitigrade/xenohybrid,
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/mutant/xenohybrid,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/xenohybrid,
 	)
 
 	meat = /obj/item/food/meat/slab/xeno
 	skinned_type = /obj/item/stack/sheet/animalhide/xeno
-	death_sound = 'sound/mobs/non-humanoids/hiss/hiss6.ogg'
 	gib_anim = "gibbed-a"
 
 /datum/species/xeno/get_default_mutant_bodyparts()
@@ -94,6 +93,7 @@
 	max_plasma = 55
 	plasma_rate = 2
 	heal_rate = 1.5
+	visual = FALSE
 	actions_types = list(
 		/datum/action/cooldown/alien/make_structure/plant_weeds/roundstart,
 		/datum/action/cooldown/alien/transfer,
@@ -113,6 +113,7 @@
 
 //Resin spinner
 /obj/item/organ/alien/resinspinner/roundstart
+	visual = FALSE
 	actions_types = list(/datum/action/cooldown/alien/make_structure/resin/roundstart)
 
 /datum/action/cooldown/alien/make_structure/resin

@@ -4,6 +4,9 @@
 /obj/item/clothing/under/rank/civilian/lawyer // Lawyers' suits are in TG's suits.dmi
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
 
+/obj/item/clothing/under/rank/civilian/curator
+	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/suits_digi.dmi'
+
 /obj/item/clothing/under/rank/civilian/lawyer/bluesuit // EXCEPT THIS ONE.
 	greyscale_config_worn_digi = /datum/greyscale_config/buttondown_slacks/worn/digi
 

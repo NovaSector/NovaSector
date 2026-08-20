@@ -54,12 +54,14 @@
 	desc = "Designed to quickly reload revolvers. These rounds create small electromagnetic pulses upon impact."
 	ammo_type = /obj/item/ammo_casing/c38/haywire
 	ammo_band_color = COLOR_AMMO_EMP
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/uranium = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /obj/item/ammo_box/magazine/m38/haywire
 	name = "battle rifle magazine (.38 Haywire)"
 	desc = parent_type::desc + " These bullets create small electromagnetic pulses on impact; devastating against electronics."
 	ammo_type = /obj/item/ammo_casing/c38/haywire
 	ammo_band_color = COLOR_AMMO_EMP
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 15, /datum/material/uranium = SHEET_MATERIAL_AMOUNT * 4.5, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /*
 *	.357 Magnum

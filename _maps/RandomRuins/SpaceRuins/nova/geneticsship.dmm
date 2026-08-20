@@ -592,7 +592,7 @@
 /turf/open/floor/iron/white/side,
 /area/ruin/space/unpowered)
 "Qa" = (
-/mob/living/simple_animal/hostile/true_changeling,
+/mob/living/basic/true_changeling,
 /turf/open/floor/iron/white/side{
 	dir = 4
 	},

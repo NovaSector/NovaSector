@@ -2,7 +2,7 @@
 	name = "Move-Speak"
 	desc = "A primarily nonverbal language comprised of body movements, gesticulation, and sign language, with only intermittent warbles & other vocalizations. It's almost completely incomprehensible without its somatic components."
 	key = "M"
-	flags = TONGUELESS_SPEECH
+	flags = LANGUAGE_TONGUELESS_SPEECH
 	space_chance = 30
 	syllables = list(
 		"wa", "wawa", "awa", "a"

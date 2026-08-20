@@ -80,6 +80,6 @@
 		return FALSE
 	var/datum/gas_mixture/merger = new
 	merger.assert_gas(spawn_id)
-	merger.gases[spawn_id][MOLES] = spawn_mol
+	merger.moles[spawn_id] = spawn_mol
 	merger.temperature = spawn_temp
 	our_open_turf.assume_air(merger)

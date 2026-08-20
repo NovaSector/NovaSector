@@ -1,6 +1,7 @@
 /obj/item/disk/nifsoft_uploader/job/summoner/detective
 	name = "Grimoire Vacholiere"
 	loaded_nifsoft = /datum/nifsoft/summoner/job/detective
+	custom_materials = list(/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = SMALL_MATERIAL_AMOUNT)
 
 /obj/item/disk/nifsoft_uploader/summoner/detective/Initialize(mapload)
 	. = ..()

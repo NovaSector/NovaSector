@@ -1,10 +1,9 @@
 /datum/sprite_accessory/frills
 	key = FEATURE_FRILLS
 	default_color = DEFAULT_SECONDARY
-	relevent_layers = list(BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/frills
 
-/datum/sprite_accessory/frills/is_hidden(mob/living/carbon/human/human)
+/datum/sprite_accessory/frills/is_hidden(mob/living/carbon/human/human, datum/bodypart_overlay/mutant/bodypart_overlay)
 	if((human.head?.flags_inv & HIDEEARS) || (key in human.try_hide_mutant_parts))
 		return TRUE
 

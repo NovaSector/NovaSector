@@ -16,12 +16,14 @@
 	has_variable_transfer_amount = FALSE
 	list_reagents = list(/datum/reagent/drug/cocaine/freebase_cocaine = 40)
 
-/obj/item/reagent_containers/crackbrick/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(attacking_item.get_sharpness())
+/obj/item/reagent_containers/crackbrick/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(tool.get_sharpness())
 		user.show_message(span_notice("You cut \the [src] into some rocks."), MSG_VISUAL)
 		for(var/i = 1 to 4)
 			new /obj/item/reagent_containers/crack(user.loc)
 		qdel(src)
+		return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 /datum/crafting_recipe/crackbrick
 	name = "Crack brick"

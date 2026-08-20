@@ -82,6 +82,8 @@
 		/obj/item/skillchip/job/roboticist,
 	)
 
+	wintercoat = /obj/item/clothing/suit/hooded/wintercoat/science/rd
+
 /datum/outfit/job/rd/mod
 	name = "Research Director (MODsuit)"
 

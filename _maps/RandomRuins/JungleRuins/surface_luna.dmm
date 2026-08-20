@@ -8,7 +8,7 @@
 /obj/effect/turf_decal/siding/wideplating_new/dark{
 	dir = 1
 	},
-/obj/item/food/grown/moonflower,
+/obj/item/food/grown/flower/moonflower,
 /turf/open/floor/stone/forest,
 /area/ruin/unpowered/luna)
 "c" = (
@@ -71,7 +71,7 @@
 	pixel_x = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/pod/forest,
+/turf/open/floor/mineral/plastitanium/pod/forest,
 /area/ruin/unpowered/luna)
 "u" = (
 /obj/effect/turf_decal/siding/wideplating_new/dark{

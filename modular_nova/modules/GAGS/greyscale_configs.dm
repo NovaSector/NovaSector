@@ -436,6 +436,33 @@
 	name = "Neck gaiter (Worn, Teshari)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
 
+// GASMASK
+
+/datum/greyscale_config/gasmask
+	name = "Gasmask (Colorable)"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/masks.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/gasmask/gasmask.json'
+
+/datum/greyscale_config/gasmask/worn
+	name = "Gasmask (Colorable, Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask.dmi'
+
+/datum/greyscale_config/gasmask/worn/muzzled
+	name = "Gasmask (Colorable, Worn, Muzzled)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/mask_muzzled.dmi'
+
+/datum/greyscale_config/gasmask/worn/teshari
+	name = "Gasmask (Colorable, Worn, Teshari)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/teshari/mask.dmi'
+
+/datum/greyscale_config/gasmask/worn/better_vox
+	name = "Gasmask (Colorable, Worn, Vox Primalis)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+
+/datum/greyscale_config/gasmask/worn/vox
+	name = "Gasmask (Colorable, Worn, Vox)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/species/vox/mask.dmi'
+
 /*
 *	EYES
 */
@@ -1438,6 +1465,15 @@
 	name = "Giant Scarf (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
+/datum/greyscale_config/virgin_killer_sweater
+	name = "Virgin Killer Sweater"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/virgin_killer_sweater.json'
+
+/datum/greyscale_config/virgin_killer_sweater/worn
+	name = "Virgin Killer Sweater (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
 /datum/greyscale_config/mini_skirt
 	name = "Mini Skirt"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
@@ -1873,6 +1909,10 @@ TREK
 	name = "Knee Boots (Worn)"
 	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/boots/knee_boots_worn.json'
 
+/datum/greyscale_config/knee_boots/worn/digi
+	name = "Knee Boots (Worn, Digi)"
+	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_digi.dmi'
+
 // Laceups
 
 /datum/greyscale_config/laceup
@@ -1885,15 +1925,19 @@ TREK
 	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/laceups/laceups_worn.json'
 
 /datum/greyscale_config/laceup/worn/digi
+	name = "Colorable Laceups (Worn, Digi)"
 	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_digi.dmi'
 
 /datum/greyscale_config/laceup/worn/teshari
+	name = "Colorable Laceups (Worn, Teshari)"
 	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_teshari.dmi'
 
 /datum/greyscale_config/laceup/worn/newvox
+	name = "Colorable Laceups (Worn, Vox Primalis)"
 	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_newvox.dmi'
 
 /datum/greyscale_config/laceup/worn/oldvox
+	name = "Colorable Laceups (Worn, Vox)"
 	icon_file = 'modular_nova/modules/GAGS/icons/shoes/shoes_oldvox.dmi'
 
 // Sandals
@@ -2630,14 +2674,13 @@ TREK
 	name = "Monk Robe East (Worn, digi)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/chaplain_digi.dmi'
 
-// Named TG bomberjacket in case of future nameconflict
-/datum/greyscale_config/tg_bomberjacket
-	name = "Bomberjacket"
+/datum/greyscale_config/bomber_jacket
+	name = "Bomber Jacket"
 	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
-	json_config = 'modular_nova/modules/GAGS/json_configs/suits/jacket/bomberjacket.json'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/jacket/bomber_jacket.json'
 
-/datum/greyscale_config/tg_bomberjacket/worn
-	name = "Bomberjacket (Worn)"
+/datum/greyscale_config/bomber_jacket/worn
+	name = "Bomber Jacket (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
 
 /datum/greyscale_config/papakha
@@ -3045,7 +3088,6 @@ Modular PDAs
 	name = "Holosystem PDA"
 	json_config = 'modular_nova/modules/GAGS/json_configs/modular_pda/holosystem/pda_holosystem.json'
 
-
 /*
 Cloaks
 */
@@ -3159,3 +3201,30 @@ Cloaks
 	name = "Henchmen Worn"
 	icon_file = 'modular_nova/modules/GAGS/icons/monkehenchmenmob.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/henchmen/henchmen.json'
+
+// Croptop Bomber Jacket (DarkRilo)
+
+/datum/greyscale_config/croptop_bomber_jacket
+	name = "Croptop Bomber Jacket"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/suits/jacket.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/suits/jacket/croptop_bomber_jacket.json'
+
+/datum/greyscale_config/croptop_bomber_jacket/worn
+	name = "Croptop Bomber Jacket (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/suits/jacket.dmi'
+
+/datum/greyscale_config/heeledsandals
+	name = "High-Heeled Sandals"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/shoes.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/heels/heeledsandals.json'
+
+/datum/greyscale_config/heeledsandals/worn
+	name = "High-Heeled Sandals (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/heels/heeledsandals_worn.json'
+
+/datum/greyscale_config/heeledsandals/worn/digi
+	name = "High-Heeled Sandals (Worn, Digi)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/feet_digi.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/shoes/heels/heeledsandals_worn_digi.json'
+

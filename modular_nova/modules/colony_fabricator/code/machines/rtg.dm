@@ -39,9 +39,4 @@
 		It's improved radiation shielding and stabilizing agents left it inert, if volatile."
 	icon_state = "rtg_packed"
 	type_to_deploy = /obj/machinery/power/rtg/portable
-	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/uranium = SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
-	)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/uranium = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 5, /datum/material/gold = SHEET_MATERIAL_AMOUNT)

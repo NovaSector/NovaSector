@@ -6,7 +6,6 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ipc_screens.dmi'
 	color_src = null
 	key = FEATURE_SYNTH_SCREEN
-	relevent_layers = list(UNDER_UNIFORM_LAYER)
 	organ_type = /obj/item/organ/synth_screen
 
 /datum/sprite_accessory/screen/none
@@ -149,10 +148,10 @@
 	default_color = DEFAULT_SECONDARY
 	recommended_species = list(SPECIES_SYNTH = 1)
 	key = FEATURE_SYNTH_ANTENNA
-	relevent_layers = list(BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/synth_antenna
+	use_custom_mod_icon = TRUE
 
-/datum/sprite_accessory/antenna/is_hidden(mob/living/carbon/human/wearer)
+/datum/sprite_accessory/antenna/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
 	var/obj/item/clothing/head/mod/worn_head = wearer.head
 	if(isnull(worn_head))
 		return FALSE
@@ -233,8 +232,8 @@
 
 /datum/sprite_accessory/synth_chassis/mammal
 	name = "Mammal Chassis"
-	icon = BODYPART_ICON_SYNTHMAMMAL
-	icon_state = "synthmammal"
+	icon = BODYPART_ICON_MAMMAL
+	icon_state = "mammal"
 	color_src = MUTANT_COLOR
 	dimorphic = TRUE
 	is_digi_compatible = TRUE
@@ -343,8 +342,8 @@
 
 /datum/sprite_accessory/synth_head/mammal
 	name = "Mammal Head"
-	icon = BODYPART_ICON_SYNTHMAMMAL
-	icon_state = "synthmammal"
+	icon = BODYPART_ICON_MAMMAL
+	icon_state = "mammal"
 	color_src = MUTANT_COLOR
 	dimorphic = TRUE
 

@@ -33,7 +33,7 @@
 // we don't really care if they're dead or a ghost, only the person with the trauma can 'see' it since it's not really real.
 /datum/brain_trauma/magic/spider/on_life(seconds_per_tick)
 	// Dead and unconscious people are not interesting to the ethereal spider.
-	if(owner.stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(owner))
 		return
 
 	// Not even nullspace can keep the spider from haunting you

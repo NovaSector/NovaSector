@@ -59,6 +59,11 @@
 	if(visuals_only)
 		return
 	handlebank(user)
+	var/obj/item/clothing/under/uniform = user.w_uniform
+	if(istype(uniform))
+		var/obj/item/clothing/accessory/energy_shield/syndicate/stamina/shield = new(uniform)
+		shield.enabled = TRUE
+		uniform.attach_accessory(shield, attach_message = FALSE)
 	var/obj/item/mod/control/mod = user.back
 	if(!istype(mod))
 		return

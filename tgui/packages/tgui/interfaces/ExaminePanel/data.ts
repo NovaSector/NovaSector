@@ -18,7 +18,13 @@ export type ExaminePanelData = {
   // Antaggery
   ideal_antag_optin_status: string;
   current_antag_optin_status: string;
-  opt_in_colors: {
+  ideal_conflict_optin_status: string;
+  current_conflict_optin_status: string;
+  antag_opt_in_colors: {
+    optin: string;
+    color: string;
+  };
+  conflict_opt_in_colors: {
     optin: string;
     color: string;
   };

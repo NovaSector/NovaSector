@@ -28,17 +28,19 @@ export function InteractionPanel() {
             </Stack>
 
             <LabeledList>
-              <Button.Checkbox
-                checked={use_subtler}
-                onClick={() =>
-                  act('toggle_subtler', {
-                    use_subtler: !use_subtler,
-                  })
-                }
-                tooltip="Untick to make lewd interactions visible to all mobs in range able to perceive them."
-              >
-                Use Subtler
-              </Button.Checkbox>
+              <LabeledList.Item>
+                <Button.Checkbox
+                  checked={use_subtler}
+                  onClick={() =>
+                    act('toggle_subtler', {
+                      use_subtler: !use_subtler,
+                    })
+                  }
+                  tooltip="Untick to make lewd interactions visible to all mobs in range able to perceive them."
+                >
+                  Use Subtler
+                </Button.Checkbox>
+              </LabeledList.Item>
             </LabeledList>
           </Section>
         )}

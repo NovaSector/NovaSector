@@ -7,6 +7,7 @@
 	desc = "An ID card to be issued to visitors of the station. Its appearance leaves much to be desired, making it glaringly obvious you weren't worth the bureaucratic effort."
 	trim = /datum/id_trim/job/assistant/visitor
 	trim_changeable = FALSE
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 
 /datum/id_trim/job/assistant/visitor
 	trim_state = "trim_visitor"
@@ -26,7 +27,6 @@
 /datum/design/id/visitor
 	name = "Visitation ID Card"
 	desc = "A card used to provide ID, particularly for guests aboard the station."
-	id = "idcard_guest"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 	build_path = /obj/item/card/id/advanced/visitor

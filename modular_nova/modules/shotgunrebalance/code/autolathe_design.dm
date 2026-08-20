@@ -1,7 +1,6 @@
 //12 Gauge
 /datum/design/shotgun_slug
 	name = "Shotgun Slug"
-	id = "shotgun_slug"
 	build_type = AUTOLATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
@@ -13,7 +12,6 @@
 
 /datum/design/buckshot_shell
 	name = "Buckshot Shell"
-	id = "buckshot_shell"
 	build_type = AUTOLATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
@@ -29,6 +27,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
+	inherit_materials = DESIGN_INHERIT_MATS_SPECIAL
 
 /datum/design/rubbershot/sec
 	materials = list(
@@ -39,6 +38,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
+	inherit_materials = DESIGN_INHERIT_MATS_SPECIAL
 
 /datum/design/beanbag_slug/sec
 	materials = list(
@@ -49,6 +49,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
+	inherit_materials = DESIGN_INHERIT_MATS_SPECIAL
 
 /datum/design/shotgun_dart/sec
 	materials = list(
@@ -59,6 +60,7 @@
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 	)
+	inherit_materials = DESIGN_INHERIT_MATS_SPECIAL
 
 /datum/design/incendiary_slug/sec
 	materials = list(

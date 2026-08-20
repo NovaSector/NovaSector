@@ -30,7 +30,6 @@
 
 /datum/design/kineticballs
 	name = "Ammo Box (Kinetic Balls)"
-	id = "kineticballs"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
@@ -50,8 +49,5 @@
 	desc = "A box of kinetic balls rounds, holds twenty-four rounds."
 	custom_price = PAYCHECK_CREW * 2
 	ammo_type = /obj/item/ammo_casing/kineticball
-	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2,
-	)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3)
 	max_ammo = 24

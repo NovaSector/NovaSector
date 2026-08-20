@@ -7431,7 +7431,7 @@
 /turf/open/floor/iron/dark,
 /area/station/ai/upload/chamber)
 "aEF" = (
-/obj/machinery/computer/upload/ai{
+/obj/machinery/ai_law_rack/base/core{
 	dir = 1
 	},
 /turf/open/floor/circuit,
@@ -7442,12 +7442,6 @@
 	pixel_y = -6
 	},
 /turf/closed/wall/r_wall,
-/area/station/ai/upload/chamber)
-"aEH" = (
-/obj/machinery/computer/upload/borg{
-	dir = 1
-	},
-/turf/open/floor/circuit,
 /area/station/ai/upload/chamber)
 "aEI" = (
 /obj/structure/window/reinforced/spawner/directional/north,
@@ -10204,6 +10198,7 @@
 /obj/item/assembly/mousetrap,
 /obj/item/storage/box/mousetraps,
 /obj/machinery/light/directional/east,
+/obj/item/storage/photo_album/bar,
 /turf/open/floor/wood,
 /area/station/service/bar)
 "aSR" = (
@@ -20233,7 +20228,6 @@
 /obj/structure/table,
 /obj/effect/decal/cleanable/cobweb,
 /obj/item/aicard,
-/obj/item/ai_module/reset,
 /obj/item/assembly/flash/handheld,
 /obj/machinery/light/directional/north,
 /obj/structure/extinguisher_cabinet/directional/west,
@@ -23055,7 +23049,7 @@
 /area/station/service/chapel/monastery)
 "cen" = (
 /obj/structure/table/wood,
-/obj/item/storage/photo_album,
+/obj/item/storage/photo_album/chapel,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/monastery)
 "ceo" = (
@@ -25726,8 +25720,8 @@
 /area/station/service/library/lounge)
 "cww" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy,
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/poppy,
+/obj/item/food/grown/flower/harebell,
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/funeral)
@@ -26022,7 +26016,7 @@
 /area/station/service/library)
 "czt" = (
 /obj/structure/table/wood/fancy,
-/obj/item/storage/photo_album,
+/obj/item/storage/photo_album/library,
 /turf/open/floor/carpet,
 /area/station/service/library)
 "czu" = (
@@ -32496,6 +32490,7 @@
 	},
 /obj/structure/table,
 /obj/item/toy/cards/deck,
+/obj/item/storage/photo_album/prison,
 /turf/open/floor/iron,
 /area/station/security/prison)
 "gVy" = (
@@ -35602,6 +35597,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
 	},
+/obj/effect/mapping_helpers/airalarm/tlv_cold_room,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
 "jrs" = (
@@ -41372,11 +41368,10 @@
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
 	dir = 1
 	},
-/obj/item/ai_module/supplied/freeform{
+/obj/item/ai_module/law/supplied/freeform{
 	pixel_x = -1;
 	pixel_y = 8
 	},
-/obj/item/ai_module/reset,
 /turf/open/floor/iron/dark,
 /area/station/ai/upload/chamber)
 "nrU" = (
@@ -52545,7 +52540,7 @@
 /area/station/security/brig)
 "uVi" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/poppy,
+/obj/item/food/grown/flower/poppy,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
 "uVq" = (
@@ -56907,7 +56902,7 @@
 /area/station/hallway/primary/aft)
 "xJU" = (
 /obj/structure/table/wood,
-/obj/item/food/grown/harebell,
+/obj/item/food/grown/flower/harebell,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
 "xKc" = (
@@ -88588,7 +88583,7 @@ aAB
 fLI
 mtB
 wEJ
-aEH
+wEJ
 aAB
 mQo
 awd

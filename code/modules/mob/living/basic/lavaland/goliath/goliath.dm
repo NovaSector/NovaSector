@@ -10,7 +10,6 @@
 	base_pixel_x = -12
 	gender = MALE // Female ones are the bipedal elites
 	speed = 12
-	basic_mob_flags = IMMUNE_TO_FISTS
 	maxHealth = 300
 	health = 300
 	friendly_verb_continuous = "wails at"
@@ -29,7 +28,6 @@
 
 	ai_controller = /datum/ai_controller/basic_controller/goliath
 
-	crusher_loot = /obj/item/crusher_trophy/goliath_tentacle
 	butcher_results = list(/obj/item/food/meat/slab/goliath = 2, /obj/item/stack/sheet/bone = 2)
 	guaranteed_butcher_results = list(/obj/item/stack/sheet/animalhide/goliath_hide = 1)
 	/// Icon state to use when tentacles are available
@@ -103,24 +101,30 @@
 	if (tentacles.cooldown_time > 1 SECONDS)
 		tentacles.cooldown_time -= 1 SECONDS
 
-/mob/living/basic/mining/goliath/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
-	if (!istype(attacking_item, /obj/item/goliath_saddle))
+/mob/living/basic/mining/goliath/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if (!istype(tool, /obj/item/goliath_saddle))
 		return ..()
+
 	if (!tameable)
 		balloon_alert(user, "doesn't fit!")
-		return
+		return ITEM_INTERACT_BLOCKING
+
 	if (saddled)
 		balloon_alert(user, "already saddled!")
-		return
+		return ITEM_INTERACT_BLOCKING
+
 	if (!HAS_TRAIT(src, TRAIT_TAMED))
 		balloon_alert(user, "too rowdy!")
-		return
+		return ITEM_INTERACT_BLOCKING
+
 	balloon_alert(user, "affixing saddle...")
 	if (!do_after(user, delay = 5.5 SECONDS, target = src))
-		return
+		return ITEM_INTERACT_BLOCKING
+
 	balloon_alert(user, "ready to ride")
-	qdel(attacking_item)
+	qdel(tool)
 	make_rideable()
+	return ITEM_INTERACT_SUCCESS
 
 /mob/living/basic/mining/goliath/proc/make_rideable()
 	saddled = TRUE
@@ -199,7 +203,6 @@
 		This one is clearly ancient, and its tentacles constantly churn the earth around it."
 	maxHealth = 400
 	health = 400
-	crusher_drop_chance = 100
 	/// Don't re-check nearby turfs for this long
 	COOLDOWN_DECLARE(retarget_turfs_cooldown)
 	/// List of places we might spawn a tentacle, if we're alive

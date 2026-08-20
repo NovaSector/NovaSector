@@ -1,5 +1,3 @@
-
-
 //The robot bodyparts have been moved to code/module/surgery/bodyparts/robot_bodyparts.dm
 
 /obj/item/robot_suit
@@ -7,6 +5,7 @@
 	desc = "A complex metal backbone with standard limb sockets and pseudomuscle anchors."
 	icon = 'icons/mob/augmentation/augments.dmi'
 	icon_state = "robo_suit"
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5)
 	/// Left arm part of the endoskeleton
 	var/obj/item/bodypart/arm/left/robot/l_arm = null
 	/// Right arm part of the endoskeleton
@@ -288,31 +287,16 @@
 		if(!user.temporarilyRemoveItemFromInventory(tool))
 			return ITEM_INTERACT_BLOCKING
 
-		var/mob/living/silicon/robot/final_product = new /mob/living/silicon/robot/nocell(get_turf(loc), user)
+		var /mob/living/silicon/robot/nocell/final_product = new(get_turf(loc), potential_brain.laws, forced_ai, isnull(potential_brain.laws) && aisync, isnull(potential_brain.laws) && lawsync)
 		if(!final_product)
 			return ITEM_INTERACT_BLOCKING
-		if(potential_brain.laws && potential_brain.laws.id != DEFAULT_AI_LAWID)
-			aisync = FALSE
-			lawsync = FALSE
-			final_product.laws = potential_brain.laws
-			potential_brain.laws.associate(final_product)
 
 		final_product.SetInvisibility(INVISIBILITY_NONE)
 		//Transfer debug settings to new mob
 		final_product.custom_name = created_name
 		final_product.locked = panel_locked
-		if(!aisync)
-			lawsync = FALSE
-			final_product.set_connected_ai(null)
-		else
+		if(final_product.connected_ai)
 			final_product.notify_ai(AI_NOTIFICATION_NEW_BORG)
-			if(forced_ai)
-				final_product.set_connected_ai(forced_ai)
-		if(!lawsync)
-			final_product.lawupdate = FALSE
-			if(potential_brain.laws.id == DEFAULT_AI_LAWID)
-				final_product.make_laws()
-				final_product.log_current_laws()
 
 		brainmob.mind?.remove_antags_for_borging()
 		final_product.job = JOB_CYBORG
@@ -358,19 +342,12 @@
 			to_chat(user, span_warning("[boris_module] is stuck to your hand!"))
 			return ITEM_INTERACT_BLOCKING
 		qdel(boris_module)
-		var/mob/living/silicon/robot/final_product = new /mob/living/silicon/robot/shell(get_turf(src))
+		var/mob/living/silicon/robot/shell/final_product = new(get_turf(src), null, forced_ai, aisync, lawsync)
+		if(isnull(final_product))
+			return ITEM_INTERACT_BLOCKING
 
-		if(!aisync)
-			lawsync = FALSE
-			final_product.set_connected_ai(null)
-		else
-			if(forced_ai)
-				final_product.set_connected_ai(forced_ai)
+		if(final_product.connected_ai)
 			final_product.notify_ai(AI_NOTIFICATION_AI_SHELL)
-		if(!lawsync)
-			final_product.lawupdate = FALSE
-			final_product.make_laws()
-			final_product.log_current_laws()
 
 		final_product.cell = chest.cell
 		chest.cell.forceMove(final_product)

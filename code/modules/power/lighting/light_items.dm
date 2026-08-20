@@ -42,7 +42,7 @@
 /obj/item/light/proc/is_intact()
 	return status == LIGHT_OK
 
-/obj/item/light/suicide_act(mob/living/carbon/user)
+/obj/item/light/suicide_act(mob/living/user)
 	if (status == LIGHT_BROKEN)
 		user.visible_message(span_suicide("[user] begins to stab [user.p_them()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	else
@@ -55,6 +55,7 @@
 	desc = "A replacement light tube."
 	icon_state = "ltube"
 	base_state = "ltube"
+	worn_icon = "ltube"
 	inhand_icon_state = "ltube"
 	icon_angle = -45
 	brightness = 8
@@ -78,6 +79,7 @@
 	icon_state = "lbulb"
 	base_state = "lbulb"
 	icon_angle = -90
+	worn_icon = "lbulb"
 	inhand_icon_state = "contvapour"
 	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'

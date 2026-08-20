@@ -51,6 +51,14 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	// NOVA EDIT ADDITION START - Customization
 	var/list/sprite_accessories = list()
 	var/list/cached_mutant_icon_files = list()
+	var/list/all_layer_postfixes = list(
+		EXTERNAL_FRONT,
+		EXTERNAL_ADJACENT,
+		EXTERNAL_BEHIND,
+		EXTERNAL_FRONT_UNDER_CLOTHES,
+		EXTERNAL_FRONT_OVER,
+		EXTERNAL_FRONT_ABOVE_HAIR,
+	)
 	// NOVA EDIT ADDITION END
 
 /datum/controller/subsystem/accessories/PreInit() // this stuff NEEDS to be set up before GLOB for preferences and stuff to work so this must go here. sorry
@@ -146,11 +154,12 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	)
 
 	for(var/path in subtypesof(prototype))
-		var/datum/sprite_accessory/accessory = new path
 		// NOVA EDIT ADDITION START - Don't put organizational types (e.g. sprite_accessory/ears/big) in the list
-		if(!accessory.name)
+		var/datum/sprite_accessory/datum_path = path
+		if(isnull(datum_path::name))
 			continue
 		// NOVA EDIT ADDITION END
+		var/datum/sprite_accessory/accessory = new path
 
 		if(accessory.icon_state)
 			returnable_list[DEFAULT_SPRITE_LIST][accessory.name] = accessory

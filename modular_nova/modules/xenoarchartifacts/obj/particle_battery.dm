@@ -3,6 +3,7 @@
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/machinery.dmi'
 	icon_state = "particles_battery0"
 	w_class = WEIGHT_CLASS_TINY
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = SMALL_MATERIAL_AMOUNT)
 	/// Effect we cloned from artifact
 	var/datum/artifact_effect/battery_effect
 	/// Max battery capacity
@@ -32,6 +33,7 @@
 	icon = 'modular_nova/modules/xenoarchartifacts/icons/machinery.dmi'
 	icon_state = "utilizer"
 	w_class = WEIGHT_CLASS_TINY
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT)
 	/// We have to wait COOLDOWN_TIME before activating it again after deactivation
 	var/cooldown = 0
 	/// Are we blasting alien waves at unsuspecting passers-by
@@ -56,20 +58,25 @@
 		QDEL_NULL(inserted_battery)
 	return ..()
 
-/obj/item/xenoarch/xenoarch_utilizer/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/xenoarch/particles_battery))
-		if(!inserted_battery)
-			if(user.transferItemToLoc(attacking_item, src))
-				user.visible_message(
-					span_notice("[user] inserts battery into the utilizer."),
-					span_notice("You insert the battery into the utilizer."),
-					blind_message = span_notice("You hear click nearby."),
-				)
-				playsound(src, 'modular_nova/modules/aesthetics/lightswitch/sound/lightswitch.ogg', 25, FALSE)
-				inserted_battery = attacking_item
-				update_icon()
-	else
+/obj/item/xenoarch/xenoarch_utilizer/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/xenoarch/particles_battery))
 		return ..()
+
+	if(inserted_battery)
+		return ITEM_INTERACT_BLOCKING
+
+	if(!user.transferItemToLoc(tool, src))
+		return ITEM_INTERACT_BLOCKING
+
+	user.visible_message(
+		span_notice("[user] inserts battery into the utilizer."),
+		span_notice("You insert the battery into the utilizer."),
+		blind_message = span_notice("You hear click nearby."),
+	)
+	playsound(src, 'modular_nova/modules/aesthetics/lightswitch/sound/lightswitch.ogg', 25, FALSE)
+	inserted_battery = tool
+	update_icon()
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/xenoarch/xenoarch_utilizer/attack_self(mob/user)
 	if(Adjacent(user))

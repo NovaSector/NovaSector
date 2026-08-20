@@ -11,7 +11,7 @@
 	req_dna = 15
 	req_absorbs = 1
 	req_human = 1
-	req_stat = UNCONSCIOUS
+	req_stat = SOFT_CRIT
 
 /datum/action/changeling/horror_form/sting_action(mob/living/carbon/human/user)
 	..()
@@ -48,7 +48,7 @@
 				C.broken = TRUE
 				C.open()
 
-	var/mob/living/simple_animal/hostile/true_changeling/new_mob = new(get_turf(user))
+	var/mob/living/basic/true_changeling/new_mob = new(get_turf(user))
 
 	//Currently this is a thing as changeling ID's are not longer a thing
 	//Feel free to re-add them whomever wants to -Azarak

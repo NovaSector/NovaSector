@@ -1,3 +1,5 @@
+#define MECHANICAL_CATEGORY "Mechanical"
+#define VORE_ACT "Vore"
 
 /datum/component/interactable
 	/// A hard reference to the parent
@@ -83,6 +85,10 @@
 /datum/component/interactable/ui_static_data(mob/user)
 	var/list/data = list()
 	data["arousalLimit"] = AROUSAL_LIMIT
+	// Genital config option labels, shared with the standalone layering panel.
+	data["genital_visibility_options"] = assoc_to_keys(GLOB.genital_visibility_options)
+	data["genital_layering_options"] = assoc_to_keys(GLOB.genital_layering_options)
+	data["genital_arousal_options"] = assoc_to_keys(GLOB.genital_arousal_options)
 	return data
 
 /datum/component/interactable/ui_data(mob/user)
@@ -112,6 +118,25 @@
 		descriptions[interaction.name] = interaction.description
 		colors[interaction.name] = interaction.color
 
+	// Main check to see if the user is even opted into bellies on this character.
+	if(TRAIT_PREDATORY in user._status_traits)
+		var/mob/living/carbon/human/human_user = user
+		// Pull the belly helper from the pred's belly quirk, if present.
+		var/datum/quirk/belly/bellyquirk = locate() in human_user.quirks
+		var/obj/item/belly_function/a_belly = bellyquirk?.the_bwelly
+		var/pred_mode = a_belly?.pred_mode || "Never"
+		// Targets currently use prefs rather than having a dedicated on-character object or datum.
+		var/prey_mode = self.client?.prefs?.read_preference(/datum/preference/choiced/erp_vore_prey_pref) || "Never"
+
+		// Don't offer vore if either party opts out, you're targeting yourself,
+		// or one of you is already inside the other.
+		var/already_nested = (self.loc in user.contents) || (user.loc in self.contents) || (self.loc?.loc == user) || (user.loc?.loc == self)
+		if(pred_mode != "Never" && prey_mode != "Never" && user != self && !already_nested && self.Adjacent(user))
+			LAZYADD(categories[MECHANICAL_CATEGORY], VORE_ACT)
+			categories[MECHANICAL_CATEGORY] = sort_list(categories[MECHANICAL_CATEGORY])
+			descriptions[VORE_ACT] = "Put someone in your belly - if they're cool with it."
+			colors[VORE_ACT] = "red"
+
 	// Sort category contents once
 	for (var/category in categories)
 		categories[category] = sort_list(categories[category])
@@ -135,19 +160,10 @@
 	data["isTargetSelf"] = (user == self)
 
 	// user (the one who opened the ui)
-	var/user_pleasure = 0
-	var/user_arousal = 0
-	var/user_pain = 0
-
 	if(user)
-		user_pleasure = human_user.pleasure
-		user_arousal = human_user.arousal
-		user_pain = human_user.pain
-
-		data["pleasure"] = user_pleasure
-		data["arousal"] = user_arousal
-		data["pain"] = user_pain
-
+		data["pleasure"] = human_user.pleasure
+		data["arousal"] = human_user.arousal
+		data["pain"] = human_user.pain
 
 	// self - the one who the interaction component belongs to, aka who it's opened on (confusing var name yep)
 	if(user != self)
@@ -168,6 +184,14 @@
 			parts += list(generate_strip_entry(ORGAN_SLOT_NIPPLES, self, user, self.nipples))
 
 	data["lewd_slots"] = parts
+
+	// Genital visibility/layering config - only for your own body, so it only
+	// populates (and the tab only appears) when the panel is opened on yourself.
+	var/list/genital_config = list()
+	if(user == self)
+		for(var/obj/item/organ/genital/genital as anything in self.get_configurable_genitals())
+			genital_config += list(genital.get_layering_ui_entry())
+	data["genital_config"] = genital_config
 
 	return data
 
@@ -199,9 +223,45 @@
 		use_subtler = !use_subtler
 		return TRUE
 
+	if(action == "set_genital_visibility" || action == "set_genital_layering" || action == "set_genital_arousal")
+		var/mob/living/carbon/human/actor = ui.user
+		if(actor != self) // You configure your own body, nobody else's.
+			return
+		// Locating within the actor's own configurable set is the ref whitelist.
+		var/obj/item/organ/genital/organ = locate(params["ref"]) in actor.get_configurable_genitals()
+		if(!organ)
+			return
+		var/success = FALSE
+		switch(action)
+			if("set_genital_visibility")
+				success = organ.apply_visibility_label(params["option"])
+			if("set_genital_layering")
+				success = organ.apply_layering_label(params["option"])
+			if("set_genital_arousal")
+				success = organ.apply_arousal_label(params["option"])
+		return success
+
 	if(params["interaction"])
 		var/interaction_id = params["interaction"]
-		if(GLOB.interaction_instances[interaction_id])
+		// Vore is a bespoke interaction added programmatically until such time as a better setup is figured out.
+		if(interaction_id == VORE_ACT)
+			// Grab the associated player mobs.
+			var/mob/living/carbon/human/source = locate(params["userref"])
+			var/mob/living/carbon/human/target = locate(params["selfref"])
+			if(!source.Adjacent(target))
+				source.show_message(span_warning("You can't eat someone with your mind- get next to them!"))
+				return FALSE
+			// Pull the belly object from the pred's belly quirk.
+			var/datum/quirk/belly/bellyquirk = locate() in source.quirks
+			var/obj/item/belly_function/a_belly = bellyquirk?.the_bwelly
+			// And if the belly object is there as expected, we move to the next phase: actually trying to nom.
+			if(a_belly != null)
+				a_belly.try_nom(target, source)
+				return TRUE
+			else
+				source.show_message(span_warning("Couldn't find the belly helper to try to do vore with- yell at an admin!"))
+				return
+		else if(GLOB.interaction_instances[interaction_id])
 			var/mob/living/carbon/human/user = locate(params["userref"])
 			if(!can_interact(GLOB.interaction_instances[interaction_id], user))
 				return FALSE
@@ -217,6 +277,7 @@
 		var/item_index = params["item_slot"]
 		var/mob/living/carbon/human/source = locate(params["userref"])
 		var/mob/living/carbon/human/target = locate(params["selfref"])
+
 		var/obj/item/clothing/sextoy/new_item = source.get_active_held_item()
 		var/obj/item/clothing/sextoy/existing_item = target.vars[item_index]
 
@@ -243,7 +304,7 @@
 			else if (new_item)
 				source.visible_message(span_purple("[source.name] starts trying to [insert_or_attach] the [new_item.name] [into_or_onto] [target.name]'s [item_index]."), span_purple("You start to [insert_or_attach] the [new_item.name] [into_or_onto] [target.name]'s [item_index]."), span_purple("You hear someone trying to [insert_or_attach] something [into_or_onto] someone nearby."), vision_distance = SAMETILE_MESSAGE_RANGE, ignored_mobs = ignoring_mobs + list(target))
 			if (source != target)
-				target.show_message(span_warning("[source.name] is trying to [existing_item ? "remove the [existing_item.name] [internal ? "in" : "on"]" : new_item ? "is trying to [insert_or_attach] the [new_item.name] [into_or_onto]" : span_alert("What the fuck, impossible condition? interaction_component.dm!")] your [item_index]!"))
+				target.show_message(span_warning("[source.name] is trying to [existing_item ? "remove the [existing_item.name] [internal ? "in" : "on"]" : new_item ? "[insert_or_attach] the [new_item.name] [into_or_onto]" : span_alert("What the fuck, impossible condition? interaction_component.dm!")] your [item_index]!"))
 			if(do_after(
 				source,
 				5 SECONDS,
@@ -311,3 +372,6 @@
 			return item.lewd_slot_flags & LEWD_SLOT_NIPPLES
 		else
 			return FALSE
+
+#undef MECHANICAL_CATEGORY
+#undef VORE_ACT

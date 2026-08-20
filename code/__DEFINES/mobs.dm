@@ -29,30 +29,11 @@
 /// Determines the rate at which humans lose blood when they have the blood deficiency quirk. The default is BLOOD_REGEN_FACTOR + BLOOD_DEFICIENCY_MODIFIER.
 #define BLOOD_DEFICIENCY_MODIFIER 0.025
 
+/// Determines how high saline can bring up your blood volume
+#define SALINE_DILUTION_CAP BLOOD_VOLUME_NORMAL
+
 /// Temperature at which blood loss and regen stops. [/mob/living/carbon/human/proc/handle_blood]
 #define BLOOD_STOP_TEMP 225
-
-// Bloodtype defines
-#define BLOOD_TYPE_A_MINUS "A-"
-#define BLOOD_TYPE_A_PLUS "A+"
-#define BLOOD_TYPE_B_MINUS "B-"
-#define BLOOD_TYPE_B_PLUS "B+"
-#define BLOOD_TYPE_AB_MINUS "AB-"
-#define BLOOD_TYPE_AB_PLUS "AB+"
-#define BLOOD_TYPE_O_MINUS "O-"
-#define BLOOD_TYPE_O_PLUS "O+"
-#define BLOOD_TYPE_UNIVERSAL "U"
-#define BLOOD_TYPE_LIZARD "L"
-#define BLOOD_TYPE_VAMPIRE "V"
-#define BLOOD_TYPE_ANIMAL "Y-"
-#define BLOOD_TYPE_ETHEREAL "LE"
-#define BLOOD_TYPE_TOX "TOX"
-#define BLOOD_TYPE_OIL "Oil"
-#define BLOOD_TYPE_MEAT "MT-"
-#define BLOOD_TYPE_CLOWN "C"
-#define BLOOD_TYPE_XENO "X*"
-#define BLOOD_TYPE_H2O "H2O"
-#define BLOOD_TYPE_SNAIL "S"
 
 // Blood exposure behavior flag defines
 /// Add our DNA to turfs/mobs/items, does not correlate with adding decals/overlays
@@ -217,10 +198,12 @@
 #define BODYSHAPE_TAUR (BODYSHAPE_TAUR_GENERIC|BODYSHAPE_TAUR_SNAKE|BODYSHAPE_TAUR_PAW|BODYSHAPE_TAUR_HOOF|BODYSHAPE_TAUR_BIG_LEGS|BODYSHAPE_TAUR_BIG_LEGS_STANCED)
 // NOVA EDIT ADDITION END
 
-/// List of body part flags that can not be bioscrambled
-#define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG | BODYTYPE_GHOUL) // NOVA EDIT CHANGE - ORIGINAL: #define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)
 /// Check to see if a bodypart limb can be bioscrambled
-#define BODYPART_CAN_BE_BIOSCRAMBLED(bodypart) (!(bodypart.bodytype & BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE) && !(bodypart.flags_1 & HOLOGRAM_1))
+#define BODYPART_CAN_BE_BIOSCRAMBLED(bodypart) ( \
+	!(bodypart.bodytype & (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG | BODYTYPE_GHOUL)) /* NOVA EDIT CHANGE - ORIGINAL: !(bodypart.bodytype & (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)) \ */ \
+	&& !(bodypart.flags_1 & HOLOGRAM_1) \
+	&& !(bodypart.bodypart_flags & BODYPART_STUMP) \
+)
 
 // Defines for Species IDs. Used to refer to the name of a species, for things like bodypart names or species preferences.
 #define SPECIES_ABDUCTOR "abductor"
@@ -252,9 +235,6 @@
 #define SPECIES_SNAIL "snail"
 #define SPECIES_VAMPIRE "vampire"
 #define SPECIES_ZOMBIE "zombie"
-#define SPECIES_ZOMBIE_INFECTIOUS "memezombie"
-#define SPECIES_ZOMBIE_INFECTIOUS_MINDLESS "mindless_memezombie"
-#define SPECIES_ZOMBIE_KROKODIL "krokodil_zombie"
 #define SPECIES_VOIDWALKER "voidwalker"
 
 // Like species IDs, but not specifically attached a species.
@@ -407,6 +387,9 @@
 #define CRYSTALIZE_STAGE_ENGULFING 100 //Can't use second defines
 #define CRYSTALIZE_STAGE_ENCROACHING 300 //In switches
 #define CRYSTALIZE_STAGE_SMALL 600 //Because they're not static
+
+///Max growth for a xeno larva to evolve into a regular xeno. This is used as % based.
+#define XENOMORPH_MAX_GROWTH 100
 
 //Slime evolution threshold. Controls how fast slimes can split/grow
 #define SLIME_EVOLUTION_THRESHOLD 10
@@ -577,6 +560,14 @@
 #define EAR_PROTECTION_FULL INFINITY
 
 /**
+ * EMP protection
+ * These values are additive to determine your overall emp protection
+ */
+#define EMP_PROTECTION_NONE 0
+#define EMP_PROTECTION_MODERATE 1
+#define EMP_PROTECTION_HIGH 2
+
+/**
  * Soundbang defines
  * These values are used as argument to determine the strength of the soundbang_act call
  */
@@ -694,7 +685,7 @@
 #define SILENCE_RANGED_MESSAGE (1<<0)
 
 /// Returns whether or not the given mob can succumb
-#define CAN_SUCCUMB(target) (HAS_TRAIT(target, TRAIT_CRITICAL_CONDITION) && !HAS_TRAIT(target, TRAIT_NODEATH))
+#define CAN_SUCCUMB(target) ((target.stat == SOFT_CRIT || target.stat == HARD_CRIT) && !HAS_TRAIT(target, TRAIT_NODEATH))
 
 // Body position defines.
 /// Mob is standing up, usually associated with lying_angle value of 0.
@@ -903,15 +894,24 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 #define ID_LAYER 18
 // NOVA EDIT ADDITION BEGIN - cursed layers under clothing
 	#define BANDAGE_LAYER 18.1
-	#define NIPPLES_LAYER 18.2
-	#define PENIS_LAYER 18.3
-	#define VAGINA_LAYER 18.4
-	#define ANUS_LAYER 18.5
+	#define NIPPLES_CLOTHING_LAYER 18.2
+	#define PENIS_CLOTHING_LAYER 18.3
+	#define VAGINA_CLOTHING_LAYER 18.4
+	#define ANUS_CLOTHING_LAYER 18.5
 //NOVA EDIT ADDITION END
 /// Jumpsuit clothing layer
 #define UNIFORM_LAYER 19
 	/// The layer underneath the uniform
 	#define UNDER_UNIFORM_LAYER 19.1
+	// NOVA EDIT ADDITION START
+	#define UNDER_UNIFORM_SOCKS_LAYER 19.101
+	#define BREASTS_LAYER 19.3
+	#define PENIS_LAYER 19.4
+	#define TESTICLES_LAYER 19.5
+	#define VAGINA_LAYER 19.6
+	#define ANUS_LAYER 19.7
+	#define BUTT_LAYER 19.8
+	// NOVA EDIT ADDITION END
 /// Damage indicators (cuts and burns)
 #define DAMAGE_LAYER 20
 	/// Mutations that should appear above everything else (e.g. laser eyes)
@@ -935,20 +935,18 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 /// (You ONLY need to update this if you add a standing overlay, adding an integer.)
 #define TOTAL_LAYERS 23
 
-//Bitflags for the layers a bodypart overlay can draw on (can be drawn on multiple layers)
-/// Draws overlay on the BODY_FRONT_LAYER
-#define EXTERNAL_FRONT (1 << 0)
-/// Draws overlay on the BODY_ADJ_LAYER
-#define EXTERNAL_ADJACENT (1 << 1)
-/// Draws overlay on the BODY_BEHIND_LAYER
-#define EXTERNAL_BEHIND (1 << 2)
+// Legacy mutant bodypart layering defines for icon states
+// Don't change these without updating all relevant icon states
+#define EXTERNAL_FRONT "FRONT"
+#define EXTERNAL_ADJACENT "ADJ"
+#define EXTERNAL_BEHIND "BEHIND"
 // NOVA EDIT ADDITION START - Customization
 /// Draws overlay on the BODY_FRONT_UNDER_CLOTHES
-#define EXTERNAL_FRONT_UNDER_CLOTHES (1 << 3)
+#define EXTERNAL_FRONT_UNDER_CLOTHES "FRONT_UNDER"
 /// Draws overlay on the ABOVE_BODY_FRONT_HEAD_LAYER
-#define EXTERNAL_FRONT_OVER (1 << 4)
+#define EXTERNAL_FRONT_OVER "FRONT_OVER"
 /// Draws overlay on the HEAD_LAYER, for things that need to be above hair but below hats.
-#define EXTERNAL_FRONT_ABOVE_HAIR (1 << 5)
+#define EXTERNAL_FRONT_ABOVE_HAIR "FRONT_OVER_HAIR"
 /// NOVA EDIT ADDITION END
 
 // Bitflags for external organs restylability
@@ -1157,6 +1155,8 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 /// Distance which you can see someone's ID card
 /// Short enough that you can inspect over tables (bartender checking age)
 #define ID_EXAMINE_DISTANCE 3
+/// Distance which you can get the href to remove embeds or similar from someone
+#define CARBON_EXAMINE_EMBEDDING_MAX_DIST 4
 
 GLOBAL_LIST_INIT(regal_rat_minion_commands, list(
 	/datum/pet_command/idle,
@@ -1165,3 +1165,12 @@ GLOBAL_LIST_INIT(regal_rat_minion_commands, list(
 	/datum/pet_command/follow,
 	/datum/pet_command/attack/mouse
 ))
+
+/// Checks if the mob is unconscious (or in other words, has [TRAIT_KNOCKEDOUT]) - note dead mobs are considered unconscious
+#define IS_UNCONSCIOUS(mob) (HAS_TRAIT(mob, TRAIT_KNOCKEDOUT))
+/// Checks if the mob is in soft crit, hard crit, dead, or is otherwise unconscious (which hard crit and death apply anyways)
+#define IS_UNCONSCIOUS_OR_CRIT(mob) (IS_UNCONSCIOUS(mob) || mob.stat >= SOFT_CRIT)
+/// Checks if the mob is unconscious but not dead
+#define IS_UNCONSCIOUS_AND_ALIVE(mob) (IS_UNCONSCIOUS(mob) && mob.stat != DEAD)
+/// Checks if the mob is dead or faking death (via [TRAIT_FAKEDEATH])
+#define IS_DEAD_OR_FAKING(mob) (mob.stat == DEAD || HAS_TRAIT(mob, TRAIT_FAKEDEATH))

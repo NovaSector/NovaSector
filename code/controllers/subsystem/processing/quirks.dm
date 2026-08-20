@@ -46,6 +46,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/psionic_dampener, /datum/quirk/telepathic),
 	list(/datum/quirk/hydrophobia, /datum/quirk/item_quirk/breather/water_breather),
 	list(/datum/quirk/unblinking, /datum/quirk/item_quirk/fluoride_stare),
+	list(/datum/quirk/poor_aim, /datum/quirk/nervous_aim),
 	// NOVA EDIT ADDITION END
 ))
 
@@ -104,6 +105,8 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 		var/datum/quirk/quirk_type = type
 		// NOVA EDIT ADDITION START
 		if(initial(quirk_type.erp_quirk) && CONFIG_GET(flag/disable_erp_preferences))
+			continue
+		if(initial(quirk_type.tum_quirk) && CONFIG_GET(flag/disable_tums_preferences))
 			continue
 		// Hidden quirks aren't visible to TGUI or the player
 		if (initial(quirk_type.hidden_quirk))

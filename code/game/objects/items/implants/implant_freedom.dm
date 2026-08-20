@@ -33,14 +33,14 @@
 	uses--
 
 	carbon_imp_in.uncuff()
-	var/obj/item/clothing/shoes/shoes = carbon_imp_in.shoes
+	var/obj/item/clothing/shoes/shoes = carbon_imp_in.get_item_by_slot(ITEM_SLOT_FEET)
 	if(istype(shoes) && shoes.tied == SHOES_KNOTTED)
 		shoes.adjust_laces(SHOES_TIED, carbon_imp_in)
 
 	if(!uses)
 		addtimer(CALLBACK(carbon_imp_in, TYPE_PROC_REF(/atom, balloon_alert), carbon_imp_in, "implant degraded!"), 1 SECONDS)
 		qdel(src)
-	carbon_imp_in.remove_status_effect(/datum/status_effect/tased) // NOVA EDIT ADDITION - if being tased, removes the status on use, and detaches the electrode. 
+	carbon_imp_in.remove_status_effect(/datum/status_effect/tased) // NOVA EDIT ADDITION - if being tased, removes the status on use, and detaches the electrode.
 
 /obj/item/implant/freedom/proc/can_trigger(mob/living/carbon/implanted_in)
 	if(implanted_in.handcuffed || implanted_in.legcuffed)
@@ -50,7 +50,7 @@
 	if(implanted_in.has_status_effect(/datum/status_effect/tased))
 		return TRUE
 	// NOVA EDIT ADDITION END
-	var/obj/item/clothing/shoes/shoes = implanted_in.shoes
+	var/obj/item/clothing/shoes/shoes = implanted_in.get_item_by_slot(ITEM_SLOT_FEET)
 	if(istype(shoes) && shoes.tied == SHOES_KNOTTED)
 		return TRUE
 

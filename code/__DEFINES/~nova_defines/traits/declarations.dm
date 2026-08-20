@@ -90,6 +90,9 @@
 /// The trait accompanying the "Heavyset" quirk.
 #define TRAIT_HEAVYSET "trait_heavyset"
 
+/// The trait accompanying the "Big Boned"/belly quirk.  See "tums" module for more info.
+#define TRAIT_PREDATORY "trait_predatory"
+
 /// The trait that determines if someone has the system shock quirk.
 #define TRAIT_SYSTEM_SHOCK "trait_system_shock"
 
@@ -186,6 +189,12 @@
 
 /// Trait for quirk: Illuminated
 #define TRAIT_COSGLOW "cosmetic_glow"
+
+/// Mob has a knot and can tie partners after climax.
+#define TRAIT_CAN_KNOT "can_knot"
+
+/// Mob is currently tied by a knotting interaction.
+#define TRAIT_KNOTTED "knotted"
 
 /// The trait for Holosynths
 #define TRAIT_HOLOSYNTH "holosynthetic"

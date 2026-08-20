@@ -63,22 +63,26 @@
 /obj/item/armament_points_card/proc/update_maptext()
 	maptext = span_maptext("<div align='center' valign='middle' style='position:relative'>[points]</div>")
 
-/obj/item/armament_points_card/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	. = ..()
-	if(istype(attacking_item, /obj/item/armament_points_card))
-		var/obj/item/armament_points_card/attacking_card = attacking_item
-		if(!attacking_card.points)
-			to_chat(user, span_warning("No points left on [attacking_card]!"))
-			return
-		var/points_to_transfer = clamp(tgui_input_number(user, "How many points do you want to transfer?", "Transfer Points", 1, attacking_card.points, 1), 0, attacking_card.points)
+/obj/item/armament_points_card/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/armament_points_card))
+		return ..()
 
-		if(!points_to_transfer)
-			return
+	var/obj/item/armament_points_card/attacking_card = tool
+	if(!attacking_card.points)
+		to_chat(user, span_warning("No points left on [attacking_card]!"))
+		return ITEM_INTERACT_BLOCKING
+	var/points_to_transfer = clamp(tgui_input_number(user, "How many points do you want to transfer?", "Transfer Points", 1, attacking_card.points, 1), 0, attacking_card.points)
 
-		if(attacking_card.loc != user) // Preventing exploits.
-			return
+	if(!points_to_transfer)
+		return ITEM_INTERACT_BLOCKING
 
-		if(attacking_card.use_points(points_to_transfer))
-			points += points_to_transfer
-			update_maptext()
-			to_chat(user, span_notice("You transfer [points_to_transfer] onto [src]!"))
+	if(attacking_card.loc != user) // Preventing exploits.
+		return ITEM_INTERACT_BLOCKING
+
+	if(!attacking_card.use_points(points_to_transfer))
+		return ITEM_INTERACT_BLOCKING
+
+	points += points_to_transfer
+	update_maptext()
+	to_chat(user, span_notice("You transfer [points_to_transfer] onto [src]!"))
+	return ITEM_INTERACT_SUCCESS

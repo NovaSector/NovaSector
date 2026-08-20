@@ -75,7 +75,7 @@
 
 	if(SEND_SIGNAL(teleatom, COMSIG_MOVABLE_TELEPORTING, destination, channel))
 		return FALSE
-	if(SEND_SIGNAL(destturf, COMSIG_ATOM_INTERCEPT_TELEPORTING, channel, curturf))
+	if(SEND_SIGNAL(destturf, COMSIG_ATOM_INTERCEPT_TELEPORTING, channel, curturf) & COMPONENT_INTERCEPT_TELEPORT)
 		return FALSE
 
 	if(isobserver(teleatom))
@@ -187,13 +187,12 @@
 	if(!floor_gas_mixture)
 		return
 
-	var/list/floor_gases = floor_gas_mixture.gases
 	var/static/list/gases_to_check = list(
 		/datum/gas/oxygen = list(/obj/item/organ/lungs::safe_oxygen_min, 100),
 		/datum/gas/nitrogen,
 		/datum/gas/carbon_dioxide = list(0, /obj/item/organ/lungs::safe_co2_max)
 	)
-	if(!check_gases(floor_gases, gases_to_check))
+	if(!floor_gas_mixture.check_gases(gases_to_check))
 		return FALSE
 
 	// Aim for goldilocks temperatures and pressure

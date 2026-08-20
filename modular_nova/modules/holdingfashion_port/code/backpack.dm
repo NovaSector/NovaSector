@@ -6,8 +6,10 @@
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
 	item_flags = NO_MAT_REDEMPTION
+	custom_materials = list(/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2, /datum/material/diamond = SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = SHEET_MATERIAL_AMOUNT, /datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3)
 
 /obj/item/storage/backpack/holding/satchel
+	custom_materials = null
 	name = "satchel of holding"
 	desc = "A satchel that opens into a localized pocket of bluespace."
 	icon = 'modular_nova/modules/holdingfashion_port/icons/storage.dmi'
@@ -23,8 +25,10 @@
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
 	item_flags = NO_MAT_REDEMPTION
+	custom_materials = list(/datum/material/gold = SHEET_MATERIAL_AMOUNT * 2, /datum/material/diamond = SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = SHEET_MATERIAL_AMOUNT, /datum/material/uranium = SMALL_MATERIAL_AMOUNT * 3)
 
 /obj/item/storage/backpack/holding/duffel
+	custom_materials = null
 	name = "duffel bag of holding"
 	desc = "A duffel bag that opens into a localized pocket of bluespace."
 	icon = 'modular_nova/modules/holdingfashion_port/icons/storage.dmi'

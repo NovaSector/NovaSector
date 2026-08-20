@@ -1,0 +1,9 @@
+/mob/living/simple_animal/hostile/bigcrab : /mob/living/basic/bigcrab{@OLD}
+/mob/living/simple_animal/hostile/cazador : /mob/living/basic/cazador{@OLD}
+/mob/living/simple_animal/hostile/mannequin : /mob/living/basic/statue/mannequin
+/mob/living/simple_animal/hostile/mutantliz : /mob/living/basic/mutantliz{@OLD}
+/mob/living/simple_animal/hostile/plantmutant : /mob/living/basic/plantmutant{@OLD}
+/mob/living/simple_animal/hostile/scorpion : /mob/living/basic/scorpion{@OLD}
+/mob/living/simple_animal/hostile/syndimouse : /mob/living/basic/syndimouse{@OLD}
+/mob/living/simple_animal/hostile/trog : /mob/living/basic/trog{@OLD}
+/mob/living/simple_animal/hostile/true_changeling : /mob/living/basic/true_changeling{@OLD}

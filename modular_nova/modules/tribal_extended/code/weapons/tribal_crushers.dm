@@ -140,6 +140,7 @@
 	icon_state = "cult_sharpener_used"
 	drop_sound = SFX_STONE_DROP
 	pickup_sound = SFX_STONE_PICKUP
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 // Doesn't mess with the spawners and replaces it anywhere if its ever spawns outside of heartkin maps
 /obj/item/hearthkin_ship_fragment_inactive/xenoarch/Initialize(mapload)

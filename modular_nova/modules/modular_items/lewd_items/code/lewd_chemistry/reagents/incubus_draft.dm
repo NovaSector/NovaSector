@@ -127,13 +127,13 @@
 
 	if(mob_penis.visibility_preference == GENITAL_ALWAYS_SHOW || exposed_mob.is_bottomless())
 		if(mob_penis.genital_size >= (penis_max_length - 2))
-			if(exposed_mob.dna.features["penis_sheath"] == SHEATH_SLIT)
+			if(exposed_mob.dna.features["penis_sheath"] == /datum/sprite_accessory/genital/sheath/slit::name)
 				if(mob_penis.aroused != AROUSAL_FULL)
 					to_chat(exposed_mob, span_purple("Your [pick(words_for_bigger_cock)] [pick(bigger_cock_text_list)] [pick(cock_action_text_list)]about [mob_penis.genital_size] inches long, and [mob_penis.girth] inches in circumference."))
 			exposed_mob.visible_message(span_notice("[exposed_mob]'s [pick(words_for_bigger_cock)] [pick(bigger_cock_text_list)] [pick(public_cock_action_text_list)]"))
 			to_chat(exposed_mob, span_purple("Your [pick(words_for_bigger_cock)] [pick(bigger_cock_text_list)] [pick(cock_action_text_list)]about [mob_penis.genital_size] inches long, and [mob_penis.girth] inches in circumference."))
 		else
-			if(exposed_mob.dna.features["penis_sheath"] == SHEATH_SLIT)
+			if(exposed_mob.dna.features["penis_sheath"] == /datum/sprite_accessory/genital/sheath/slit::name)
 				if(mob_penis.aroused != AROUSAL_FULL)
 					to_chat(exposed_mob, span_purple("Your [pick(cock_text_list)] [pick(cock_action_text_list)]about [mob_penis.genital_size] inches long, and [mob_penis.girth] inches in circumference."))
 			exposed_mob.visible_message(span_notice("[exposed_mob]'s [pick(cock_text_list)] [pick(public_cock_action_text_list)]"))

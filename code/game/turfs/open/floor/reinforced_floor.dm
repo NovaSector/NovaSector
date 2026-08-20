@@ -198,6 +198,7 @@
 /turf/open/floor/engine/cult/Initialize(mapload)
 	. = ..()
 	icon_state = "plating" //we're redefining the base icon_state here so that the Conceal/Reveal Presence spell works for cultists
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi' // NOVA EDIT ADDITION - aesthetic plating sprites live here
 
 	if (!mapload)
 		new /obj/effect/temp_visual/cult/turf/floor(src)
