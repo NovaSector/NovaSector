@@ -382,3 +382,31 @@
 /// Checks if the tail is exposed.
 /obj/item/organ/tail/proc/is_exposed()
 	return TRUE // your tail is always exposed, dummy! why are you checking this
+
+/*
+*	EMPATH BONUS
+*/
+
+/// Examine lines letting empaths read how aroused we are. Called by /mob/living/carbon/human/examine().
+/mob/living/carbon/human/proc/get_empath_examine(mob/user)
+	. = list()
+	var/mob/living/examiner = user
+	if(src == examiner || IS_DEAD_OR_FAKING(src) || IS_UNCONSCIOUS(src) || !HAS_TRAIT(examiner, TRAIT_SEE_MASK_WHISPER)) // See mask whisper is for the empath quirk. This is more performant than GetComponent()...
+		return
+
+	if(examiner.client?.prefs?.read_preference(/datum/preference/toggle/erp))
+		var/arousal_message
+		switch(arousal)
+			// Bluemoon edit - Fixed lewd Empath examine text
+			if(AROUSAL_MINIMUM_DETECTABLE to AROUSAL_LOW)
+				arousal_message = span_purple("[p_They()] [p_are()] slightly flushed in the cheeks.") + "\n"
+			if(AROUSAL_LOW to AROUSAL_MEDIUM)
+				arousal_message = span_purple("[p_They()] [p_are()] feeling sexually aroused.") + "\n"
+			if(AROUSAL_HIGH to AROUSAL_AUTO_CLIMAX_THRESHOLD)
+				arousal_message = span_purple("[p_They()] [p_are()] feeling extremely horny, and [p_are()] thinking lewd thoughts.") + "\n"
+			if(AROUSAL_AUTO_CLIMAX_THRESHOLD to INFINITY)
+				arousal_message = span_purple("[p_They()] [p_are()] extremely horny, and [p_are()] being pushed to [p_their()] limits!") + "\n"
+		if(arousal_message)
+			. += arousal_message
+	else if(arousal > AROUSAL_MINIMUM_DETECTABLE)
+		. += span_purple("[p_They()] [p_are()] slightly flushed in the cheeks.") + "\n"
