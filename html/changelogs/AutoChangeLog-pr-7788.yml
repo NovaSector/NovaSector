@@ -1,4 +1,0 @@
-author: "JerryWester"
-delete-after: True
-changes:
-  - code_imp: "Adds a function to attempt the removal of an appendix if one is present in an AI uplink shell going through the SAD, allowing for biosynthetic shells"

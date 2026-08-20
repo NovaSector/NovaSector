@@ -458,6 +458,12 @@
   - bugfix: fixed a misc radio channels(cybersun, guild, faction/solfed)
   Hatterhat:
   - bugfix: .38 speedloader widening kits work again.
+  JerryWester:
+  - code_imp: Adds a function to attempt the removal of an appendix if one is present
+      in an AI uplink shell going through the SAD, allowing for biosynthetic shells
+  Jureiia:
+  - bugfix: Interdyne's cargo orders have now been made a little more consistent with
+      what they're labelled as.
   sergeirocks100:
   - bugfix: Xenomorph hybrids can now access their plantigrade legs. If the legs on
       your xenohybrid character are plantigrade all of a sudden, and you want to go
