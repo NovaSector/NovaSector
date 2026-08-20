@@ -1,4 +1,0 @@
-author: "sergeirocks100"
-delete-after: True
-changes:
-  - bugfix: "Xenomorph hybrids can now access their plantigrade legs. If the legs on your xenohybrid character are plantigrade all of a sudden, and you want to go back to how they were, then don't forget to go into the character preferences, and change the legs from \"Normal Legs\" to \"Digitigrade Legs\"."
