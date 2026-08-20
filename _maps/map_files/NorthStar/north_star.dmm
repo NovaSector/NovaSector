@@ -62514,7 +62514,7 @@
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
 "pPS" = (
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/station/security/checkpoint/medical)
 "pPY" = (
 /obj/machinery/light/red/dim/directional/west,
@@ -186531,7 +186531,7 @@ cti
 cwq
 cwq
 cwq
-wwu
+xuv
 lka
 aax
 nje
@@ -186788,7 +186788,7 @@ wwu
 xsf
 wwu
 cwq
-wwu
+xuv
 brn
 nWJ
 gEb
@@ -187045,8 +187045,8 @@ qLo
 qFs
 wwu
 hcF
-wwu
-wwu
+xuv
+xuv
 oSZ
 xUU
 qMp
@@ -187303,7 +187303,7 @@ qOh
 iCg
 aPC
 cwq
-wwu
+xuv
 eLT
 hPN
 lWy
@@ -187560,9 +187560,9 @@ qOh
 wwu
 gjh
 cwq
-wwu
-wwu
-wwu
+xuv
+xuv
+xuv
 xuv
 uKn
 hMV
