@@ -453,3 +453,13 @@
   - bugfix: The Destructive Analyzer properly unlocks research nodes again
   TealSeer:
   - bugfix: fixed icons in the biogenerator UI being broken
+2026-08-20:
+  Arceniu:
+  - bugfix: fixed a misc radio channels(cybersun, guild, faction/solfed)
+  Hatterhat:
+  - bugfix: .38 speedloader widening kits work again.
+  sergeirocks100:
+  - bugfix: Xenomorph hybrids can now access their plantigrade legs. If the legs on
+      your xenohybrid character are plantigrade all of a sudden, and you want to go
+      back to how they were, then don't forget to go into the character preferences,
+      and change the legs from "Normal Legs" to "Digitigrade Legs".
