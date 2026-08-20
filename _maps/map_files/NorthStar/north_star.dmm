@@ -1772,7 +1772,9 @@
 /turf/open/floor/iron,
 /area/station/commons/fitness)
 "avX" = (
-/obj/machinery/camera/autoname/directional/north,
+/obj/machinery/camera/autoname/directional/north{
+	network = list("ss13","medbay")
+	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
@@ -2668,7 +2670,9 @@
 /turf/open/floor/iron/dark,
 /area/station/command/teleporter)
 "aIe" = (
-/obj/machinery/camera/autoname/directional/south,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","medbay")
+	},
 /turf/open/openspace,
 /area/station/medical/pharmacy)
 "aIs" = (
@@ -12603,7 +12607,9 @@
 "dfU" = (
 /obj/machinery/computer/pandemic,
 /obj/structure/sign/poster/official/periodic_table/directional/north,
-/obj/machinery/camera/autoname/directional/north,
+/obj/machinery/camera/autoname/directional/north{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
 "dgb" = (
@@ -19158,6 +19164,9 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
+/obj/machinery/camera/autoname/directional/north{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/office)
 "eTQ" = (
@@ -19580,7 +19589,9 @@
 /area/station/hallway/floor2/aft)
 "fae" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
-/obj/machinery/camera/autoname/directional/south,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","medbay")
+	},
 /obj/effect/landmark/start/psychologist,
 /turf/open/floor/iron/white,
 /area/station/medical/psychology)
@@ -19868,14 +19879,6 @@
 "ffe" = (
 /turf/closed/wall/r_wall,
 /area/station/security/holding_cell)
-"ffh" = (
-/obj/effect/turf_decal/siding{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment,
-/obj/machinery/light/directional/north,
-/turf/open/floor/iron/white/small,
-/area/station/medical/medbay/lobby)
 "ffi" = (
 /obj/effect/turf_decal/trimline/purple/line{
 	dir = 4
@@ -23088,7 +23091,9 @@
 	dir = 4;
 	pixel_y = 16
 	},
-/obj/machinery/camera/directional/south,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/dark,
 /area/station/medical/virology)
 "fWc" = (
@@ -23928,6 +23933,9 @@
 "ggp" = (
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /obj/structure/chair,
+/obj/machinery/camera/autoname/directional/north{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "ggD" = (
@@ -24256,7 +24264,9 @@
 "gle" = (
 /obj/effect/turf_decal/tile/green/opposingcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/camera/autoname/directional/south,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "gll" = (
@@ -26689,7 +26699,9 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/directional/west,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/white/small{
 	name = "padded floor"
 	},
@@ -27166,7 +27178,6 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced/rglass,
-/obj/item/screwdriver,
 /turf/open/floor/iron/large,
 /area/station/science/robotics/lab)
 "gYe" = (
@@ -31932,7 +31943,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
 /obj/machinery/light/small/directional/north,
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/camera/autoname/directional/north,
+/obj/machinery/camera/autoname/directional/north{
+	network = list("ss13","medbay")
+	},
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 8
 	},
@@ -36762,7 +36775,9 @@
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/camera/autoname/directional/west,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("ss13","medbay")
+	},
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
 	},
@@ -38779,7 +38794,9 @@
 "jXv" = (
 /obj/structure/closet/crate/freezer/surplus_limbs,
 /obj/effect/turf_decal/tile/blue/fourcorners,
-/obj/machinery/camera/autoname/directional/west,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/surgery/aft)
 "jXz" = (
@@ -39092,6 +39109,7 @@
 	pixel_x = 4;
 	pixel_y = -4
 	},
+/obj/item/screwdriver,
 /turf/open/floor/iron/large,
 /area/station/science/robotics/lab)
 "kbM" = (
@@ -40324,7 +40342,9 @@
 /obj/effect/turf_decal/trimline/white/filled/line{
 	dir = 9
 	},
-/obj/machinery/camera/autoname/directional/west,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/dark,
 /area/station/medical/psychology)
 "kqG" = (
@@ -41397,7 +41417,9 @@
 /obj/effect/turf_decal/tile/blue/half{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/directional/south,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/textured_edge{
 	dir = 1
 	},
@@ -45500,6 +45522,7 @@
 /obj/machinery/computer/crew{
 	dir = 8
 	},
+/obj/machinery/computer/security/telescreen/med_sec/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/cmo)
 "lGw" = (
@@ -47136,7 +47159,9 @@
 /turf/open/floor/plating,
 /area/station/science/genetics)
 "mbb" = (
-/obj/machinery/camera/autoname/directional/east,
+/obj/machinery/camera/autoname/directional/east{
+	network = list("ss13","medbay")
+	},
 /obj/structure/bed/medical/emergency{
 	dir = 4
 	},
@@ -47501,7 +47526,9 @@
 /turf/open/floor/noslip,
 /area/station/science/lobby)
 "mew" = (
-/obj/machinery/camera/autoname/directional/west,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("ss13","medbay")
+	},
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/large,
 /area/station/medical/chemistry)
@@ -48652,6 +48679,9 @@
 "mty" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
+	},
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","medbay")
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/psychology)
@@ -58300,7 +58330,9 @@
 /area/station/maintenance/floor3/starboard/fore)
 "oMz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/camera/directional/west,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("ss13","medbay")
+	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/floor/grass,
 /area/station/medical/virology)
@@ -59502,7 +59534,6 @@
 	dir = 4
 	},
 /obj/machinery/light/warm/directional/south,
-/obj/effect/landmark/start/psychologist,
 /obj/structure/chair/sofa/right/brown{
 	dir = 1
 	},
@@ -64393,9 +64424,6 @@
 /obj/structure/foamedmetal,
 /turf/open/floor/plating,
 /area/station/maintenance/floor1/port/aft)
-"qph" = (
-/turf/open/floor/iron/white,
-/area/station/security/detectives_office/private_investigators_office)
 "qpp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -65216,6 +65244,7 @@
 "qyF" = (
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/recharge_station,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/aft)
 "qyH" = (
@@ -71980,7 +72009,9 @@
 /obj/structure/table/wood/poker,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/spawner/random/entertainment/deck,
-/obj/machinery/camera/autoname/directional/south,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","medbay")
+	},
 /obj/item/toy/plush/slimeplushie{
 	name = "stress toy"
 	},
@@ -72443,7 +72474,6 @@
 /area/station/science/xenobiology)
 "suB" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/machinery/light/directional/north,
 /turf/open/floor/iron/white/small,
 /area/station/medical/medbay/lobby)
 "suD" = (
@@ -73227,6 +73257,9 @@
 	pixel_y = 5
 	},
 /obj/machinery/light/directional/south,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/exam_room)
 "sFs" = (
@@ -77093,7 +77126,9 @@
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/floor4/fore)
 "tBr" = (
-/obj/machinery/camera/autoname/directional/south,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","medbay")
+	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
@@ -79455,7 +79490,9 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/directional/south,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/white/herringbone,
 /area/station/medical/patients_rooms)
 "uim" = (
@@ -80143,6 +80180,9 @@
 "usp" = (
 /obj/effect/decal/cleanable/vomit/old,
 /obj/machinery/light/small/directional/west,
+/obj/machinery/camera/autoname/directional/west{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/catwalk_floor/iron_white,
 /area/station/security/checkpoint/medical)
 "usq" = (
@@ -82037,6 +82077,7 @@
 /obj/effect/turf_decal/siding/blue/corner{
 	dir = 1
 	},
+/obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark,
 /area/station/medical/paramedic)
 "uPd" = (
@@ -82588,7 +82629,9 @@
 /area/station/command/heads_quarters/blueshield)
 "uXf" = (
 /obj/structure/sign/poster/official/random/directional/north,
-/obj/machinery/camera/autoname/directional/north,
+/obj/machinery/camera/autoname/directional/north{
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/wood,
 /area/station/medical/psychology)
 "uXi" = (
@@ -84849,7 +84892,6 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/cargo/bitrunning/den)
 "vzu" = (
-/obj/effect/landmark/start/psychologist,
 /obj/structure/sign/poster/official/random/directional/south,
 /obj/structure/chair/sofa/left/brown{
 	dir = 1
@@ -90791,8 +90833,9 @@
 /turf/open/floor/engine,
 /area/station/command/heads_quarters/rd)
 "wVc" = (
-/obj/machinery/computer/crew,
+/obj/structure/table/reinforced,
 /obj/machinery/airalarm/directional/north,
+/obj/machinery/computer/security/telescreen/med_sec,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "wVm" = (
@@ -92789,7 +92832,9 @@
 /area/station/medical/psychology)
 "xxk" = (
 /obj/machinery/iv_drip,
-/obj/machinery/camera/autoname/directional/east,
+/obj/machinery/camera/autoname/directional/east{
+	network = list("ss13","medbay")
+	},
 /obj/effect/decal/cleanable/blood/old,
 /obj/structure/sign/poster/official/cleanliness/directional/east,
 /obj/machinery/vitals_reader/directional/south,
@@ -93719,11 +93764,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/floor3/port)
 "xII" = (
-/obj/machinery/camera/directional/north{
-	c_tag = "Medbay - Treatment Center";
-	name = "medbay camera";
-	network = list("ss13","medbay");
-	dir = 2
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","medbay")
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/exam_room)
@@ -196789,7 +196831,7 @@ aBK
 mDm
 vrs
 cTw
-qph
+vsx
 xYM
 jLQ
 bWK
@@ -197308,7 +197350,7 @@ cdm
 jLQ
 tDb
 gvp
-ffh
+rNE
 lbi
 blH
 rNE
