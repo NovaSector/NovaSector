@@ -227,6 +227,8 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		return
 	if(IS_CHANGELING(victim))
 		return
+	if(gibbed)
+		return
 	var/turf/victim_loc = victim.drop_location()
 	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 	mind = victim.mind || victim.last_mind
@@ -271,11 +273,11 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	var/atom/core_loc = get_core_ejection_loc(victim, death_turf, loc_override)
 
 	// Store their items, drop their brain/core, and implants to the floor.
+	victim.drop_all_held_items()
 	store_item_slots(victim)
 	src.Remove(victim, special = TRUE) // Brain/Core
 	for(var/obj/item/implant/implants in victim) // Implants
 		implants.forceMove(death_turf)
-	victim.drop_all_held_items()
 	process_items(victim) // Start moving items before anything else can touch them.
 	forceMove(core_loc)
 
@@ -602,7 +604,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 	if(mind)
 		SEND_SIGNAL(mind, COMSIG_SLIME_REVIVED, body, src)
-	return body
+	UnregisterSignal(source, COMSIG_MOB_LOGIN)
 
 /obj/item/organ/brain/slime/Topic(href, list/href_list)
 	. = ..()

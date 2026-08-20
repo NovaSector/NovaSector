@@ -70,5 +70,5 @@
 		slime.adjust_nutrition(rand(5, 25))
 	return TRUE
 
-/datum/status_effect/slime_washing/get_examine_text()
+/datum/status_effect/slime_washing/get_examine_text(mob/examiner)
 	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")

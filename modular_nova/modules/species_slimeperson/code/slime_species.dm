@@ -170,7 +170,7 @@
 			healing = FALSE
 
 	// Skip if unconscious
-	if(slime.stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(slime))
 		return
 
 	// PASSIVE HEALING
