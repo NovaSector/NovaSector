@@ -3,59 +3,49 @@
 /datum/atom_skin/laevateinn_revolver
 	abstract_type = /datum/atom_skin/laevateinn_revolver
 	change_base_icon_state = TRUE
+	change_worn_icon_state = FALSE
 
 /datum/atom_skin/laevateinn_revolver/base
 	preview_name = "Baseline"
 	new_icon_state = "c38rail"
-	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/base/reflex
 	preview_name = "Reflex"
 	new_icon_state = "c38rail_sight"
-	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/base/hunter
 	preview_name = "Hunter"
 	new_icon_state = "c38rail_scope"
-	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/base/shadow
 	preview_name = "Shadow Baseline"
 	new_icon_state = "c38rail_dark"
-	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/base/shadow/reflex
 	preview_name = "Shadow Reflex"
 	new_icon_state = "c38rail_dark_sight"
-	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/base/shadow/hunter
 	preview_name = "Shadow Hunter"
 	new_icon_state = "c38rail_dark_scope"
-	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/midnight
 	preview_name = "Midnight Baseline"
 	new_icon_state = "c38rail_midnight"
-	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/midnight/reflex
 	preview_name = "Midnight Reflex"
 	new_icon_state = "c38rail_midnight_sight"
-	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/midnight/hunter
 	preview_name = "Midnight Hunter"
 	new_icon_state = "c38rail_midnight_scope"
-	new_worn_icon = "gun"
 
 /obj/item/gun/ballistic/revolver/c38/super
 	name = "\improper NT/E Laevateinn Revolver"
 	icon = 'modular_nova/modules/modular_weapons/icons/obj/company_and_or_faction_based/nanotrasen_armories/ballistic.dmi'
 	icon_state = "c38rail"
 	base_icon_state = "c38rail"
-	worn_icon = 'icons/mob/clothing/belt.dmi'
-	worn_icon_state = "gun"
 	w_class = WEIGHT_CLASS_NORMAL
 	obj_flags = UNIQUE_RENAME
 	desc = "A new spin on a classic. Uses .38 Special rounds, and features both a magnified sight and a magnetic charge-shot assembly built into the barrel for precision fire."
