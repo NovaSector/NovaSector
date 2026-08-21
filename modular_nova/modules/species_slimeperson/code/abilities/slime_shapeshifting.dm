@@ -373,12 +373,10 @@
 			var/slot = initial(organ_path.slot)
 			var/obj/item/organ/got_organ = alterer.get_organ_slot(slot)
 			if(got_organ)
-				got_organ.Remove(alterer)
 				qdel(got_organ)
 		else
 			var/obj/item/organ/got_organ = alterer.get_organ_slot(chosen_key)
 			if(got_organ)
-				got_organ.Remove(alterer)
 				qdel(got_organ)
 			else
 				alterer.dna.mutant_bodyparts -= chosen_key
@@ -394,7 +392,6 @@
 			var/slot = initial(organ_path.slot)
 			var/obj/item/organ/got_organ = alterer.get_organ_slot(slot)
 			if(got_organ)
-				got_organ.Remove(alterer)
 				qdel(got_organ)
 
 			var/obj/item/organ/replacement_organ = SSwardrobe.provide_type(selected_sprite_accessory.organ_type)
