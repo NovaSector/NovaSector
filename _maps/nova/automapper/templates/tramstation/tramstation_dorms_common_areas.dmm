@@ -190,7 +190,6 @@
 /area/station/commons/fitness/recreation/entertainment)
 "cT" = (
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/north,
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/wood,
 /area/station/commons/fitness)
@@ -1442,6 +1441,7 @@
 "BJ" = (
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/machinery/light/directional/east,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron,
 /area/station/commons/fitness)
 "BN" = (
