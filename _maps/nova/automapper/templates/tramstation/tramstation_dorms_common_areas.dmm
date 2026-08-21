@@ -1729,9 +1729,6 @@
 	},
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
-"GC" = (
-/turf/closed/mineral/random/stationside/asteroid/porus,
-/area/station/asteroid)
 "GK" = (
 /obj/item/reagent_containers/cup/bucket/wooden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1771,9 +1768,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
 /area/station/commons/dorms)
-"Hy" = (
-/turf/closed/mineral/random/stationside/asteroid/porus,
-/area/template_noop)
 "HG" = (
 /obj/structure/flora/bush/jungle,
 /turf/open/floor/grass,
@@ -2143,9 +2137,6 @@
 	},
 /turf/open/floor/wood,
 /area/station/commons/dorms)
-"NZ" = (
-/turf/closed/wall,
-/area/station/maintenance/tram/left)
 "Oa" = (
 /obj/structure/flora/bush/large/style_2,
 /turf/open/floor/grass,
@@ -3583,7 +3574,7 @@ vP
 bS
 Xu
 UY
-GC
+RY
 Hj
 Hj
 Hj
@@ -3592,9 +3583,9 @@ Hj
 Hj
 "}
 (29,1,1) = {"
-NZ
-NZ
-NZ
+Js
+Js
+Js
 Js
 RY
 FY
@@ -3614,7 +3605,7 @@ fx
 In
 Xu
 gl
-GC
+RY
 Hj
 Hj
 Hj
@@ -3645,7 +3636,7 @@ mA
 od
 tb
 Cg
-GC
+RY
 Hj
 Hj
 Hj
@@ -3676,7 +3667,7 @@ xY
 ZO
 OA
 HG
-GC
+RY
 Hj
 Hj
 Hj
@@ -3707,7 +3698,7 @@ JX
 LE
 iH
 RY
-GC
+RY
 Hj
 Hj
 Hj
@@ -3735,10 +3726,10 @@ Sy
 oT
 Cw
 bT
-GC
-GC
-GC
-GC
+RY
+RY
+RY
+RY
 Hj
 Hj
 Hj
@@ -3765,8 +3756,8 @@ ZU
 CO
 Xu
 UF
-GC
-GC
+RY
+RY
 Hj
 Hj
 Hj
@@ -3796,7 +3787,7 @@ mb
 iH
 HG
 Oa
-GC
+RY
 Hj
 Hj
 Hj
@@ -3826,8 +3817,8 @@ LP
 Xf
 JQ
 jw
-GC
-GC
+RY
+RY
 Hj
 Hj
 Hj
@@ -3853,12 +3844,12 @@ WR
 kT
 sv
 QH
-GC
-GC
-GC
-GC
-GC
-GC
+RY
+RY
+RY
+RY
+RY
+RY
 Hj
 Hj
 Hj
@@ -3884,8 +3875,8 @@ WR
 DP
 oo
 Qz
-GC
-GC
+RY
+RY
 Hj
 Hj
 Hj
@@ -3915,8 +3906,8 @@ WR
 ZA
 jN
 Xo
-GC
-GC
+RY
+RY
 Hj
 Hj
 Hj
@@ -3946,8 +3937,8 @@ xC
 Ft
 oo
 nR
-GC
-GC
+RY
+RY
 Hj
 Hj
 Hj
@@ -3964,7 +3955,7 @@ Hj
 Hj
 "}
 (41,1,1) = {"
-GC
+RY
 RY
 RY
 Gf
@@ -3978,7 +3969,7 @@ ba
 Xu
 KJ
 KJ
-GC
+RY
 Hj
 Hj
 Hj
@@ -3995,7 +3986,7 @@ Hj
 Hj
 "}
 (42,1,1) = {"
-GC
+RY
 RY
 RY
 xB
@@ -4009,7 +4000,7 @@ an
 KJ
 KJ
 KJ
-GC
+RY
 Hj
 Hj
 Hj
@@ -4026,7 +4017,7 @@ Hj
 Hj
 "}
 (43,1,1) = {"
-GC
+RY
 RY
 RY
 KP
@@ -4040,7 +4031,7 @@ xG
 KJ
 KJ
 sa
-GC
+RY
 Hj
 Hj
 Hj
@@ -4057,7 +4048,7 @@ Hj
 Hj
 "}
 (44,1,1) = {"
-GC
+RY
 RY
 RY
 RY
@@ -4071,7 +4062,7 @@ KJ
 Nm
 sa
 Nm
-GC
+RY
 Hj
 Hj
 Hj
@@ -4088,7 +4079,7 @@ Hj
 Hj
 "}
 (45,1,1) = {"
-GC
+RY
 RY
 RY
 RY
@@ -4102,10 +4093,10 @@ KJ
 KJ
 sa
 bb
-GC
-GC
-GC
-GC
+RY
+RY
+RY
+RY
 Hj
 Hj
 Hj
@@ -4119,23 +4110,23 @@ Hj
 Hj
 "}
 (46,1,1) = {"
-GC
-GC
-GC
-GC
-GC
-GC
-GC
-GC
-GC
-GC
-GC
-GC
-GC
-GC
-GC
-GC
-GC
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
 RN
 Hj
 Hj
@@ -4150,8 +4141,8 @@ Hj
 Hj
 "}
 (47,1,1) = {"
-Hy
-Hy
+RY
+RY
 RN
 RN
 RN
@@ -4181,7 +4172,7 @@ Hj
 Hj
 "}
 (48,1,1) = {"
-Hy
+RY
 Hj
 Hj
 Hj
