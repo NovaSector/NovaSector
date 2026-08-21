@@ -7,38 +7,47 @@
 /datum/atom_skin/laevateinn_revolver/base
 	preview_name = "Baseline"
 	new_icon_state = "c38rail"
+	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/base/reflex
 	preview_name = "Reflex"
 	new_icon_state = "c38rail_sight"
+	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/base/hunter
 	preview_name = "Hunter"
 	new_icon_state = "c38rail_scope"
+	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/base/shadow
 	preview_name = "Shadow Baseline"
 	new_icon_state = "c38rail_dark"
+	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/base/shadow/reflex
 	preview_name = "Shadow Reflex"
 	new_icon_state = "c38rail_dark_sight"
+	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/base/shadow/hunter
 	preview_name = "Shadow Hunter"
 	new_icon_state = "c38rail_dark_scope"
+	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/midnight
 	preview_name = "Midnight Baseline"
 	new_icon_state = "c38rail_midnight"
+	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/midnight/reflex
 	preview_name = "Midnight Reflex"
 	new_icon_state = "c38rail_midnight_sight"
+	new_worn_icon = "gun"
 
 /datum/atom_skin/laevateinn_revolver/midnight/hunter
 	preview_name = "Midnight Hunter"
 	new_icon_state = "c38rail_midnight_scope"
+	new_worn_icon = "gun"
 
 /obj/item/gun/ballistic/revolver/c38/super
 	name = "\improper NT/E Laevateinn Revolver"
