@@ -51,3 +51,4 @@ Adds a new roundstart slimeperson species, reworking and rebalancing TG's jellyp
 - Absolucy
 - Siro
 - Hardly3D
+- Richard Blonski
