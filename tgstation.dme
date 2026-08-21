@@ -1858,6 +1858,7 @@
 #include "code\datums\elements\elevation.dm"
 #include "code\datums\elements\empprotection.dm"
 #include "code\datums\elements\envenomable_casing.dm"
+#include "code\datums\elements\equipment_bodypart_texture.dm"
 #include "code\datums\elements\examine_lore.dm"
 #include "code\datums\elements\eyestab.dm"
 #include "code\datums\elements\falling_hazard.dm"
@@ -8064,6 +8065,7 @@
 #include "modular_nova\modules\automapper\code\area_spawn_subsystem.dm"
 #include "modular_nova\modules\automapper\code\automap_template.dm"
 #include "modular_nova\modules\automapper\code\automapper_subsystem.dm"
+#include "modular_nova\modules\automapper\code\modular_map_loader.dm"
 #include "modular_nova\modules\autotransfer\code\autotransfer.dm"
 #include "modular_nova\modules\autotransfer\code\autotransfer_config.dm"
 #include "modular_nova\modules\autotransfer\code\shuttle.dm"
@@ -10046,4 +10048,5 @@
 #include "modular_nova\modules\xenoarchartifacts\obj\wave_scanner.dm"
 #include "modular_nova\modules\xenomorph\alien.dm"
 #include "modular_nova\modules\xenomorph\queen.dm"
+#include "modular_nova\modules\zubbers_taur\code\taur.dm"
 // END_INCLUDE
