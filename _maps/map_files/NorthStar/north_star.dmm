@@ -214,6 +214,7 @@
 /obj/machinery/holopad,
 /obj/effect/landmark/navigate_destination/dockarrival,
 /obj/machinery/power/apc/auto_name/directional/south,
+/obj/structure/cable,
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/entry)
 "acl" = (
@@ -14196,6 +14197,7 @@
 	},
 /obj/effect/turf_decal/tile/red/half/contrasted,
 /obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/customs)
 "dDC" = (
@@ -23968,8 +23970,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
 "ggO" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/cable,
+/obj/effect/spawner/structure/window/hollow/reinforced/end,
 /turf/open/floor/plating,
 /area/station/cargo/storage)
 "ggQ" = (
@@ -29562,10 +29563,6 @@
 /obj/machinery/duct,
 /turf/open/floor/grass,
 /area/station/science/cytology)
-"hDf" = (
-/obj/structure/cable,
-/turf/open/floor/iron/large,
-/area/station/cargo/storage)
 "hDr" = (
 /turf/closed/indestructible/riveted{
 	desc = "A wall impregnated with Fixium, able to withstand massive explosions with ease";
@@ -77962,6 +77959,7 @@
 /obj/machinery/door/airlock/security/glass{
 	name = "Arrivals Checkpoint"
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/checkpoint/customs)
 "tNd" = (
@@ -87507,7 +87505,6 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/obj/structure/cable,
 /turf/open/floor/iron/large,
 /area/station/cargo/storage)
 "whb" = (
@@ -90491,6 +90488,7 @@
 /area/station/medical/medbay/central)
 "wQe" = (
 /obj/machinery/holopad,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 1
 	},
@@ -94811,6 +94809,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/secondary/entry)
 "xWe" = (
@@ -95395,6 +95394,7 @@
 /obj/structure/chair/office,
 /obj/effect/turf_decal/tile/red/half/contrasted,
 /obj/machinery/light/floor,
+/obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/customs)
 "yef" = (
@@ -123097,7 +123097,7 @@ hLP
 hBw
 tHL
 kOS
-hDf
+tHL
 wha
 tHL
 ncc
