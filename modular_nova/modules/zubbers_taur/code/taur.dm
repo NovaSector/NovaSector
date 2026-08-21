@@ -3,7 +3,7 @@
 	color_src = USE_MATRIXED_COLORS
 	name = "Chemnaga"
 	icon_state = "chemnaga"
-	taur_mode = STYLE_TAUR_SNAKE
+	taur_mode = BODYSHAPE_TAUR_SNAKE
 	organ_type = /obj/item/organ/taur_body/serpentine
 
 /datum/sprite_accessory/taur/leopardseal
