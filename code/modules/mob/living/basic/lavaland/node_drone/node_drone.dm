@@ -23,7 +23,10 @@
 	pass_flags = PASSTABLE|PASSGRILLE|PASSMOB
 	mob_size = MOB_SIZE_LARGE
 	mob_biotypes = MOB_ROBOTIC
-	faction = list(FACTION_STATION, FACTION_NEUTRAL)
+	// NOVA EDIT CHANGE BEGIN - Drones share the lavaland fauna faction so wave defense is "survive the mobs" instead of "babysit the drone".
+	// ORIGINAL: faction = list(FACTION_STATION, FACTION_NEUTRAL)
+	faction = list(FACTION_STATION, FACTION_NEUTRAL, FACTION_MINING)
+	// NOVA EDIT CHANGE END
 	light_range = 4
 	basic_mob_flags = DEL_ON_DEATH
 	move_force = MOVE_FORCE_VERY_STRONG
