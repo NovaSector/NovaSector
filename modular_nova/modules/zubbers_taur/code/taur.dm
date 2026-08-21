@@ -1,16 +1,14 @@
 /datum/sprite_accessory/taur/chemnaga
-	icon = 'modular_nova/modules/zubbers_taur/icons/mam_taur.dmi'
-	color_src = USE_MATRIXED_COLORS
 	name = "Chemnaga"
 	icon_state = "chemnaga"
 	taur_mode = BODYSHAPE_TAUR_SNAKE
 	organ_type = /obj/item/organ/taur_body/serpentine
+	icon = 'modular_nova/modules/zubbers_taur/icons/mam_taur.dmi'
 
 /datum/sprite_accessory/taur/leopardseal
-	icon = 'modular_nova/modules/zubbers_taur/icons/mam_taur.dmi'
-	color_src = USE_MATRIXED_COLORS
 	name = "Leopard Seal"
 	icon_state = "leopardseal"
+	icon = 'modular_nova/modules/zubbers_taur/icons/mam_taur.dmi'
 
 /datum/sprite_accessory/taur/bunny
 	name = "Bunny"
