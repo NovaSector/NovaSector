@@ -4245,7 +4245,7 @@
 /area/station/commons/storage/primary)
 "bcS" = (
 /obj/structure/sign/departments/security,
-/turf/closed/wall,
+/turf/closed/wall/r_wall,
 /area/station/security/checkpoint/science)
 "bcZ" = (
 /obj/effect/mapping_helpers/broken_floor,
@@ -5223,11 +5223,11 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/tcommsat/computer)
 "bna" = (
-/obj/structure/chair,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
 	},
+/obj/structure/chair/sofa/bench/right,
 /turf/open/floor/iron/white,
 /area/station/security/checkpoint/medical)
 "bne" = (
@@ -25257,10 +25257,10 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/access/any/engineering/engie_guard,
 /obj/machinery/door/airlock/security/glass{
 	name = "Security Post - Engineering"
 	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/engie_guard,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/engineering)
 "gyd" = (
@@ -34790,9 +34790,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/access/any/medical/orderly,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/access/all/medical/orderly,
 /turf/open/floor/iron/dark/textured,
 /area/station/security/checkpoint/medical)
 "iVH" = (
@@ -43876,7 +43876,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance Access"
 	},
-/obj/effect/mapping_helpers/airlock/access/any/engineering/engie_guard,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/engie_guard,
 /turf/open/floor/plating,
 /area/station/maintenance/floor1/port)
 "ljs" = (
@@ -43932,7 +43932,7 @@
 "lka" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/west,
-/obj/structure/closet/l3closet/security,
+/obj/structure/closet/bombcloset/security,
 /obj/item/storage/medkit/emergency,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/science)
@@ -46795,9 +46795,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/station/maintenance/floor2/starboard/fore)
-"lWy" = (
-/turf/closed/wall,
-/area/station/security/checkpoint/science)
 "lWA" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 9
@@ -79125,17 +79122,13 @@
 "udb" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
-/obj/structure/closet/secure_closet/evidence{
-	req_one_access = null;
-	req_access = list("brig_entrance", "medical");
-	name = "medical evidence locker"
-	},
-/obj/item/storage/medkit/regular,
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
 	},
 /obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/closet/l3closet/security,
+/obj/item/storage/medkit/regular,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "udn" = (
@@ -80178,7 +80171,6 @@
 	pixel_x = -4
 	},
 /obj/item/folder/white{
-	color = "#6ad6f7";
 	pixel_x = 3;
 	pixel_y = 3
 	},
@@ -81388,7 +81380,7 @@
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor4/starboard)
 "uIw" = (
-/obj/machinery/computer/records/medical,
+/obj/machinery/computer/records/security,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "uIx" = (
@@ -85035,8 +85027,8 @@
 /obj/machinery/door/airlock/security{
 	name = "Equipment Storage"
 	},
-/obj/effect/mapping_helpers/airlock/access/any/engineering/engie_guard,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/access/all/engineering/engie_guard,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/engineering)
 "vAS" = (
@@ -90845,7 +90837,10 @@
 "wVc" = (
 /obj/structure/table/reinforced,
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/computer/security/telescreen/med_sec,
+/obj/machinery/computer/security/telescreen/med_sec{
+	dir = 1;
+	pixel_y = 4
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "wVm" = (
@@ -91655,10 +91650,10 @@
 /turf/open/floor/wood/tile,
 /area/station/service/library/lounge)
 "xgm" = (
-/obj/structure/chair,
 /obj/effect/turf_decal/tile/blue/opposingcorners{
 	dir = 1
 	},
+/obj/structure/chair/sofa/bench/left,
 /turf/open/floor/iron/white,
 /area/station/security/checkpoint/medical)
 "xgC" = (
@@ -186289,10 +186284,10 @@ xuv
 xuv
 qhk
 qhk
-lWy
-lWy
-lWy
-lWy
+qhk
+qhk
+qhk
+qhk
 jjX
 fFu
 bfh
@@ -187318,9 +187313,9 @@ cwq
 xuv
 eLT
 hPN
-lWy
-qAG
-qAG
+qhk
+fja
+fja
 xoF
 fFu
 jqD
