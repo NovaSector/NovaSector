@@ -1,4 +1,0 @@
-author: "W0LF-101"
-delete-after: True
-changes:
-  - bugfix: "Reskinning the Laevateinn revolver no longer breaks its belt and suit storage slot sprite."

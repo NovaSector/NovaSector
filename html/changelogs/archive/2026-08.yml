@@ -469,3 +469,17 @@
       your xenohybrid character are plantigrade all of a sudden, and you want to go
       back to how they were, then don't forget to go into the character preferences,
       and change the legs from "Normal Legs" to "Digitigrade Legs".
+2026-08-21:
+  Morskoikot:
+  - rscadd: 'Added Chemnaga, Leopard seal, Insect + winged alt and Bunny taur sprites.
+
+      :cl:'
+  SmArtKar:
+  - rscadd: Every 5 minutes 2-4 random cargo exports get tripled in price, lets go
+      gambling!
+  W0LF-101:
+  - bugfix: Reskinning the Laevateinn revolver no longer breaks its belt and suit
+      storage slot sprite.
+  sqnztb:
+  - balance: waves of mobs spawned from ore vents will only attack the player now
+  - code_imp: Automapper templates are no longer overwritten by modular map modules
