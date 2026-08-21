@@ -189,7 +189,6 @@
 /turf/open/misc/asteroid,
 /area/station/commons/fitness/recreation/entertainment)
 "cT" = (
-/obj/structure/cable,
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/wood,
 /area/station/commons/fitness)
@@ -575,6 +574,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/stone/forest,
+/area/station/commons/fitness)
+"kI" = (
+/obj/structure/cable,
+/turf/open/floor/iron,
 /area/station/commons/fitness)
 "kO" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -1297,6 +1300,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 8
 	},
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/commons/fitness)
 "yv" = (
@@ -1442,6 +1446,7 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/machinery/light/directional/east,
 /obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/commons/fitness)
 "BN" = (
@@ -2222,6 +2227,11 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation/entertainment)
+"Qh" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
 "Qz" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/jungle/b/style_random,
@@ -3236,7 +3246,7 @@ Hj
 Hj
 ut
 HO
-Tb
+kI
 yh
 iO
 ve
@@ -3268,7 +3278,7 @@ Hj
 aA
 HO
 zz
-mT
+Qh
 mT
 mT
 mT
