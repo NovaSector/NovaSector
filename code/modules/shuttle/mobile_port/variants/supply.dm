@@ -145,10 +145,17 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	var/list/empty_turfs = list()
 	for(var/area/shuttle/shuttle_area as anything in shuttle_areas)
 		for(var/turf/open/floor/shuttle_turf in shuttle_area.get_turfs_from_all_zlevels())
-			if(shuttle_turf.is_blocked_turf())
+			if(turf_is_occupied(shuttle_turf)) // NOVA EDIT CHANGE - Enhanced checks that a turf is unavailable - ORIGINAL: if(shuttle_turf.is_blocked_turf())
 				continue
 			empty_turfs += shuttle_turf
 
+	// NOVA EDIT ADDITION START - Providing feedback, and safety
+	if(!length(empty_turfs))
+		announce_rejection()
+		return // there can now be zero empty turfs to go around
+	if(length(empty_turfs) < 11)
+		announce_overcrowding()
+	// NOVA EDIT ADDITION END
 	//quickly and greedily handle chef's grocery runs first, there are a few reasons why this isn't attached to the rest of cargo...
 	//but the biggest reason is that the chef requires produce to cook and do their job, and if they are using this system they
 	//already got let down by the botanists. So to open a new chance for cargo to also screw them over any more than is necessary is bad.
@@ -335,10 +342,11 @@ GLOBAL_LIST_INIT(blacklisted_cargo_types, typecacheof(list(
 	var/list/empty_turfs = list()
 	for(var/area/shuttle/shuttle_area as anything in shuttle_areas)
 		for(var/turf/open/floor/shuttle_floor in shuttle_area.get_turfs_from_all_zlevels())
-			if(shuttle_floor.is_blocked_turf())
+			if(turf_is_occupied(shuttle_floor)) // NOVA EDIT CHANGE - Enhanced checks that a turf is unavailable - ORIGINAL: if(shuttle_floor.is_blocked_turf())
 				continue
 			empty_turfs += shuttle_floor
 
+	if (!length(empty_turfs)) { return } // NOVA EDIT ADDITION - There can now be zero empty turfs to go around
 	new /obj/structure/closet/crate/mail/economy(pick(empty_turfs))
 
 /// Takes a supply pack, returns the amount we currently have on order (or OVER_ORDER_LIMIT if we are over the hardcap on orders of this type)
