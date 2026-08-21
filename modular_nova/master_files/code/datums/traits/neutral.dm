@@ -58,7 +58,7 @@
 
 /// Adds the DNR HUD element if src has TRAIT_DNR. Removes it otherwise.
 /mob/living/proc/update_dnr_hud()
-	set_hud_image_state(DNR_HUD, "hud_dnr")
+	set_hud_image_state(DNR_HUD, hud_state = "hud_dnr")
 	if(HAS_TRAIT(src, TRAIT_DNR))
 		set_hud_image_active(DNR_HUD)
 	else
