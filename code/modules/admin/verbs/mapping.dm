@@ -207,6 +207,8 @@ ADMIN_VERB(create_mapping_job_icons, R_DEBUG, "Generate job landmarks icons", "G
 			if(JOB_CYBORG)
 				job_key_to_icon["Cyborg"] = icon('icons/mob/silicon/robots.dmi', "robot", SOUTH, 1) // NOVA EDIT CHANGE - ORIGINAL: final.Insert(icon('icons/mob/silicon/robots.dmi', "robot", SOUTH, 1), "Cyborg")
 			else
+				if(!JB.outfit) //only screenshot icons with an outfit // NOVA EDIT ADDITION
+					continue // NOVA EDIT ADDITION
 				for(var/obj/item/I in D)
 					qdel(I)
 				randomize_human_normie(D)
