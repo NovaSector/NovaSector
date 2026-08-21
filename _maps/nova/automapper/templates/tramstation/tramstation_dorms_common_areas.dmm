@@ -458,11 +458,12 @@
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "hJ" = (
-/obj/effect/turf_decal/siding/wideplating{
-	dir = 8
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
 	},
-/obj/structure/cable,
-/turf/open/floor/stone/forest,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
 /area/station/commons/fitness/recreation/entertainment)
 "hQ" = (
 /turf/open/floor/iron/stairs/medium{
@@ -500,8 +501,6 @@
 /area/station/commons/fitness/recreation/entertainment)
 "io" = (
 /obj/structure/table/wood,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/towel_bin{
 	pixel_y = 6
 	},
@@ -676,8 +675,8 @@
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "lO" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
 "ma" = (
@@ -707,8 +706,8 @@
 /area/station/commons/fitness)
 "mr" = (
 /obj/structure/railing,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
 "mA" = (
@@ -1208,6 +1207,8 @@
 	dir = 4
 	},
 /obj/structure/fluff/beach_umbrella/security,
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
 "xo" = (
@@ -1451,9 +1452,9 @@
 /area/station/commons/fitness)
 "BN" = (
 /obj/structure/railing/corner,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/light/floor,
+/obj/structure/cable,
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
 "BV" = (
@@ -1674,8 +1675,6 @@
 /obj/effect/turf_decal/siding/wideplating/corner{
 	dir = 8
 	},
-/obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/north,
 /obj/machinery/light/floor,
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
@@ -2182,12 +2181,7 @@
 /turf/open/misc/asteroid,
 /area/station/commons/fitness/recreation/entertainment)
 "OB" = (
-/obj/structure/railing/corner{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/thinplating_new,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
 "OI" = (
@@ -2526,8 +2520,6 @@
 "VY" = (
 /obj/structure/railing/corner,
 /obj/effect/turf_decal/siding/thinplating_new,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
 "Wb" = (
@@ -2575,7 +2567,7 @@
 /area/station/commons/fitness)
 "WR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation/entertainment)
 "WW" = (
@@ -2605,17 +2597,16 @@
 /turf/open/misc/asteroid,
 /area/station/commons/fitness/recreation/entertainment)
 "XH" = (
-/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding/wood{
-	dir = 8
+	dir = 1
 	},
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation/entertainment)
 "XI" = (
 /obj/structure/railing,
 /obj/structure/table/wood,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/item/bikehorn/rubberducky,
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
@@ -3545,11 +3536,11 @@ Hj
 Js
 Js
 Js
-Js
+FW
 il
 il
-Js
-Js
+FW
+FW
 gU
 XU
 FW
@@ -3609,8 +3600,8 @@ RY
 FY
 CF
 ep
-ep
-ep
+OB
+OB
 ep
 CF
 ep
@@ -3764,8 +3755,8 @@ KJ
 KJ
 ar
 Gx
-OB
-lC
+pk
+hJ
 ZA
 pV
 fw
@@ -3796,7 +3787,7 @@ KJ
 Mn
 tE
 VY
-lC
+XH
 ZA
 yV
 Wi
@@ -3827,7 +3818,7 @@ KJ
 eB
 ub
 XI
-Rx
+WR
 ZA
 HG
 QH
@@ -3851,14 +3842,14 @@ Hj
 (37,1,1) = {"
 FW
 Ga
-hJ
-hJ
-hJ
+zj
+zj
+zj
 zj
 ub
 sg
 io
-Rx
+WR
 kT
 sv
 QH
@@ -3884,12 +3875,12 @@ RY
 RY
 aE
 Gq
-XH
+Mv
 Mv
 Mr
 MX
 lo
-Rx
+WR
 DP
 oo
 Qz
@@ -3913,14 +3904,14 @@ Hj
 (39,1,1) = {"
 eL
 rO
-Rx
-Rx
 WR
 WR
-Rx
-Rx
-Rx
-Rx
+WR
+WR
+WR
+WR
+WR
+WR
 ZA
 jN
 Xo
