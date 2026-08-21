@@ -9767,7 +9767,6 @@
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor1/starboard/fore)
 "cuC" = (
-/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/blue{
@@ -9775,6 +9774,11 @@
 	},
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 8
+	},
+/obj/machinery/door/window/brigdoor/left/directional/west{
+	req_access = list("brig_entrance", "medical");
+	name = "Medical Cell";
+	id = "medcell"
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
@@ -19033,7 +19037,7 @@
 	pixel_y = 3
 	},
 /obj/machinery/light/directional/west,
-/obj/machinery/computer/security/telescreen/engine_waste/directional/west,
+/obj/machinery/computer/security/telescreen/engine/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/checkpoint/engineering)
 "eRe" = (
@@ -29310,7 +29314,8 @@
 "hzY" = (
 /obj/structure/closet/secure_closet/brig{
 	id = "engcell";
-	name = "Engineering Cell Locker"
+	name = "Engineering Cell Locker";
+	req_one_access = list("brig_entrance", "engineering")
 	},
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/catwalk_floor/iron,
@@ -54942,7 +54947,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/camera/autoname/directional/east,
+/obj/machinery/camera/autoname/directional/east{
+	network = list("ss13","engine")
+	},
 /turf/open/floor/iron/dark/side{
 	dir = 4
 	},
@@ -57419,6 +57426,11 @@
 /turf/open/floor/iron,
 /area/station/hallway/floor2/aft)
 "ozL" = (
+/obj/structure/closet/secure_closet/brig{
+	id = "scicell";
+	name = "Medical Cell Locker";
+	req_one_access = list("brig_entrance", "medical")
+	},
 /turf/open/floor/catwalk_floor/iron_white,
 /area/station/security/checkpoint/medical)
 "ozO" = (
@@ -79111,11 +79123,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "udb" = (
-/obj/machinery/door/window/brigdoor/left/directional/west{
-	req_access = list("security");
-	name = "Medical Cell";
-	id = "medcell"
-	},
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/structure/closet/secure_closet/evidence{
@@ -79128,6 +79135,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 1
 	},
+/obj/structure/window/reinforced/spawner/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "udn" = (
@@ -80162,8 +80170,8 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/brigdoor/right/directional/west{
-	name = "Medbay Security Post Desk";
-	req_access = list("security")
+	name = "Security Desk";
+	req_access = list("brig_entrance", "medical")
 	},
 /obj/machinery/door/window/right/directional/east,
 /obj/item/paper_bin{
@@ -88822,7 +88830,9 @@
 /area/station/medical/psychology)
 "wwW" = (
 /obj/machinery/airalarm/directional/east,
-/obj/machinery/camera/emp_proof/directional/east,
+/obj/machinery/camera/emp_proof/directional/east{
+	network = list("ss13","engine")
+	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "wxb" = (
@@ -94688,7 +94698,8 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/closet/secure_closet/brig{
 	id = "scicell";
-	name = "Science Cell Locker"
+	name = "Science Cell Locker";
+	req_one_access = list("brig_entrance", "science")
 	},
 /turf/open/floor/catwalk_floor/iron,
 /area/station/security/checkpoint/science)
@@ -95244,7 +95255,8 @@
 "ybL" = (
 /obj/structure/closet/secure_closet/brig{
 	id = "cargocell";
-	name = "Cargo Cell Locker"
+	name = "Cargo Cell Locker";
+	req_one_access = list("brig_entrance", "cargo")
 	},
 /turf/open/floor/catwalk_floor/iron,
 /area/station/security/checkpoint/supply)
