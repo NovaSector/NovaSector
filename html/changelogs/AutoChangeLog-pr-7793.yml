@@ -1,4 +1,0 @@
-author: "sqnztb"
-delete-after: True
-changes:
-  - code_imp: "Automapper templates are no longer overwritten by modular map modules"
