@@ -968,9 +968,7 @@
 "amg" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron/corner{
 	dir = 1
@@ -1693,9 +1691,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 6
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron,
 /area/station/hallway/floor2/fore)
 "auU" = (
@@ -2060,9 +2056,7 @@
 /turf/open/floor/iron/checker,
 /area/station/service/bar)
 "azI" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable,
@@ -2101,9 +2095,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/floor3/aft)
 "aAB" = (
@@ -2919,9 +2911,7 @@
 /turf/open/floor/iron/showroomfloor,
 /area/station/commons/toilet)
 "aLO" = (
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/smooth,
 /area/station/hallway/floor2/fore)
 "aLP" = (
@@ -3179,9 +3169,7 @@
 	dir = 5
 	},
 /obj/machinery/light/small/directional/west,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
@@ -3822,9 +3810,7 @@
 /obj/effect/turf_decal/trimline/green/arrow_ccw{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/structure/closet/secure_closet/personal,
 /turf/open/floor/iron/white/small,
 /area/station/commons/fitness/recreation)
@@ -5404,9 +5390,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/floor1/port/fore)
 "bpd" = (
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/floor/grass,
 /area/station/service/library/garden)
@@ -7901,9 +7885,7 @@
 "bWZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/duct,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/textured,
 /area/station/commons/fitness)
 "bXd" = (
@@ -9201,9 +9183,7 @@
 "cmh" = (
 /obj/structure/closet/toolcloset,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/commons/vacant_room/commissary)
 "cmi" = (
@@ -9430,9 +9410,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark/corner{
 	dir = 8
 	},
@@ -11145,9 +11123,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/floor2/aft)
 "cMA" = (
@@ -11179,7 +11155,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
+	network = list("ss13","engine")
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/hallway/floor1/aft)
@@ -11349,9 +11325,7 @@
 	},
 /area/station/engineering/atmos)
 "cPT" = (
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/smooth,
 /area/station/hallway/floor4/aft)
 "cQa" = (
@@ -13867,9 +13841,7 @@
 	dir = 8
 	},
 /obj/structure/sign/departments/medbay/alt/directional/south,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/floor2/aft)
 "dyS" = (
@@ -14144,9 +14116,7 @@
 /turf/open/floor/iron/dark,
 /area/station/service/janitor)
 "dBZ" = (
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/floor4/aft)
 "dCt" = (
@@ -14717,9 +14687,7 @@
 /obj/effect/spawner/random/entertainment/arcade{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/eighties,
 /area/station/commons/fitness/recreation/entertainment)
 "dJO" = (
@@ -14786,9 +14754,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/structure/sign/poster/official/random/directional/south,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -15248,9 +15214,7 @@
 	},
 /area/station/hallway/floor1/aft)
 "dRs" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor1/fore)
 "dRE" = (
@@ -15821,9 +15785,7 @@
 /turf/open/floor/iron/dark,
 /area/station/service/lawoffice)
 "dWL" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/effect/landmark/start/hangover,
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/floor/grass,
@@ -16354,9 +16316,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 5
 	},
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron,
 /area/station/hallway/floor1/aft)
@@ -17434,9 +17394,7 @@
 /turf/open/floor/iron,
 /area/station/service/hydroponics/garden)
 "etv" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -17604,9 +17562,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/glass/reinforced,
 /area/station/service/library)
 "ewp" = (
@@ -18826,9 +18782,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/pumproom)
 "eNo" = (
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/iron/white/textured_large,
 /area/station/service/chapel)
@@ -19242,9 +19196,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/disposal)
 "eTT" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
 /turf/open/floor/wood,
@@ -19518,9 +19470,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/item/radio/intercom/directional/north,
 /turf/open/floor/iron,
 /area/station/command/eva)
@@ -21896,9 +21846,7 @@
 /turf/open/floor/carpet/orange,
 /area/station/command/heads_quarters/qm)
 "fFT" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -23435,9 +23383,7 @@
 "fZl" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
@@ -23773,9 +23719,7 @@
 /obj/effect/turf_decal/tile/green/half{
 	dir = 8
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/machinery/shieldgen,
 /turf/open/floor/iron/smooth_half{
 	dir = 1
@@ -28293,9 +28237,7 @@
 	dir = 1
 	},
 /obj/item/kirbyplants/random,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/wood/tile,
 /area/station/service/library)
 "hlX" = (
@@ -29577,9 +29519,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark/textured,
 /area/station/commons/fitness)
@@ -30516,9 +30456,7 @@
 /area/station/hallway/floor1/fore)
 "hPK" = (
 /obj/effect/spawner/random/vending/colavend,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor4/aft)
 "hPL" = (
@@ -32351,9 +32289,7 @@
 	dir = 10
 	},
 /obj/structure/sign/poster/official/random/directional/west,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron,
 /area/station/hallway/floor1/fore)
 "inS" = (
@@ -35118,9 +35054,7 @@
 /area/station/commons/fitness/recreation/entertainment)
 "iYL" = (
 /obj/item/radio/intercom/directional/north,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -35376,9 +35310,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/mid_joiner{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/structure/disposalpipe/junction/yjunction{
 	dir = 1
 	},
@@ -35767,9 +35699,7 @@
 /turf/open/floor/iron/smooth,
 /area/station/cargo/sorting)
 "jib" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/machinery/status_display/ai/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
@@ -36993,9 +36923,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "jyD" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/machinery/status_display/ai/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
@@ -38401,9 +38329,7 @@
 /turf/open/floor/iron,
 /area/station/common/cafeteria)
 "jRe" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
@@ -39008,9 +38934,7 @@
 /turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/floor4/starboard/aft)
 "jZA" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -40597,7 +40521,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/duct,
 /obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
+	network = list("ss13","medbay")
 	},
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/iron/white,
@@ -41395,9 +41319,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor4/starboard/aft)
 "kDz" = (
@@ -41579,9 +41501,7 @@
 /area/station/maintenance/floor4/starboard/aft)
 "kFJ" = (
 /obj/machinery/photocopier,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/machinery/light_switch/directional/north,
 /turf/open/floor/wood/tile,
 /area/station/service/library)
@@ -42763,9 +42683,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
@@ -44239,9 +44157,7 @@
 "lmU" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/entertainment/lighter,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/effect/turf_decal/tile/green/full,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -47086,9 +47002,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/floor1/aft)
 "lYx" = (
@@ -49423,9 +49337,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/chapel{
 	dir = 4
 	},
@@ -49595,9 +49507,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/exit/departure_lounge)
 "mEa" = (
@@ -50191,9 +50101,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
 "mLO" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/structure/sign/painting/library{
 	pixel_y = 32
 	},
@@ -50277,7 +50185,7 @@
 	dir = 1
 	},
 /obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
+	network = list("ss13","cargo")
 	},
 /turf/open/floor/iron,
 /area/station/cargo/miningdock)
@@ -51946,9 +51854,7 @@
 	id = "evashutter";
 	name = "EVA Shutters"
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron,
 /area/station/command/eva)
 "ngY" = (
@@ -52738,9 +52644,7 @@
 "npT" = (
 /obj/structure/weightmachine/weightlifter,
 /obj/effect/turf_decal/bot,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor2/fore)
@@ -52808,9 +52712,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/floor4/starboard/aft)
 "nqJ" = (
@@ -54087,9 +53989,7 @@
 /obj/machinery/computer/security{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "nHf" = (
@@ -56963,9 +56863,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/service)
 "orN" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -57682,9 +57580,7 @@
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor4/starboard/fore)
 "oBP" = (
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/structure/chair/comfy/beige{
 	dir = 1
 	},
@@ -58606,9 +58502,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
 "oOg" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/wood,
 /area/station/service/theater)
 "oOi" = (
@@ -58979,9 +58873,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "oSW" = (
@@ -61194,9 +61086,7 @@
 "pxK" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/solars/port/aft)
 "pxL" = (
@@ -63216,9 +63106,7 @@
 /turf/open/floor/iron,
 /area/station/service/barber)
 "pXU" = (
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/structure/chair/sofa/right/brown{
 	dir = 4
 	},
@@ -63247,9 +63135,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 9
 	},
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
@@ -67041,9 +66927,7 @@
 	pixel_y = 4
 	},
 /obj/structure/table,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "qUC" = (
@@ -68489,9 +68373,7 @@
 /area/station/medical/medbay/lobby)
 "rmm" = (
 /obj/structure/table,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/machinery/requests_console/directional/north{
 	department = "Head of Personnel's Desk";
 	name = "Head of Personnel's Requests Console"
@@ -69555,9 +69437,7 @@
 /obj/machinery/computer/records/security,
 /obj/item/radio/intercom/directional/north,
 /obj/effect/turf_decal/tile/red/fourcorners,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/textured,
 /area/station/security/checkpoint/second)
 "rCe" = (
@@ -70143,9 +70023,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/floor3/fore)
 "rLh" = (
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/structure/bookcase/random,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
@@ -70225,9 +70103,7 @@
 /turf/open/floor/iron/checker,
 /area/station/service/bar)
 "rMq" = (
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/smooth,
 /area/station/hallway/floor1/fore)
 "rMu" = (
@@ -74717,9 +74593,7 @@
 /obj/effect/turf_decal/trimline/yellow/filled/line{
 	dir = 5
 	},
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/floor1/fore)
 "sVU" = (
@@ -79182,9 +79056,7 @@
 /obj/structure/railing/corner{
 	dir = 1
 	},
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -79238,9 +79110,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/wood/tile,
 /area/station/service/library/lounge)
 "uco" = (
@@ -79386,9 +79256,7 @@
 /turf/open/floor/iron,
 /area/station/maintenance/floor3/port/fore)
 "ueA" = (
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/structure/crate,
 /turf/open/floor/mineral/plastitanium/pod/light,
@@ -79840,9 +79708,7 @@
 /area/station/science/ordnance/storage)
 "ujT" = (
 /obj/item/cigbutt/cigarbutt,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor2/fore)
@@ -80499,9 +80365,7 @@
 	},
 /area/station/hallway/floor2/fore)
 "uuh" = (
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor4/aft)
 "uuu" = (
@@ -85033,9 +84897,7 @@
 /area/station/maintenance/floor1/port)
 "vyH" = (
 /obj/machinery/biogenerator,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/effect/turf_decal/tile/green/full,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
@@ -85097,9 +84959,7 @@
 /area/station/cargo/storage)
 "vzw" = (
 /obj/machinery/light_switch/directional/north,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/white/textured_large,
 /area/station/service/chapel)
 "vzx" = (
@@ -91587,9 +91447,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor4/starboard/aft)
 "xcV" = (
@@ -91599,9 +91457,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/machinery/status_display/ai/directional/south,
 /turf/open/floor/iron/dark/side{
 	dir = 6
@@ -91915,7 +91771,7 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
+	network = list("ss13","medbay")
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
@@ -95115,9 +94971,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 9
 	},
-/obj/machinery/camera/autoname/directional/north{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron,
 /area/station/hallway/floor2/fore)
 "xXg" = (
@@ -95189,9 +95043,7 @@
 /turf/open/floor/wood/large,
 /area/station/service/library/artgallery)
 "xXS" = (
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","rd")
-	},
+/obj/machinery/camera/autoname/directional/south,
 /obj/machinery/turretid{
 	control_area = "/area/station/ai/satellite/interior";
 	name = "Antechamber Turret Control";
