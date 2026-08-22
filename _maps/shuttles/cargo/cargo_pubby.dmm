@@ -7,20 +7,13 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/supply)
 "d" = (
-/turf/open/space/basic,
+/turf/template_noop,
 /area/template_noop)
 "e" = (
-/obj/machinery/button/door/directional/west{
-	id = "QMLoaddoor";
-	name = "Off Ramp Toggle";
-	pixel_y = 8;
-	req_access = list("cargo")
-	},
-/obj/machinery/button/door/directional/west{
-	id = "QMLoaddoor2";
-	name = "On Ramp Toggle";
-	pixel_y = -8;
-	req_access = list("cargo")
+/obj/machinery/conveyor_switch/oneway{
+	id = "QMUnload";
+	pixel_x = -12;
+	name = "Unloading Lever"
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
@@ -28,36 +21,40 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "g" = (
+/obj/machinery/button/door/directional/south{
+	name = "Off Ramp Toggle";
+	id = "QMLoaddoor";
+	req_access = list("cargo")
+	},
 /obj/machinery/conveyor{
-	dir = 5;
-	id = "QMLoad"
+	dir = 4;
+	id = "QMUnload"
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "i" = (
 /obj/machinery/door/poddoor{
 	id = "QMLoaddoor";
-	name = "Supply Dock Loading Door"
-	},
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "QMLoad";
-	name = "off ramp"
+	name = "Supply Dock Unloading Door"
 	},
 /obj/effect/landmark/flaps_install,
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "QMUnload"
+	},
 /turf/open/floor/plating,
 /area/shuttle/supply)
 "m" = (
-/obj/machinery/door/airlock/shuttle{
-	name = "Supply Shuttle Airlock"
+/obj/machinery/door/poddoor{
+	id = "QMUnloaddoor";
+	name = "Supply Dock Loading Door"
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/mapping_helpers/airlock/access/all/supply/general,
-/obj/docking_port/mobile/supply{
-	dir = 4;
-	port_direction = 8
+/obj/effect/landmark/flaps_install,
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "QMLoad"
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/floor/plating,
 /area/shuttle/supply)
 "r" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
@@ -68,36 +65,27 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "t" = (
-/obj/machinery/door/poddoor{
-	id = "QMLoaddoor2";
-	name = "Supply Dock Loading Door"
-	},
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "QMLoad2";
-	name = "on ramp"
-	},
-/obj/effect/landmark/flaps_install,
-/turf/open/floor/plating,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/supply)
 "w" = (
-/obj/machinery/conveyor{
-	dir = 6;
-	id = "QMLoad"
+/obj/machinery/conveyor_switch/oneway{
+	dir = 8;
+	id = "QMLoad";
+	name = "Loading Lever";
+	pixel_x = -12;
+	pixel_y = 22
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "x" = (
 /obj/machinery/conveyor{
-	dir = 2;
+	dir = 8;
 	id = "QMLoad"
 	},
-/turf/open/floor/mineral/plastitanium,
-/area/shuttle/supply)
-"z" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "QMLoad"
+/obj/machinery/button/door/directional/north{
+	name = "On Ramp Toggle";
+	id = "QMUnloaddoor";
+	req_access = list("cargo")
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
@@ -109,6 +97,24 @@
 "B" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst/right,
 /turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"Y" = (
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/machinery/door/airlock/shuttle{
+	name = "Supply Shuttle Airlock"
+	},
+/obj/docking_port/mobile/supply{
+	dir = 4;
+	port_direction = 8
+	},
+/turf/open/floor/mineral/plastitanium,
+/area/shuttle/supply)
+"Z" = (
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/machinery/door/airlock/shuttle{
+	name = "Supply Shuttle Airlock"
+	},
+/turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 
 (1,1,1) = {"
@@ -128,16 +134,16 @@ c
 (2,1,1) = {"
 a
 a
+t
+s
+s
+s
+s
+s
+s
+t
 a
-s
-s
-s
-s
-s
-s
-a
-a
-a
+t
 "}
 (3,1,1) = {"
 r
@@ -149,9 +155,9 @@ f
 f
 f
 f
-e
 f
-m
+s
+a
 "}
 (4,1,1) = {"
 r
@@ -162,10 +168,10 @@ f
 f
 f
 f
-g
-z
-z
-t
+f
+f
+s
+a
 "}
 (5,1,1) = {"
 r
@@ -176,35 +182,35 @@ f
 f
 f
 f
-w
-x
-x
-i
+f
+f
+s
+a
 "}
 (6,1,1) = {"
 a
 a
+t
+x
+w
+s
+s
+e
+g
+t
 a
-s
-s
-s
-s
-s
-s
-a
-a
-a
+t
 "}
 (7,1,1) = {"
 d
 d
 a
-a
-a
+m
+Z
 r
 r
-a
-a
+Y
+i
 a
 A
 B
