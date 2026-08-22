@@ -33887,14 +33887,6 @@
 	},
 /turf/open/floor/catwalk_floor/iron,
 /area/station/hallway/floor1/aft)
-"iJG" = (
-/obj/effect/turf_decal/tile/brown{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/yellow,
-/obj/structure/table,
-/turf/open/floor/iron,
-/area/station/cargo/storage)
 "iJM" = (
 /obj/machinery/computer/monitor{
 	dir = 4;
@@ -122549,8 +122541,8 @@ dOs
 oCK
 gjR
 izq
-iJG
-iJG
+izq
+izq
 abU
 hQg
 wOg
