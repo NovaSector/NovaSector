@@ -249,7 +249,11 @@
 	Shake(duration = 3 SECONDS)
 	if(spawn_drone)
 		node = new /mob/living/basic/node_drone(loc)
-		SET_FACTION_AND_ALLIES_FROM(node, user) // NOVA EDIT ADDITION
+		// NOVA EDIT ADDITION BEGIN
+		SET_FACTION_AND_ALLIES_FROM(node, user)
+		// Re-add the fauna faction the macro above just wiped, so the wave hunts the miners rather than the drone.
+		node.add_faction(FACTION_MINING)
+		// NOVA EDIT ADDITION END
 		node.arrive(src)
 		RegisterSignals(node, list(COMSIG_QDELETING, COMSIG_LIVING_DEATH, COMSIG_MOVABLE_MOVED), PROC_REF(handle_wave_conclusion))
 
@@ -347,7 +351,7 @@
 	playsound(src, 'sound/effects/rock/rock_break.ogg', 50)
 	update_appearance(UPDATE_ICON_STATE)
 	reset_drone(success = FALSE)
-	reset_cooldown(src, wave_cooldown)
+	COOLDOWN_RESET(src, wave_cooldown)
 
 /**
  * Handles winning the event, gives everyone a payout and start boulder production
