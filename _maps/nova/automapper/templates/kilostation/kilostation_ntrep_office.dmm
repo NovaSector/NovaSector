@@ -44,6 +44,9 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
+/obj/item/stamp/centcom{
+	pixel_x = 3
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "o" = (
@@ -121,6 +124,11 @@
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
+"D" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/template_noop)
 "E" = (
 /turf/template_noop,
 /area/template_noop)
@@ -206,11 +214,6 @@
 /obj/machinery/photocopier/prebuilt,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
-"Y" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron,
-/area/template_noop)
 
 (1,1,1) = {"
 E
@@ -240,7 +243,7 @@ H
 u
 C
 I
-Y
+D
 "}
 (4,1,1) = {"
 E
