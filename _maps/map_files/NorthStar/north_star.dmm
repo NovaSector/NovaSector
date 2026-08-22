@@ -74177,6 +74177,7 @@
 	},
 /obj/machinery/modular_computer/preset/engineering,
 /obj/machinery/light/directional/north,
+/obj/structure/fireaxecabinet/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "sQD" = (
@@ -77022,6 +77023,10 @@
 /obj/effect/spawner/random/structure/furniture_parts,
 /turf/open/floor/iron,
 /area/station/maintenance/floor2/port/aft)
+"tAg" = (
+/obj/effect/landmark/event_spawn,
+/turf/open/space/openspace,
+/area/space)
 "tAs" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -307078,7 +307083,7 @@ ucA
 ucA
 ucA
 ucA
-ucA
+tAg
 ucA
 ucA
 ucA
