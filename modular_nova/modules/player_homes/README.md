@@ -1,0 +1,134 @@
+# Player Homes
+
+A persistent, per-account residence. A player steps through the registry terminal in the cafe,
+rearranges the rooms however they like, and commits them to their account's record from the console
+inside. The record is a real `.dmm` written under their ckey, so it reloads identically next round
+and every character on that account walks into the same rooms.
+
+Condos are the disposable version of this and remain separate. Homes borrow their instancing and
+their door, nothing else.
+
+---
+
+## Adding a new starter interior
+
+Four steps, and only one of them is code.
+
+### 1. Draw the map
+
+Anything a condo map can do, a home map can do. Open a new map in StrongDMM and keep to these rules:
+
+| Rule | Why |
+|---|---|
+| **40×40 tiles maximum** | `HOME_MAX_DIMENSION`. Bigger interiors are refused at load. |
+| **Everything in `/area/misc/player_home`** | Loading forces the area anyway, but getting it right means what you see in the editor is what players get. |
+| **The bottom-left turf must touch the rest of the interior and share its area** | Same constraint the condo templates carry. The loader stitches outward from that corner; if it is isolated, the template loads wrong. |
+| **Exactly one `/turf/closed/indestructible/hoteldoor/fakedoor/player_home`** | This is the front door, and the only way out. Loading fits one automatically if your map has none, but it lands somewhere arbitrary and looks broken. |
+| **Solid perimeter** | Reservations are cordoned, so nobody escapes either way, but a player who tunnels out of your map sees bare cordon tiles. |
+
+You do **not** need to place `/obj/machinery/home_saver`. Loading fits one beside the front door if
+the interior has none, and from the player's first save onward it persists wherever they moved it
+to. Place one if you want to control where it starts.
+
+Save it into [`_maps/`](_maps/).
+
+### 2. Register it
+
+Add a subtype to [`code/home_templates.dm`](code/home_templates.dm), alphabetically:
+
+```dm
+/datum/map_template/home/lighthouse
+	name = "Home - Lighthouse"
+	blurb = "Nine floors of stairs and one very good view."
+	mappath = "modular_nova/modules/player_homes/_maps/home_lighthouse.dmm"
+	landing_zone_x_offset = 4
+	landing_zone_y_offset = 2
+```
+
+`landing_zone_*_offset` is where an arriving player is put down, as a **0-based offset from the
+interior's bottom-left turf** — the same convention the condo templates use. `0, 0` is the corner
+itself. Pick an open tile with room to stand; if you get it wrong the loader falls back to the
+doorstep rather than dropping somebody inside a wall, but the fallback is not where you meant.
+
+### 3. That is the whole of it
+
+Nothing else needs touching. `SShomes.preload_starter_templates()` walks `subtypesof(/datum/map_template/home)`
+at init and registers everything with a `mappath` set, and the terminal lists whatever it finds. No
+`.dme` edit (the maps are data, not code), no UI change, no subsystem change.
+
+The one subtype deliberately skipped is `/datum/map_template/home/player_save`, which has no
+compile-time `mappath` because it is built at runtime from a player's own file.
+
+### 4. Check it
+
+```
+dm.exe -DCIBUILDING -DRUNNING_LOCAL_TESTS tgstation.dme
+dreamdaemon tgstation.dmb -close -trusted -verbose -params "log-directory=ci"
+```
+
+`/datum/unit_test/player_home_round_trip` runs **every** registered starter through the full path:
+file it to disk, load it back, confirm it has a door, a console and somewhere to stand, save it with
+`write_map()`, and reparse what was written. A new interior that breaks any of that fails the test
+by name. Add `TEST_FOCUS(/datum/unit_test/player_home_round_trip)` while iterating to skip the rest
+of the suite — and take it back out before committing.
+
+### Converting an existing condo interior
+
+The three shipped starters were made this way. Copy the `.dmm` out of
+`modular_nova/modules/condos/_maps/`, then substitute two type paths:
+
+- `/area/misc/condo` → `/area/misc/player_home`
+- `/turf/closed/indestructible/hoteldoor` and `/turf/closed/indestructible/hoteldoor/fakedoor` →
+  `/turf/closed/indestructible/hoteldoor/fakedoor/player_home`
+
+Reuse the condo template's landing offsets verbatim. Run the file through
+`tools/mapmerge2` afterwards so it stays byte-identical to what map CI expects.
+
+---
+
+## How the pieces fit
+
+| File | Job |
+|---|---|
+| `home_subsystem.dm` | Template registry, loaded homes, the blacklists, the sidecar |
+| `home_loading.dm` | Parse → reserve → load → force area → self-heal → mark contents |
+| `home_saving.dm` | `write_map()`, verify-before-commit, backup rotation |
+| `home_preview.dm` | Flattens a loaded home into the picture the terminal shows |
+| `home_settings.dm` | Lighting and gravity |
+| `home_fixtures.dm` | Taking the front door down and hanging it elsewhere |
+| `home_instance.dm` | One loaded home, and the closed-economy strip |
+| `home_area.dm` / `home_door.dm` / `home_console.dm` / `home_terminal.dm` | The things players touch |
+
+### The two invariants worth knowing before you change anything
+
+**Everything a save file spawns is marked `TRAIT_HOME_FURNISHING` on load, and the front door takes
+back exactly what carries that mark.** This is the entire anti-duplication scheme. An item can only
+be duplicated by being saved, and anything saved comes back marked, so a duplicate can never reach
+the round. A player's own belongings are unmarked and come and go freely. If you add a way for
+things to leave a home, it has to respect that mark.
+
+**`/area/misc/player_home` is deliberately not `UNIQUE_AREA`.** Only unique areas register in
+`GLOB.areas_by_type`, and the map loader reuses a registered area instead of making a new one — so
+that flag staying `NONE` is what gives every simultaneously-loaded home its own area. Setting it
+would silently merge every player's home into one area.
+
+### On-disk layout
+
+```
+data/player_saves/[c]/[ckey]/homes/
+    home.dmm            current record
+    home_backup.dmm     the save before it — restore, and admin recovery
+    home.json           landing spot, lighting, gravity, last-saved, object count
+    home_preview.png    the picture the terminal shows
+```
+
+Settings live in the sidecar rather than the map file on purpose: they describe the residence rather
+than anything standing in it, so changing one costs nothing and never risks the record.
+
+### Admin tools
+
+Under **Debug → Player Homes**: inspect, download as `.dmm`, restore a backup, wipe, and an audit
+that walks the save tree and reports every stored home with its last save date — disk is the running
+cost of this feature and nothing else on the server will tell you what it is being spent on.
+
+`PLAYER_HOMES_ENABLED 0` in config takes the terminal offline without touching anyone's saves.

@@ -300,6 +300,13 @@ GLOBAL_LIST_INIT(save_file_chars, list(
 						CHECK_TICK
 						if(istype(thing, /mob/living/carbon)) //Ignore people, but not animals
 							continue
+						// NOVA EDIT ADDITION START - Player homes
+						// The carbon check above only covers most players. A cyborg, an AI shell or a
+						// player-controlled basic mob would otherwise be written into the file and
+						// respawn as an NPC copy of themselves every time the map is loaded back.
+						if(thing.mind || thing.ckey)
+							continue
+						// NOVA EDIT ADDITION END
 						var/metadata = generate_tgm_metadata(thing)
 						current_header += "[empty ? "" : ",\n"][thing.type][metadata]"
 						empty = FALSE
