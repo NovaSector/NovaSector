@@ -49563,7 +49563,6 @@
 /obj/item/storage/backpack/satchel/blueshield,
 /obj/item/clothing/neck/mantle/bsmantle,
 /obj/machinery/duct,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/bot_blue,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/blueshield)
