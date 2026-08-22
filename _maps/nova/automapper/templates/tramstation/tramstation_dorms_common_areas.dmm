@@ -1729,6 +1729,11 @@
 	},
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
+"GC" = (
+/obj/machinery/airalarm/directional/west,
+/obj/structure/lattice/catwalk,
+/turf/open/misc/asteroid,
+/area/station/asteroid)
 "GK" = (
 /obj/item/reagent_containers/cup/bucket/wooden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1768,6 +1773,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood,
 /area/station/commons/dorms)
+"Hy" = (
+/turf/closed/mineral/random/stationside/asteroid/porus,
+/area/station/maintenance/central/lesser)
 "HG" = (
 /obj/structure/flora/bush/jungle,
 /turf/open/floor/grass,
@@ -2137,6 +2145,9 @@
 	},
 /turf/open/floor/wood,
 /area/station/commons/dorms)
+"NZ" = (
+/turf/closed/wall,
+/area/station/asteroid)
 "Oa" = (
 /obj/structure/flora/bush/large/style_2,
 /turf/open/floor/grass,
@@ -2279,7 +2290,7 @@
 /area/station/commons/fitness/recreation/entertainment)
 "RN" = (
 /turf/closed/wall,
-/area/template_noop)
+/area/station/maintenance/central/lesser)
 "RW" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4048,7 +4059,7 @@ Hj
 Hj
 "}
 (44,1,1) = {"
-RY
+NZ
 RY
 RY
 RY
@@ -4079,7 +4090,7 @@ Hj
 Hj
 "}
 (45,1,1) = {"
-RY
+GC
 RY
 RY
 RY
@@ -4142,7 +4153,7 @@ Hj
 "}
 (47,1,1) = {"
 RY
-RY
+Hy
 RN
 RN
 RN
