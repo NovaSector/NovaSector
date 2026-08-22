@@ -26,11 +26,43 @@
 	initial_gas_mix = SAFE_PLANET_ATMOS
 	planetary_atmos = TRUE
 
+/turf/open/floor/wood/tile/safe_planet
+	initial_gas_mix = SAFE_PLANET_ATMOS
+	planetary_atmos = TRUE
+
+/turf/open/floor/wood/wood_13/safe_planet
+	initial_gas_mix = SAFE_PLANET_ATMOS
+	planetary_atmos = TRUE
+
 /turf/open/floor/iron/safe_planet
 	initial_gas_mix = SAFE_PLANET_ATMOS
 	planetary_atmos = TRUE
 
+/turf/open/floor/iron/white/safe_planet
+	initial_gas_mix = SAFE_PLANET_ATMOS
+	planetary_atmos = TRUE
+
 /turf/open/floor/stone/safe_planet
+	initial_gas_mix = SAFE_PLANET_ATMOS
+	planetary_atmos = TRUE
+
+/turf/open/floor/iron/terracotta/safe_planet
+	initial_gas_mix = SAFE_PLANET_ATMOS
+	planetary_atmos = TRUE
+
+/turf/open/floor/iron/terracotta/small/safe_planet
+	initial_gas_mix = SAFE_PLANET_ATMOS
+	planetary_atmos = TRUE
+
+/turf/open/floor/iron/terracotta/herringbone/safe_planet
+	initial_gas_mix = SAFE_PLANET_ATMOS
+	planetary_atmos = TRUE
+
+/turf/open/floor/iron/terracotta/diagonal/safe_planet
+	initial_gas_mix = SAFE_PLANET_ATMOS
+	planetary_atmos = TRUE
+
+/turf/open/floor/iron/smooth_large/safe_planet
 	initial_gas_mix = SAFE_PLANET_ATMOS
 	planetary_atmos = TRUE
 
