@@ -14,11 +14,14 @@
 	body_parts_covered = CHEST | GROIN | LEGS | ARMS | HANDS
 	flags_inv = HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT | HIDETAIL
 	obj_flags_nova = ERP_ITEM
-	clothing_flags = DANGEROUS_OBJECT
 	equip_delay_self = NONE
 	strip_delay = 12 SECONDS
 	breakouttime = 1 SECONDS
 	resist_cooldown = CLICK_CD_SLOW
+
+/obj/item/clothing/suit/straight_jacket/latex_straight_jacket/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_DANGEROUS_EQUIP, INNATE_TRAIT)
 
 /obj/item/clothing/suit/straight_jacket/latex_straight_jacket/item_interaction(mob/living/user, obj/item/tool, list/modifiers) //That part allows reinforcing this item with normal straightjacket
 	if(!istype(tool, /obj/item/clothing/suit/straight_jacket))
@@ -46,7 +49,6 @@
 	righthand_file = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_inhands/lewd_inhand_right.dmi'
 	body_parts_covered = CHEST | GROIN | LEGS | ARMS | HANDS
 	flags_inv = HIDEGLOVES | HIDESHOES | HIDEJUMPSUIT | HIDETAIL
-	clothing_flags = DANGEROUS_OBJECT
 	equip_delay_self = NONE
 	strip_delay = 12 SECONDS
 	breakouttime = 300 SECONDS

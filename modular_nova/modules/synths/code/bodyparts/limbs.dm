@@ -112,7 +112,7 @@
 	bodypart_flags = BODYPART_UNHUSKABLE
 
 	wing_types = list(
-		/obj/item/organ/wings/functional/robotic,
+		/obj/item/organ/wings/robotic,
 	)
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3.25, /datum/material/silver = SMALL_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT)
 

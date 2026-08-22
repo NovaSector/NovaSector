@@ -88,7 +88,7 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/techweb_node/alien_surgery/New()
+/datum/techweb_node/alien/surgery/New()
 	unlocked_designs += list(
 		/datum/design/hypomkii/deluxe,
 	)

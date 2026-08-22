@@ -396,6 +396,16 @@
   - qol: Decreased the volume of slime footsteps.
   - qol: Slimes now have new HUD entries from the information that was previously
       in the stat panel.
+  TalkingCactus, sergeirocks100:
+  - image: The anthromorph and synthmammal sprites have been tweaked slightly, namely
+      by adding in some away-facing hand sprites, removing an unnecessary pixel from
+      the bottom of the male torso, and removing another pixel from the back of the
+      neck of the female head side sprites, as well as removing the ears from the
+      head side sprites.
+  - image: The plain body markings have been updated as described above, with the
+      exception of the female head sprite change.
+  - image: Away facing sprites on hand markings that were supposed to have them should
+      now display as they should. Do report if there's any oddities.
   Y0SH1M4S73R:
   - bugfix: revenants should far less frequently be rendered vulnerable for far longer
       than they should be
@@ -408,16 +418,6 @@
   - refactor: Techweb and design code has been refactored.
   - bugfix: Fixed anomaly cores not granting research points in the destructive analyzer.
   - bugfix: Fixed exosuit fabricators
-  TalkingCactus, sergeirocks100:
-  - image: The anthromorph and synthmammal sprites have been tweaked slightly, namely
-      by adding in some away-facing hand sprites, removing an unnecessary pixel from
-      the bottom of the male torso, and removing another pixel from the back of the
-      neck of the female head side sprites, as well as removing the ears from the
-      head side sprites.
-  - image: The plain body markings have been updated as described above, with the
-      exception of the female head sprite change.
-  - image: Away facing sprites on hand markings that were supposed to have them should
-      now display as they should. Do report if there's any oddities.
   sergeirocks100:
   - bugfix: The regular, midway, hearts, commie, freedom, and UK boxers, as well as
       the long johns, should all now use their proper digitigrade sprites.
@@ -437,3 +437,49 @@
       because their rendering was broken
   timothymtorres:
   - bugfix: Fix helmets being flammable when armor is not
+2026-08-16:
+  sergeirocks100:
+  - bugfix: Neckerchiefs should no longer look wonky if you have a snout.
+  sqnztb:
+  - bugfix: medical records shouldn't be bluescreening now
+2026-08-18:
+  Hollandasie:
+  - rscadd: Added virgin killer sweater
+  Iajret:
+  - bugfix: Alien technodes no longer available roundstart
+  Maximal08:
+  - bugfix: Ashen Eyes description no longer states that they are a focus
+  PapaMichael:
+  - bugfix: The Destructive Analyzer properly unlocks research nodes again
+  TealSeer:
+  - bugfix: fixed icons in the biogenerator UI being broken
+2026-08-20:
+  Arceniu:
+  - bugfix: fixed a misc radio channels(cybersun, guild, faction/solfed)
+  Hatterhat:
+  - bugfix: .38 speedloader widening kits work again.
+  JerryWester:
+  - code_imp: Adds a function to attempt the removal of an appendix if one is present
+      in an AI uplink shell going through the SAD, allowing for biosynthetic shells
+  Jureiia:
+  - bugfix: Interdyne's cargo orders have now been made a little more consistent with
+      what they're labelled as.
+  sergeirocks100:
+  - bugfix: Xenomorph hybrids can now access their plantigrade legs. If the legs on
+      your xenohybrid character are plantigrade all of a sudden, and you want to go
+      back to how they were, then don't forget to go into the character preferences,
+      and change the legs from "Normal Legs" to "Digitigrade Legs".
+2026-08-21:
+  Morskoikot:
+  - rscadd: 'Added Chemnaga, Leopard seal, Insect + winged alt and Bunny taur sprites.
+
+      :cl:'
+  SmArtKar:
+  - rscadd: Every 5 minutes 2-4 random cargo exports get tripled in price, lets go
+      gambling!
+  W0LF-101:
+  - bugfix: Reskinning the Laevateinn revolver no longer breaks its belt and suit
+      storage slot sprite.
+  sqnztb:
+  - balance: waves of mobs spawned from ore vents will only attack the player now
+  - code_imp: Automapper templates are no longer overwritten by modular map modules
