@@ -326,6 +326,14 @@ required_map = "tramstation.dmm"
 coordinates = [122, 133, 1]
 trait_name = "Station"
 
+# Tramstation Dorms Common Areas
+[templates.tramstation_dorms_common_areas]
+map_files = ["tramstation_dorms_common_areas.dmm"]
+directory = "_maps/nova/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [59, 84, 1]
+trait_name = "Station"
+
 # SNOWGLOBE STATION MAP EDITS
 # Icecats Camp Lower Level - Snowglobe
 [templates.snowglobe_icecats_lower]
