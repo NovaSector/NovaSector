@@ -1730,8 +1730,7 @@
 /turf/open/floor/stone/forest,
 /area/station/commons/fitness/recreation/entertainment)
 "GC" = (
-/obj/machinery/airalarm/directional/west,
-/obj/structure/lattice/catwalk,
+/obj/effect/landmark/firealarm_sanity,
 /turf/open/misc/asteroid,
 /area/station/asteroid)
 "GK" = (
@@ -2146,7 +2145,7 @@
 /turf/open/floor/wood,
 /area/station/commons/dorms)
 "NZ" = (
-/turf/closed/wall,
+/turf/open/misc/asteroid,
 /area/station/asteroid)
 "Oa" = (
 /obj/structure/flora/bush/large/style_2,
