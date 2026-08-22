@@ -327,6 +327,10 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 /turf/closed/indestructible/hoteldoor/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
 	context[SCREENTIP_CONTEXT_ALT_LMB] = "Peek through"
+	// NOVA EDIT ADDITION START - Condos - screentip
+	if(condo_room?.is_owner(user))
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Manage Room"
+	// NOVA EDIT ADDITION END
 	return CONTEXTUAL_SCREENTIP_SET
 
 // Cancel the peeking of anyone peeking out of this door when the turf changes
