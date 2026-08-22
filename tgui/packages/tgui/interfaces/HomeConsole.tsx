@@ -1,14 +1,25 @@
+import { useState } from 'react';
 import {
   Button,
   ColorBox,
+  Input,
   LabeledList,
   NoticeBox,
   Section,
   Stack,
+  Tabs,
 } from 'tgui-core/components';
 
 import { useBackend } from '../backend';
 import { Window } from '../layouts';
+
+type SupplyEntry = {
+  name: string;
+  category: string;
+  desc: string | null;
+  contents: string;
+  needs_approval: boolean;
+};
 
 type Data = {
   last_saved: string | null;
@@ -20,6 +31,8 @@ type Data = {
   gravity: boolean;
   has_backup: boolean;
   max_brightness: number;
+  supply_cooldown: number;
+  catalogue: SupplyEntry[];
 };
 
 const BRIGHTNESS_LABELS = ['Out', 'Dim', 'Normal', 'Bright'];
@@ -27,29 +40,50 @@ const BRIGHTNESS_LABELS = ['Out', 'Dim', 'Normal', 'Bright'];
 export const HomeConsole = (props) => {
   const { data } = useBackend<Data>();
   const { door_hung } = data;
+  const [tab, setTab] = useState<'residence' | 'supplies'>('residence');
 
   return (
-    <Window title="Domicile Registry Console" width={400} height={470}>
+    <Window title="Domicile Registry Console" width={440} height={560}>
       <Window.Content scrollable>
-        <Stack fill vertical>
-          {!door_hung && (
+        <Tabs fluid>
+          <Tabs.Tab
+            icon="house"
+            selected={tab === 'residence'}
+            onClick={() => setTab('residence')}
+          >
+            Residence
+          </Tabs.Tab>
+          <Tabs.Tab
+            icon="boxes-stacked"
+            selected={tab === 'supplies'}
+            onClick={() => setTab('supplies')}
+          >
+            Requisitions
+          </Tabs.Tab>
+        </Tabs>
+        {tab === 'residence' ? (
+          <Stack fill vertical>
+            {!door_hung && (
+              <Stack.Item>
+                <NoticeBox color="bad">
+                  Your front door is not hung. The registry will not accept a
+                  record until it is back up.
+                </NoticeBox>
+              </Stack.Item>
+            )}
             <Stack.Item>
-              <NoticeBox color="bad">
-                Your front door is not hung. The registry will not accept a
-                record until it is back up.
-              </NoticeBox>
+              <TheRecord />
             </Stack.Item>
-          )}
-          <Stack.Item>
-            <TheRecord />
-          </Stack.Item>
-          <Stack.Item>
-            <Lighting />
-          </Stack.Item>
-          <Stack.Item>
-            <Fittings />
-          </Stack.Item>
-        </Stack>
+            <Stack.Item>
+              <Lighting />
+            </Stack.Item>
+            <Stack.Item>
+              <Fittings />
+            </Stack.Item>
+          </Stack>
+        ) : (
+          <Requisitions />
+        )}
       </Window.Content>
     </Window>
   );
@@ -197,5 +231,98 @@ const Fittings = (props) => {
         </LabeledList.Item>
       </LabeledList>
     </Section>
+  );
+};
+
+/** The catalogue, grouped by category, plus a written request for anything it doesn't carry. */
+const Requisitions = (props) => {
+  const { act, data } = useBackend<Data>();
+  const { catalogue, supply_cooldown } = data;
+  const [written, setWritten] = useState('');
+
+  const onCooldown = supply_cooldown > 0;
+  const categories = [...new Set(catalogue.map((entry) => entry.category))];
+
+  return (
+    <Stack fill vertical>
+      <Stack.Item>
+        <NoticeBox color={onCooldown ? 'average' : 'good'}>
+          {onCooldown
+            ? `The requisition line is busy for another ${Math.ceil(supply_cooldown)}s.`
+            : 'The requisition line is open.'}
+        </NoticeBox>
+      </Stack.Item>
+      <Stack.Item>
+        <NoticeBox>
+          Deliveries belong to the residence and cannot be carried out of it.
+          Anything past the basics goes to staff for approval first.
+        </NoticeBox>
+      </Stack.Item>
+      {categories.map((category) => (
+        <Stack.Item key={category}>
+          <Section title={category}>
+            {catalogue
+              .filter((entry) => entry.category === category)
+              .map((entry) => (
+                <Stack key={entry.name} align="center" mb={0.5}>
+                  <Stack.Item grow>
+                    {entry.name}
+                    {!!entry.needs_approval && (
+                      <Button.Checkbox
+                        checked
+                        disabled
+                        ml={1}
+                        tooltip="Needs staff approval"
+                      >
+                        Approval
+                      </Button.Checkbox>
+                    )}
+                    <br />
+                    <span style={{ opacity: 0.7 }}>
+                      {entry.desc ? `${entry.desc} — ` : ''}
+                      {entry.contents}
+                    </span>
+                  </Stack.Item>
+                  <Stack.Item>
+                    <Button
+                      icon="rocket"
+                      disabled={onCooldown}
+                      onClick={() => act('requisition', { name: entry.name })}
+                    >
+                      Request
+                    </Button>
+                  </Stack.Item>
+                </Stack>
+              ))}
+          </Section>
+        </Stack.Item>
+      ))}
+      <Stack.Item>
+        <Section title="Written Request">
+          <Stack align="center">
+            <Stack.Item grow>
+              <Input
+                fluid
+                placeholder="Something the catalogue doesn't carry…"
+                value={written}
+                onChange={setWritten}
+              />
+            </Stack.Item>
+            <Stack.Item>
+              <Button
+                icon="paper-plane"
+                disabled={onCooldown || !written}
+                onClick={() => {
+                  act('written_requisition', { text: written });
+                  setWritten('');
+                }}
+              >
+                Send
+              </Button>
+            </Stack.Item>
+          </Stack>
+        </Section>
+      </Stack.Item>
+    </Stack>
   );
 };

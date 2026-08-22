@@ -86,6 +86,48 @@ Reuse the condo template's landing offsets verbatim. Run the file through
 
 ---
 
+## Adding to the requisition catalogue
+
+The console can call down a drop pod of materials or tools on a cooldown. Add a line by adding a
+subtype to [`code/home_supply.dm`](code/home_supply.dm) — `preload_supply_catalogue()` picks up
+everything with a `name` set, exactly like the starter templates:
+
+```dm
+/datum/home_supply/plastic
+	name = "Plastic sheets"
+	category = "Materials"          // groups it in the console; any string works
+	desc = "Cheap, and it shows."
+	manifest = list(/obj/item/stack/sheet/plastic = 50)
+	needs_approval = FALSE
+```
+
+`manifest` is `path -> amount`. For a `/obj/item/stack` the amount is the **stack size** — one stack
+of fifty, not fifty stacks. For anything else it is how many separate copies to send.
+
+`needs_approval = TRUE` routes the request to the admins with APPROVE and DENY buttons in adminchat
+instead of shipping it. If the player has stepped out by the time it is approved, the pod is held and
+lands the next time they walk in. Approvals are round-scoped; they are not remembered across a
+restart.
+
+Players can also send a **written request** for anything the catalogue does not carry. Those always
+go to the admins, and since there is no manifest to ship, the approving admin is expected to hand the
+goods over themselves.
+
+`PLAYER_HOME_SUPPLY_COOLDOWN` in config sets the wait between requests, in seconds (default 300).
+The cooldown is spent on *filing*, not on delivery, so the approval queue cannot be spammed any more
+than the free tier can.
+
+### Why the free tier is safe
+
+**Everything a pod delivers is marked `TRAIT_HOME_FURNISHING`,** including the contents of a
+delivered toolbox. Marked things cannot be carried out of a home, so a player can order iron every
+five minutes forever without a single sheet reaching the round's economy — which is the whole reason
+the basic tier needs no oversight. `/datum/unit_test/player_home_supply` asserts this for a real
+delivery. If you add a delivery path that skips `mark_delivery()`, you have built a free materials
+printer that empties into the station.
+
+---
+
 ## How the pieces fit
 
 | File | Job |
@@ -96,6 +138,7 @@ Reuse the condo template's landing offsets verbatim. Run the file through
 | `home_preview.dm` | Flattens a loaded home into the picture the terminal shows |
 | `home_settings.dm` | Lighting and gravity |
 | `home_fixtures.dm` | Taking the front door down and hanging it elsewhere |
+| `home_supply.dm` | The requisition catalogue, drop pods, and the admin approval queue |
 | `home_instance.dm` | One loaded home, and the closed-economy strip |
 | `home_area.dm` / `home_door.dm` / `home_console.dm` / `home_terminal.dm` | The things players touch |
 

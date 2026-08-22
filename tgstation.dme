@@ -9561,6 +9561,7 @@
 #include "modular_nova\modules\player_homes\code\home_reservation.dm"
 #include "modular_nova\modules\player_homes\code\home_saving.dm"
 #include "modular_nova\modules\player_homes\code\home_settings.dm"
+#include "modular_nova\modules\player_homes\code\home_supply.dm"
 #include "modular_nova\modules\player_homes\code\home_subsystem.dm"
 #include "modular_nova\modules\player_homes\code\home_templates.dm"
 #include "modular_nova\modules\player_homes\code\home_terminal.dm"

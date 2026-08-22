@@ -146,6 +146,7 @@
 	// Must happen before anybody is let in: this is what stops a saved item walking back out.
 	mark_furnishings(home)
 	home.apply_settings()
+	flush_pending_deliveries(home)
 	return home
 
 /// Moves every reserved turf into a freshly made /area/misc/player_home.

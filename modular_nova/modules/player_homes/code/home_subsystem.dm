@@ -15,9 +15,18 @@ SUBSYSTEM_DEF(homes)
 	var/list/save_blacklist
 	/// Preview asset datums we have already built. ckey -> /datum/asset/home_preview
 	var/list/preview_assets = list()
+	/// Everything the console can call down. Built at init from /datum/home_supply subtypes.
+	var/list/supply_catalogue = list()
+	/// ckey -> world.time they may file another requisition.
+	var/list/supply_cooldowns = list()
+	/// Requisitions waiting on an admin decision.
+	var/list/pending_requisitions = list()
+	/// Approved deliveries whose owner had already left. ckey -> list of manifests.
+	var/list/pending_deliveries = list()
 
 /datum/controller/subsystem/homes/Initialize()
 	preload_starter_templates()
+	preload_supply_catalogue()
 	build_blacklists()
 	return SS_INIT_SUCCESS
 

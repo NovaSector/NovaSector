@@ -128,3 +128,50 @@
 	TEST_ASSERT(!reloaded.gravity, "the gravity setting did not survive the save")
 
 	SShomes.release_home(reloaded)
+
+/**
+ * Guards the requisition catalogue and the one invariant that makes it safe to hand out.
+ *
+ * Everything a pod delivers is marked as the home's property, so a player can order iron forever
+ * without a single sheet of it reaching the round's economy. A catalogue line that skips the
+ * marking, or names a type that no longer exists, is a bug this test catches at build time rather
+ * than the first time somebody orders it.
+ */
+/datum/unit_test/player_home_supply
+	var/test_ckey = "unittesthomesupply"
+
+/datum/unit_test/player_home_supply/Destroy()
+	wipe_test_home(test_ckey)
+	return ..()
+
+/datum/unit_test/player_home_supply/Run()
+	TEST_ASSERT(length(SShomes.supply_catalogue), "the requisition catalogue is empty")
+	for(var/datum/home_supply/entry as anything in SShomes.supply_catalogue)
+		TEST_ASSERT(length(entry.manifest), "catalogue line '[entry.name]' ships nothing at all")
+		for(var/thing_path in entry.manifest)
+			TEST_ASSERT(ispath(thing_path, /atom/movable), "catalogue line '[entry.name]' names [thing_path], which is not a spawnable type")
+			TEST_ASSERT(isnum(entry.manifest[thing_path]) && entry.manifest[thing_path] > 0, "catalogue line '[entry.name]' asks for a nonsense amount of [thing_path]")
+
+	var/datum/map_template/home/starter = SShomes.starter_templates[SShomes.starter_templates[1]]
+	TEST_ASSERT(SShomes.write_starter(test_ckey, starter, null), "could not file the test home")
+	var/datum/home_instance/home = SShomes.load_home(test_ckey, null, null)
+	TEST_ASSERT_NOTNULL(home, "test home would not load")
+
+	// A toolbox arrives full of tools. Unmarked tools inside a marked box would walk straight out in
+	// somebody's pocket, so the marking has to reach all the way down.
+	var/obj/structure/closet/supplypod/pod = SShomes.deliver_supplies(home, list(/obj/item/storage/toolbox/mechanical = 1, /obj/item/stack/sheet/iron = 50))
+	TEST_ASSERT_NOTNULL(pod, "a delivery produced no pod")
+	var/obj/item/stack/sheet/iron/delivered_iron = locate() in pod
+	TEST_ASSERT_NOTNULL(delivered_iron, "the iron never made it into the pod")
+	TEST_ASSERT_EQUAL(delivered_iron.amount, 50, "a stack was delivered at the wrong size")
+
+	var/loose = 0
+	for(var/atom/movable/shipped as anything in pod.get_all_contents())
+		if(shipped == pod)
+			continue
+		if(!home.owns(shipped))
+			loose++
+	TEST_ASSERT_EQUAL(loose, 0, "[loose] delivered items were not marked as the home's, and could be carried out into the round")
+	qdel(pod)
+
+	SShomes.release_home(home)

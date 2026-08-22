@@ -51,6 +51,20 @@
 		ui = new(user, src, "HomeConsole", name)
 		ui.open()
 
+/// The catalogue only changes when somebody edits the code, so it ships once per window rather than
+/// on every update tick.
+/obj/machinery/home_saver/ui_static_data(mob/user)
+	var/list/catalogue = list()
+	for(var/datum/home_supply/entry as anything in SShomes.supply_catalogue)
+		catalogue += list(list(
+			"name" = entry.name,
+			"category" = entry.category,
+			"desc" = entry.desc,
+			"contents" = entry.manifest_summary(),
+			"needs_approval" = entry.needs_approval,
+		))
+	return list("catalogue" = catalogue)
+
 /obj/machinery/home_saver/ui_data(mob/user)
 	var/datum/home_instance/home = get_home_of(src)
 	if(isnull(home))
@@ -65,6 +79,7 @@
 		"gravity" = home.gravity,
 		"has_backup" = fexists(SShomes.home_file(home.owner_ckey, "home_backup.dmm")),
 		"max_brightness" = HOME_BRIGHTNESS_MAX,
+		"supply_cooldown" = SShomes.supply_cooldown_remaining(home.owner_ckey) / 10,
 	)
 
 /obj/machinery/home_saver/ui_act(action, list/params, datum/tgui/ui)
@@ -113,6 +128,14 @@
 			home.gravity = !home.gravity
 			home.apply_gravity()
 			return TRUE
+		if("requisition")
+			request_catalogue_line(home, user, params["name"])
+			return TRUE
+		if("written_requisition")
+			var/written = trim(sanitize(params["text"]), MAX_MESSAGE_LEN)
+			if(written)
+				SShomes.request_supplies(home, user, null, written)
+			return TRUE
 
 /obj/machinery/home_saver/proc/commit_save(datum/home_instance/home, mob/living/user)
 	if(saving)
@@ -139,3 +162,12 @@
 	if(!user.Adjacent(src) || !home.is_owner(user))
 		return
 	SShomes.restore_backup(home, user)
+
+/// Looks a catalogue line up by name and files it. Going by name rather than by index means a
+/// stale window cannot order the wrong thing after the catalogue has been edited.
+/obj/machinery/home_saver/proc/request_catalogue_line(datum/home_instance/home, mob/user, entry_name)
+	for(var/datum/home_supply/entry as anything in SShomes.supply_catalogue)
+		if(entry.name != entry_name)
+			continue
+		SShomes.request_supplies(home, user, entry)
+		return

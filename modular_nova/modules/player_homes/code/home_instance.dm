@@ -61,6 +61,27 @@
 			return anywhere
 	return null
 
+/// Somewhere to land a supply pod: an open tile with nothing solid on it and nobody standing there,
+/// so a delivery never crushes the person who ordered it or drops into a wall. Falls back to the
+/// landing spot, which is always somewhere a body can stand.
+/datum/home_instance/proc/get_delivery_turf()
+	if(isnull(reservation))
+		return null
+	var/list/candidates = list()
+	for(var/turf/open/candidate in reservation.reserved_turfs)
+		if(candidate.density)
+			continue
+		var/blocked = FALSE
+		for(var/atom/movable/occupant in candidate)
+			if(occupant.density)
+				blocked = TRUE
+				break
+		if(!blocked)
+			candidates += candidate
+	if(length(candidates))
+		return pick(candidates)
+	return get_landing_turf()
+
 /// The home's exit door. Every interior needs one; loading self-heals if a save has lost it.
 /datum/home_instance/proc/find_door()
 	if(isnull(reservation))
