@@ -31551,7 +31551,7 @@
 /area/station/commons/dorms)
 "hMM" = (
 /obj/structure/mineral_door/wood,
-/turf/open/misc/ashplanet/wateryrock/planet_surface,
+/turf/open/misc/ashplanet/wateryrock/safeair,
 /area/station/common/spa)
 "hMR" = (
 /obj/structure/chair/sofa/bench/left,
@@ -33143,7 +33143,7 @@
 /turf/open/floor/grass,
 /area/station/ai/satellite/interior)
 "ixE" = (
-/turf/open/misc/ashplanet/wateryrock/planet_surface,
+/turf/open/misc/ashplanet/wateryrock/safeair,
 /area/station/common/spa)
 "iyg" = (
 /obj/structure/sign/warning/electric_shock/directional/east,
@@ -53079,7 +53079,7 @@
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/apc/cell_5k,
-/turf/open/misc/ashplanet/wateryrock/planet_surface,
+/turf/open/misc/ashplanet/wateryrock/safeair,
 /area/station/common/spa)
 "rcO" = (
 /obj/effect/turf_decal/tile/blue,
@@ -61087,7 +61087,7 @@
 "usX" = (
 /obj/structure/cable,
 /obj/structure/mineral_door/wood,
-/turf/open/misc/ashplanet/wateryrock,
+/turf/open/misc/ashplanet/wateryrock/safeair,
 /area/station/common/spa)
 "uto" = (
 /obj/machinery/newscaster/directional/west,
@@ -61325,7 +61325,7 @@
 /area/station/service/library/artgallery)
 "uyP" = (
 /obj/structure/cable,
-/turf/open/misc/ashplanet/wateryrock/planet_surface,
+/turf/open/misc/ashplanet/wateryrock/safeair,
 /area/station/common/spa)
 "uyQ" = (
 /obj/structure/disposalpipe/segment{
@@ -80818,7 +80818,7 @@ xvr
 ixE
 ixE
 xvr
-oSZ
+xvr
 oSZ
 oSZ
 oSZ
@@ -81586,9 +81586,9 @@ oSZ
 oSZ
 oSZ
 oSZ
-xvr
-xvr
-xvr
+oSZ
+oSZ
+oSZ
 oSZ
 oSZ
 oSZ
