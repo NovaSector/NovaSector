@@ -113,6 +113,10 @@ Players can also send a **written request** for anything the catalogue does not 
 go to the admins, and since there is no manifest to ship, the approving admin is expected to hand the
 goods over themselves.
 
+Pods land **on the console the order was placed at**. Picking any unblocked open tile sounds fairer
+and is much worse — "open and unblocked" includes tiles the player has since walled off from
+themselves, so deliveries occasionally arrived somewhere they could not reach.
+
 `PLAYER_HOME_SUPPLY_COOLDOWN` in config sets the wait between requests, in seconds (default 300).
 The cooldown is spent on *filing*, not on delivery, so the approval queue cannot be spammed any more
 than the free tier can.
@@ -128,6 +132,35 @@ printer that empties into the station.
 
 ---
 
+## Visiting
+
+Entirely by knocking, and entirely one-time. The terminal lists everyone online who has a home; you
+knock, they get a prompt, and if they say yes you are shown straight in. Nothing is remembered —
+step back out for any reason and you knock again.
+
+There is deliberately **no guest list and nothing written to disk**. A standing list is a thing
+owners have to police, and it lets somebody wander your rooms on the strength of a yes you gave three
+rounds ago. A knock costs one click and is always about right now.
+
+The host has to be **online and in their own home**. You cannot knock at an empty house: admission is
+one-time and granted in the moment, so a host answering from the far side of the station would be
+letting somebody into rooms they are not in — which is the standing-access model this deliberately
+is not. A guest therefore never causes a home to load; they only ever join one already standing.
+
+Two things worth not breaking:
+
+- **Admission is not an action a client can ask for.** `ui_act` exposes `knock` and nothing else;
+  `admit_visitor()` is only reachable from `ask_host()`, on the far side of the owner agreeing. If
+  you ever wire it to an action, anyone can walk into anyone's house.
+- **Hosts are identified to the client by mob ref, never by ckey.** A player should not learn who is
+  behind a character from a door list. `host_ckey_from_ref()` resolves it back server-side.
+
+Guests need no special handling once inside — the closed economy already stops them carrying a host's
+furnishings out, and `is_owner()` already gates the console, so they cannot save the house, relight
+it, unbolt anything, or file requisitions against it.
+
+---
+
 ## How the pieces fit
 
 | File | Job |
@@ -139,6 +172,7 @@ printer that empties into the station.
 | `home_settings.dm` | Lighting and gravity |
 | `home_fixtures.dm` | Taking the front door down and hanging it elsewhere |
 | `home_supply.dm` | The requisition catalogue, drop pods, and the admin approval queue |
+| `home_guests.dm` | Knocking at somebody else's door |
 | `home_instance.dm` | One loaded home, and the closed-economy strip |
 | `home_area.dm` / `home_door.dm` / `home_console.dm` / `home_terminal.dm` | The things players touch |
 

@@ -15,6 +15,19 @@
 	. += NAMEOF(src, replaced_type)
 	return .
 
+/**
+ * BYOND reuses a turf's datum in place when its type changes, so anything this door registered in
+ * Initialize() outlives the door itself. The screentip context registration is the one that bites:
+ * take a door down, hang another on the same tile later - or let the reservation be recycled into
+ * somebody else's home - and the new door's register_context() collides with the leftover one.
+ *
+ * Only this subtype needs it. Condo and hotel doors are never changed into anything else.
+ */
+/turf/closed/indestructible/hoteldoor/fakedoor/player_home/ChangeTurf(path, list/new_baseturfs, flags)
+	UnregisterSignal(src, COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM)
+	flags_1 &= ~HAS_CONTEXTUAL_SCREENTIPS_1
+	return ..()
+
 /turf/closed/indestructible/hoteldoor/fakedoor/player_home/examine(mob/user)
 	. = ..()
 	. += span_info("Alt-Click to look through the peephole.")

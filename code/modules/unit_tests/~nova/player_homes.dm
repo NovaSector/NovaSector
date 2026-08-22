@@ -114,6 +114,11 @@
 	TEST_ASSERT_NOTNULL(home.hang_door(somewhere_else), "the door would not hang on a wall")
 	qdel(flat_pack)
 
+	// You come in through the front door, so moving the door has to move where you arrive. Getting
+	// this wrong is invisible until somebody relocates their door and keeps being dropped in the
+	// room they moved it away from.
+	TEST_ASSERT(get_dist(home.get_landing_turf(), home.find_door()) <= 1, "the landing spot did not follow the door to its new wall")
+
 	TEST_ASSERT(SShomes.save_home(home, resident), "could not save after moving the fixtures")
 	resident.forceMove(run_loc_floor_bottom_left) // releasing empties the turfs, occupants included
 	SShomes.release_home(home)
@@ -123,6 +128,7 @@
 	var/turf/closed/indestructible/hoteldoor/fakedoor/player_home/moved_door = reloaded.find_door()
 	TEST_ASSERT_NOTNULL(moved_door, "the relocated door did not survive the save")
 	TEST_ASSERT_EQUAL(moved_door.replaced_type, wall_type, "the relocated door forgot what wall it replaced")
+	TEST_ASSERT(get_dist(reloaded.get_landing_turf(), moved_door) <= 1, "the landing spot did not survive the save at the relocated door")
 	TEST_ASSERT_EQUAL(reloaded.brightness, 0, "brightness did not survive the save")
 	TEST_ASSERT_EQUAL(reloaded.lamp_color, "#ff8800", "bulb colour did not survive the save")
 	TEST_ASSERT(!reloaded.gravity, "the gravity setting did not survive the save")

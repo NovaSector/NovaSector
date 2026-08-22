@@ -17,6 +17,12 @@ type Starter = {
   size: string;
 };
 
+type Host = {
+  /** A mob ref, not a ckey — the backend resolves it. Players never see accounts. */
+  ref: string;
+  name: string;
+};
+
 type Data = {
   preview_asset: string | null;
   enabled: boolean;
@@ -26,6 +32,7 @@ type Data = {
   object_count: number | null;
   starter: string | null;
   starters: Starter[];
+  hosts: Host[];
 };
 
 const CLOSED_ECONOMY_WARNING = `Your own belongings come and go with you. Anything that
@@ -43,10 +50,13 @@ export const PlayerHome = (props) => {
           <NoticeBox color="bad">
             The registry is offline. No residences can be reached.
           </NoticeBox>
-        ) : has_home ? (
-          <ExistingHome />
         ) : (
-          <FirstTimeSetup />
+          <>
+            {has_home ? <ExistingHome /> : <FirstTimeSetup />}
+            {/* Deliberately outside the branch — you do not need a residence of
+                your own to be invited into somebody else's. */}
+            <Visiting />
+          </>
         )}
       </Window.Content>
     </Window>
@@ -58,10 +68,23 @@ const ExistingHome = (props) => {
   const { act, data } = useBackend<Data>();
   const { loaded, last_saved, object_count, starter, preview_asset } = data;
 
+  // Not `fill`, and nothing `grow`s: this used to be the only thing in the window, and once the
+  // visiting list was added below it, a filling stack ate the viewport and pushed the entry button
+  // off the bottom. Everything now flows top-down and scrolls, with the button that matters first.
   return (
-    <Stack fill vertical>
+    <Stack vertical>
       <Stack.Item>
-        <NoticeBox color="average">{CLOSED_ECONOMY_WARNING}</NoticeBox>
+        <Button
+          fluid
+          icon="door-open"
+          color="good"
+          lineHeight={3}
+          fontSize="120%"
+          textAlign="center"
+          onClick={() => act('enter')}
+        >
+          Step Inside
+        </Button>
       </Stack.Item>
       <Stack.Item>
         <Section title="Your Residence">
@@ -93,20 +116,8 @@ const ExistingHome = (props) => {
           </LabeledList>
         </Section>
       </Stack.Item>
-      <Stack.Item grow>
-        <Section fill>
-          <Button
-            fluid
-            icon="door-open"
-            color="good"
-            lineHeight={3}
-            fontSize="120%"
-            textAlign="center"
-            onClick={() => act('enter')}
-          >
-            Step Inside
-          </Button>
-        </Section>
+      <Stack.Item>
+        <NoticeBox color="average">{CLOSED_ECONOMY_WARNING}</NoticeBox>
       </Stack.Item>
       <Stack.Item>
         <Section title="Danger Zone">
@@ -131,7 +142,7 @@ const FirstTimeSetup = (props) => {
   const { starters } = data;
 
   return (
-    <Stack fill vertical>
+    <Stack vertical>
       <Stack.Item>
         <NoticeBox>
           You have no residence on file. Pick a plan to build one from — you can
@@ -163,5 +174,42 @@ const FirstTimeSetup = (props) => {
         </Stack.Item>
       ))}
     </Stack>
+  );
+};
+
+/**
+ * Knocking at somebody else's door. Admission is one-time and granted in the moment — there is no
+ * standing permission to display, so this is just a list of people and a knocker.
+ */
+const Visiting = (props) => {
+  const { act, data } = useBackend<Data>();
+  const { hosts } = data;
+
+  return (
+    <Section title="Visiting">
+      {hosts.length ? (
+        <>
+          <NoticeBox mb={1}>
+            Knocking asks them to let you in this once. Leave for any reason and
+            you will have to knock again.
+          </NoticeBox>
+          {hosts.map((host) => (
+            <Stack key={host.ref} align="center" mb={0.5}>
+              <Stack.Item grow>{host.name}</Stack.Item>
+              <Stack.Item>
+                <Button
+                  icon="hand-fist"
+                  onClick={() => act('knock', { ref: host.ref })}
+                >
+                  Knock
+                </Button>
+              </Stack.Item>
+            </Stack>
+          ))}
+        </>
+      ) : (
+        <NoticeBox>Nobody is home right now.</NoticeBox>
+      )}
+    </Section>
   );
 };

@@ -64,7 +64,27 @@
 	hung.replaced_type = replacing
 	hung.parentSphere = parent_terminal
 	ADD_TRAIT(hung, TRAIT_HOME_FURNISHING, HOME_FURNISHING_TRAIT)
+	// You arrive through the front door, so where the door is *is* where you arrive. Without this the
+	// landing spot stays wherever the starter interior put it, and a player who moves their door keeps
+	// being dropped in the old room.
+	move_landing_to_doorstep(hung)
 	return hung
+
+/// Points the landing spot at an open tile beside the given door, in the 0-based offset form the
+/// sidecar stores. Leaves it alone if the door has nothing open beside it - get_landing_turf() can
+/// cope with a stale offset, but there is no sense writing a worse one.
+/datum/home_instance/proc/move_landing_to_doorstep(turf/door)
+	if(isnull(reservation) || isnull(door))
+		return
+	var/turf/bottom_left = reservation.bottom_left_turfs[1]
+	if(isnull(bottom_left))
+		return
+	for(var/turf/open/doorstep in orange(1, door))
+		if(doorstep.density || !(doorstep in reservation.reserved_turfs))
+			continue
+		landing_x = doorstep.x - bottom_left.x
+		landing_y = doorstep.y - bottom_left.y
+		return
 
 /// Takes the home's door back down and hands the player the flat pack. Returns TRUE if it worked.
 /datum/home_instance/proc/uninstall_door(mob/living/user)

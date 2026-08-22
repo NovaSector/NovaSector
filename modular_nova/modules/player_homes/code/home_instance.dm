@@ -61,25 +61,18 @@
 			return anywhere
 	return null
 
-/// Somewhere to land a supply pod: an open tile with nothing solid on it and nobody standing there,
-/// so a delivery never crushes the person who ordered it or drops into a wall. Falls back to the
-/// landing spot, which is always somewhere a body can stand.
+/// Where a supply pod lands: on the console the order was placed at.
+///
+/// This used to pick any unblocked open tile, which sounds fairer and is much worse - "open and
+/// unblocked" includes tiles the player has since walled off from themselves, so deliveries
+/// occasionally arrived somewhere they could not reach. The console is the one tile guaranteed to be
+/// standing, reachable, and where the person who ordered it already is.
 /datum/home_instance/proc/get_delivery_turf()
 	if(isnull(reservation))
 		return null
-	var/list/candidates = list()
-	for(var/turf/open/candidate in reservation.reserved_turfs)
-		if(candidate.density)
-			continue
-		var/blocked = FALSE
-		for(var/atom/movable/occupant in candidate)
-			if(occupant.density)
-				blocked = TRUE
-				break
-		if(!blocked)
-			candidates += candidate
-	if(length(candidates))
-		return pick(candidates)
+	var/obj/machinery/home_saver/console = find_console()
+	if(!isnull(console))
+		return get_turf(console)
 	return get_landing_turf()
 
 /// The home's exit door. Every interior needs one; loading self-heals if a save has lost it.

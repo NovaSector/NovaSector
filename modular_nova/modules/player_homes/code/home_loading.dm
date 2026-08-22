@@ -62,7 +62,8 @@
 
 	candidate = build_runtime_template(home_file(ckey, "home_backup.dmm"), "[ckey] home (recovered)")
 	if(!isnull(candidate))
-		to_chat(user, span_warning("Your current record was unreadable. The registry restored the save before it."))
+		// Neutrally worded: a guest the owner let in can be the one who triggers this load.
+		to_chat(user, span_warning("This residence's current record was unreadable. The registry restored the save before it."))
 		message_admins("Player homes: [ckey] home.dmm failed validation - fell back to their backup.")
 		log_game("Player homes: [ckey] home.dmm failed validation, loaded home_backup.dmm instead.")
 		return candidate
@@ -71,7 +72,7 @@
 	var/datum/map_template/home/starter = starter_templates[metadata["starter"]]
 	if(isnull(starter))
 		return null
-	to_chat(user, span_warning("Both of your records were unreadable. The registry rebuilt your residence from its original plan."))
+	to_chat(user, span_warning("Both records were unreadable. The registry rebuilt this residence from its original plan."))
 	message_admins("Player homes: [ckey] lost both records - rebuilt from starter '[starter.name]'.")
 	log_game("Player homes: [ckey] fell all the way back to starter '[starter.name]'.")
 	return starter
@@ -83,7 +84,7 @@
 
 	var/datum/map_template/home/template = resolve_template(ckey, user)
 	if(isnull(template))
-		to_chat(user, span_warning("The registry has no readable record of your residence. Contact an administrator."))
+		to_chat(user, span_warning("The registry has no readable record of that residence. Contact an administrator."))
 		return null
 	// Starters are the subsystem's own and must outlive this call; a template parsed off disk is
 	// ours to throw away once it has been unfolded.
@@ -97,7 +98,7 @@
 	)
 	var/turf/bottom_left = reservation?.bottom_left_turfs[1]
 	if(isnull(bottom_left))
-		to_chat(user, span_warning("The registry couldn't find anywhere to unfold your residence! Contact an administrator."))
+		to_chat(user, span_warning("The registry couldn't find anywhere to unfold the residence! Contact an administrator."))
 		if(!isnull(reservation))
 			qdel(reservation)
 		if(disposable_template)
@@ -105,7 +106,7 @@
 		return null
 
 	if(!template.load(bottom_left))
-		to_chat(user, span_warning("Your residence failed to unfold. Contact an administrator."))
+		to_chat(user, span_warning("The residence failed to unfold. Contact an administrator."))
 		message_admins("Player homes: [ckey] interior failed to load into its reservation.")
 		qdel(reservation)
 		if(disposable_template)

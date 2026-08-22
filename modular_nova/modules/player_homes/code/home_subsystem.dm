@@ -23,6 +23,8 @@ SUBSYSTEM_DEF(homes)
 	var/list/pending_requisitions = list()
 	/// Approved deliveries whose owner had already left. ckey -> list of manifests.
 	var/list/pending_deliveries = list()
+	/// "visitor-owner" -> world.time they may knock at that door again.
+	var/list/knock_cooldowns = list()
 
 /datum/controller/subsystem/homes/Initialize()
 	preload_starter_templates()

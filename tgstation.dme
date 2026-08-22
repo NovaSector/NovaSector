@@ -9560,6 +9560,7 @@
 #include "modular_nova\modules\player_homes\code\home_console.dm"
 #include "modular_nova\modules\player_homes\code\home_door.dm"
 #include "modular_nova\modules\player_homes\code\home_fixtures.dm"
+#include "modular_nova\modules\player_homes\code\home_guests.dm"
 #include "modular_nova\modules\player_homes\code\home_instance.dm"
 #include "modular_nova\modules\player_homes\code\home_loading.dm"
 #include "modular_nova\modules\player_homes\code\home_preview.dm"

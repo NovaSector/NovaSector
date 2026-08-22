@@ -65,6 +65,7 @@
 		"last_saved" = metadata["saved_at"],
 		"object_count" = metadata["object_count"],
 		"starter" = metadata["starter"],
+		"hosts" = SShomes.visitable_hosts(user),
 	)
 
 /obj/machinery/home_terminal/ui_act(action, list/params, datum/tgui/ui)
@@ -84,6 +85,13 @@
 			return TRUE
 		if("reset")
 			reset_home(user)
+			return TRUE
+		if("knock")
+			// Only ever a knock. Admission is not an action a client can ask for - it happens on the
+			// far side of the host saying yes, and nowhere else.
+			var/host_ckey = SShomes.host_ckey_from_ref(params["ref"])
+			if(host_ckey)
+				SShomes.knock(user, host_ckey, src)
 			return TRUE
 
 /// Shared gate for every action. Mirrors the condo teleporter's eligibility check, and is re-run
@@ -111,6 +119,21 @@
 	if(isnull(home))
 		return
 	SShomes.warp_into_home(home, user)
+
+/**
+ * Shows a visitor into somebody else's home. Only ever joins a home that is already standing - a
+ * guest never causes one to load, so nobody can be let into rooms their host is not in.
+ *
+ * There is no permission check here on purpose: this is only reachable from ask_host(), after the
+ * owner has personally agreed. Nothing else may call it, and no ui_act maps to it.
+ */
+/obj/machinery/home_terminal/proc/admit_visitor(mob/visitor, owner_ckey)
+	// The host could have walked out during the minute their prompt was open.
+	var/datum/home_instance/home = SShomes.active_homes[owner_ckey]
+	if(isnull(home))
+		to_chat(visitor, span_warning("The door was answered, but the residence has since been shut up."))
+		return
+	SShomes.warp_into_home(home, visitor)
 
 /obj/machinery/home_terminal/proc/create_home(mob/user, starter_name)
 	if(SShomes.has_home(user.ckey))
