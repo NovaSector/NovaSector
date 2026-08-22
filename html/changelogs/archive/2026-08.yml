@@ -483,3 +483,16 @@
   sqnztb:
   - balance: waves of mobs spawned from ore vents will only attack the player now
   - code_imp: Automapper templates are no longer overwritten by modular map modules
+2026-08-22:
+  FalloutFalcon:
+  - refactor: breaks up navigate code into a proc for the choice vs the line creation
+  - admin: Admin VV topic to navigate a player to a marked object
+  Melbert:
+  - balance: Donk. Flechette rounds aren't stealthy embeds and can be hand removed
+  PapaMichael:
+  - bugfix: AI tracking from the crew monitoring console now works for people who
+      have set an ID card honorific too
+  Vishenka0704:
+  - rscdel: Condo's hotel upgrade
+  YuiY1997:
+  - map: added dorms common area automapper template
