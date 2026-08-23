@@ -9216,6 +9216,10 @@
 /obj/structure/sign/poster/official/random/directional/east,
 /turf/open/floor/iron,
 /area/station/hallway/floor2/fore)
+"cmo" = (
+/obj/item/restraints/legcuffs/beartrap/prearmed,
+/turf/open/floor/iron/dark,
+/area/station/maintenance/floor2/starboard/aft)
 "cmr" = (
 /obj/effect/spawner/structure/window/hollow/directional{
 	dir = 8
@@ -26726,6 +26730,12 @@
 	dir = 9
 	},
 /area/station/hallway/floor1/aft)
+"gRg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/item/restraints/legcuffs/beartrap/prearmed,
+/turf/open/floor/iron/dark,
+/area/station/maintenance/floor2/starboard/aft)
 "gRh" = (
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
@@ -31813,6 +31823,7 @@
 /area/station/medical/pharmacy)
 "ihC" = (
 /obj/item/stack/sheet/iron,
+/obj/item/restraints/legcuffs/beartrap/prearmed,
 /turf/open/floor/plating,
 /area/station/maintenance/floor2/starboard/aft)
 "ihH" = (
@@ -34931,10 +34942,6 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/rd)
-"iXe" = (
-/obj/item/restraints/legcuffs/beartrap/prearmed,
-/turf/open/floor/mineral/plastitanium/pod/light,
-/area/station/maintenance/floor1/port)
 "iXk" = (
 /obj/effect/turf_decal/tile/purple/opposingcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -52618,16 +52625,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/floor2/fore)
-"npO" = (
-/obj/structure/railing{
-	dir = 8
-	},
-/obj/machinery/door/firedoor/border_only{
-	dir = 8
-	},
-/obj/item/restraints/legcuffs/beartrap/prearmed,
-/turf/open/floor/mineral/plastitanium/pod/light,
-/area/station/maintenance/floor3/port)
 "npP" = (
 /obj/machinery/atmospherics/pipe/smart/simple/purple/hidden/layer1{
 	dir = 4
@@ -131153,7 +131150,7 @@ wVn
 wVn
 wVn
 wVn
-iXe
+twx
 trD
 jdp
 xgH
@@ -210030,7 +210027,7 @@ sLE
 xtR
 mmz
 hoM
-nzM
+gRg
 hZJ
 vaG
 dEt
@@ -211823,7 +211820,7 @@ dEt
 dEt
 aZp
 axG
-ajb
+cmo
 gxf
 eeC
 fzR
@@ -255554,7 +255551,7 @@ cwl
 fhx
 cwl
 tGn
-npO
+qwy
 bGc
 qwy
 rSu
