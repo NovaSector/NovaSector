@@ -168,6 +168,30 @@ Note that bins save empty: `SAVE_OBJECT_PROPERTIES` is off, so closet contents d
 
 ---
 
+## Throwing things away
+
+A home is sealed, so junk has nowhere to go — leftover sheets, packaging, whatever a guest dropped.
+`/obj/structure/closet/crate/bin/home_compactor` is a trash bin that destroys its contents. Put things
+in, **alt-click**, and after a short wait they are gone. It is orderable from the console under
+Fittings, owner-gated like everything else, and unbolts with a right-click wrench so it can be moved.
+
+**It refuses two things, at any depth:**
+
+- **Anything alive.** Closets accept living mobs, so without this the bin is a murder box.
+- **Anything `SShomes.is_round_critical()` returns TRUE for** — the same test `release_home()` uses to
+  push gear back out to the terminal on unload. A home is deliberately not allowed to become a black
+  hole for the round's objectives, and a bin that deleted the nuke disk would be exactly that with
+  extra steps.
+
+"At any depth" is the part worth not breaking. The check runs over `get_all_contents()` of each item
+in the bin, so a nuke disk stuffed inside a backpack protects the backpack too — otherwise the bag is
+a laundering route straight to the shredder. `/datum/unit_test/player_home_compactor` asserts the
+bare case, the nested case, and the mob case.
+
+Note that bins save empty: `SAVE_OBJECT_PROPERTIES` is off, so closet contents do not persist.
+
+---
+
 ## Visiting
 
 Entirely by knocking, and entirely one-time. The terminal lists everyone online who has a home; you
