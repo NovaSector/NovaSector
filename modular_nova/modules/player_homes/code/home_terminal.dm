@@ -1,3 +1,6 @@
+/// How long a visitor must wait before knocking at the same door again.
+#define HOME_KNOCK_COOLDOWN (30 SECONDS)
+
 /// The front door to the whole system: a pad in the cafe that cycles a player into their own home.
 /// Sits alongside /obj/machinery/cafe_condo_teleporter, which does the same job for disposable rooms.
 /obj/machinery/home_terminal
@@ -87,8 +90,7 @@
 			reset_home(user)
 			return TRUE
 		if("knock")
-			// Only ever a knock. Admission is not an action a client can ask for - it happens on the
-			// far side of the host saying yes, and nowhere else.
+			// Only ever a knock. Admission is not an action a client can ask for.
 			var/host_ckey = SShomes.host_ckey_from_ref(params["ref"])
 			if(host_ckey)
 				SShomes.knock(user, host_ckey, src)
@@ -120,13 +122,9 @@
 		return
 	SShomes.warp_into_home(home, user)
 
-/**
- * Shows a visitor into somebody else's home. Only ever joins a home that is already standing - a
- * guest never causes one to load, so nobody can be let into rooms their host is not in.
- *
- * There is no permission check here on purpose: this is only reachable from ask_host(), after the
- * owner has personally agreed. Nothing else may call it, and no ui_act maps to it.
- */
+/// Shows a visitor into somebody else's home. Only ever joins a home already standing - a guest
+/// never causes one to load. No permission check on purpose: this is only reachable from ask_host(),
+/// after the owner has personally agreed. Nothing else may call it, and no ui_act maps to it.
 /obj/machinery/home_terminal/proc/admit_visitor(mob/visitor, owner_ckey)
 	// The host could have walked out during the minute their prompt was open.
 	var/datum/home_instance/home = SShomes.active_homes[owner_ckey]
@@ -157,3 +155,84 @@
 		return
 	SShomes.reset_home(user.ckey, user)
 	to_chat(user, span_notice("The registry demolishes your residence. Pick a new plan from the terminal."))
+
+/*
+ * Visiting somebody else's home: entirely by knocking, and entirely one-time. Nothing is remembered,
+ * so stepping back out means knocking again. A permanent guest list is a thing owners have to police,
+ * and it lets somebody wander your rooms on the strength of a yes you gave three rounds ago.
+ *
+ * A guest needs no special handling once inside - the closed economy stops them carrying a host's
+ * furnishings out, and is_owner() gates the console.
+ */
+
+/// Everyone whose door there is any point knocking at: online, and currently in their own home. You
+/// cannot knock at an empty house, since admission is granted in the moment and a host answering
+/// from across the station would be letting somebody into rooms they are not in.
+///
+/// Hosts are identified to the client by a mob ref, never by ckey - a player should not learn who is
+/// behind a character from a door list.
+/datum/controller/subsystem/homes/proc/visitable_hosts(mob/visitor)
+	var/list/hosts = list()
+	for(var/client/online as anything in GLOB.clients)
+		if(!online.ckey || (online.ckey == visitor?.ckey))
+			continue
+		var/mob/host_mob = online.mob
+		if(isnull(host_mob) || isnull(active_homes[online.ckey]))
+			continue
+		hosts += list(list(
+			"ref" = REF(host_mob),
+			"name" = host_mob.real_name || "Unknown",
+		))
+	return hosts
+
+/// Resolves what the client sent back into an account we are willing to knock at. Re-checks that
+/// they are in, because a window open on somebody's screen can easily outlast them going home.
+/datum/controller/subsystem/homes/proc/host_ckey_from_ref(host_ref)
+	var/mob/host_mob = locate(host_ref)
+	if(!ismob(host_mob) || !host_mob.ckey)
+		return null
+	return isnull(active_homes[host_mob.ckey]) ? null : host_mob.ckey
+
+/// Knocks at somebody's door. The answer is asked for asynchronously, so the visitor is not left
+/// staring at a frozen terminal while the host makes up their mind.
+/datum/controller/subsystem/homes/proc/knock(mob/visitor, owner_ckey, obj/machinery/home_terminal/terminal)
+	var/client/host = GLOB.directory[owner_ckey]
+	if(isnull(host) || isnull(host.mob) || isnull(active_homes[owner_ckey]))
+		to_chat(visitor, span_warning("Nobody is answering."))
+		return FALSE
+
+	var/cooldown_key = "[visitor.ckey]-[owner_ckey]"
+	if(world.time < knock_cooldowns[cooldown_key])
+		to_chat(visitor, span_warning("You have only just knocked. Give them a moment."))
+		return FALSE
+	knock_cooldowns[cooldown_key] = world.time + HOME_KNOCK_COOLDOWN
+
+	to_chat(visitor, span_notice("You knock, and wait to see if anybody answers."))
+	INVOKE_ASYNC(src, PROC_REF(ask_host), visitor, host, owner_ckey, terminal)
+	return TRUE
+
+/// Puts the question to the host and acts on the answer. Runs detached from the knocker.
+/datum/controller/subsystem/homes/proc/ask_host(mob/visitor, client/host, owner_ckey, obj/machinery/home_terminal/terminal)
+	var/visitor_name = visitor.real_name || visitor.ckey
+	var/answer = tgui_alert(
+		host,
+		"[visitor_name] is knocking at your door. Letting them in admits them this once - if they leave, they will have to knock again.",
+		"Somebody at the Door",
+		list("Let them in", "Refuse"),
+		timeout = 1 MINUTES,
+	)
+	if(answer != "Let them in")
+		to_chat(visitor, span_warning("Nobody answers the door."))
+		return
+
+	// The yes was for the person stood at the pad a moment ago. It lapses rather than following them.
+	if(QDELETED(terminal) || !terminal.ready_for(visitor))
+		to_chat(host, span_warning("You open the door, but [visitor_name] is no longer waiting."))
+		return
+
+	log_game("Player homes: [owner_ckey] let [visitor.ckey] into their home.")
+	to_chat(host, span_notice("You let [visitor_name] in."))
+	to_chat(visitor, span_notice("The door opens."))
+	terminal.admit_visitor(visitor, owner_ckey)
+
+#undef HOME_KNOCK_COOLDOWN

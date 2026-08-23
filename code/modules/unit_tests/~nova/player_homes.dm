@@ -1,11 +1,7 @@
-/**
- * Round-trips every starter home through the whole persistence path: file it, load it off disk,
- * save it back out with write_map(), and confirm what came out is still loadable.
- *
- * This is the regression guard that matters most for player homes. A starter map losing its door,
- * or a change to write_map() quietly breaking the format, would otherwise only surface as players
- * losing homes they had spent a round decorating.
- */
+/// Round-trips every starter home through the whole persistence path: file it, load it off disk,
+/// save it back out with write_map(), and confirm what came out is still loadable. A starter map
+/// losing its door, or write_map() quietly breaking the format, would otherwise only surface as
+/// players losing homes they had spent a round decorating.
 /datum/unit_test/player_home_round_trip
 	/// A ckey nobody can hold, so the test never touches a real player's saved home.
 	var/test_ckey = "unittestplayerhome"
@@ -52,13 +48,10 @@
 
 	SShomes.release_home(home)
 
-/**
- * Covers the parts of a home a player can rearrange: the front door coming down and going back up
- * somewhere else, and the room settings surviving a save.
- *
- * The door is the interesting one. It is a turf, so relocating it means remembering what it was
- * fitted into - and that memory only survives a save because the door overrides get_save_vars().
- */
+/// Covers the parts of a home a player can rearrange: the front door coming down and going back up
+/// somewhere else, and the room settings surviving a save. The door is a turf, so relocating it
+/// means remembering what it was fitted into - and that only survives a save because the door
+/// overrides get_save_vars().
 /datum/unit_test/player_home_fixtures
 	var/test_ckey = "unittesthomefixtures"
 
@@ -135,14 +128,9 @@
 
 	SShomes.release_home(reloaded)
 
-/**
- * Guards the requisition catalogue and the one invariant that makes it safe to hand out.
- *
- * Everything a pod delivers is marked as the home's property, so a player can order iron forever
- * without a single sheet of it reaching the round's economy. A catalogue line that skips the
- * marking, or names a type that no longer exists, is a bug this test catches at build time rather
- * than the first time somebody orders it.
- */
+/// Guards the requisition catalogue and the invariant that makes it safe to hand out: everything a
+/// pod delivers is marked as the home's property, so ordered materials can never reach the round's
+/// economy. Also catches a catalogue line naming a type that no longer exists.
 /datum/unit_test/player_home_supply
 	var/test_ckey = "unittesthomesupply"
 
@@ -180,4 +168,49 @@
 	TEST_ASSERT_EQUAL(loose, 0, "[loose] delivered items were not marked as the home's, and could be carried out into the round")
 	qdel(pod)
 
+	SShomes.release_home(home)
+
+/// The waste compactor destroys ordinary junk and refuses everything a home must never swallow.
+/// The nested cases are the ones that matter: round-critical gear inside a bag, or somebody shut in
+/// the bin, must not be a way to delete either of them.
+/datum/unit_test/player_home_compactor
+	var/test_ckey = "unittesthomecompactor"
+
+/datum/unit_test/player_home_compactor/Destroy()
+	wipe_test_home(test_ckey)
+	return ..()
+
+/datum/unit_test/player_home_compactor/Run()
+	var/datum/map_template/home/starter = SShomes.starter_templates[SShomes.starter_templates[1]]
+	TEST_ASSERT(SShomes.write_starter(test_ckey, starter, null), "could not file the test home")
+	var/datum/home_instance/home = SShomes.load_home(test_ckey, null, null)
+	TEST_ASSERT_NOTNULL(home, "test home would not load")
+
+	var/turf/floor = home.get_landing_turf()
+	var/obj/structure/closet/crate/bin/home_compactor/compactor = allocate(/obj/structure/closet/crate/bin/home_compactor, floor)
+
+	// Ordinary junk: the compactor should be willing to take it.
+	var/obj/item/trash/junk = allocate(/obj/item/trash/candle, compactor)
+	TEST_ASSERT(junk in compactor.compactable(), "the compactor refused ordinary rubbish")
+
+	// Round-critical, bare and buried. Neither may ever be destroyed. Documents rather than the nuke
+	// disk: the disk is stationloving and would teleport itself out of the bin mid-test.
+	var/obj/item/documents/secrets = allocate(/obj/item/documents/nanotrasen, compactor)
+	TEST_ASSERT(SShomes.is_round_critical(secrets), "the test's stand-in for round-critical gear is not on the blacklist")
+	TEST_ASSERT(!(secrets in compactor.compactable()), "the compactor was willing to destroy round-critical gear")
+	var/obj/item/storage/backpack/smuggling = allocate(/obj/item/storage/backpack, compactor)
+	secrets.forceMove(smuggling)
+	TEST_ASSERT(!(smuggling in compactor.compactable()), "round-critical gear inside a backpack could be fed to the compactor")
+
+	// Anything alive, at any depth, or the bin is a murder box.
+	var/mob/living/carbon/human/stuffed = allocate(/mob/living/carbon/human/consistent)
+	stuffed.forceMove(compactor)
+	TEST_ASSERT(!(stuffed in compactor.compactable()), "the compactor was willing to destroy a living mob")
+
+	// The junk is still fair game with all of that sitting beside it.
+	TEST_ASSERT(junk in compactor.compactable(), "protected contents made the compactor refuse ordinary rubbish too")
+
+	// Everything has to be out before the reservation is emptied under it.
+	stuffed.forceMove(run_loc_floor_bottom_left)
+	secrets.forceMove(run_loc_floor_bottom_left)
 	SShomes.release_home(home)

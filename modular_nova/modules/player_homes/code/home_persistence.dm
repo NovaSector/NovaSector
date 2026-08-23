@@ -1,7 +1,11 @@
-/// Files a brand new home by copying a starter interior straight onto the player's record. Doing it
-/// here, rather than loading the starter and waiting for a save, means a player's very first visit
-/// is already persistent - walk out without touching the console and the home is still theirs.
-/// rustg_file_write creates the parent directories, so this is also what makes the folder exist.
+/*
+ * Getting a home on and off the disk: filing a new one, parsing a save back into a loadable
+ * template, unfolding it into a reservation, and committing it again.
+ */
+
+/// Files a brand new home by copying a starter interior straight onto the player's record, so a
+/// player's very first visit is already persistent - walk out without touching the console and the
+/// home is still theirs. rustg_file_write creates the parent directories.
 /datum/controller/subsystem/homes/proc/write_starter(ckey, datum/map_template/home/starter, mob/user)
 	var/live = home_file(ckey)
 	if(!live || isnull(starter) || !fexists(starter.mappath))
@@ -25,11 +29,9 @@
 	log_game("[key_name(user)] filed a new home from starter '[starter.name]'.")
 	return TRUE
 
-/// Parses a .dmm off disk into a loadable template, or returns null if it isn't usable.
-///
-/// Bad *object* paths - a type deleted from the codebase since the save was written - are dropped
-/// silently by the loader, which is the graceful degradation we want. Bad turf or area paths make
-/// the report unloadable, and those we refuse rather than load a room full of holes.
+/// Parses a .dmm off disk into a loadable template, or returns null if it isn't usable. Bad *object*
+/// paths are dropped silently by the loader, which is the graceful degradation we want; bad turf or
+/// area paths make the report unloadable, and those we refuse rather than load a room full of holes.
 /datum/controller/subsystem/homes/proc/build_runtime_template(path, template_name)
 	if(!path || !fexists(path))
 		return null
@@ -129,8 +131,8 @@
 		home.landing_x = template.landing_zone_x_offset
 		home.landing_y = template.landing_zone_y_offset
 
-	// Room settings, restored from the sidecar. Defaults on the datum cover a home saved before
-	// these existed, so an old record just loads lit and with gravity on.
+	// Defaults on the datum cover a home saved before these settings existed, so an old record just
+	// loads lit and with gravity on.
 	if(isnum(metadata["brightness"]))
 		home.brightness = clamp(round(metadata["brightness"]), HOME_BRIGHTNESS_MIN, HOME_BRIGHTNESS_MAX)
 	home.lamp_color = sanitize_home_lamp_color(metadata["lamp_color"])
@@ -150,24 +152,20 @@
 	flush_pending_deliveries(home)
 	return home
 
-/// Moves every reserved turf into a freshly made /area/misc/player_home.
-///
-/// This is not optional. The area type in a save file comes off the disk, so forcing it here is what
-/// guarantees a home can't load itself into a station area - and because the area isn't UNIQUE_AREA,
-/// it's also what gives every simultaneously-loaded home its own area instance.
+/// Moves every reserved turf into a freshly made /area/misc/player_home. Not optional: the area type
+/// in a save file comes off the disk, so forcing it here is what stops a home loading itself into a
+/// station area - and since the area isn't UNIQUE_AREA, it gives each loaded home its own instance.
 /datum/controller/subsystem/homes/proc/claim_area(datum/home_instance/home)
 	var/area/misc/player_home/home_area = new
 	home_area.home = home
 	for(var/turf/reserved as anything in home.reservation.reserved_turfs)
 		reserved.change_area(get_area(reserved), home_area)
 
-/// A home is only ever as good as its last save, and a save can be missing the two things that make
-/// it usable. Put them back rather than stranding somebody in a sealed box.
+/// Puts back the two fixtures a home is unusable without, rather than stranding somebody in a
+/// sealed box. Both are a last resort: the console refuses to save a home missing either.
 /datum/controller/subsystem/homes/proc/heal_home(datum/home_instance/home)
 	var/list/reserved_turfs = home.reservation.reserved_turfs
 
-	// A player can file a record with the door taken down only by having it in hand as they leave -
-	// the console refuses to save otherwise - so this is a genuine last resort rather than routine.
 	if(isnull(home.find_door()) && !locate(/obj/item/home_door_kit) in reserved_turfs)
 		install_door(home)
 		message_admins("Player homes: [home.owner_ckey] had no door on record and one was fitted for them.")
@@ -202,3 +200,114 @@
 				return new /obj/machinery/home_saver(doorstep)
 	var/turf/landing = home.get_landing_turf()
 	return isnull(landing) ? null : new /obj/machinery/home_saver(landing)
+
+/**
+ * Commits a home to disk with write_map() - the TGM writer the Map Export admin verb runs on - over
+ * exactly the reservation's block, so what comes out is a real .dmm the ordinary loader reads back.
+ *
+ * SAVE_SPACE is on because several interiors are built on space and lavaland turfs; without it those
+ * are written as /turf/template_noop and the room comes back full of holes. SAVE_OBJECT_PROPERTIES is
+ * deliberately off - its only substantial implementation dumps an ore silo's whole stockpile into the
+ * file, and leaving it off is also why closet contents don't persist. obj_blacklist applies to objects
+ * only, so anything alive in the room persists; acceptable because a home is sealed.
+ */
+/datum/controller/subsystem/homes/proc/save_home(datum/home_instance/home, mob/user)
+	if(isnull(home?.reservation))
+		return FALSE
+	var/turf/bottom_left = home.reservation.bottom_left_turfs[1]
+	var/turf/top_right = home.reservation.top_right_turfs[1]
+	if(isnull(bottom_left) || isnull(top_right))
+		to_chat(user, span_warning("The console can't get a fix on the walls around you."))
+		return FALSE
+
+	// Direct turf contents is exactly what write_map() writes, so it's the honest measure.
+	var/object_count = 0
+	for(var/turf/counted as anything in home.reservation.reserved_turfs)
+		object_count += length(counted.contents)
+	if(object_count > HOME_MAX_OBJECTS)
+		to_chat(user, span_warning("Registry refused: [object_count] cataloguable objects exceeds the [HOME_MAX_OBJECTS] permitted. Clear some out and try again."))
+		return FALSE
+
+	var/directory = home_directory(home.owner_ckey)
+	var/scratch = "[directory]home.dmm.tmp"
+	var/live = "[directory]home.dmm"
+	var/backup = "[directory]home_backup.dmm"
+
+	var/map_text = write_map(
+		bottom_left.x, bottom_left.y, bottom_left.z,
+		top_right.x, top_right.y, top_right.z,
+		save_flag = HOME_SAVE_FLAGS,
+		obj_blacklist = save_blacklist,
+	)
+	if(!map_text)
+		to_chat(user, span_warning("The console failed to transcribe your residence. Contact an administrator."))
+		return FALSE
+
+	fdel(scratch)
+	rustg_file_write(map_text, scratch)
+	if(!verify_save(scratch))
+		fdel(scratch)
+		to_chat(user, span_warning("The registry transcribed a corrupt record and discarded it. Your previous save is untouched - please tell an administrator."))
+		message_admins("Player homes: save verification FAILED for [home.owner_ckey]. Their previous save was left intact.")
+		log_game("Player homes: save verification failed for [home.owner_ckey].")
+		return FALSE
+
+	// Only now is it safe to touch the good copy.
+	if(fexists(live))
+		fdel(backup)
+		fcopy(live, backup)
+	fdel(live)
+	fcopy(scratch, live)
+	fdel(scratch)
+
+	home.last_saved = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss", TIMEZONE_UTC)
+	write_metadata(home.owner_ckey, home, object_count, user)
+	// Photograph it while the rooms are still standing; there is nothing to shoot once it unloads.
+	render_preview(home)
+	log_game("[key_name(user)] saved their home ([object_count] objects).")
+	return TRUE
+
+/// Parses a freshly written save back off disk before it is allowed to replace the good copy.
+/// A save that won't load is worse than no save at all, and this is cheap next to write_map().
+/datum/controller/subsystem/homes/proc/verify_save(path)
+	var/datum/map_template/home/player_save/proof = new(path, "save verification", TRUE)
+	var/valid = !isnull(proof.cached_map)
+	if(valid)
+		var/datum/map_report/report = proof.cached_map.check_for_errors()
+		if(report)
+			valid = report.loadable
+			qdel(report)
+	qdel(proof)
+	return valid
+
+/// Rolls a home back to the save before its last one, then turns everyone out so the rooms rebuild
+/// from the restored file the next time somebody walks in.
+/datum/controller/subsystem/homes/proc/restore_backup(datum/home_instance/home, mob/user)
+	var/backup = home_file(home.owner_ckey, "home_backup.dmm")
+	if(!fexists(backup))
+		to_chat(user, span_warning("There is no earlier record to restore."))
+		return FALSE
+	var/live = home_file(home.owner_ckey)
+	fdel(live)
+	fcopy(backup, live)
+	to_chat(user, span_notice("Record restored. The registry is cycling everyone out so it can rebuild the rooms."))
+	log_game("[key_name(user)] restored their home from its backup.")
+	home.evict_all()
+	return TRUE
+
+/// Demolishes a player's home. The backup survives on purpose, so an admin can still put it back.
+/datum/controller/subsystem/homes/proc/reset_home(ckey, mob/user)
+	var/datum/home_instance/home = active_homes[ckey]
+	if(!isnull(home))
+		home.evict_all()
+
+	var/live = home_file(ckey)
+	if(fexists(live))
+		var/backup = home_file(ckey, "home_backup.dmm")
+		fdel(backup)
+		fcopy(live, backup)
+		fdel(live)
+	fdel(home_file(ckey, "home.json"))
+	forget_preview(ckey)
+	log_game("[key_name(user)] demolished [ckey] home record.")
+	return TRUE

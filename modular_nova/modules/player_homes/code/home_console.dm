@@ -1,5 +1,4 @@
 /// The save trigger, and the control panel for everything a player can change about their home.
-///
 /// Homes are never written to disk on their own - somebody has to walk up to this and say so, which
 /// is what stops a home that got griefed while its owner was out from overwriting a good save.
 /obj/machinery/home_saver
@@ -51,8 +50,6 @@
 		ui = new(user, src, "HomeConsole", name)
 		ui.open()
 
-/// The catalogue only changes when somebody edits the code, so it ships once per window rather than
-/// on every update tick.
 /obj/machinery/home_saver/ui_static_data(mob/user)
 	var/list/catalogue = list()
 	for(var/datum/home_supply/entry as anything in SShomes.supply_catalogue)
@@ -141,8 +138,7 @@
 	if(saving)
 		balloon_alert(user, "already committing!")
 		return
-	// A residence with no front door loads as a sealed box and has to have one fitted for the
-	// player on the way in. Refusing here is kinder than silently filing a home they cannot use.
+	// A residence with no front door loads as a sealed box and has to have one fitted on the way in.
 	if(isnull(home.find_door()))
 		to_chat(user, span_warning("\The [src] refuses the record: your front door is not hung. Put it back up first."))
 		return
@@ -171,3 +167,82 @@
 			continue
 		SShomes.request_supplies(home, user, entry)
 		return
+
+/**
+ * A bin that destroys what is put in it. A home is sealed, so the junk that accumulates in one -
+ * packaging a delivery came in, sheets left over from a build, whatever a guest dropped - has
+ * nowhere else to go. Alt-click compacts the contents.
+ *
+ * It refuses anything alive, and anything release_home() would push back out to the terminal, at
+ * ANY depth. A home is deliberately not allowed to become a black hole for the round's objectives,
+ * and a bin that ate a nuke disk stuffed inside a backpack would be exactly that with extra steps.
+ */
+/obj/structure/closet/crate/bin/home_compactor
+	name = "domicile waste compactor"
+	desc = "A registry-issue bin with a matter shredder in the bottom. Whatever goes through it is \
+		gone for good, so look twice before you run it."
+
+/obj/structure/closet/crate/bin/home_compactor/examine(mob/user)
+	. = ..()
+	. += span_notice("Alt-click to compact everything inside. Right-click it with a wrench to unbolt it.")
+	. += span_warning("It will not take anything alive, or anything the round might still need.")
+
+/// Closets already anchor and unanchor on a right-click wrench, and the bin inherits that ungated -
+/// which would let a guest shove the owner's compactor around. Gate it the way the console is gated
+/// and otherwise leave the stock behaviour alone; anchored rides along in the save either way.
+/obj/structure/closet/crate/bin/home_compactor/wrench_act_secondary(mob/living/user, obj/item/tool)
+	var/datum/home_instance/home = get_home_of(src)
+	if(!isnull(home) && !home.is_owner(user))
+		balloon_alert(user, "not your residence!")
+		return TRUE
+	return ..()
+
+/// Everything inside that the compactor is willing to destroy. Recomputed rather than remembered,
+/// since the wait gives people time to reach back in.
+/obj/structure/closet/crate/bin/home_compactor/proc/compactable()
+	var/list/doomed = list()
+	for(var/atom/movable/binned as anything in contents)
+		var/refused = FALSE
+		// get_all_contents() counts binned itself, so this checks the thing and everything in it.
+		for(var/atom/movable/piece as anything in binned.get_all_contents())
+			if(isliving(piece) || SShomes.is_round_critical(piece))
+				refused = TRUE
+				break
+		if(!refused)
+			doomed += binned
+	return doomed
+
+/obj/structure/closet/crate/bin/home_compactor/click_alt(mob/user)
+	if(!isliving(user))
+		return CLICK_ACTION_BLOCKING
+	var/datum/home_instance/home = get_home_of(src)
+	if(isnull(home))
+		balloon_alert(user, "no registry link!")
+		return CLICK_ACTION_BLOCKING
+	if(!home.is_owner(user))
+		balloon_alert(user, "not your residence!")
+		return CLICK_ACTION_BLOCKING
+	if(!length(compactable()))
+		balloon_alert(user, length(contents) ? "it won't take those!" : "already empty!")
+		return CLICK_ACTION_BLOCKING
+
+	balloon_alert(user, "compacting...")
+	if(!do_after(user, 2 SECONDS, target = src))
+		return CLICK_ACTION_BLOCKING
+
+	// Filtered again on the far side of the wait: whatever was dropped in meanwhile gets the same
+	// examination, and anything protected that arrived is still refused.
+	var/list/doomed = compactable()
+	if(!length(doomed))
+		balloon_alert(user, "it won't take those!")
+		return CLICK_ACTION_BLOCKING
+	var/destroyed = length(doomed)
+	for(var/atom/movable/rubbish as anything in doomed)
+		qdel(rubbish)
+
+	do_animate()
+	balloon_alert(user, "[destroyed] item\s compacted")
+	var/spared = length(contents)
+	if(spared)
+		to_chat(user, span_warning("\The [src] leaves [spared] item\s where [spared == 1 ? "it is" : "they are"] - it will not destroy anything alive, or anything the round might still need."))
+	return CLICK_ACTION_SUCCESS

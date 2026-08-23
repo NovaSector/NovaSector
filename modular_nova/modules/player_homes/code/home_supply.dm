@@ -1,25 +1,20 @@
 /*
- * Requisitions: getting building materials into a home without an admin having to be involved.
+ * Requisitions: getting building materials into a home without an admin having to be involved. The
+ * console calls down a drop pod of materials or tools on a cooldown, no approval needed. Anything
+ * past the basics - refined alloys, an RCD, or a written request for something odd - goes to the
+ * admins with approve and deny buttons instead of shipping straight away.
  *
- * A home is somewhere people want to build, and the cafe is not a place to shop. The console can
- * call down a drop pod of materials or tools on a cooldown, no approval needed. Anything past the
- * basics - refined alloys, an RCD, or a written request for something odd - goes to the admins with
- * approve and deny buttons instead of shipping straight away.
- *
- * IMPORTANT: everything a pod delivers is marked TRAIT_HOME_FURNISHING, which means it belongs to
- * the residence and can never be carried out of it. That is what makes the no-approval tier safe to
- * hand out freely: a player can request iron every five minutes forever and not one sheet of it can
- * reach the round's economy. If you ever add a delivery path that skips mark_delivery(), you have
- * turned this into a free materials printer.
+ * IMPORTANT: everything a pod delivers is marked TRAIT_HOME_FURNISHING, so it can never be carried
+ * out of the residence. That is what makes the no-approval tier safe to hand out freely - not one
+ * sheet of it can reach the round's economy. A delivery path that skips mark_delivery() would turn
+ * this into a free materials printer.
  */
 
 /// One line in the requisition catalogue.
 /datum/home_supply
-	/// Shown on the console.
 	var/name
 	/// Groups the catalogue in the UI.
 	var/category = "Materials"
-	/// One line of detail under the name.
 	var/desc
 	/// What lands: path -> amount. For stacks the amount is the stack size; for anything else it is
 	/// how many separate copies to send.
@@ -27,16 +22,14 @@
 	/// TRUE if an admin has to sign this off before it ships.
 	var/needs_approval = FALSE
 
-/// A short label for the manifest, so the console can say what a line actually contains.
+/// A short label for the manifest, so the console can say what a line contains.
 /datum/home_supply/proc/manifest_summary()
 	var/list/parts = list()
 	for(var/atom/movable/thing_path as anything in manifest)
 		parts += "[manifest[thing_path]]x [initial(thing_path.name)]"
 	return parts.Join(", ")
 
-// ---------------------------------------------------------------------------------------------
-//  The catalogue. Add to it freely - the subsystem picks up subtypes automatically.
-// ---------------------------------------------------------------------------------------------
+// The catalogue. Add to it freely - the subsystem picks up subtypes automatically.
 
 /datum/home_supply/iron
 	name = "Iron sheets"
@@ -77,6 +70,12 @@
 	name = "Carpet"
 	category = "Fittings"
 	manifest = list(/obj/item/stack/tile/carpet = 60)
+
+/datum/home_supply/compactor
+	name = "Waste compactor"
+	category = "Fittings"
+	desc = "A bin that destroys what you put in it. Alt-click to run it."
+	manifest = list(/obj/structure/closet/crate/bin/home_compactor = 1)
 
 /datum/home_supply/mechanical_tools
 	name = "Mechanical toolbox"
@@ -152,12 +151,9 @@
 	manifest = list(/obj/item/pipe_dispenser = 1)
 	needs_approval = TRUE
 
-// ---------------------------------------------------------------------------------------------
-//  Requesting, shipping, and the admin queue
-// ---------------------------------------------------------------------------------------------
+// Requesting, shipping, and the admin queue.
 
-/// A requisition sitting in front of the admins. Round-scoped: an approval that outlives the round
-/// is not worth the bookkeeping, and the player can simply ask again.
+/// A requisition sitting in front of the admins. Round-scoped: the player can simply ask again.
 /datum/home_requisition
 	var/id
 	var/static/next_id = 0
@@ -208,7 +204,7 @@
 			SShomes.deny_requisition(src, usr)
 	return TRUE
 
-/// Builds the catalogue once at init, the same way the starter templates are collected.
+/// Builds the catalogue once at init, as the starter templates are collected.
 /datum/controller/subsystem/homes/proc/preload_supply_catalogue()
 	for(var/datum/home_supply/supply_type as anything in subtypesof(/datum/home_supply))
 		if(!initial(supply_type.name))
@@ -222,12 +218,8 @@
 		return 0
 	return max(0, ready_at - world.time)
 
-/**
- * Files a requisition. Returns TRUE if something happened, FALSE if it was turned away.
- *
- * The cooldown is spent on filing rather than on delivery, so the queue cannot be spammed with
- * approval requests any more than the free tier can.
- */
+/// Files a requisition. The cooldown is spent on filing rather than on delivery, so the approval
+/// queue cannot be spammed any more than the free tier can.
 /datum/controller/subsystem/homes/proc/request_supplies(datum/home_instance/home, mob/user, datum/home_supply/entry, written)
 	if(isnull(home) || !home.is_owner(user))
 		return FALSE
@@ -320,8 +312,8 @@
 			mark_delivery(new thing_path(pod))
 	return pod
 
-/// Marks a delivered item, and everything inside it, as the home's property. A toolbox arrives full
-/// of tools, and unmarked tools inside a marked box would walk straight out in somebody's pocket.
+/// Marks a delivered item, and everything inside it, as the home's property. Unmarked tools inside a
+/// marked toolbox would walk straight out in somebody's pocket.
 /datum/controller/subsystem/homes/proc/mark_delivery(atom/movable/delivered)
 	ADD_TRAIT(delivered, TRAIT_HOME_FURNISHING, HOME_FURNISHING_TRAIT)
 	for(var/atom/movable/piece as anything in delivered.get_all_contents())
