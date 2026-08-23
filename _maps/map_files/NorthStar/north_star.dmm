@@ -31627,11 +31627,11 @@
 "ibK" = (
 /obj/docking_port/stationary{
 	dir = 8;
-	dwidth = 2;
-	height = 13;
-	name = "port bay 2";
-	shuttle_id = "ferry_home";
-	width = 5
+	dwidth = 11;
+	height = 22;
+	name = "North Star: Auxiliary Dock, Station-Fore";
+	shuttle_id = "whiteship_home";
+	width = 35
 	},
 /turf/open/floor/engine/hull/reinforced,
 /area/space/nearstation)
@@ -49602,7 +49602,7 @@
 	dwidth = 8;
 	height = 11;
 	shuttle_id = "ferry_home";
-	name = "Port Bay 2";
+	name = "Fore Bay 1";
 	width = 20
 	},
 /turf/open/floor/engine/hull/reinforced,
