@@ -223,17 +223,21 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 /obj/item/organ/brain/slime/proc/on_slime_death(mob/living/carbon/victim, gibbed)
 	SIGNAL_HANDLER
+	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
+
+	if(core_ejected)
+		return
 	if(is_reserved_level(victim.z) && !istype(get_area(victim), /area/shuttle))
 		return
 	if(IS_CHANGELING(victim))
 		return
-	if(gibbed || core_ejected)
-		return
-	var/turf/victim_loc = victim.drop_location()
-	UnregisterSignal(victim, COMSIG_LIVING_DEATH)
 	mind = victim.mind || victim.last_mind
 	copy_mind_and_dna(victim)
-	INVOKE_ASYNC(src, PROC_REF(core_ejection), victim, victim_loc)
+	if(gibbed)
+		core_ejection(victim)
+		return
+
+	addtimer(CALLBACK(src, PROC_REF(core_ejection), victim), 0) // explode them after the current proc chain ends, to avoid weirdness
 
 /obj/item/organ/brain/slime/proc/copy_mind_and_dna(mob/living/carbon/human/slime)
 	if(QDELETED(mind))
@@ -257,7 +261,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
  * CORE EJECTION PROC
  * Makes it so that when a slime dies, their core ejects and their body is qdel'd.
  */
-/obj/item/organ/brain/slime/proc/core_ejection(mob/living/carbon/human/victim, turf/loc_override)
+/obj/item/organ/brain/slime/proc/core_ejection(mob/living/carbon/human/victim)
 	if(core_ejected)
 		return
 
@@ -268,9 +272,12 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 		span_notice("Your body completely dissolves, collapsing outwards!"),
 		span_notice("You hear liquid splattering."),
 	)
-	var/turf/death_turf = loc_override || get_turf(victim)
-	/// The location the core will forceMove into
-	var/atom/core_loc = get_core_ejection_loc(victim, death_turf, loc_override)
+	var/turf/death_turf = victim.drop_location()
+	if(!death_turf)
+		death_turf = get_turf(victim) // Fallback to avoid the Slime core showing up in Nullspace.
+
+	/// The location the core will forceMove into, be it a container or the turf they're standing on.
+	var/atom/core_loc = get_core_ejection_loc(victim, death_turf)
 
 	// Store their items, drop their brain/core, and implants to the floor.
 	store_item_slots(victim)
@@ -311,11 +318,11 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
  * Returns the location the core should eject to
  * If slime died in a container (locker, vileworm, legion), they'll eject there, otherwise we're returning death_turf
 */
-/obj/item/organ/brain/slime/proc/get_core_ejection_loc(mob/living/carbon/human/victim, turf/death_turf, turf/loc_override)
+/obj/item/organ/brain/slime/proc/get_core_ejection_loc(mob/living/carbon/human/victim, turf/death_turf)
 	var/atom/container = victim?.loc
 	if(container && !isturf(container))
 		return container
-	return loc_override || death_turf
+	return death_turf
 
 /obj/item/organ/brain/slime/proc/store_item_slots(mob/living/carbon/human/victim)
 	items_per_slot = alist()
@@ -323,7 +330,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	if(istype(victim.back, /obj/item/mod/control))
 		var/obj/item/mod/control/mod_control = victim.back
 		for(var/obj/item/part as anything in mod_control.mod_parts)
-			mod_control.retract(null, part)
+			mod_control.transfer_part_to_loc(part, mod_control, force = TRUE) // Don't use retract or spessman will freak out.
 	// also retract any deployables
 	if(victim.wear_suit)
 		var/datum/component/toggle_attached_clothing/hood_component = victim.wear_suit.GetComponent(/datum/component/toggle_attached_clothing)
@@ -480,7 +487,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 * SLIME REVIVE PROC
 * This heals the core/brain, and creates a new body which we move the player/client into.
 */
-/obj/item/organ/brain/slime/proc/rebuild_body(mob/user) as /mob/living/carbon/human
+/obj/item/organ/brain/slime/proc/rebuild_body(mob/user)
 	if(rebuilt)
 		return owner
 
@@ -498,6 +505,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			break
 
 	if(gps_active) // making sure the gps signal is removed if it's active on revival
+		gps_active = FALSE
 		qdel(GetComponent(/datum/component/gps))
 
 	//we have the plasma. we can rebuild them.
@@ -520,6 +528,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	// Create a new body and spawn it on the Brain/Core, than register the signal for the player to be inserted into the new body.
 	var/mob/living/carbon/human/body = new(src.drop_location())
 	RegisterSignal(body, COMSIG_MOB_LOGIN, PROC_REF(on_gained_client))
+
 	// Move the brain/core back into the body.
 	src.replace_into(body)
 
@@ -532,7 +541,6 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	SIGNAL_HANDLER
 	if(!source.client)
 		return
-	UnregisterSignal(source, COMSIG_MOB_LOGIN)
 
 	// Handle Prefrences & Quirks.
 	var/datum/preferences/prefs = source.client.prefs || source.mind?.current?.client.prefs
@@ -546,11 +554,19 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 
 	var/mob/living/carbon/human/body = source
 
+	// Handle Blood, We give them extra blood so they can regenerate their limbs as soon as they are revived.
+	body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
+
 	GLOB.dead_slime_cores -= src
 	rebuilt = TRUE
 
 	var/client/original_client = brainmob?.client || mind?.current?.client
 	original_client?.prefs?.safe_transfer_prefs_to(body)
+	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
+	body.underwear = "Nude"
+	body.bra = "Nude"
+	body.undershirt = "Nude"
+	body.socks = "Nude"
 	if(blooper_id)
 		body.set_blooper(blooper_id)
 		body.blooper_pitch = blooper_pitch
@@ -567,17 +583,19 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	// If slime is not going to be nugget, let's keep them fed and re-equip them, currently used for ahealing
 	if(!nugget)
 		body.set_nutrition(NUTRITION_LEVEL_FED)
-		INVOKE_ASYNC(src, PROC_REF(reequip_items), body)
+		addtimer(CALLBACK(src, PROC_REF(reequip_items), body), 0) // Similarly to on_slime_death(), again to prevent unexpected weirdness
+	else
+		drop_items_to_ground(body.drop_location())
+
 	REMOVE_TRAIT(body, TRAIT_NO_TRANSFORM, REF(src))
 	replace_into(body)
+
 	if(nugget)
 		for(var/obj/item/bodypart/bodypart as anything in body.bodyparts)
 			if(istype(bodypart, /obj/item/bodypart/chest))
 				continue
 			bodypart.drop_limb(TRUE) // Drop limb should delete the limb for slimes unless someone changes it.
 
-		// Handle Blood, We give them extra blood so they can regenerate their limbs as soon as they are revived.
-		body.set_blood_volume(BLOOD_VOLUME_SAFE + 60)
 		body.visible_message(
 			span_warning("[body]'s torso \"forms\" from [body.p_their()] core, yet to form the rest."),
 			span_purple("Your torso fully forms out of your core, yet to form the rest."))
@@ -590,20 +608,12 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 			span_purple("Your body fully forms from your core!")
 		)
 
-	// Ensure they appear fully nude when revived, since slimes don't regrow clothes.
-	body.bra = "Nude"
-	body.underwear = "Nude"
-	body.undershirt = "Nude"
-	body.socks = "Nude"
-
 	if(!QDELETED(brainmob))
 		membrane_murmur.Remove(brainmob)
 	brainmob?.mind?.transfer_to(body)
 	body.grab_ghost()
 	transfer_observers_to(body)
 	to_chat(owner, span_danger("[CONFIG_GET(string/blackoutpolicy)]"))
-
-	drop_items_to_ground(body.drop_location())
 
 	if(mind)
 		SEND_SIGNAL(mind, COMSIG_SLIME_REVIVED, body, src)
