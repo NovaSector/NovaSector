@@ -6257,7 +6257,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Elevator Shaft Access"
 	},
-/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/station/hallway/floor1/fore)
@@ -10721,7 +10721,7 @@
 	name = "Elevator Shaft Access"
 	},
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/plating,
 /area/station/hallway/floor2/aft)
 "cHm" = (
@@ -16366,7 +16366,7 @@
 	name = "Elevator Shaft Access"
 	},
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/plating,
 /area/station/hallway/floor1/fore)
 "eem" = (
@@ -31328,7 +31328,7 @@
 	name = "Elevator Shaft Access"
 	},
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/plating,
 /area/station/hallway/floor2/fore)
 "hXo" = (
@@ -34456,7 +34456,7 @@
 	name = "Elevator Shaft Access"
 	},
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/plating,
 /area/station/hallway/floor1/aft)
 "iNK" = (
@@ -41605,7 +41605,7 @@
 	name = "Elevator Shaft Access"
 	},
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/plating,
 /area/station/hallway/floor3/aft)
 "kBK" = (
@@ -43725,7 +43725,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Elevator Shaft Access"
 	},
-/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/station/hallway/floor2/aft)
@@ -63734,7 +63734,7 @@
 	name = "Elevator Shaft Access"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/effect/mapping_helpers/airlock/unres{
+/obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -76936,7 +76936,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Elevator Shaft Access"
 	},
-/obj/effect/mapping_helpers/airlock/unres{
+/obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
@@ -80584,7 +80584,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Elevator Shaft Access"
 	},
-/obj/effect/mapping_helpers/airlock/unres{
+/obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
@@ -89350,7 +89350,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Elevator Shaft Access"
 	},
-/obj/effect/mapping_helpers/airlock/unres{
+/obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 8
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
@@ -93527,7 +93527,7 @@
 	name = "Elevator Shaft Access"
 	},
 /obj/structure/cable,
-/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/plating,
 /area/station/hallway/floor3/fore)
 "xwL" = (
@@ -94770,7 +94770,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Elevator Shaft Access"
 	},
-/obj/effect/mapping_helpers/airlock/unres,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/station/hallway/floor3/fore)
