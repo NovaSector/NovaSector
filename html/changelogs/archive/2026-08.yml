@@ -496,3 +496,16 @@
   - rscdel: Condo's hotel upgrade
   YuiY1997:
   - map: added dorms common area automapper template
+2026-08-23:
+  FalloutFalcon:
+  - bugfix: Anchored Items cant be looted with quick inserting from bags
+  JohnFulpWillard:
+  - qol: Pressing backspace while unfocused now clears your command bar.
+  - qol: The Command bar now starts on Say instead of Command mode.
+  Melbert:
+  - bugfix: Humans can take CSL
+  Richard Blonski:
+  - bugfix: Chat Highlight sounds are off by default now.
+  - qol: Chat Highlights won't trigger on self-actions or radio channel names.
+  SmArtKar:
+  - rscdel: Goldgrub no longer reproduce unless hand fed ores
