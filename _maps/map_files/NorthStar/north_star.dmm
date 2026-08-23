@@ -14099,7 +14099,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/floor3/aft)
 "dBO" = (
-/obj/effect/turf_decal/siding/wideplating,
+/obj/effect/turf_decal/siding/wideplating_new,
 /obj/structure/table/reinforced,
 /obj/item/stack/sheet/mineral/plasma/five,
 /obj/item/clothing/glasses/science,
@@ -16918,12 +16918,12 @@
 "emu" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
-/obj/effect/turf_decal/siding/wideplating,
-/obj/effect/turf_decal/siding/wideplating{
+/obj/effect/turf_decal/siding/wideplating_new,
+/obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
 /obj/machinery/light/cold/directional/north,
-/turf/open/floor/iron/dark/textured,
+/turf/open/floor/iron/dark/textured_half,
 /area/station/medical/medbay/central)
 "emv" = (
 /obj/machinery/camera{
@@ -25663,11 +25663,11 @@
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor3/starboard/fore)
 "gDM" = (
-/obj/effect/turf_decal/siding/wideplating,
-/obj/effect/turf_decal/siding/wideplating{
+/obj/effect/turf_decal/siding/wideplating_new,
+/obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
-/turf/open/floor/iron/dark/textured,
+/turf/open/floor/iron/dark/textured_half,
 /area/station/medical/medbay/central)
 "gDO" = (
 /obj/effect/decal/cleanable/blood/footprints{
@@ -45000,7 +45000,7 @@
 /turf/open/floor/grass,
 /area/station/service/hydroponics/garden/abandoned)
 "lzb" = (
-/obj/effect/turf_decal/siding/wideplating,
+/obj/effect/turf_decal/siding/wideplating_new,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/chem_dispenser,
@@ -56362,7 +56362,7 @@
 /turf/open/floor/iron/showroomfloor,
 /area/station/commons/toilet)
 "olS" = (
-/obj/effect/turf_decal/siding/wideplating,
+/obj/effect/turf_decal/siding/wideplating_new,
 /obj/machinery/chem_heater/withbuffer,
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/pharmacy)
@@ -68049,7 +68049,7 @@
 /obj/structure/table/reinforced,
 /obj/item/book/manual/wiki/chemistry,
 /obj/item/hand_labeler,
-/obj/effect/turf_decal/siding/wideplating,
+/obj/effect/turf_decal/siding/wideplating_new,
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/pharmacy)
@@ -74817,7 +74817,7 @@
 "sYb" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/siding/wideplating,
+/obj/effect/turf_decal/siding/wideplating_new,
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/pharmacy)
 "sYc" = (
@@ -79975,7 +79975,7 @@
 /area/station/science/ordnance/testlab)
 "unV" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/effect/turf_decal/siding/wideplating,
+/obj/effect/turf_decal/siding/wideplating_new,
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/pharmacy)
 "unW" = (
@@ -86848,7 +86848,7 @@
 /turf/open/floor/wood,
 /area/station/service/kitchen/diner)
 "vYl" = (
-/obj/effect/turf_decal/siding/wideplating,
+/obj/effect/turf_decal/siding/wideplating_new,
 /obj/machinery/chem_heater/withbuffer,
 /obj/machinery/requests_console/directional/west{
 	department = "Pharmacy";
@@ -92698,13 +92698,13 @@
 "xue" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/siding/wideplating,
-/obj/effect/turf_decal/siding/wideplating{
+/obj/effect/turf_decal/siding/wideplating_new,
+/obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/dark/textured,
+/turf/open/floor/iron/dark/textured_half,
 /area/station/medical/medbay/central)
 "xug" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
