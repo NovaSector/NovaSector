@@ -30,11 +30,18 @@ You do **not** need to place `/obj/machinery/home_saver`. Loading fits one besid
 the interior has none, and from the player's first save onward it persists wherever they moved it
 to. Place one if you want to control where it starts.
 
+The four `home_blank_*.dmm` plots are the smallest thing that satisfies all of the above — a wall
+perimeter, plating, one door and one console — so they are the easiest map to copy and build on.
+
+**Put at least one `/obj/machinery/light` in your interior.** `/area/misc/player_home` is
+`static_lighting = TRUE`, so a room with no fixture in it is pitch dark, and the console's brightness
+and bulb-colour controls have nothing to act on. The blank plots deliberately ship without one.
+
 Save it into [`_maps/`](_maps/).
 
 ### 2. Register it
 
-Add a subtype to [`code/home_templates.dm`](code/home_templates.dm), alphabetically:
+Add a subtype to [`code/_home_defines.dm`](code/_home_defines.dm), alphabetically:
 
 ```dm
 /datum/map_template/home/lighthouse
@@ -109,6 +116,11 @@ instead of shipping it. If the player has stepped out by the time it is approved
 lands the next time they walk in. Approvals are round-scoped; they are not remembered across a
 restart.
 
+In practice almost nothing uses it. **Bluespace crystals are the only gated line in the catalogue** —
+everything else, refined alloys and the rapid-whatever devices included, ships straight away. That is
+safe for the reason below, not because the list was picked carefully, so weigh a new line against
+that reason rather than against how expensive it looks.
+
 Players can also send a **written request** for anything the catalogue does not carry. Those always
 go to the admins, and since there is no manifest to ship, the approving admin is expected to hand the
 goods over themselves.
@@ -121,14 +133,38 @@ themselves, so deliveries occasionally arrived somewhere they could not reach.
 The cooldown is spent on *filing*, not on delivery, so the approval queue cannot be spammed any more
 than the free tier can.
 
-### Why the free tier is safe
+### Why shipping almost everything freely is safe
 
 **Everything a pod delivers is marked `TRAIT_HOME_FURNISHING`,** including the contents of a
-delivered toolbox. Marked things cannot be carried out of a home, so a player can order iron every
-five minutes forever without a single sheet reaching the round's economy — which is the whole reason
-the basic tier needs no oversight. `/datum/unit_test/player_home_supply` asserts this for a real
-delivery. If you add a delivery path that skips `mark_delivery()`, you have built a free materials
-printer that empties into the station.
+delivered toolbox. Marked things cannot be carried out of a home, so a player can order plasteel
+every five minutes forever without a single sheet reaching the round's economy — which is the whole
+reason the catalogue needs almost no oversight. `/datum/unit_test/player_home_supply` asserts this for
+a real delivery. If you add a delivery path that skips `mark_delivery()`, you have built a free
+materials printer that empties into the station.
+
+---
+
+## Throwing things away
+
+A home is sealed, so junk has nowhere to go — leftover sheets, packaging, whatever a guest dropped.
+`/obj/structure/closet/crate/bin/home_compactor` is a trash bin that destroys its contents. Put things
+in, **alt-click**, and after a short wait they are gone. It is orderable from the console under
+Fittings, owner-gated like everything else, and unbolts with a right-click wrench so it can be moved.
+
+**It refuses two things, at any depth:**
+
+- **Anything alive.** Closets accept living mobs, so without this the bin is a murder box.
+- **Anything `SShomes.is_round_critical()` returns TRUE for** — the same test `release_home()` uses to
+  push gear back out to the terminal on unload. A home is deliberately not allowed to become a black
+  hole for the round's objectives, and a bin that deleted the nuke disk would be exactly that with
+  extra steps.
+
+"At any depth" is the part worth not breaking. The check runs over `get_all_contents()` of each item
+in the bin, so a nuke disk stuffed inside a backpack protects the backpack too — otherwise the bag is
+a laundering route straight to the shredder. `/datum/unit_test/player_home_compactor` asserts the
+bare case, the nested case, and the mob case.
+
+Note that bins save empty: `SAVE_OBJECT_PROPERTIES` is off, so closet contents do not persist.
 
 ---
 
@@ -165,16 +201,16 @@ it, unbolt anything, or file requisitions against it.
 
 | File | Job |
 |---|---|
+| `_home_defines.dm` | Defines, config entries, the reservation type, and the starter template list |
 | `home_subsystem.dm` | Template registry, loaded homes, the blacklists, the sidecar |
-| `home_loading.dm` | Parse → reserve → load → force area → self-heal → mark contents |
-| `home_saving.dm` | `write_map()`, verify-before-commit, backup rotation |
-| `home_preview.dm` | Flattens a loaded home into the picture the terminal shows |
-| `home_settings.dm` | Lighting and gravity |
-| `home_fixtures.dm` | Taking the front door down and hanging it elsewhere |
+| `home_persistence.dm` | Filing a new home, parse → reserve → load → force area → self-heal → mark contents, and `write_map()` with verify-before-commit and backup rotation |
+| `home_instance.dm` | One loaded home: the closed-economy strip, lighting and gravity, and its area |
+| `home_door.dm` | The front door, and taking it down to hang it elsewhere |
+| `home_terminal.dm` | The cafe pad, and knocking at somebody else's door |
+| `home_console.dm` | The console inside: saving, settings, requisitions |
 | `home_supply.dm` | The requisition catalogue, drop pods, and the admin approval queue |
-| `home_guests.dm` | Knocking at somebody else's door |
-| `home_instance.dm` | One loaded home, and the closed-economy strip |
-| `home_area.dm` / `home_door.dm` / `home_console.dm` / `home_terminal.dm` | The things players touch |
+| `home_preview.dm` | Flattens a loaded home into the picture the terminal shows |
+| `home_admin.dm` | Inspect, download, restore, wipe, audit |
 
 ### The two invariants worth knowing before you change anything
 

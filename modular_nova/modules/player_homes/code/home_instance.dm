@@ -10,19 +10,17 @@
 	/// The cafe terminal occupants warp back out to.
 	var/obj/machinery/home_terminal/parent_terminal
 	var/datum/turf_reservation/player_home/reservation
-	/// Name of the starter this home grew from. Carried in the sidecar so a reset knows what to put
-	/// back, and so an unreadable save can fall all the way through to a known-good interior.
+	/// The starter this home grew from. Lets a reset know what to put back, and gives an unreadable
+	/// save something known-good to fall through to.
 	var/starter_name
-	/// Landing spot, as an offset from the reservation's bottom-left turf. Same 0-based convention
-	/// the condo templates use for landing_zone_x_offset.
+	/// Landing spot, as a 0-based offset from the reservation's bottom-left turf.
 	var/landing_x = 1
 	var/landing_y = 1
 	/// When this home was last written to disk, for the exit prompt. Null if it never has been.
 	var/last_saved
 
-	// Room settings. All three live in the sidecar rather than in the .dmm - they describe the
-	// residence rather than anything standing in it, and keeping them out of the map file means
-	// changing one costs nothing and never risks the save.
+	// Room settings. All three live in the sidecar rather than the .dmm, so changing one never
+	// touches the save.
 	/// HOME_BRIGHTNESS_MIN (out) through HOME_BRIGHTNESS_MAX (bright).
 	var/brightness = 2
 	/// "#rrggbb" bulb colour, or "" to leave every fixture on its own default.
@@ -61,12 +59,8 @@
 			return anywhere
 	return null
 
-/// Where a supply pod lands: on the console the order was placed at.
-///
-/// This used to pick any unblocked open tile, which sounds fairer and is much worse - "open and
-/// unblocked" includes tiles the player has since walled off from themselves, so deliveries
-/// occasionally arrived somewhere they could not reach. The console is the one tile guaranteed to be
-/// standing, reachable, and where the person who ordered it already is.
+/// Where a supply pod lands: on the console the order was placed at. Any unblocked open tile sounds
+/// fairer and is much worse - that includes tiles the player has since walled off from themselves.
 /datum/home_instance/proc/get_delivery_turf()
 	if(isnull(reservation))
 		return null
@@ -94,7 +88,7 @@
 	return null
 
 /// TRUE if this movable belongs to the home rather than to whoever is carrying it. The whole
-/// anti-duplication scheme reduces to this one question - see TRAIT_HOME_FURNISHING.
+/// anti-duplication scheme reduces to this one question.
 /datum/home_instance/proc/owns(atom/movable/thing)
 	return HAS_TRAIT(thing, TRAIT_HOME_FURNISHING)
 
@@ -108,14 +102,10 @@
 		return "This home has never been saved."
 	return "You last saved on [last_saved] (UTC)."
 
-/**
- * The closed economy, enforced. Everything that belongs to the home is taken back off a departing
- * occupant, wherever in their kit they stashed it; their own belongings are left alone.
- *
- * force = TRUE matters. A furnishing that gains TRAIT_NODROP when picked up would otherwise be a
- * smuggling channel straight out of a save file. get_equipped_items() is not used here for the same
- * reason it would be tempting to - we need to reach inside bags, not just the equipment slots.
- */
+/// The closed economy, enforced: everything belonging to the home is taken back off a departing
+/// occupant, wherever in their kit they stashed it. force = TRUE matters - a furnishing that gains
+/// TRAIT_NODROP when picked up would otherwise smuggle straight out of a save file. get_all_contents
+/// rather than get_equipped_items() because we need to reach inside bags, not just the slots.
 /datum/home_instance/proc/strip_belongings(mob/living/user)
 	var/turf/drop_spot = get_turf(user)
 	if(isnull(drop_spot))
@@ -152,9 +142,9 @@
 		to_chat(user, span_notice("You leave [left_behind] item\s behind. Nothing that belongs to a home may be carried out of it."))
 	return TRUE
 
-/// Turns everyone out, for a revert or a reset that needs to rebuild the rooms from scratch.
-/// Everything is snapshotted up front: the last eviction releases the reservation and deletes this
-/// datum out from under us, so nothing here may touch src's state after the loop begins.
+/// Turns everyone out, for a revert or a reset that rebuilds the rooms from scratch. Everything is
+/// snapshotted up front: the last eviction releases the reservation and deletes this datum out from
+/// under us, so nothing here may touch src's state after the loop begins.
 /datum/home_instance/proc/evict_all()
 	var/turf/destination = get_turf(parent_terminal)
 	var/area/misc/player_home/home_area = get_area(reservation?.bottom_left_turfs[1])
@@ -170,3 +160,121 @@
 			continue
 		occupant.forceMove(destination)
 		do_sparks(3, FALSE, get_turf(occupant))
+
+/*
+ * Room settings: lighting and gravity, set from the console and kept in the sidecar.
+ */
+
+/// A valid "#rrggbb" bulb colour, or "" for each fixture's own default. Never trusts a client string.
+/proc/sanitize_home_lamp_color(color)
+	var/static/regex/hex_color = regex(@"^#[0-9a-fA-F]{6}$")
+	return (color && hex_color.Find(color)) ? color : ""
+
+/// Pushes the stored brightness and bulb colour onto every light fixture in the home.
+/datum/home_instance/proc/apply_lights()
+	if(isnull(reservation))
+		return
+	var/color = sanitize_home_lamp_color(lamp_color)
+	var/level = clamp(round(brightness), HOME_BRIGHTNESS_MIN, HOME_BRIGHTNESS_MAX)
+	var/lights_out = (level <= HOME_BRIGHTNESS_MIN)
+	/// bulb_power multiplier for brightness 1 through 3
+	var/static/list/power_steps = list(0.5, 1, 1.7)
+
+	// Set the area switch first, so the fixtures aren't fighting their own power state on the way.
+	var/area/home_area = get_area(reservation.bottom_left_turfs[1])
+	if(!isnull(home_area))
+		home_area.lightswitch = !lights_out
+		home_area.power_change()
+
+	for(var/turf/reserved as anything in reservation.reserved_turfs)
+		for(var/obj/machinery/light/fixture in reserved)
+			if(lights_out)
+				fixture.set_on(FALSE) // straight at the fixture; don't trust the power signal alone
+				continue
+			fixture.bulb_power = power_steps[level]
+			fixture.bulb_colour = color || initial(fixture.bulb_colour)
+			fixture.set_on(TRUE)
+			// set_on() no-ops on an already-lit fixture whose colour and power we just changed. No
+			// trigger or sound: this runs across a whole room.
+			fixture.update(trigger = FALSE, play_sound = FALSE)
+		CHECK_TICK
+
+/// Turns the home's gravity on or off. The area flag is the only lever that works: has_gravity()
+/// reads SSmapping.gravity_by_z_level[z] first and short-circuits past area.default_gravity, so on a
+/// reservation z-level that has gravity, clearing default_gravity would do nothing at all.
+/datum/home_instance/proc/apply_gravity()
+	if(isnull(reservation))
+		return
+	var/area/home_area = get_area(reservation.bottom_left_turfs[1])
+	if(isnull(home_area))
+		return
+	if(gravity)
+		home_area.area_flags &= ~NO_GRAVITY
+	else
+		home_area.area_flags |= NO_GRAVITY
+	// Mobs cache their gravity state, so they have to be told. Objects re-check on every move.
+	for(var/mob/living/occupant as anything in home_area.get_all_contents_type(/mob/living))
+		occupant.refresh_gravity()
+
+/// Re-applies everything the sidecar remembers. Called once on load, and again on every change.
+/datum/home_instance/proc/apply_settings()
+	apply_lights()
+	apply_gravity()
+
+/area/misc/player_home
+	name = "Home"
+	icon = 'modular_nova/modules/condos/icons/area.dmi'
+	icon_state = "condo"
+	requires_power = FALSE
+	default_gravity = STANDARD_GRAVITY
+	area_flags = NOTELEPORT | HIDDEN_AREA | UNLIMITED_FISHING | NO_DEATH_MESSAGE
+	// Deliberately not UNIQUE_AREA: only unique areas register in GLOB.areas_by_type, and the loader
+	// reuses a registered area, so NONE here is what gives each loaded home its own area instance.
+	area_flags_mapping = NONE
+	static_lighting = TRUE
+	mood_bonus = /area/centcom/holding::mood_bonus
+	mood_message = /area/centcom/holding::mood_message
+	/// The home loaded into these turfs.
+	var/datum/home_instance/home
+	/// Set while the home is being torn down, so the egress guard doesn't fight the cleanup.
+	var/releasing = FALSE
+
+/area/misc/player_home/Destroy()
+	home = null
+	return ..()
+
+/area/misc/player_home/Exited(atom/movable/gone, direction)
+	. = ..()
+	if(releasing || isnull(home))
+		return
+	if(ismob(gone))
+		check_for_departure(gone)
+		return
+	block_egress(gone)
+
+/// Nobody minded left inside? Let the reservation go. Nothing is saved on the way out - saving is
+/// always explicit, which is what keeps a griefed home off the disk.
+/area/misc/player_home/proc/check_for_departure(mob/gone)
+	log_game("[key_name(gone)] has left [home.owner_ckey]'s home")
+	for(var/mob/living/occupant as anything in get_all_contents_type(/mob/living)) // catches anyone hiding in anything
+		if(occupant.mind)
+			return
+	releasing = TRUE
+	SShomes.release_home(home)
+	home = null
+
+/// Closed-economy backstop. The door's strip is the real enforcement; this only catches anything
+/// that finds some other way across the boundary. Deferred by a tick because moving an atom from
+/// inside its own Exited() is a re-entrancy hazard.
+/area/misc/player_home/proc/block_egress(atom/movable/escapee)
+	if(QDELETED(escapee) || ismob(escapee))
+		return
+	var/turf/back_inside = home.get_landing_turf()
+	if(isnull(back_inside))
+		return
+	addtimer(CALLBACK(src, PROC_REF(drag_back), escapee, back_inside), 0)
+
+/area/misc/player_home/proc/drag_back(atom/movable/escapee, turf/back_inside)
+	if(QDELETED(escapee) || QDELETED(back_inside) || (get_area(escapee) == src))
+		return
+	escapee.forceMove(back_inside)

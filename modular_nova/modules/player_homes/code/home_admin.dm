@@ -67,8 +67,8 @@ ADMIN_VERB(player_home_restore_backup, R_ADMIN, "Player Homes - Restore Backup",
 	log_admin("[key_name(user)] restored [target_ckey] home from its backup.")
 	message_admins("[key_name_admin(user)] restored [target_ckey] home from its backup.")
 
-/// Disk is the running cost of this feature, and nothing else on the server can tell you what it is
-/// being spent on. Walks the per-ckey save tree and reports every home with its last save date.
+/// Walks the per-ckey save tree and reports every home with its last save date. Disk is the running
+/// cost of this feature and nothing else on the server will tell you what it is being spent on.
 ADMIN_VERB(player_homes_audit, R_ADMIN, "Player Homes - Audit Disk", "List every stored home and when it was last saved.", ADMIN_CATEGORY_DEBUG)
 	if(tgui_alert(user.mob, "This walks every player save folder on disk and can take a while. Continue?", "Audit Player Homes", list("Audit", "Cancel")) != "Audit")
 		return
