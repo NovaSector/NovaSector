@@ -23265,7 +23265,6 @@
 "fVF" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/grille/broken,
 /turf/open/floor/plating,
 /area/station/hallway/floor2/aft)
 "fVV" = (
@@ -50325,6 +50324,13 @@
 /obj/machinery/door/morgue,
 /turf/open/floor/iron/checker,
 /area/station/service/barber)
+"mJi" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/grille/broken,
+/obj/machinery/firealarm/directional/west,
+/turf/open/floor/plating,
+/area/station/hallway/floor2/aft)
 "mJr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -53434,6 +53440,13 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
+"nuK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/firealarm/directional/west,
+/obj/structure/grille/broken,
+/turf/open/floor/plating,
+/area/station/hallway/floor3/fore)
 "nuR" = (
 /obj/structure/table,
 /obj/structure/sign/poster/random/directional/north,
@@ -59893,7 +59906,6 @@
 "pbt" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/grille/broken,
 /turf/open/floor/plating,
 /area/station/hallway/floor3/fore)
 "pbx" = (
@@ -73835,7 +73847,6 @@
 "sFJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/grille/broken,
 /turf/open/floor/plating,
 /area/station/hallway/floor1/fore)
 "sFQ" = (
@@ -95818,6 +95829,13 @@
 /obj/machinery/firealarm/directional/west,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor2/starboard)
+"xYS" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/grille/broken,
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/plating,
+/area/station/hallway/floor1/fore)
 "xYU" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9
@@ -127472,8 +127490,8 @@ pRG
 vOK
 byc
 sFJ
+xYS
 mdi
-sFJ
 cHb
 kyR
 kOx
@@ -193008,8 +193026,8 @@ khx
 elB
 ldb
 fVF
+mJi
 fQs
-fVF
 bjP
 jRO
 ihm
@@ -258544,8 +258562,8 @@ bsN
 ybQ
 xLG
 pbt
+nuK
 nZh
-pbt
 dFb
 nZh
 uZc
