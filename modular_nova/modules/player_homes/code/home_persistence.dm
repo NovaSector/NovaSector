@@ -6,17 +6,29 @@
 /// Files a brand new home by copying a starter interior straight onto the player's record, so a
 /// player's very first visit is already persistent - walk out without touching the console and the
 /// home is still theirs. rustg_file_write creates the parent directories.
+/// Every failure here means a player asked for a home and did not get one, so each one says which
+/// gate it tripped rather than a bare FALSE. Loud on purpose: silent failure looks identical from
+/// the terminal whether the map is missing, unreadable, or the save directory is not writable.
 /datum/controller/subsystem/homes/proc/write_starter(ckey, datum/map_template/home/starter, mob/user)
 	var/live = home_file(ckey)
-	if(!live || isnull(starter) || !fexists(starter.mappath))
+	if(!live)
+		stack_trace("Player homes: no save path for ckey '[ckey]'.")
+		return FALSE
+	if(isnull(starter))
+		stack_trace("Player homes: asked to file a null starter for '[ckey]'.")
+		return FALSE
+	if(!fexists(starter.mappath))
+		stack_trace("Player homes: starter '[starter.name]' has no readable map at '[starter.mappath]'.")
 		return FALSE
 
 	var/starter_text = file2text(file(starter.mappath))
 	if(!starter_text)
+		stack_trace("Player homes: starter '[starter.name]' read empty from '[starter.mappath]'.")
 		return FALSE
 	fdel(live)
 	rustg_file_write(starter_text, live)
 	if(!fexists(live))
+		stack_trace("Player homes: wrote '[starter.name]' to '[live]' but nothing is there. Is the save directory writable?")
 		return FALSE
 
 	var/datum/home_instance/scratch = new()
