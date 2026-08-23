@@ -37,7 +37,11 @@ perimeter, plating, one door and one console — so they are the easiest map to 
 `static_lighting = TRUE`, so a room with no fixture in it is pitch dark, and the console's brightness
 and bulb-colour controls have nothing to act on. The blank plots deliberately ship without one.
 
-Save it into [`_maps/`](_maps/).
+Save it into [`_maps/nova/persistent_housing/`](../../../_maps/nova/persistent_housing/) — **not**
+into this module. A `mappath` map is read off disk at runtime rather than compiled into the `.dmb`,
+and `tools/deploy.sh` only copies `_maps/` and the `.dmi` files out of `modular_nova/`. An interior
+kept beside the code would not exist on a deployed server, and `write_starter()` would fail at its
+`fexists()` check. Same reason `_maps/nova/holodeck_wargame.dmm` lives where it does.
 
 ### 2. Register it
 
@@ -47,7 +51,7 @@ Add a subtype to [`code/_home_defines.dm`](code/_home_defines.dm), alphabeticall
 /datum/map_template/home/lighthouse
 	name = "Home - Lighthouse"
 	blurb = "Nine floors of stairs and one very good view."
-	mappath = "modular_nova/modules/player_homes/_maps/home_lighthouse.dmm"
+	mappath = "_maps/nova/persistent_housing/home_lighthouse.dmm"
 	landing_zone_x_offset = 4
 	landing_zone_y_offset = 2
 ```
@@ -62,6 +66,9 @@ doorstep rather than dropping somebody inside a wall, but the fallback is not wh
 Nothing else needs touching. `SShomes.preload_starter_templates()` walks `subtypesof(/datum/map_template/home)`
 at init and registers everything with a `mappath` set, and the terminal lists whatever it finds. No
 `.dme` edit (the maps are data, not code), no UI change, no subsystem change.
+
+The one thing that is not obvious: the interior has to live under `_maps/`, for the deployment reason
+in step 1. Put it beside the code and everything works locally and nothing works on a server.
 
 The one subtype deliberately skipped is `/datum/map_template/home/player_save`, which has no
 compile-time `mappath` because it is built at runtime from a player's own file.

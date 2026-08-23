@@ -70,7 +70,7 @@
 /datum/map_template/home/apartment
 	name = "Home - Apartment"
 	blurb = "A tidy little unit with a bedroom, a kitchenette, and a window that doesn't open."
-	mappath = "modular_nova/modules/player_homes/_maps/home_apartment.dmm"
+	mappath = "_maps/nova/persistent_housing/home_apartment.dmm"
 	landing_zone_x_offset = 2
 	landing_zone_y_offset = 8
 
@@ -80,41 +80,41 @@
 /datum/map_template/home/blank_10x10
 	name = "Home - Blank Plot (Small)"
 	blurb = "Four walls, a floor, and a door. Everything else is your problem."
-	mappath = "modular_nova/modules/player_homes/_maps/home_blank_10x10.dmm"
+	mappath = "_maps/nova/persistent_housing/home_blank_10x10.dmm"
 	landing_zone_x_offset = 4
 	landing_zone_y_offset = 1
 
 /datum/map_template/home/blank_10x15
 	name = "Home - Blank Plot (Tall)"
 	blurb = "A narrow, empty shell. Good for anyone with plans that go upward."
-	mappath = "modular_nova/modules/player_homes/_maps/home_blank_10x15.dmm"
+	mappath = "_maps/nova/persistent_housing/home_blank_10x15.dmm"
 	landing_zone_x_offset = 4
 	landing_zone_y_offset = 1
 
 /datum/map_template/home/blank_15x10
 	name = "Home - Blank Plot (Wide)"
 	blurb = "A broad, empty shell. Room enough to regret your own floor plan."
-	mappath = "modular_nova/modules/player_homes/_maps/home_blank_15x10.dmm"
+	mappath = "_maps/nova/persistent_housing/home_blank_15x10.dmm"
 	landing_zone_x_offset = 6
 	landing_zone_y_offset = 1
 
 /datum/map_template/home/blank_15x15
 	name = "Home - Blank Plot (Large)"
 	blurb = "The biggest empty lot the registry will issue. Nothing in it but you."
-	mappath = "modular_nova/modules/player_homes/_maps/home_blank_15x15.dmm"
+	mappath = "_maps/nova/persistent_housing/home_blank_15x15.dmm"
 	landing_zone_x_offset = 6
 	landing_zone_y_offset = 1
 
 /datum/map_template/home/cabin
 	name = "Home - Cabin In The Woods"
 	blurb = "Timber walls, a stove, and a great many trees that are none of your business."
-	mappath = "modular_nova/modules/player_homes/_maps/home_cabin.dmm"
+	mappath = "_maps/nova/persistent_housing/home_cabin.dmm"
 	landing_zone_x_offset = 2
 	landing_zone_y_offset = 1
 
 /datum/map_template/home/ocean_view
 	name = "Home - Ocean View"
 	blurb = "Open water on three sides. Excellent for thinking, poor for keeping things dry."
-	mappath = "modular_nova/modules/player_homes/_maps/home_oceanview.dmm"
+	mappath = "_maps/nova/persistent_housing/home_oceanview.dmm"
 	landing_zone_x_offset = 7
 	landing_zone_y_offset = 1
