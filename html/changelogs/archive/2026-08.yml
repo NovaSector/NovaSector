@@ -453,3 +453,69 @@
   - bugfix: The Destructive Analyzer properly unlocks research nodes again
   TealSeer:
   - bugfix: fixed icons in the biogenerator UI being broken
+2026-08-20:
+  Arceniu:
+  - bugfix: fixed a misc radio channels(cybersun, guild, faction/solfed)
+  Hatterhat:
+  - bugfix: .38 speedloader widening kits work again.
+  JerryWester:
+  - code_imp: Adds a function to attempt the removal of an appendix if one is present
+      in an AI uplink shell going through the SAD, allowing for biosynthetic shells
+  Jureiia:
+  - bugfix: Interdyne's cargo orders have now been made a little more consistent with
+      what they're labelled as.
+  sergeirocks100:
+  - bugfix: Xenomorph hybrids can now access their plantigrade legs. If the legs on
+      your xenohybrid character are plantigrade all of a sudden, and you want to go
+      back to how they were, then don't forget to go into the character preferences,
+      and change the legs from "Normal Legs" to "Digitigrade Legs".
+2026-08-21:
+  Morskoikot:
+  - rscadd: 'Added Chemnaga, Leopard seal, Insect + winged alt and Bunny taur sprites.
+
+      :cl:'
+  SmArtKar:
+  - rscadd: Every 5 minutes 2-4 random cargo exports get tripled in price, lets go
+      gambling!
+  W0LF-101:
+  - bugfix: Reskinning the Laevateinn revolver no longer breaks its belt and suit
+      storage slot sprite.
+  sqnztb:
+  - balance: waves of mobs spawned from ore vents will only attack the player now
+  - code_imp: Automapper templates are no longer overwritten by modular map modules
+2026-08-22:
+  FalloutFalcon:
+  - refactor: breaks up navigate code into a proc for the choice vs the line creation
+  - admin: Admin VV topic to navigate a player to a marked object
+  Melbert:
+  - balance: Donk. Flechette rounds aren't stealthy embeds and can be hand removed
+  PapaMichael:
+  - bugfix: AI tracking from the crew monitoring console now works for people who
+      have set an ID card honorific too
+  Vishenka0704:
+  - rscdel: Condo's hotel upgrade
+  YuiY1997:
+  - map: added dorms common area automapper template
+2026-08-23:
+  FalloutFalcon:
+  - bugfix: Anchored Items cant be looted with quick inserting from bags
+  JohnFulpWillard:
+  - qol: Pressing backspace while unfocused now clears your command bar.
+  - qol: The Command bar now starts on Say instead of Command mode.
+  Melbert:
+  - bugfix: Humans can take CSL
+  Richard Blonski:
+  - bugfix: Chat Highlight sounds are off by default now.
+  - qol: Chat Highlights won't trigger on self-actions or radio channel names.
+  SmArtKar:
+  - rscdel: Goldgrub no longer reproduce unless hand fed ores
+2026-08-24:
+  Absolucy:
+  - rscadd: Added purple luxury medipens. These are given instead when bought with
+      a jellyperson's bank account. They are jelly-friendly, however heal less than
+      normal luxury pens. They also make you more purple. Sprite by Bieyes.
+  Neocloudy:
+  - bugfix: '[NOVA] Delayed unrestricted access on airlocks now works on TG maps,
+      and any Nova maps that may implement it.'
+  levels0:
+  - rscadd: certain cursed mirrors might now talk
