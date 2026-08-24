@@ -48,6 +48,10 @@
 	smoke_system = new(src, 3, holder = src)
 	lore_jumpscare()
 
+/obj/vehicle/sealed/mecha/warden/Destroy()
+	QDEL_NULL(smoke_system)
+	return ..()
+
 /// Adds an examine_lore() component. Snowflaked for neater overriding (see the Arbiter/WUNK further down).
 /obj/vehicle/sealed/mecha/warden/proc/lore_jumpscare()
 	AddElement(/datum/element/examine_lore, \
