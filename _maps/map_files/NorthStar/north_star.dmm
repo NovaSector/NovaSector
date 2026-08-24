@@ -37012,9 +37012,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","cargo")
-	},
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/large,
 /area/station/cargo/storage)
@@ -49352,7 +49349,6 @@
 /obj/structure/chair/sofa/bench/right{
 	dir = 8
 	},
-/obj/machinery/light/directional/east,
 /turf/open/floor/iron/large,
 /area/station/cargo/storage)
 "mxv" = (
@@ -62531,6 +62527,15 @@
 /obj/effect/spawner/random/structure/table_or_rack,
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor2/port/aft)
+"pJJ" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","cargo")
+	},
+/turf/open/floor/iron/large,
+/area/station/cargo/storage)
 "pJO" = (
 /obj/effect/turf_decal/trimline/yellow/warning{
 	dir = 1
@@ -84005,6 +84010,7 @@
 /obj/structure/chair/sofa/bench{
 	dir = 8
 	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/large,
 /area/station/cargo/storage)
 "vhd" = (
@@ -124645,7 +124651,7 @@ mjQ
 rbT
 ijL
 rbT
-hLP
+pJJ
 gMB
 mVL
 kbM
