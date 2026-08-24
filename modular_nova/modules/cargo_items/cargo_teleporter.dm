@@ -113,7 +113,6 @@ GLOBAL_LIST_EMPTY(cargo_marks)
 /datum/design/cargo_teleporter
 	name = "Cargo Teleporter"
 	desc = "A wonderful item that can set markers and teleport things to those markers."
-	id = "cargotele"
 	build_type = PROTOLATHE | AWAY_LATHE
 	build_path = /obj/item/cargo_teleporter
 	materials = list(

@@ -1,5 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixed an issue where female teshari were getting dimorphic gender shaping (resulting in missing pixels from their uniforms in weird spots)"
-  - bugfix: "fixed an issue where teshari accessories were not aligning to the correct spot"

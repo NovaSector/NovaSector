@@ -16,7 +16,7 @@
 		TRAIT_USES_SKINTONES,
 	)
 	inherent_biotypes = MOB_HUMANOID | MOB_ORGANIC
-	exotic_bloodtype = BLOOD_TYPE_UNIVERSAL
+	exotic_bloodtype = /datum/blood_type/universal
 	mutantheart = /obj/item/organ/heart/hemophage
 	mutantliver = /obj/item/organ/liver/hemophage
 	mutantstomach = /obj/item/organ/stomach/hemophage
@@ -146,10 +146,6 @@
 	)
 
 	return to_add
-
-/datum/species/hemophage/get_cry_sound(mob/living/carbon/human/hemophage)
-	var/datum/species/human/human_species = GLOB.species_prototypes[/datum/species/human]
-	return human_species.get_cry_sound(hemophage)
 
 // We don't need to mention that they're undead, as the perks that come from it are otherwise already explicited, and they might no longer be actually undead from a gameplay perspective, eventually.
 /datum/species/hemophage/create_pref_biotypes_perks()

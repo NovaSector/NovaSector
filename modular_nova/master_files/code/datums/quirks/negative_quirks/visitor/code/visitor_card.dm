@@ -27,7 +27,6 @@
 /datum/design/id/visitor
 	name = "Visitation ID Card"
 	desc = "A card used to provide ID, particularly for guests aboard the station."
-	id = "idcard_guest"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 	build_path = /obj/item/card/id/advanced/visitor

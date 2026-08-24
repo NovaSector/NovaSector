@@ -90,7 +90,8 @@ GLOBAL_LIST_EMPTY(name_to_appearance)
 	COOLDOWN_DECLARE(char_directory_cooldown)
 
 /// Opens character directory UI for a specific user
-GAME_VERB_DESC(/client, show_character_directory, "Character Directory", "Shows a listing of all active characters, along with their associated OOC notes, flavor text, and more.", "OOC", specific_ad as text|null)
+GAME_VERB_DESC(/client, show_character_directory, "Character Directory", "Shows a listing of all active characters, along with their associated OOC notes, flavor text, and more.", "OOC")
+	var/specific_ad = structured_args["specific_ad"]
 	if(is_character_directory_on_cooldown())
 		return
 

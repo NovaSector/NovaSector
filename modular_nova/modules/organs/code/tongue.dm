@@ -130,6 +130,9 @@
 	desc = "A fleshy muscle mostly used for skreeing."
 	say_mod = "skrees"
 	liked_foodtypes = MEAT | FRIED
+	emote_sounds = list(
+		/datum/emote/living/scream::key = 'modular_nova/modules/emotes/sound/emotes/voxscream.ogg',
+	)
 
 /obj/item/organ/tongue/dwarven
 	name = "dwarven tongue"
@@ -153,6 +156,9 @@
 	liked_foodtypes = GROSS | RAW | TOXIC | GORE
 	disliked_foodtypes = CLOTH | GRAIN | FRIED
 	toxic_foodtypes = DAIRY
+	emote_sounds = list(
+		/datum/emote/living/scream::key = 'sound/mobs/humanoids/moth/scream_moth.ogg',
+	)
 
 /obj/item/organ/tongue/xeno_hybrid
 	name = "alien tongue"
@@ -161,6 +167,11 @@
 	say_mod = "hisses"
 	taste_sensitivity = 10
 	liked_foodtypes = MEAT
+	emote_sounds = list(
+		/datum/emote/living/deathgasp::key = 'sound/mobs/non-humanoids/hiss/hiss6.ogg',
+		/datum/emote/living/scream::key = 'sound/mobs/non-humanoids/hiss/hiss6.ogg',
+		/datum/emote/living/carbon/hiss::key = SFX_HISS,
+	)
 
 /obj/item/organ/tongue/xeno_hybrid/Initialize(mapload)
 	. = ..()

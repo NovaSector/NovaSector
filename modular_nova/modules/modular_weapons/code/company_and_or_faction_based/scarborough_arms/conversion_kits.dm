@@ -21,6 +21,7 @@
 
 /datum/crafting_recipe/reclaimer_c20r
 	name = "NT20 to rC-20 'Reclaimer' Conversion"
+	crafting_flags = parent_type::crafting_flags | CRAFT_COLLECT_REQUIREMENTS
 	desc = "Unlike you, I have no physical or social restraints. The candles burn out for you; I am free."
 	result = /obj/item/gun/ballistic/automatic/c20r/reclaimed/empty
 	reqs = list(
