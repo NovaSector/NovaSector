@@ -95,7 +95,57 @@
 /datum/home_supply/carpet
 	name = "Carpet"
 	category = "Fittings"
+	desc = "The plainest of the plain, but still soft and comfy."
 	manifest = list(/obj/item/stack/tile/carpet = 60)
+
+// The coloured weaves, one line each - somebody decorating a room wants the colour they asked for,
+// not an assortment. Keep them alphabetical, with the royals at the end where they belong.
+
+/datum/home_supply/carpet_black
+	name = "Carpet - Black"
+	category = "Fittings"
+	manifest = list(/obj/item/stack/tile/carpet/black = 60)
+
+/datum/home_supply/carpet_blue
+	name = "Carpet - Blue"
+	category = "Fittings"
+	manifest = list(/obj/item/stack/tile/carpet/blue = 60)
+
+/datum/home_supply/carpet_cyan
+	name = "Carpet - Cyan"
+	category = "Fittings"
+	manifest = list(/obj/item/stack/tile/carpet/cyan = 60)
+
+/datum/home_supply/carpet_green
+	name = "Carpet - Green"
+	category = "Fittings"
+	manifest = list(/obj/item/stack/tile/carpet/green = 60)
+
+/datum/home_supply/carpet_orange
+	name = "Carpet - Orange"
+	category = "Fittings"
+	manifest = list(/obj/item/stack/tile/carpet/orange = 60)
+
+/datum/home_supply/carpet_purple
+	name = "Carpet - Purple"
+	category = "Fittings"
+	manifest = list(/obj/item/stack/tile/carpet/purple = 60)
+
+/datum/home_supply/carpet_red
+	name = "Carpet - Red"
+	category = "Fittings"
+	manifest = list(/obj/item/stack/tile/carpet/red = 60)
+
+/datum/home_supply/carpet_royal_black
+	name = "Carpet - Royal Black"
+	category = "Fittings"
+	desc = "For a room that means to be taken seriously."
+	manifest = list(/obj/item/stack/tile/carpet/royalblack = 60)
+
+/datum/home_supply/carpet_royal_blue
+	name = "Carpet - Royal Blue"
+	category = "Fittings"
+	manifest = list(/obj/item/stack/tile/carpet/royalblue = 60)
 
 /datum/home_supply/compactor
 	name = "Waste compactor"
@@ -127,6 +177,19 @@
 	name = "Airlock painter"
 	category = "Tools"
 	manifest = list(/obj/item/airlock_painter = 1)
+
+/datum/home_supply/decal_painter
+	name = "Decal painter"
+	category = "Tools"
+	desc = "Sprays decals onto floor tiles. Ships with an ordinary cartridge; the decals come off with \
+		the tiles they are on."
+	manifest = list(/obj/item/airlock_painter/decal = 1)
+
+/datum/home_supply/infinite_toner
+	name = "Infinite toner cartridge"
+	category = "Tools"
+	desc = "Never runs dry. Alt-click a painter to pop its cartridge out, then put this one in."
+	manifest = list(/obj/item/toner/infinite = 1)
 
 /datum/home_supply/rcd
 	name = "Rapid construction device"
