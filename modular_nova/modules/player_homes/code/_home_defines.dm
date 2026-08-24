@@ -35,8 +35,8 @@
 
 /// Seconds a player must wait between filing home requisitions. Set to 0 to remove the wait.
 /datum/config_entry/number/player_home_supply_cooldown
-	config_entry_value = 300
-	min_val = 10
+	default = 30
+	min_val = 0
 
 /// Tells a home's reservation apart from any other block of reserved turfs, as condos do.
 /datum/turf_reservation/player_home
@@ -72,7 +72,7 @@
 	blurb = "A tidy little unit with a bedroom, a kitchenette, and a window that doesn't open."
 	mappath = "_maps/nova/persistent_housing/home_apartment.dmm"
 	landing_zone_x_offset = 2
-	landing_zone_y_offset = 8
+	landing_zone_y_offset = 9
 
 // Blank plots: a wall perimeter, plating, a front door and a console, and nothing else. For players
 // who would rather build from scratch than move into somebody's idea of a house.
