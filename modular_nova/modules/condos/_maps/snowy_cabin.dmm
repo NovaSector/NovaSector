@@ -28,7 +28,7 @@
 "bQ" = (
 /obj/structure/flora/rock/pile/icy/style_random,
 /obj/structure/flora/grass/green/style_random,
-/turf/open/misc/snow,
+/turf/open/misc/snow/actually_safe,
 /area/misc/condo)
 "cz" = (
 /obj/structure/window/green_glass_pane,
@@ -75,7 +75,7 @@
 /turf/open/floor/stone,
 /area/misc/condo)
 "nx" = (
-/turf/open/misc/snow,
+/turf/open/misc/snow/actually_safe,
 /area/misc/condo)
 "qe" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
@@ -96,7 +96,7 @@
 /area/misc/condo)
 "rO" = (
 /obj/structure/flora/tree/pine/style_random,
-/turf/open/misc/snow,
+/turf/open/misc/snow/actually_safe,
 /area/misc/condo)
 "tB" = (
 /obj/effect/turf_decal/siding/wood{
@@ -293,7 +293,7 @@
 /area/misc/condo)
 "Lv" = (
 /obj/structure/flora/rock,
-/turf/open/misc/snow,
+/turf/open/misc/snow/actually_safe,
 /area/misc/condo)
 "Mo" = (
 /obj/structure/chair/sofa/corp/right,
@@ -319,7 +319,7 @@
 /area/misc/condo)
 "MK" = (
 /obj/structure/flora/rock/pile/icy/style_3,
-/turf/open/misc/snow,
+/turf/open/misc/snow/actually_safe,
 /area/misc/condo)
 "Nf" = (
 /obj/structure/decorative/shelf{
@@ -465,11 +465,11 @@
 /area/misc/condo)
 "WH" = (
 /obj/structure/flora/grass/green/style_random,
-/turf/open/misc/snow,
+/turf/open/misc/snow/actually_safe,
 /area/misc/condo)
 "XF" = (
 /obj/structure/flora/rock/pile/icy/style_random,
-/turf/open/misc/snow,
+/turf/open/misc/snow/actually_safe,
 /area/misc/condo)
 "Ym" = (
 /obj/effect/turf_decal/siding/wood{
