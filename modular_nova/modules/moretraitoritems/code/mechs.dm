@@ -76,9 +76,8 @@
 
 // Warden
 /obj/vehicle/sealed/mecha/warden/marauder
-	name = "\improper Theseus"
-	desc = "A frontier-optimized combat exosuit designed as a mobile firing platform and boarding-assault anchor. \
-		This one looks a little too fresh off the nanoforge."
+	name = "\improper M/TACS-1-EX \"Theseus\""
+	desc = "A frontier-optimized-and-manufactured combat exosuit designed as a mobile firing platform and boarding-assault anchor."
 	icon_state = "warden-generic"
 	base_icon_state = "warden-generic"
 	wreckage = /obj/structure/mecha_wreckage/warden/marauder
@@ -93,16 +92,23 @@
 
 /obj/vehicle/sealed/mecha/warden/marauder/lore_jumpscare()
 	AddElement(/datum/element/examine_lore, \
-		lore = "The \"Theseus\" is a frontier-optimized combat exosuit, utilizing an export-ready (and, thus, downgraded) M/TACS-1-LF \"Warden\" design \
-		that was subsequently rebuilt and upgraded to standard \"Warden\" standards through various means, some of which may be of questionable legality.<br>\
-		<br>\
-		Much like its parent design, KMIF's unshakable chassis provides Durand-level resilience, while SŻD's responsive myomer systems grant it Gygax-like agility. \
-		Typically stripped of complex jump jets and grapples for ease of maintenance, it excels as a mobile firing \
-		platform and boarding-assault anchor.<br>\
-		<br>\
-		Theseus units, again much like their parent design, are typically equipped with a M/FC-8-LF \"Forge\" fabrication cannon, \
-		with its ability to select appropriate ammunition for scanned targets, \
-		paired with a M/HP-22 \"Strele\" coaxial plasma pulse machinegun, to give it excellent tactical flexibility." \
+		lore = "The M/TACS-1-EX \"Theseus\" is the product of compromise between the Heliostatic Coalition's desire to arm rim-world colonies \
+			and its absolute refusal to export proprietary technology. The end result is, evidently, an exosuit built from open-source or public-domain \
+			parts and manufacturing standards that looks, moves, and fights like a proper \"Warden\" despite its status as something \
+			rebuilt piece by piece into a complete replacement.<br>\
+			<br>\
+			True to its name, the Theseus replaces many proprietary and advanced components for ease of manufacture, repair, and replacement: \
+			the armor is made of layered composite ceramics, polymers, and alloys instead of proprietary KMIF nanocomposite matrices, \
+			the mobility is provided through reliable, repairable hydropneumatic actuators instead of advanced myomer systems, \
+			and the sensor suite uses basic but reliable optical and infrared sensors \
+			instead of multi-spectral scanning arrays and proprietary datalink integration.<br>\
+			<br>\
+			While its more \"advanced\" capabilities may be lacking compared to its smarter, more technical cousin, the nature of its durable armor, \
+			serviceable electronics, and reliable mobility mean that it requires much less external support while remaining extremely capable as an exosuit.<br>\
+			<br>\
+			The ease of its manufacture and the degree of its performance makes the \"Theseus\" relatively popular during barter and trade \
+			between rim-world colonies and external entities such as corporations, paramilitaries, and other actors who would have a vested interest in \
+			trading goods and services for such a performant exosuit (or, in particularly large exchanges, exosuits)." \
 	)
 
 /obj/vehicle/sealed/mecha/warden/marauder/populate_parts()
