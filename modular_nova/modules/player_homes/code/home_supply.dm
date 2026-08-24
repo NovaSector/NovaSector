@@ -61,6 +61,13 @@
 	entry = null
 	return ..()
 
+/// The mob a follow link should point at: whoever filed this, wherever they have got to since.
+/// Looked up fresh rather than held as a reference, so it survives them ghosting or changing bodies,
+/// and is simply null once they have logged out.
+/datum/home_requisition/proc/requester_mob()
+	var/client/requester = GLOB.directory[requester_ckey]
+	return requester?.mob
+
 /// What the admins and the player are told this request is for.
 /datum/home_requisition/proc/summary()
 	if(!isnull(entry))
@@ -138,7 +145,9 @@
 	return TRUE
 
 /datum/controller/subsystem/homes/proc/notify_admins_of_requisition(datum/home_requisition/pending)
-	var/message = "[span_pink("HOME REQUISITION:")] [span_admin("[pending.requester_name] requests [pending.summary()] \
+	var/mob/requester = pending.requester_mob()
+	var/follow = isnull(requester) ? "" : " [ADMIN_FLW(requester)]"
+	var/message = "[span_pink("HOME REQUISITION:")] [span_admin("[pending.requester_name][follow] requests [pending.summary()] \
 		(<a href='byond://?src=[REF(pending)];home_requisition=approve'>APPROVE</a>) \
 		(<a href='byond://?src=[REF(pending)];home_requisition=deny'>DENY</a>)")]"
 	to_chat(GLOB.admins, type = MESSAGE_TYPE_ADMINLOG, html = message, confidential = TRUE)

@@ -9,6 +9,21 @@
 	name = "home door"
 	desc = "The front door of a private residence. Anything the residence owns stays on this side of it."
 	floor_to_copy = /turf/open/floor/wood
+	/*
+	 * /turf/closed/indestructible sets baseturfs to /turf/open/indestructible/plating,
+	 * which is right for a wall nobody is ever meant to get through and wrong for this one - taking the
+	 * door down is a supported thing a player does from the console.
+	 *
+	 * ChangeTurf() carries the OLD turf's baseturfs onto the new one unless it is handed a replacement,
+	 * so an indestructible baseturf here does not stop at the door: uninstall_door() hands it to the
+	 * wall left behind, and the first time the player deconstructs that wall they are left standing on
+	 * indestructible plating, which no tool, RCD or RTD will touch. That is an admin call-out on a tile
+	 * they are allowed to dig up.
+	 *
+	 * A door hung by a player still inherits whatever their own wall had, which is what we want; this
+	 * only sets the floor under a door that was mapped into a starter or came back off a save file.
+	 */
+	baseturfs = /turf/open/floor/plating
 	/// What to put back underneath if this door is ever taken down. Set when a player hangs one;
 	/// the default here covers doors that came with a starter interior and were never moved.
 	var/turf/replaced_type = /turf/closed/wall
