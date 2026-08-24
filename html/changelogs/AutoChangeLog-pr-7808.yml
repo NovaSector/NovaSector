@@ -1,0 +1,4 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - bugfix: "[NOVA] Delayed unrestricted access on airlocks now works on TG maps, and any Nova maps that may implement it."
