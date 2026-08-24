@@ -20,13 +20,26 @@
 	. += NAMEOF(src, replaced_type)
 	return .
 
-/// BYOND reuses a turf's datum in place when its type changes, so anything registered in
-/// Initialize() outlives the door. Take a door down, hang another on the same tile later - or recycle
-/// the reservation into somebody else's home - and the new register_context() collides with the
-/// leftover one. Only this subtype needs it; condo and hotel doors never change into anything else.
+/**
+ * Turfs keep their signal registrations when their type changes. ChangeTurf() copies them onto the
+ * replacement deliberately, and says so in capitals: "Turfs DO NOT lose their signals when they get
+ * replaced, REMEMBER THIS".
+ *
+ * Both /turf/closed/wall and the hotel door call register_context(), so any turf that has been
+ * either leaves a live COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM behind when it becomes something
+ * else. The next thing to register on that turf collides with the corpse of the last one and eats a
+ * runtime. Call this anywhere we change a turf's type or hand a reservation back.
+ */
+/proc/clear_home_screentip_context(turf/target)
+	if(isnull(target))
+		return
+	target.UnregisterSignal(target, COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM)
+	target.flags_1 &= ~HAS_CONTEXTUAL_SCREENTIPS_1
+
+/// Door being taken down or emptied out. Only this subtype needs the override; condo and hotel doors
+/// are never changed into anything else.
 /turf/closed/indestructible/hoteldoor/fakedoor/player_home/ChangeTurf(path, list/new_baseturfs, flags)
-	UnregisterSignal(src, COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM)
-	flags_1 &= ~HAS_CONTEXTUAL_SCREENTIPS_1
+	clear_home_screentip_context(src)
 	return ..()
 
 /turf/closed/indestructible/hoteldoor/fakedoor/player_home/examine(mob/user)
@@ -103,6 +116,10 @@
 /// lets the loader fit a door with no player involved.
 /datum/home_instance/proc/hang_door(turf/closed/target_wall)
 	var/replacing = target_wall.type
+	// The wall registered a screentip context and the door is about to register its own onto the same
+	// turf datum. Clear the wall's first - the mirror of what the door's ChangeTurf() does on the way
+	// back out.
+	clear_home_screentip_context(target_wall)
 	var/turf/closed/indestructible/hoteldoor/fakedoor/player_home/hung = target_wall.ChangeTurf(/turf/closed/indestructible/hoteldoor/fakedoor/player_home)
 	if(isnull(hung))
 		return null

@@ -156,6 +156,11 @@ SUBSYSTEM_DEF(homes)
 		eject_round_critical(home, reservation)
 		// remove this once clearing turf reservations is actually reliable
 		for(var/turf/to_empty as anything in reservation.reserved_turfs)
+			// Every wall in the interior registered a screentip context, and turfs carry their signal
+			// registrations across a type change. Emptying the turf would hand that registration to the
+			// baseturf and on to whatever home is loaded into this reservation next, whose own walls
+			// would then collide with it. Give the reservation back clean.
+			clear_home_screentip_context(to_empty)
 			to_empty.empty()
 		home.reservation = null
 		qdel(reservation)
