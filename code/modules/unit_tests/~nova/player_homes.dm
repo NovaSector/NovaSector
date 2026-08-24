@@ -170,24 +170,20 @@
 
 	SShomes.release_home(home)
 
-/// The waste compactor destroys ordinary junk and refuses everything a home must never swallow.
-/// The nested cases are the ones that matter: round-critical gear inside a bag, or somebody shut in
-/// the bin, must not be a way to delete either of them.
+/**
+ * The waste compactor destroys ordinary junk and refuses everything a home must never swallow. The
+ * nested cases are the ones that matter: round-critical gear inside a bag, or somebody shut in the
+ * bin, must not be a way to delete either of them.
+ *
+ * compactable() reads nothing but its own contents, so this runs on a bare compactor in the test
+ * room rather than one standing in a loaded home. Moving a live mob into a container inside a turf
+ * reservation and back out leaves it registered in two spatial grid cells, and none of that
+ * machinery is what this test is about.
+ */
 /datum/unit_test/player_home_compactor
-	var/test_ckey = "unittesthomecompactor"
-
-/datum/unit_test/player_home_compactor/Destroy()
-	wipe_test_home(test_ckey)
-	return ..()
 
 /datum/unit_test/player_home_compactor/Run()
-	var/datum/map_template/home/starter = SShomes.starter_templates[SShomes.starter_templates[1]]
-	TEST_ASSERT(SShomes.write_starter(test_ckey, starter, null), "could not file the test home")
-	var/datum/home_instance/home = SShomes.load_home(test_ckey, null, null)
-	TEST_ASSERT_NOTNULL(home, "test home would not load")
-
-	var/turf/floor = home.get_landing_turf()
-	var/obj/structure/closet/crate/bin/home_compactor/compactor = allocate(/obj/structure/closet/crate/bin/home_compactor, floor)
+	var/obj/structure/closet/crate/bin/home_compactor/compactor = allocate(/obj/structure/closet/crate/bin/home_compactor)
 
 	// Ordinary junk: the compactor should be willing to take it.
 	var/obj/item/trash/junk = allocate(/obj/item/trash/candle, compactor)
@@ -202,7 +198,8 @@
 	secrets.forceMove(smuggling)
 	TEST_ASSERT(!(smuggling in compactor.compactable()), "round-critical gear inside a backpack could be fed to the compactor")
 
-	// Anything alive, at any depth, or the bin is a murder box.
+	// Anything alive, at any depth, or the bin is a murder box. The compactor is allocated on the same
+	// turf, so this moves the mob into a container without ever changing the grid cell it sits in.
 	var/mob/living/carbon/human/stuffed = allocate(/mob/living/carbon/human/consistent)
 	stuffed.forceMove(compactor)
 	TEST_ASSERT(!(stuffed in compactor.compactable()), "the compactor was willing to destroy a living mob")
@@ -210,7 +207,5 @@
 	// The junk is still fair game with all of that sitting beside it.
 	TEST_ASSERT(junk in compactor.compactable(), "protected contents made the compactor refuse ordinary rubbish too")
 
-	// Everything has to be out before the reservation is emptied under it.
+	// Out of the bin before teardown starts qdeleting things around it.
 	stuffed.forceMove(run_loc_floor_bottom_left)
-	secrets.forceMove(run_loc_floor_bottom_left)
-	SShomes.release_home(home)
