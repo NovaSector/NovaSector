@@ -179,7 +179,7 @@
 /turf/open/floor/stone,
 /area/misc/condo)
 "yD" = (
-/turf/closed/indestructible/wood,
+/turf/closed/wall/mineral/wood,
 /area/misc/condo)
 "zf" = (
 /obj/structure/window/green_glass_pane,
@@ -289,7 +289,7 @@
 /obj/item/clothing/head/drake_skull{
 	anchored = 1
 	},
-/turf/closed/indestructible/wood,
+/turf/closed/wall/mineral/wood,
 /area/misc/condo)
 "Lv" = (
 /obj/structure/flora/rock,
@@ -461,7 +461,7 @@
 /area/misc/condo)
 "Wz" = (
 /obj/structure/sign/painting/library,
-/turf/closed/indestructible/wood,
+/turf/closed/wall/mineral/wood,
 /area/misc/condo)
 "WH" = (
 /obj/structure/flora/grass/green/style_random,
