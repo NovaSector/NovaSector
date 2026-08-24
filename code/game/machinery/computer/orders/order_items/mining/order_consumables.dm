@@ -11,8 +11,14 @@
 
 // slime accounts get ourple pen :3
 /datum/orderable_item/consumables/luxury_pen/get_purchased_item(mob/living/user, obj/item/card/id/card)
-	if(cmptext(trimtext(find_record(card.registered_account?.account_holder)?.species), /datum/species/jelly::name))
-		return /obj/item/reagent_containers/hypospray/medipen/survival/luxury/purple
+	// NOVA EDIT CHANGE START - Our roundstart slime is /datum/species/jelly/roundstartslime and base jellyperson isn't roundstart here, so match the whole jelly family by name instead.
+	// ORIGINAL: if(cmptext(trimtext(find_record(card.registered_account?.account_holder)?.species), /datum/species/jelly::name))
+	var/buyer_species = trimtext(find_record(card.registered_account?.account_holder)?.species)
+	for(var/jelly_type in typesof(/datum/species/jelly))
+		var/datum/species/jelly_prototype = GLOB.species_prototypes[jelly_type]
+		if(cmptext(buyer_species, jelly_prototype.name))
+			return /obj/item/reagent_containers/hypospray/medipen/survival/luxury/purple
+	// NOVA EDIT CHANGE END
 	return ..()
 
 /datum/orderable_item/consumables/medkit
