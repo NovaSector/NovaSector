@@ -308,10 +308,15 @@
 	desc = "Prints plastic replicas of natural scenery."
 	manifest = list(/obj/item/construction/rdd/loaded = 1)
 
+/datum/home_supply/tools/rtd
+	name = "Rapid tiling device"
+	desc = "For when laying tiles by hand is too much work."
+	manifest = list(/obj/item/construction/rtd/loaded = 1)
+
 /datum/home_supply/tools/light_replacer
-	name = "Light replacer"
+	name = "Bluespace light replacer"
 	desc = "Refills off glass sheets."
-	manifest = list(/obj/item/lightreplacer = 1)
+	manifest = list(/obj/item/lightreplacer/blue = 1)
 
 /*
  * Restricted. The parent gates these - do not set needs_approval by hand down here.
