@@ -1,0 +1,759 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aw" = (
+/obj/effect/overlay/water{
+	icon_state = "OLD_bottom"
+	},
+/obj/effect/overlay/water/top{
+	icon_state = "OLD_top"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 5
+	},
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"az" = (
+/obj/structure/railing,
+/obj/effect/turf_decal/siding/wood{
+	dir = 3
+	},
+/turf/open/floor/stone,
+/area/misc/player_home)
+"cS" = (
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/bounty,
+/turf/open/floor/stone,
+/area/misc/player_home)
+"df" = (
+/turf/open/floor/wood/wood_5,
+/area/misc/player_home)
+"dX" = (
+/obj/structure/chair/wood{
+	dir = 4
+	},
+/turf/open/floor/stone,
+/area/misc/player_home)
+"eB" = (
+/obj/machinery/light/dim,
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"gk" = (
+/obj/structure/decorative/shelf,
+/obj/item/storage/box/slugs,
+/obj/item/storage/box/slugs,
+/turf/open/floor/iron/dark/brick,
+/area/misc/player_home)
+"gB" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/stone,
+/area/misc/player_home)
+"hq" = (
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/bounty,
+/turf/open/floor/iron/dark/brick,
+/area/misc/player_home)
+"hT" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/bouquet/rose,
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"ie" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/machinery/door/airlock/wood,
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"ip" = (
+/obj/structure/decorative/shelf,
+/obj/item/storage/fancy/candle_box,
+/obj/item/storage/fancy/candle_box,
+/obj/item/lighter,
+/turf/open/floor/iron/dark/brick,
+/area/misc/player_home)
+"jp" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green,
+/turf/open/floor/wood/wood_5,
+/area/misc/player_home)
+"jy" = (
+/obj/structure/chair/sofa/corp/corner,
+/turf/open/floor/wood/wood_5,
+/area/misc/player_home)
+"kr" = (
+/turf/closed/indestructible/wood,
+/area/misc/player_home)
+"kR" = (
+/turf/closed/indestructible/hoteldoor/fakedoor,
+/area/misc/player_home)
+"lk" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 8
+	},
+/turf/open/floor/wood/wood_5,
+/area/misc/player_home)
+"lz" = (
+/obj/effect/overlay/water{
+	icon_state = "OLD_bottom"
+	},
+/obj/effect/overlay/water/top{
+	icon_state = "OLD_top"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"mO" = (
+/obj/structure/decorative/shelf,
+/obj/item/storage/box/papersack/ration_bread_slice,
+/obj/item/storage/box/colonial_rations,
+/obj/item/storage/box/colonial_rations,
+/obj/item/storage/box/colonial_rations,
+/turf/open/floor/iron/dark/brick,
+/area/misc/player_home)
+"mZ" = (
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/structure/closet/secure_closet/personal/cabinet,
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"nT" = (
+/obj/structure/sign/painting/library,
+/turf/closed/indestructible/wood,
+/area/misc/player_home)
+"ox" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/carpet/red,
+/area/misc/player_home)
+"oI" = (
+/obj/effect/overlay/water{
+	icon_state = "OLD_bottom"
+	},
+/obj/effect/overlay/water/top{
+	icon_state = "OLD_top"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 9
+	},
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"oS" = (
+/obj/machinery/light/dim,
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"pE" = (
+/obj/structure/decorative/shelf/crates1,
+/turf/open/floor/iron/dark/brick,
+/area/misc/player_home)
+"pP" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 3
+	},
+/obj/structure/railing/wooden_fencing,
+/turf/open/floor/carpet/red,
+/area/misc/player_home)
+"qi" = (
+/obj/structure/bed/double/pelt,
+/obj/item/bedsheet/hos/double,
+/turf/open/floor/carpet/red,
+/area/misc/player_home)
+"rh" = (
+/obj/effect/overlay/water{
+	icon_state = "OLD_bottom"
+	},
+/obj/effect/overlay/water/top{
+	icon_state = "OLD_top"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"tn" = (
+/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
+	pixel_x = 5;
+	pixel_y = 7
+	},
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/trophy{
+	pixel_y = 18;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/cup/glass/trophy{
+	pixel_y = 10;
+	pixel_x = -8
+	},
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_y = 6
+	},
+/turf/open/floor/stone,
+/area/misc/player_home)
+"tK" = (
+/turf/closed/wall/mineral/stone,
+/area/misc/player_home)
+"uh" = (
+/turf/open/floor/iron/dark/brick,
+/area/misc/player_home)
+"up" = (
+/obj/structure/chair/wood,
+/turf/open/floor/stone,
+/area/misc/player_home)
+"vg" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"vH" = (
+/obj/structure/chair/sofa/corp/right,
+/turf/open/floor/wood/wood_5,
+/area/misc/player_home)
+"vO" = (
+/obj/structure/flora/rock/pile/icy/style_random,
+/turf/open/misc/snow,
+/area/misc/player_home)
+"xn" = (
+/obj/structure/bookcase/random/adult,
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"zA" = (
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/cloth/fancy/mechanical/start_closed{
+	icon_state = "bounty-closed";
+	icon_type = "bounty"
+	},
+/turf/open/floor/iron/dark/brick,
+/area/misc/player_home)
+"zX" = (
+/obj/effect/overlay/water{
+	icon_state = "OLD_bottom"
+	},
+/obj/effect/overlay/water/top{
+	icon_state = "OLD_top"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"Ai" = (
+/obj/structure/decorative/shelf,
+/obj/item/mop,
+/obj/item/reagent_containers/cup/bucket/wooden,
+/obj/item/reagent_containers/spray/cleaner,
+/turf/open/floor/iron/dark/brick,
+/area/misc/player_home)
+"AV" = (
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"BQ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/window/green_glass_pane,
+/obj/structure/curtain/bounty,
+/turf/open/floor/stone,
+/area/misc/player_home)
+"Ef" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/machinery/light/dim,
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"FO" = (
+/obj/structure/dresser,
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_y = 12;
+	pixel_x = 6
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"FZ" = (
+/obj/machinery/door/airlock/wood,
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"HL" = (
+/obj/structure/decorative/shelf{
+	pixel_y = 2;
+	pixel_x = 3
+	},
+/obj/item/grown/log/tree,
+/obj/item/grown/log/tree,
+/obj/item/grown/log/tree,
+/obj/item/storage/box/matches,
+/obj/item/hatchet/wooden,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"Kc" = (
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/towel,
+/obj/structure/rack/wooden,
+/turf/open/floor/stone,
+/area/misc/player_home)
+"KK" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 3
+	},
+/turf/open/floor/wood/wood_5,
+/area/misc/player_home)
+"Lc" = (
+/obj/structure/flora/grass/green/style_random,
+/turf/open/misc/snow,
+/area/misc/player_home)
+"LQ" = (
+/obj/effect/overlay/water{
+	icon_state = "OLD_bottom"
+	},
+/obj/effect/overlay/water/top{
+	icon_state = "OLD_top"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"LT" = (
+/obj/machinery/light_switch/directional/south,
+/obj/structure/fake_stairs/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"Oq" = (
+/obj/machinery/light/dim,
+/turf/open/floor/iron/dark/brick,
+/area/misc/player_home)
+"QT" = (
+/obj/machinery/light/floor,
+/obj/effect/overlay/water{
+	icon_state = "OLD_bottom"
+	},
+/obj/effect/overlay/water/top{
+	icon_state = "OLD_top"
+	},
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"QV" = (
+/obj/item/kirbyplants/organic/plant17,
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"Sb" = (
+/obj/effect/overlay/water{
+	icon_state = "OLD_bottom"
+	},
+/obj/effect/overlay/water/top{
+	icon_state = "OLD_top"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 6
+	},
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"To" = (
+/turf/open/misc/snow,
+/area/misc/player_home)
+"Tt" = (
+/obj/structure/fireplace{
+	pixel_x = 0
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/stone,
+/area/misc/player_home)
+"TD" = (
+/obj/machinery/shower/directional/east,
+/obj/structure/decorative{
+	icon_state = "drain";
+	icon = 'modular_nova/modules/liquids/icons/obj/structures/drains.dmi';
+	base_icon_state = "drain";
+	dir = 8;
+	pixel_y = 3;
+	pixel_x = -2
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 6
+	},
+/turf/open/floor/stone,
+/area/misc/player_home)
+"TK" = (
+/obj/structure/fake_stairs/wood/directional/east,
+/obj/machinery/door/airlock/wood,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/brick,
+/area/misc/player_home)
+"TR" = (
+/obj/machinery/light/dim,
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"Uf" = (
+/obj/item/clothing/head/drake_skull{
+	anchored = 1
+	},
+/turf/closed/indestructible/wood,
+/area/misc/player_home)
+"UB" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"UE" = (
+/obj/effect/overlay/water{
+	icon_state = "OLD_bottom"
+	},
+/obj/effect/overlay/water/top{
+	icon_state = "OLD_top"
+	},
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 10
+	},
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"UO" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/obj/item/gun/ballistic/shotgun/doublebarrel{
+	pixel_x = -16;
+	pixel_y = 33
+	},
+/turf/open/floor/stone,
+/area/misc/player_home)
+"UX" = (
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"YA" = (
+/turf/open/floor/stone,
+/area/misc/player_home)
+"Zj" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 3
+	},
+/obj/machinery/light/dim{
+	dir = 4
+	},
+/turf/open/floor/wood/wood_5,
+/area/misc/player_home)
+"ZA" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/railing/wooden_fencing/gate,
+/turf/open/floor/stone,
+/area/misc/player_home)
+
+(1,1,1) = {"
+To
+To
+To
+To
+To
+Lc
+To
+To
+To
+To
+To
+To
+To
+"}
+(2,1,1) = {"
+To
+To
+To
+To
+To
+To
+To
+To
+To
+To
+To
+To
+To
+"}
+(3,1,1) = {"
+vO
+To
+kr
+zA
+zA
+zA
+kr
+zA
+zA
+zA
+kr
+To
+To
+"}
+(4,1,1) = {"
+To
+To
+zA
+FO
+AV
+QV
+kr
+ip
+mO
+Ai
+kr
+To
+To
+"}
+(5,1,1) = {"
+To
+To
+zA
+ox
+ox
+oS
+kr
+uh
+uh
+Oq
+kr
+To
+To
+"}
+(6,1,1) = {"
+To
+To
+zA
+qi
+pP
+LT
+kr
+uh
+pE
+gk
+kr
+To
+To
+"}
+(7,1,1) = {"
+To
+To
+kr
+kr
+kr
+ie
+kr
+TK
+kr
+kr
+kr
+To
+To
+"}
+(8,1,1) = {"
+To
+To
+Uf
+HL
+UX
+UX
+UX
+UX
+mZ
+kr
+To
+To
+To
+"}
+(9,1,1) = {"
+To
+To
+tK
+Tt
+UX
+UX
+UX
+UX
+TR
+kr
+To
+To
+To
+"}
+(10,1,1) = {"
+To
+To
+tK
+UO
+UB
+Ef
+nT
+UX
+UX
+kR
+To
+To
+To
+"}
+(11,1,1) = {"
+To
+To
+nT
+jp
+df
+KK
+UX
+UX
+eB
+kr
+kr
+To
+To
+"}
+(12,1,1) = {"
+To
+To
+hq
+vH
+df
+KK
+UX
+UX
+UX
+hT
+kr
+To
+To
+"}
+(13,1,1) = {"
+To
+To
+hq
+jy
+lk
+Zj
+xn
+xn
+UX
+vg
+kr
+To
+To
+"}
+(14,1,1) = {"
+vO
+To
+kr
+kr
+kr
+kr
+kr
+kr
+FZ
+kr
+kr
+To
+To
+"}
+(15,1,1) = {"
+To
+To
+az
+oI
+LQ
+UE
+BQ
+TD
+YA
+Kc
+kr
+To
+To
+"}
+(16,1,1) = {"
+To
+To
+az
+rh
+QT
+lz
+BQ
+YA
+YA
+dX
+kr
+To
+To
+"}
+(17,1,1) = {"
+To
+To
+az
+aw
+zX
+Sb
+ZA
+YA
+up
+tn
+kr
+To
+To
+"}
+(18,1,1) = {"
+To
+To
+kr
+gB
+gB
+gB
+kr
+cS
+cS
+cS
+kr
+To
+To
+"}
+(19,1,1) = {"
+To
+To
+To
+To
+To
+To
+To
+To
+To
+To
+To
+To
+To
+"}
+(20,1,1) = {"
+Lc
+To
+To
+To
+To
+To
+To
+Lc
+To
+To
+To
+vO
+To
+"}

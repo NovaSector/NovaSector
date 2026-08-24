@@ -12,6 +12,16 @@
 /obj/machinery/home_saver,
 /turf/open/floor/plating,
 /area/misc/player_home)
+"kZ" = (
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/turf/open/floor/plating,
+/area/misc/player_home)
+"AS" = (
+/obj/item/construction/rld,
+/turf/open/floor/plating,
+/area/misc/player_home)
 
 (1,1,1) = {"
 aa
@@ -128,7 +138,7 @@ ab
 ab
 ab
 ab
-ab
+kZ
 ab
 ac
 "}
@@ -145,7 +155,7 @@ ab
 ab
 ab
 ab
-ab
+AS
 ab
 aa
 "}

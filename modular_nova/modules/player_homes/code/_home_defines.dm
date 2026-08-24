@@ -118,3 +118,10 @@
 	mappath = "_maps/nova/persistent_housing/home_oceanview.dmm"
 	landing_zone_x_offset = 7
 	landing_zone_y_offset = 1
+
+/datum/map_template/home/snowy_cabin
+	name = "Home - Snowy Cabin"
+	blurb = "A nice cozy cabin out in the snow. Bundle up!"
+	mappath = "_maps/nova/persistent_housing/home_snowycabin.dmm"
+	landing_zone_x_offset = 10
+	landing_zone_y_offset = 5

@@ -8,13 +8,17 @@
  * out of the residence. That is what makes the no-approval tier safe to hand out freely - not one
  * sheet of it can reach the round's economy. A delivery path that skips mark_delivery() would turn
  * this into a free materials printer.
+ *
+ * The catalogue itself is in home_supply_catalogue.dm. Nothing here needs to know what is in it.
  */
 
 /// One line in the requisition catalogue.
 /datum/home_supply
 	var/name
-	/// Groups the catalogue in the UI.
+	/// Groups the catalogue in the UI. Set on a category parent, not on individual lines.
 	var/category = "Materials"
+	/// Where this line's category sits in the console, low first. Also set on the category parent.
+	var/category_order = 100
 	var/desc
 	/// What lands: path -> amount. For stacks the amount is the stack size; for anything else it is
 	/// how many separate copies to send.
@@ -28,199 +32,6 @@
 	for(var/atom/movable/thing_path as anything in manifest)
 		parts += "[manifest[thing_path]]x [initial(thing_path.name)]"
 	return parts.Join(", ")
-
-// The catalogue. Add to it freely - the subsystem picks up subtypes automatically.
-
-/datum/home_supply/iron
-	name = "Iron sheets"
-	desc = "The bones of most things worth building."
-	manifest = list(/obj/item/stack/sheet/iron = 50)
-
-/datum/home_supply/glass
-	name = "Glass sheets"
-	manifest = list(/obj/item/stack/sheet/glass = 50)
-
-/datum/home_supply/reinforced_glass
-	name = "Reinforced glass"
-	manifest = list(/obj/item/stack/sheet/rglass = 30)
-
-/datum/home_supply/wood
-	name = "Wooden planks"
-	desc = "Warmer underfoot than plating."
-	manifest = list(/obj/item/stack/sheet/mineral/wood = 50)
-
-/datum/home_supply/sandstone
-	name = "Sandstone blocks"
-	manifest = list(/obj/item/stack/sheet/mineral/sandstone = 50)
-
-/datum/home_supply/plastic
-	name = "Plastic sheets"
-	desc = "Cheap, and it shows."
-	manifest = list(/obj/item/stack/sheet/plastic = 50)
-
-/datum/home_supply/plasteel
-	name = "Plasteel sheets"
-	desc = "Structural alloy, for walls that mean it."
-	manifest = list(/obj/item/stack/sheet/plasteel = 30)
-
-/datum/home_supply/titanium
-	name = "Titanium sheets"
-	manifest = list(/obj/item/stack/sheet/mineral/titanium = 30)
-
-/datum/home_supply/plastitanium
-	name = "Plastitanium sheets"
-	manifest = list(/obj/item/stack/sheet/mineral/plastitanium = 30)
-
-/datum/home_supply/precious
-	name = "Precious metals"
-	desc = "Gold and diamond, for the discerning resident."
-	manifest = list(
-		/obj/item/stack/sheet/mineral/gold = 20,
-		/obj/item/stack/sheet/mineral/diamond = 10,
-	)
-
-/datum/home_supply/rods
-	name = "Metal rods"
-	manifest = list(/obj/item/stack/rods = 50)
-
-/datum/home_supply/cable
-	name = "Cable coil"
-	manifest = list(/obj/item/stack/cable_coil = 30)
-
-/datum/home_supply/floor_tiles
-	name = "Floor tiles"
-	category = "Fittings"
-	manifest = list(/obj/item/stack/tile/iron = 60)
-
-/datum/home_supply/carpet
-	name = "Carpet"
-	category = "Fittings"
-	desc = "The plainest of the plain, but still soft and comfy."
-	manifest = list(/obj/item/stack/tile/carpet = 60)
-
-// The coloured weaves, one line each - somebody decorating a room wants the colour they asked for,
-// not an assortment. Keep them alphabetical, with the royals at the end where they belong.
-
-/datum/home_supply/carpet_black
-	name = "Carpet - Black"
-	category = "Fittings"
-	manifest = list(/obj/item/stack/tile/carpet/black = 60)
-
-/datum/home_supply/carpet_blue
-	name = "Carpet - Blue"
-	category = "Fittings"
-	manifest = list(/obj/item/stack/tile/carpet/blue = 60)
-
-/datum/home_supply/carpet_cyan
-	name = "Carpet - Cyan"
-	category = "Fittings"
-	manifest = list(/obj/item/stack/tile/carpet/cyan = 60)
-
-/datum/home_supply/carpet_green
-	name = "Carpet - Green"
-	category = "Fittings"
-	manifest = list(/obj/item/stack/tile/carpet/green = 60)
-
-/datum/home_supply/carpet_orange
-	name = "Carpet - Orange"
-	category = "Fittings"
-	manifest = list(/obj/item/stack/tile/carpet/orange = 60)
-
-/datum/home_supply/carpet_purple
-	name = "Carpet - Purple"
-	category = "Fittings"
-	manifest = list(/obj/item/stack/tile/carpet/purple = 60)
-
-/datum/home_supply/carpet_red
-	name = "Carpet - Red"
-	category = "Fittings"
-	manifest = list(/obj/item/stack/tile/carpet/red = 60)
-
-/datum/home_supply/carpet_royal_black
-	name = "Carpet - Royal Black"
-	category = "Fittings"
-	desc = "For a room that means to be taken seriously."
-	manifest = list(/obj/item/stack/tile/carpet/royalblack = 60)
-
-/datum/home_supply/carpet_royal_blue
-	name = "Carpet - Royal Blue"
-	category = "Fittings"
-	manifest = list(/obj/item/stack/tile/carpet/royalblue = 60)
-
-/datum/home_supply/compactor
-	name = "Waste compactor"
-	category = "Fittings"
-	desc = "A bin that destroys what you put in it. Alt-click to run it."
-	manifest = list(/obj/structure/closet/crate/bin/home_compactor = 1)
-
-/datum/home_supply/mechanical_tools
-	name = "Mechanical toolbox"
-	category = "Tools"
-	desc = "Everything needed to put a wall up and take it down again."
-	manifest = list(/obj/item/storage/toolbox/mechanical = 1)
-
-/datum/home_supply/electrical_tools
-	name = "Electrical toolbox"
-	category = "Tools"
-	manifest = list(/obj/item/storage/toolbox/electrical = 1)
-
-/datum/home_supply/welding_kit
-	name = "Welding kit"
-	category = "Tools"
-	desc = "A welding tool and something to save your eyes with."
-	manifest = list(
-		/obj/item/weldingtool = 1,
-		/obj/item/clothing/glasses/welding = 1,
-	)
-
-/datum/home_supply/painter
-	name = "Airlock painter"
-	category = "Tools"
-	manifest = list(/obj/item/airlock_painter = 1)
-
-/datum/home_supply/decal_painter
-	name = "Decal painter"
-	category = "Tools"
-	desc = "Sprays decals onto floor tiles. Ships with an ordinary cartridge; the decals come off with \
-		the tiles they are on."
-	manifest = list(/obj/item/airlock_painter/decal = 1)
-
-/datum/home_supply/infinite_toner
-	name = "Infinite toner cartridge"
-	category = "Tools"
-	desc = "Never runs dry. Alt-click a painter to pop its cartridge out, then put this one in."
-	manifest = list(/obj/item/toner/infinite = 1)
-
-/datum/home_supply/rcd
-	name = "Rapid construction device"
-	category = "Tools"
-	desc = "Builds walls and floors on its own."
-	manifest = list(/obj/item/construction/rcd/loaded = 1)
-
-/datum/home_supply/rpd
-	name = "Rapid pipe dispenser"
-	category = "Tools"
-	manifest = list(/obj/item/pipe_dispenser = 1)
-
-/datum/home_supply/rld
-	name = "Rapid lighting device"
-	category = "Tools"
-	desc = "Fits light tubes and glow sticks, in any colour you like."
-	manifest = list(/obj/item/construction/rld = 1)
-
-/datum/home_supply/rdd
-	name = "Rapid decoration device"
-	category = "Tools"
-	desc = "Prints plastic replicas of natural scenery."
-	manifest = list(/obj/item/construction/rdd/loaded = 1)
-
-// --- Everything below needs an admin to sign it off. ---
-
-/datum/home_supply/bluespace
-	name = "Bluespace crystals"
-	desc = "Requires approval."
-	manifest = list(/obj/item/stack/sheet/bluespace_crystal = 5)
-	needs_approval = TRUE
 
 // Requesting, shipping, and the admin queue.
 
@@ -275,12 +86,21 @@
 			SShomes.deny_requisition(src, usr)
 	return TRUE
 
-/// Builds the catalogue once at init, as the starter templates are collected.
+/// Builds the catalogue once at init, as the starter templates are collected. Anything without a
+/// name is a category parent rather than a line, and is skipped.
 /datum/controller/subsystem/homes/proc/preload_supply_catalogue()
 	for(var/datum/home_supply/supply_type as anything in subtypesof(/datum/home_supply))
 		if(!initial(supply_type.name))
 			continue
 		supply_catalogue += new supply_type()
+	// The console draws each category the first time it meets one, so this list's order IS the
+	// console's layout. subtypesof() hands them back sorted by type path, which is no order to shop in.
+	sortTim(supply_catalogue, GLOBAL_PROC_REF(cmp_home_supply_category))
+
+/// Orders the catalogue by category. sortTim is stable, so lines keep their type-path order within a
+/// category, and a category's own position is the category_order on its parent.
+/proc/cmp_home_supply_category(datum/home_supply/first, datum/home_supply/second)
+	return first.category_order - second.category_order
 
 /// Deciseconds left before this player may file another requisition. 0 when they are clear.
 /datum/controller/subsystem/homes/proc/supply_cooldown_remaining(ckey)

@@ -12,6 +12,16 @@
 /obj/machinery/home_saver,
 /turf/open/floor/plating,
 /area/misc/player_home)
+"qz" = (
+/obj/item/construction/rld,
+/turf/open/floor/plating,
+/area/misc/player_home)
+"GL" = (
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/turf/open/floor/plating,
+/area/misc/player_home)
 
 (1,1,1) = {"
 aa
@@ -69,7 +79,7 @@ ab
 ab
 ab
 ab
-ab
+GL
 ab
 ac
 "}
@@ -81,7 +91,7 @@ ab
 ab
 ab
 ab
-ab
+qz
 ab
 aa
 "}

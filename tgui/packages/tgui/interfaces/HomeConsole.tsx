@@ -43,7 +43,7 @@ export const HomeConsole = (props) => {
   const [tab, setTab] = useState<'residence' | 'supplies'>('residence');
 
   return (
-    <Window title="Domicile Registry Console" width={440} height={560}>
+    <Window title="Domicile Registry Console" width={520} height={560}>
       <Window.Content scrollable>
         <Tabs fluid>
           <Tabs.Tab
@@ -234,14 +234,18 @@ const Fittings = (props) => {
   );
 };
 
-/** The catalogue, grouped by category, plus a written request for anything it doesn't carry. */
+/** The catalogue, one category at a time, plus a written request for anything it doesn't carry. */
 const Requisitions = (props) => {
   const { act, data } = useBackend<Data>();
   const { catalogue, supply_cooldown } = data;
   const [written, setWritten] = useState('');
 
   const onCooldown = supply_cooldown > 0;
+  // Order of first appearance, which is the order the catalogue was sorted into server-side.
   const categories = [...new Set(catalogue.map((entry) => entry.category))];
+  const [category, setCategory] = useState(categories[0]);
+  // A window can outlive the category it was left on, so never trust the stored one blindly.
+  const shown = categories.includes(category) ? category : categories[0];
 
   return (
     <Stack fill vertical>
@@ -258,45 +262,56 @@ const Requisitions = (props) => {
           Anything past the basics goes to staff for approval first.
         </NoticeBox>
       </Stack.Item>
-      {categories.map((category) => (
-        <Stack.Item key={category}>
-          <Section title={category}>
-            {catalogue
-              .filter((entry) => entry.category === category)
-              .map((entry) => (
-                <Stack key={entry.name} align="center" mb={0.5}>
-                  <Stack.Item grow>
-                    {entry.name}
-                    {!!entry.needs_approval && (
-                      <Button.Checkbox
-                        checked
-                        disabled
-                        ml={1}
-                        tooltip="Needs staff approval"
-                      >
-                        Approval
-                      </Button.Checkbox>
-                    )}
-                    <br />
-                    <span style={{ opacity: 0.7 }}>
-                      {entry.desc ? `${entry.desc} — ` : ''}
-                      {entry.contents}
-                    </span>
-                  </Stack.Item>
-                  <Stack.Item>
-                    <Button
-                      icon="rocket"
-                      disabled={onCooldown}
-                      onClick={() => act('requisition', { name: entry.name })}
+      <Stack.Item>
+        <Tabs fluid>
+          {categories.map((entry) => (
+            <Tabs.Tab
+              key={entry}
+              selected={entry === shown}
+              onClick={() => setCategory(entry)}
+            >
+              {entry}
+            </Tabs.Tab>
+          ))}
+        </Tabs>
+      </Stack.Item>
+      <Stack.Item>
+        <Section title={shown}>
+          {catalogue
+            .filter((entry) => entry.category === shown)
+            .map((entry) => (
+              <Stack key={entry.name} align="center" mb={0.5}>
+                <Stack.Item grow>
+                  {entry.name}
+                  {!!entry.needs_approval && (
+                    <Button.Checkbox
+                      checked
+                      disabled
+                      ml={1}
+                      tooltip="Needs staff approval"
                     >
-                      Request
-                    </Button>
-                  </Stack.Item>
-                </Stack>
-              ))}
-          </Section>
-        </Stack.Item>
-      ))}
+                      Approval
+                    </Button.Checkbox>
+                  )}
+                  <br />
+                  <span style={{ opacity: 0.7 }}>
+                    {entry.desc ? `${entry.desc} — ` : ''}
+                    {entry.contents}
+                  </span>
+                </Stack.Item>
+                <Stack.Item>
+                  <Button
+                    icon="rocket"
+                    disabled={onCooldown}
+                    onClick={() => act('requisition', { name: entry.name })}
+                  >
+                    Request
+                  </Button>
+                </Stack.Item>
+              </Stack>
+            ))}
+        </Section>
+      </Stack.Item>
       <Stack.Item>
         <Section title="Written Request">
           <Stack align="center">

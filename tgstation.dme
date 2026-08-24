@@ -9562,6 +9562,7 @@
 #include "modular_nova\modules\player_homes\code\home_preview.dm"
 #include "modular_nova\modules\player_homes\code\home_subsystem.dm"
 #include "modular_nova\modules\player_homes\code\home_supply.dm"
+#include "modular_nova\modules\player_homes\code\home_supply_catalogue.dm"
 #include "modular_nova\modules\player_homes\code\home_terminal.dm"
 #include "modular_nova\modules\player_ranks\code\preferences.dm"
 #include "modular_nova\modules\player_ranks\code\world_topic.dm"

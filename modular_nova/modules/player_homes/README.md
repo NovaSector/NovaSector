@@ -102,18 +102,41 @@ Reuse the condo template's landing offsets verbatim. Run the file through
 
 ## Adding to the requisition catalogue
 
-The console can call down a drop pod of materials or tools on a cooldown. Add a line by adding a
-subtype to [`code/home_supply.dm`](code/home_supply.dm) — `preload_supply_catalogue()` picks up
-everything with a `name` set, exactly like the starter templates:
+The console can call down a drop pod of materials or tools on a cooldown. The catalogue lives in
+[`code/home_supply_catalogue.dm`](code/home_supply_catalogue.dm), which is pure data — the machinery
+that ships it stays in `home_supply.dm` and never needs to know what is listed.
+
+Add a line by adding a subtype **of the category parent it belongs to**;
+`preload_supply_catalogue()` picks up everything with a `name` set, exactly like the starter
+templates:
 
 ```dm
-/datum/home_supply/plastic
+/datum/home_supply/structural/plastic
 	name = "Plastic sheets"
-	category = "Materials"          // groups it in the console; any string works
 	desc = "Cheap, and it shows."
 	manifest = list(/obj/item/stack/sheet/plastic = 50)
-	needs_approval = FALSE
 ```
+
+The parents are `structural`, `organic` (timber and textiles), `flooring`, `appliances` (fixtures and
+machines), `tools` and `restricted`. They carry the `category` string and a `category_order`, and have no `name` of their
+own, which is exactly why the loader skips them. **Don't set `category` on a line** — put the line
+under the right parent instead, so a category can be renamed or moved in one edit.
+
+A new category is a new parent and nothing else:
+
+```dm
+/datum/home_supply/plumbing
+	category = "Plumbing"
+	category_order = 35     // between flooring (30) and fittings (40)
+```
+
+The console renders categories in the order it first meets them, so `category_order` is what decides
+the layout; `sortTim()` in `preload_supply_catalogue()` is stable, so lines within a category stay in
+type-path order.
+
+Anything under `/datum/home_supply/restricted` is admin-gated by its parent — **file a line there
+rather than setting `needs_approval` by hand**, so a line added by somebody who never read this
+paragraph is still gated.
 
 `manifest` is `path -> amount`. For a `/obj/item/stack` the amount is the **stack size** — one stack
 of fifty, not fifty stacks. For anything else it is how many separate copies to send.
@@ -123,10 +146,17 @@ instead of shipping it. If the player has stepped out by the time it is approved
 lands the next time they walk in. Approvals are round-scoped; they are not remembered across a
 restart.
 
-In practice almost nothing uses it. **Bluespace crystals are the only gated line in the catalogue** —
-everything else, refined alloys and the rapid-whatever devices included, ships straight away. That is
-safe for the reason below, not because the list was picked carefully, so weigh a new line against
+In practice almost nothing uses it. **Bluespace crystals and the autolathe are the only gated lines**
+— everything else, refined alloys and the rapid-whatever devices included, ships straight away. That
+is safe for the reason below, not because the list was picked carefully, so weigh a new line against
 that reason rather than against how expensive it looks.
+
+The autolathe is gated for a different reason than the crystals, and the distinction is the one that
+matters when adding anything that **creates** items rather than moving them around: a delivered
+machine is marked, but **what a machine builds is born unmarked** and walks out of the front door in
+somebody's pocket. An autolathe fed the free plasteel from this catalogue is a laundry for it. The
+cooking machines are fine on the same test — they only transform ingredients a player carried in
+themselves, and the catalogue sells no food. Apply that test, not a price check.
 
 Players can also send a **written request** for anything the catalogue does not carry. Those always
 go to the admins, and since there is no manifest to ship, the approving admin is expected to hand the
@@ -239,7 +269,8 @@ it, unbolt anything, or file requisitions against it.
 | `home_door.dm` | The front door, and taking it down to hang it elsewhere |
 | `home_terminal.dm` | The cafe pad, and knocking at somebody else's door |
 | `home_console.dm` | The console inside: saving, settings, requisitions |
-| `home_supply.dm` | The requisition catalogue, drop pods, and the admin approval queue |
+| `home_supply.dm` | Filing a requisition, drop pods, and the admin approval queue |
+| `home_supply_catalogue.dm` | What the console will call down: the category parents and every line |
 | `home_preview.dm` | Flattens a loaded home into the picture the terminal shows |
 | `home_admin.dm` | Inspect, download, restore, wipe, audit |
 
