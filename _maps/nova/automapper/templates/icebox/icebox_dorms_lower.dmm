@@ -438,6 +438,9 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/machinery/camera/directional/west{
+	c_tag = "Fitness Room East"
+	},
 /turf/open/floor/wood/large,
 /area/station/commons/fitness)
 "rq" = (
