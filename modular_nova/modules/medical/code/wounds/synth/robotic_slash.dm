@@ -722,7 +722,7 @@
 
 /datum/wound/slash/flesh/synth/on_xadone(power)
 	. = ..()
-	 // synths don't process many chemicals
+	// synths don't process many chemicals
 
 /datum/wound/slash/flesh/synth/on_synthflesh(reac_volume)
 	. = ..()
