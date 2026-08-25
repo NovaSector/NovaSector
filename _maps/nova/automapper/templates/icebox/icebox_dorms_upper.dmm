@@ -282,6 +282,9 @@
 /obj/effect/turf_decal/tile/neutral/half{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/personal/wall{
+	pixel_x = 32
+	},
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
 "fj" = (
@@ -2263,6 +2266,9 @@
 	pixel_x = 5
 	},
 /obj/effect/turf_decal/tile/neutral/anticorner,
+/obj/structure/closet/secure_closet/personal/wall{
+	pixel_x = 32
+	},
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
 "UN" = (
