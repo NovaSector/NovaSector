@@ -135,7 +135,7 @@
 /obj/effect/mapping_helpers/airlock/access/all/science/rd,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/science{
+/obj/machinery/door/airlock/rd{
 	name = "Bedroom"
 	},
 /turf/open/floor/iron/white/textured_half,
@@ -5193,7 +5193,7 @@
 "bmf" = (
 /obj/structure/window/spawner/directional/south,
 /obj/structure/closet/secure_closet/research_director,
-/turf/open/floor/carpet/green,
+/turf/open/floor/carpet/purple,
 /area/station/command/heads_quarters/rd)
 "bmk" = (
 /obj/structure/rack,
@@ -6331,7 +6331,7 @@
 	c_tag = "Command - Research Director's Quarters #2";
 	network = list("ss13","rd")
 	},
-/turf/open/floor/carpet/green,
+/turf/open/floor/carpet/purple,
 /area/station/command/heads_quarters/rd)
 "bza" = (
 /obj/machinery/firealarm/directional/north,
@@ -14030,7 +14030,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/turf/open/floor/carpet/green,
+/turf/open/floor/carpet/purple,
 /area/station/command/heads_quarters/rd)
 "dzR" = (
 /obj/structure/closet/emcloset,
@@ -17664,7 +17664,7 @@
 "evW" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/carpet/green,
+/turf/open/floor/carpet/purple,
 /area/station/command/heads_quarters/rd)
 "ewd" = (
 /obj/effect/turf_decal/stripes/white/line{
@@ -40942,7 +40942,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/gravity_generator)
 "ksX" = (
-/obj/machinery/door/airlock/research{
+/obj/machinery/door/airlock/rd{
 	name = "Research Director's Office"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/science/rd,
@@ -58798,7 +58798,7 @@
 /turf/open/floor/grass,
 /area/station/hallway/floor4/fore)
 "oLk" = (
-/obj/machinery/door/airlock/science{
+/obj/machinery/door/airlock/rd{
 	name = "Bedroom"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -59526,7 +59526,7 @@
 	name = "pet bed"
 	},
 /obj/structure/window/spawner/directional/south,
-/turf/open/floor/carpet/green,
+/turf/open/floor/carpet/purple,
 /area/station/command/heads_quarters/rd)
 "oUl" = (
 /obj/machinery/door/airlock/public{
@@ -74639,7 +74639,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/rd,
 /obj/machinery/light_switch/directional/east,
-/turf/open/floor/carpet/green,
+/turf/open/floor/carpet/purple,
 /area/station/command/heads_quarters/rd)
 "sNe" = (
 /turf/open/floor/mineral/plastitanium/pod/dark,
@@ -80216,7 +80216,7 @@
 "uhF" = (
 /obj/machinery/light/small/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/carpet/green,
+/turf/open/floor/carpet/purple,
 /area/station/command/heads_quarters/rd)
 "uhG" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -81626,7 +81626,7 @@
 "uCn" = (
 /obj/structure/window/spawner/directional/south,
 /obj/machinery/suit_storage_unit/rd,
-/turf/open/floor/carpet/green,
+/turf/open/floor/carpet/purple,
 /area/station/command/heads_quarters/rd)
 "uCo" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/directional{
@@ -84198,7 +84198,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/landmark/start/research_director,
-/turf/open/floor/carpet/green,
+/turf/open/floor/carpet/purple,
 /area/station/command/heads_quarters/rd)
 "vhN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -92076,7 +92076,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "xad" = (
-/obj/machinery/door/airlock/research{
+/obj/machinery/door/airlock/rd{
 	name = "Research Director's Office"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
