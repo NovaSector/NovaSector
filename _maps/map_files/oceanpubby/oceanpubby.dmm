@@ -6646,6 +6646,10 @@
 	dir = 4
 	},
 /obj/machinery/firealarm/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/cargo/lobby)
 "aSj" = (
@@ -12325,6 +12329,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/purple/filled/line,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/science/lab)
 "byY" = (
@@ -14388,15 +14393,6 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "bOT" = (
-/obj/item/stack/sheet/cardboard,
-/obj/item/stack/sheet/cardboard,
-/obj/item/stack/sheet/cardboard,
-/obj/item/stack/sheet/cardboard,
-/obj/item/stack/sheet/cardboard,
-/obj/item/stack/sheet/cardboard,
-/obj/item/stack/sheet/cardboard,
-/obj/item/stack/sheet/cardboard,
-/obj/structure/rack,
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/siding/dark{
 	dir = 4
@@ -19976,6 +19972,7 @@
 /obj/machinery/door/airlock/external{
 	name = "MiniSat External Access"
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/ai/satellite/atmos)
 "cBt" = (
@@ -20069,6 +20066,9 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/medical/virology)
 "cCB" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "cCC" = (
@@ -22232,7 +22232,6 @@
 /turf/open/floor/iron,
 /area/station/cargo/office)
 "dEK" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -22932,6 +22931,10 @@
 /obj/effect/turf_decal/trimline/brown/filled/corner{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/cargo/lobby)
 "dTR" = (
@@ -22968,6 +22971,17 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/engineering/transit_tube)
+"dUu" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/department/science/central)
 "dUw" = (
 /obj/structure/railing{
 	dir = 8
@@ -27481,12 +27495,6 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/checkpoint/supply)
 "fXp" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -27663,6 +27671,11 @@
 	dir = 1
 	},
 /area/station/hallway/primary/aft)
+"gcg" = (
+/obj/structure/rack,
+/obj/item/storage/box/lights/mixed,
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "gcn" = (
 /obj/effect/spawner/random/maintenance,
 /obj/structure/closet,
@@ -35756,6 +35769,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/ai/satellite/atmos)
 "jHd" = (
@@ -40267,10 +40281,9 @@
 /turf/open/floor/iron,
 /area/station/medical/virology)
 "lEC" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/open/water/beach/planet_surface,
-/area/station/solars/ocean/aisat)
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/ai/satellite/atmos)
 "lET" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/structure/closet/crate/medical,
@@ -43991,6 +44004,12 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"niZ" = (
+/obj/machinery/modular_computer/preset/cargochat/cargo{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "njg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
 /obj/machinery/computer/turbine_computer{
@@ -49825,6 +49844,7 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/west,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/science/robotics/lab)
 "pKd" = (
@@ -50196,6 +50216,10 @@
 /obj/effect/turf_decal/trimline/brown/filled/corner{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/cargo/lobby)
 "pSQ" = (
@@ -50503,6 +50527,8 @@
 /obj/effect/mapping_helpers/airlock/access/any/supply/shipping,
 /obj/structure/cable,
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "pXT" = (
@@ -54377,11 +54403,18 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical)
 "rMn" = (
-/obj/structure/rack,
-/obj/item/storage/box/lights/mixed,
 /obj/effect/turf_decal/trimline/brown/corner{
 	dir = 1
 	},
+/obj/item/stack/sheet/cardboard,
+/obj/item/stack/sheet/cardboard,
+/obj/item/stack/sheet/cardboard,
+/obj/item/stack/sheet/cardboard,
+/obj/item/stack/sheet/cardboard,
+/obj/item/stack/sheet/cardboard,
+/obj/item/stack/sheet/cardboard,
+/obj/item/stack/sheet/cardboard,
+/obj/structure/rack,
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/storage)
 "rMy" = (
@@ -54904,18 +54937,6 @@
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
-"rYj" = (
-/obj/docking_port/stationary{
-	dwidth = 2;
-	height = 6;
-	name = "Station";
-	roundstart_template = /datum/map_template/shuttle/escape_pod/large;
-	shuttle_id = "monastery_shuttle_station";
-	width = 5;
-	dir = 8
-	},
-/turf/open/water/beach/planet_surface,
-/area/ocean/generated/shallow)
 "rYk" = (
 /obj/structure/table,
 /obj/machinery/cell_charger{
@@ -56902,6 +56923,9 @@
 "sOE" = (
 /obj/machinery/wall_healer/directional/west,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "sOO" = (
@@ -59138,6 +59162,10 @@
 "tIN" = (
 /obj/effect/turf_decal/siding/dark/corner,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
 /turf/open/floor/iron,
 /area/station/cargo/lobby)
 "tIP" = (
@@ -70373,12 +70401,6 @@
 /turf/open/floor/iron,
 /area/station/science/breakroom)
 "ykq" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
@@ -85004,7 +85026,7 @@ jbV
 eGN
 dGZ
 oSZ
-rYj
+oSZ
 oSZ
 bHL
 bMu
@@ -110147,7 +110169,7 @@ etJ
 sOE
 tbz
 oGZ
-cCB
+niZ
 php
 jyv
 iSm
@@ -110404,7 +110426,7 @@ uwF
 xgo
 emx
 aHG
-cCB
+gcg
 php
 mtO
 iXx
@@ -111183,7 +111205,7 @@ aZr
 gFG
 miU
 bhv
-dTR
+dUu
 ejg
 iSi
 bkx
@@ -116063,7 +116085,7 @@ hlM
 afO
 afO
 eeh
-eZA
+gvM
 diq
 qHf
 dTR
@@ -121268,7 +121290,7 @@ bbj
 uSc
 uSc
 tjL
-hEW
+vCU
 rvE
 oSZ
 oSZ
@@ -121525,7 +121547,7 @@ nUp
 vWM
 gWW
 sta
-hEW
+vCU
 rvE
 oSZ
 oSZ
@@ -121782,7 +121804,7 @@ wVr
 bKm
 rnp
 pil
-hEW
+vCU
 rvE
 oSZ
 oSZ
@@ -122039,7 +122061,7 @@ aAB
 pil
 pil
 pil
-hEW
+vCU
 rvE
 oSZ
 oSZ
@@ -122296,7 +122318,7 @@ aAB
 oSZ
 oSZ
 oSZ
-hEW
+vCU
 rvE
 oSZ
 oSZ
@@ -122553,7 +122575,7 @@ aAB
 aAB
 oSZ
 oSZ
-hEW
+vCU
 rvE
 oSZ
 oSZ
@@ -122810,7 +122832,7 @@ gmQ
 aAB
 aAB
 oSZ
-hEW
+vCU
 rvE
 oSZ
 oSZ
@@ -123067,7 +123089,7 @@ wPD
 aED
 aAB
 aAB
-hEW
+vCU
 rvE
 oSZ
 oSZ
@@ -123324,7 +123346,7 @@ bbf
 bbf
 gVU
 aAB
-hEW
+vCU
 rvE
 oSZ
 oSZ
@@ -123581,7 +123603,7 @@ wEJ
 bbf
 gjr
 aAB
-hEW
+vCU
 rvE
 oSZ
 oSZ
@@ -123838,7 +123860,7 @@ mHl
 wEJ
 aEF
 aAB
-hEW
+vCU
 rvE
 oSZ
 oSZ
@@ -124095,7 +124117,7 @@ qHB
 gMn
 aEG
 aAB
-hEW
+vCU
 hEW
 vCU
 vCU
@@ -124352,7 +124374,7 @@ qMo
 wEJ
 aEH
 aAB
-lEC
+rvE
 rvE
 oSZ
 oSZ
@@ -124609,7 +124631,7 @@ wEJ
 bbf
 gjr
 aAB
-lEC
+rvE
 rvE
 oSZ
 oSZ
@@ -124866,7 +124888,7 @@ bbf
 bbf
 sQZ
 aAB
-lEC
+rvE
 rvE
 oSZ
 oSZ
@@ -125123,7 +125145,7 @@ neZ
 aEI
 aAB
 aAB
-lEC
+rvE
 rvE
 oSZ
 oSZ
@@ -125380,7 +125402,7 @@ gmQ
 aAB
 aAB
 oSZ
-lEC
+rvE
 rvE
 oSZ
 oSZ
@@ -125637,7 +125659,7 @@ aAB
 aAB
 oSZ
 oSZ
-lEC
+rvE
 rvE
 oSZ
 oSZ
@@ -125894,7 +125916,7 @@ aAB
 oSZ
 oSZ
 oSZ
-lEC
+rvE
 rvE
 oSZ
 oSZ
@@ -126151,7 +126173,7 @@ aAB
 guT
 guT
 guT
-lEC
+rvE
 rvE
 oSZ
 oSZ
@@ -126408,7 +126430,7 @@ ovG
 bGR
 paZ
 guT
-lEC
+rvE
 rvE
 oSZ
 oSZ
@@ -126661,11 +126683,11 @@ guT
 guT
 kqN
 jRC
-fQV
+lEC
 fQV
 dFF
 lnp
-lEC
+rvE
 rvE
 oSZ
 oSZ
@@ -126919,10 +126941,10 @@ guT
 cnf
 jJA
 jGL
-fQV
-fQV
-cAL
 lEC
+lEC
+cAL
+rvE
 rvE
 oSZ
 oSZ
