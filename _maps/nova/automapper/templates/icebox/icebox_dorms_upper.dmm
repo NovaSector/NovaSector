@@ -2179,6 +2179,9 @@
 	dir = 4
 	},
 /obj/machinery/digital_clock/directional/north,
+/obj/machinery/camera/directional/north{
+	c_tag = "Dormitory North"
+	},
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "SU" = (
