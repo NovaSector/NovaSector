@@ -803,7 +803,7 @@
 	playsound(user, 'sound/items/handling/surgery/cautery2.ogg', 75, TRUE)
 
 	var/bleeding_wording = (!limb.can_bleed() ? "cuts" : "leaks")
-	user.visible_message(span_green("[user] repair some of the [bleeding_wording] on [victim]."), span_green("You repair some of the [bleeding_wording] on [victim]."))	if(prob(30))
+	user.visible_message(span_green("[user] repair some of the [bleeding_wording] on [victim]."), span_green("You repair some of the [bleeding_wording] on [victim]."))
 	var/blood_cauterized = (0.6 / (self_penalty_mult * improv_penalty_mult))
 	var/mob/victim_stored = victim
 	adjust_blood_flow(-blood_cauterized)
