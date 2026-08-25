@@ -15,7 +15,7 @@
 		var/mob/living/carbon/human/human_victim = victim
 		if(human_victim.dna.blood_type.reagent_type)
 			var/datum/reagent/blood_reagent = human_victim.dna.blood_type.reagent_type
-			noun_blood = initial(lowertext(blood_reagent.name))
+			noun_blood = initial(LOWER_TEXT(blood_reagent.name))
 	return noun_blood
 // NOVA EDIT ADDITION END
 
