@@ -3223,6 +3223,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
 /obj/effect/turf_decal/trimline/yellow/line,
 /obj/machinery/light/small/directional/south,
+/obj/machinery/camera/autoname/directional/south{
+	network = list("ss13","engine")
+	},
 /turf/open/floor/iron/telecomms,
 /area/station/tcommsat/server)
 "aQC" = (
@@ -13998,6 +14001,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
@@ -24487,6 +24491,7 @@
 /obj/effect/spawner/random/entertainment/drugs,
 /obj/effect/spawner/random/entertainment/drugs,
 /obj/structure/table,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
@@ -30179,6 +30184,14 @@
 	},
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/locker)
+"hHS" = (
+/obj/item/stack/ducts/fifty,
+/obj/structure/rack,
+/obj/machinery/camera/autoname/directional/east{
+	network = list("ss13","medbay")
+	},
+/turf/open/floor/iron/large,
+/area/station/medical/chemistry)
 "hIb" = (
 /turf/closed/wall,
 /area/station/hallway/floor4/fore)
@@ -30238,6 +30251,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 9
 	},
+/obj/machinery/camera/autoname/directional/east,
 /turf/open/floor/iron/large,
 /area/station/command/gateway)
 "hII" = (
@@ -42630,6 +42644,19 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/side,
 /area/station/security/prison)
+"kPP" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/white/line,
+/obj/effect/turf_decal/trimline/white/line{
+	dir = 1
+	},
+/obj/machinery/camera/autoname/directional/north{
+	network = list("ss13","engine")
+	},
+/turf/open/floor/iron/dark/telecomms,
+/area/station/tcommsat/server)
 "kPW" = (
 /obj/structure/grille,
 /turf/open/floor/plating,
@@ -61436,6 +61463,7 @@
 /obj/structure/chair/sofa/bench/left{
 	dir = 1
 	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/large,
 /area/station/hallway/secondary/exit/departure_lounge)
 "pvx" = (
@@ -73426,6 +73454,11 @@
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
+"syM" = (
+/obj/structure/easel,
+/obj/machinery/camera/autoname/directional/east,
+/turf/open/floor/bamboo/tatami/black,
+/area/station/commons/storage/art)
 "syP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -73922,7 +73955,7 @@
 	pixel_y = 5
 	},
 /obj/machinery/light/cold/directional/south,
-/obj/machinery/camera/autoname/directional/south{
+/obj/machinery/camera/autoname/directional/west{
 	network = list("ss13","medbay")
 	},
 /obj/machinery/firealarm/directional/west,
@@ -80126,6 +80159,7 @@
 	dir = 8
 	},
 /obj/item/storage/toolbox/emergency,
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/commons/storage/tools)
 "uhl" = (
@@ -130964,7 +130998,7 @@ kzE
 qWe
 jom
 eRe
-vKv
+hHS
 vKv
 vfV
 mrW
@@ -133788,7 +133822,7 @@ oYY
 qkL
 qkL
 qkL
-snO
+kPP
 wKg
 wKg
 wKg
@@ -273331,7 +273365,7 @@ ufW
 gIg
 czu
 xwX
-xwX
+syM
 kRw
 evI
 kRw
