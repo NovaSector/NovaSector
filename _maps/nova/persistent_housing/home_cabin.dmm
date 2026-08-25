@@ -272,7 +272,7 @@
 /turf/open/floor/wood/tile,
 /area/misc/player_home)
 "PB" = (
-/turf/closed/indestructible/rock,
+/turf/closed/wall/rock/porous,
 /area/misc/player_home)
 "Qr" = (
 /obj/structure/bed/double/pod,

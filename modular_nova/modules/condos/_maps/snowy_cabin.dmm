@@ -28,7 +28,7 @@
 "bQ" = (
 /obj/structure/flora/rock/pile/icy/style_random,
 /obj/structure/flora/grass/green/style_random,
-/turf/open/misc/snow/actually_safe,
+/turf/open/misc/snow,
 /area/misc/condo)
 "cz" = (
 /obj/structure/window/green_glass_pane,
@@ -75,7 +75,7 @@
 /turf/open/floor/stone,
 /area/misc/condo)
 "nx" = (
-/turf/open/misc/snow/actually_safe,
+/turf/open/misc/snow,
 /area/misc/condo)
 "qe" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
@@ -96,7 +96,7 @@
 /area/misc/condo)
 "rO" = (
 /obj/structure/flora/tree/pine/style_random,
-/turf/open/misc/snow/actually_safe,
+/turf/open/misc/snow,
 /area/misc/condo)
 "tB" = (
 /obj/effect/turf_decal/siding/wood{
@@ -179,7 +179,7 @@
 /turf/open/floor/stone,
 /area/misc/condo)
 "yD" = (
-/turf/closed/wall/mineral/wood,
+/turf/closed/indestructible/wood,
 /area/misc/condo)
 "zf" = (
 /obj/structure/window/green_glass_pane,
@@ -289,11 +289,11 @@
 /obj/item/clothing/head/drake_skull{
 	anchored = 1
 	},
-/turf/closed/wall/mineral/wood,
+/turf/closed/indestructible/wood,
 /area/misc/condo)
 "Lv" = (
 /obj/structure/flora/rock,
-/turf/open/misc/snow/actually_safe,
+/turf/open/misc/snow,
 /area/misc/condo)
 "Mo" = (
 /obj/structure/chair/sofa/corp/right,
@@ -319,7 +319,7 @@
 /area/misc/condo)
 "MK" = (
 /obj/structure/flora/rock/pile/icy/style_3,
-/turf/open/misc/snow/actually_safe,
+/turf/open/misc/snow,
 /area/misc/condo)
 "Nf" = (
 /obj/structure/decorative/shelf{
@@ -461,15 +461,15 @@
 /area/misc/condo)
 "Wz" = (
 /obj/structure/sign/painting/library,
-/turf/closed/wall/mineral/wood,
+/turf/closed/indestructible/wood,
 /area/misc/condo)
 "WH" = (
 /obj/structure/flora/grass/green/style_random,
-/turf/open/misc/snow/actually_safe,
+/turf/open/misc/snow,
 /area/misc/condo)
 "XF" = (
 /obj/structure/flora/rock/pile/icy/style_random,
-/turf/open/misc/snow/actually_safe,
+/turf/open/misc/snow,
 /area/misc/condo)
 "Ym" = (
 /obj/effect/turf_decal/siding/wood{

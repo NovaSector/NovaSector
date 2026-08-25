@@ -169,9 +169,6 @@
 /obj/machinery/home_saver,
 /turf/open/floor/carpet/lone,
 /area/misc/player_home)
-"re" = (
-/turf/closed/indestructible/steel,
-/area/misc/player_home)
 "rI" = (
 /obj/structure/mirror/directional/north,
 /obj/effect/turf_decal/siding/wood{
@@ -495,10 +492,6 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/misc/player_home)
-"Yo" = (
-/obj/structure/sign/painting/library,
-/turf/closed/indestructible/steel,
-/area/misc/player_home)
 "YH" = (
 /obj/structure/railing{
 	dir = 8
@@ -548,22 +541,22 @@
 /area/misc/player_home)
 
 (1,1,1) = {"
-re
-re
-Yo
-re
-re
+KD
+KD
+kp
+KD
+KD
 Ip
-re
-re
-re
-re
-re
-re
-re
+KD
+KD
+KD
+KD
+KD
+KD
+KD
 "}
 (2,1,1) = {"
-re
+KD
 wh
 Yg
 xv
@@ -575,10 +568,10 @@ Nh
 Io
 ZA
 Tz
-re
+KD
 "}
 (3,1,1) = {"
-re
+KD
 MN
 Qh
 ba
@@ -590,10 +583,10 @@ AJ
 mp
 Ve
 Vi
-re
+KD
 "}
 (4,1,1) = {"
-re
+KD
 GU
 Qh
 Qh
@@ -605,10 +598,10 @@ Ay
 Dn
 Ay
 Ay
-re
+KD
 "}
 (5,1,1) = {"
-re
+KD
 ZH
 Qh
 Hd
@@ -620,10 +613,10 @@ Ay
 Ay
 Ay
 SH
-re
+KD
 "}
 (6,1,1) = {"
-re
+KD
 yA
 lx
 wv
@@ -635,10 +628,10 @@ rO
 sh
 GK
 oX
-re
+KD
 "}
 (7,1,1) = {"
-re
+KD
 KD
 KD
 KD
@@ -650,10 +643,10 @@ KD
 KD
 KD
 KD
-re
+KD
 "}
 (8,1,1) = {"
-re
+KD
 rY
 gZ
 Zc
@@ -665,10 +658,10 @@ XI
 KD
 nL
 VB
-re
+KD
 "}
 (9,1,1) = {"
-re
+KD
 tR
 TX
 cL
@@ -680,10 +673,10 @@ iW
 kq
 um
 bj
-re
+KD
 "}
 (10,1,1) = {"
-re
+KD
 bs
 Xv
 Xv
@@ -695,10 +688,10 @@ KD
 KD
 Gq
 KD
-re
+KD
 "}
 (11,1,1) = {"
-re
+KD
 iZ
 Xn
 Xn
@@ -710,10 +703,10 @@ AH
 KD
 NE
 Zv
-re
+KD
 "}
 (12,1,1) = {"
-re
+KD
 Ro
 hp
 sZ
@@ -725,10 +718,10 @@ AH
 KD
 YH
 ix
-re
+KD
 "}
 (13,1,1) = {"
-re
+KD
 Hz
 ef
 fX
@@ -740,20 +733,20 @@ AH
 KD
 JT
 Hf
-re
+KD
 "}
 (14,1,1) = {"
-re
-re
-Yo
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
+KD
+KD
+kp
+KD
+KD
+KD
+KD
+KD
+KD
+KD
+KD
+KD
+KD
 "}

@@ -85,7 +85,7 @@
 /turf/open/floor/wood/wood_5,
 /area/misc/player_home)
 "kr" = (
-/turf/closed/indestructible/wood,
+/turf/closed/wall/mineral/wood,
 /area/misc/player_home)
 "kR" = (
 /turf/closed/indestructible/hoteldoor/fakedoor,
@@ -122,7 +122,7 @@
 /area/misc/player_home)
 "nT" = (
 /obj/structure/sign/painting/library,
-/turf/closed/indestructible/wood,
+/turf/closed/wall/mineral/wood,
 /area/misc/player_home)
 "ox" = (
 /obj/effect/turf_decal/siding/wood{
@@ -216,7 +216,7 @@
 /area/misc/player_home)
 "vO" = (
 /obj/structure/flora/rock/pile/icy/style_random,
-/turf/open/misc/snow,
+/turf/open/misc/snow/actually_safe,
 /area/misc/player_home)
 "xn" = (
 /obj/structure/bookcase/random/adult,
@@ -309,7 +309,7 @@
 /area/misc/player_home)
 "Lc" = (
 /obj/structure/flora/grass/green/style_random,
-/turf/open/misc/snow,
+/turf/open/misc/snow/actually_safe,
 /area/misc/player_home)
 "LQ" = (
 /obj/effect/overlay/water{
@@ -361,7 +361,7 @@
 /turf/open/floor/iron/freezer,
 /area/misc/player_home)
 "To" = (
-/turf/open/misc/snow,
+/turf/open/misc/snow/actually_safe,
 /area/misc/player_home)
 "Tt" = (
 /obj/structure/fireplace{
@@ -404,7 +404,7 @@
 /obj/item/clothing/head/drake_skull{
 	anchored = 1
 	},
-/turf/closed/indestructible/wood,
+/turf/closed/wall/mineral/wood,
 /area/misc/player_home)
 "UB" = (
 /obj/effect/turf_decal/siding/wood{
