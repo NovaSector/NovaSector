@@ -5,7 +5,8 @@
 	"map_file": "north_star.dmm",
 	"shuttles": {
 		"emergency": "emergency_northstar",
-		"ferry": "ferry_fancy",
+		"ferry": "ferry_nova",
+		"mining": "mining_northstar",
 		"cargo": "cargo_northstar",
 		"whiteship": "whiteship_delta"
 	},
