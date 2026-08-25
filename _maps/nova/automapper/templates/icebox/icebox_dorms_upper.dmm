@@ -462,6 +462,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
 "ik" = (
@@ -762,14 +763,12 @@
 	pixel_y = 8
 	},
 /obj/machinery/light/small/dim/directional/west,
-/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
 "oA" = (
 /obj/machinery/shower/directional/east,
 /obj/structure/drain,
 /obj/machinery/light/small/dim/directional/south,
-/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
 "oI" = (
@@ -1361,7 +1360,6 @@
 /obj/machinery/shower/directional/west,
 /obj/structure/drain,
 /obj/machinery/light/small/dim/directional/south,
-/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
 "Dc" = (
@@ -1654,7 +1652,6 @@
 /turf/open/floor/wood/wood_7,
 /area/station/commons/dorms/room5)
 "Ik" = (
-/obj/machinery/duct,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
@@ -2006,7 +2003,6 @@
 	pixel_x = -1;
 	pixel_y = 6
 	},
-/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
 "Py" = (
@@ -2059,6 +2055,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
 "PS" = (
