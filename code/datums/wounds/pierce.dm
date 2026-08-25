@@ -427,4 +427,4 @@
 
 	wound_path_to_generate = /datum/wound/pierce/bleed/critical
 
-	threshold_minimum = 100y
+	threshold_minimum = 100
