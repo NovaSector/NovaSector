@@ -3325,6 +3325,7 @@
 /turf/open/floor/engine/xenobio,
 /area/station/science/xenobiology)
 "aRz" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "aRF" = (
@@ -32207,9 +32208,8 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "ijs" = (
@@ -94544,6 +94544,7 @@
 /obj/machinery/camera/autoname/directional/south{
 	network = list("ss13","medbay")
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "xIL" = (
