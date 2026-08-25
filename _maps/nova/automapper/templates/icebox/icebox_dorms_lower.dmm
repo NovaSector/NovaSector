@@ -57,7 +57,7 @@
 /area/station/commons/lounge)
 "bq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
+	dir = 4
 	},
 /turf/open/floor/stone,
 /area/station/common/pool/sauna)
@@ -128,11 +128,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
-"dP" = (
-/obj/structure/stairs/wood,
-/obj/structure/stairs/wood,
-/turf/open/floor/wood/large,
-/area/station/commons/fitness)
 "dS" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/cable,
@@ -448,6 +443,7 @@
 /area/station/commons/fitness)
 "rq" = (
 /obj/machinery/light/directional/west,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/stone,
 /area/station/common/pool/sauna)
 "ru" = (
@@ -503,6 +499,7 @@
 "st" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/effect/landmark/start/hangover,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/large,
 /area/station/common/pool/sauna)
 "sL" = (
@@ -515,6 +512,13 @@
 /obj/effect/mapping_helpers/airalarm/all_access,
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/wood/wood_7,
+/area/station/common/pool/sauna)
+"th" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/stone,
 /area/station/common/pool/sauna)
 "to" = (
 /obj/structure/hedge,
@@ -800,13 +804,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/stone,
 /area/station/commons/lounge)
-"Gw" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/stone,
-/area/station/common/pool/sauna)
 "Hn" = (
 /turf/closed/wall/mineral/stone,
 /area/station/common/pool/sauna)
@@ -834,6 +831,7 @@
 	dir = 1
 	},
 /obj/machinery/firealarm/directional/west,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/wood/large,
 /area/station/common/pool/sauna)
 "HU" = (
@@ -1141,6 +1139,9 @@
 /turf/open/floor/wood/large,
 /area/station/common/pool/sauna)
 "Vu" = (
+/obj/structure/curtain/bounty{
+	pixel_x = -32
+	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/stone,
 /area/station/common/pool/sauna)
@@ -1191,6 +1192,7 @@
 /obj/structure/decorative/shelf{
 	pixel_y = 32
 	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/wood/large,
 /area/station/common/pool/sauna)
 "WL" = (
@@ -1387,7 +1389,7 @@ WL
 iJ
 iJ
 vK
-dP
+sL
 sL
 UJ
 tC
@@ -1614,8 +1616,8 @@ tC
 tC
 yO
 to
-cJ
-Cn
+Vu
+JC
 rq
 Zy
 cJ
@@ -1652,7 +1654,7 @@ yO
 gj
 do
 Cn
-bq
+Cn
 Zy
 eo
 JE
@@ -1669,9 +1671,9 @@ tC
 yO
 Wo
 st
-Cn
-Cn
-Zy
+eo
+eo
+th
 eo
 HB
 oj
@@ -1689,8 +1691,8 @@ VP
 un
 Cn
 Cn
-Gw
-eo
+Zy
+Cn
 pi
 sn
 QT
@@ -1708,8 +1710,8 @@ NE
 Cn
 Cn
 Zy
-Vu
-JC
+Cn
+Cn
 Xb
 Hn
 QT
@@ -1745,7 +1747,7 @@ el
 Ia
 HA
 Ce
-Cn
+bq
 aY
 zM
 QT
@@ -1763,7 +1765,7 @@ el
 Jh
 ru
 un
-Cn
+JC
 aY
 aY
 iN

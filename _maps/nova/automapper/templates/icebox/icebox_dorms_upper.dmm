@@ -1359,7 +1359,6 @@
 /area/station/commons/dorms/room7)
 "Dj" = (
 /obj/structure/cable,
-/obj/structure/cable,
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/parquet,
 /area/station/commons/dorms/room4)
