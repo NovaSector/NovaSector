@@ -47922,7 +47922,7 @@
 /area/station/hallway/floor4/fore)
 "mdJ" = (
 /obj/item/radio/intercom/directional/north,
-/obj/effect/turf_decal/tile/yellow{
+/obj/effect/turf_decal/tile/brown{
 	dir = 1
 	},
 /obj/structure/chair/sofa/bench/right,
@@ -51982,13 +51982,8 @@
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor1/port)
 "ncX" = (
-/obj/effect/turf_decal/tile/yellow{
-	dir = 8
-	},
 /obj/structure/extinguisher_cabinet/directional/west,
-/turf/open/floor/iron/dark/corner{
-	dir = 8
-	},
+/turf/open/floor/iron,
 /area/station/cargo/lobby)
 "ndc" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -93557,7 +93552,7 @@
 /turf/open/floor/engine/n2o,
 /area/station/engineering/atmos)
 "xuX" = (
-/obj/effect/turf_decal/tile/yellow{
+/obj/effect/turf_decal/tile/brown{
 	dir = 8
 	},
 /obj/machinery/camera/autoname/directional/west{
@@ -95403,7 +95398,7 @@
 /area/station/hallway/floor4/aft)
 "xRU" = (
 /obj/machinery/firealarm/directional/east,
-/obj/effect/turf_decal/tile/yellow{
+/obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
 /obj/structure/chair/sofa/bench/left,
