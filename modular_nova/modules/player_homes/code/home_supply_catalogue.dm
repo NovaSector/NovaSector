@@ -144,9 +144,6 @@
 	desc = "The plainest of the plain, but still soft and comfy."
 	manifest = list(/obj/item/stack/tile/carpet = 60)
 
-// The coloured weaves, one line each - somebody decorating a room wants the colour they asked for,
-// not an assortment. Keep them alphabetical, with the royals at the end where they belong.
-
 /datum/home_supply/flooring/carpet_black
 	name = "Carpet - Black"
 	manifest = list(/obj/item/stack/tile/carpet/black = 60)
@@ -193,6 +190,11 @@
 	name = "Fairygrass turf"
 	desc = "Odd, glowing, and blue. Lights a room on its own."
 	manifest = list(/obj/item/stack/tile/fairygrass = 60)
+
+/datum/home_supply/flooring/astral_carpet
+	name = "Astral Carpet"
+	desc = "Space without the space."
+	manifest = list(/obj/item/stack/tile/fakespace = 60)
 
 /*
  * Appliances. Machines arrive assembled - /obj/machinery/Initialize() fits the default parts off the
@@ -252,6 +254,11 @@
 	name = "Washing machine"
 	desc = "Takes the stains out, and the colours if you are careless."
 	manifest = list(/obj/machinery/washing_machine = 1)
+
+/datum/home_supply/appliances/freezer
+	name = "Freezer"
+	desc = "Cold on the inside."
+	manifest = list(/obj/structure/closet/secure_closet/freezer/empty/open = 1)
 
 /*
  * Tools.
@@ -317,6 +324,11 @@
 	name = "Bluespace light replacer"
 	desc = "Refills off glass sheets."
 	manifest = list(/obj/item/lightreplacer/blue = 1)
+
+/datum/home_supply/tools/nvg
+	name = "Night Vision Goggles"
+	desc = "For when you want to build in the dark. Remember not to weld with them on."
+	manifest = list(/obj/item/clothing/glasses/night = 1)
 
 /*
  * Restricted. The parent gates these - do not set needs_approval by hand down here.
