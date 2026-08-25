@@ -92,6 +92,7 @@
 "bt" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/fireplace,
+/obj/structure/sign/clock/directional/east,
 /turf/open/floor/stone,
 /area/station/commons/dorms/room5)
 "bv" = (
@@ -335,6 +336,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/light/directional/east,
+/obj/machinery/status_display/evac/directional/east,
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "gh" = (
@@ -417,6 +419,7 @@
 "hv" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/fireplace,
+/obj/structure/sign/clock/directional/east,
 /turf/open/floor/stone,
 /area/station/commons/dorms/room4)
 "hx" = (
@@ -439,6 +442,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
 "hG" = (
+/obj/structure/sign/poster/official/cohiba_robusto_ad/directional/south,
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "hU" = (
@@ -593,6 +597,7 @@
 /obj/structure/closet/cabinet,
 /obj/item/stack/sheet/mineral/wood/fifty,
 /obj/item/storage/box/matches,
+/obj/structure/sign/clock/directional/north,
 /turf/open/floor/stone,
 /area/station/commons/dorms/room7)
 "kN" = (
@@ -787,6 +792,7 @@
 "pe" = (
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/fireplace,
+/obj/structure/sign/clock/directional/west,
 /turf/open/floor/stone,
 /area/station/commons/dorms/room1)
 "pf" = (
@@ -940,6 +946,16 @@
 /obj/machinery/duct,
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
+"tk" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/sign/poster/official/bless_this_spess/directional/south,
+/turf/open/floor/wood/large,
+/area/station/commons/dorms)
 "tG" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/mug{
@@ -1093,9 +1109,7 @@
 /turf/open/floor/stone,
 /area/station/commons/dorms)
 "vS" = (
-/obj/structure/sign/painting/library{
-	pixel_x = -32
-	},
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/wood/large,
 /area/station/service/cafeteria)
 "wn" = (
@@ -1333,6 +1347,9 @@
 /area/station/maintenance/starboard/fore)
 "CR" = (
 /obj/structure/table/wood,
+/obj/item/storage/medkit/regular{
+	pixel_y = 3
+	},
 /turf/open/floor/carpet/red,
 /area/station/service/cafeteria)
 "CT" = (
@@ -1764,6 +1781,7 @@
 /obj/structure/closet/cabinet,
 /obj/item/stack/sheet/mineral/wood/fifty,
 /obj/item/storage/box/matches,
+/obj/structure/sign/clock/directional/north,
 /turf/open/floor/stone,
 /area/station/commons/dorms/room6)
 "Lh" = (
@@ -1920,6 +1938,7 @@
 	pixel_y = 4;
 	pixel_x = 9
 	},
+/obj/machinery/requests_console/auto_name/directional/north,
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "Oz" = (
@@ -1978,6 +1997,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/light/directional/north,
+/obj/machinery/status_display/evac/directional/north,
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "Px" = (
@@ -2151,6 +2171,16 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/station/commons/dorms/room6)
+"SL" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/digital_clock/directional/north,
+/turf/open/floor/wood/large,
+/area/station/commons/dorms)
 "SU" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
@@ -2402,6 +2432,7 @@
 	color = "#DE3A3A";
 	dir = 1
 	},
+/obj/machinery/status_display/evac/directional/south,
 /turf/open/floor/carpet/red,
 /area/station/service/cafeteria)
 "WV" = (
@@ -2536,6 +2567,7 @@
 	pixel_x = -3;
 	pixel_y = 5
 	},
+/obj/machinery/digital_clock/directional/west,
 /turf/open/floor/carpet/red,
 /area/station/service/cafeteria)
 "ZD" = (
@@ -2769,7 +2801,7 @@ FS
 Ut
 by
 gR
-es
+SL
 IX
 Ey
 Vm
@@ -2879,7 +2911,7 @@ lc
 dV
 zV
 zV
-Ea
+tk
 yS
 DG
 ry
