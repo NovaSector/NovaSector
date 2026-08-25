@@ -31,6 +31,11 @@
 /datum/techweb_node/tarkonturret //Yes. Tarkon does not start with this unlocked.
 	display_name = "Tarkon Industries Automated Turrets"
 	description = "Tarkon Industries Blackrust Salvage division's defense designs."
+	required_items_to_unlock = list(
+		/obj/item/turret_assembly/hoplite,
+		/obj/item/turret_assembly/cerberus,
+		/obj/item/target_designator,
+	)
 	prerequisite_nodes = list(/datum/techweb_node/tarkon, /datum/techweb_node/basic_arms, /datum/techweb_node/ai)
 	unlocked_designs = list(
 		/datum/design/hoplite_assembly,
