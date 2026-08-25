@@ -56,6 +56,9 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/station/common/cryopods)
+"x" = (
+/turf/open/floor/wood/large,
+/area/template_noop)
 "y" = (
 /turf/template_noop,
 /area/template_noop)
@@ -127,7 +130,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron,
+/turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "P" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -144,7 +147,7 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 4
 	},
-/turf/open/floor/iron,
+/turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "T" = (
 /obj/machinery/light/floor,
@@ -157,7 +160,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/iron,
+/turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "Z" = (
 /obj/structure/extinguisher_cabinet/directional/east,
@@ -211,7 +214,7 @@ v
 y
 "}
 (6,1,1) = {"
-y
+x
 M
 y
 y
