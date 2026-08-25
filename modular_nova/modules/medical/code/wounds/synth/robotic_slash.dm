@@ -924,7 +924,7 @@
 
 // Subtype for cleave (heretic spell)
 /datum/wound/slash/flesh/synth/critical/cleave
-	name = "Burning Interals Rupture"
+	name = "Grievous Shell Rupture"
 	examine_desc = "is ruptured, spraying internal fluid wildly"
 	clot_rate = 0.00
 
