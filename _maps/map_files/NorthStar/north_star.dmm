@@ -22381,12 +22381,6 @@
 "fKi" = (
 /turf/open/floor/iron/large,
 /area/station/engineering/gravity_generator)
-"fKr" = (
-/obj/effect/turf_decal/tile/neutral/opposingcorners{
-	dir = 8
-	},
-/turf/closed/wall/r_wall,
-/area/station/command/heads_quarters/rd)
 "fKs" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -191620,8 +191614,8 @@ rkM
 rkM
 rkM
 rkM
-fKr
-fKr
+rWT
+rWT
 rWT
 ujc
 rWT
