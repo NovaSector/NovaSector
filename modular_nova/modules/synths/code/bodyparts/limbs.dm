@@ -47,7 +47,7 @@
 	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
 	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED) // Synth bleeding
 
 	damage_examines = list(
 		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,
@@ -103,7 +103,7 @@
 	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
 	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED) // Synth bleeding
 
 	damage_examines = list(
 		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,
@@ -198,7 +198,7 @@
 	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
 	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+	biological_state = (BIO_ROBOTIC|BIO_JOINTED|BIO_BLOODED) // Synth bleeding
 
 	damage_examines = list(
 		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,
@@ -253,7 +253,7 @@
 	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
 	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+	biological_state = (BIO_ROBOTIC|BIO_JOINTED|BIO_BLOODED) // Synth bleeding
 
 	damage_examines = list(
 		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,
@@ -308,7 +308,7 @@
 	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
 	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+	biological_state = (BIO_ROBOTIC|BIO_JOINTED|BIO_BLOODED) // Synth bleeding
 
 	damage_examines = list(
 		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,
@@ -363,7 +363,7 @@
 	medium_burn_msg = SYNTH_MEDIUM_BURN_MSG
 	heavy_burn_msg = SYNTH_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+	biological_state = (BIO_ROBOTIC|BIO_JOINTED|BIO_BLOODED) // Synth bleeding
 
 	damage_examines = list(
 		BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT,

@@ -650,18 +650,16 @@
 
 
 /datum/wound_pregen_data/flesh_slash/synth
-	required_wounding_type = (WOUND_SLASH|WOUND_PIERCE)
+	required_wounding_type = (WOUND_SLASH)
 	required_limb_biostate = BIO_ROBOTIC
 	wound_series = WOUND_SERIES_SYNTH_BLEED
 	weight = 25	//they're synths. still less likely to bleed
 
 /datum/wound/slash/flesh/synth
-	var/blood_noun = get_blood_noun()
-	name = "Small [blood_noun] Leak"
+	name = "Small fluid Leak"
 	treatable_tools = list(TOOL_WELDER, TOOL_CAUTERY)
-
 	default_scar_file = METAL_SCAR_FILE
-	return bleed_amt
+
 
 /datum/wound/slash/flesh/synth/get_bleed_rate_of_change()
 	//basically if a species doesn't bleed, the wound is stagnant and will not heal on its own (nor get worse)
@@ -719,7 +717,7 @@
 		if(demotes_to)
 			replace_wound(new demotes_to)
 		else
-			to_chat(victim, span_green("The [blood_noun] leak on your [limb.plaintext_zone] has [!limb.can_bleed() ? "been repaired" : "stopped bleeding"]!"))
+			to_chat(victim, span_green("The [get_blood_noun()] leak on your [limb.plaintext_zone] has [!limb.can_bleed() ? "been repaired" : "stopped bleeding"]!"))
 			qdel(src)
 
 /datum/wound/slash/flesh/synth/on_xadone(power)
@@ -731,7 +729,7 @@
 	adjust_blood_flow(-0.050 * reac_volume) // this actually kinda makes sense
 
 /// If someone's putting a laser gun up to our cut to cauterize it
-/datum/wound/slash/flesh/synth/proc/las_cauterize(obj/item/gun/energy/laser/lasgun, mob/user)
+/datum/wound/slash/flesh/synth/las_cauterize(obj/item/gun/energy/laser/lasgun, mob/user)
 	var/self_penalty_mult = (user == victim ? 1.25 : 1)
 	user.visible_message(span_warning("[user] begins aiming [lasgun] directly at [victim]'s [limb.plaintext_zone]..."), span_userdanger("You begin aiming [lasgun] directly at [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone]..."))
 	if(!do_after(user, base_treat_time  * self_penalty_mult, target = victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
@@ -742,11 +740,11 @@
 	if(!lasgun.process_fire(victim, victim, TRUE, null, limb.body_zone))
 		return
 	victim.emote("scream")
-	victim.visible_message(span_warning("The [blood_noun] leak on [victim]'s [limb.plaintext_zone] melts into a horrific crater as the wounded limb overheats!"))
+	victim.visible_message(span_warning("The [get_blood_noun()] leak on [victim]'s [limb.plaintext_zone] melts into a horrific crater as the wounded limb overheats!"))
 	adjust_blood_flow(-1 * (damage / (5 * self_penalty_mult))) // 20 / 5 = 4 bloodflow removed, p good
 
 /// If someone is using either a cautery tool or something with heat to cauterize this cut
-/datum/wound/slash/flesh/synth/proc/tool_cauterize(obj/item/I, mob/user)
+/datum/wound/slash/flesh/synth/tool_cauterize(obj/item/I, mob/user)
 	var/improv_penalty_mult = (I.tool_behaviour == TOOL_CAUTERY ? 1 : 1.25) // 25% longer and less effective if you don't use a real cautery
 	var/self_penalty_mult = (user == victim ? 1.5 : 1) // 50% longer and less effective if you do it to yourself
 
@@ -778,7 +776,7 @@
 		try_treating(I, user)
 
 	else if(demotes_to)
-		to_chat(user, span_green("You successfully lower the severity of [user == victim_stored ? "your" : "[victim_stored]'s"] [blood_noun] leaks."))
+		to_chat(user, span_green("You successfully lower the severity of [user == victim_stored ? "your" : "[victim_stored]'s"] [get_blood_noun()] leaks."))
 
 
 
@@ -812,20 +810,20 @@
 		try_treating(I, user)
 
 	else if(demotes_to)
-		to_chat(user, span_green("You successfully lower the severity of [user == victim_stored ? "your" : "[victim_stored]'s"] [blood_noun] leaks."))
+		to_chat(user, span_green("You successfully lower the severity of [user == victim_stored ? "your" : "[victim_stored]'s"] [get_blood_noun()] leaks."))
 
 
 /datum/wound/slash/get_limb_examine_description()
-	return span_warning("The limb appears to be leaking [blood_noun].")
+	return span_warning("The limb appears to be leaking [get_blood_noun()].")
 
 /datum/wound/slash/flesh/synth/moderate
 	name = "Rough damaged plating"
-	desc = "Patient's exterior shell has been badly scraped, generating moderate [blood_noun] loss."
+	desc = "Patient's exterior shell has been badly scraped, generating moderate internal fluid loss."
 	treat_text = "Apply bandaging and solder the wound. \
-		Follow up with [blood_noun] replacement."
+		Follow up with internal fluid replacement."
 	treat_text_short = "Apply bandaging and solder."
-	examine_desc = "has a [blood_noun] leak"
-	occur_text = "is cut open, slowly leaking [blood_noun]"
+	examine_desc = "has a internal fluid leak"
+	occur_text = "is cut open, slowly leaking internal fluid"
 	sound_effect = 'sound/effects/wounds/blood1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
 	initial_flow = 1.75
@@ -835,7 +833,7 @@
 	status_effect_type = /datum/status_effect/wound/slash/flesh/moderate
 	scar_keyword = "slashmoderate"
 
-	simple_treat_text = "<b>Bandaging</b> the wound will reduce [blood_noun] loss. The wound itself can be soldered shut."
+	simple_treat_text = "<b>Bandaging</b> the wound will reduce internal fluid loss. The wound itself can be soldered shut."
 	homemade_treat_text = "A laser weapon can be used as a make-shift soldering iron. Other remedies are unnecessary."
 
 /datum/wound/slash/flesh/moderate/update_descriptions()
@@ -849,13 +847,13 @@
 
 /datum/wound/slash/flesh/synth/severe
 	name = "Lacerated Shell"
-	desc = "Patient's shell is ripped clean open, allowing significant [blood_noun] loss."
+	desc = "Patient's shell is ripped clean open, allowing significant internal fluid loss."
 	treat_text = "Swiftly apply bandaging and soldering to the wound, \
 		or make use of sealant agents or cauterization. \
-		Follow up with [blood_noun] replacements."
+		Follow up with internal fluid replacements."
 	treat_text_short = "Apply bandaging, sealant agents, or cauterization."
-	examine_desc = "has a severe [blood_noun] leak"
-	occur_text = "is ripped open, internals spurting [blood_noun]"
+	examine_desc = "has a severe internal fluid leak"
+	occur_text = "is ripped open, internals spurting internal fluid"
 	sound_effect = 'sound/effects/wounds/blood2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
 	initial_flow = 2.75
@@ -867,7 +865,7 @@
 	scar_keyword = "slashsevere"
 	surgery_states = SURGERY_SKIN_CUT | SURGERY_VESSELS_UNCLAMPED
 
-	simple_treat_text = "<b>Bandaging</b> the wound is essential, and will reduce [blood_noun] loss. Afterwards, the wound can be soldered shut, preferably while the patient is resting and/or grasping their wound."
+	simple_treat_text = "<b>Bandaging</b> the wound is essential, and will reduce internal fluid loss. Afterwards, the wound can be soldered shut, preferably while the patient is resting and/or grasping their wound."
 	homemade_treat_text = "Bed sheets can be ripped up to make <b>makeshift gauze</b>. <b>A cautery</b> can be applied directly to stem the flow. Resting and grabbing your wound will also reduce bleeding."
 
 /datum/wound_pregen_data/flesh_slash/synth/laceration
@@ -881,13 +879,13 @@
 
 /datum/wound/slash/flesh/synth/critical
 	name = "Weeping Exterior Shell Gash"
-	desc = "Patient's shell is completely torn open, along with significant damage to internals. Extreme [blood_noun] loss will lead to quick death without intervention."
+	desc = "Patient's shell is completely torn open, along with significant damage to internals. Extreme internal fluid loss will lead to quick death without intervention."
 	treat_text = "Immediately apply bandaging and soldering to the wound, \
 		or make use of sealant agents or cauterization. \
-		Follow up supervised [blood_noun] replacement."
+		Follow up supervised internal fluid replacement."
 	treat_text_short = "Apply bandaging, soldering, sealant agents, or cauterization."
-	examine_desc = "is carved down to the frame, spraying [blood_noun] wildly"
-	occur_text = "is torn open, spraying [blood_noun] wildly"
+	examine_desc = "is carved down to the frame, spraying internal fluid wildly"
+	occur_text = "is torn open, spraying internal fluid wildly"
 	sound_effect = 'sound/effects/wounds/blood3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
 	initial_flow = 3.75
@@ -899,8 +897,8 @@
 	scar_keyword = "slashcritical"
 	surgery_states = SURGERY_SKIN_OPEN | SURGERY_VESSELS_UNCLAMPED
 	wound_flags = (ACCEPTS_GAUZE | MANGLES_EXTERIOR | CAN_BE_GRASPED)
-	simple_treat_text = "<b>Bandaging</b> the wound is of utmost importance, as is seeking direct robotics attention - <b>Death</b> will ensue if treatment is delayed whatsoever, with lack of <b>[blood_noun]<b> killing the patient, thus <b>[blood_noun] replacement</b> is always recommended after treatment. This wound will not seal itself."
-	homemade_treat_text = "Bed sheets can be ripped up to make <b>makeshift gauze</b>. any source of heat can be used to solder the wound shut. Dropping to the ground and grabbing your wound will reduce [blood_noun] flow."
+	simple_treat_text = "<b>Bandaging</b> the wound is of utmost importance, as is seeking direct robotics attention - <b>Death</b> will ensue if treatment is delayed whatsoever, with lack of <b>internal fluid<b> killing the patient, thus <b>internal fluid replacement</b> is always recommended after treatment. This wound will not seal itself."
+	homemade_treat_text = "Bed sheets can be ripped up to make <b>makeshift gauze</b>. any source of heat can be used to solder the wound shut. Dropping to the ground and grabbing your wound will reduce internal fluid flow."
 
 /datum/wound/slash/flesh/synth/critical/update_descriptions()
 	if (!limb.can_bleed())
@@ -914,7 +912,7 @@
 
 /datum/wound/slash/flesh/synth/moderate/many_cuts
 	name = "Numerous Small Slashes"
-	desc = "Patient's exterior shell has numerous small slashes and cuts, generating moderate [blood_noun] loss."
+	desc = "Patient's exterior shell has numerous small slashes and cuts, generating moderate internal fluid loss."
 	examine_desc = "has a ton of small cuts"
 	occur_text = "is cut numerous times, leaving many small slashes."
 
@@ -927,7 +925,7 @@
 // Subtype for cleave (heretic spell)
 /datum/wound/slash/flesh/synth/critical/cleave
 	name = "Burning Interals Rupture"
-	examine_desc = "is ruptured, spraying [blood_noun] wildly"
+	examine_desc = "is ruptured, spraying internal fluid wildly"
 	clot_rate = 0.00
 
 /datum/wound/slash/flesh/synth/critical/cleave/update_descriptions()
