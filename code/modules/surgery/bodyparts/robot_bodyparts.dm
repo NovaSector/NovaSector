@@ -40,7 +40,7 @@
 	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED|BIO_JOINTED) // NOVA EDIT CHANGE - Synth bleeding - biological_state = (BIO_ROBOTIC|BIO_JOINTED)
 
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	disabling_threshold_percentage = 1
@@ -83,7 +83,7 @@
 	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED|BIO_JOINTED) // NOVA EDIT CHANGE - Synth bleeding - biological_state = (BIO_ROBOTIC|BIO_JOINTED)
 
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	bodypart_flags = BODYPART_UNHUSKABLE
@@ -125,7 +125,7 @@
 	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED|BIO_JOINTED) // NOVA EDIT CHANGE - Synth bleeding - biological_state = (BIO_ROBOTIC|BIO_JOINTED)
 
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	bodypart_flags = BODYPART_UNHUSKABLE
@@ -181,7 +181,7 @@
 	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC|BIO_JOINTED)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED|BIO_JOINTED) // NOVA EDIT CHANGE - Synth bleeding - biological_state = (BIO_ROBOTIC|BIO_JOINTED)
 
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	bodypart_flags = BODYPART_UNHUSKABLE
@@ -234,7 +234,7 @@
 	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED) // NOVA EDIT CHANGE - Synth bleeding - biological_state = (BIO_ROBOTIC)
 
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 	bodypart_flags = BODYPART_UNHUSKABLE
@@ -411,7 +411,7 @@
 	medium_burn_msg = ROBOTIC_MEDIUM_BURN_MSG
 	heavy_burn_msg = ROBOTIC_HEAVY_BURN_MSG
 
-	biological_state = (BIO_ROBOTIC)
+	biological_state = (BIO_ROBOTIC|BIO_BLOODED) // NOVA EDIT CHANGE - Synth bleeding - biological_state = (BIO_ROBOTIC)
 
 	damage_examines = list(BRUTE = ROBOTIC_BRUTE_EXAMINE_TEXT, BURN = ROBOTIC_BURN_EXAMINE_TEXT)
 
