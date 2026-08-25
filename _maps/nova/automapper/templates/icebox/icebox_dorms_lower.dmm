@@ -114,9 +114,6 @@
 /turf/open/floor/wood/large,
 /area/station/common/pool/sauna)
 "dL" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
 /obj/machinery/door/airlock/maintenance{
 	name = "Bar Maintenance"
@@ -276,13 +273,6 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
-"jH" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/stone,
-/area/station/commons/lounge)
 "jJ" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 10
@@ -526,13 +516,6 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/wood/wood_7,
 /area/station/common/pool/sauna)
-"th" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/wood/large,
-/area/station/commons/fitness)
 "to" = (
 /obj/structure/hedge,
 /turf/open/floor/stone,
@@ -1402,7 +1385,7 @@ rX
 Sr
 WL
 iJ
-th
+iJ
 vK
 dP
 sL
@@ -1785,7 +1768,7 @@ aY
 aY
 iN
 pu
-jH
+pu
 CU
 "}
 (29,1,1) = {"
