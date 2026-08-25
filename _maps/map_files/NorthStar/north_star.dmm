@@ -6870,9 +6870,6 @@
 /obj/effect/spawner/structure/window/reinforced/plasma,
 /turf/open/floor/plating,
 /area/station/maintenance/floor2/port)
-"bIi" = (
-/turf/closed/wall,
-/area/station/security/checkpoint/supply)
 "bIk" = (
 /obj/structure/railing/corner{
 	dir = 4
@@ -125582,7 +125579,7 @@ giD
 oSj
 qHv
 qHv
-xHA
+scv
 hbX
 nxy
 mYB
@@ -126096,7 +126093,7 @@ jLo
 ifZ
 vIi
 ybL
-xHA
+scv
 gCv
 hiD
 qtW
@@ -126352,8 +126349,8 @@ qHv
 jEn
 lgZ
 qHv
-bIi
-xHA
+qHv
+scv
 ucY
 clv
 xHA
