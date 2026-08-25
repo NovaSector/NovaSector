@@ -101,7 +101,7 @@ endmap
 
 map northstar
     votable
-    minplayers 70
+    minplayers 50
 endmap
 
 map runtimestation_minimal
