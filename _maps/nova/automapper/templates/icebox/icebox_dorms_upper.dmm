@@ -909,14 +909,11 @@
 /turf/open/floor/carpet/blue,
 /area/station/commons/dorms/room1)
 "sW" = (
-/obj/structure/closet/secure_closet/personal/wall{
-	pixel_x = -32
-	},
-/obj/structure/closet/secure_closet/personal/wall{
-	pixel_y = -32
-	},
 /obj/effect/turf_decal/tile/neutral/anticorner{
 	dir = 8
+	},
+/obj/structure/closet/secure_closet/personal/wall{
+	pixel_x = -32
 	},
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
