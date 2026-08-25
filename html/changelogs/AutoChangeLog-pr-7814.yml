@@ -1,0 +1,5 @@
+author: "Richard Blonski"
+delete-after: True
+changes:
+  - bugfix: "Tarkon items no longer show up on NanoTrasen lethes without the proper reverse engineering."
+  - bugfix: "Reversed-engineered Takron items show up only in the lethes of departments that should have access to them."
