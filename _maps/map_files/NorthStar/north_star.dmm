@@ -18939,8 +18939,8 @@
 	},
 /obj/machinery/airalarm/directional/south,
 /obj/machinery/hydroponics/constructable,
-/turf/open/floor/iron/white/smooth_corner{
-	dir = 8
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
 	},
 /area/station/cargo/miningoffice)
 "eNS" = (
@@ -27188,7 +27188,9 @@
 /obj/item/radio/intercom/directional/south,
 /obj/item/reagent_containers/cup/mortar,
 /obj/item/pestle,
-/turf/open/floor/iron/white/smooth_corner,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
 /area/station/cargo/miningoffice)
 "gUR" = (
 /obj/effect/turf_decal/trimline/blue/line{
@@ -42104,7 +42106,9 @@
 	network = list("ss13","cargo")
 	},
 /obj/machinery/hydroponics/constructable,
-/turf/open/floor/iron/white/smooth_corner,
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
+	},
 /area/station/cargo/miningoffice)
 "kHO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -46220,7 +46224,7 @@
 /area/station/maintenance/floor4/starboard/fore)
 "lJq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/white/smooth_half,
+/turf/open/floor/iron/white/smooth_edge,
 /area/station/cargo/miningoffice)
 "lJu" = (
 /mob/living/carbon/human/species/monkey{
@@ -78991,7 +78995,7 @@
 /area/station/service/bar/atrium)
 "tQf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/white/smooth_half,
+/turf/open/floor/iron/white/smooth_edge,
 /area/station/cargo/miningoffice)
 "tQk" = (
 /obj/machinery/computer/apc_control,
@@ -83702,8 +83706,8 @@
 	dir = 8
 	},
 /obj/structure/sign/poster/random/directional/south,
-/turf/open/floor/iron/white/smooth_corner{
-	dir = 8
+/turf/open/floor/iron/white/smooth_edge{
+	dir = 1
 	},
 /area/station/cargo/miningoffice)
 "vaz" = (
