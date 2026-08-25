@@ -30,6 +30,8 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/textured,
 /area/station/commons/dorms)
 "au" = (
@@ -44,6 +46,9 @@
 /area/station/maintenance/fore)
 "aA" = (
 /obj/machinery/computer/cryopod/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/template_noop)
 "aE" = (
@@ -329,6 +334,9 @@
 "gb" = (
 /obj/machinery/light/directional/east,
 /obj/machinery/status_display/evac/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "gh" = (
@@ -1121,6 +1129,9 @@
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "wY" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
 /turf/open/floor/iron,
 /area/template_noop)
 "xg" = (
@@ -1286,6 +1297,11 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
+"BF" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/template_noop)
 "BN" = (
 /obj/structure/sign/poster/contraband/calada_jelly/directional/east,
 /turf/open/floor/carpet/green,
@@ -1436,6 +1452,9 @@
 "Eg" = (
 /obj/machinery/light/directional/north,
 /obj/structure/sign/poster/timeclock_psa/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/template_noop)
 "Ey" = (
@@ -1920,6 +1939,12 @@
 /obj/structure/flora/bush/snow/style_random,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
+"OJ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/wood/large,
+/area/station/commons/dorms)
 "OP" = (
 /obj/structure/chair/sofa/corp/left{
 	dir = 1
@@ -1951,6 +1976,9 @@
 	},
 /obj/machinery/light/directional/east,
 /obj/machinery/modular_computer/preset/time_clock/directional/east,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/template_noop)
 "Pd" = (
@@ -2011,6 +2039,9 @@
 	name = "Cryopods"
 	},
 /obj/effect/landmark/navigate_destination,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "PM" = (
@@ -2732,7 +2763,7 @@ uu
 nQ
 Ng
 aA
-wY
+BF
 wY
 VV
 "}
@@ -2809,7 +2840,7 @@ Yw
 BY
 Wn
 DU
-DU
+OJ
 Dp
 Ka
 Ka
@@ -2835,7 +2866,7 @@ zV
 Ea
 HJ
 gb
-DU
+OJ
 am
 Ka
 Ka
