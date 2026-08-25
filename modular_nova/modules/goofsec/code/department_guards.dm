@@ -521,6 +521,7 @@
 	supervisors = SUPERVISOR_RD
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "SCIENCE_GUARD"
+	tgui_icon = FA_ICON_SHIELD_HEART
 
 	outfit = /datum/outfit/job/science_guard
 	plasmaman_outfit = /datum/outfit/plasmaman/science
@@ -620,6 +621,7 @@
 	supervisors = SUPERVISOR_CMO
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "ORDERLY"
+	tgui_icon = FA_ICON_SHIELD_HEART
 
 	outfit = /datum/outfit/job/orderly
 	plasmaman_outfit = /datum/outfit/plasmaman/medical
@@ -715,6 +717,7 @@
 	supervisors = SUPERVISOR_CE
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "ENGINEERING_GUARD"
+	tgui_icon = FA_ICON_SHIELD_HEART
 
 	outfit = /datum/outfit/job/engineering_guard
 	plasmaman_outfit = /datum/outfit/plasmaman/engineering
@@ -815,6 +818,7 @@
 	supervisors = SUPERVISOR_QM
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "CUSTOMS_AGENT"
+	tgui_icon = FA_ICON_SHIELD_HEART
 
 	outfit = /datum/outfit/job/customs_agent
 	plasmaman_outfit = /datum/outfit/plasmaman/cargo
@@ -907,6 +911,7 @@
 	supervisors = SUPERVISOR_HOP
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "BOUNCER"
+	tgui_icon = FA_ICON_SHIELD_HEART
 
 	outfit = /datum/outfit/job/bouncer
 	plasmaman_outfit = /datum/outfit/plasmaman/party_bouncer
