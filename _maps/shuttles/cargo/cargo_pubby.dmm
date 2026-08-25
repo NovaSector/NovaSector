@@ -12,7 +12,6 @@
 "e" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "QMUnload";
-	pixel_x = -12;
 	name = "Unloading Lever"
 	},
 /turf/open/floor/mineral/plastitanium,
@@ -68,14 +67,9 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/supply)
 "w" = (
-/obj/machinery/conveyor_switch/oneway{
-	dir = 8;
-	id = "QMLoad";
-	name = "Loading Lever";
-	pixel_x = -12;
-	pixel_y = 22
-	},
-/turf/open/floor/mineral/plastitanium,
+/obj/machinery/power/shuttle_engine/heater,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/plating,
 /area/shuttle/supply)
 "x" = (
 /obj/machinery/conveyor{
@@ -90,13 +84,21 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "A" = (
-/obj/effect/spawner/structure/window/reinforced/shuttle,
 /obj/machinery/power/shuttle_engine/heater,
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/plating,
 /area/shuttle/supply)
 "B" = (
 /obj/machinery/power/shuttle_engine/propulsion/burst/right,
 /turf/open/floor/plating/airless,
+/area/shuttle/supply)
+"X" = (
+/obj/machinery/conveyor_switch/oneway{
+	dir = 8;
+	id = "QMLoad";
+	name = "Loading Lever"
+	},
+/turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "Y" = (
 /obj/effect/mapping_helpers/airlock/access/all/supply/general,
@@ -116,17 +118,17 @@
 
 (1,1,1) = {"
 d
+a
+a
+a
+a
+r
+r
+a
+a
+a
+a
 d
-a
-a
-a
-r
-r
-a
-a
-a
-A
-c
 "}
 (2,1,1) = {"
 a
@@ -139,8 +141,8 @@ s
 s
 s
 t
-a
-t
+A
+c
 "}
 (3,1,1) = {"
 r
@@ -189,18 +191,18 @@ a
 a
 t
 x
-w
-s
-s
+f
+X
 e
+f
 g
 t
-a
-t
+w
+B
 "}
 (7,1,1) = {"
 d
-d
+a
 a
 m
 Z
@@ -208,7 +210,7 @@ r
 r
 Y
 i
+t
 a
-A
-B
+d
 "}
