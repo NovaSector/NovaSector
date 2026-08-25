@@ -97,6 +97,7 @@
 /area/station/commons/dorms/room5)
 "bv" = (
 /obj/machinery/light/directional/south,
+/obj/machinery/status_display/evac/directional/south,
 /turf/open/floor/wood/large,
 /area/station/service/cafeteria)
 "by" = (
@@ -383,7 +384,6 @@
 /obj/structure/mirror/directional/north{
 	pixel_y = 33
 	},
-/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
 "gR" = (
@@ -496,7 +496,6 @@
 "ix" = (
 /obj/machinery/shower/directional/south,
 /obj/structure/drain,
-/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
 "iy" = (
@@ -664,6 +663,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/commons/dorms)
 "lZ" = (
@@ -745,6 +745,7 @@
 /area/station/commons/toilet)
 "oq" = (
 /obj/machinery/light/directional/south,
+/obj/machinery/status_display/evac/directional/south,
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "ov" = (
@@ -785,7 +786,6 @@
 /obj/machinery/shower/directional/south,
 /obj/machinery/shower/directional/east,
 /obj/structure/drain,
-/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
 "pe" = (
@@ -885,7 +885,6 @@
 /obj/machinery/shower/directional/south,
 /obj/machinery/shower/directional/west,
 /obj/structure/drain,
-/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/station/commons/toilet)
 "rw" = (
@@ -1308,9 +1307,6 @@
 /turf/open/floor/wood/parquet,
 /area/station/commons/dorms/room6)
 "BY" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -2514,6 +2510,9 @@
 /area/icemoon/surface/outdoors/nospawn)
 "Ym" = (
 /obj/machinery/vending/coffee,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "Yr" = (
