@@ -103,10 +103,7 @@
 /obj/machinery/door/airlock/shuttle{
 	name = "Supply Shuttle Airlock"
 	},
-/obj/docking_port/mobile/supply{
-	dir = 4;
-	port_direction = 8
-	},
+/obj/docking_port/mobile/supply,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/supply)
 "Z" = (
