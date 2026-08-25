@@ -11,6 +11,7 @@
 	exp_required_type = EXP_TYPE_CREW
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "CORRECTIONS_OFFICER"
+	tgui_icon = FA_ICON_HANDS_BOUND
 
 	paycheck = PAYCHECK_CREW
 	paycheck_department = ACCOUNT_SEC

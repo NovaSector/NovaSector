@@ -140,6 +140,9 @@
 	/// How desensitized this job is to seeing death as a base - applied with the job
 	var/desensitized_base = 1.0
 
+	///If set, adds this as the job icon map (from fontawesome5)
+	var/tgui_icon
+
 /datum/job/New()
 	. = ..()
 	// NOVA EDIT START
