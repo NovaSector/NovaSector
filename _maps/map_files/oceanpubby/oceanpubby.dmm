@@ -45679,13 +45679,13 @@
 /area/station/hallway/secondary/command)
 "nVI" = (
 /obj/docking_port/stationary{
-	dwidth = 3;
-	height = 7;
-	name = "monastery";
-	shuttle_id = "monastery_shuttle_asteroid";
-	width = 6;
-	dir = 8;
-	roundstart_template = /datum/map_template/shuttle/mining/northstar
+	dwidth = 2;
+	height = 6;
+	name = "Station";
+	roundstart_template = /datum/map_template/shuttle/escape_pod/large;
+	shuttle_id = "monastery_shuttle_station";
+	width = 5;
+	dir = 8
 	},
 /turf/open/misc/beach/coast/safe_planet{
 	dir = 1
@@ -54904,6 +54904,18 @@
 /obj/effect/turf_decal/tile/blue,
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
+"rYj" = (
+/obj/docking_port/stationary{
+	dwidth = 2;
+	height = 6;
+	name = "Station";
+	roundstart_template = /datum/map_template/shuttle/escape_pod/large;
+	shuttle_id = "monastery_shuttle_station";
+	width = 5;
+	dir = 8
+	},
+/turf/open/water/beach/planet_surface,
+/area/ocean/generated/shallow)
 "rYk" = (
 /obj/structure/table,
 /obj/machinery/cell_charger{
@@ -84992,7 +85004,7 @@ jbV
 eGN
 dGZ
 oSZ
-oSZ
+rYj
 oSZ
 bHL
 bMu
