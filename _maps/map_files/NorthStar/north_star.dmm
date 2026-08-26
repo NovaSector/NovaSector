@@ -1010,6 +1010,15 @@
 "amt" = (
 /turf/closed/wall,
 /area/station/service/library/lounge)
+"amC" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/textured,
+/area/station/hallway/floor2/aft)
 "amK" = (
 /obj/machinery/door/poddoor/shutters{
 	id = "aux_base_shutters";
@@ -78163,6 +78172,15 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor4/aft)
+"tFw" = (
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured,
+/area/station/hallway/floor2/aft)
 "tFK" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 5
@@ -200150,7 +200168,7 @@ mnM
 fWa
 aBK
 vvX
-yix
+tFw
 yix
 yix
 kBX
@@ -200668,7 +200686,7 @@ dJx
 fRN
 wlZ
 mqx
-wlZ
+amC
 tUx
 ttb
 sLI
