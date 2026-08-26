@@ -37458,18 +37458,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white/herringbone,
 /area/station/medical/patients_rooms)
-"jzP" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/station/cargo/storage)
 "jzV" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
 /turf/open/floor/iron,
@@ -39099,18 +39087,6 @@
 	},
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor1/starboard)
-"jWi" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/catwalk_floor,
-/area/station/maintenance/floor1/port/fore)
 "jWm" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/effect/turf_decal/stripes/red/line,
@@ -45660,9 +45636,6 @@
 /turf/open/floor/iron/white,
 /area/station/science/lab)
 "lCG" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -118697,7 +118670,7 @@ gqU
 uOT
 hJy
 fTb
-jWi
+qAK
 dnx
 nRP
 sIv
@@ -120995,7 +120968,7 @@ jUP
 gVm
 kYR
 rIy
-jzP
+hNB
 sAI
 bXB
 npD
