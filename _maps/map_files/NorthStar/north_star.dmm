@@ -3504,9 +3504,7 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
 	},
-/obj/structure/barricade/wooden{
-	name = "wooden barricade (KEEP OUT)"
-	},
+/obj/structure/barricade/wooden/crude,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
@@ -18271,9 +18269,7 @@
 	name = "Ancient Office"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/gateway,
-/obj/structure/barricade/wooden{
-	name = "wooden barricade (KEEP OUT)"
-	},
+/obj/structure/barricade/wooden/crude,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood/large,
@@ -50671,9 +50667,7 @@
 	name = "Abandoned Hangar"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/gateway,
-/obj/structure/barricade/wooden{
-	name = "wooden barricade (KEEP OUT)"
-	},
+/obj/structure/barricade/wooden/crude,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -53468,9 +53462,7 @@
 	name = "Abandoned Ship Storage"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/gateway,
-/obj/structure/barricade/wooden{
-	name = "wooden barricade (KEEP OUT)"
-	},
+/obj/structure/barricade/wooden/crude,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -75233,9 +75225,7 @@
 /obj/machinery/door/airlock/command{
 	name = "Abandoned Bunks"
 	},
-/obj/structure/barricade/wooden{
-	name = "wooden barricade (KEEP OUT)"
-	},
+/obj/structure/barricade/wooden/crude,
 /turf/open/floor/iron,
 /area/station/maintenance/floor4/starboard)
 "sUI" = (
