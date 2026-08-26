@@ -1,4 +1,0 @@
-author: "Iajret"
-delete-after: True
-changes:
-  - bugfix: "[Nova] fixed new tram dorms related issues (disposals, firelock miss-triggering, airlock names and disconnected cafe APC)"

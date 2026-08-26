@@ -1,4 +1,0 @@
-author: "sqnztb"
-delete-after: True
-changes:
-  - bugfix: "plexagon no longer tries to draw a job icon after the name."
