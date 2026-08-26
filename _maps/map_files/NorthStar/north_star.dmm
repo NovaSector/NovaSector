@@ -3815,6 +3815,10 @@
 /obj/machinery/light/dim/directional/west,
 /turf/open/floor/carpet/red,
 /area/station/service/theater)
+"aXi" = (
+/obj/machinery/light_switch/directional/south,
+/turf/closed/wall/r_wall,
+/area/station/medical/pharmacy)
 "aXj" = (
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 4
@@ -4258,6 +4262,10 @@
 	},
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor3/port/aft)
+"bcj" = (
+/obj/machinery/light_switch/directional/west,
+/turf/open/floor/iron/large,
+/area/station/medical/chemistry)
 "bcr" = (
 /obj/item/shard,
 /turf/open/floor/iron/dark/textured,
@@ -7749,6 +7757,9 @@
 	name = "Medical Fax Machine";
 	pixel_y = 3
 	},
+/obj/machinery/light_switch/directional/south{
+	pixel_x = -8
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/office)
 "bUh" = (
@@ -9573,6 +9584,9 @@
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/camera/autoname/directional/west{
 	network = list("ss13","medbay")
+	},
+/obj/machinery/light_switch/directional/west{
+	pixel_y = -7
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/paramedic)
@@ -23612,6 +23626,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/cryo)
 "fZI" = (
@@ -33269,6 +33284,7 @@
 /area/station/science/lobby)
 "iwU" = (
 /obj/machinery/camera/autoname/directional/east,
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/wood,
 /area/station/service/kitchen/diner)
 "ixf" = (
@@ -37056,6 +37072,7 @@
 /obj/effect/turf_decal/trimline/green/filled/mid_joiner{
 	dir = 4
 	},
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/service/bar)
 "jwC" = (
@@ -43088,6 +43105,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/aft)
 "kUZ" = (
@@ -62419,6 +62437,9 @@
 "pHu" = (
 /obj/machinery/smartfridge/chemistry/virology/preloaded,
 /obj/effect/turf_decal/tile/green/opposingcorners,
+/obj/machinery/light_switch/directional/east{
+	pixel_y = -6
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
 "pHD" = (
@@ -70014,6 +70035,7 @@
 	dir = 4
 	},
 /obj/machinery/light/cold/no_nightlight/directional/west,
+/obj/machinery/light_switch/directional/west,
 /turf/open/floor/iron/dark/textured,
 /area/station/medical/virology/isolation)
 "rBU" = (
@@ -70284,6 +70306,7 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/south,
+/obj/machinery/light_switch/directional/south,
 /turf/open/floor/wood,
 /area/station/service/bar/atrium)
 "rGe" = (
@@ -79865,6 +79888,9 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/closet/l3closet/security,
 /obj/item/storage/medkit/regular,
+/obj/machinery/light_switch/directional/south{
+	pixel_x = 12
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "udn" = (
@@ -81689,6 +81715,14 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/floor2/aft)
+"uDd" = (
+/obj/effect/turf_decal/siding/wideplating_new,
+/obj/effect/turf_decal/siding/wideplating_new{
+	dir = 1
+	},
+/obj/machinery/light_switch/directional/east,
+/turf/open/floor/iron/dark/textured_half,
+/area/station/medical/medbay/central)
 "uDr" = (
 /obj/machinery/light/small/directional/north,
 /obj/effect/decal/cleanable/dirt,
@@ -84572,6 +84606,9 @@
 	pixel_x = 3;
 	pixel_y = 2
 	},
+/obj/machinery/light_switch/directional/east{
+	pixel_y = -7
+	},
 /turf/open/floor/iron/dark/small,
 /area/station/medical/storage)
 "vmr" = (
@@ -86104,6 +86141,10 @@
 /obj/effect/spawner/random/engineering/tracking_beacon,
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
+"vFn" = (
+/obj/machinery/light_switch/directional/east,
+/turf/open/floor/iron/kitchen,
+/area/station/service/kitchen)
 "vFw" = (
 /obj/machinery/camera/autoname/directional/east{
 	network = list("ss13","rd")
@@ -128683,7 +128724,7 @@ clP
 lkX
 mew
 vAA
-kOR
+bcj
 eXp
 kOR
 kOR
@@ -193437,7 +193478,7 @@ qun
 wrb
 wGY
 bap
-qHW
+aXi
 qHW
 qHW
 qHW
@@ -197041,7 +197082,7 @@ lLC
 lzb
 ipI
 jSC
-gDM
+uDd
 jna
 uMW
 kNZ
@@ -254619,7 +254660,7 @@ fAz
 gyr
 gyr
 dvB
-sFt
+vFn
 sxt
 yip
 mhO
