@@ -792,9 +792,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/floor2/aft)
 "ajg" = (
@@ -6012,7 +6009,10 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/secure_closet/security/med,
 /obj/machinery/firealarm/directional/south,
-/obj/item/restraints/handcuffs/cable/cyan,
+/obj/item/restraints/handcuffs/cable/cyan{
+	pixel_x = 1;
+	pixel_y = 4
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "bvM" = (
@@ -7588,11 +7588,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/kitchen,
 /area/station/service/kitchen)
-"bSg" = (
-/obj/structure/grille,
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/station/service/chapel/funeral)
 "bSi" = (
 /obj/machinery/door/airlock/external{
 	name = "Labor Camp Shuttle Airlock";
@@ -15605,9 +15600,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/floor2/aft)
@@ -18585,6 +18577,9 @@
 	},
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/computer/security/telescreen/med_sec/directional/north{
+	pixel_y = 36
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "eIK" = (
@@ -33807,14 +33802,6 @@
 /obj/machinery/firealarm/directional/east,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor3/starboard/fore)
-"iDz" = (
-/obj/machinery/computer/security/telescreen/cargo/directional{
-	dir = 1;
-	pixel_x = -1;
-	pixel_y = -3
-	},
-/turf/closed/wall/r_wall,
-/area/station/security/checkpoint/supply)
 "iDP" = (
 /obj/structure/cable/multilayer/multiz,
 /turf/open/floor/plating,
@@ -38279,6 +38266,10 @@
 	},
 /obj/machinery/modular_computer/preset/civilian{
 	dir = 8
+	},
+/obj/machinery/computer/security/telescreen/cargo/directional/north{
+	pixel_y = 28;
+	pixel_x = -2
 	},
 /turf/open/floor/iron/dark/side{
 	dir = 5
@@ -91741,10 +91732,6 @@
 "wVc" = (
 /obj/structure/table/reinforced,
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/computer/security/telescreen/med_sec/directional{
-	dir = 1;
-	pixel_y = 4
-	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "wVm" = (
@@ -126107,7 +126094,7 @@ ugp
 iOX
 mlD
 qHv
-iDz
+qHv
 jLo
 ifZ
 vIi
@@ -335555,10 +335542,10 @@ fVV
 fVV
 fVV
 fVV
-bSg
-bSg
-bSg
-bSg
+aiL
+aiL
+aiL
+aiL
 fVV
 iKD
 fVV
