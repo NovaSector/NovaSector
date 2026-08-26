@@ -7,6 +7,7 @@
 	supervisors = SUPERVISOR_HOP
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "BARBER"
+	tgui_icon = FA_ICON_SCISSORS
 
 	outfit = /datum/outfit/job/barber
 	plasmaman_outfit = /datum/outfit/plasmaman

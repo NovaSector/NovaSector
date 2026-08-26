@@ -31,6 +31,11 @@
 /datum/techweb_node/tarkonturret //Yes. Tarkon does not start with this unlocked.
 	display_name = "Tarkon Industries Automated Turrets"
 	description = "Tarkon Industries Blackrust Salvage division's defense designs."
+	required_items_to_unlock = list(
+		/obj/item/turret_assembly/hoplite,
+		/obj/item/turret_assembly/cerberus,
+		/obj/item/target_designator,
+	)
 	prerequisite_nodes = list(/datum/techweb_node/tarkon, /datum/techweb_node/basic_arms, /datum/techweb_node/ai)
 	unlocked_designs = list(
 		/datum/design/hoplite_assembly,
@@ -38,6 +43,7 @@
 		/datum/design/target_designator,
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS)
+	node_flags = TECHWEB_NODE_HIDDEN | TECHWEB_NODE_WIKI
 
 /datum/design/mod_plating/tarkon
 	name = "MOD Tarkon Plating"
@@ -50,6 +56,7 @@
 	)
 	research_icon_state = "tarkon-plating"
 	research_icon = 'modular_nova/master_files/icons/obj/clothing/modsuit/mod_construction.dmi'
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/arcs
 	name = "A.R.C.S Resonator"
@@ -65,6 +72,7 @@
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MINING
 	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/tarkonbsc
 	name = "Tarkon BSC Refinery Box"
@@ -78,7 +86,7 @@
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_MINING
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_CARGO
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/tarkonrcd
 	name = "Tarkon R.C.D"
@@ -95,6 +103,7 @@
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_ENGINEERING_ADVANCED
 	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_CARGO | DEPARTMENT_BITFLAG_SCIENCE
 
 /datum/design/hoplite_assembly
 	name = "Hoplite Turret Assembly"
@@ -111,6 +120,7 @@
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_WEAPONS_KITS
 	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/cerberus_assembly
 	name = "Cerberus Turret Assembly"
@@ -127,6 +137,7 @@
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_WEAPONS_KITS,
 	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 /datum/design/target_designator
 	name = "Turret Target Designator"
@@ -144,6 +155,7 @@
 	category = list(
 		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_WEAPONS_KITS,
 	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
 ///// Now we make the physical server /////
 

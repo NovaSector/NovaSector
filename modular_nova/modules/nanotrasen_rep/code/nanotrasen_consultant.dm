@@ -11,6 +11,7 @@
 	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "NANOTRASEN_CONSULTANT"
+	tgui_icon = FA_ICON_CLIPBOARD_CHECK
 
 	department_for_prefs = /datum/job_department/captain
 

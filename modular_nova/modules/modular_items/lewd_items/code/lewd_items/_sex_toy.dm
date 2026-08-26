@@ -13,6 +13,10 @@
 	/// This is to keep track of where we are stored, because sometimes we might want to know that
 	var/current_equipped_slot
 
+/// The funny things we write when certain clothg flags are removed.
+/obj/item/clothing/sextoy/create_moth_snack()
+	return null
+
 /**
  * Called after an item is placed in a lewd slot via the interaction menu. This gets called after equipped() does.
  *
