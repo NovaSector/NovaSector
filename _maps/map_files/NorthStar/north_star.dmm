@@ -6009,10 +6009,6 @@
 /obj/effect/turf_decal/bot,
 /obj/structure/closet/secure_closet/security/med,
 /obj/machinery/firealarm/directional/south,
-/obj/item/restraints/handcuffs/cable/cyan{
-	pixel_x = 1;
-	pixel_y = 4
-	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "bvM" = (
@@ -18577,9 +18573,6 @@
 	},
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/computer/security/telescreen/med_sec/directional/north{
-	pixel_y = 36
-	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "eIK" = (
@@ -38267,10 +38260,7 @@
 /obj/machinery/modular_computer/preset/civilian{
 	dir = 8
 	},
-/obj/machinery/computer/security/telescreen/cargo/directional/north{
-	pixel_y = 28;
-	pixel_x = -2
-	},
+/obj/machinery/computer/security/telescreen/cargo/directional/north,
 /turf/open/floor/iron/dark/side{
 	dir = 5
 	},
@@ -51635,20 +51625,16 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/table/reinforced,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/north,
-/obj/machinery/recharger{
-	pixel_x = -6;
-	pixel_y = 4
-	},
 /obj/item/tgui_book/manual/dsm{
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/item/book/manual/wiki/security_space_law{
-	pixel_y = 7;
-	pixel_x = 6
-	},
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 8
+	},
+/obj/item/book/manual/wiki/security_space_law{
+	pixel_y = 2;
+	pixel_x = -6
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
@@ -86712,7 +86698,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/obj/item/radio/intercom/directional/south,
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "vNq" = (
@@ -91731,7 +91717,15 @@
 /area/station/command/heads_quarters/rd)
 "wVc" = (
 /obj/structure/table/reinforced,
-/obj/machinery/airalarm/directional/north,
+/obj/machinery/computer/security/telescreen/med_sec/directional/north,
+/obj/item/restraints/handcuffs/cable/cyan{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/machinery/recharger{
+	pixel_x = -6;
+	pixel_y = 4
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "wVm" = (
