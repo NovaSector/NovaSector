@@ -1149,9 +1149,6 @@
 /obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/wood/large,
 /area/station/common/pool/sauna)
-"UJ" = (
-/turf/closed/wall,
-/area/station/commons/dorms)
 "Vn" = (
 /obj/structure/sauna_oven,
 /turf/open/floor/wood/large,
@@ -1376,8 +1373,8 @@ xO
 xO
 xO
 FL
-UJ
-UJ
+FL
+FL
 tC
 tC
 "}
@@ -1395,7 +1392,7 @@ aC
 vK
 rM
 Sd
-UJ
+FL
 tC
 tC
 "}
@@ -1413,7 +1410,7 @@ iJ
 vK
 sL
 sL
-UJ
+FL
 tC
 tC
 "}
@@ -1431,7 +1428,7 @@ II
 vK
 bX
 zx
-UJ
+FL
 tC
 tC
 "}
