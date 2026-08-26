@@ -9556,6 +9556,7 @@
 #include "modular_nova\modules\player_homes\code\_home_defines.dm"
 #include "modular_nova\modules\player_homes\code\home_admin.dm"
 #include "modular_nova\modules\player_homes\code\home_console.dm"
+#include "modular_nova\modules\player_homes\code\home_decals.dm"
 #include "modular_nova\modules\player_homes\code\home_door.dm"
 #include "modular_nova\modules\player_homes\code\home_instance.dm"
 #include "modular_nova\modules\player_homes\code\home_persistence.dm"

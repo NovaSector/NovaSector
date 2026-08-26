@@ -18,7 +18,7 @@
 #define HOME_MAX_DIMENSION 40
 
 /// What write_map() may put in a save file, minus what save_blacklist strips.
-#define HOME_SAVE_FLAGS (SAVE_TURFS | SAVE_AREAS | SAVE_OBJECTS | SAVE_MOBS | SAVE_SPACE | SAVE_ATMOS)
+#define HOME_SAVE_FLAGS (SAVE_TURFS | SAVE_AREAS | SAVE_OBJECTS | SAVE_MOBS | SAVE_SPACE | SAVE_TURF_DECALS)
 
 /// Applied to everything the save file spawns, every load. The front door takes back exactly what
 /// carries this and nothing else - the whole anti-duplication scheme.
