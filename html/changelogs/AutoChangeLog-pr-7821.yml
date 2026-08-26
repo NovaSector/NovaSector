@@ -1,0 +1,5 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "Snowglobe: removed stray labor shuttle, replaced coffee seed pack with actual beans at medbay's breakroom, connected stray air vent in front of Bar"
+  - bugfix: "[Nova] Kilostation: connected disposals at NTC office, connected Captain's office back to powergrid, clightly changed tiling in front of NTC office."
