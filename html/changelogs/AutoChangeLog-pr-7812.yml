@@ -1,4 +1,0 @@
-author: "sergeirocks100"
-delete-after: True
-changes:
-  - bugfix: "When sending messages in LOOC, AOOC, or SOOC using their respective buttons in the OOC tab, certain characters, such as single and double quotes, should no longer display as unprocessed HTML entities instead of their proper characters."
