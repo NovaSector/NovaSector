@@ -28975,7 +28975,7 @@
 	name = "Maintenance Hatch"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
-/obj/structure/barricade/wooden/snowed,
+/obj/structure/barricade/wooden/crude/snow,
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
 	},
@@ -33807,7 +33807,7 @@
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor3/starboard/fore)
 "iDz" = (
-/obj/machinery/computer/security/telescreen/cargo{
+/obj/machinery/computer/security/telescreen/cargo/directional{
 	dir = 1;
 	pixel_x = -1;
 	pixel_y = -3
@@ -86745,10 +86745,10 @@
 	},
 /obj/effect/landmark/start/orderly,
 /obj/machinery/light/cold/directional/south,
-/obj/item/radio/intercom/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/medical)
 "vNq" = (
@@ -91768,7 +91768,7 @@
 "wVc" = (
 /obj/structure/table/reinforced,
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/computer/security/telescreen/med_sec{
+/obj/machinery/computer/security/telescreen/med_sec/directional{
 	dir = 1;
 	pixel_y = 4
 	},
