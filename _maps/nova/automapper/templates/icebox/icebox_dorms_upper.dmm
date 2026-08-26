@@ -296,6 +296,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/hangover,
+/obj/structure/cable,
 /turf/open/floor/carpet/red,
 /area/station/service/cafeteria)
 "fx" = (
@@ -433,6 +434,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/service/cafeteria)
 "hF" = (
@@ -441,6 +443,7 @@
 /area/station/maintenance/fore)
 "hG" = (
 /obj/structure/sign/poster/official/cohiba_robusto_ad/directional/south,
+/obj/item/kirbyplants/organic/plant6,
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
 "hU" = (
@@ -995,6 +998,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
 	},
+/obj/structure/cable,
 /turf/open/floor/stone,
 /area/station/service/cafeteria)
 "tU" = (
@@ -1279,6 +1283,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/hangover,
+/obj/structure/sign/poster/abductor/ayy_cops/directional/south,
 /turf/open/floor/carpet/red,
 /area/station/service/cafeteria)
 "Bm" = (
@@ -2224,6 +2229,7 @@
 /obj/structure/sign/painting/large/library{
 	dir = 1
 	},
+/obj/item/kirbyplants/organic/plant20,
 /turf/open/floor/wood/parquet,
 /area/station/commons/dorms/room4)
 "Ud" = (
@@ -2366,6 +2372,8 @@
 	color = "#DE3A3A";
 	dir = 1
 	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/carpet/red,
 /area/station/service/cafeteria)
 "VE" = (
