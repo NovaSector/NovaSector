@@ -577,3 +577,15 @@
   - bugfix: When sending messages in LOOC, AOOC, or SOOC using their respective buttons
       in the OOC tab, certain characters, such as single and double quotes, should
       no longer display as unprocessed HTML entities instead of their proper characters.
+2026-08-26:
+  Iajret:
+  - bugfix: '[Nova] fixed new tram dorms related issues (disposals, firelock miss-triggering,
+      airlock names and disconnected cafe APC)'
+  - bugfix: 'Snowglobe: removed stray labor shuttle, replaced coffee seed pack with
+      actual beans at medbay''s breakroom, connected stray air vent in front of Bar'
+  - bugfix: '[Nova] Kilostation: connected disposals at NTC office, connected Captain''s
+      office back to powergrid, clightly changed tiling in front of NTC office.'
+  sqnztb:
+  - bugfix: plexagon no longer tries to draw a job icon after the name.
+  vinylspiders:
+  - spellcheck: fixes a typo in diluted regenerative jelly description
