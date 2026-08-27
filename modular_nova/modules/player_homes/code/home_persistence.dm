@@ -29,6 +29,7 @@
 	rustg_file_write(starter_text, live)
 	if(!fexists(live))
 		stack_trace("Player homes: wrote '[starter.name]' to '[live]' but nothing is there. Is the save directory writable?")
+		message_admins("Player homes: [ckey] attempted to write a home to save directory, but nothing was written. Contact a sysadmin.")
 		return FALSE
 
 	var/datum/home_instance/scratch = new()
@@ -41,9 +42,8 @@
 	log_game("[key_name(user)] filed a new home from starter '[starter.name]'.")
 	return TRUE
 
-/// Parses a .dmm off disk into a loadable template, or returns null if it isn't usable. Bad *object*
-/// paths are dropped silently by the loader, which is the graceful degradation we want; bad turf or
-/// area paths make the report unloadable, and those we refuse rather than load a room full of holes.
+/// Parses a .dmm off disk into a loadable template, or returns null if it isn't usable.
+/// Bad objects are fine, they disappear. Bad turfs are a bigger problem and it refuses the load.
 /datum/controller/subsystem/homes/proc/build_runtime_template(path, template_name)
 	if(!path || !fexists(path))
 		return null
@@ -67,8 +67,7 @@
 	candidate.keep_cached_map = TRUE // the parse is already paid for, don't make load() do it twice
 	return candidate
 
-/// Picks what to actually put in the reservation: their save, else their backup, else the starter it
-/// grew from. A player is never left standing at the terminal with nowhere to go.
+/// Picks what to actually put in the reservation: their save, else their backup, else the initial starter
 /datum/controller/subsystem/homes/proc/resolve_template(ckey, mob/user)
 	var/datum/map_template/home/candidate = build_runtime_template(home_file(ckey), "[ckey] home")
 	if(!isnull(candidate))
@@ -164,17 +163,14 @@
 	flush_pending_deliveries(home)
 	return home
 
-/// Moves every reserved turf into a freshly made /area/misc/player_home. Not optional: the area type
-/// in a save file comes off the disk, so forcing it here is what stops a home loading itself into a
-/// station area - and since the area isn't UNIQUE_AREA, it gives each loaded home its own instance.
+/// Moves every reserved turf into a freshly made /area/misc/player_home.
 /datum/controller/subsystem/homes/proc/claim_area(datum/home_instance/home)
 	var/area/misc/player_home/home_area = new
 	home_area.home = home
 	for(var/turf/reserved as anything in home.reservation.reserved_turfs)
 		reserved.change_area(get_area(reserved), home_area)
 
-/// Puts back the two fixtures a home is unusable without, rather than stranding somebody in a
-/// sealed box. Both are a last resort: the console refuses to save a home missing either.
+/// If someone manages to lose their door or their console somehow this puts them back so things continue to function.
 /datum/controller/subsystem/homes/proc/heal_home(datum/home_instance/home)
 	var/list/reserved_turfs = home.reservation.reserved_turfs
 
@@ -213,15 +209,9 @@
 	var/turf/landing = home.get_landing_turf()
 	return isnull(landing) ? null : new /obj/machinery/home_saver(landing)
 
-/**
+/*
  * Commits a home to disk with write_map() - the TGM writer the Map Export admin verb runs on - over
  * exactly the reservation's block, so what comes out is a real .dmm the ordinary loader reads back.
- *
- * SAVE_SPACE is on because several interiors are built on space and lavaland turfs; without it those
- * are written as /turf/template_noop and the room comes back full of holes. SAVE_OBJECT_PROPERTIES is
- * deliberately off - its only substantial implementation dumps an ore silo's whole stockpile into the
- * file, and leaving it off is also why closet contents don't persist. obj_blacklist applies to objects
- * only, so anything alive in the room persists; acceptable because a home is sealed.
  */
 /datum/controller/subsystem/homes/proc/save_home(datum/home_instance/home, mob/user)
 	if(isnull(home?.reservation))

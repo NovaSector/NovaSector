@@ -65,7 +65,7 @@
 /datum/map_template/home/player_save
 	name = "Filed Residence"
 
-/// Keep these alphabetical.
+/// Try to keep these alphabetical.
 
 /datum/map_template/home/apartment
 	name = "Home - Apartment"
@@ -110,13 +110,6 @@
 	blurb = "Timber walls, a stove, and a great many trees that are none of your business."
 	mappath = "_maps/nova/persistent_housing/home_cabin.dmm"
 	landing_zone_x_offset = 2
-	landing_zone_y_offset = 1
-
-/datum/map_template/home/ocean_view
-	name = "Home - Ocean View"
-	blurb = "Open water on three sides. Excellent for thinking, poor for keeping things dry."
-	mappath = "_maps/nova/persistent_housing/home_oceanview.dmm"
-	landing_zone_x_offset = 7
 	landing_zone_y_offset = 1
 
 /datum/map_template/home/snowy_cabin

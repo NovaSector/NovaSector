@@ -54,10 +54,6 @@ SUBSYSTEM_DEF(homes)
 
 	// A home is sealed. These would let its contents talk to the outside world.
 	forbidden_types = list(
-		/obj/machinery/disposal,
-		/obj/structure/disposalpipe,
-		/obj/structure/disposaloutlet,
-		/obj/machinery/mineral/ore_redemption,
 		/obj/machinery/teleport,
 		/obj/machinery/quantumpad,
 		/obj/machinery/launchpad,
@@ -166,9 +162,9 @@ SUBSYSTEM_DEF(homes)
 		qdel(reservation)
 	qdel(home)
 
-/// TRUE if this is something a home must never be allowed to swallow. One definition, because two
-/// things lean on it: unloading pushes these back out to the terminal, and the waste compactor
-/// refuses to destroy them. They must not drift apart.
+/// TRUE if this is something a home must never be allowed to swallow.
+/// Two things lean on it: unloading pushes these back out to the terminal,
+/// and the waste compactor refuses to destroy them.
 /datum/controller/subsystem/homes/proc/is_round_critical(atom/movable/thing)
 	return is_type_in_list(thing, eject_blacklist) || HAS_TRAIT(thing, TRAIT_CONTRABAND)
 

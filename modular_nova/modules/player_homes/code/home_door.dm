@@ -2,27 +2,14 @@
  * The front door: the way out of a home, and the choke point the closed economy is enforced at. It
  * is a turf, so it cannot be dragged - taking it down hands the player a flat pack, and using that
  * on a wall hangs it elsewhere. Both are marked TRAIT_HOME_FURNISHING, so neither can be walked out.
+ *
+ * We subtype it off the condo fake door for ease of use.
  */
 
-/// Subtyped off the condo fake door for the floor underlay that makes it read as a real doorway.
 /turf/closed/indestructible/hoteldoor/fakedoor/player_home
 	name = "home door"
 	desc = "The front door of a private residence. Anything the residence owns stays on this side of it."
 	floor_to_copy = /turf/open/floor/wood
-	/*
-	 * /turf/closed/indestructible sets baseturfs to /turf/open/indestructible/plating,
-	 * which is right for a wall nobody is ever meant to get through and wrong for this one - taking the
-	 * door down is a supported thing a player does from the console.
-	 *
-	 * ChangeTurf() carries the OLD turf's baseturfs onto the new one unless it is handed a replacement,
-	 * so an indestructible baseturf here does not stop at the door: uninstall_door() hands it to the
-	 * wall left behind, and the first time the player deconstructs that wall they are left standing on
-	 * indestructible plating, which no tool, RCD or RTD will touch. That is an admin call-out on a tile
-	 * they are allowed to dig up.
-	 *
-	 * A door hung by a player still inherits whatever their own wall had, which is what we want; this
-	 * only sets the floor under a door that was mapped into a starter or came back off a save file.
-	 */
 	baseturfs = /turf/open/floor/plating
 	/// What to put back underneath if this door is ever taken down. Set when a player hangs one;
 	/// the default here covers doors that came with a starter interior and were never moved.
@@ -35,10 +22,9 @@
 	. += NAMEOF(src, replaced_type)
 	return .
 
-/**
+/*
  * Turfs keep their signal registrations when their type changes. ChangeTurf() copies them onto the
- * replacement deliberately, and says so in capitals: "Turfs DO NOT lose their signals when they get
- * replaced, REMEMBER THIS".
+ * replacement deliberately.
  *
  * Both /turf/closed/wall and the hotel door call register_context(), so any turf that has been
  * either leaves a live COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM behind when it becomes something
@@ -51,8 +37,6 @@
 	target.UnregisterSignal(target, COMSIG_ATOM_REQUESTING_CONTEXT_FROM_ITEM)
 	target.flags_1 &= ~HAS_CONTEXTUAL_SCREENTIPS_1
 
-/// Door being taken down or emptied out. Only this subtype needs the override; condo and hotel doors
-/// are never changed into anything else.
 /turf/closed/indestructible/hoteldoor/fakedoor/player_home/ChangeTurf(path, list/new_baseturfs, flags)
 	clear_home_screentip_context(src)
 	return ..()
@@ -82,7 +66,7 @@
 		return
 	home.evict(user)
 
-/// A front door in a flat pack. Only exists between a player taking one down and hanging it again.
+/// When you tell the console you want to move your door, you get a flatpacked door. Makes perfect sense.
 /obj/item/home_door_kit
 	name = "flat-packed front door"
 	desc = "A front door, disassembled and bundled for carrying. Use it on any wall inside your \
@@ -126,14 +110,10 @@
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS
 
-/// Turns a wall into this home's front door, remembering the wall so it can be put back. Pure
-/// mechanism - the caller owns every "is this yours, does it lead anywhere" question, which is what
-/// lets the loader fit a door with no player involved.
+/// Turns a wall into this home's front door, remembering the wall so it can be put back if needed.
 /datum/home_instance/proc/hang_door(turf/closed/target_wall)
 	var/replacing = target_wall.type
-	// The wall registered a screentip context and the door is about to register its own onto the same
-	// turf datum. Clear the wall's first - the mirror of what the door's ChangeTurf() does on the way
-	// back out.
+	// The wall registered a screentip context and the door is about to register its own onto the same turf datum.
 	clear_home_screentip_context(target_wall)
 	var/turf/closed/indestructible/hoteldoor/fakedoor/player_home/hung = target_wall.ChangeTurf(/turf/closed/indestructible/hoteldoor/fakedoor/player_home)
 	if(isnull(hung))

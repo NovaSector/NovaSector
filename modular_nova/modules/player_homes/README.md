@@ -239,6 +239,16 @@ There is deliberately **no guest list and nothing written to disk**. A standing 
 owners have to police, and it lets somebody wander your rooms on the strength of a yes you gave three
 rounds ago. A knock costs one click and is always about right now.
 
+An owner who does not want callers can switch **Callers** off under Fittings on their console. That
+takes them off the terminal's door list entirely — nobody can knock, and the refusal is indistinguishable
+from their being out, so a stale window is not a way to tell "away" from "in, and ignoring you". Guests
+already inside are left where they are; this only refuses new callers.
+
+Unlike the lighting and gravity, it is **not** written to the sidecar. It lives on the loaded instance
+and lasts only as long as the home is standing — walk out and back in and the door answers again. A
+"do not disturb" left set from three rounds ago is a door nobody can knock at for reasons its owner no
+longer remembers.
+
 The host has to be **online and in their own home**. You cannot knock at an empty house: admission is
 one-time and granted in the moment, so a host answering from the far side of the station would be
 letting somebody into rooms they are not in — which is the standing-access model this deliberately
@@ -265,7 +275,7 @@ it, unbolt anything, or file requisitions against it.
 | `_home_defines.dm` | Defines, config entries, the reservation type, and the starter template list |
 | `home_subsystem.dm` | Template registry, loaded homes, the blacklists, the sidecar |
 | `home_persistence.dm` | Filing a new home, parse → reserve → load → force area → self-heal → mark contents, and `write_map()` with verify-before-commit and backup rotation |
-| `home_instance.dm` | One loaded home: the closed-economy strip, lighting and gravity, and its area |
+| `home_instance.dm` | One loaded home: the closed-economy strip, the room settings, and its area |
 | `home_door.dm` | The front door, and taking it down to hang it elsewhere |
 | `home_terminal.dm` | The cafe pad, and knocking at somebody else's door |
 | `home_console.dm` | The console inside: saving, settings, requisitions |

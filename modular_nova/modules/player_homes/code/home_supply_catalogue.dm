@@ -7,29 +7,24 @@
  * name, so preload_supply_catalogue() skips them, and a whole category can be renamed or reordered
  * in one place. Put a new line under the parent it belongs to and there is nothing else to do.
  *
- * REMEMBER: everything a pod delivers is marked TRAIT_HOME_FURNISHING and can never leave the
- * residence. That is what makes the free tier safe, not restraint in what gets listed here - weigh a
- * new line against that, rather than against how expensive it looks.
  */
 
-/// Raw sheet goods, and the two stacks every build needs.
+/// Raw material sheets.
 /datum/home_supply/structural
 	category = "Structural"
 	category_order = 10
 
-/// The warm materials: timber, textiles, and what you make screens and soft furnishings out of.
-/// Kept to one short word because the console renders these as a tab strip - a long label squeezes
-/// every other tab.
+/// Wood, bamboo, cloth, paper, etc.
 /datum/home_supply/organic
 	category = "Organics"
 	category_order = 20
 
-/// Anything that goes down as a floor.
+/// Carpet, grass, etc.
 /datum/home_supply/flooring
 	category = "Flooring"
 	category_order = 30
 
-/// Fixtures and machines that arrive built rather than as material.
+/// Fixtures and machines that arrive built.
 /datum/home_supply/appliances
 	category = "Appliances"
 	category_order = 40
@@ -202,7 +197,7 @@
  * /area/misc/player_home is requires_power = FALSE
  *
  * The autolathe is restricted and needs approval since it can, y'know, print stuff and should only
- * Really be used for setting up a home. Not for keeping once the home is done. Small TODO.
+ * Really be used for setting up a home. Not for keeping once the home is done. TODO.
  */
 
 /datum/home_supply/appliances/compactor
@@ -339,7 +334,7 @@
 	desc = "Requires approval."
 	manifest = list(/obj/item/stack/sheet/bluespace_crystal = 5)
 
-/**
+/*
  * Filed here because it is the one appliance that could break the closed economy, not because it is
  * expensive. An autolathe turns sheets into items, and the items it prints are born WITHOUT
  * TRAIT_HOME_FURNISHING - including sheets. Feed it the plasteel and gold this catalogue hands out

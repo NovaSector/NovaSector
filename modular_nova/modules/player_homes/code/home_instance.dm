@@ -28,6 +28,9 @@
 	/// FALSE floats the whole residence.
 	var/gravity = TRUE
 
+	/// FALSE takes the owner off the terminal's door list entirely, so nobody can knock.
+	var/accepts_knocks = TRUE
+
 /datum/home_instance/Destroy(force)
 	if(!isnull(reservation))
 		reservation.home = null
@@ -69,7 +72,7 @@
 		return get_turf(console)
 	return get_landing_turf()
 
-/// The home's exit door. Every interior needs one; loading self-heals if a save has lost it.
+/// The home's exit door. Every interior needs one; loading self-heals if a save has lost it somehow.
 /datum/home_instance/proc/find_door()
 	if(isnull(reservation))
 		return null

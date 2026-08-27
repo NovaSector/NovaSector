@@ -1,15 +1,7 @@
 /*
  * Requisitions: getting building materials into a home without an admin having to be involved. The
  * console calls down a drop pod of materials or tools on a cooldown. Almost everything ships
- * straight away; only bluespace crystals, and written requests for things the catalogue does not
- * carry, go to the admins with approve and deny buttons.
- *
- * IMPORTANT: everything a pod delivers is marked TRAIT_HOME_FURNISHING, so it can never be carried
- * out of the residence. That is what makes the no-approval tier safe to hand out freely - not one
- * sheet of it can reach the round's economy. A delivery path that skips mark_delivery() would turn
- * this into a free materials printer.
- *
- * The catalogue itself is in home_supply_catalogue.dm. Nothing here needs to know what is in it.
+ * straight away, but anything flagged as needing approval will require an admin to intervene.
  */
 
 /// One line in the requisition catalogue.

@@ -74,6 +74,7 @@
 		"brightness" = home.brightness,
 		"lamp_color" = home.lamp_color,
 		"gravity" = home.gravity,
+		"accepts_knocks" = home.accepts_knocks,
 		"has_backup" = fexists(SShomes.home_file(home.owner_ckey, "home_backup.dmm")),
 		"max_brightness" = HOME_BRIGHTNESS_MAX,
 		"supply_cooldown" = SShomes.supply_cooldown_remaining(home.owner_ckey) / 10,
@@ -125,6 +126,10 @@
 			home.gravity = !home.gravity
 			home.apply_gravity()
 			return TRUE
+		if("toggle_knocking")
+			home.accepts_knocks = !home.accepts_knocks
+			balloon_alert(user, home.accepts_knocks ? "door answering" : "door ignoring")
+			return TRUE
 		if("requisition")
 			request_catalogue_line(home, user, params["name"])
 			return TRUE
@@ -168,14 +173,13 @@
 		SShomes.request_supplies(home, user, entry)
 		return
 
-/**
+/*
  * A bin that destroys what is put in it. A home is sealed, so the junk that accumulates in one -
  * packaging a delivery came in, sheets left over from a build, whatever a guest dropped - has
  * nowhere else to go. Alt-click compacts the contents.
  *
  * It refuses anything alive, and anything release_home() would push back out to the terminal, at
- * ANY depth. A home is deliberately not allowed to become a black hole for the round's objectives,
- * and a bin that ate a nuke disk stuffed inside a backpack would be exactly that with extra steps.
+ * ANY depth. A home is deliberately not allowed to become a black hole for the round's objectives.
  */
 /obj/structure/closet/crate/bin/home_compactor
 	name = "domicile waste compactor"
@@ -187,9 +191,7 @@
 	. += span_notice("Alt-click to compact everything inside. Right-click it with a wrench to unbolt it.")
 	. += span_warning("It will not take anything alive, or anything the round might still need.")
 
-/// Closets already anchor and unanchor on a right-click wrench, and the bin inherits that ungated -
-/// which would let a guest shove the owner's compactor around. Gate it the way the console is gated
-/// and otherwise leave the stock behaviour alone; anchored rides along in the save either way.
+/// Limit anchors/unanchors of the bin to the owner.
 /obj/structure/closet/crate/bin/home_compactor/wrench_act_secondary(mob/living/user, obj/item/tool)
 	var/datum/home_instance/home = get_home_of(src)
 	if(!isnull(home) && !home.is_owner(user))
@@ -197,8 +199,7 @@
 		return TRUE
 	return ..()
 
-/// Everything inside that the compactor is willing to destroy. Recomputed rather than remembered,
-/// since the wait gives people time to reach back in.
+/// Everything inside that the compactor is willing to destroy.
 /obj/structure/closet/crate/bin/home_compactor/proc/compactable()
 	var/list/doomed = list()
 	for(var/atom/movable/binned as anything in contents)

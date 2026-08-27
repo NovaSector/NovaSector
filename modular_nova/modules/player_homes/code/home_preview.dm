@@ -1,8 +1,6 @@
 /*
  * Home previews for the cafe terminal. A home's picture is rendered at save time, while the rooms
- * are loaded and we are already paying for a write_map() pass, then cached next to the save as a
- * .png. That ordering is the only workable one: the terminal shows a player their home *before* they
- * step into it, when there is nothing loaded to photograph on demand.
+ * are loaded and we are already paying for a write_map() pass, then cached next to the save as a png.
  */
 
 /// Longest side, in pixels, a preview may have. Bigger rooms get scaled down to fit the UI.
@@ -12,12 +10,10 @@
 /proc/skip_turf_in_render(turf/check)
 	return isspaceturf(check) || isopenspaceturf(check) || istype(check, /turf/cordon)
 
-/**
+/*
  * Flattens a loaded reservation into a clean top-down picture: floors first, then movables in layer
  * order. Lighting and parallax planes are excluded by going through getFlatIcon() per atom rather
- * than screen-grabbing - those planes are what turn a picture like this into garbage.
- *
- * Mobs are skipped: the render happens while the owner is standing at their own console.
+ * than screen-grabbing. Mobs get skipped.
  */
 /proc/flat_render_reservation(datum/turf_reservation/reservation)
 	var/turf/bottom_left = reservation?.bottom_left_turfs[1]
@@ -78,8 +74,7 @@
 	var/datum/asset/home_preview/cached = preview_assets[ckey]
 	if(!isnull(cached))
 		return cached
-	// The picture's hash goes in the asset name, so a client is never served the cached picture of a
-	// home that has since been rearranged.
+	// The picture's hash goes in the asset name, so a client is never served the cached picture of a home that has since been rearranged.
 	var/hash = rustg_hash_file(RUSTG_HASH_MD5, path)
 	if(!hash)
 		return null
@@ -87,8 +82,7 @@
 	preview_assets[ckey] = cached
 	return cached
 
-/// Throws away a player's cached picture and its asset, so the terminal never shows a preview of a
-/// home that has been demolished.
+/// Throws away a player's cached picture and its asset, so the terminal never shows a preview of a home that has been demolished.
 /datum/controller/subsystem/homes/proc/forget_preview(ckey)
 	var/datum/asset/home_preview/stale = preview_assets[ckey]
 	if(!isnull(stale))
@@ -96,16 +90,13 @@
 		preview_assets -= ckey
 	fdel(home_file(ckey, "home_preview.png"))
 
-/// One player's home preview. Instanced per ckey rather than fetched with get_asset_datum(), since
-/// the picture differs for every player. abstract_type keeps SSassets from trying to instantiate it
-/// as a normal round-start asset.
+/// One player's home preview. Instanced per ckey.
+/// abstract_type keeps SSassets from trying to instantiate it as a normal round-start asset.
 /datum/asset/home_preview
 	abstract_type = /datum/asset/home_preview
 	var/asset_name
 
 /datum/asset/home_preview/New(name, path)
-	// Deliberately not calling parent: /datum/asset/New() claims GLOB.asset_datums[type], a singleton
-	// registry a per-player asset has no business writing itself into.
 	if(!name || !path)
 		return
 	asset_name = name

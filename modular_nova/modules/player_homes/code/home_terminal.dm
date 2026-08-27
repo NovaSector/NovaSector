@@ -157,17 +157,12 @@
 	to_chat(user, span_notice("The registry demolishes your residence. Pick a new plan from the terminal."))
 
 /*
- * Visiting somebody else's home: entirely by knocking, and entirely one-time. Nothing is remembered,
- * so stepping back out means knocking again. A permanent guest list is a thing owners have to police,
- * and it lets somebody wander your rooms on the strength of a yes you gave three rounds ago.
- *
- * A guest needs no special handling once inside - the closed economy stops them carrying a host's
- * furnishings out, and is_owner() gates the console.
+ * Visiting somebody else's home, done by knocking via the terminal.
  */
 
-/// Everyone whose door there is any point knocking at: online, and currently in their own home. You
-/// cannot knock at an empty house, since admission is granted in the moment and a host answering
-/// from across the station would be letting somebody into rooms they are not in.
+/// Everyone whose door there is any point knocking at: online, currently in their own home, and
+/// answering callers. You cannot knock at an empty house, since admission is granted in the moment
+/// and a host answering from across the station would be letting somebody into rooms they are not in.
 ///
 /// Hosts are identified to the client by a mob ref, never by ckey - a player should not learn who is
 /// behind a character from a door list.
@@ -177,7 +172,8 @@
 		if(!online.ckey || (online.ckey == visitor?.ckey))
 			continue
 		var/mob/host_mob = online.mob
-		if(isnull(host_mob) || isnull(active_homes[online.ckey]))
+		var/datum/home_instance/host_home = active_homes[online.ckey]
+		if(isnull(host_mob) || isnull(host_home) || !host_home.accepts_knocks)
 			continue
 		hosts += list(list(
 			"ref" = REF(host_mob),
@@ -197,7 +193,8 @@
 /// staring at a frozen terminal while the host makes up their mind.
 /datum/controller/subsystem/homes/proc/knock(mob/visitor, owner_ckey, obj/machinery/home_terminal/terminal)
 	var/client/host = GLOB.directory[owner_ckey]
-	if(isnull(host) || isnull(host.mob) || isnull(active_homes[owner_ckey]))
+	var/datum/home_instance/home = active_homes[owner_ckey]
+	if(isnull(host) || isnull(host.mob) || isnull(home) || !home.accepts_knocks)
 		to_chat(visitor, span_warning("Nobody is answering."))
 		return FALSE
 

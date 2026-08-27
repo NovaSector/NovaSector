@@ -29,6 +29,7 @@ type Data = {
   brightness: number;
   lamp_color: string;
   gravity: boolean;
+  accepts_knocks: boolean;
   has_backup: boolean;
   max_brightness: number;
   supply_cooldown: number;
@@ -187,7 +188,7 @@ const Lighting = (props) => {
 /** The things a player can physically move or switch off. */
 const Fittings = (props) => {
   const { act, data } = useBackend<Data>();
-  const { door_hung, bolted, gravity } = data;
+  const { door_hung, bolted, gravity, accepts_knocks } = data;
 
   return (
     <Section title="Fittings">
@@ -199,6 +200,20 @@ const Fittings = (props) => {
             onClick={() => act('toggle_gravity')}
           >
             {gravity ? 'On' : 'Off'}
+          </Button>
+        </LabeledList.Item>
+        <LabeledList.Item label="Callers">
+          <Button
+            icon={accepts_knocks ? 'bell' : 'bell-slash'}
+            selected={accepts_knocks}
+            tooltip={
+              accepts_knocks
+                ? 'Anyone at a terminal can knock while you are home.'
+                : 'Takes you off the terminal list. Guests already inside stay put, and the door answers again next time you come home.'
+            }
+            onClick={() => act('toggle_knocking')}
+          >
+            {accepts_knocks ? 'Answering knocks' : 'Not answering'}
           </Button>
         </LabeledList.Item>
         <LabeledList.Item label="Front door">
@@ -280,7 +295,7 @@ const Requisitions = (props) => {
           {catalogue
             .filter((entry) => entry.category === shown)
             .map((entry) => (
-              <Stack key={entry.name} align="center" mb={0.5}>
+              <Stack key={entry.name} align="center" mb={0.5} zebra>
                 <Stack.Item grow>
                   {entry.name}
                   {!!entry.needs_approval && (
