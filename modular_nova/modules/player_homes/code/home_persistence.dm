@@ -138,6 +138,7 @@
 	if(disposable_template && isnum(metadata["landing_x"]) && isnum(metadata["landing_y"]))
 		home.landing_x = metadata["landing_x"]
 		home.landing_y = metadata["landing_y"]
+		home.landing_pinned = !!metadata["landing_pinned"]
 	else
 		home.landing_x = template.landing_zone_x_offset
 		home.landing_y = template.landing_zone_y_offset

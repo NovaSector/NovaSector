@@ -44,7 +44,46 @@
 /turf/closed/indestructible/hoteldoor/fakedoor/player_home/examine(mob/user)
 	. = ..()
 	. += span_info("Alt-Click to look through the peephole.")
+	var/datum/home_instance/home = get_home_of(src)
+	if(home?.is_owner(user))
+		. += span_info("Ctrl-Click while standing where you would rather arrive to make that tile your landing spot. \
+			Ctrl-Click again from that same tile to hand the choice back to the door.")
 	. += span_notice("The registry console can take it down and hand it to you, if you would rather it were somewhere else.")
+
+/turf/closed/indestructible/hoteldoor/fakedoor/player_home/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	var/datum/home_instance/home = get_home_of(src)
+	if(home?.is_owner(user))
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = home.landing_pinned ? "Move landing spot" : "Set landing spot"
+	return CONTEXTUAL_SCREENTIP_SET
+
+/*
+ * Where an arriving player is put down. It normally follows the door, but this makes for
+ * awkward moments when you make a smaller house using your space and suddenly you're dumped outside.
+ * Ctrl-click to set your landing point instead.
+ */
+/turf/closed/indestructible/hoteldoor/fakedoor/player_home/click_ctrl(mob/user)
+	var/datum/home_instance/home = get_home_of(src)
+	if(isnull(home))
+		return ..() // orphaned door in some other context - let the condo handler have it
+	if(!home.is_owner(user))
+		balloon_alert(user, "not your residence!")
+		return CLICK_ACTION_BLOCKING
+
+	var/turf/standing = get_turf(user)
+	// Clicking from the tile they already chose means they want it back on automatic.
+	if(home.landing_pinned && (standing == home.get_landing_turf()))
+		home.clear_landing_spot()
+		balloon_alert(user, "landing spot cleared")
+		to_chat(user, span_notice("Arrivals go back to whichever tile the front door opens onto. Save from the console to keep it that way."))
+		return CLICK_ACTION_SUCCESS
+
+	if(!home.set_landing_spot(standing))
+		balloon_alert(user, "can't arrive there!")
+		return CLICK_ACTION_BLOCKING
+	balloon_alert(user, "landing spot set")
+	to_chat(user, span_notice("You will arrive on this tile from now on. Save from the console to keep it."))
+	return CLICK_ACTION_SUCCESS
 
 /turf/closed/indestructible/hoteldoor/fakedoor/player_home/promptExit(mob/living/user)
 	if(!isliving(user) || !user.mind)
@@ -121,9 +160,31 @@
 	hung.replaced_type = replacing
 	hung.parentSphere = parent_terminal
 	ADD_TRAIT(hung, TRAIT_HOME_FURNISHING, HOME_FURNISHING_TRAIT)
-	// You arrive through the front door, so where the door is *is* where you arrive.
-	move_landing_to_doorstep(hung)
+	// You arrive through the front door, so where the door is *is* where you arrive - unless the
+	// owner has picked a spot by hand, which the door does not get to overrule.
+	if(!landing_pinned)
+		move_landing_to_doorstep(hung)
 	return hung
+
+/// Pins the landing spot to a turf the owner picked, rather than letting it trail the front door.
+/// Returns FALSE if the turf is no good to arrive on, leaving the old spot alone.
+/datum/home_instance/proc/set_landing_spot(turf/target)
+	if(isnull(reservation) || isnull(target) || target.density)
+		return FALSE
+	if(!(target in reservation.reserved_turfs))
+		return FALSE
+	var/turf/bottom_left = reservation.bottom_left_turfs[1]
+	if(isnull(bottom_left))
+		return FALSE
+	landing_x = target.x - bottom_left.x
+	landing_y = target.y - bottom_left.y
+	landing_pinned = TRUE
+	return TRUE
+
+/// Hands the landing spot back to the front door.
+/datum/home_instance/proc/clear_landing_spot()
+	landing_pinned = FALSE
+	move_landing_to_doorstep(find_door())
 
 /// Points the landing spot at an open tile beside the given door, in the 0-based offset form the
 /// sidecar stores. Left alone if the door has nothing open beside it: get_landing_turf() copes with

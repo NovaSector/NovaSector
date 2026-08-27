@@ -16,6 +16,9 @@
 	/// Landing spot, as a 0-based offset from the reservation's bottom-left turf.
 	var/landing_x = 1
 	var/landing_y = 1
+	/// TRUE once the owner has picked the landing spot by hand. Moving the door stops moving the
+	/// landing spot after that: their choice outranks whatever tile the door happens to open onto.
+	var/landing_pinned = FALSE
 	/// When this home was last written to disk, for the exit prompt. Null if it never has been.
 	var/last_saved
 

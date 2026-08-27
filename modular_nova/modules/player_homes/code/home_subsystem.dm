@@ -109,6 +109,7 @@ SUBSYSTEM_DEF(homes)
 		"starter" = home.starter_name,
 		"landing_x" = home.landing_x,
 		"landing_y" = home.landing_y,
+		"landing_pinned" = home.landing_pinned,
 		"saved_at" = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss", TIMEZONE_UTC),
 		"saved_by_name" = saver?.real_name,
 		"object_count" = object_count,
