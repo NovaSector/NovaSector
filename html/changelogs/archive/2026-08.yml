@@ -589,3 +589,7 @@
   - bugfix: plexagon no longer tries to draw a job icon after the name.
   vinylspiders:
   - spellcheck: fixes a typo in diluted regenerative jelly description
+2026-08-27:
+  Hollandasie:
+  - image: Resprited the nurse outfit and hat
+  - code_imp: Code tweaks to the nurse outfits
