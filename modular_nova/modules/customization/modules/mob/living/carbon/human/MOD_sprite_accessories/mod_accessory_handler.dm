@@ -23,14 +23,56 @@
 
 	return icon(special_icon)
 
-/// Is this accessory currently under an active hardlight MOD overlay? Used for determining if we should apply a mod overlay to a bodypart
+/// Checks that this accessory should be affected by a hardlight MOD overlay.
+/// The default behavior is to check for an active MOD and the chestplate being deployed.
 /datum/sprite_accessory/proc/mod_overlay_active(mob/living/carbon/human/wearer)
-	if(!istype(wearer?.wear_suit, /obj/item/clothing/suit/mod))
-		return FALSE
-	var/obj/item/mod/control/modsuit_control = wearer.back
+	return has_active_mod_and_chestplate(wearer)
+
+/datum/sprite_accessory/ears/mod_overlay_active(mob/living/carbon/human/wearer)
+	return has_active_mod_and_helmet(wearer)
+
+/datum/sprite_accessory/horns/mod_overlay_active(mob/living/carbon/human/wearer)
+	return has_active_mod_and_helmet(wearer)
+
+/datum/sprite_accessory/skrell_hair/mod_overlay_active(mob/living/carbon/human/wearer)
+	return has_active_mod_and_helmet(wearer)
+
+/datum/sprite_accessory/antenna/mod_overlay_active(mob/living/carbon/human/wearer)
+	return has_active_mod_and_helmet(wearer)
+
+/datum/sprite_accessory/moth_antennae/mod_overlay_active(mob/living/carbon/human/wearer)
+	return has_active_mod_and_helmet(wearer)
+
+/datum/sprite_accessory/caps/mod_overlay_active(mob/living/carbon/human/wearer)
+	return has_active_mod_and_helmet(wearer)
+
+/datum/sprite_accessory/frills/mod_overlay_active(mob/living/carbon/human/wearer)
+	return has_active_mod_and_helmet(wearer)
+
+/datum/sprite_accessory/head_accessory/mod_overlay_active(mob/living/carbon/human/wearer)
+	return has_active_mod_and_helmet(wearer)
+
+/datum/sprite_accessory/neck_accessory/mod_overlay_active(mob/living/carbon/human/wearer)
+	return has_active_mod_and_helmet(wearer)
+
+/datum/sprite_accessory/proc/has_active_mod_and_helmet(mob/living/carbon/human/wearer)
+	return (wearing_active_mod(wearer) && wearing_mod_helmet(wearer))
+
+/datum/sprite_accessory/proc/has_active_mod_and_chestplate(mob/living/carbon/human/wearer)
+	return (wearing_active_mod(wearer) && wearing_mod_chestplate(wearer))
+
+/// Checks that a MOD control unit on the wearer is active or activating and has a hardlight theme
+/datum/sprite_accessory/proc/wearing_active_mod(mob/living/carbon/human/wearer)
+	var/obj/item/mod/control/modsuit_control = wearer?.back
 	if(!istype(modsuit_control))
 		return FALSE
 	return (modsuit_control.active || modsuit_control.activating) && modsuit_control.theme?.hardlight
+
+/datum/sprite_accessory/proc/wearing_mod_chestplate(mob/living/carbon/human/wearer)
+	return (istype(wearer?.wear_suit, /obj/item/clothing/suit/mod))
+
+/datum/sprite_accessory/proc/wearing_mod_helmet(mob/living/carbon/human/wearer)
+	return (istype(wearer?.head, /obj/item/clothing/head/mod))
 
 /// The hardlight theme string, for use in the render cache key - so we don't get any color collisions
 /datum/sprite_accessory/proc/get_hardlight_theme_key(mob/living/carbon/human/wearer)
