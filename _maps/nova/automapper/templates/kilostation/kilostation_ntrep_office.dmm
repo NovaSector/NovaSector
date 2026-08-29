@@ -44,6 +44,9 @@
 	pixel_x = 8;
 	pixel_y = 6
 	},
+/obj/item/stamp/centcom{
+	pixel_x = 3
+	},
 /turf/open/floor/carpet/executive,
 /area/station/command/heads_quarters/nt_rep)
 "o" = (
@@ -98,18 +101,26 @@
 "w" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/light/directional/west,
+/obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
 "y" = (
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable,
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/captain)
 "A" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/fax/heads/nanotrasen_consultant,
 /obj/structure/table/wood,
+/obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/nt_rep)
+"B" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/hallway/primary/central)
 "C" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
@@ -126,6 +137,7 @@
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
 	dir = 1
 	},
+/obj/item/radio/intercom/directional/west,
 /turf/open/floor/iron/dark/corner{
 	dir = 1
 	},
@@ -153,7 +165,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
 	},
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/corner{
@@ -176,12 +188,18 @@
 /obj/effect/mapping_helpers/airlock/access/all/cent_com/rep_door,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/nt_rep)
 "O" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/corner{
+	dir = 1
+	},
 /area/station/hallway/primary/central)
 "U" = (
 /obj/structure/cable,
@@ -225,7 +243,7 @@ H
 u
 C
 I
-E
+B
 "}
 (4,1,1) = {"
 E
