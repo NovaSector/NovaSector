@@ -22,7 +22,7 @@
 	center = TRUE
 	organ_type = /obj/item/organ/taur_body/horselike // horselike by default, dont forget to override if you make another bodytype
 	flags_for_organ = SPRITE_ACCESSORY_HIDE_SHOES
-	use_custom_mod_icon = TRUE
+	flags_custom_mod_icon = MOD_ACCESSORY_CHESTPLATE
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/taur_mode = NONE
 	taur_mode = BODYSHAPE_TAUR_GENERIC /// So that every taur would crop clothes
@@ -35,6 +35,10 @@
 	var/laydown_offset = 0
 
 /datum/sprite_accessory/taur/is_hidden(mob/living/carbon/human/target, datum/bodypart_overlay/mutant/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
+
 	var/obj/item/organ/taur_body/taur_body = target.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
 	if (taur_body?.hide_self)
 		return TRUE

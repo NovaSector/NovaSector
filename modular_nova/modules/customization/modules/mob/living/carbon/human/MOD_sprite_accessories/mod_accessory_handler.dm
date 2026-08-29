@@ -1,6 +1,6 @@
-/// Creates a masked icon for sprite accessories which have 'use_custom_mod_icon' set to TRUE
+/// Creates a masked icon for sprite accessories which have 'flags_custom_mod_icon' set to TRUE
 /datum/sprite_accessory/proc/get_custom_mod_icon(mob/living/carbon/human/owner, mutable_appearance/appearance_to_use = null)
-	if(!use_custom_mod_icon)
+	if(!flags_custom_mod_icon)
 		return null
 
 	if(!mod_overlay_active(owner))
@@ -23,43 +23,29 @@
 
 	return icon(special_icon)
 
-/// Checks that this accessory should be affected by a hardlight MOD overlay.
-/// The default behavior is to check for an active MOD and the chestplate being deployed.
+/// Checks that this accessory should be affected by a hardlight MOD overlay
 /datum/sprite_accessory/proc/mod_overlay_active(mob/living/carbon/human/wearer)
-	return has_active_mod_and_chestplate(wearer)
-
-/datum/sprite_accessory/ears/mod_overlay_active(mob/living/carbon/human/wearer)
-	return has_active_mod_and_helmet(wearer)
-
-/datum/sprite_accessory/horns/mod_overlay_active(mob/living/carbon/human/wearer)
-	return has_active_mod_and_helmet(wearer)
-
-/datum/sprite_accessory/skrell_hair/mod_overlay_active(mob/living/carbon/human/wearer)
-	return has_active_mod_and_helmet(wearer)
-
-/datum/sprite_accessory/antenna/mod_overlay_active(mob/living/carbon/human/wearer)
-	return has_active_mod_and_helmet(wearer)
-
-/datum/sprite_accessory/moth_antennae/mod_overlay_active(mob/living/carbon/human/wearer)
-	return has_active_mod_and_helmet(wearer)
-
-/datum/sprite_accessory/caps/mod_overlay_active(mob/living/carbon/human/wearer)
-	return has_active_mod_and_helmet(wearer)
-
-/datum/sprite_accessory/frills/mod_overlay_active(mob/living/carbon/human/wearer)
-	return has_active_mod_and_helmet(wearer)
-
-/datum/sprite_accessory/head_accessory/mod_overlay_active(mob/living/carbon/human/wearer)
-	return has_active_mod_and_helmet(wearer)
-
-/datum/sprite_accessory/neck_accessory/mod_overlay_active(mob/living/carbon/human/wearer)
-	return has_active_mod_and_helmet(wearer)
+	if((flags_custom_mod_icon & MOD_ACCESSORY_HELMET) && !has_active_mod_and_helmet(wearer))
+		return FALSE
+	if((flags_custom_mod_icon & MOD_ACCESSORY_CHESTPLATE) && !has_active_mod_and_chestplate(wearer))
+		return FALSE
+	if((flags_custom_mod_icon & MOD_ACCESSORY_GAUNTLETS) && !has_active_mod_and_gauntlets(wearer))
+		return FALSE
+	if((flags_custom_mod_icon & MOD_ACCESSORY_BOOTS) && !has_active_mod_and_boots(wearer))
+		return FALSE
+	return TRUE
 
 /datum/sprite_accessory/proc/has_active_mod_and_helmet(mob/living/carbon/human/wearer)
-	return (wearing_active_mod(wearer) && wearing_mod_helmet(wearer))
+	return (wearing_active_mod(wearer) && istype(wearer?.head, /obj/item/clothing/head/mod))
 
 /datum/sprite_accessory/proc/has_active_mod_and_chestplate(mob/living/carbon/human/wearer)
-	return (wearing_active_mod(wearer) && wearing_mod_chestplate(wearer))
+	return (wearing_active_mod(wearer) && istype(wearer?.wear_suit, /obj/item/clothing/suit/mod))
+
+/datum/sprite_accessory/proc/has_active_mod_and_gauntlets(mob/living/carbon/human/wearer)
+	return (wearing_active_mod(wearer) && istype(wearer?.gloves, /obj/item/clothing/gloves/mod))
+
+/datum/sprite_accessory/proc/has_active_mod_and_boots(mob/living/carbon/human/wearer)
+	return (wearing_active_mod(wearer) && istype(wearer?.shoes, /obj/item/clothing/shoes/mod))
 
 /// Checks that a MOD control unit on the wearer is active or activating and has a hardlight theme
 /datum/sprite_accessory/proc/wearing_active_mod(mob/living/carbon/human/wearer)
