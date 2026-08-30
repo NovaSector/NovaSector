@@ -232,15 +232,14 @@
 	if(!bypass && !nutrition_check())
 		return FALSE
 
-	var/hunger_modifier = linked_mob.physiology.hunger_mod
-
+	// TODO: this proc was always meant to scale the owner's hunger rate by nutrition_drain_rate, but the
+	// old code only ever wrote to a local var, so it never actually applied. Left as-is to avoid a balance
+	// change inside a mirror; fix by calling MODIFY_PHYSIOLOGY(linked_mob, PHYS_COEFF_HUNGER_MOD, ...) here.
 	if(nutrition_drain)
-		hunger_modifier = nutrition_drain_rate
 		power_usage += (nutrition_drain_rate * nutrition_conversion_rate)
 		nutrition_drain = FALSE
 		return TRUE
 
-	hunger_modifier *= nutrition_drain_rate
 	power_usage -= (nutrition_drain_rate * nutrition_conversion_rate)
 	nutrition_drain = TRUE
 	return TRUE
