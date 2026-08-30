@@ -19,10 +19,7 @@
 	if(.)
 		return
 
-	if(wearer.obscured_slots & HIDESPINE)
-		return TRUE
-
-	return FALSE
+	return !!(wearer.obscured_slots & HIDESPINE)
 
 /datum/sprite_accessory/tail_spines
 	key = FEATURE_TAILSPINES

@@ -78,7 +78,7 @@
 
 /// Decides if this accessory will be rendered on a body part.
 /// If this accessory works with [/mob/living/carbon/human/proc/mutant_part_visibility]
-/// and/or uses [flags_custom_mod_icon], you should call parent and return if it is truthy.
+/// and/or uses [flags_custom_mod_icon], you should call `..()` and return if it is already true.
 /datum/sprite_accessory/proc/is_hidden(mob/living/carbon/human/owner, datum/bodypart_overlay/mutant/bodypart_overlay)
 	SHOULD_CALL_PARENT(TRUE)
 
@@ -86,7 +86,7 @@
 		return TRUE
 
 	if(flags_custom_mod_icon != NONE && wearing_active_mod(owner))
-		// having any matching MOD piece with MOD hardlight icon flags will check that any piece is there, and force visibility
+		// forced visibility if the owner has a matching MOD piece
 		if((flags_custom_mod_icon & MOD_ACCESSORY_HELMET) && istype(owner.head, /obj/item/clothing/head/mod))
 			return FALSE
 		if((flags_custom_mod_icon & MOD_ACCESSORY_CHESTPLATE) && istype(owner.wear_suit, /obj/item/clothing/suit/mod))

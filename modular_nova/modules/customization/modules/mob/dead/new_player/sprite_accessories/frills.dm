@@ -9,8 +9,7 @@
 	if(.)
 		return
 
-	if((human.obscured_slots & HIDEEARS))
-		return TRUE
+	return !!(human.obscured_slots & HIDEEARS)
 
 /datum/sprite_accessory/frills/none
 	name = SPRITE_ACCESSORY_NONE

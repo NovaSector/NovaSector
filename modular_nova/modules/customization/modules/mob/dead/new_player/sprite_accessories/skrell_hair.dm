@@ -10,8 +10,7 @@
 	if(.)
 		return
 
-	if(wearer.obscured_slots & HIDEHAIR)
-		return TRUE
+	return !!(wearer.obscured_slots & HIDEHAIR)
 
 /datum/sprite_accessory/skrell_hair/none
 	name = SPRITE_ACCESSORY_NONE

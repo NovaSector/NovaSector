@@ -24,7 +24,7 @@
 	if(.)
 		return
 
-	return (wearer.obscured_slots & bodypart_overlay?.slot_blocker)
+	return !!(wearer.obscured_slots & bodypart_overlay?.slot_blocker)
 
 /datum/sprite_accessory/wings/none
 	name = SPRITE_ACCESSORY_NONE

@@ -20,8 +20,7 @@
 	if(.)
 		return
 
-	if((human.obscured_slots & HIDEHAIR))
-		return TRUE
+	return !!(human.obscured_slots & HIDEHAIR)
 
 /datum/sprite_accessory/fluff/moth/plain
 	name = "Plain"

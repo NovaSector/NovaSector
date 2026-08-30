@@ -27,5 +27,4 @@
 	if(.)
 		return
 
-	if(wearer.obscured_slots & HIDEHAIR)
-		return TRUE
+	return !!(wearer.obscured_slots & HIDEHAIR)
