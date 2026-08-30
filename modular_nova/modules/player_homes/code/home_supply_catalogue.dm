@@ -58,6 +58,16 @@
 	name = "Reinforced glass"
 	manifest = list(/obj/item/stack/sheet/rglass = 30)
 
+/datum/home_supply/structural/exotic_glass
+	name = "Exotic glass bundle"
+	desc = "The panes that cost more than the wall they sit in."
+	manifest = list(
+		/obj/item/stack/sheet/plasmaglass = 20,
+		/obj/item/stack/sheet/plasmarglass = 20,
+		/obj/item/stack/sheet/plastitaniumglass = 20,
+		/obj/item/stack/sheet/titaniumglass = 20,
+	)
+
 /datum/home_supply/structural/sandstone
 	name = "Sandstone blocks"
 	manifest = list(/obj/item/stack/sheet/mineral/sandstone = 50)
@@ -82,10 +92,11 @@
 
 /datum/home_supply/structural/precious
 	name = "Precious metals"
-	desc = "Gold and diamond, for the discerning resident."
+	desc = "Gold, silver and diamond, for the discerning resident."
 	manifest = list(
 		/obj/item/stack/sheet/mineral/gold = 20,
-		/obj/item/stack/sheet/mineral/diamond = 10,
+		/obj/item/stack/sheet/mineral/silver = 20,
+		/obj/item/stack/sheet/mineral/diamond = 20,
 	)
 
 /datum/home_supply/structural/rods
@@ -126,6 +137,11 @@
 	desc = "Hard-wearing, and it improves with age."
 	manifest = list(/obj/item/stack/sheet/leather = 30)
 
+/datum/home_supply/organic/potted_plants
+	name = "Potted Plants"
+	desc = "Four random potted plants."
+	manifest = list(/obj/item/kirbyplants/random = 4)
+
 /*
  * Flooring.
  */
@@ -134,47 +150,96 @@
 	name = "Floor tiles"
 	manifest = list(/obj/item/stack/tile/iron = 60)
 
-/datum/home_supply/flooring/carpet
-	name = "Carpet"
+/datum/home_supply/flooring/carpet_premium
+	name = "Carpet crate - Standard and Black"
 	desc = "The plainest of the plain, but still soft and comfy."
-	manifest = list(/obj/item/stack/tile/carpet = 60)
+	manifest = list(
+		/obj/item/stack/tile/carpet = 60,
+		/obj/item/stack/tile/carpet/black = 60,
+	)
 
-/datum/home_supply/flooring/carpet_black
-	name = "Carpet - Black"
-	manifest = list(/obj/item/stack/tile/carpet/black = 60)
+/datum/home_supply/flooring/carpet_exotic
+	name = "Carpet crate - Exotic"
+	desc = "Exotic carpets straight from Space Russia, in every shade the crate carries."
+	contents_label = "60 tiles each of 8 colours"
+	manifest = list(
+		/obj/item/stack/tile/carpet/blue = 60,
+		/obj/item/stack/tile/carpet/cyan = 60,
+		/obj/item/stack/tile/carpet/green = 60,
+		/obj/item/stack/tile/carpet/orange = 60,
+		/obj/item/stack/tile/carpet/purple = 60,
+		/obj/item/stack/tile/carpet/red = 60,
+		/obj/item/stack/tile/carpet/royalblue = 60,
+		/obj/item/stack/tile/carpet/royalblack = 60,
+	)
 
-/datum/home_supply/flooring/carpet_blue
-	name = "Carpet - Blue"
-	manifest = list(/obj/item/stack/tile/carpet/blue = 60)
+/datum/home_supply/flooring/carpet_neon
+	name = "Carpet crate - Neon"
+	desc = "Simple rubbery mats with phosphorescent lining. They light a room on their own."
+	contents_label = "60 tiles each of 13 colours"
+	manifest = list(
+		/obj/item/stack/tile/carpet/neon/simple/white = 60,
+		/obj/item/stack/tile/carpet/neon/simple/black = 60,
+		/obj/item/stack/tile/carpet/neon/simple/red = 60,
+		/obj/item/stack/tile/carpet/neon/simple/orange = 60,
+		/obj/item/stack/tile/carpet/neon/simple/yellow = 60,
+		/obj/item/stack/tile/carpet/neon/simple/lime = 60,
+		/obj/item/stack/tile/carpet/neon/simple/green = 60,
+		/obj/item/stack/tile/carpet/neon/simple/teal = 60,
+		/obj/item/stack/tile/carpet/neon/simple/cyan = 60,
+		/obj/item/stack/tile/carpet/neon/simple/blue = 60,
+		/obj/item/stack/tile/carpet/neon/simple/purple = 60,
+		/obj/item/stack/tile/carpet/neon/simple/violet = 60,
+		/obj/item/stack/tile/carpet/neon/simple/pink = 60,
+	)
 
-/datum/home_supply/flooring/carpet_cyan
-	name = "Carpet - Cyan"
-	manifest = list(/obj/item/stack/tile/carpet/cyan = 60)
+/datum/home_supply/flooring/carpet_kinaris
+	name = "Carpet crate - Kinaris"
+	desc = "It looks expensive. Because it is."
+	contents_label = "60 tiles each of 14 patterns"
+	manifest = list(
+		/obj/item/stack/tile/carpet/kinaris = 60,
+		/obj/item/stack/tile/carpet/kinaris/red = 60,
+		/obj/item/stack/tile/carpet/kinaris/orange = 60,
+		/obj/item/stack/tile/carpet/kinaris/yellow = 60,
+		/obj/item/stack/tile/carpet/kinaris/green = 60,
+		/obj/item/stack/tile/carpet/kinaris/purple = 60,
+		/obj/item/stack/tile/carpet/kinaris/blacktrim = 60,
+		/obj/item/stack/tile/carpet/kinaris/black = 60,
+		/obj/item/stack/tile/carpet/kinaris/black/red = 60,
+		/obj/item/stack/tile/carpet/kinaris/black/orange = 60,
+		/obj/item/stack/tile/carpet/kinaris/black/yellow = 60,
+		/obj/item/stack/tile/carpet/kinaris/black/green = 60,
+		/obj/item/stack/tile/carpet/kinaris/black/purple = 60,
+		/obj/item/stack/tile/carpet/kinaris/black/whitetrim = 60,
+	)
 
-/datum/home_supply/flooring/carpet_green
-	name = "Carpet - Green"
-	manifest = list(/obj/item/stack/tile/carpet/green = 60)
+/datum/home_supply/flooring/carpet_polite
+	name = "Carpet crate - Polite"
+	desc = "Instead of the rude carpets."
+	contents_label = "60 tiles each of 7 colours"
+	manifest = list(
+		/obj/item/stack/tile/carpet/polite = 60,
+		/obj/item/stack/tile/carpet/polite/red = 60,
+		/obj/item/stack/tile/carpet/polite/orange = 60,
+		/obj/item/stack/tile/carpet/polite/yellow = 60,
+		/obj/item/stack/tile/carpet/polite/green = 60,
+		/obj/item/stack/tile/carpet/polite/blue = 60,
+		/obj/item/stack/tile/carpet/polite/purple = 60,
+	)
 
-/datum/home_supply/flooring/carpet_orange
-	name = "Carpet - Orange"
-	manifest = list(/obj/item/stack/tile/carpet/orange = 60)
-
-/datum/home_supply/flooring/carpet_purple
-	name = "Carpet - Purple"
-	manifest = list(/obj/item/stack/tile/carpet/purple = 60)
-
-/datum/home_supply/flooring/carpet_red
-	name = "Carpet - Red"
-	manifest = list(/obj/item/stack/tile/carpet/red = 60)
-
-/datum/home_supply/flooring/carpet_royal_black
-	name = "Carpet - Royal Black"
-	desc = "For a room that means to be taken seriously."
-	manifest = list(/obj/item/stack/tile/carpet/royalblack = 60)
-
-/datum/home_supply/flooring/carpet_royal_blue
-	name = "Carpet - Royal Blue"
-	manifest = list(/obj/item/stack/tile/carpet/royalblue = 60)
+/datum/home_supply/flooring/carpet_novelty
+	name = "Carpet crate - Novelty"
+	desc = "The odd lots: a symbol, a star, boardroom executive, stellar, and whatever Donk Co. was \
+		giving away that quarter."
+	contents_label = "60 tiles each of 5 patterns"
+	manifest = list(
+		/obj/item/stack/tile/carpet/symbol = 60,
+		/obj/item/stack/tile/carpet/star = 60,
+		/obj/item/stack/tile/carpet/executive = 60,
+		/obj/item/stack/tile/carpet/stellar = 60,
+		/obj/item/stack/tile/carpet/donk = 60,
+	)
 
 /datum/home_supply/flooring/grass
 	name = "Grass turf"
@@ -214,6 +279,16 @@
 	name = "Range"
 	desc = "An oven with a stove on top of it."
 	manifest = list(/obj/machinery/oven/range = 1)
+
+/datum/home_supply/appliances/griddle
+	name = "Griddle"
+	desc = "Classic flat top griddle, perfect for the enthusiastic home chef or a greasy diner."
+	manifest = list(/obj/machinery/griddle = 1)
+
+/datum/home_supply/appliances/oven
+	name = "Oven"
+	desc = "Standalone industrial sized oven."
+	manifest = list(/obj/machinery/oven = 1)
 
 /datum/home_supply/appliances/processor
 	name = "Food processor"

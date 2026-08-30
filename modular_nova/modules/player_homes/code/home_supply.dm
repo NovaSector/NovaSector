@@ -15,11 +15,17 @@
 	/// What lands: path -> amount. For stacks the amount is the stack size; for anything else it is
 	/// how many separate copies to send.
 	var/list/manifest
+	/// Stands in for the manifest in the console when spelling it out would be a wall of text - a
+	/// fourteen-colour carpet set reads better as "60 tiles each of 14 patterns". Leave it null and
+	/// the manifest is listed item by item.
+	var/contents_label
 	/// TRUE if an admin has to sign this off before it ships.
 	var/needs_approval = FALSE
 
 /// A short label for the manifest, so the console can say what a line contains.
 /datum/home_supply/proc/manifest_summary()
+	if(contents_label)
+		return contents_label
 	var/list/parts = list()
 	for(var/atom/movable/thing_path as anything in manifest)
 		parts += "[manifest[thing_path]]x [initial(thing_path.name)]"
