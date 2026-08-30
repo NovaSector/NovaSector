@@ -68,7 +68,6 @@
 	if(!length(yes_candidate))
 		message_admins("Nobody accepted the offer to become [name] - the ruleset will not execute this time.")
 	return yes_candidate
-	// NOVA EDIT ADDITION END
 
 /*
  * Midround_ask_question and midround_ask_alert_pic - definations.
