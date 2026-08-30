@@ -46,7 +46,7 @@
 	for(var/mob/living/candidate in potential_candidates)
 		potential_candidates -= candidate
 		yes_candidate += SSpolling.poll_candidates(
-			question = midround_ask_question || "Do you want to become [name]? If you ignore this, you will be considered to have declined and will be ineligible for all future rolls this round.",
+			question = midround_ask_question || "Do you want to become [name]?.",
 			group = list(candidate),
 			poll_time = 60 SECONDS,
 			flash_window = TRUE,
@@ -74,15 +74,15 @@
  * Midround_ask_question and midround_ask_alert_pic - definations.
 */
 /datum/dynamic_ruleset/midround/from_living/malf_ai
-	midround_ask_question = "Do you want to become a malfunctioning AI and turn against your Asimov laws? If you ignore this, you will be considered to have declined and will be ineligible for all future rolls this round."
+	midround_ask_question = "Do you want to become a malfunctioning AI and turn against your Asimov laws?."
 
 /datum/dynamic_ruleset/midround/from_living/blob
-	midround_ask_question = "Do you want to become infected and turn into a blob host? If you ignore this, you will be considered to have declined and will be ineligible for all future rolls this round."
+	midround_ask_question = "Do you want to become infected and turn into a blob host?."
 	midround_ask_alert_pic = /obj/structure/blob/normal
 
 /datum/dynamic_ruleset/midround/from_living/obsesed
-	midround_ask_question = "Do you want to become obsessed with another crew member? If you ignore this, you will be considered to have declined and will be ineligible for all future rolls this round."
+	midround_ask_question = "Do you want to become obsessed with another crew member?."
 
 /datum/dynamic_ruleset/midround/from_living/traitor/
-	midround_ask_question = "Do you want to be a syndicate sleeper agent? If you ignore this, you will be considered to have declined and will be inelegible for all future rolls this round."
+	midround_ask_question = "Do you want to be a syndicate sleeper agent?."
 	midround_ask_alert_pic = /obj/structure/sign/poster/contraband/gorlex_recruitment
