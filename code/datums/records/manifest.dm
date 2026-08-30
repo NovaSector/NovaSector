@@ -47,7 +47,7 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 				"name" = name,
 				"rank" = rank,
 				// NOVA EDIT CHANGE BEGIN
-				// ORIGINAL: "trim" = job.tgui_icon,
+				// ORIGINAL: "trim" = job?.tgui_icon,
 				"trim" = trim,
 				"icon" = job?.tgui_icon,
 				// NOVA EDIT CHANGE END
