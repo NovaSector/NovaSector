@@ -66,7 +66,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	give_important_for_life(equipping)
 
 /datum/species/human/felinid
-	mutant_organs = list()
+	mutant_organs = list(/obj/item/organ/fangs/cat)
 
 /datum/species/human/felinid/get_default_mutant_bodyparts()
 	return list(

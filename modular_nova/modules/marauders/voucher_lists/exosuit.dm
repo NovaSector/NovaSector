@@ -87,3 +87,13 @@
 	set_items = list(
 		/obj/vehicle/sealed/mecha/honker/dark/marauder,
 	)
+
+/datum/voucher_set/traitor/mech/warden
+	name = /obj/vehicle/sealed/mecha/warden/marauder::name
+	description = /obj/vehicle/sealed/mecha/warden/marauder::desc
+	icon = /obj/vehicle/sealed/mecha/warden/marauder::icon
+	icon_state = /obj/vehicle/sealed/mecha/warden/marauder::icon_state
+	set_items = list(
+		/obj/vehicle/sealed/mecha/warden/marauder,
+	)
+
