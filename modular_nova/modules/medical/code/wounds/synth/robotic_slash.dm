@@ -659,52 +659,14 @@
 	name = "Small fluid Leak"
 	treatable_tools = list(TOOL_WELDER, TOOL_CAUTERY)
 	default_scar_file = METAL_SCAR_FILE
+	initial_flow = 0.5
+	minimum_flow = 0.1
 
-
-/datum/wound/slash/flesh/synth/get_bleed_rate_of_change()
-	//basically if a species doesn't bleed, the wound is stagnant and will not heal on its own (nor get worse)
-	if(!limb.can_bleed())
-		return BLOOD_FLOW_STEADY
-	if(HAS_TRAIT(victim, TRAIT_BLOOD_FOUNTAIN))
-		return BLOOD_FLOW_INCREASING
-	if(LAZYACCESS(limb.applied_items, LIMB_ITEM_GAUZE) || clot_rate > 0)
-		return BLOOD_FLOW_DECREASING
-	if(clot_rate < 0)
-		return BLOOD_FLOW_INCREASING
-
-/datum/wound/slash/flesh/synth/handle_process(seconds_per_tick)
-	if (!victim || HAS_TRAIT(victim, TRAIT_STASIS))
-		return
-
-	// in case the victim has the NOBLOOD trait, the wound will simply not clot on its own
-	if(limb.can_bleed())
-		if(clot_rate > 0)
-			adjust_blood_flow(-clot_rate * seconds_per_tick)
-			if(QDELETED(src))
-				return
-
-		if(HAS_TRAIT(victim, TRAIT_BLOOD_FOUNTAIN))
-			adjust_blood_flow(0.25) // old heparin used to just add +2 bleed stacks per tick, this adds 0.5 bleed flow to all open cuts which is probably even stronger as long as you can cut them first
-
-	var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(limb.applied_items, LIMB_ITEM_GAUZE)
-	if(current_gauze?.absorption_rate)
-		var/gauze_power = current_gauze.absorption_rate
-		limb.seep_gauze(gauze_power * seconds_per_tick)
-		adjust_blood_flow(-gauze_power * seconds_per_tick)
-
-/* BEWARE, THE BELOW NONSENSE IS MADNESS. bones.dm looks more like what I have in mind and is sufficiently clean, don't pay attention to this messiness */
-
-/datum/wound/slash/flesh/synth/check_grab_treatments(obj/item/tool, mob/user)
-	if(istype(tool, /obj/item/gun/energy/laser))
-		return TRUE
-	if(tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST) // if we're using something hot but not a cautery, we need to be aggro grabbing them first, so we don't try treating someone we're eswording
-		return TRUE
-	return FALSE
 
 /datum/wound/slash/flesh/synth/treat(obj/item/tool, mob/user)
 	if(istype(tool, /obj/item/gun/energy/laser))
 		las_cauterize(tool, user)
-	if(tool.tool_behaviour == TOOL_WELDER)
+	else if(tool.tool_behaviour == TOOL_WELDER)
 		tool_solder(tool, user)
 	else if(tool.tool_behaviour == TOOL_CAUTERY || tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		tool_cauterize(tool, user)
@@ -826,8 +788,8 @@
 	occur_text = "is cut open, slowly leaking internal fluid"
 	sound_effect = 'sound/effects/wounds/blood1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
-	initial_flow = 1.75
-	minimum_flow = 0.5
+	initial_flow = 0.75
+	minimum_flow = 0.4
 	clot_rate = 0.00
 	series_threshold_penalty = 10
 	status_effect_type = /datum/status_effect/wound/slash/flesh/moderate
@@ -856,8 +818,8 @@
 	occur_text = "is ripped open, internals spurting internal fluid"
 	sound_effect = 'sound/effects/wounds/blood2.ogg'
 	severity = WOUND_SEVERITY_SEVERE
-	initial_flow = 2.75
-	minimum_flow = 2
+	initial_flow = 1.75
+	minimum_flow = 1
 	clot_rate = 0.00
 	series_threshold_penalty = 25
 	demotes_to = /datum/wound/slash/flesh/synth/moderate
@@ -888,8 +850,8 @@
 	occur_text = "is torn open, spraying internal fluid wildly"
 	sound_effect = 'sound/effects/wounds/blood3.ogg'
 	severity = WOUND_SEVERITY_CRITICAL
-	initial_flow = 3.75
-	minimum_flow = 3.5
+	initial_flow = 2.75
+	minimum_flow = 2
 	clot_rate = 0 // critical cuts do not get worse or better for synths
 	threshold_penalty = 15
 	demotes_to = /datum/wound/slash/flesh/synth/severe
