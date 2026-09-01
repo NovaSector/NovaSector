@@ -8476,6 +8476,10 @@
 /obj/structure/flora/ash/leaf_shroom,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"Wr" = (
+/obj/structure/candela_beacon,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "Wt" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/structure/disposalpipe/segment,
@@ -46595,7 +46599,7 @@ pU
 pU
 pU
 pU
-pU
+Wr
 pU
 aj
 aj
