@@ -784,7 +784,7 @@
 	treat_text = "Apply bandaging and solder the wound. \
 		Follow up with internal fluid replacement."
 	treat_text_short = "Apply bandaging and solder."
-	examine_desc = "has a internal fluid leak"
+	examine_desc = "has an internal fluid leak"
 	occur_text = "is cut open, slowly leaking internal fluid"
 	sound_effect = 'sound/effects/wounds/blood1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
@@ -798,7 +798,7 @@
 	simple_treat_text = "<b>Bandaging</b> the wound will reduce internal fluid loss. The wound itself can be soldered shut."
 	homemade_treat_text = "A laser weapon can be used as a make-shift soldering iron. Other remedies are unnecessary."
 
-/datum/wound/slash/flesh/moderate/update_descriptions()
+/datum/wound/slash/flesh/synth/moderate/update_descriptions()
 	if(!limb.can_bleed())
 		occur_text = "is cut open"
 
@@ -859,8 +859,8 @@
 	scar_keyword = "slashcritical"
 	surgery_states = SURGERY_SKIN_OPEN | SURGERY_VESSELS_UNCLAMPED
 	wound_flags = (ACCEPTS_GAUZE | MANGLES_EXTERIOR | CAN_BE_GRASPED)
-	simple_treat_text = "<b>Bandaging</b> the wound is of utmost importance, as is seeking direct robotics attention - <b>Death</b> will ensue if treatment is delayed whatsoever, with lack of <b>internal fluid<b> killing the patient, thus <b>internal fluid replacement</b> is always recommended after treatment. This wound will not seal itself."
-	homemade_treat_text = "Bed sheets can be ripped up to make <b>makeshift gauze</b>. any source of heat can be used to solder the wound shut. Dropping to the ground and grabbing your wound will reduce internal fluid flow."
+	simple_treat_text = "<b>Bandaging</b> the wound is of utmost importance, as is seeking direct robotics attention - <b>Death</b> will ensue if treatment is delayed whatsoever, with lack of <b>internal fluid</b> killing the patient, thus <b>internal fluid replacement</b> is always recommended after treatment. This wound will not seal itself."
+	homemade_treat_text = "Bed sheets can be ripped up to make <b>makeshift gauze</b>. Any source of heat can be used to solder the wound shut. Dropping to the ground and grabbing your wound will reduce internal fluid flow."
 
 /datum/wound/slash/flesh/synth/critical/update_descriptions()
 	if (!limb.can_bleed())
