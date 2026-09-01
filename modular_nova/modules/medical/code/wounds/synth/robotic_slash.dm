@@ -704,7 +704,7 @@
 /datum/wound/slash/flesh/synth/treat(obj/item/tool, mob/user)
 	if(istype(tool, /obj/item/gun/energy/laser))
 		las_cauterize(tool, user)
-	if(tool.tool_behaviour == TOOL_WELDER)
+	else if(tool.tool_behaviour == TOOL_WELDER)
 		tool_solder(tool, user)
 	else if(tool.tool_behaviour == TOOL_CAUTERY || tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		tool_cauterize(tool, user)
@@ -813,7 +813,7 @@
 		to_chat(user, span_green("You successfully lower the severity of [user == victim_stored ? "your" : "[victim_stored]'s"] [get_blood_noun()] leaks."))
 
 
-/datum/wound/slash/get_limb_examine_description()
+/datum/wound/slash/synth/get_limb_examine_description()
 	return span_warning("The limb appears to be leaking [get_blood_noun()].")
 
 /datum/wound/slash/flesh/synth/moderate
@@ -836,7 +836,7 @@
 	simple_treat_text = "<b>Bandaging</b> the wound will reduce internal fluid loss. The wound itself can be soldered shut."
 	homemade_treat_text = "A laser weapon can be used as a make-shift soldering iron. Other remedies are unnecessary."
 
-/datum/wound/slash/flesh/moderate/update_descriptions()
+/datum/wound/slash/flesh/synth/moderate/update_descriptions()
 	if(!limb.can_bleed())
 		occur_text = "is cut open"
 
@@ -897,8 +897,8 @@
 	scar_keyword = "slashcritical"
 	surgery_states = SURGERY_SKIN_OPEN | SURGERY_VESSELS_UNCLAMPED
 	wound_flags = (ACCEPTS_GAUZE | MANGLES_EXTERIOR | CAN_BE_GRASPED)
-	simple_treat_text = "<b>Bandaging</b> the wound is of utmost importance, as is seeking direct robotics attention - <b>Death</b> will ensue if treatment is delayed whatsoever, with lack of <b>internal fluid<b> killing the patient, thus <b>internal fluid replacement</b> is always recommended after treatment. This wound will not seal itself."
-	homemade_treat_text = "Bed sheets can be ripped up to make <b>makeshift gauze</b>. any source of heat can be used to solder the wound shut. Dropping to the ground and grabbing your wound will reduce internal fluid flow."
+	simple_treat_text = "<b>Bandaging</b> the wound is of utmost importance, as is seeking direct robotics attention - <b>Death</b> will ensue if treatment is delayed whatsoever, with lack of <b>internal fluid</b> killing the patient, thus <b>internal fluid replacement</b> is always recommended after treatment. This wound will not seal itself."
+	homemade_treat_text = "Bed sheets can be ripped up to make <b>makeshift gauze</b>. Any source of heat can be used to solder the wound shut. Dropping to the ground and grabbing your wound will reduce internal fluid flow."
 
 /datum/wound/slash/flesh/synth/critical/update_descriptions()
 	if (!limb.can_bleed())
