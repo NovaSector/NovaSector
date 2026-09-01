@@ -1,0 +1,6 @@
+author: "Hatterhat"
+delete-after: True
+changes:
+  - rscadd: "Following a statistically significant amount of shady backroom deals, small quantities of the M/TACS-1-EX \"Theseus\", which matches the M/TACS-1-LF \"Warden\" for combat performance, have been rolled out to the Syndicate's Marauder Program."
+  - bugfix: "Warden exosuits now have functional zooming optics again."
+  - bugfix: "Marauders now get a properly unlimited agent card."
