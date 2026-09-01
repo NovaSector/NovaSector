@@ -81,9 +81,6 @@
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "aS" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
@@ -142,6 +139,10 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/station/commons/fitness)
 "bz" = (
@@ -212,14 +213,14 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "du" = (
 /obj/effect/turf_decal/siding/wideplating/corner,
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/light/directional/north,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "dB" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -240,7 +241,7 @@
 	dir = 1
 	},
 /obj/structure/sign/poster/official/ue_no/directional/west,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/service/cafeteria)
 "ej" = (
 /obj/machinery/camera/directional/north{
@@ -269,21 +270,21 @@
 /turf/open/floor/carpet/red,
 /area/station/service/cafeteria)
 "ep" = (
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "eB" = (
 /obj/effect/turf_decal/siding/wideplating{
 	dir = 9
 	},
 /obj/machinery/light/floor,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "eL" = (
 /obj/machinery/door/airlock{
-	name = "Unisex Restrooms"
+	name = "Recreation Area"
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "eN" = (
 /obj/structure/chair/pew{
@@ -323,6 +324,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
 /turf/open/floor/carpet/red,
 /area/station/service/cafeteria)
 "fp" = (
@@ -367,7 +369,7 @@
 	dir = 4
 	},
 /obj/structure/fluff/beach_umbrella/cap,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "gk" = (
 /obj/effect/turf_decal/siding/wood{
@@ -425,7 +427,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "hk" = (
 /obj/structure/chair/pew/left{
@@ -484,7 +486,7 @@
 	},
 /obj/machinery/light/floor,
 /obj/structure/dresser,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness)
 "il" = (
 /obj/structure/flora/grass/jungle,
@@ -505,13 +507,13 @@
 	pixel_y = 6
 	},
 /obj/structure/railing,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "iw" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/service/cafeteria)
 "iy" = (
 /obj/structure/chair/sofa/left/maroon{
@@ -554,7 +556,7 @@
 	dir = 5
 	},
 /obj/machinery/light/floor,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "kk" = (
 /turf/closed/wall/mineral/wood,
@@ -572,7 +574,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness)
 "kI" = (
 /obj/structure/cable,
@@ -677,7 +679,7 @@
 "lO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "ma" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line,
@@ -695,20 +697,20 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/hangover,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "md" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 8
 	},
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness)
 "mr" = (
 /obj/structure/railing,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "mA" = (
 /obj/structure/chair/plastic,
@@ -749,7 +751,7 @@
 /area/station/commons/dorms)
 "nz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "nR" = (
 /obj/structure/flora/bush/reed/style_random,
@@ -780,11 +782,12 @@
 /turf/open/misc/asteroid,
 /area/station/commons/fitness/recreation/entertainment)
 "oe" = (
-/obj/effect/turf_decal/trimline/neutral/filled/corner{
+/obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/turf/closed/wall,
-/area/station/commons/dorms)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood/wood_8,
+/area/station/commons/fitness)
 "oo" = (
 /obj/effect/turf_decal/weather/dirt{
 	dir = 1
@@ -793,15 +796,13 @@
 /area/station/commons/fitness/recreation/entertainment)
 "ov" = (
 /obj/machinery/door/airlock{
-	name = "Unisex Restrooms"
+	name = "Recreation Area"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	pixel_x = 3
-	},
-/turf/open/floor/stone/forest,
+/obj/machinery/door/firedoor,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "oA" = (
 /obj/structure/railing{
@@ -837,7 +838,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/thinplating_new,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "pl" = (
 /obj/structure/flora/grass/jungle/b,
@@ -905,6 +906,10 @@
 "qN" = (
 /obj/machinery/light/directional/west,
 /obj/structure/sign/calendar/directional/west,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/station/commons/fitness)
 "rm" = (
@@ -924,9 +929,6 @@
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation/entertainment)
 "rP" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
 /turf/open/floor/iron/stairs/medium{
 	color = "#5d341f";
 	dir = 8
@@ -939,26 +941,23 @@
 	},
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/light/floor,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "sa" = (
 /turf/open/water/deep_beach,
 /area/station/commons/fitness/recreation/entertainment)
 "sf" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
 /obj/structure/table/glass,
 /obj/effect/turf_decal/siding/wood,
 /obj/machinery/light/floor,
 /obj/structure/towel_bin{
 	pixel_y = 5
 	},
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness)
 "sg" = (
 /obj/structure/reagent_dispensers/water_cooler/punch_cooler,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "ss" = (
 /turf/open/floor/iron,
@@ -979,7 +978,7 @@
 	dir = 4
 	},
 /obj/structure/fluff/beach_umbrella,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "sJ" = (
 /obj/structure/decoration/bush/sparsegrass/third,
@@ -1001,15 +1000,13 @@
 /area/station/commons/dorms)
 "tC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/commons/fitness)
 "tE" = (
 /obj/effect/turf_decal/siding/wideplating{
 	dir = 1
 	},
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "tQ" = (
 /obj/structure/disposalpipe/segment{
@@ -1022,14 +1019,14 @@
 /obj/effect/turf_decal/siding/wideplating/corner{
 	dir = 1
 	},
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "ue" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
+	},
+/obj/structure/disposalpipe/junction/flip{
+	dir = 8
 	},
 /turf/open/floor/iron,
 /area/station/commons/dorms)
@@ -1056,6 +1053,10 @@
 	name = "Civilian - Fitness Center South-East"
 	},
 /obj/structure/extinguisher_cabinet/directional/west,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/wood,
 /area/station/commons/fitness)
 "vb" = (
@@ -1131,7 +1132,7 @@
 "vH" = (
 /obj/item/kirbyplants/random,
 /obj/machinery/light/floor,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness)
 "vM" = (
 /obj/effect/landmark/start/hangover,
@@ -1144,7 +1145,7 @@
 "vR" = (
 /obj/machinery/light/floor,
 /obj/effect/landmark/start/assistant,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "wk" = (
 /obj/structure/flora/bush/sparsegrass/style_3,
@@ -1165,6 +1166,10 @@
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/station/commons/fitness)
 "wC" = (
@@ -1209,14 +1214,15 @@
 /obj/structure/fluff/beach_umbrella/security,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/west,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "xo" = (
-/obj/effect/turf_decal/trimline/neutral/filled/line{
-	dir = 8
-	},
-/turf/closed/wall,
-/area/station/service/cafeteria)
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
 "xr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1277,10 +1283,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/door/airlock{
-	name = "Unisex Restrooms"
+	name = "Recreation Area"
 	},
 /obj/machinery/door/firedoor,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "xY" = (
 /obj/structure/flora/bush/flowers_pp/style_2,
@@ -1350,6 +1356,10 @@
 	dir = 1
 	},
 /obj/item/radio/intercom/directional/west,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood/wood_8,
 /area/station/commons/fitness)
 "yV" = (
@@ -1359,13 +1369,13 @@
 /turf/open/floor/grass,
 /area/station/commons/fitness/recreation/entertainment)
 "zh" = (
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness)
 "zj" = (
 /obj/effect/turf_decal/siding/wideplating{
 	dir = 8
 	},
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "zu" = (
 /obj/structure/railing/corner{
@@ -1383,7 +1393,6 @@
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "zz" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -1417,12 +1426,16 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness)
 "Aj" = (
 /obj/structure/railing{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/station/commons/fitness)
 "Ap" = (
@@ -1455,7 +1468,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/light/floor,
 /obj/structure/cable,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "BV" = (
 /obj/structure/sign/painting/large/library{
@@ -1489,7 +1502,7 @@
 /area/station/commons/fitness/recreation/entertainment)
 "CF" = (
 /obj/effect/landmark/start/hangover,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "CG" = (
 /obj/structure/table/wood,
@@ -1542,13 +1555,11 @@
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation/entertainment)
 "Ec" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/turf/open/floor/stone/forest,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/stone,
 /area/station/commons/fitness)
 "Es" = (
 /obj/effect/turf_decal/siding/thinplating{
@@ -1608,7 +1619,7 @@
 	name = "Civilian - Pool"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "Fm" = (
 /obj/structure/chair/pew/right{
@@ -1639,13 +1650,13 @@
 	pixel_y = 0
 	},
 /obj/structure/closet/secure_closet/personal,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "FJ" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness)
 "FQ" = (
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
@@ -1669,14 +1680,14 @@
 /area/station/commons/fitness/recreation/entertainment)
 "FY" = (
 /obj/machinery/vending/hotdog,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "Ga" = (
 /obj/effect/turf_decal/siding/wideplating/corner{
 	dir = 8
 	},
 /obj/machinery/light/floor,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "Ge" = (
 /obj/structure/cable,
@@ -1727,7 +1738,7 @@
 	dir = 1;
 	pixel_y = 0
 	},
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "GC" = (
 /obj/effect/landmark/firealarm_sanity,
@@ -1790,7 +1801,7 @@
 	dir = 1
 	},
 /obj/structure/fireplace,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/service/cafeteria)
 "HO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1847,6 +1858,10 @@
 /area/station/commons/fitness)
 "IW" = (
 /obj/structure/railing/corner,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/station/commons/fitness)
 "IY" = (
@@ -1996,7 +2011,7 @@
 "Mf" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/light/directional/east,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness)
 "Mh" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line,
@@ -2157,7 +2172,7 @@
 	},
 /obj/structure/fluff/beach_umbrella/science,
 /obj/machinery/light/cold/directional/west,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "Od" = (
 /obj/machinery/firealarm/directional/west,
@@ -2165,7 +2180,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "Oq" = (
 /obj/machinery/airalarm/directional/south,
@@ -2183,7 +2198,7 @@
 /area/station/commons/fitness/recreation/entertainment)
 "OB" = (
 /obj/structure/cable,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "OI" = (
 /obj/effect/landmark/firealarm_sanity,
@@ -2222,11 +2237,6 @@
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/station/commons/fitness/recreation/entertainment)
-"Qh" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/cable,
-/turf/open/floor/iron,
-/area/station/commons/fitness)
 "Qz" = (
 /obj/structure/flora/bush/fullgrass/style_random,
 /obj/structure/flora/bush/jungle/b/style_random,
@@ -2281,11 +2291,11 @@
 /area/station/commons/fitness/recreation/entertainment)
 "RD" = (
 /obj/machinery/light/floor,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "RI" = (
 /obj/effect/turf_decal/siding/wideplating,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "RN" = (
 /turf/closed/wall,
@@ -2355,10 +2365,10 @@
 /turf/open/floor/iron,
 /area/station/commons/fitness)
 "Tf" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-/obj/structure/railing,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/wood,
 /area/station/commons/fitness)
 "Ti" = (
@@ -2468,7 +2478,7 @@
 "Vc" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/light/floor,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness)
 "Vd" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -2516,12 +2526,12 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "VY" = (
 /obj/structure/railing/corner,
 /obj/effect/turf_decal/siding/thinplating_new,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "Wb" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -2592,7 +2602,7 @@
 /obj/effect/turf_decal/siding/wideplating/corner{
 	dir = 4
 	},
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "Xu" = (
 /turf/open/misc/asteroid,
@@ -2609,7 +2619,7 @@
 /obj/structure/railing,
 /obj/structure/table/wood,
 /obj/item/bikehorn/rubberducky,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "XU" = (
 /obj/structure/flora/bush/grassy,
@@ -2637,7 +2647,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness/recreation/entertainment)
 "Yx" = (
 /obj/effect/turf_decal/trimline/neutral/filled/line{
@@ -2684,7 +2694,7 @@
 /area/station/commons/fitness)
 "ZK" = (
 /obj/structure/closet/secure_closet/personal,
-/turf/open/floor/stone/forest,
+/turf/open/floor/stone,
 /area/station/commons/fitness)
 "ZM" = (
 /obj/item/food/poppypretzel{
@@ -2865,8 +2875,8 @@ Hj
 Yx
 Hl
 lc
-oe
-xo
+Js
+nm
 ej
 eZ
 ZM
@@ -3270,9 +3280,9 @@ Hj
 aA
 HO
 zz
-Qh
-mT
-mT
+kI
+Tb
+Tb
 mT
 mT
 mT
@@ -3304,7 +3314,7 @@ Ut
 BJ
 Tb
 Tb
-Tb
+mT
 Tb
 Nr
 yK
@@ -3335,7 +3345,7 @@ Ut
 Ut
 Wx
 Lm
-Lm
+oe
 UX
 Ut
 Ut
@@ -3361,10 +3371,10 @@ Hj
 Hj
 Hj
 ue
-HO
+xo
 yQ
 qN
-wl
+Tf
 IW
 Aj
 bw
@@ -3394,9 +3404,9 @@ bD
 Gh
 HO
 aS
+wl
 tC
-tC
-Tf
+ic
 sf
 rP
 rP
