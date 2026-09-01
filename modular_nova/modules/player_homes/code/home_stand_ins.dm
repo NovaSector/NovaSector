@@ -180,8 +180,8 @@ GLOBAL_LIST_INIT(home_water_depths, list(
 	icon = 'icons/obj/devices/tool.dmi'
 	icon_state = "signmaker"
 	inhand_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	var/selected_depth = "Waist-deep"
 	/// How far a ping reaches when the tool is used outside a home.
