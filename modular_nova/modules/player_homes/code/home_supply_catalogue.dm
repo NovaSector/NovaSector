@@ -390,6 +390,11 @@
 	desc = "For when laying tiles by hand is too much work."
 	manifest = list(/obj/item/construction/rtd/loaded = 1)
 
+/datum/home_supply/tools/water_marker
+	name = "Hydrostatic marker tool"
+	desc = "Marks a floor tile to have standing water for pools, baths, etc."
+	manifest = list(/obj/item/home_water_marker = 1)
+
 /datum/home_supply/tools/light_replacer
 	name = "Bluespace light replacer"
 	desc = "Refills off glass sheets."

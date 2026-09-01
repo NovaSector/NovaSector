@@ -73,6 +73,7 @@ SUBSYSTEM_DEF(homes)
 	) + forbidden_types) - typecacheof(list(
 		/obj/effect/decal,
 		/obj/effect/turf_decal,
+		/obj/effect/home_water_source,
 	))
 
 /// Absolute path of a player's home directory. Reuses the per-ckey layout preferences already use.

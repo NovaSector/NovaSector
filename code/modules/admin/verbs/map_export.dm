@@ -295,7 +295,7 @@ GLOBAL_LIST_INIT(save_file_chars, list(
 							var/custom_data = thing.on_object_saved()
 							current_header += "[custom_data ? ",\n[custom_data]" : ""]"
 					// NOVA EDIT ADDITION START - Player homes, saving turf decals
-					// See modular_nova/modules/player_homes/code/home_decals.dm
+					// See modular_nova/modules/player_homes/code/home_stand_ins.dm
 					if(pull_from && (save_flag & SAVE_TURF_DECALS))
 						for(var/decal_entry in pull_from.get_decal_save_entries())
 							current_header += "[empty ? "" : ",\n"][decal_entry]"

@@ -21,7 +21,7 @@ is ever saved automatically. Saving is always an explicit press of the console.
 | `home_supply.dm`           | Requisition filing, drop pods, admin approval queue                 |
 | `home_supply_catalogue.dm` | Pure data: what the console can call down                           |
 | `home_preview.dm`          | Renders the terminal's preview picture at save time                 |
-| `home_decals.dm`           | Makes turf decals survive a save (they're elements, not objects)    |
+| `home_stand_ins.dm`        | Stand-ins for what `write_map()` can't write: decals, water          |
 
 Starter templates: `_maps/nova/persistent_housing/`
 UI: `tgui/packages/tgui/interfaces/` (`PlayerHome.tsx`, `HomeConsole.tsx`)
@@ -32,6 +32,10 @@ Unit tests: `code/modules/unit_tests/~nova/player_homes.dm`.
 **Everything a save spawns is marked `TRAIT_HOME_FURNISHING`, and the door takes back exactly what
 carries that mark.** That is the whole anti-duplication scheme. Any new way for items to enter or
 leave a home must respect this.
+
+**A save is a `.dmm`, so only turfs, areas and unblacklisted objects survive it.** Anything else a
+player can see needs a stand-in object written into the file in its place. They live together in
+`home_stand_ins.dm`.
 
 **`/area/misc/player_home` is deliberately not `UNIQUE_AREA`.** The map loader reuses areas
 registered in `GLOB.areas_by_type`; leaving the flag `NONE` is what gives each loaded home its own
@@ -58,6 +62,11 @@ Room settings live in the sidecar json, not the map, so changing one never touch
    `/obj/machinery/light` — the area uses static lighting. Copy a `home_blank_*.dmm` to start.
 2. Add a subtype in `code/_home_defines.dm` with `name`, `blurb`, `mappath`, and
    `landing_zone_x/y_offset` (0-based offset from the bottom-left turf).
+
+For a pool, use `/obj/effect/home_water_source` rather than `/obj/effect/spawner/liquids_spawner`.
+Both fill the tile on load, but the plain spawner is stripped by `save_blacklist` the first time the
+player saves and the pool never comes back. Set `water_height` for anything other than waist-deep;
+`GLOB.home_water_depths` in `code/home_stand_ins.dm` lists the values.
 
 ## Adding a catalogue line
 
