@@ -775,7 +775,7 @@
 		to_chat(user, span_green("You successfully lower the severity of [user == victim_stored ? "your" : "[victim_stored]'s"] [get_blood_noun()] leaks."))
 
 
-/datum/wound/slash/get_limb_examine_description()
+/datum/wound/slash/synth/get_limb_examine_description()
 	return span_warning("The limb appears to be leaking [get_blood_noun()].")
 
 /datum/wound/slash/flesh/synth/moderate
