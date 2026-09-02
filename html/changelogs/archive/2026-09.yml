@@ -1,4 +1,6 @@
 2026-09-02:
+  Absolucy:
+  - bugfix: Fixed the existence of borgs sometimes causing the orbit menu to crash.
   FalloutFalcon:
   - bugfix: sawnoff recoil is ADDED to existing recoil rather then setting it
   - code_imp: Adds support for pre-sawnoff guns and cleans up sawnoff behavoir
@@ -6,6 +8,9 @@
   Fghj240:
   - qol: reinforced windows hint that they can be secured on examine
   - bugfix: plastitanium windows are in the correct state once constructed
+  - bugfix: moves deathsquad thermal vision to their IFF visors
+  - spellcheck: tactical EFF visors are now called IFF visors.
+  - qol: deathsquaddies can no longer check security records with their eyes
   FlufflesTheDog:
   - bugfix: Stoat fangs properly exist
   Ghommie:
@@ -20,6 +25,8 @@
   - bugfix: Marauders now get a properly unlimited agent card.
   JohnFulpWillard:
   - qol: Command bar's last used mode is now persistent between rounds.
+  - bugfix: Psychologist PDA is now paintable.
+  - qol: '"PDA" in the PDA painter is now called "Assistant PDA", which it is.'
   LemonInTheDark:
   - rscadd: Space parallax now works through cameras and other "external maps"
   - rscadd: Cameras and friends will no longer be incorrectly culled/shrunk when displaying
@@ -55,12 +62,24 @@
   - bugfix: Revenants are no longer immune to all damage
   - bugfix: Cats no longer try to run away from themselves after losing a catfight,
       instead running from the cat they actually lost to
+  - qol: The AI Malfunction UI now shows the number of currently hacked APCs
+  - bugfix: Chat should scroll properly on some messages that wrap now.
   QuiteLiterallyAnything:
   - rscadd: Added subtle tooltips to speaker names in chat in order to make distinguishing
       gender over the radio easier.
   Richard Blonski:
   - server: Added a debug command to reload photocopier templates without restarting
       the server.
+  TheBoondock:
+  - rscadd: Added pillow lance and mattress shield
+  - rscadd: Pillow lance deals stamina damage and allows user to charge once wielded,
+      to charge simply contiously run in a direction and it consumes stamina the more
+      you run
+  - rscadd: Mattress shield deals stamina damage and allows user yto fortify, gaining
+      more  block chance and more stamina damage, the shield breaks easily as it is
+      still a mattress
+  - rscadd: You can now buy lance and mattress from toy vendor
+  - rscadd: Maintenance now have a chance to spawn lance and mattress shield
   ZeWaka:
   - bugfix: Fixed more TGUI window resize/white flashing
   lelandkemble:
@@ -72,6 +91,7 @@
       own fangs.
   - code_imp: Vampire fangs now handle all vampire blood-draining effects.
   - rscadd: Cybernetic fangs, unlocked via the Cybernetics tech node.
+  - balance: Spears no longer break from overuse without repair.
   projectkepler-ru:
   - balance: .38 Truestrike now does 20 damage and has better AP.
   san7890:
