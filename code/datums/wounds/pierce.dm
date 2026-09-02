@@ -75,7 +75,7 @@
 	switch(blood_bled)
 		if(8 to 12)
 			victim.visible_message(
-				span_smalldanger("[blood_noun] droplets fly from the hole in [victim]'s [limb.plaintext_zone]."),
+				span_smalldanger("[capitalize(blood_noun)] droplets fly from the hole in [victim]'s [limb.plaintext_zone]."),
 				span_danger("You cough up a bit of [blood_noun] from the blow to your [limb.plaintext_zone]."),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 				visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
@@ -185,7 +185,7 @@
 
 	playsound(user, 'sound/items/handling/surgery/cautery2.ogg', 75, TRUE)
 
-	var/bleeding_wording = (limb.can_bleed() ? "bleeding" : "cuts")
+	var/bleeding_wording = (limb.can_bleed() ? "bleeding" : "holes")
 	user.visible_message(span_green("[user] cauterizes some of the [bleeding_wording] on [victim]."), span_green("You cauterize some of the [bleeding_wording] on [victim]."))
 	victim.apply_damage(2 + severity, BURN, limb, wound_bonus = CANT_WOUND)
 	if(prob(30))
