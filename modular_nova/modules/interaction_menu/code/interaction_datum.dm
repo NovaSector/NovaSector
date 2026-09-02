@@ -105,6 +105,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 	msg = replacetext(replacetext(msg, "%USER_PRONOUN_THEIR%", user.p_their()), "%USER_PRONOUN_THEIRS%", user.p_theirs())
 	msg = replacetext(replacetext(msg, "%TARGET_PRONOUN_THEM%", target.p_them()), "%USER_PRONOUN_THEM%", user.p_them())
 	msg = replacetext(replacetext(msg, "%TARGET_PRONOUN_THEY%", target.p_they()), "%USER_PRONOUN_THEY%", user.p_they())
+	msg = replacetext(replacetext(msg, "%TARGET_PRONOUN_S%", target.p_s()), "%USER_PRONOUN_S%", user.p_s())
 
 	if(lewd)
 		if(use_subtler)
@@ -126,6 +127,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 		user_msg = replacetext(replacetext(user_msg, "%USER_PRONOUN_THEIR%", user.p_their()), "%USER_PRONOUN_THEIRS%", user.p_theirs())
 		user_msg = replacetext(replacetext(user_msg, "%TARGET_PRONOUN_THEM%", target.p_them()), "%USER_PRONOUN_THEM%", user.p_them())
 		user_msg = replacetext(replacetext(user_msg, "%TARGET_PRONOUN_THEY%", target.p_they()), "%USER_PRONOUN_THEY%", user.p_they())
+		user_msg = replacetext(replacetext(user_msg, "%TARGET_PRONOUN_S%", target.p_s()), "%USER_PRONOUN_S%", user.p_s())
 		to_chat(user, user_msg)
 
 	if(target_messages.len)
@@ -135,6 +137,7 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 		target_msg = replacetext(replacetext(target_msg, "%USER_PRONOUN_THEIR%", user.p_their()), "%USER_PRONOUN_THEIRS%", user.p_theirs())
 		target_msg = replacetext(replacetext(target_msg, "%TARGET_PRONOUN_THEM%", target.p_them()), "%USER_PRONOUN_THEM%", user.p_them())
 		target_msg = replacetext(replacetext(target_msg, "%TARGET_PRONOUN_THEY%", target.p_they()), "%USER_PRONOUN_THEY%", user.p_they())
+		target_msg = replacetext(replacetext(target_msg, "%TARGET_PRONOUN_S%", target.p_s()), "%USER_PRONOUN_S%", user.p_s())
 		to_chat(target, target_msg)
 
 	if(sound_use)
@@ -146,9 +149,23 @@ GLOBAL_LIST_EMPTY_TYPED(interaction_instances, /datum/interaction)
 			sound_possible = list(sound_possible)
 		sound_cache = pick(sound_possible)
 		if (lewd)
-			playsound_if_pref(target.loc, sound_cache, 50, sound_vary, max(0, -SOUND_RANGE + sound_range), pref_to_check = /datum/preference/toggle/erp/sounds)
+			playsound_if_pref(
+				source = target.loc,
+				soundin = sound_cache,
+				vol = 50,
+				vary = sound_vary,
+				extrarange = max(0, -SOUND_RANGE + sound_range),
+				pref_to_check = /datum/preference/toggle/erp/sounds
+			)
 		else
-			playsound(target.loc, sound_cache, 50, sound_vary, max(0, -SOUND_RANGE + sound_range))
+			playsound(
+				source = target.loc,
+				soundin = sound_cache,
+				vol = 50,
+				vary = sound_vary,
+				extrarange = max(0, -SOUND_RANGE + sound_range),
+				ignore_walls = FALSE
+			)
 
 	INVOKE_ASYNC(src, PROC_REF(apply_effects), user, target)
 
