@@ -200,6 +200,9 @@
 	if(blood_drain && !blood_check()) //Disables blood draining if the mob fails the blood check
 		toggle_blood_drain(TRUE)
 
+	if(nutrition_drain)
+		linked_mob.adjust_nutrition(-nutrition_drain_rate)
+
 	if(blood_drain)
 		linked_mob.adjust_blood_volume(-blood_drain_rate)
 
@@ -232,9 +235,6 @@
 	if(!bypass && !nutrition_check())
 		return FALSE
 
-	// TODO: this proc was always meant to scale the owner's hunger rate by nutrition_drain_rate, but the
-	// old code only ever wrote to a local var, so it never actually applied. Left as-is to avoid a balance
-	// change inside a mirror; fix by calling MODIFY_PHYSIOLOGY(linked_mob, PHYS_COEFF_HUNGER_MOD, ...) here.
 	if(nutrition_drain)
 		power_usage += (nutrition_drain_rate * nutrition_conversion_rate)
 		nutrition_drain = FALSE
