@@ -1,4 +1,0 @@
-author: "Richard Blonski"
-delete-after: True
-changes:
-  - server: "Added a debug command to reload photocopier templates without restarting the server."
