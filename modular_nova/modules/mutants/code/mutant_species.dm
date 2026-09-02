@@ -83,12 +83,14 @@
 	human_who_gained_species.AddComponent(/datum/component/mutant_hands, mutant_hand_path = hands_to_give)
 	RegisterSignal(human_who_gained_species, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(queue_regeneration))
 	RegisterSignal(human_who_gained_species, COMSIG_LIVING_LIFE, PROC_REF(on_life))
+	RegisterSignal(human_who_gained_species, COMSIG_HUMAN_SPEC_STUN, PROC_REF(on_spec_stun))
 
 /datum/species/mutant/infectious/on_species_loss(mob/living/carbon/human/human_who_lost_species, datum/species/new_species, pref_load)
 	. = ..()
 	UnregisterSignal(human_who_lost_species, list(
 		COMSIG_MOB_AFTER_APPLY_DAMAGE,
 		COMSIG_LIVING_LIFE,
+		COMSIG_HUMAN_SPEC_STUN,
 	))
 
 /obj/item/bodypart/leg/left/mutant_zombie/infectious
@@ -147,8 +149,10 @@
 /datum/species/mutant/infectious/check_roundstart_eligible()
 	return FALSE
 
-/datum/species/mutant/infectious/spec_stun(mob/living/carbon/human/H,amount)
-	. = min(20, amount)
+/// Infectious mutants shrug off long stuns, capping them at 2 seconds.
+/datum/species/mutant/infectious/proc/on_spec_stun(mob/living/carbon/human/source, list/stun_amount)
+	SIGNAL_HANDLER
+	stun_amount[1] = min(20, stun_amount[1])
 
 /// Start the cooldown to regenerate - 5 seconds after taking damage
 /datum/species/mutant/infectious/proc/queue_regeneration()
