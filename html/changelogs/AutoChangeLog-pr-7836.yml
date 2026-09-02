@@ -1,0 +1,4 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - bugfix: "[NOVA] Fixed the west-facing Sheathed pair size 2 (non-skintone) testicles sprite being offset."
