@@ -200,6 +200,9 @@
 	if(blood_drain && !blood_check()) //Disables blood draining if the mob fails the blood check
 		toggle_blood_drain(TRUE)
 
+	if(nutrition_drain)
+		linked_mob.adjust_nutrition(-nutrition_drain_rate)
+
 	if(blood_drain)
 		linked_mob.adjust_blood_volume(-blood_drain_rate)
 
@@ -232,15 +235,11 @@
 	if(!bypass && !nutrition_check())
 		return FALSE
 
-	var/hunger_modifier = linked_mob.physiology.hunger_mod
-
 	if(nutrition_drain)
-		hunger_modifier = nutrition_drain_rate
 		power_usage += (nutrition_drain_rate * nutrition_conversion_rate)
 		nutrition_drain = FALSE
 		return TRUE
 
-	hunger_modifier *= nutrition_drain_rate
 	power_usage -= (nutrition_drain_rate * nutrition_conversion_rate)
 	nutrition_drain = TRUE
 	return TRUE
