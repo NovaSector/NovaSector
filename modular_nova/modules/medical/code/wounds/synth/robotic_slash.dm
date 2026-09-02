@@ -683,11 +683,10 @@
 			qdel(src)
 
 /datum/wound/slash/flesh/synth/on_xadone(power)
-	. = ..()
+	return
 	// synths don't process many chemicals
 
 /datum/wound/slash/flesh/synth/on_synthflesh(reac_volume)
-	. = ..()
 	adjust_blood_flow(-0.050 * reac_volume) // this actually kinda makes sense
 
 /// If someone's putting a laser gun up to our cut to cauterize it
