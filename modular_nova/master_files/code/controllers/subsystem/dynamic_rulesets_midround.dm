@@ -64,7 +64,7 @@
 		)
 		if(length(yes_candidate))
 			break
-		message_admins("Candidate [candidate] has declined to become [name].")
+		message_admins("Candidate [key_name(candidate)] has declined to become [name].")
 	if(!length(yes_candidate))
 		message_admins("Nobody accepted the offer to become [name] - the ruleset will not execute this time.")
 	return yes_candidate
