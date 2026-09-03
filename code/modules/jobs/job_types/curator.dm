@@ -47,7 +47,7 @@
 		/obj/item/choice_beacon/hero = 1,
 		/obj/item/glassblowing/magnifying_glass, //NOVA EDIT: Magnifying Glass
 	)
-	belt = /obj/item/modular_computer/pda/curator
+	belt = /obj/item/modular_computer/pda/crew/curator
 	ears = /obj/item/radio/headset/headset_srvent
 	shoes = /obj/item/clothing/shoes/laceup
 	l_pocket = /obj/item/laser_pointer/green

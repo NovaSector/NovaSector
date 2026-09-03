@@ -1,0 +1,101 @@
+2026-09-02:
+  Absolucy:
+  - bugfix: Fixed the existence of borgs sometimes causing the orbit menu to crash.
+  FalloutFalcon:
+  - bugfix: sawnoff recoil is ADDED to existing recoil rather then setting it
+  - code_imp: Adds support for pre-sawnoff guns and cleans up sawnoff behavoir
+  - image: landmarks for job icons refreshed with programmatic generation
+  Fghj240:
+  - qol: reinforced windows hint that they can be secured on examine
+  - bugfix: plastitanium windows are in the correct state once constructed
+  - bugfix: moves deathsquad thermal vision to their IFF visors
+  - spellcheck: tactical EFF visors are now called IFF visors.
+  - qol: deathsquaddies can no longer check security records with their eyes
+  FlufflesTheDog:
+  - bugfix: Stoat fangs properly exist
+  Ghommie:
+  - refactor: Refactored the code for damage and types of damage a little (also armor
+      but not as much). Make sure to report any oddity with it.
+  Hatterhat:
+  - rscadd: Following a statistically significant amount of shady backroom deals,
+      small quantities of the M/TACS-1-EX "Theseus", which matches the M/TACS-1-LF
+      "Warden" for combat performance, have been rolled out to the Syndicate's Marauder
+      Program.
+  - bugfix: Warden exosuits now have functional zooming optics again.
+  - bugfix: Marauders now get a properly unlimited agent card.
+  JohnFulpWillard:
+  - qol: Command bar's last used mode is now persistent between rounds.
+  - bugfix: Psychologist PDA is now paintable.
+  - qol: '"PDA" in the PDA painter is now called "Assistant PDA", which it is.'
+  LemonInTheDark:
+  - rscadd: Space parallax now works through cameras and other "external maps"
+  - rscadd: Cameras and friends will no longer be incorrectly culled/shrunk when displaying
+      a z level other then your own.
+  - refactor: Fucked with how space parallax/the renderer thinks about "where" it
+      is being displayed pretty heavily. Please report any weird visuals!
+  - bugfix: Parallax draws as expected again
+  MacaroniCritter:
+  - map: Ocean Pubby has undergone a wide remodel
+  Melbert:
+  - rscadd: Adds two item acts - one to portable wind turbines, and one to propeller
+      hats - that does something when you act with the items. No spoilers.
+  - code_imp: Cleaned up atmos color adapter pipe code a tiny bit, report any oddities
+  - bugfix: Atmos multi-z pipes rendering weirdly when connecting with omni-pipes
+  - bugfix: Atmos airlock pumps disregarding color of connected pipes
+  - bugfix: Atmos layer adapter color is more consistent
+  - qol: Thermo machines input pipe takes on pipe color (visually, mechanically no
+      changes)
+  - qol: Pipes leading into floor objects take on pipe color (visually, mechanically
+      no changes)
+  - qol: Atmos mix tank output starts disabled.
+  - rscadd: Head revolutionaries can set a "conversion guideline" - a short message
+      sent to all people they convert - in their antag ui, to help them bring some
+      order to the revolution. It is, however, ultimately a *guideline*. You're note
+      forced to follow it but are expected to abide by it .
+  - bugfix: Fruit punch healing updates correctly
+  Neocloudy:
+  - bugfix: '[NOVA] Fixed the west-facing Sheathed pair size 2 (non-skintone) testicles
+      sprite being offset.'
+  PapaMichael:
+  - bugfix: Firefighting foam no longer immediately burns away in heat without getting
+      a chance to do its firefighting foam effects
+  - bugfix: Revenants are no longer immune to all damage
+  - bugfix: Cats no longer try to run away from themselves after losing a catfight,
+      instead running from the cat they actually lost to
+  - qol: The AI Malfunction UI now shows the number of currently hacked APCs
+  - bugfix: Chat should scroll properly on some messages that wrap now.
+  QuiteLiterallyAnything:
+  - rscadd: Added subtle tooltips to speaker names in chat in order to make distinguishing
+      gender over the radio easier.
+  Richard Blonski:
+  - server: Added a debug command to reload photocopier templates without restarting
+      the server.
+  TheBoondock:
+  - rscadd: Added pillow lance and mattress shield
+  - rscadd: Pillow lance deals stamina damage and allows user to charge once wielded,
+      to charge simply contiously run in a direction and it consumes stamina the more
+      you run
+  - rscadd: Mattress shield deals stamina damage and allows user yto fortify, gaining
+      more  block chance and more stamina damage, the shield breaks easily as it is
+      still a mattress
+  - rscadd: You can now buy lance and mattress from toy vendor
+  - rscadd: Maintenance now have a chance to spawn lance and mattress shield
+  ZeWaka:
+  - bugfix: Fixed more TGUI window resize/white flashing
+  lelandkemble:
+  - bugfix: The greed of miners no longer clogs the runtime logs
+  necromanceranne:
+  - bugfix: Biting now actually works again.
+  - rscadd: Fangs, which now handle the functionality of pseudo-fang tongues. Felinids,
+      lizardpeople, vampires, carp-infused and stout-infused people now have their
+      own fangs.
+  - code_imp: Vampire fangs now handle all vampire blood-draining effects.
+  - rscadd: Cybernetic fangs, unlocked via the Cybernetics tech node.
+  - balance: Spears no longer break from overuse without repair.
+  projectkepler-ru:
+  - balance: .38 Truestrike now does 20 damage and has better AP.
+  san7890:
+  - bugfix: The pizza reward from the Bitrunning Pizzeria is now "edible", but it
+      is a fool's errand to try and eat it.
+  sqnztb:
+  - rscadd: Underwear can now be adjusted via the ctrl-shift-click interaction menu.

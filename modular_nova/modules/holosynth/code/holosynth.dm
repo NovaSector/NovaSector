@@ -77,8 +77,8 @@
 	. = ..()
 	var/mob/living/carbon/human/species_holder = target
 
-	species_holder.physiology.brute_mod *= HOLOSYNTH_BRUTEMULT
-	species_holder.physiology.burn_mod *= HOLOSYNTH_BURNMULT
+	MODIFY_PHYSIOLOGY(species_holder, BRUTE, HOLOSYNTH_BRUTEMULT)
+	MODIFY_PHYSIOLOGY(species_holder, BURN, HOLOSYNTH_BURNMULT)
 	species_holder.max_grab = GRAB_PASSIVE
 
 	species_holder.AddComponent(/datum/component/glass_passer/holosynth)
@@ -112,8 +112,8 @@
 /datum/species/synthetic/holosynth/on_species_loss(mob/living/carbon/target, datum/species/new_species, pref_load)
 	. = ..()
 	var/mob/living/carbon/human/species_holder = target
-	species_holder.physiology.brute_mod /= HOLOSYNTH_BRUTEMULT
-	species_holder.physiology.burn_mod /= HOLOSYNTH_BURNMULT
+	MODIFY_PHYSIOLOGY(species_holder, BRUTE, 1 / HOLOSYNTH_BRUTEMULT)
+	MODIFY_PHYSIOLOGY(species_holder, BURN, 1 / HOLOSYNTH_BURNMULT)
 	species_holder.max_grab = GRAB_KILL
 	UnregisterSignal(species_holder, list(COMSIG_MOB_APPLY_DAMAGE, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_LIVING_ELECTROCUTE_ACT))
 	species_holder.remove_filter("HOLO: Color and Transparent")
