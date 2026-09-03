@@ -41,10 +41,12 @@
  */
 /datum/dynamic_ruleset/midround/from_living/proc/poll_candidates(list/candidates)
 	message_admins("MID-ROUND ANTAG: attempting to poll [length(candidates)] people individually to become [name].")
+	log_dynamic("MID-ROUND ANTAG: attempting to poll [length(candidates)] people individually to become [name].")
 	var/list/potential_candidates = shuffle(candidates)
 	var/list/yes_candidate = list()
 	for(var/mob/living/candidate in potential_candidates)
 		potential_candidates -= candidate
+		log_dynamic("MID-ROUND ANTAG: polling [key_name(candidate)] to become [name].")
 		yes_candidate += SSpolling.poll_candidates(
 			question = midround_ask_question || "Do you want to become [name]?.",
 			group = list(candidate),
@@ -65,8 +67,10 @@
 		if(length(yes_candidate))
 			break
 		message_admins("Candidate [key_name(candidate)] has declined to become [name].")
+		log_dynamic("MID-ROUND ANTAG: Candidate [key_name(candidate)] has declined to become [name].")
 	if(!length(yes_candidate))
-		message_admins("Nobody accepted the offer to become [name] - the ruleset will not execute this time.")
+		message_admins("MID-ROUND ANTAG: Nobody accepted the offer to become [name] - the ruleset will not execute this time.")
+		log_dynamic("MID-ROUND ANTAG: Nobody accepted the offer to become [name] - the ruleset will not execute this time.")
 	return yes_candidate
 
 /*
