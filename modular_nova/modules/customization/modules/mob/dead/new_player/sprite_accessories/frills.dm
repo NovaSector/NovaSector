@@ -2,12 +2,14 @@
 	key = FEATURE_FRILLS
 	default_color = DEFAULT_SECONDARY
 	organ_type = /obj/item/organ/frills
+	flags_custom_mod_icon = MOD_ACCESSORY_HELMET
 
 /datum/sprite_accessory/frills/is_hidden(mob/living/carbon/human/human, datum/bodypart_overlay/mutant/bodypart_overlay)
-	if((human.head?.flags_inv & HIDEEARS) || (key in human.try_hide_mutant_parts))
-		return TRUE
+	. = ..()
+	if(.)
+		return
 
-	return FALSE
+	return !!(human.obscured_slots & HIDEEARS)
 
 /datum/sprite_accessory/frills/none
 	name = SPRITE_ACCESSORY_NONE
