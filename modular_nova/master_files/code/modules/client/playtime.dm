@@ -46,3 +46,10 @@
 		return FALSE
 
 	return !parent?.has_playtime_data() || parent.is_green()
+
+// Mock clients for CI.
+/datum/client_interface/proc/has_playtime_data()
+	return FALSE
+
+/datum/client_interface/proc/is_green()
+	return FALSE
