@@ -1,2 +1,4 @@
 /// If this wound, when bandaged, will cause a splint overlay to generate rather than a bandage overlay.
 #define SPLINT_OVERLAY (1 << 23) // we use a big number since tg realistically wouldnt go to it
+
+#define WOUND_SERIES_SYNTH_BLEED	"wound_series_synth_bleed"	//synth bleeding wounds
