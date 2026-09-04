@@ -9708,6 +9708,7 @@
 /turf/open/floor/wood/wood_7,
 /area/centcom/holding/cafedorms)
 "iCR" = (
+/obj/machinery/home_terminal,
 /turf/open/indestructible/dark,
 /area/centcom/holding/cafe)
 "iDI" = (

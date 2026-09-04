@@ -1,0 +1,752 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ba" = (
+/obj/machinery/computer{
+	dir = 8
+	},
+/turf/open/floor/carpet/donk,
+/area/misc/player_home)
+"bj" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/machinery/light/small/directional/east,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"bs" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/sign/painting/large/library{
+	dir = 1
+	},
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"cC" = (
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/carpet/royalblue,
+/area/misc/player_home)
+"cL" = (
+/obj/structure/table/wood/poker,
+/obj/item/toy/cards/deck,
+/turf/open/floor/carpet,
+/area/misc/player_home)
+"dg" = (
+/obj/structure/flora/bush/grassy/style_random,
+/obj/structure/flora/bush/flowers_br/style_3,
+/obj/structure/window/spawner/directional/west,
+/turf/open/floor/grass,
+/area/misc/player_home)
+"ef" = (
+/obj/structure/chair/sofa/corp/left{
+	dir = 8
+	},
+/turf/open/floor/carpet,
+/area/misc/player_home)
+"eC" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/structure/decorative/shelf,
+/obj/machinery/light_switch/directional/west,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"fX" = (
+/obj/machinery/computer/security/telescreen/entertainment/directional/east,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/obj/machinery/jukebox{
+	req_access = null
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"gZ" = (
+/obj/structure/table/wood/poker,
+/obj/item/storage/fancy/donut_box{
+	pixel_y = 5
+	},
+/turf/open/floor/carpet,
+/area/misc/player_home)
+"hp" = (
+/turf/open/floor/carpet,
+/area/misc/player_home)
+"ix" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/effect/spawner/liquids_spawner,
+/obj/machinery/light/dim/directional/south,
+/turf/open/floor/iron/pool/cobble/corner{
+	dir = 8
+	},
+/area/misc/player_home)
+"iW" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"iZ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/closet/mini_fridge{
+	density = 0;
+	pixel_y = 8
+	},
+/obj/item/storage/cans/sixbeer,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"kp" = (
+/obj/structure/sign/painting/library,
+/turf/closed/wall,
+/area/misc/player_home)
+"kq" = (
+/obj/machinery/door/morgue,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"lp" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/structure/aquarium/prefilled,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"lx" = (
+/obj/structure/bed/double,
+/obj/effect/spawner/random/bedsheet/any/double,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"ml" = (
+/obj/effect/turf_decal/siding/wood/corner,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"mp" = (
+/obj/structure/table,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"nB" = (
+/obj/structure/closet/cabinet,
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"nL" = (
+/obj/machinery/light_switch/directional/north,
+/obj/structure/curtain,
+/obj/machinery/shower/directional/east{
+	pixel_x = -10
+	},
+/obj/item/soap/deluxe,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"oX" = (
+/obj/effect/turf_decal/siding/wideplating_new/light{
+	dir = 9
+	},
+/obj/structure/closet/crate/bin,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/misc/player_home)
+"qM" = (
+/obj/machinery/light_switch/directional/north{
+	pixel_x = 18
+	},
+/obj/structure/showcase{
+	name = "doorphone";
+	icon = 'modular_nova/modules/aesthetics/intercom/icons/intercom.dmi';
+	icon_state = "intercom";
+	pixel_y = 24;
+	density = 0
+	},
+/obj/machinery/home_saver,
+/turf/open/floor/carpet/lone,
+/area/misc/player_home)
+"rI" = (
+/obj/structure/mirror/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"rO" = (
+/obj/machinery/light_switch/directional/north,
+/obj/effect/turf_decal/siding/wideplating_new/light{
+	dir = 8
+	},
+/obj/structure/table/reinforced,
+/obj/machinery/microwave{
+	pixel_x = -2;
+	pixel_y = 6
+	},
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/misc/player_home)
+"rY" = (
+/obj/item/kirbyplants/random,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"sh" = (
+/obj/structure/table/reinforced,
+/obj/machinery/light/cold/directional/east,
+/obj/effect/turf_decal/siding/wideplating_new/light{
+	dir = 10
+	},
+/obj/item/kitchen/rollingpin{
+	pixel_x = -3
+	},
+/obj/item/knife/kitchen,
+/turf/open/floor/mineral/titanium/tiled/white,
+/area/misc/player_home)
+"sZ" = (
+/obj/effect/turf_decal/siding/wood/corner,
+/obj/structure/table/wood,
+/obj/item/pizzabox/margherita{
+	pixel_y = 11
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"tg" = (
+/obj/machinery/door/morgue,
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"tl" = (
+/obj/item/kirbyplants/random,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood/large,
+/area/misc/player_home)
+"tR" = (
+/obj/structure/chair/stool/bar/directional/south,
+/obj/structure/sign/poster/random/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"um" = (
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"vT" = (
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"wg" = (
+/obj/machinery/light/warm/directional/west,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"wh" = (
+/obj/structure/table/wood,
+/obj/item/serviette_pack,
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"wv" = (
+/obj/structure/bed/dogbed,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"xv" = (
+/obj/structure/chair/office{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"yA" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_x = 5;
+	pixel_y = 14
+	},
+/obj/structure/sign/poster/random/directional/east,
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"Ay" = (
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"AH" = (
+/obj/structure/foamedmetal,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"AJ" = (
+/obj/structure/chair,
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"AR" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"Bm" = (
+/obj/structure/curtain/cloth,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"Dn" = (
+/obj/structure/chair{
+	dir = 8
+	},
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"Gq" = (
+/obj/structure/curtain,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"GK" = (
+/obj/structure/sink/kitchen/directional/west,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"GU" = (
+/obj/structure/closet/cabinet,
+/obj/machinery/light/dim/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"Hd" = (
+/obj/machinery/light_switch/directional/south,
+/turf/open/floor/carpet/donk,
+/area/misc/player_home)
+"Hf" = (
+/obj/effect/spawner/liquids_spawner,
+/turf/open/floor/iron/pool/cobble/corner{
+	dir = 4
+	},
+/area/misc/player_home)
+"Hz" = (
+/obj/structure/chair/sofa/corp/corner,
+/obj/machinery/light/warm/directional/east,
+/turf/open/floor/carpet,
+/area/misc/player_home)
+"Io" = (
+/obj/structure/table,
+/obj/item/food/vendor_tray_meal/ramen,
+/obj/machinery/computer/security/telescreen/entertainment/directional/west,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"Ip" = (
+/turf/closed/indestructible/hoteldoor/fakedoor/player_home{
+	icon_state = "door_closed";
+	icon = 'icons/obj/doors/puzzledoor/default.dmi'
+	},
+/area/misc/player_home)
+"JT" = (
+/obj/effect/spawner/liquids_spawner,
+/turf/open/floor/iron/pool/cobble/corner,
+/area/misc/player_home)
+"Km" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"KD" = (
+/turf/closed/wall,
+/area/misc/player_home)
+"MN" = (
+/obj/structure/bookcase/random,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"Nh" = (
+/obj/item/kirbyplants/random,
+/obj/structure/sign/poster/random/directional/north,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"NE" = (
+/obj/structure/closet/secure_closet/wall{
+	pixel_y = 32
+	},
+/obj/effect/turf_decal/tile/neutral/diagonal_edge,
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"Qh" = (
+/turf/open/floor/carpet/donk,
+/area/misc/player_home)
+"Ro" = (
+/obj/structure/chair/sofa/corp/right,
+/obj/structure/sign/poster/random/directional/north,
+/turf/open/floor/carpet,
+/area/misc/player_home)
+"RV" = (
+/turf/open/floor/carpet/royalblue,
+/area/misc/player_home)
+"SH" = (
+/obj/item/kitchen/spoon,
+/obj/item/kitchen/spoon,
+/obj/item/kitchen/spoon,
+/obj/item/kitchen/spoon,
+/obj/item/kitchen/fork,
+/obj/item/kitchen/fork,
+/obj/item/kitchen/fork,
+/obj/item/kitchen/fork,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/effect/spawner/random/food_or_drink/three_course_meal,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/plate,
+/obj/item/storage/cans/sixbeer,
+/obj/item/reagent_containers/cup/glass/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinkingglass,
+/obj/item/reagent_containers/cup/glass/drinkingglass,
+/obj/item/storage/fancy/pickles_jar,
+/obj/structure/closet/secure_closet/freezer/kitchen/mining{
+	storage_capacity = 60
+	},
+/obj/effect/spawner/random/food_or_drink/donkpockets,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"Tz" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"TX" = (
+/obj/structure/table/wood/poker,
+/obj/structure/noticeboard{
+	dir = 4;
+	pixel_x = -64;
+	pixel_y = -32
+	},
+/turf/open/floor/carpet,
+/area/misc/player_home)
+"Ve" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"Vi" = (
+/obj/structure/sign/poster/random/directional/south,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"VB" = (
+/obj/structure/sign/poster/random/directional/south,
+/obj/machinery/vending/wallmed/directional/west,
+/obj/structure/table,
+/obj/structure/bedsheetbin,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"Wx" = (
+/obj/structure/flora/bush/large/style_random,
+/obj/structure/flora/bush/lavendergrass/style_random,
+/obj/structure/window/spawner/directional/west,
+/obj/structure/window/spawner/directional/north,
+/turf/open/floor/grass,
+/area/misc/player_home)
+"Xn" = (
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"Xv" = (
+/obj/structure/chair/stool/bar/directional/west,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"XI" = (
+/obj/item/kirbyplants/random,
+/obj/effect/turf_decal/siding/wood/corner,
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"Yg" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+"YH" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/sign/poster/random/directional/north,
+/obj/effect/spawner/liquids_spawner,
+/turf/open/floor/iron/pool/cobble/corner{
+	dir = 1
+	},
+/area/misc/player_home)
+"Zb" = (
+/obj/structure/chair/stool/bar/directional/north,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"Zc" = (
+/obj/structure/chair/comfy/brown{
+	dir = 4
+	},
+/turf/open/floor/carpet,
+/area/misc/player_home)
+"Zv" = (
+/obj/structure/closet/secure_closet/wall{
+	pixel_y = -32
+	},
+/obj/effect/turf_decal/tile/neutral/diagonal_edge,
+/obj/structure/sink/directional/east,
+/obj/structure/mirror/directional/west,
+/obj/effect/turf_decal/siding/white{
+	dir = 4
+	},
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"ZA" = (
+/obj/structure/chair{
+	dir = 1
+	},
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"ZH" = (
+/obj/structure/dresser,
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/parquet,
+/area/misc/player_home)
+
+(1,1,1) = {"
+KD
+KD
+kp
+KD
+KD
+Ip
+KD
+KD
+KD
+KD
+KD
+KD
+KD
+"}
+(2,1,1) = {"
+KD
+wh
+Yg
+xv
+KD
+qM
+nB
+KD
+Nh
+Io
+ZA
+Tz
+KD
+"}
+(3,1,1) = {"
+KD
+MN
+Qh
+ba
+KD
+rI
+tl
+KD
+AJ
+mp
+Ve
+Vi
+KD
+"}
+(4,1,1) = {"
+KD
+GU
+Qh
+Qh
+tg
+RV
+RV
+Bm
+Ay
+Dn
+Ay
+Ay
+KD
+"}
+(5,1,1) = {"
+KD
+ZH
+Qh
+Hd
+KD
+cC
+RV
+Bm
+Ay
+Ay
+Ay
+SH
+KD
+"}
+(6,1,1) = {"
+KD
+yA
+lx
+wv
+KD
+RV
+RV
+KD
+rO
+sh
+GK
+oX
+KD
+"}
+(7,1,1) = {"
+KD
+KD
+KD
+KD
+KD
+tg
+KD
+KD
+KD
+KD
+KD
+KD
+KD
+"}
+(8,1,1) = {"
+KD
+rY
+gZ
+Zc
+wg
+AR
+eC
+lp
+XI
+KD
+nL
+VB
+KD
+"}
+(9,1,1) = {"
+KD
+tR
+TX
+cL
+Zb
+ml
+Km
+Km
+iW
+kq
+um
+bj
+KD
+"}
+(10,1,1) = {"
+KD
+bs
+Xv
+Xv
+Xn
+vT
+KD
+KD
+KD
+KD
+Gq
+KD
+KD
+"}
+(11,1,1) = {"
+KD
+iZ
+Xn
+Xn
+hp
+hp
+kp
+AH
+AH
+KD
+NE
+Zv
+KD
+"}
+(12,1,1) = {"
+KD
+Ro
+hp
+sZ
+hp
+hp
+KD
+AH
+AH
+KD
+YH
+ix
+KD
+"}
+(13,1,1) = {"
+KD
+Hz
+ef
+fX
+Wx
+dg
+KD
+AH
+AH
+KD
+JT
+Hf
+KD
+"}
+(14,1,1) = {"
+KD
+KD
+kp
+KD
+KD
+KD
+KD
+KD
+KD
+KD
+KD
+KD
+KD
+"}
