@@ -54,9 +54,6 @@ SUBSYSTEM_DEF(homes)
 
 	// A home is sealed. These would let its contents talk to the outside world.
 	forbidden_types = list(
-		/obj/machinery/disposal,
-		/obj/structure/disposalpipe,
-		/obj/structure/disposaloutlet,
 		/obj/machinery/teleport,
 		/obj/machinery/quantumpad,
 		/obj/machinery/launchpad,

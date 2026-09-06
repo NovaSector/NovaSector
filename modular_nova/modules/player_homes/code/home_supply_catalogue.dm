@@ -371,6 +371,10 @@
 	desc = "Builds walls and floors on its own."
 	manifest = list(/obj/item/construction/rcd/loaded = 1)
 
+/datum/home_supply/tools/rpd
+	name = "Rapid pipe dispenser"
+	manifest = list(/obj/item/pipe_dispenser = 1)
+
 /datum/home_supply/tools/rld
 	name = "Rapid lighting device"
 	desc = "Fits light tubes and glow sticks, in any colour you like."

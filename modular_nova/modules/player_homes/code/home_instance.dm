@@ -284,3 +284,26 @@
 	if(QDELETED(escapee) || QDELETED(back_inside) || (get_area(escapee) == src))
 		return
 	escapee.forceMove(back_inside)
+
+/*
+ * This is why we can't have nice things.
+ */
+/obj/item/pipe_dispenser/interact_with_atom(atom/attack_target, mob/living/user, list/modifiers)
+	if(refuse_cordon(attack_target, user))
+		return ITEM_INTERACT_BLOCKING
+	return ..()
+
+/obj/item/pipe_dispenser/interact_with_atom_secondary(obj/machinery/atmospherics/target, mob/living/user, list/modifiers)
+	if(refuse_cordon(target, user))
+		return ITEM_INTERACT_BLOCKING
+	return ..()
+
+/obj/item/pipe_dispenser/proc/refuse_cordon(atom/attack_target, mob/user)
+	var/turf/target_turf = get_turf(attack_target)
+	if(isnull(target_turf))
+		return FALSE
+	if(!istype(target_turf, /turf/cordon) && !istype(get_area(target_turf), /area/misc/cordon))
+		return FALSE
+
+	balloon_alert(user, "can't build there!")
+	return TRUE
