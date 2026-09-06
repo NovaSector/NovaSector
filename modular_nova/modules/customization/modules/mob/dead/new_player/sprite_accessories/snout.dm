@@ -13,6 +13,10 @@
 	)
 
 /datum/sprite_accessory/snouts/is_hidden(mob/living/carbon/human/human, datum/bodypart_overlay/mutant/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
+
 	return !!(human.obscured_slots & HIDESNOUT)
 
 /obj/item/organ/snout

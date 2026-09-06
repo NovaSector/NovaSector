@@ -359,7 +359,10 @@
 
 /obj/item/clothing/shoes/jackboots/heel/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
+	AddComponent(/datum/component/shoe_footstep, list(
+		'modular_nova/master_files/sound/effects/heel1.ogg',
+		'modular_nova/master_files/sound/effects/heel2.ogg',
+	), volume = 50, steps_per_play = 2, extrarange = -1, falloff_exponent = 10)
 
 // Donation reward for Bloodrite
 /obj/item/clothing/shoes/clown_shoes/britches
@@ -1682,7 +1685,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/shoes/fancy_heels/drag/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1, 'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1), 70)
+	AddComponent(/datum/component/squeak, list(
+		'modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1,
+		'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1,
+	), 70, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, falloff_exponent = SOUND_FALLOFF_EXPONENT)
 
 // Donation reward for Razurath
 
@@ -2200,7 +2206,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/shoes/rem_shoes/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1, 'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1), 70)
+	AddComponent(/datum/component/squeak, list(
+		'modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1,
+		'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1,
+	), 70, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, falloff_exponent = SOUND_FALLOFF_EXPONENT)
 
 /obj/item/clothing/under/bwake
 	name = "\improper Compression bodysuit"

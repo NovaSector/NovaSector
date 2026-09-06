@@ -1,0 +1,4 @@
+author: "Melbert"
+delete-after: True
+changes:
+  - qol: "Tails auto-stop wagging when its owner falls unconscious or into crit, rather than when their owner dies."

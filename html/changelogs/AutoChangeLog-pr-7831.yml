@@ -1,0 +1,5 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - bugfix: "[NOVA] MOD hardlight overlays would be applied to ears, antennae or other sprite accessories on the head when the helmet wasn't deployed or active."
+  - bugfix: "[NOVA] MOD hardlight overlays would clash with the mesh bodypart textures recently added upstream."

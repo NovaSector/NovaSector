@@ -1,0 +1,7 @@
+author: "Melbert"
+delete-after: True
+changes:
+  - sound: "Modsuits now have footstep sounds"
+  - sound: "Magboots now have footstep sounds"
+  - sound: "Robotic limbs now have footstep sounds (only applies when barefoot)"
+  - sound: "When punching, kicking, or smashing someone's robotic limbs, an alternate hitsound is played"
