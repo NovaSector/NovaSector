@@ -143,6 +143,8 @@
 		return BLOOD_FLOW_DECREASING
 	if(clot_rate < 0)
 		return BLOOD_FLOW_INCREASING
+	else
+		return BLOOD_FLOW_STEADY //NOVA ADDITION - synth bleeding - really? how long has this been a thing ;_;
 
 /datum/wound/slash/flesh/handle_process(seconds_per_tick)
 	if (!victim || HAS_TRAIT(victim, TRAIT_STASIS))
