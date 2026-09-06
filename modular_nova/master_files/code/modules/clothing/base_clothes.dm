@@ -53,7 +53,7 @@
 	var/list/species_clothing_color_coords[3]
 
 	/// Does this item's sprite get cropped on taurs when worn?
-	var/gets_cropped_on_taurs = TRUE
+	var/gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/head
 	supports_variations_flags = CLOTHING_SNOUTED_VARIATION
@@ -67,15 +67,14 @@
 /obj/item/clothing/under
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 	bodyshapes_with_variations = BODYSHAPE_DIGITIGRADE
+	gets_cropped_on_taurs = TRUE
 
 /obj/item/clothing/suit
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	gets_cropped_on_taurs = TRUE
 
 /obj/item/clothing/shoes
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 
 /obj/item/changeling
 	supports_variations_flags = NONE
-
-/obj/item/clothing/neck
-	gets_cropped_on_taurs = FALSE
