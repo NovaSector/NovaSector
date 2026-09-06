@@ -50,6 +50,8 @@
 	var/list/starters = list()
 	for(var/starter_name in sort_list(SShomes.starter_templates))
 		var/datum/map_template/home/starter = SShomes.starter_templates[starter_name]
+		if(starter.admin_only)
+			continue
 		starters += list(list(
 			"name" = starter.name,
 			"blurb" = starter.blurb,
@@ -139,6 +141,10 @@
 		return
 	var/datum/map_template/home/starter = SShomes.starter_templates[starter_name]
 	if(isnull(starter))
+		return
+	if(starter.admin_only)
+		log_admin("[key_name(user)] asked the home terminal for restricted plan '[starter.name]', which is not offered to players.")
+		message_admins("[key_name_admin(user)] asked the home terminal for restricted plan '[starter.name]', which is not offered to players.")
 		return
 	if(!SShomes.write_starter(user.ckey, starter, user))
 		to_chat(user, span_warning("The registry failed to file your residence. Contact an administrator."))

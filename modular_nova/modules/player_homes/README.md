@@ -21,7 +21,7 @@ is ever saved automatically. Saving is always an explicit press of the console.
 | `home_supply.dm`           | Requisition filing, drop pods, admin approval queue                 |
 | `home_supply_catalogue.dm` | Pure data: what the console can call down                           |
 | `home_preview.dm`          | Renders the terminal's preview picture at save time                 |
-| `home_stand_ins.dm`        | Stand-ins for what `write_map()` can't write: decals, water          |
+| `home_stand_ins.dm`        | Stand-ins for what `write_map()` can't write: decals, water         |
 
 Starter templates: `_maps/nova/persistent_housing/`
 UI: `tgui/packages/tgui/interfaces/` (`PlayerHome.tsx`, `HomeConsole.tsx`)

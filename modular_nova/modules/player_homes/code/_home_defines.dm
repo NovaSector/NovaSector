@@ -59,11 +59,16 @@
 	var/landing_zone_y_offset = 1
 	/// One line shown beside the name while a first-time player is choosing.
 	var/blurb
+	/// For templates only grantable by admins.
+	var/admin_only = FALSE
 
 /// Built at runtime from a player's own save file. No compile-time mappath, which is what keeps
 /// preload_starter_templates() from offering it as a starter.
 /datum/map_template/home/player_save
 	name = "Filed Residence"
+
+/datum/map_template/home/restricted
+	admin_only = TRUE
 
 /// Try to keep these alphabetical.
 
@@ -105,43 +110,6 @@
 	landing_zone_x_offset = 6
 	landing_zone_y_offset = 1
 
-/* TODO - implement some sort of restricted way to load these.
-/datum/map_template/home/blank_20x20
-	name = "Home - Blank Plot (20x20)"
-	blurb = "Four hundred tiles of nothing whatsoever. Ambition sold separately."
-	mappath = "_maps/nova/persistent_housing/home_blank_20x20.dmm"
-	landing_zone_x_offset = 9
-	landing_zone_y_offset = 1
-
-/datum/map_template/home/blank_25x25
-	name = "Home - Blank Plot (25x25)"
-	blurb = "Big enough that the far wall stops feeling like your problem."
-	mappath = "_maps/nova/persistent_housing/home_blank_25x25.dmm"
-	landing_zone_x_offset = 11
-	landing_zone_y_offset = 1
-
-/datum/map_template/home/blank_30x30
-	name = "Home - Blank Plot (30x30)"
-	blurb = "A lot with room for rooms. Bring a floor plan, or find out the hard way."
-	mappath = "_maps/nova/persistent_housing/home_blank_30x30.dmm"
-	landing_zone_x_offset = 14
-	landing_zone_y_offset = 1
-
-/datum/map_template/home/blank_35x35
-	name = "Home - Blank Plot (35x35)"
-	blurb = "Very nearly the largest plot on file. Mind the walk back to the door."
-	mappath = "_maps/nova/persistent_housing/home_blank_35x35.dmm"
-	landing_zone_x_offset = 16
-	landing_zone_y_offset = 1
-
-/datum/map_template/home/blank_40x40
-	name = "Home - Blank Plot (40x40)"
-	blurb = "The largest lot the registry will issue, and every tile of it empty."
-	mappath = "_maps/nova/persistent_housing/home_blank_40x40.dmm"
-	landing_zone_x_offset = 19
-	landing_zone_y_offset = 1
-*/
-
 /datum/map_template/home/cabin
 	name = "Home - Cabin In The Woods"
 	blurb = "Timber walls, a stove, and a great many trees that are none of your business."
@@ -155,3 +123,41 @@
 	mappath = "_maps/nova/persistent_housing/home_snowycabin.dmm"
 	landing_zone_x_offset = 10
 	landing_zone_y_offset = 5
+
+
+// Big, restricted lots.
+
+/datum/map_template/home/restricted/blank_20x20
+	name = "Home - Blank Plot (20x20)"
+	blurb = "Four hundred tiles of nothing whatsoever. Ambition sold separately."
+	mappath = "_maps/nova/persistent_housing/home_blank_20x20.dmm"
+	landing_zone_x_offset = 9
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/restricted/blank_25x25
+	name = "Home - Blank Plot (25x25)"
+	blurb = "Big enough that the far wall stops feeling like your problem."
+	mappath = "_maps/nova/persistent_housing/home_blank_25x25.dmm"
+	landing_zone_x_offset = 11
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/restricted/blank_30x30
+	name = "Home - Blank Plot (30x30)"
+	blurb = "A lot with room for rooms. Bring a floor plan, or find out the hard way."
+	mappath = "_maps/nova/persistent_housing/home_blank_30x30.dmm"
+	landing_zone_x_offset = 14
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/restricted/blank_35x35
+	name = "Home - Blank Plot (35x35)"
+	blurb = "Very nearly the largest plot on file. Mind the walk back to the door."
+	mappath = "_maps/nova/persistent_housing/home_blank_35x35.dmm"
+	landing_zone_x_offset = 16
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/restricted/blank_40x40
+	name = "Home - Blank Plot (40x40)"
+	blurb = "The largest lot the registry will issue, and every tile of it empty."
+	mappath = "_maps/nova/persistent_housing/home_blank_40x40.dmm"
+	landing_zone_x_offset = 19
+	landing_zone_y_offset = 1
