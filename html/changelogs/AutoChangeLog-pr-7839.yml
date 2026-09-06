@@ -1,0 +1,6 @@
+author: "Richard Blonski"
+delete-after: True
+changes:
+  - rscadd: "Photocopier, Added General Records Format."
+  - rscadd: "Photocopier, Added Security Records Format."
+  - qol: " Photocopier, Edited Medical Records Format, to explain some complex terms."
