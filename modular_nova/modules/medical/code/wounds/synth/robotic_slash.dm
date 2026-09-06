@@ -784,7 +784,7 @@
 		Follow up with internal fluid replacement."
 	treat_text_short = "Apply bandaging and solder."
 	examine_desc = "has an internal fluid leak"
-	occur_text = "is cut open, slowly leaking internal fluid"
+	occur_text = "is cut open, leaking internal fluid out of a gash in their shell"
 	sound_effect = 'sound/effects/wounds/blood1.ogg'
 	severity = WOUND_SEVERITY_MODERATE
 	initial_flow = 0.75
