@@ -123,6 +123,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
 "dS" = (
@@ -132,7 +133,6 @@
 /turf/open/floor/wood/large,
 /area/station/common/pool)
 "dU" = (
-/obj/structure/cable,
 /turf/open/floor/stone,
 /area/station/commons/lounge)
 "ei" = (
@@ -214,7 +214,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
-/obj/machinery/duct,
 /obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
@@ -424,7 +423,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/space)
+/area/station/maintenance/starboard/lesser)
 "rc" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -548,7 +547,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
-/obj/machinery/duct,
 /obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/plating,
 /area/station/common/pool)
@@ -1038,6 +1036,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/stone,
 /area/station/commons/lounge)
 "NW" = (
@@ -1091,6 +1090,7 @@
 /obj/structure/disposalpipe/junction{
 	dir = 1
 	},
+/obj/structure/cable,
 /turf/open/floor/stone,
 /area/station/commons/lounge)
 "RZ" = (
@@ -1104,6 +1104,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
 "Sd" = (
@@ -1119,9 +1120,6 @@
 /obj/effect/landmark/start/assistant,
 /turf/open/floor/stone,
 /area/station/commons/fitness)
-"Sv" = (
-/turf/closed/wall,
-/area/space)
 "SR" = (
 /obj/machinery/door/airlock/wood{
 	name = "Sauna"
@@ -1860,8 +1858,8 @@ Vx
 hZ
 aO
 YX
-fL
-fL
+HU
+HU
 Cr
 ID
 "}
@@ -1895,10 +1893,10 @@ tC
 tC
 tC
 tC
-Sv
-Sv
-Sv
-Sv
+dl
+dl
+dl
+dl
 qc
 "}
 (34,1,1) = {"
