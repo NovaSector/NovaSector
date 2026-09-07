@@ -12,16 +12,17 @@
 /datum/wound/slash/get_self_check_description(self_aware)
 	if(!limb.can_bleed())
 		return ..()
-	var/blood_noun = get_blood_noun()	// NOVA EDIT ADDITION - Synth bleeding
+
+	var/blood_noun = get_blood_noun() // NOVA EDIT ADDITION - Synth bleeding
 	switch(severity)
 		if(WOUND_SEVERITY_TRIVIAL)
-			return span_danger("It's leaking [blood_noun] from a small [LOWER_TEXT(undiagnosed_name || name)].") // NOVA EDIT CHANGE - Synth bleeding
+			return span_danger("It's leaking [blood_noun] from a small [LOWER_TEXT(undiagnosed_name || name)].") // NOVA EDIT CHANGE - Synth bleeding - ORIGINAL: return span_danger("It's leaking blood from a small [LOWER_TEXT(undiagnosed_name || name)].")
 		if(WOUND_SEVERITY_MODERATE)
-			return span_warning("It's leaking [blood_noun] from a [LOWER_TEXT(undiagnosed_name || name)].") // NOVA EDIT CHANGE - Synth bleedin
+			return span_warning("It's leaking [blood_noun] from a [LOWER_TEXT(undiagnosed_name || name)].") // NOVA EDIT CHANGE - Synth bleeding - ORIGINAL: return span_warning("It's leaking blood from a [LOWER_TEXT(undiagnosed_name || name)].")
 		if(WOUND_SEVERITY_SEVERE)
-			return span_boldwarning("It's leaking [blood_noun] from a serious [LOWER_TEXT(undiagnosed_name || name)]!") // NOVA EDIT CHANGE - Synth bleedin
+			return span_boldwarning("It's leaking [blood_noun] from a serious [LOWER_TEXT(undiagnosed_name || name)]!") // NOVA EDIT CHANGE - Synth bleeding - ORIGINAL: return span_boldwarning("It's leaking blood from a serious [LOWER_TEXT(undiagnosed_name || name)]!")
 		if(WOUND_SEVERITY_CRITICAL)
-			return span_boldwarning("It's leaking [blood_noun] from a major [LOWER_TEXT(undiagnosed_name || name)]!!") // NOVA EDIT CHANGE - Synth bleedin
+			return span_boldwarning("It's leaking [blood_noun] from a major [LOWER_TEXT(undiagnosed_name || name)]!!") // NOVA EDIT CHANGE - Synth bleeding - ORIGINAL: return span_boldwarning("It's leaking blood from a major [LOWER_TEXT(undiagnosed_name || name)]!!")
 
 /datum/wound_pregen_data/flesh_slash
 	abstract = TRUE
@@ -143,8 +144,7 @@
 		return BLOOD_FLOW_DECREASING
 	if(clot_rate < 0)
 		return BLOOD_FLOW_INCREASING
-	else
-		return BLOOD_FLOW_STEADY //NOVA ADDITION - synth bleeding - really? how long has this been a thing ;_;
+	return BLOOD_FLOW_STEADY // NOVA EDIT ADDITION - Synth bleeding - really? how long has this been a thing ;_;
 
 /datum/wound/slash/flesh/handle_process(seconds_per_tick)
 	if (!victim || HAS_TRAIT(victim, TRAIT_STASIS))
