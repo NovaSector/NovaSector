@@ -166,6 +166,6 @@
 	return ..()
 
 /mob/living/keybind_face_direction(direction)
-	if(!(mobility_flags & MOBILITY_MOVE))
+	if(IS_UNCONSCIOUS(src) || HAS_TRAIT(src, TRAIT_STASIS)) // NOVA EDIT CHANGE - ORIGINAL: if(!(mobility_flags & MOBILITY_MOVE))
 		return
 	return ..()
