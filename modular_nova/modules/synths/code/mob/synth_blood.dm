@@ -1,4 +1,3 @@
-
 /datum/species/synthetic/proc/synth_blood(mob/living/carbon/human/synth, seconds_per_tick)
 	SIGNAL_HANDLER
 
@@ -83,6 +82,4 @@
 				synth.investigate_log("has died of bloodloss.", INVESTIGATE_DEATHS)
 				synth.death()
 
-
 	return HANDLE_BLOOD_HANDLED
-

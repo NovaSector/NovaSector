@@ -8,6 +8,7 @@
 /datum/wound/pierce/get_self_check_description(self_aware)
 	if(!limb.can_bleed())
 		return ..()
+
 	var/blood_noun = get_blood_noun() // NOVA EDIT ADDITION - Synth bleeding
 	switch(severity)
 		if(WOUND_SEVERITY_TRIVIAL)
@@ -56,34 +57,34 @@
 	// 20 force attack ~=  5-16 blood loss ~= 1%-3% of blood volume
 	// 30 force attack ~= 6-20 blood loss ~= 1%-4% of blood volume
 	var/blood_bled = sqrt(wounding_dmg) * internal_bleeding_coefficient * limb.get_splint_factor() * pick(0.75, 1, 1.25, 1.5)
-	// NOVA EDIT ADDITION START - Synth Bleeding
-	var/blood_noun = get_blood_noun()
+
+	var/blood_noun = get_blood_noun() // NOVA EDIT ADDITION - Synth bleeding
 	switch(blood_bled)
 		if(8 to 12)
 			victim.visible_message(
-				span_smalldanger("[capitalize(blood_noun)] droplets fly from the hole in [victim]'s [limb.plaintext_zone]."),
-				span_danger("You cough up a bit of [blood_noun] from the blow to your [limb.plaintext_zone]."),
+				span_smalldanger("[capitalize(blood_noun)] droplets fly from the hole in [victim]'s [limb.plaintext_zone]."), // NOVA EDIT CHANGE - Synth bleeding - ORIGINAL: span_smalldanger("Blood droplets fly from the hole in [victim]'s [limb.plaintext_zone]."),
+				span_danger("You cough up a bit of [blood_noun] from the blow to your [limb.plaintext_zone]."), // NOVA EDIT CHANGE - Synth bleeding - ORIGINAL: span_danger("You cough up a bit of blood from the blow to your [limb.plaintext_zone]."),					span_danger("You cough up a bit of [blood_noun] from the blow to your [limb.plaintext_zone]."),
+
 				vision_distance = COMBAT_MESSAGE_RANGE,
 				visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 			)
 		if(12 to 18)
 			victim.visible_message(
-				span_smalldanger("A small stream of [blood_noun] spurts from the hole in [victim]'s [limb.plaintext_zone]!"),
-				span_danger("You spit out a string of [blood_noun] from the blow to your [limb.plaintext_zone]!"),
+				span_smalldanger("A small stream of [blood_noun] spurts from the hole in [victim]'s [limb.plaintext_zone]!"), // NOVA EDIT CHANGE - Synth bleeding - ORIGINAL: span_smalldanger("A small stream of blood spurts from the hole in [victim]'s [limb.plaintext_zone]!"),
+				span_danger("You spit out a string of [blood_noun] from the blow to your [limb.plaintext_zone]!"), // NOVA EDIT CHANGE - Synth bleeding - ORIGINAL: span_danger("You spit out a string of blood from the blow to your [limb.plaintext_zone]!"),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 				visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 			)
 		if(18 to INFINITY)
 			victim.visible_message(
-				span_danger("A spray of [blood_noun] streams from the gash in [victim]'s [limb.plaintext_zone]!"),
-				span_bolddanger("You choke up on a spray of [blood_noun] from the blow to your [limb.plaintext_zone]!"),
+				span_danger("A spray of [blood_noun] streams from the gash in [victim]'s [limb.plaintext_zone]!"), // NOVA EDIT CHANGE - Synth bleeding - ORIGINAL: span_danger("A spray of blood streams from the gash in [victim]'s [limb.plaintext_zone]!"),
+				span_bolddanger("You choke up on a spray of [blood_noun] from the blow to your [limb.plaintext_zone]!"), // NOVA EDIT CHANGE - Synth bleeding - ORIGINAL: span_bolddanger("You choke up on a spray of blood from the blow to your [limb.plaintext_zone]!"),
 				vision_distance = COMBAT_MESSAGE_RANGE,
 				visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 			)
 	victim.bleed(blood_bled)
 	if(blood_bled >= 18)
 		victim.spray_blood(attack_direction)
-	// NOVA EDIT ADDITION END
 
 /datum/wound/pierce/bleed/get_bleed_rate_of_change()
 	//basically if a species doesn't bleed, the wound is stagnant and will not heal on its own (nor get worse)
