@@ -8,7 +8,6 @@
 	undiagnosed_name = "Cut"
 	sound_effect = 'sound/items/weapons/slice.ogg'
 
-
 /datum/wound/slash/get_self_check_description(self_aware)
 	if(!limb.can_bleed())
 		return ..()

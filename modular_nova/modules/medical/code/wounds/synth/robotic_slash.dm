@@ -778,7 +778,7 @@
 	return span_warning("The limb appears to be leaking [get_blood_noun()].")
 
 /datum/wound/slash/flesh/synth/moderate
-	name = "Rough damaged plating"
+	name = "Gashed Exterior Plating"
 	desc = "Patient's exterior shell has been badly scraped, generating moderate internal fluid loss."
 	treat_text = "Apply bandaging and solder the wound. \
 		Follow up with internal fluid replacement."
@@ -807,7 +807,7 @@
 	threshold_minimum = 20
 
 /datum/wound/slash/flesh/synth/severe
-	name = "Lacerated Shell"
+	name = "Lacerated Exterior Plating"
 	desc = "Patient's shell is ripped clean open, allowing significant internal fluid loss."
 	treat_text = "Swiftly apply bandaging and soldering to the wound, \
 		or make use of sealant agents or cauterization. \
@@ -839,7 +839,7 @@
 		occur_text = "is ripped open"
 
 /datum/wound/slash/flesh/synth/critical
-	name = "Weeping Exterior Shell Gash"
+	name = "Severely Torn Exterior Plating"
 	desc = "Patient's shell is completely torn open, along with significant damage to internals. Extreme internal fluid loss will lead to quick death without intervention."
 	treat_text = "Immediately apply bandaging and soldering to the wound, \
 		or make use of sealant agents or cauterization. \
@@ -885,7 +885,7 @@
 
 // Subtype for cleave (heretic spell)
 /datum/wound/slash/flesh/synth/critical/cleave
-	name = "Grievous Shell Rupture"
+	name = "Grievous Exterior Plating Rupture"
 	examine_desc = "is ruptured, spraying internal fluid wildly"
 	clot_rate = 0.00
 

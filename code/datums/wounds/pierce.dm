@@ -5,21 +5,19 @@
 	undiagnosed_name = "Puncture"
 	threshold_penalty = 5
 
-
-
 /datum/wound/pierce/get_self_check_description(self_aware)
 	if(!limb.can_bleed())
 		return ..()
 	var/blood_noun = get_blood_noun() // NOVA EDIT ADDITION - Synth bleeding
 	switch(severity)
 		if(WOUND_SEVERITY_TRIVIAL)
-			return span_danger("It's leaking [blood_noun] from a small [LOWER_TEXT(undiagnosed_name || name)].") // NOVA EDIT CHANGE - Synth bleeding
+			return span_danger("It's leaking [blood_noun] from a small [LOWER_TEXT(undiagnosed_name || name)].") // NOVA EDIT CHANGE - Synth bleeding - return span_danger("It's leaking blood from a small [LOWER_TEXT(undiagnosed_name || name)].")
 		if(WOUND_SEVERITY_MODERATE)
-			return span_warning("It's leaking [blood_noun] from a [LOWER_TEXT(undiagnosed_name || name)].") // NOVA EDIT CHANGE - Synth bleeding
+			return span_warning("It's leaking [blood_noun] from a [LOWER_TEXT(undiagnosed_name || name)].") // NOVA EDIT CHANGE - Synth bleeding - return span_warning("It's leaking blood from a [LOWER_TEXT(undiagnosed_name || name)].")
 		if(WOUND_SEVERITY_SEVERE)
-			return span_boldwarning("It's leaking [blood_noun] from a serious [LOWER_TEXT(undiagnosed_name || name)]!") // NOVA EDIT CHANGE - Synth bleeding
+			return span_boldwarning("It's leaking [blood_noun] from a serious [LOWER_TEXT(undiagnosed_name || name)]!") // NOVA EDIT CHANGE - Synth bleeding - return span_boldwarning("It's leaking blood from a serious [LOWER_TEXT(undiagnosed_name || name)]!") 
 		if(WOUND_SEVERITY_CRITICAL)
-			return span_boldwarning("It's leaking [blood_noun] from a major [LOWER_TEXT(undiagnosed_name || name)]!!") // NOVA EDIT CHANGE - Synth bleeding
+			return span_boldwarning("It's leaking [blood_noun] from a major [LOWER_TEXT(undiagnosed_name || name)]!!") // NOVA EDIT CHANGE - Synth bleeding - 	return span_boldwarning("It's leaking blood from a major [LOWER_TEXT(undiagnosed_name || name)]!!")
 
 /datum/wound/pierce/bleed
 	name = "Piercing Wound"
