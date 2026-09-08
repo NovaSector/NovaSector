@@ -1,3 +1,7 @@
+/// Synth_blood is a replacement for handle_blood() specifically for synths, mainly to replace the random bleeding alerts
+/// but also to actually handle their low blood downsides, namly heating up - most of this
+/// code is copied from handle_blood() but slightly changed, with a lot of the organic stuff removed, like blood regen
+/// and oxyloss.
 /datum/species/synthetic/proc/synth_blood(mob/living/carbon/human/synth, seconds_per_tick)
 	SIGNAL_HANDLER
 
