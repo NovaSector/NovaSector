@@ -173,14 +173,6 @@ required_map = "IceBoxStation.dmm"
 coordinates = [104, 178, 2]
 trait_name = "Station"
 
-# Icebox Cryo
-[templates.icebox_cryo]
-map_files = ["icebox_cryo.dmm"]
-directory = "_maps/nova/automapper/templates/icebox/"
-required_map = "IceBoxStation.dmm"
-coordinates = [117, 142, 3]
-trait_name = "Station"
-
 # Icebox Barber
 [templates.icebox_barber]
 map_files = ["icebox_barber.dmm"]
@@ -251,6 +243,22 @@ map_files = ["icebox_bar_backroom.dmm"]
 directory = "_maps/nova/automapper/templates/icebox/"
 required_map = "IceBoxStation.dmm"
 coordinates = [134, 145, 3]
+trait_name = "Station"
+
+# Icebox Dorms Upper
+[templates.icebox_dorms_upper]
+map_files = ["icebox_dorms_upper.dmm"]
+directory = "_maps/nova/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [114, 142, 3]
+trait_name = "Station"
+
+# Icebox Dorms Lower
+[templates.icebox_dorms_lower]
+map_files = ["icebox_dorms_lower.dmm"]
+directory = "_maps/nova/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [118, 147, 2]
 trait_name = "Station"
 
 # TRAMSTATION MAP EDITS

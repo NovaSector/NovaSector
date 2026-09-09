@@ -193,6 +193,9 @@
 			genital_config += list(genital.get_layering_ui_entry())
 	data["genital_config"] = genital_config
 
+	// Underwear visibility, same deal.
+	data["underwear_config"] = (user == self) ? self.get_underwear_ui_entries() : list()
+
 	return data
 
 /**
@@ -240,6 +243,18 @@
 			if("set_genital_arousal")
 				success = organ.apply_arousal_label(params["option"])
 		return success
+
+	if(action == "set_underwear_visibility" || action == "set_all_underwear_visibility")
+		var/mob/living/carbon/human/actor = ui.user
+		if(actor != self)
+			return
+		if(IS_UNCONSCIOUS_OR_CRIT(actor))
+			to_chat(actor, span_warning("You can't toggle underwear visibility right now..."))
+			return
+		var/hidden = !!params["hidden"]
+		if(action == "set_all_underwear_visibility")
+			return actor.set_all_underwear_visibility(hidden)
+		return actor.set_underwear_visibility(params["slot"], hidden)
 
 	if(params["interaction"])
 		var/interaction_id = params["interaction"]

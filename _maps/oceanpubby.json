@@ -8,10 +8,10 @@
 	"wilderness_levels": 0,
 	"planetary": 1,
 	"shuttles": {
-		"emergency": "emergency_pubby",
+		"cargo": "cargo_pubby",
+		"emergency": "emergency_nova",
 		"whiteship": "whiteship_pubby",
-		"ferry": "ferry_fancy",
-		"cargo": "cargo_pubby"
+		"ferry": "ferry_fancy"
 	},
 	"traits": [
 		{

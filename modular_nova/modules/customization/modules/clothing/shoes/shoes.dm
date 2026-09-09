@@ -50,7 +50,10 @@
 
 /obj/item/clothing/shoes/high_heels/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
+	AddComponent(/datum/component/squeak, list(
+		'modular_nova/master_files/sound/effects/heel1.ogg' = 1,
+		'modular_nova/master_files/sound/effects/heel2.ogg' = 1,
+	), 50, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, falloff_exponent = SOUND_FALLOFF_EXPONENT)
 
 /obj/item/clothing/shoes/fancy_heels
 	name = "fancy heels"
@@ -67,7 +70,10 @@
 
 /obj/item/clothing/shoes/fancy_heels/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
+	AddComponent(/datum/component/squeak, list(
+		'modular_nova/master_files/sound/effects/heel1.ogg' = 1,
+		'modular_nova/master_files/sound/effects/heel2.ogg' = 1,
+	), 50, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, falloff_exponent = SOUND_FALLOFF_EXPONENT)
 
 /obj/item/clothing/shoes/jungleboots
 	name = "jungle boots"
@@ -209,7 +215,10 @@
 
 /obj/item/clothing/shoes/pink_clown_heels/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
+	AddComponent(/datum/component/squeak, list(
+		'modular_nova/master_files/sound/effects/heel1.ogg' = 1,
+		'modular_nova/master_files/sound/effects/heel2.ogg' = 1,
+	), 50, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, falloff_exponent = SOUND_FALLOFF_EXPONENT)
 
 /obj/item/clothing/shoes/colorable_laceups
 	name = "laceup shoes"

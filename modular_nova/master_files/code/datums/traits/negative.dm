@@ -52,15 +52,15 @@
 	brute_mod = prefs?.read_preference(/datum/preference/numeric/fragile_customization/brute) || 1.25
 	burn_mod = prefs?.read_preference(/datum/preference/numeric/fragile_customization/burn) || 1.25
 
-	user.physiology.brute_mod *= brute_mod
-	user.physiology.burn_mod *= burn_mod
+	MODIFY_PHYSIOLOGY(user, BRUTE, brute_mod)
+	MODIFY_PHYSIOLOGY(user, BURN, burn_mod)
 
 /datum/quirk/fragile/remove()
 	. = ..()
 
 	var/mob/living/carbon/human/user = quirk_holder
-	user.physiology.brute_mod /= brute_mod
-	user.physiology.burn_mod /= burn_mod
+	MODIFY_PHYSIOLOGY(user, BRUTE, 1 / brute_mod)
+	MODIFY_PHYSIOLOGY(user, BURN, 1 / burn_mod)
 
 /datum/quirk/monophobia
 	name = "Monophobia"

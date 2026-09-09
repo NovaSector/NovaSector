@@ -239,7 +239,7 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 		/obj/item/security_voucher/primary = 1,
 		/obj/item/security_voucher/utility = 1
 		)
-	belt = /obj/item/modular_computer/pda/security
+	belt = /obj/item/modular_computer/pda/crew/security
 	ears = /obj/item/radio/headset/headset_sec/alt
 	gloves = /obj/item/clothing/gloves/color/black/security
 	head = /obj/item/clothing/head/helmet/sec
