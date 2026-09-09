@@ -14345,8 +14345,8 @@
 /area/station/hallway/floor3/aft)
 "dDH" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/wooden,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/structure/barricade/wooden/crude,
 /turf/open/floor/plating,
 /area/station/maintenance/floor2/port/aft)
 "dDR" = (
@@ -55134,6 +55134,7 @@
 /obj/machinery/disposal/bin,
 /obj/effect/turf_decal/tile/dark/fourcorners,
 /obj/structure/disposalpipe/trunk,
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/iron/showroomfloor{
 	name = "lab floor"
 	},
@@ -66119,11 +66120,6 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
-"qBg" = (
-/obj/structure/extinguisher_cabinet/directional/west,
-/obj/structure/flora/bush/flowers_yw/style_random,
-/turf/open/floor/grass,
-/area/station/science/genetics)
 "qBk" = (
 /obj/structure/bed,
 /obj/effect/spawner/random/bedsheet,
@@ -77906,11 +77902,11 @@
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "tBN" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/maintenance,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/floor2/port/aft)
 "tBV" = (
@@ -193233,7 +193229,7 @@ avH
 maW
 haL
 nQS
-qBg
+vbP
 qun
 elB
 elB
