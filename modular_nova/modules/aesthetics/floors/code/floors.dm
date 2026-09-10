@@ -294,31 +294,10 @@
 /turf/open/chasm/true/fakeout
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/meat
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/bone
-	icon = 'icons/turf/floors.dmi'
-
 /turf/open/floor/hauntium
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/sandstone
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/silvergold
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/neo/red
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/neo/purple
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/neo/orange
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/neo/cyan
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/iron/recharge_floor/dark

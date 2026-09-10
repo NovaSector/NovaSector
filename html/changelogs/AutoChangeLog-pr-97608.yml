@@ -1,0 +1,4 @@
+author: "FalloutFalcon"
+delete-after: True
+changes:
+  - bugfix: "Chem dispenser custom recipes (and maybe a few other spots) now properly clamp text when using `Input: Enable TGUI`"

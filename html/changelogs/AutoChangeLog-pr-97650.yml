@@ -1,0 +1,5 @@
+author: "Techbot121"
+delete-after: True
+changes:
+  - rscadd: "hitsounds to cans"
+  - sound: "added can_hit.ogg"

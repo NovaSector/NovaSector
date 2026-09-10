@@ -601,7 +601,7 @@ GAME_VERB_HIDDEN(/mob/living, succumb, "succumb")
 			return
 	log_message("Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health!", LOG_ATTACK)
 	message_admins("[ADMIN_LOOKUPFLW(usr)] Has [whispered ? "whispered his final words" : "succumbed to death"] with [round(health, 0.1)] points of health, at [AREACOORD(usr)]") // NOVA EDIT ADDITION
-	adjust_oxy_loss(health - HEALTH_THRESHOLD_DEAD)
+	adjust_oxy_loss(health - dead_threshold)
 	updatehealth()
 	if(!whispered)
 		to_chat(src, span_notice("You have given up life and succumbed to death."))
@@ -1101,7 +1101,7 @@ GAME_VERB_PROC(/mob/living, mob_sleep, "Sleep", null)
 /mob/living/proc/can_be_revived()
 	if(HAS_TRAIT(src, TRAIT_NODEATH))
 		return TRUE
-	if(health > HEALTH_THRESHOLD_DEAD)
+	if(health > dead_threshold)
 		return TRUE
 	return FALSE
 
