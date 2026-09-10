@@ -1,4 +1,0 @@
-author: "Maia-J"
-delete-after: True
-changes:
-  - bugfix: "Mobs that are aggro grabbed and are meant to escape captivity actually do so."
