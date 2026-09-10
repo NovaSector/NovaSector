@@ -1,0 +1,79 @@
+{
+	"voices": [
+		{
+			"name": "Woman Alba",
+			"source": "alba",
+			"gender": "female"
+		},
+		{
+			"name": "Woman Anna",
+			"source": "anna",
+			"gender": "female"
+		},
+		{
+			"name": "Woman Azelma",
+			"source": "azelma",
+			"gender": "female"
+		},
+		{
+			"name": "Woman Cosette",
+			"source": "cosette",
+			"gender": "female"
+		},
+		{
+			"name": "Woman Eve",
+			"source": "eve",
+			"gender": "female"
+		},
+		{
+			"name": "Woman Mary",
+			"source": "mary",
+			"gender": "female"
+		},
+		{
+			"name": "Woman Vera",
+			"source": "vera",
+			"gender": "female"
+		},
+		{
+			"name": "Man Bill",
+			"source": "bill_boerst",
+			"gender": "male"
+		},
+		{
+			"name": "Man Charles",
+			"source": "charles",
+			"gender": "male"
+		},
+		{
+			"name": "Man George",
+			"source": "george",
+			"gender": "male"
+		},
+		{
+			"name": "Man Javert",
+			"source": "javert",
+			"gender": "male"
+		},
+		{
+			"name": "Man Marius",
+			"source": "marius",
+			"gender": "male"
+		},
+		{
+			"name": "Man Michael",
+			"source": "michael",
+			"gender": "male"
+		},
+		{
+			"name": "Man Paul",
+			"source": "paul",
+			"gender": "male"
+		},
+		{
+			"name": "Man Stuart",
+			"source": "stuart_bell",
+			"gender": "male"
+		}
+	]
+}

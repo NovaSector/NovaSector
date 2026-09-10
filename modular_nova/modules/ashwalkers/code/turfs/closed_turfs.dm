@@ -1,6 +1,6 @@
-/turf/closed/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/flashlight/flare/torch))
-		return place_torch(attacking_item, user, modifiers)
+/turf/closed/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/flashlight/flare/torch))
+		return place_torch(tool, user, modifiers)
 
 	return ..()
 
@@ -20,7 +20,7 @@
 			torch_to_place.forceMove(found_adjacent_turf)
 		else
 			torch_to_place.forceMove(src) // no open turfs for some reason
-			return TRUE
+			return ITEM_INTERACT_SUCCESS
 
 		// The item itself is in the adjacent turf, so we need to shift the icon one tile over to put it in the wall
 		switch(get_dir(found_adjacent_turf, src))
@@ -44,4 +44,6 @@
 			if(SOUTHWEST)
 				torch_to_place.pixel_y -= ICON_SIZE_Y
 				torch_to_place.pixel_x -= ICON_SIZE_X
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
+
+	return ITEM_INTERACT_BLOCKING

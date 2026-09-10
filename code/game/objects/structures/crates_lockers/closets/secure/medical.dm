@@ -89,7 +89,6 @@
 	new /obj/item/clothing/neck/petcollar(src)
 	new /obj/item/pet_carrier(src)
 	new /obj/item/circuitboard/machine/techfab/department/medical(src)
-	new /obj/item/storage/photo_album/cmo(src)
 	new /obj/item/storage/lockbox/medal/med(src)
 	new /obj/item/flatpacked_machine/self_actualization_device(src) // NOVA EDIT ADDITION
 
@@ -99,6 +98,8 @@
 	// Traitor steal objective
 	new /obj/item/storage/hypospraykit/cmo/preloaded(src) // NOVA EDIT CHANGE - New Hyposprays - ORIGINAL: new /obj/item/reagent_containers/hypospray/cmo(src)
 	new /obj/item/defibrillator/compact/loaded/cmo(src)
+
+	new /obj/item/storage/photo_album/cmo(src)
 
 /obj/structure/closet/secure_closet/animal
 	name = "animal control locker"

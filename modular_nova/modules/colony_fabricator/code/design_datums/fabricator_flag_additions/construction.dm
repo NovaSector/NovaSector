@@ -72,18 +72,30 @@
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
-/datum/design/rglass/New()
+/datum/design/material/rglass/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
-/datum/design/plasteel_alloy/New()
+/datum/design/alloy/plasteel_alloy/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
-/datum/design/plaglass_alloy/New()
+/datum/design/alloy/plaglass/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
-/datum/design/plasmarglass_alloy/New()
+/datum/design/alloy/plasmarglass/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/alloy/titaniumglass/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/alloy/plastitanium/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/alloy/plastitaniumglass/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR

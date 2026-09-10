@@ -10,3 +10,4 @@
 		/datum/stock_part/servo = 4,
 	)
 	needs_anchored = TRUE
+	custom_materials = list(/datum/material/uranium = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)

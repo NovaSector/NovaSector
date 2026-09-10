@@ -2,18 +2,15 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/skrell_hair.dmi'
 	key = FEATURE_SKRELL_HAIR
 	color_src = USE_ONE_COLOR
-	relevent_layers = list(BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	organ_type = /obj/item/organ/skrell_hair
+	flags_custom_mod_icon = MOD_ACCESSORY_HELMET
 
-/datum/sprite_accessory/skrell_hair/is_hidden(mob/living/carbon/human/wearer)
-	// Exception for MODs
-	if(istype(wearer.head, /obj/item/clothing/head/mod))
-		return FALSE
+/datum/sprite_accessory/skrell_hair/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
 
-	if((wearer.head?.flags_inv & HIDEHAIR) || (wearer.wear_mask?.flags_inv & HIDEHAIR))
-		return TRUE
-
-	return FALSE
+	return !!(wearer.obscured_slots & HIDEHAIR)
 
 /datum/sprite_accessory/skrell_hair/none
 	name = SPRITE_ACCESSORY_NONE

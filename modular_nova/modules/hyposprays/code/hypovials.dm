@@ -3,7 +3,7 @@
 	/// Should we open a greyscale menu when the user reskins this?
 	var/update_greyscale
 	/// The icon state to switch to when applying a custom greyscale
-	var/base_icon_state = /datum/atom_skin/hypovial/sterile::new_icon_state
+	var/base_icon_state = "hypovial"
 
 /datum/atom_skin/hypovial/apply(atom/apply_to, mob/user)
 	. = ..()
@@ -111,6 +111,7 @@
 	desc = "A small, 60u capacity vial compatible with most hyposprays."
 	volume = 60
 	possible_transfer_amounts = list(5,10,15,20,30,60)
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/cup/vial/small/style
 	icon_state = "hypovial"
@@ -135,7 +136,7 @@
 
 /datum/atom_skin/hypovial/large
 	abstract_type = /datum/atom_skin/hypovial/large
-	base_icon_state = /datum/atom_skin/hypovial/large/sterile::new_icon_state
+	base_icon_state = "hypoviallarge"
 
 /datum/atom_skin/hypovial/large/sterile
 	preview_name = "Sterile"
@@ -183,6 +184,7 @@
 	possible_transfer_amounts = list(5,10,15,20,30,40,60,120)
 	type_suffix = "-l"
 	greyscale_config = /datum/greyscale_config/hypovial/large
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/reagent_containers/cup/vial/large/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/hypovial/large, blacklisted_subtypes = subtypesof(/datum/atom_skin/hypovial/interdyne_medium))
@@ -210,7 +212,7 @@
 
 /datum/atom_skin/hypovial/interdyne_medium
 	abstract_type = /datum/atom_skin/hypovial/interdyne_medium
-	base_icon_state = /datum/atom_skin/hypovial/interdyne_medium/sterile::new_icon_state
+	base_icon_state = "hypovial-interdyne"
 
 /datum/atom_skin/hypovial/interdyne_medium/sterile
 	preview_name = "Sterile"

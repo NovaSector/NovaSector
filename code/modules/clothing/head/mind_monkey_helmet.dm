@@ -1,6 +1,5 @@
 
 //monkey sentience caps
-/* NOVA EDIT REMOVAL
 /obj/item/clothing/head/helmet/monkey_sentience
 	name = "monkey mind magnification helmet"
 	desc = "A fragile, circuitry embedded helmet for boosting the intelligence of a monkey to a higher level. You see several warning labels..."
@@ -38,7 +37,7 @@
 	. = ..()
 	if(!(slot & ITEM_SLOT_HEAD))
 		return
-	if(!ismonkey(user) || user.ckey)
+	if(!HAS_TRAIT(user, TRAIT_LESSER_HUMANOID) || user.ckey)
 		var/mob/living/something = user
 		to_chat(something, span_boldnotice("You feel a stabbing pain in the back of your head for a moment."))
 		something.apply_damage(5,BRUTE,BODY_ZONE_HEAD,FALSE,FALSE,FALSE) //notably: no damage resist (it's in your helmet), no damage spread (it's in your helmet)
@@ -146,4 +145,3 @@
 	if(magnification)
 		visible_message(span_warning("[src] falls off of [magnification]'s head as it changes shape!"))
 		magnification.dropItemToGround(src)
-*/

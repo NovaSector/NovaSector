@@ -147,14 +147,14 @@
 			LAZYADD(available_boulders,  WEAKREF(mine_now))
 	return
 
-/obj/structure/ore_box/boulder_collector/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/boulder))
-		var/obj/item/boulder/mine_now = attacking_item
-		user.transferItemToLoc(attacking_item, src)
+/obj/structure/ore_box/boulder_collector/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/boulder))
+		var/obj/item/boulder/mine_now = tool
+		user.transferItemToLoc(tool, src)
 		if(!mine_now.brm_stable)
 			LAZYADD(available_boulders,  WEAKREF(mine_now))
-	else
-		return ..()
+		return ITEM_INTERACT_SUCCESS
+	return ..()
 
 /obj/structure/ore_box/boulder_collector/syndicate
 	name = "Suspicious BSC Box"
@@ -201,6 +201,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF|LAVA_PROOF
 	type_to_deploy = /obj/structure/ore_box/boulder_collector
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/plasma = SHEET_MATERIAL_AMOUNT * 3, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/item/flatpacked_machine/boulder_collector/syndicate
 	name = "compacted Suspicious BSC Box"

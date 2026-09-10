@@ -69,9 +69,6 @@
 	if(force)
 		return ..()
 
-	if(!buckled_mob.break_do_after_checks())
-		return
-
 	balloon_alert(buckled_mob, "climbing off of [src]...")
 
 	if(!do_after(buckled_mob, 5 SECONDS, target = src))

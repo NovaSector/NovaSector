@@ -39,13 +39,13 @@
 	playsound(src, 'sound/machines/airlock/boltsup.ogg', 30, TRUE)
 	update_appearance()
 
-/obj/item/cortical_cage/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/radio))
-		internal_radio = attacking_item
+/obj/item/cortical_cage/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/radio))
+		internal_radio = tool
 		internal_radio.forceMove(src)
 		visible_message("[internal_radio] attaches to [src] with a click.", "You attach [internal_radio] to the [src].", "You hear a clicking sound.")
 		update_appearance()
-		return
+		return ITEM_INTERACT_SUCCESS
 	return ..()
 
 /obj/item/cortical_cage/crowbar_act(mob/living/user, obj/item/tool)

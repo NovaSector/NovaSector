@@ -38,17 +38,8 @@
 
 		// MODULAR NOVA ENTRIES
 		// PLEASE REFACTOR THESE AS YOU CAN
-		/mob/living/simple_animal/hostile/bigcrab,
-		/mob/living/simple_animal/hostile/cazador,
-		/mob/living/simple_animal/hostile/mannequin,
 		/mob/living/simple_animal/hostile/megafauna/gladiator,
 		/mob/living/simple_animal/hostile/megafauna/hierophant/astrum,
-		/mob/living/simple_animal/hostile/mutantliz,
-		/mob/living/simple_animal/hostile/plantmutant,
-		/mob/living/simple_animal/hostile/scorpion,
-		/mob/living/simple_animal/hostile/syndimouse,
-		/mob/living/simple_animal/hostile/trog,
-		/mob/living/simple_animal/hostile/true_changeling,
 
 		/mob/living/simple_animal/hostile/ooze/grapes/xenobio, // update when grapes are updated, must be here to stop errors
 

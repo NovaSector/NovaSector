@@ -2,7 +2,7 @@
 	name = "Siik'tajr"
 	desc = "Overly complicated and with a turbulent history, this tongue comprised of short-form speech mixed with growls and meows is native to the Tajara. Due to the size of their Empire, countless dialects and different idioms exist - making a simple uniform way to teach this language almost impossible. After first contact, Humans describe the tongue as sounding somewhat similar to old Scandinavian languages in some form or another. It's rarely seen spoken by those not native to Taj, though certain genemodder groups have picked up a form of the tongue."
 	key = "3"
-	flags = TONGUELESS_SPEECH
+	flags = LANGUAGE_TONGUELESS_SPEECH
 	sentence_chance = 9
 	space_chance = 60
 	between_word_sentence_chance = 10

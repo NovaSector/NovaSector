@@ -25,6 +25,7 @@
 	icon = 'modular_nova/modules/cargo_items/icons/import_holder.dmi'
 	icon_state = "goodycase_holder"
 	w_class = WEIGHT_CLASS_BULKY
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT)
 
 	///the maximum amount of goody cases this item can hold
 	var/max_goodycases = 8
@@ -75,7 +76,6 @@
 /datum/design/goodycase_holder
 	name = "Goody Case Holder"
 	desc = "The solution to the plethora of goody cases that litter the cargonian halls."
-	id = "goodycase_holder"
 	build_type = PROTOLATHE | AWAY_LATHE
 	build_path = /obj/item/goodycase_holder
 	materials = list(

@@ -72,6 +72,10 @@
 	name = "Sport Boots"
 	item_path = /obj/item/clothing/shoes/sport_boots
 
+/datum/loadout_item/shoes/highheel_sandals
+	name = "High-Heeled Sandals"
+	item_path = /obj/item/clothing/shoes/fancy_heels/sandals
+
 /*
 *	BOOTS
 */

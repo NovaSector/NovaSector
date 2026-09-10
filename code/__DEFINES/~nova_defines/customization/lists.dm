@@ -7,6 +7,7 @@ GLOBAL_LIST_INIT(possible_genitals, list(
 	ORGAN_SLOT_BREASTS = 1,
 	ORGAN_SLOT_ANUS = 1,
 	ORGAN_SLOT_PENIS = 1,
+	ORGAN_SLOT_BUTT = 1,
 ))
 
 GLOBAL_LIST_EMPTY(body_markings)

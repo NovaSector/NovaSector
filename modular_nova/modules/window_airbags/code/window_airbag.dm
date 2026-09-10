@@ -82,6 +82,7 @@
 	icon_state = "airbag_safe"
 	base_icon_state = "airbag"
 	max_integrity = 10
+	custom_materials = list(/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT)
 	/// The time in which we deploy
 	var/detonate_time = 2 SECONDS
 	/// The item we drop on detonation
@@ -181,7 +182,6 @@
 /datum/design/airbag
 	name = "Airbag"
 	desc = "Keep that vacuum of space from sucking!"
-	id = "airbag"
 	build_type = PROTOLATHE | AWAY_LATHE | AUTOLATHE | COLONY_FABRICATOR
 	materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 5)
 	build_path = /obj/item/airbag

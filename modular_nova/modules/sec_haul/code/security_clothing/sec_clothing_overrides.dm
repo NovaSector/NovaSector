@@ -199,6 +199,7 @@
 	return
 
 /obj/item/clothing/glasses/hud/security/prescription
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 4)
 
 /obj/item/clothing/glasses/hud/security/prescription/setup_reskins()
 	return
@@ -428,9 +429,10 @@
 */
 
 //Adds special footstep noises
-/obj/item/clothing/shoes/jackboots
-	clothing_traits = list(TRAIT_SILENT_FOOTSTEPS) // We have other footsteps.
-
 /obj/item/clothing/shoes/jackboots/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep1.ogg'=1,'modular_nova/master_files/sound/effects/footstep2.ogg'=1, 'modular_nova/master_files/sound/effects/footstep3.ogg'=1), 100)
+	AddComponent(/datum/component/shoe_footstep, list(
+		'modular_nova/master_files/sound/effects/footstep1.ogg',
+		'modular_nova/master_files/sound/effects/footstep2.ogg',
+		'modular_nova/master_files/sound/effects/footstep3.ogg',
+	), volume = 100, steps_per_play = 2, extrarange = -1, falloff_exponent = 10)

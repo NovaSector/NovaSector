@@ -83,18 +83,18 @@
 	. += span_notice("<br>[current_research]/[max_research] research available.")
 	. += span_notice("L-Click to insert items or take out all the strange rocks. R-Click to use research points.")
 
-/obj/machinery/xenoarch/researcher/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/storage/bag/xenoarch))
-		for(var/obj/strange_rocks in attacking_item.contents)
+/obj/machinery/xenoarch/researcher/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/storage/bag/xenoarch))
+		for(var/obj/strange_rocks in tool.contents)
 			strange_rocks.forceMove(storage_unit)
 
 		balloon_alert(user, "rocks inserted!")
-		return
+		return ITEM_INTERACT_SUCCESS
 
-	if(is_type_in_list(attacking_item, accepted_types))
-		attacking_item.forceMove(storage_unit)
+	if(is_type_in_list(tool, accepted_types))
+		tool.forceMove(storage_unit)
 		balloon_alert(user, "item inserted!")
-		return
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 
@@ -164,22 +164,22 @@
 	icon_state = "scanner"
 	circuit = /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_scanner
 
-/obj/machinery/xenoarch/scanner/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/storage/bag/xenoarch))
-		for(var/obj/item/xenoarch/strange_rock/chosen_rocks in attacking_item.contents)
+/obj/machinery/xenoarch/scanner/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/storage/bag/xenoarch))
+		for(var/obj/item/xenoarch/strange_rock/chosen_rocks in tool.contents)
 			chosen_rocks.get_scanned(TRUE)
 
 		balloon_alert(user, "scan complete!")
-		return
+		return ITEM_INTERACT_SUCCESS
 
-	if(istype(attacking_item, /obj/item/xenoarch/strange_rock))
-		var/obj/item/xenoarch/strange_rock/chosen_rock = attacking_item
+	if(istype(tool, /obj/item/xenoarch/strange_rock))
+		var/obj/item/xenoarch/strange_rock/chosen_rock = tool
 		if(chosen_rock.get_scanned(TRUE))
 			balloon_alert(user, "scan complete!")
-			return
+			return ITEM_INTERACT_SUCCESS
 
 		to_chat(user, span_warning("[chosen_rock] was unable to be scanned, perhaps it was already scanned?"))
-		return
+		return ITEM_INTERACT_BLOCKING
 
 	return ..()
 
@@ -193,17 +193,19 @@
 	. = ..()
 	. += span_notice("<br>L-Click to remove all items inside [src].")
 
-/obj/machinery/xenoarch/digger/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/storage/bag/xenoarch))
-		for(var/obj/strange_rocks in attacking_item.contents)
+/obj/machinery/xenoarch/digger/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/storage/bag/xenoarch))
+		for(var/obj/strange_rocks in tool.contents)
 			strange_rocks.forceMove(storage_unit)
 		balloon_alert(user, "rocks inserted!")
-		return
+		return ITEM_INTERACT_SUCCESS
 
-	if(istype(attacking_item, /obj/item/xenoarch/strange_rock))
-		attacking_item.forceMove(storage_unit)
+	if(istype(tool, /obj/item/xenoarch/strange_rock))
+		tool.forceMove(storage_unit)
 		balloon_alert(user, "rock inserted!")
-		return
+		return ITEM_INTERACT_SUCCESS
+
+	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/xenoarch/digger/attack_hand(mob/living/user, list/modifiers)
 	var/choice = tgui_input_list(user, "Remove the rocks from [src]?", "Rock Removal", list("Yes", "No"))

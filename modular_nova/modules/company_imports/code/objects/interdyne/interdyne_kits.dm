@@ -96,7 +96,7 @@
 	generate_items_inside(items_inside, src)
 
 /obj/item/storage/medkit/tactical/premium/interdyne/empty
-	name = "\improper Interdyne Trauma Kit"
+	name = "\improper Interdyne Premium Medkit"
 
 /obj/item/storage/medkit/tactical/premium/interdyne/empty/PopulateContents()
 	var/list/items_inside = list()
@@ -104,22 +104,35 @@
 
 /obj/item/storage/medkit/tactical/premium/interdyne/trauma
 	name = "\improper Interdyne Premium Trauma Kit"
-	desc = "A large emergency medical kit loaded with supplies to fit many emergencies and provide aid."
+	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools."
 	icon_state = "interdyne_premium"
+	inhand_icon_state = "medkit-tactical"
+	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
+	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
+	storage_type = /datum/storage/duffel/deforest_paramedic
+	obj_flags = UNIQUE_RENAME
+
+/obj/item/storage/medkit/tactical/premium/interdyne/trauma/setup_reskins()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/interdyne_mediumkit, infinite = TRUE)
 
 /obj/item/storage/medkit/tactical/premium/interdyne/trauma/PopulateContents()
-	if(empty)
-		return
-
 	var/list/items_inside = list(
-		/obj/item/stack/medical/suture/medicated = 4,
-		/obj/item/stack/medical/mesh/advanced = 4,
-		/obj/item/reagent_containers/hypospray/medipen/penacid = 2,
-		/obj/item/reagent_containers/hypospray/medipen/salbutamol = 2,
+		/obj/item/stack/medical/suture/medicated = 2,
+		/obj/item/stack/medical/mesh/advanced = 2,
 		/obj/item/healthanalyzer/advanced = 1,
-		/obj/item/stack/medical/wrap/gauze = 1,
+		/obj/item/stack/medical/wrap/gauze = 2,
+		/obj/item/storage/box/bandages/interdyne = 1,
+		/obj/item/storage/box/bandages/interdyne/burn = 1,
+		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
+		/obj/item/reagent_containers/hypospray/medipen = 2,
+		/obj/item/storage/hypospraykit/interdyne = 1,
+		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 2,
+		/obj/item/reagent_containers/cup/beaker/dyne_burnmix= 2,
+		/obj/item/reagent_containers/spray/hercuri = 1,
 	)
-	generate_items_inside(items_inside, src)
+	generate_items_inside(items_inside,src)
+
+
 
 /*
 /// Medium Medkits
@@ -158,60 +171,43 @@
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium
 	name = "\improper Interdyne Trauma Kit"
-	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools."
-	icon_state = "interdyne_surgical"
-	inhand_icon_state = "medkit-tactical"
-	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
-	storage_type = /datum/storage/duffel/deforest_paramedic
-	obj_flags = UNIQUE_RENAME
-
-/obj/item/storage/medkit/tactical/premium/interdyne/medium/setup_reskins()
-	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/interdyne_mediumkit, infinite = TRUE)
+	desc = "A large emergency medical kit loaded with supplies to fit many emergencies and provide aid."
+	icon_state = "interdyne_tactical"
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/PopulateContents()
+	if(empty)
+		return
+
 	var/list/items_inside = list(
-		/obj/item/stack/medical/suture/medicated = 2,
-		/obj/item/stack/medical/mesh/advanced = 2,
+		/obj/item/stack/medical/suture/medicated = 4,
+		/obj/item/stack/medical/mesh/advanced = 4,
+		/obj/item/reagent_containers/hypospray/medipen/salacid = 2,
+		/obj/item/reagent_containers/hypospray/medipen/oxandrolone = 2,
 		/obj/item/healthanalyzer/advanced = 1,
-		/obj/item/stack/medical/wrap/gauze = 2,
-		/obj/item/storage/box/bandages/interdyne = 1,
-		/obj/item/storage/box/bandages/interdyne/burn = 1,
-		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
-		/obj/item/reagent_containers/hypospray/medipen = 2,
-		/obj/item/storage/hypospraykit/interdyne = 1,
-		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 2,
-		/obj/item/reagent_containers/cup/beaker/dyne_burnmix= 2,
-		/obj/item/reagent_containers/spray/hercuri = 1,
+		/obj/item/stack/medical/wrap/gauze = 1,
 	)
-	generate_items_inside(items_inside,src)
+	generate_items_inside(items_inside, src)
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/empty
-	name = "\improper Interdyne Trauma Kit"
+	name = "\improper Interdyne Medkit"
 
 /obj/item/storage/medkit/tactical/premium/interdyne/medium/empty/PopulateContents()
 	var/list/items_inside = list()
 	generate_items_inside(items_inside,src)
 
-/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy
-	name = "\improper Interdyne Critical Burn-Brute Kit"
-	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools. Meant for treating critical bruises"
-	icon_state = "interdyne_brute"
+/obj/item/storage/medkit/tactical/premium/interdyne/medium/tox_oxy
+	name = "\improper Interdyne Critical Tox-Oxy Kit"
+	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools. Meant for treating critical toxins"
+	icon_state = "interdyne_toxin"
 
-/obj/item/storage/medkit/tactical/premium/interdyne/medium/Tox_Oxy/PopulateContents()
+/obj/item/storage/medkit/tactical/premium/interdyne/medium/tox_oxy/PopulateContents()
 	var/list/items_inside = list(
-		/obj/item/stack/medical/suture/medicated = 2,
-		/obj/item/stack/medical/mesh/advanced = 2,
+		/obj/item/storage/pill_bottle/multiver = 1,
+		/obj/item/reagent_containers/syringe/convermol = 2,
+		/obj/item/reagent_containers/hypospray/medipen/penacid = 2,
+		/obj/item/reagent_containers/hypospray/medipen/salbutamol = 2,
 		/obj/item/healthanalyzer/advanced = 1,
-		/obj/item/stack/medical/wrap/gauze = 2,
-		/obj/item/storage/box/bandages/interdyne = 1,
-		/obj/item/storage/box/bandages/interdyne/burn = 1,
-		/obj/item/reagent_containers/hypospray/medipen/morphine = 2,
-		/obj/item/reagent_containers/hypospray/medipen = 2,
-		/obj/item/storage/hypospraykit/interdyne = 1,
-		/obj/item/reagent_containers/cup/beaker/dyne_brutemix = 2,
-		/obj/item/reagent_containers/cup/beaker/dyne_burnmix= 2,
-		/obj/item/reagent_containers/spray/hercuri = 1,
+		/obj/item/stack/medical/wrap/gauze = 1,
 	)
 	generate_items_inside(items_inside,src)
 

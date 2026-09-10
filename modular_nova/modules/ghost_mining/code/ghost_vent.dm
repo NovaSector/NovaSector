@@ -154,6 +154,16 @@
 	addtimer(CALLBACK(src, PROC_REF(handle_wave_conclusion)), wave_timer)
 	update_appearance(UPDATE_ICON_STATE)
 
+/*
+ * Upstream #96887 inverted COMSIG_VENT_WAVE_CONCLUDED: the spawner component used to listen for it
+ * and retire itself, but now it is the one that sends the signal when its own waves run out.
+ * Our waves still end on a timer rather than on the spawner's wave count, so nothing retires the
+ * spawner anymore and it would keep respawning defenders forever after the vent is tapped.
+ */
+/obj/structure/ore_vent/ghost_mining/handle_wave_conclusion(datum/source)
+	qdel(GetComponent(/datum/component/spawner))
+	return ..()
+
 /obj/structure/ore_vent/ghost_mining/proc/reset_vent(cleared = FALSE) // We want to re-cycle the vent to an untapped state.
 	var/gps_name = "fresh oxide chunk" // Default backup incase we dont recycle ore
 	cut_overlays() // Remove the rig. Maybe later i or someone else can do some fancy animation for this.

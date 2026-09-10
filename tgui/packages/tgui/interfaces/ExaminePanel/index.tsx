@@ -51,7 +51,10 @@ export function ExaminePanel(props) {
     nova_star_status,
     ideal_antag_optin_status,
     current_antag_optin_status,
-    opt_in_colors,
+    ideal_conflict_optin_status,
+    current_conflict_optin_status,
+    antag_opt_in_colors,
+    conflict_opt_in_colors,
   } = data;
   const [oocNotesIndex, setOocNotesIndex] = useState('SFW');
   const [flavorTextIndex, setFlavorTextIndex] = useState('SFW');
@@ -179,25 +182,34 @@ export function ExaminePanel(props) {
                         <Stack.Item>
                           {ideal_antag_optin_status && (
                             <Stack.Item>
-                              Current Antag Opt-In Status:{' '}
+                              Dynamic Opt-In:{' '}
                               <span
                                 style={{
                                   fontWeight: 'bold',
                                   color:
-                                    opt_in_colors[current_antag_optin_status],
+                                    antag_opt_in_colors[
+                                      current_antag_optin_status
+                                    ],
                                 }}
                               >
                                 {current_antag_optin_status}
                               </span>
                               {'\n'}
-                              Antag Opt-In Status {'(Preferences)'}:{' '}
+                            </Stack.Item>
+                          )}
+                          {ideal_conflict_optin_status && (
+                            <Stack.Item>
+                              Conflict Opt-In:{' '}
                               <span
                                 style={{
+                                  fontWeight: 'bold',
                                   color:
-                                    opt_in_colors[ideal_antag_optin_status],
+                                    conflict_opt_in_colors[
+                                      current_conflict_optin_status
+                                    ],
                                 }}
                               >
-                                {ideal_antag_optin_status}
+                                {current_conflict_optin_status}
                               </span>
                               {'\n\n'}
                             </Stack.Item>

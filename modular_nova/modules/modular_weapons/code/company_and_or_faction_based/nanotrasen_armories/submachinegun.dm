@@ -65,6 +65,7 @@ This is a Blueshield weapon. It's for the Blueshield. If this ends up in Cargo I
 
 /obj/item/ammo_box/magazine/smg_nt20/empty
 	start_empty = TRUE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/storage/toolbox/guncase/nova/ntspecial/nt20
 	name = "\improper Nanotrasen Armories \"NT20\" gunset"

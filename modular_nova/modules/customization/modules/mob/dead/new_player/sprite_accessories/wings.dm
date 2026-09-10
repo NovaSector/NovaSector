@@ -17,41 +17,14 @@
 		SPECIES_MAMMAL = 1,
 	)
 	organ_type = /obj/item/organ/wings/custom
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
+	flags_custom_mod_icon = MOD_ACCESSORY_CHESTPLATE
 
-/datum/sprite_accessory/wings/is_hidden(mob/living/carbon/human/wearer)
-	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
-	if(isnull(wearer.w_uniform) && isnull(worn_suit))
-		return FALSE
-	// Can hide if wearing uniform
-	if(initial(key) in wearer.try_hide_mutant_parts) // initial because some of the wing types have different keys (wings_functional, wings_open, etc)
-		return TRUE
-	// Exception for MODs
-	if(istype(worn_suit))
-		return FALSE
-	// Hide accessory if flagged to do so, taking species exceptions in account
-	return (wearer.obscured_slots & HIDEJUMPSUIT)
+/datum/sprite_accessory/wings/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
 
-/datum/bodypart_overlay/mutant/wings/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
-	if(!..())
-		return FALSE
-	if(isnull(bodypart_owner.owner))
-		return TRUE
-
-	var/mob/living/carbon/human/wearer = bodypart_owner.owner
-	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
-	if(isnull(wearer.w_uniform) && isnull(worn_suit))
-		return TRUE
-
-	// Can hide if wearing uniform
-	if(feature_key in wearer.try_hide_mutant_parts)
-		return FALSE
-
-	// Exception for MODs
-	if(istype(worn_suit))
-		return TRUE
-
-	return !(bodypart_owner.owner.obscured_slots & HIDEJUMPSUIT)
+	return !!(wearer.obscured_slots & bodypart_overlay?.slot_blocker)
 
 /datum/sprite_accessory/wings/none
 	name = SPRITE_ACCESSORY_NONE
@@ -94,25 +67,15 @@
 	key = FEATURE_WINGS_OPEN
 	color_src = USE_ONE_COLOR
 
-/datum/sprite_accessory/wings_open/is_hidden(mob/living/carbon/human/wearer)
-	var/obj/item/clothing/worn_suit = wearer.wear_suit
-	if(isnull(wearer.w_uniform) && isnull(worn_suit))
-		return FALSE
-	// Can hide if wearing uniform
-	if(key in wearer.try_hide_mutant_parts)
-		return TRUE
-	if(worn_suit)
-	// Exception for MODs
-		if(istype(worn_suit, /obj/item/clothing/suit/mod))
-			return FALSE
-	// Hide accessory if flagged to do so, taking species exceptions in account
-		else if((worn_suit.flags_inv & HIDEJUMPSUIT) \
-				&& (isnull(worn_suit.species_exception) \
-				|| !is_type_in_list(wearer.dna.species, worn_suit.species_exception)) \
-			)
-			return TRUE
+/datum/sprite_accessory/wings_open/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/wings/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
 
-	return FALSE
+	if(wearer.obscured_slots & HIDEJUMPSUIT)
+		var/obj/item/worn_suit = wearer.wear_suit
+		if(isnull(worn_suit.species_exception) || !is_type_in_list(wearer.dna.species, worn_suit.species_exception))
+			return TRUE
 
 /*
 *	MAMMAL
@@ -126,7 +89,6 @@
 		SPECIES_LIZARD = 1,
 		SPECIES_INSECT = 1,
 	)
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	dimension_x = 46
 	dimension_y = 34
 	center = TRUE
@@ -189,11 +151,13 @@
 	name = "Harpy"
 	icon_state = "harpy"
 	color_src = USE_ONE_COLOR
+	flags_custom_mod_icon = MOD_ACCESSORY_GAUNTLETS
 
 /datum/sprite_accessory/wings/mammal/top/harpy
 	name = "Harpy (Top)"
 	icon_state = "harpy_top"
 	color_src = USE_ONE_COLOR
+	flags_custom_mod_icon = MOD_ACCESSORY_GAUNTLETS
 
 /datum/sprite_accessory/wings/mammal/harpy/alt
 	name = "Harpy (Alt)"
@@ -444,12 +408,15 @@
 	name = "Arfel Harpy"
 	icon_state = "arfelharpy_top"
 	color_src = USE_ONE_COLOR
+	flags_custom_mod_icon = MOD_ACCESSORY_GAUNTLETS
 
 /datum/sprite_accessory/wings/mammal/harpy_fluffy
 	name = "Harpy (Fluffy)"
 	icon_state = "harpyfluffy"
 	color_src = USE_ONE_COLOR
+	flags_custom_mod_icon = MOD_ACCESSORY_GAUNTLETS
 
 /datum/sprite_accessory/wings/mammal/top/harpy_fluffy
 	name = "Harpy (Fluffy, Top)"
 	icon_state = "harpyfluffy_top"
+	flags_custom_mod_icon = MOD_ACCESSORY_GAUNTLETS

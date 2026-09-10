@@ -22,7 +22,6 @@
 /datum/loadout_item/suit/croptop
 	name = "Crop Top Turtleneck"
 	item_path = /obj/item/clothing/suit/jacket/croptop
-	reskin_datum = /datum/atom_skin/cableknit_sweater
 
 /datum/loadout_item/suit/czech
 	name = "Czech Coat"
@@ -102,10 +101,6 @@
 *	WINTER COATS
 */
 
-/datum/loadout_item/suit/winter_coat
-	name = "Winter Coat"
-	item_path = /obj/item/clothing/suit/hooded/wintercoat
-
 /datum/loadout_item/suit/gags_wintercoat
 	name = "Winter Coat (Colorable)"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/colourable
@@ -118,11 +113,11 @@
 	name = "Winter Coat - Brass"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/ratvar
 
-/datum/loadout_item/suit/winter_coat/christmas
+/datum/loadout_item/suit/wintercoat/christmas
 	name = "Winter Coat - Christmas"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/christmas
 
-/datum/loadout_item/suit/winter_coat/christmas/green
+/datum/loadout_item/suit/wintercoat/christmas/green
 	name = "Winter Coat - Christmas (Green)"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/nova/christmas/green
 
@@ -1260,3 +1255,8 @@
 /datum/loadout_item/suit/donator/replica_parade_jacket
 	name = "Replica Parade Jacket"
 	item_path = /obj/item/clothing/suit/replica_parade_jacket
+
+/datum/loadout_item/suit/croptop_bomber_jacket
+	name = "Croptop Bomber Jacket"
+	item_path = /obj/item/clothing/suit/toggle/jacket/croptop_bomber_jacket
+	reskin_datum = /datum/atom_skin/croptop_bomber_jacket

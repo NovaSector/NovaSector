@@ -23,10 +23,7 @@ GLOBAL_VAR_INIT(blooper_allowed, TRUE) // For administrators
 	target.blooper_pitch_range = 0.2
 
 /// Admin verb to globally toggle vocal barks
-/datum/admins/proc/toggleblooper()
-	set category = "Server"
-	set desc = "Toggle the annoying voices."
-	set name = "Toggle Vocal Barks"
+ADMIN_VERB(toggleblooper, R_ADMIN, "Toggle Vocal Barks", "Toggle the annoying voices", ADMIN_CATEGORY_SERVER)
 	toggle_blooper()
 	log_admin("[key_name(usr)] toggled Voice Barks.")
 	message_admins("[key_name_admin(usr)] toggled Voice Barks.")

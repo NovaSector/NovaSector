@@ -373,7 +373,7 @@
 		/obj/item/food/grown/bell_pepper = 1,
 		/obj/item/food/grown/cabbage = 1,
 		/obj/item/food/grown/starfruit = 1,
-		/obj/item/food/grown/carrot = 1,
+		/obj/item/food/grown/carrotlike/carrot = 1,
 		/obj/item/food/grown/eggplant = 2,
 	)
 	result = /obj/item/food/eggplantfry

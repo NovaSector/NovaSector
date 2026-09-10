@@ -10,7 +10,6 @@
 #define PROTEAN_SERVO_TRAIT "protean_servo"
 
 /// Blood type
-#define BLOOD_TYPE_IRON "FE"
 #define BLOOD_COLOR_IRON "#CCCCCC"
 
 /// Sprite file location

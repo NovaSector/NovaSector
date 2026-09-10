@@ -11,6 +11,7 @@
 /obj/item/ammo_box/magazine/katyusha/empty
 	icon_state = "spikewall_mag-empty"
 	start_empty = TRUE
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/ammo_box/magazine/katyusha
 	name = "\improper Katyusha Drum Magazine"

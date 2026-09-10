@@ -20,9 +20,19 @@
 	. = ..()
 	check_empty()
 
-/obj/item/ammo_box/magazine/ammo_stack/attackby(obj/item/A, mob/user, params, silent = FALSE, replace_spent = 0)
+/obj/item/ammo_box/magazine/ammo_stack/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	check_empty()
+
+/obj/item/ammo_box/magazine/ammo_stack/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!isammocasing(interacting_with))
+		return NONE
+	return item_interaction(user, interacting_with, modifiers) || ITEM_INTERACT_BLOCKING
+
+/obj/item/ammo_box/magazine/ammo_stack/give_round(obj/item/ammo_casing/new_round, replace_spent = 0)
+	if(new_round in stored_ammo)
+		return FALSE
+	return ..()
 
 /obj/item/ammo_box/magazine/ammo_stack/empty_magazine()
 	. = ..()
@@ -127,7 +137,9 @@
 
 /obj/item/ammo_casing/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(!istype(tool, /obj/item/ammo_casing))
-		return NONE
+		if(istype(tool, /obj/item/ammo_box/magazine/ammo_stack))
+			return NONE
+		return ..()
 
 	var/obj/item/ammo_casing/used_casing = tool
 	if(!used_casing.ammo_stack_type)
@@ -143,8 +155,10 @@
 		balloon_alert(user, "can't stack empty casings!")
 		return ITEM_INTERACT_BLOCKING
 
+	// try_load rather than give_round, so casings held by the user are properly unequipped instead of forceMoved out of their hands
 	var/obj/item/ammo_box/magazine/ammo_stack = new ammo_stack_type(drop_location())
-	ammo_stack.give_round(src)
-	ammo_stack.give_round(used_casing)
+	ammo_stack.try_load(user, src, silent = TRUE)
+	ammo_stack.try_load(user, used_casing, silent = TRUE)
 	user.put_in_hands(ammo_stack)
 	ammo_stack.update_appearance()
+	return ITEM_INTERACT_SUCCESS

@@ -156,6 +156,7 @@
 	projectile_type = /obj/projectile/bullet/strilka310/rubber
 	ammo_categories = AMMO_CLASS_NONE
 	harmful = FALSE
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/projectile/bullet/strilka310
 	damage = 45 // Upstream, the crew-guns that use this have a notable delay on firing, and jam so this has to be dropped a bit

@@ -1,7 +1,6 @@
 /datum/sprite_accessory/head_accessory
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/head_accessory.dmi'
 	key = FEATURE_HEAD_ACCESSORY
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/head_accessory
 	recommended_species = list(
 		SPECIES_MAMMAL = 1,
@@ -10,7 +9,6 @@
 		SPECIES_FELINE = 1,
 		SPECIES_HUMANOID = 1,
 	)
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/head_accessory/none
@@ -19,13 +17,17 @@
 	natural_spawn = FALSE
 	factual = FALSE
 
-/datum/sprite_accessory/head_accessory/is_hidden(mob/living/carbon/human/owner)
-	var/obj/item/clothing/head/worn_head = owner.head
-	var/obj/item/clothing/mask/worn_mask = owner.wear_mask
-	if((worn_head?.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR) \
-		&& !(worn_mask && worn_mask.flags_inv & SHOWSPRITEEARS))
+/datum/sprite_accessory/head_accessory/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
+
+	if(wearer.obscured_slots & HIDEHAIR)
+		if(istype(wearer.head, /obj/item/clothing/head/mod))
+			return FALSE // i'm so sorry, this is still required
+		if(wearer.obscured_slots & SHOWSPRITEEARS)
+			return FALSE
 		return TRUE
-	return FALSE
 
 /datum/sprite_accessory/head_accessory/sylveon_bow
 	name = "Sylveon Bow"

@@ -44,15 +44,13 @@
 	target_turf.ChangeTurf(/turf/open/misc/asteroid/basalt/lava_land_surface)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/structure/lavaland/ash_walker/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/ash_staff) && user.mind.has_antag_datum(/datum/antagonist/ashwalker))
-		var/obj/item/ash_staff/target_staff = attacking_item
+/obj/structure/lavaland/ash_walker/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/ash_staff) && user.mind.has_antag_datum(/datum/antagonist/ashwalker))
+		var/obj/item/ash_staff/target_staff = tool
 		target_staff.staff_time = world.time + 5 MINUTES
 		playsound(src, 'sound/effects/magic/demon_consume.ogg', 50, TRUE)
 		to_chat(user, span_notice("The tendril permits you to have more time to corrupt the world with ashes."))
-		return
-
-	return ..()
+		return ITEM_INTERACT_SUCCESS
 
 //generic ash item recipe
 /datum/crafting_recipe/ash_recipe

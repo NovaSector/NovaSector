@@ -2,8 +2,8 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
 	key = FEATURE_XENODORSAL
 	color_src = USE_ONE_COLOR
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	organ_type = /obj/item/organ/xenodorsal
+	flags_custom_mod_icon = MOD_ACCESSORY_CHESTPLATE
 
 /datum/sprite_accessory/xenodorsal/none
 	name = SPRITE_ACCESSORY_NONE
@@ -23,17 +23,6 @@
 	name = "Dorsal Down"
 	icon_state = "down"
 
-/datum/sprite_accessory/xenodorsal/is_hidden(mob/living/carbon/human/wearer)
-	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
-	if(!wearer.w_uniform && isnull(worn_suit))
-		return FALSE
-	// Can hide if wearing uniform
-	if(key in wearer.try_hide_mutant_parts)
-		return TRUE
-	// Exception for MODs
-	if(istype(worn_suit))
-		return FALSE
-
 //TAILS
 /datum/sprite_accessory/tails/mammal/wagging/xeno_tail
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
@@ -45,7 +34,6 @@
 /datum/sprite_accessory/xenohead
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/xeno_parts.dmi'
 	key = FEATURE_XENOHEAD
-	relevent_layers = list(BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/xenohead
 
 /datum/sprite_accessory/xenohead/none

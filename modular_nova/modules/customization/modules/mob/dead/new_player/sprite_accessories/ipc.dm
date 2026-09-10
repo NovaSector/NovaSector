@@ -6,7 +6,6 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ipc_screens.dmi'
 	color_src = null
 	key = FEATURE_SYNTH_SCREEN
-	relevent_layers = list(UNDER_UNIFORM_LAYER)
 	organ_type = /obj/item/organ/synth_screen
 
 /datum/sprite_accessory/screen/none
@@ -149,23 +148,19 @@
 	default_color = DEFAULT_SECONDARY
 	recommended_species = list(SPECIES_SYNTH = 1)
 	key = FEATURE_SYNTH_ANTENNA
-	relevent_layers = list(BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/synth_antenna
+	flags_custom_mod_icon = MOD_ACCESSORY_HELMET
 
-/datum/sprite_accessory/antenna/is_hidden(mob/living/carbon/human/wearer)
-	var/obj/item/clothing/head/mod/worn_head = wearer.head
-	if(isnull(worn_head))
-		return FALSE
-	if(key in wearer.try_hide_mutant_parts)
-		return TRUE
-//	Exception for MODs
-	if(istype(worn_head))
-		return FALSE
-//	Hide accessory if flagged to do so
-	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
-	if((worn_head?.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR) \
-		// This line basically checks if we FORCE accessory-ears to show, for items with earholes like Balaclavas and Luchador masks
-		&& ((worn_head && !(worn_head.flags_inv & SHOWSPRITEEARS)) || (worn_mask && !(worn_mask.flags_inv & SHOWSPRITEEARS))))
+/datum/sprite_accessory/antenna/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
+
+	if(wearer.obscured_slots & HIDEHAIR)
+		if(istype(wearer.head, /obj/item/clothing/head/mod))
+			return FALSE // i'm so sorry, this is still required
+		if(wearer.obscured_slots & SHOWSPRITEEARS)
+			return FALSE
 		return TRUE
 
 /datum/sprite_accessory/antenna/none
@@ -233,8 +228,8 @@
 
 /datum/sprite_accessory/synth_chassis/mammal
 	name = "Mammal Chassis"
-	icon = BODYPART_ICON_SYNTHMAMMAL
-	icon_state = "synthmammal"
+	icon = BODYPART_ICON_MAMMAL
+	icon_state = "mammal"
 	color_src = MUTANT_COLOR
 	dimorphic = TRUE
 	is_digi_compatible = TRUE
@@ -343,8 +338,8 @@
 
 /datum/sprite_accessory/synth_head/mammal
 	name = "Mammal Head"
-	icon = BODYPART_ICON_SYNTHMAMMAL
-	icon_state = "synthmammal"
+	icon = BODYPART_ICON_MAMMAL
+	icon_state = "mammal"
 	color_src = MUTANT_COLOR
 	dimorphic = TRUE
 

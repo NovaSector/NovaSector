@@ -7,29 +7,23 @@
 		SPECIES_LIZARD_ASH = 1,
 		SPECIES_LIZARD_SILVER = 1,
 	)
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER)
 	organ_type = /obj/item/organ/spines
+	flags_custom_mod_icon = MOD_ACCESSORY_CHESTPLATE|MOD_ACCESSORY_HELMET
 
 /datum/sprite_accessory/spines/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
 
-/datum/sprite_accessory/spines/is_hidden(mob/living/carbon/human/wearer)
-	var/obj/item/clothing/worn_uniform = wearer.w_uniform
-	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
-	if(worn_uniform?.flags_inv & HIDESPINE)
-		return TRUE
-	if(worn_suit?.flags_inv & HIDESPINE)
-		return TRUE
-	if(key in wearer.try_hide_mutant_parts)
-		return TRUE
+/datum/sprite_accessory/spines/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
 
-	return FALSE
+	return !!(wearer.obscured_slots & HIDESPINE)
 
 /datum/sprite_accessory/tail_spines
 	key = FEATURE_TAILSPINES
 	default_color = DEFAULT_SECONDARY
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER)
 
 /datum/sprite_accessory/tail_spines/none
 	name = SPRITE_ACCESSORY_NONE
@@ -37,25 +31,21 @@
 	factual = FALSE
 	natural_spawn = FALSE
 
-/datum/sprite_accessory/tail_spines/is_hidden(mob/living/carbon/human/wearer)
+/datum/sprite_accessory/tail_spines/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
+
 	if(wearer.owned_turf?.name == "tail")
 	// Emote exception
 		return TRUE
 
-	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
-	if(isnull(wearer.w_uniform) && isnull(worn_suit))
-		return FALSE
-	if("spines" in wearer.try_hide_mutant_parts)
+	if(FEATURE_SPINES in wearer.try_hide_mutant_parts)
 		return TRUE
-	if("tail" in wearer.try_hide_mutant_parts)
+	if(FEATURE_TAIL in wearer.try_hide_mutant_parts)
 		return TRUE
 
-	if(worn_suit)
-		// Exception for MODs
-		if(istype(worn_suit))
-			return FALSE
-		// Hide accessory if flagged to do so
-		if(worn_suit.flags_inv & HIDETAIL)
-			return TRUE
+	if(wearer.obscured_slots & HIDETAIL)
+		return TRUE
 
 	return FALSE

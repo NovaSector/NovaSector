@@ -3,6 +3,7 @@
 	desc = "A measuring tape specifically produced to measure the depth that has been dug into strange rocks."
 	icon = 'modular_nova/modules/xenoarch/icons/xenoarch_items.dmi'
 	icon_state = "tape"
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 
 // HAMMERS
 
@@ -91,6 +92,7 @@
 	dig_amount = 1
 	dig_speed = 1
 	advanced = TRUE
+	custom_materials = list(/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 4, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 
 // BRUSHES
 
@@ -104,6 +106,7 @@
 	name = "advanced brush"
 	dig_speed = 0.5 SECONDS
 	icon_state = "adv_brush"
+	custom_materials = list(/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 4, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 
 // MISC.
 
@@ -119,11 +122,13 @@
 	icon_state = "adv_scanner"
 	scanning_speed = 1 SECONDS
 	scan_advanced = TRUE
+	custom_materials = list(/datum/material/uranium = SMALL_MATERIAL_AMOUNT * 4, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 
 /obj/item/xenoarch/handheld_radar
 	name = "handheld radar"
 	desc = "A surface radar for unexpected objects in the sedimentary layer."
 	icon_state = "recoverer"
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /datum/scavenge_profile
 	/// ckey of the player used as unique identifier for the archeology system scavenge sites.
@@ -426,6 +431,7 @@
 	content_overlays = FALSE
 	custom_premium_price = PAYCHECK_CREW * 2
 	storage_type = /datum/storage/xenoarch_belt
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 
 /datum/storage/xenoarch_belt
 	max_total_storage = 100
@@ -477,6 +483,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	resistance_flags = FLAMMABLE
 	storage_type = /datum/storage/bag/xenoarch
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2, /datum/material/glass = SMALL_MATERIAL_AMOUNT)
 	var/insert_speed = 1 SECONDS
 	var/mob/listeningTo
 	var/range = null
@@ -537,6 +544,7 @@
 	icon_state = "adv_satchel"
 	insert_speed = 0.1 SECONDS
 	storage_type = /datum/storage/bag/xenoarch/adv
+	custom_materials = list(/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2.5)
 
 /datum/storage/bag/xenoarch/adv
 	max_slots = 50

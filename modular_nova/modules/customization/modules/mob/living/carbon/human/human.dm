@@ -26,7 +26,8 @@
 			if("open_examine_panel")
 				mob_examine_panel.ui_interact(usr) //datum has a examine_panel component, here we open the window
 			if("open_character_ad")
-				usr.client?.show_character_directory(specific_ad = real_name)
+				if(usr.client)
+					INVOKE_GAME_VERB(usr.client, usr.client, /client, show_character_directory, specific_ad = real_name)
 
 /mob/living/carbon/human/species/vox
 	race = /datum/species/vox
@@ -91,21 +92,65 @@
 /mob/living/carbon/human/species/shadekin
 	race = /datum/species/shadekin
 
-/mob/living/carbon/human/verb/toggle_undies()
-	set category = "IC"
-	set name = "Toggle underwear visibility"
-	set desc = "Allows you to toggle which underwear should show or be hidden. Underwear will obscure genitals."
+/// Every toggleable underwear slot, by menu label, mapped to the flag that hides it.
+GLOBAL_LIST_INIT(underwear_visibility_slots, list(
+	"Underwear" = UNDERWEAR_HIDE_UNDIES,
+	"Bra" = UNDERWEAR_HIDE_BRA,
+	"Undershirt" = UNDERWEAR_HIDE_SHIRT,
+	"Socks" = UNDERWEAR_HIDE_SOCKS,
+))
 
-	if(stat != CONSCIOUS)
+/// Shows or hides a single underwear slot by its menu label.
+/mob/living/carbon/human/proc/set_underwear_visibility(label, hidden)
+	var/flag = GLOB.underwear_visibility_slots[label]
+	if(isnull(flag))
+		return FALSE
+	if(hidden)
+		underwear_visibility |= flag
+	else
+		underwear_visibility &= ~flag
+	update_body()
+	return TRUE
+
+/// Shows or hides every underwear slot at once.
+/mob/living/carbon/human/proc/set_all_underwear_visibility(hidden)
+	underwear_visibility = hidden ? UNDERWEAR_HIDE_ALL : NONE
+	update_body()
+	return TRUE
+
+/// The per-slot underwear entries every configuring UI sends to tgui.
+/mob/living/carbon/human/proc/get_underwear_ui_entries()
+	var/list/entries = list()
+	for(var/label in GLOB.underwear_visibility_slots)
+		var/flag = GLOB.underwear_visibility_slots[label]
+		var/worn
+		switch(flag)
+			if(UNDERWEAR_HIDE_UNDIES)
+				worn = (underwear && underwear != "Nude")
+			if(UNDERWEAR_HIDE_BRA)
+				worn = (bra && bra != "Nude")
+			if(UNDERWEAR_HIDE_SHIRT)
+				worn = (undershirt && undershirt != "Nude")
+			if(UNDERWEAR_HIDE_SOCKS)
+				worn = (socks && socks != "Nude")
+		entries += list(list(
+			"name" = label,
+			"hidden" = !!(underwear_visibility & flag),
+			"worn" = !!worn,
+		))
+	return entries
+
+GAME_VERB_DESC(/mob/living/carbon/human, toggle_undies, "Toggle underwear visibility", "Allows you to toggle which underwear should show or be hidden. Underwear will obscure genitals.", "IC")
+
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(usr, span_warning("You can't toggle underwear visibility right now..."))
 		return
 
-	var/underwear_button = underwear_visibility & UNDERWEAR_HIDE_UNDIES ? "Show underwear" : "Hide underwear"
-	var/undershirt_button = underwear_visibility & UNDERWEAR_HIDE_SHIRT ? "Show shirt" : "Hide shirt"
-	var/socks_button = underwear_visibility & UNDERWEAR_HIDE_SOCKS ? "Show socks" : "Hide socks"
-	var/bra_button = underwear_visibility & UNDERWEAR_HIDE_BRA ? "Show bra" : "Hide bra"
+	var/list/choice_list = list()
 
-	var/list/choice_list = list("[underwear_button]" = "underwear", "[bra_button]" = "bra", "[undershirt_button]" = "shirt", "[socks_button]" = "socks")
+	for(var/label in GLOB.underwear_visibility_slots)
+		var/hidden = underwear_visibility & GLOB.underwear_visibility_slots[label]
+		choice_list["[hidden ? "Show" : "Hide"] [LOWER_TEXT(label)]"] = label
 
 	if(underwear_visibility != NONE)
 		choice_list += list("Show all" = "show")
@@ -121,20 +166,12 @@
 	var/picked_choice = choice_list[picked_visibility]
 
 	switch(picked_choice)
-		if("underwear")
-			underwear_visibility ^= UNDERWEAR_HIDE_UNDIES
-		if("bra")
-			underwear_visibility ^= UNDERWEAR_HIDE_BRA
-		if("shirt")
-			underwear_visibility ^= UNDERWEAR_HIDE_SHIRT
-		if("socks")
-			underwear_visibility ^= UNDERWEAR_HIDE_SOCKS
 		if("show")
-			underwear_visibility = NONE
+			set_all_underwear_visibility(FALSE)
 		if("hide")
-			underwear_visibility = UNDERWEAR_HIDE_ALL
-
-	update_body()
+			set_all_underwear_visibility(TRUE)
+		else
+			set_underwear_visibility(picked_choice, !(underwear_visibility & GLOB.underwear_visibility_slots[picked_choice]))
 
 /mob/living/carbon/human/revive(full_heal_flags = NONE, excess_healing = 0, force_grab_ghost = FALSE)
 	. = ..()
@@ -142,10 +179,7 @@
 		if(dna && dna.species)
 			dna.species.spec_revival(src)
 
-/mob/living/carbon/human/verb/toggle_mutant_part_visibility()
-	set category = "IC"
-	set name = "Show/Hide Mutant Parts"
-	set desc = "Allows you to choose to try and hide your mutant bodyparts under your clothes."
+GAME_VERB_DESC(/mob/living/carbon/human, toggle_mutant_part_visibility, "Show/Hide Mutant Parts", "Allows you to choose to try and hide your mutant bodyparts under your clothes.", "IC")
 
 	mutant_part_visibility()
 
@@ -165,7 +199,7 @@
 	)
 
 	// Stat check
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(usr, span_warning("You can't do this right now..."))
 		return
 
@@ -254,12 +288,9 @@
 #define DEFAULT_TIME 30
 #define MAX_TIME 36000 // 10 hours
 
-/mob/living/carbon/human/verb/acting()
-	set category = "IC"
-	set name = "Feign Impairment"
-	set desc = "Pretend to be impaired for a defined duration."
+GAME_VERB_DESC(/mob/living/carbon/human, acting, "Feign Impairment", "Pretend to be impaired for a defined duration.", "IC")
 
-	if(stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(src))
 		to_chat(usr, span_warning("You can't do this right now..."))
 		return
 

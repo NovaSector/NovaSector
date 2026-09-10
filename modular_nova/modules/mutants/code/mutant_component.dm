@@ -131,13 +131,11 @@
 		old_species = host.dna.species
 		host.set_species(selected_type)
 
-	var/stand_up = (host.stat == DEAD) || (host.stat == UNCONSCIOUS)
-
 	//Fully heal the mutant's damage the first time they rise
 	regenerate()
 
 	host.do_jitter_animation(30)
-	host.visible_message(span_danger("[host] suddenly convulses, as [host.p_they()][stand_up ? " stagger to [host.p_their()] feet and" : ""] gain a ravenous hunger in [host.p_their()] eyes!"), span_alien("You HUNGER!"))
+	host.visible_message(span_danger("[host] suddenly convulses, as [host.p_they()][IS_UNCONSCIOUS(host) ? " stagger to [host.p_their()] feet and" : ""] gain a ravenous hunger in [host.p_their()] eyes!"), span_alien("You HUNGER!"))
 	playsound(host.loc, 'sound/effects/hallucinations/far_noise.ogg', 50, TRUE)
 	if(is_species(host, /datum/species/mutant/infectious/fast))
 		to_chat(host, span_redtext("You are a FAST zombie. You run fast and hit more quickly, beware however, you are much weaker and susceptible to damage."))

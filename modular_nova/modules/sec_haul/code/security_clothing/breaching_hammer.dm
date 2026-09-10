@@ -81,7 +81,7 @@
 
 /// Keeps looping under the door is no more , or someone moves , gets shot , dies , incapacitated , stunned , etc
 /obj/item/melee/breaching_hammer/proc/breaching_loop(mob/living/user, obj/target)
-	if(user.stat || !target)
+	if(IS_UNCONSCIOUS_OR_CRIT(user) || !target)
 		remove_track(user)
 		return FALSE
 	if(!(user.Adjacent(target)))

@@ -280,17 +280,23 @@
 	var/passed_initial_check = ..(preferences)
 	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
 	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_genitals)
-	var/part_enabled = is_factual_sprite_accessory(relevant_mutant_bodypart, preferences.read_preference(/datum/preference/choiced/genital/penis))
+	var/penis_choice = preferences.read_preference(/datum/preference/choiced/genital/penis)
+	var/datum/sprite_accessory/genital/penis/penis_accessory = SSaccessories.sprite_accessories[FEATURE_PENIS][penis_choice]
+	if(!penis_accessory?.can_have_sheath)
+		return FALSE
+	var/part_enabled = is_factual_sprite_accessory(relevant_mutant_bodypart, penis_choice)
 	return erp_allowed && part_enabled && (passed_initial_check || allowed)
 
-/datum/preference/choiced/penis_sheath/init_possible_values()
-	return SHEATH_MODES
-
-/datum/preference/choiced/penis_sheath/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["penis_sheath"] = value
-
 /datum/preference/choiced/penis_sheath/create_default_value()
-	return SHEATH_NONE
+	return /datum/sprite_accessory/genital/sheath/none::name
+
+/datum/preference/choiced/penis_sheath/init_possible_values()
+	return assoc_to_keys_features(SSaccessories.sprite_accessories[FEATURE_SHEATH])
+
+/datum/preference/choiced/penis_sheath/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	var/datum/preference/choiced/penis_sheath/penis_sheath_pref = GLOB.preference_entries[/datum/preference/choiced/penis_sheath]
+	if(penis_sheath_pref.is_accessible(preferences))
+		target.dna.features["penis_sheath"] = value
 
 // TESTES
 
@@ -479,3 +485,62 @@
 	savefile_key = "feature_anus"
 	relevant_mutant_bodypart = ORGAN_SLOT_ANUS
 	default_accessory_type = /datum/sprite_accessory/genital/anus/none
+
+// BUTT
+
+/datum/preference/choiced/genital/butt
+	savefile_key = "feature_butt"
+	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
+	default_accessory_type = /datum/sprite_accessory/genital/butt/none
+
+/datum/preference/toggle/genital_skin_tone/butt
+	savefile_key = "butt_skin_tone"
+	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
+	genital_pref_type = /datum/preference/choiced/genital/butt
+
+/datum/preference/toggle/genital_skin_tone/butt/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	target.dna.features["butt_uses_skintones"] = value
+
+/datum/preference/toggle/genital_skin_color/butt
+	savefile_key = "butt_skin_color"
+	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
+	genital_pref_type = /datum/preference/choiced/genital/butt
+
+/datum/preference/toggle/genital_skin_color/butt/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	if(!..()) // Don't apply it if it failed the check in the parent.
+		value = FALSE
+
+	target.dna.features["butt_uses_skincolor"] = value
+
+/datum/preference/numeric/butt_size
+	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
+	savefile_identifier = PREFERENCE_CHARACTER
+	savefile_key = "butt_size"
+	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
+	minimum = 0
+	maximum = 8
+
+/datum/preference/numeric/butt_size/is_accessible(datum/preferences/preferences)
+	var/passed_initial_check = ..(preferences)
+	var/allowed = preferences.read_preference(/datum/preference/toggle/allow_mismatched_parts)
+	var/erp_allowed = preferences.read_preference(/datum/preference/toggle/master_erp_preferences) && preferences.read_preference(/datum/preference/toggle/allow_genitals)
+	var/part_enabled = is_factual_sprite_accessory(relevant_mutant_bodypart, preferences.read_preference(/datum/preference/choiced/genital/butt))
+	return erp_allowed && part_enabled && (passed_initial_check || allowed)
+
+/datum/preference/numeric/butt_size/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
+	target.dna.features["butt_size"] = value
+
+/datum/preference/numeric/butt_size/create_default_value()
+	return 1
+
+/datum/preference/tri_color/genital/butt
+	savefile_key = "butt_color"
+	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
+	type_to_check = /datum/preference/choiced/genital/butt
+	skin_color_type = /datum/preference/toggle/genital_skin_color/butt
+
+/datum/preference/tri_bool/genital/butt
+	savefile_key = "butt_emissive"
+	relevant_mutant_bodypart = ORGAN_SLOT_BUTT
+	type_to_check = /datum/preference/choiced/genital/butt
+	skin_color_type = /datum/preference/toggle/genital_skin_color/butt

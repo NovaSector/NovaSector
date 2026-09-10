@@ -12,7 +12,7 @@
 		it sounds simultaneously familiar and alien - recognizably Slavic in its rhythm and structure, but punctuated by loanwords from the \
 		Turkic and Persian linguistic strata that survived the Quiet Century."
 	key = "P"
-	flags = TONGUELESS_SPEECH
+	flags = LANGUAGE_TONGUELESS_SPEECH
 	space_chance = 35
 	sentence_chance = 5
 	between_word_sentence_chance = 10

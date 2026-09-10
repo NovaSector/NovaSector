@@ -7,7 +7,7 @@
 	var/contractable
 
 /// Updates [minimum_opt_in_level] [heretic_sac_target] and [contractable].
-/datum/job/proc/update_opt_in_vars()
+/datum/job/proc/update_antag_opt_in_vars()
 	if(CONFIG_GET(flag/disable_antag_opt_in_preferences))
 		return
 
@@ -18,14 +18,14 @@
 	if(isnull(contractable))
 		contractable = initialize_contractable_status()
 
-	update_opt_in_desc_suffix()
+	update_antag_opt_in_desc_suffix()
 
 /// Returns this job's initial opt in level, taking into account departmental bitflags.
 /datum/job/proc/get_initial_opt_in_level()
 	if (departments_bitflags & (DEPARTMENT_BITFLAG_SECURITY))
-		return SECURITY_OPT_IN_LEVEL
+		return SECURITY_ANTAG_OPT_IN_LEVEL
 	if (departments_bitflags & (DEPARTMENT_BITFLAG_COMMAND))
-		return COMMAND_OPT_IN_LEVEL
+		return COMMAND_ANTAG_OPT_IN_LEVEL
 
 /// Determines if this job should be sacrificable by heretics.
 /datum/job/proc/initialize_heretic_target_status()
@@ -42,7 +42,7 @@
 	return FALSE
 
 /// Generates and sets a suffix appended to our description detailing our opt-in variables.
-/datum/job/proc/update_opt_in_desc_suffix()
+/datum/job/proc/update_antag_opt_in_desc_suffix()
 	var/list/suffixes = list()
 
 	if (minimum_opt_in_level)
@@ -69,4 +69,4 @@
 		return
 
 	for(var/datum/job/job as anything in all_occupations)
-		job.update_opt_in_vars()
+		job.update_antag_opt_in_vars()

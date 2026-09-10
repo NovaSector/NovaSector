@@ -77,8 +77,8 @@
 	. = ..()
 	var/mob/living/carbon/human/species_holder = target
 
-	species_holder.physiology.brute_mod *= HOLOSYNTH_BRUTEMULT
-	species_holder.physiology.burn_mod *= HOLOSYNTH_BURNMULT
+	MODIFY_PHYSIOLOGY(species_holder, BRUTE, HOLOSYNTH_BRUTEMULT)
+	MODIFY_PHYSIOLOGY(species_holder, BURN, HOLOSYNTH_BURNMULT)
 	species_holder.max_grab = GRAB_PASSIVE
 
 	species_holder.AddComponent(/datum/component/glass_passer/holosynth)
@@ -92,16 +92,16 @@
 			species_holder.cut_overlay(chest.glow)
 		chest.glow = makeHologramHolosynth(species_holder)
 	var/datum/action/innate/holosynth_toggle_phase/phase_toggle = new(species_holder)
+	var/datum/action/innate/holosynth_toggle_passtable/table_toggle = new(species_holder)
 	phase_toggle.Grant(species_holder)
+	table_toggle.Grant(species_holder)
 	if(!isdummy(species_holder))
 		RegisterSignal(species_holder, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED, PROC_REF(attach_scanline), override = TRUE)
 	RegisterSignal(species_holder, COMSIG_MOB_APPLY_DAMAGE, PROC_REF(on_mob_disrupted))
 	RegisterSignal(species_holder, COMSIG_LIVING_SET_BODY_POSITION, PROC_REF(on_mob_disrupted))
 	RegisterSignal(species_holder, COMSIG_LIVING_ELECTROCUTE_ACT, PROC_REF(on_mob_disrupted))
-	add_verb(species_holder, list(
-		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
-		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
-	))
+	ASSIGN_GAME_VERB(species_holder, /mob/living/carbon/human, holosynth_adjust_transparency)
+	ASSIGN_GAME_VERB(species_holder, /mob/living/carbon/human, holosynth_toggle_scanline)
 
 	if(!isdummy(species_holder))
 		var/obj/item/holosynth_pen/owner_projector = new /obj/item/holosynth_pen(get_turf(species_holder), species_holder)
@@ -112,8 +112,8 @@
 /datum/species/synthetic/holosynth/on_species_loss(mob/living/carbon/target, datum/species/new_species, pref_load)
 	. = ..()
 	var/mob/living/carbon/human/species_holder = target
-	species_holder.physiology.brute_mod /= HOLOSYNTH_BRUTEMULT
-	species_holder.physiology.burn_mod /= HOLOSYNTH_BURNMULT
+	MODIFY_PHYSIOLOGY(species_holder, BRUTE, 1 / HOLOSYNTH_BRUTEMULT)
+	MODIFY_PHYSIOLOGY(species_holder, BURN, 1 / HOLOSYNTH_BURNMULT)
 	species_holder.max_grab = GRAB_KILL
 	UnregisterSignal(species_holder, list(COMSIG_MOB_APPLY_DAMAGE, COMSIG_LIVING_SET_BODY_POSITION, COMSIG_LIVING_ELECTROCUTE_ACT))
 	species_holder.remove_filter("HOLO: Color and Transparent")
@@ -124,10 +124,10 @@
 		chest.glow = null
 	for(var/datum/action/innate/holosynth_toggle_phase/phase_toggle in species_holder.actions)
 		qdel(phase_toggle)
-	remove_verb(species_holder, list(
-		/mob/living/carbon/human/proc/holosynth_adjust_transparency,
-		/mob/living/carbon/human/proc/holosynth_toggle_scanline,
-	))
+	for(var/datum/action/innate/holosynth_toggle_passtable/phase_toggle in species_holder.actions)
+		qdel(phase_toggle)
+	UNASSIGN_GAME_VERB(species_holder, /mob/living/carbon/human, holosynth_adjust_transparency)
+	UNASSIGN_GAME_VERB(species_holder, /mob/living/carbon/human, holosynth_toggle_scanline)
 
 	var/comps_to_delete = list(
 		species_holder.GetComponent(/datum/component/glass_passer/holosynth),
@@ -340,11 +340,7 @@ GLOBAL_DATUM_INIT(holo_scanline, /obj/effect/abstract/holo_scanline, new)
 // -- Runtime verbs -------------------------------------------------------
 // Added on species gain, removed on species loss. Both update the dna feature and ask the species to refresh.
 
-/mob/living/carbon/human/proc/holosynth_adjust_transparency()
-	set name = "Adjust Hologram Transparency"
-	set category = "IC"
-	set src = usr
-
+GAME_VERB_PROC(/mob/living/carbon/human, holosynth_adjust_transparency, "Adjust Hologram Transparency", "IC")
 	var/datum/species/synthetic/holosynth/species = dna?.species
 	if(!istype(species))
 		return
@@ -354,11 +350,7 @@ GLOBAL_DATUM_INIT(holo_scanline, /obj/effect/abstract/holo_scanline, new)
 	dna?.features["holo_transparency"] = new_value
 	species.refresh_opacity(src)
 
-/mob/living/carbon/human/proc/holosynth_toggle_scanline()
-	set name = "Toggle Hologram Flicker"
-	set category = "IC"
-	set src = usr
-
+GAME_VERB_PROC(/mob/living/carbon/human, holosynth_toggle_scanline, "Toggle Hologram Flicker", "IC")
 	var/datum/species/synthetic/holosynth/species = dna?.species
 	if(!istype(species))
 		return

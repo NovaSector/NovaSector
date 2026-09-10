@@ -130,7 +130,6 @@
 "gQ" = (
 /obj/structure/chair/sofa/corp/corner,
 /obj/machinery/light/warm/directional/east,
-/obj/item/toy/plush/nova/donator/breakdancing_bird,
 /turf/open/floor/carpet,
 /area/misc/condo)
 "ho" = (
@@ -191,9 +190,7 @@
 "kW" = (
 /obj/structure/flora/bush/grassy/style_random,
 /obj/structure/flora/bush/flowers_br/style_3,
-/obj/structure/window{
-	dir = 8
-	},
+/obj/structure/window/spawner/directional/west,
 /turf/open/floor/grass,
 /area/misc/condo)
 "lU" = (
@@ -455,12 +452,8 @@
 "RM" = (
 /obj/structure/flora/bush/large/style_random,
 /obj/structure/flora/bush/lavendergrass/style_random,
-/obj/structure/window{
-	dir = 8
-	},
-/obj/structure/window{
-	dir = 1
-	},
+/obj/structure/window/spawner/directional/west,
+/obj/structure/window/spawner/directional/north,
 /turf/open/floor/grass,
 /area/misc/condo)
 "RP" = (

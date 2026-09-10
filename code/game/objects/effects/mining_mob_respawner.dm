@@ -5,12 +5,18 @@
 	invisibility = INVISIBILITY_ABSTRACT
 	/// Do we check the outdoorsness of our spawn tile?
 	var/outdoor_only = TRUE
-	// Spawn somewhere in an area around the spawner rather than dead on it
+	/// Are we waiting for a mob to spawn so we can link to it?
+	var/registered_spawn_signal = FALSE
+	/// Spawn somewhere in an area around the spawner rather than dead on it
 	var/respawn_range = 3
+	/// Range in which active Candela nodes prevent our mob spawns
+	var/network_block_range = 5
 	/// Min time from storm to spawn a mob
 	var/min_delay = 1 SECONDS
 	/// Max time from storm to spawn a mob
 	var/max_delay = 10 SECONDS
+	/// Chance to respawn a mob
+	var/respawn_chance = 30
 	/// Our currently spawned mob
 	var/datum/weakref/our_mob
 	/// Weighted list of things we can spawn
@@ -38,7 +44,7 @@
 				filtered_mobs += path
 		valid_mobs = filtered_mobs
 
-	if (!our_mob?.resolve())
+	if (!our_mob?.resolve() && !registered_spawn_signal)
 		make_mob()
 
 	// We're just going to go ahead and assume these won't move after being spawned
@@ -51,6 +57,7 @@
 
 	if (istype(initial_spawn, /obj/effect/spawner/random))
 		RegisterSignal(get_turf(src), COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZED_ON, PROC_REF(get_spawned_mob))
+		registered_spawn_signal = TRUE
 	else
 		register_spawn(src, initial_spawn)
 
@@ -85,6 +92,7 @@
 	var/turf/spawn_turf = pick(valid_locations)
 	// Bit roundabout but it's the only way of intercepting mob spawners
 	RegisterSignal(spawn_turf, COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZED_ON, PROC_REF(get_spawned_mob))
+	registered_spawn_signal = TRUE
 	new spawn_path(spawn_turf)
 
 /// Intercept the next mob spawned on the turf, because we might have spawned an object which spawns a mob instead
@@ -94,6 +102,7 @@
 		return
 
 	UnregisterSignal(source, COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZED_ON)
+	registered_spawn_signal = FALSE
 	register_spawn(source, new_spawn)
 	play_spawn_animation(new_spawn, source)
 
@@ -101,7 +110,22 @@
 /obj/effect/mining_mob_respawner/proc/on_storm_event()
 	SIGNAL_HANDLER
 	var/mob/living/resolved = our_mob?.resolve()
-	if (!resolved || resolved.stat == DEAD)
+	if (resolved && resolved.stat != DEAD)
+		return
+
+	var/list/blockers = list()
+	// Respawns get blocked by active Candela network nodes nearby
+	for (var/datum/mining_beacon_network/network as anything in GLOB.mining_beacon_networks)
+		if (!network.powered)
+			continue
+		for (var/datum/component/candela_node/node as anything in network.linked_nodes)
+			blockers[get_turf(node.parent)] = TRUE
+
+	for(var/turf/turf_in_view in view(network_block_range, get_turf(src)))
+		if (blockers[turf_in_view])
+			return
+
+	if (prob(respawn_chance))
 		addtimer(CALLBACK(src, PROC_REF(make_mob)), rand(min_delay, max_delay), TIMER_DELETE_ME)
 
 /// Play an awesome animation

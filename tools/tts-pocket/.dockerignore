@@ -1,0 +1,15 @@
+# The Windows virtualenv must never enter the Linux image: it's the wrong
+# platform, it bloats the build context to ~900MB, and BuildKit fails on some
+# of its files ("unknown file mode"). The image installs its own deps via pip.
+.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Runtime data is bind-mounted by docker-compose, not baked into the image.
+cache/
+
+# VCS / meta
+.git/
+.gitignore
+.dockerignore

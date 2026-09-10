@@ -15,4 +15,4 @@
 	desc = "The standard issue for the famous dog-founded pizza brand, Dogginos."
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/centcom.dmi' //Dogginos is not technically affiliated with CC, but it's not OPPOSING it, and it's an "ERT"...
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/centcom.dmi'
-	icon_state = "dominos"
+	icon_state = "pizzapizza"

@@ -29,3 +29,13 @@
 
 		// Store reference
 		accessory_group[name] = instance
+
+	cached_mutant_icon_files = null // We don't really need to keep this list in memory once we're done creating our singletons
+
+/// Generates cached list of mutant_icon_files if it doesn't exist yet - Should never be called more than once.
+/datum/controller/subsystem/accessories/proc/build_cached_icon_states(icon_file)
+	var/list/cached = list()
+	for(var/state in icon_states(new /icon(icon_file)))
+		cached[state] = TRUE
+	cached_mutant_icon_files[icon_file] = cached
+	return cached

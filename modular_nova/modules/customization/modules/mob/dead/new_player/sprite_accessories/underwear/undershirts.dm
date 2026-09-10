@@ -2,7 +2,7 @@
 /datum/sprite_accessory/clothing/undershirt
 	icon = 'modular_nova/master_files/icons/mob/clothing/underwear.dmi'
 	use_static = TRUE
-	layer = NOVA_UNDERWEAR_UNDERSHIRT_LAYER
+	layer = UNDER_UNIFORM_LAYER
 	///Whether this underwear includes a bottom (For Leotards and the likes)
 	var/hides_groin = FALSE
 

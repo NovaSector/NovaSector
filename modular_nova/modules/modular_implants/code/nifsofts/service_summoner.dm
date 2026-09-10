@@ -1,6 +1,7 @@
 /obj/item/disk/nifsoft_uploader/job/summoner/service
 	name = "Grimoire Hestia"
 	loaded_nifsoft = /datum/nifsoft/summoner/job/service
+	custom_materials = list(/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = SMALL_MATERIAL_AMOUNT)
 
 /datum/nifsoft/summoner/job/service
 	name = "Grimoire Hestia"

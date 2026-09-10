@@ -1,6 +1,6 @@
-/obj/item/shard/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/shard/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	//xenoarch hammer, forging hammer, etc.
-	if(attacking_item.tool_behaviour == TOOL_HAMMER)
+	if(tool.tool_behaviour == TOOL_HAMMER)
 		var/added_color
 		switch(src.type)
 			if(/obj/item/shard)
@@ -21,7 +21,7 @@
 		user.balloon_alert(user, "[src] shatters!")
 		playsound(src, SFX_SHATTER, 30, TRUE)
 		qdel(src)
-		return TRUE
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 

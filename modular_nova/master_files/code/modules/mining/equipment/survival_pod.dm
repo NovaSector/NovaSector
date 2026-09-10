@@ -13,3 +13,4 @@
 /obj/structure/window/reinforced/survival_pod/unanchored
 	anchored = FALSE
 	state = WINDOW_OUT_OF_FRAME
+	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT)

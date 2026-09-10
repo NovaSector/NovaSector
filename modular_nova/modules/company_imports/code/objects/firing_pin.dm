@@ -26,6 +26,7 @@ GLOBAL_VAR_INIT(permit_pin_unrestricted, FALSE)
 
 
 /obj/item/firing_pin
+	custom_materials = list(/datum/material/silver = SHEET_MATERIAL_AMOUNT * 0.6, /datum/material/diamond = SHEET_MATERIAL_AMOUNT * 0.6, /datum/material/uranium = SMALL_MATERIAL_AMOUNT * 2)
 	var/can_remove = TRUE
 
 /obj/item/firing_pin/emag_act(mob/user)

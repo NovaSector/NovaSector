@@ -125,7 +125,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 
 //mech or cyborg mmi
 /obj/item/mmi/posibrain/circuit/disk/syndie
-	overrides_aicore_laws = TRUE
 	req_access = list(ACCESS_SYNDICATE)
 	faction = list(ROLE_SYNDICATE)
 

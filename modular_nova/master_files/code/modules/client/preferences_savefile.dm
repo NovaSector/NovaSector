@@ -106,6 +106,7 @@
 				"womb_toggle" = /datum/preference/choiced/genital/womb,
 				"breasts_toggle" = /datum/preference/choiced/genital/breasts,
 				"anus_toggle" = /datum/preference/choiced/genital/anus,
+				"butt_toggle" = /datum/preference/choiced/genital/butt,
 			)
 
 		for(var/toggle in old_toggles)

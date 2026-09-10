@@ -4,8 +4,10 @@ SUBSYSTEM_DEF(condos)
 	init_stage = INITSTAGE_LAST
 	/// All possible condo templates.
 	var/list/condo_templates = list()
-	/// List of active reservations we have.
+	/// Active rooms: hidden id (string) -> /datum/condo_room.
 	var/list/active_condos = list()
+	/// Counter for handing out hidden room ids.
+	var/next_condo_id = 0
 	/// Items we delibrately prevent being deleted. Malleable. Try to keep this to only items that cannot be re-obtained without admin interference; with some exceptions.
 	var/list/item_blacklist = list(
 		/obj/item/blackbox, \
@@ -42,9 +44,11 @@ SUBSYSTEM_DEF(condos)
 
 /datum/controller/subsystem/condos/Initialize()
 	preload_condo_templates()
+	// render the preview photos in the background so it doesn't hold up init
+	INVOKE_ASYNC(src, PROC_REF(prerender_previews))
 	return SS_INIT_SUCCESS
 
-/// We're fetching all /datum/map_template/condo subtypes here; sanitychecking them, and assinging them to the subsystem as an option.
+/// Registers every /datum/map_template/condo subtype as a pickable interior.
 /datum/controller/subsystem/condos/proc/preload_condo_templates()
 	for(var/item in subtypesof(/datum/map_template/condo))
 		var/datum/map_template/condo/condo_type = item
@@ -55,66 +59,67 @@ SUBSYSTEM_DEF(condos)
 		condo_templates[condo_template.name] = condo_template
 		SSmapping.map_templates[condo_template.name] = condo_template
 
-/// We found an already existing room on that number! Just warp to an applied landing zone; if the condo still exists.
-/datum/controller/subsystem/condos/proc/enter_active_room(condo_number, mob/user)
-	if(active_condos["[condo_number]"])
-		var/datum/turf_reservation/condo/target_active_condo = active_condos["[condo_number]"]
-		if(!target_active_condo)
-			to_chat(user, span_warning("Condo [condo_number] error. Unable to find condo reservation!"))
-			return FALSE
-
-		do_sparks(3, FALSE, get_turf(user))
-
-		var/turf/condo_bottom_left = target_active_condo.bottom_left_turfs[1]
-		if(!condo_bottom_left)
-			to_chat(user, span_warning("Condo [condo_number] error. Unable to find entry turf!"))
-			return FALSE
-
-		if(user.forceMove(locate(
-			condo_bottom_left.x + target_active_condo.condo_template.landing_zone_x_offset,
-			condo_bottom_left.y + target_active_condo.condo_template.landing_zone_y_offset,
-			condo_bottom_left.z,
-		)))
-			return TRUE
-
-	to_chat(user, span_warning("Condo [condo_number] error. Mystery failure!"))
-	return FALSE
-
-/// No condo was found on the number we input - create a new reservation, load our template, assign it in active_condos - and warp our user to the landing zone
-/datum/controller/subsystem/condos/proc/create_and_enter_condo(condo_number, datum/map_template/condo/our_condo, mob/user, parent_object)
-	if(active_condos["[condo_number]"])
-		return // Get sanity'd
-	var/datum/turf_reservation/condo/condo_reservation = SSmapping.request_turf_block_reservation(our_condo.width, our_condo.height, 1, reservation_type = /datum/turf_reservation/condo)
-	var/turf/bottom_left = condo_reservation.bottom_left_turfs[1]
+/// Builds a brand new room from a template: reserves space, loads it, registers a /datum/condo_room
+/// and warps the owner in. Returns the room (or null on failure).
+/datum/controller/subsystem/condos/proc/create_room(datum/map_template/condo/template, mob/owner, parent_object, display_name, private, password)
+	var/datum/turf_reservation/condo/reservation = SSmapping.request_turf_block_reservation(template.width, template.height, 1, reservation_type = /datum/turf_reservation/condo)
+	var/turf/bottom_left = reservation?.bottom_left_turfs[1]
 	if(!bottom_left)
-		to_chat(user, span_warning("Failed to reserve a room for you! Contact the technical concierge."))
-		return
-	our_condo.load(bottom_left)
-	condo_reservation.condo_template = our_condo
-	active_condos["[condo_number]"] = condo_reservation
-	link_condo_turfs(condo_reservation, condo_number, parent_object)
+		to_chat(owner, span_warning("Failed to reserve a room for you! Contact the technical concierge."))
+		if(reservation)
+			qdel(reservation)
+		return null
+	template.load(bottom_left)
+	if(template.force_condo_area)
+		condo_force_areas(reservation)
+	reservation.condo_template = template
+
+	var/datum/condo_room/room = new
+	next_condo_id += 1
+	room.id = "[next_condo_id]"
+	room.template = template
+	room.reservation = reservation
+	room.owner_ckey = owner?.ckey
+	room.owner_name = owner?.real_name || owner?.name
+	room.display_name = display_name || "[room.owner_name]'s room"
+	room.private = private
+	room.password = password
+	active_condos[room.id] = room
+
+	link_condo_turfs(room, parent_object)
+	warp_into_room(room, owner)
+	return room
+
+/// Drops a mob at a room's landing spot.
+/datum/controller/subsystem/condos/proc/warp_into_room(datum/condo_room/room, mob/user)
+	var/turf/bottom_left = room?.reservation?.bottom_left_turfs[1]
+	if(!bottom_left || !user)
+		return FALSE
 	do_sparks(3, FALSE, get_turf(user))
-	user.forceMove(locate(
-		bottom_left.x + our_condo.landing_zone_x_offset,
-		bottom_left.y + our_condo.landing_zone_y_offset,
+	return user.forceMove(locate(
+		bottom_left.x + room.template.landing_zone_x_offset,
+		bottom_left.y + room.template.landing_zone_y_offset,
 		bottom_left.z,
 	))
 
-/// Tweaks the /area/ in this condo to prevent conflicts; as well as assigns a description to the hotel door.
-/datum/controller/subsystem/condos/proc/link_condo_turfs(datum/turf_reservation/condo/current_reservation, condo_number, parent_object)
-	var/turf/condo_bottom_left = current_reservation.bottom_left_turfs[1]
+/// Points the room's /area/ and door at the room datum.
+/datum/controller/subsystem/condos/proc/link_condo_turfs(datum/condo_room/room, parent_object)
+	var/turf/condo_bottom_left = room.reservation.bottom_left_turfs[1]
 	var/area/misc/condo/current_area = get_area(condo_bottom_left)
-	current_area.name = "Condo [condo_number]"
+	if(!istype(current_area)) // a custom/admin map that forgot to use /area/misc/condo - bail instead of runtiming
+		return
+	current_area.name = room.display_name
 	current_area.parent_object = parent_object
-	current_area.condo_number = condo_number
-	current_area.reservation = current_reservation
+	current_area.condo_room = room
+	current_area.reservation = room.reservation
 
-	for(var/turf/closed/indestructible/hoteldoor/door in current_reservation.reserved_turfs)
+	for(var/turf/closed/indestructible/hoteldoor/door in room.reservation.reserved_turfs)
 		door.parentSphere = parent_object
-		door.desc = "The door to this condo. \
-			The placard reads 'Room [condo_number]'. \
+		door.condo_room = room
+		door.desc = "The door to [room.display_name]. \
 			Strangely, this door doesn't even seem openable. \
 			The doorknob, however, seems to buzz with unusual energy...<br/>\
-			[span_info("Alt-Click to look through the peephole.")]"
-	for(var/turf/open/space/bluespace/bluespace_turf in current_reservation.reserved_turfs)
+			[span_info("Alt-Click to look through the peephole.")] \
+			[span_info("The owner can Ctrl-Click to manage the room.")]"
+	for(var/turf/open/space/bluespace/bluespace_turf in room.reservation.reserved_turfs)
 		bluespace_turf.parentSphere = parent_object

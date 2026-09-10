@@ -54,10 +54,12 @@
 	var/enabled = FALSE
 	/// Fraction of shield health retained after an EMP (0 = full wipe, 0.5 = halved)
 	var/emp_retention = 0
-	/// Whether the shield blocks projectile damage
+	/// Whether the shield blocks physical projectile damage
 	var/blocks_projectiles = TRUE
-	/// Whether the shield blocks melee damage
+	/// Whether the shield blocks physical melee damage
 	var/blocks_melee = TRUE
+	/// Whether the shield absorbs stamina damage, from any source
+	var/blocks_stamina = TRUE
 	/// Whether shield visuals stay on continuously while active (until collapse)
 	var/persistent_visuals = FALSE
 	/// Damage absorbed in the current hit, pending application in on_after_damage
@@ -227,41 +229,34 @@
 /obj/item/clothing/accessory/energy_shield/proc/on_pre_bullet(mob/living/carbon/source, obj/projectile/proj, def_zone, piercing_hit)
 	SIGNAL_HANDLER
 
-	if(!blocks_projectiles)
-		return
 	if(shield_health <= 0 || !shield_active)
 		return
 	//Special case for ammunition with secondary damage (pulse/plasma ammo)
-	var/secondary_damage = 0
-	var/obj/projectile/bullet/pulse/pulse_proj
-	if(istype(proj, /obj/projectile/bullet/pulse))
-		pulse_proj = proj
-		secondary_damage = pulse_proj.secondary_damage
+	var/obj/projectile/bullet/pulse/pulse_proj = istype(proj, /obj/projectile/bullet/pulse) ? proj : null
+	var/secondary_damage = pulse_proj?.secondary_damage || 0
 	var/total_damage = proj.damage + proj.stamina + secondary_damage
 	if(total_damage <= 0)
 		return
 
-	var/remaining_shield = shield_health
-	// Absorb brute first
-	var/brute_absorbed = min(proj.damage, remaining_shield)
-	remaining_shield -= brute_absorbed
-	// Then secondary damage with whatever shield is left
-	var/secondary_absorbed = min(secondary_damage, remaining_shield)
-	remaining_shield -= secondary_absorbed
-	// Then stamina with whatever shield is left
-	var/stamina_absorbed = min(proj.stamina, remaining_shield)
+	// The main damage pool counts as stamina or physical based on the projectile's damage type
+	var/main_blocked = (proj.damage_type == STAMINA) ? blocks_stamina : blocks_projectiles
+	var/remaining = shield_health
+	var/main_absorbed = main_blocked ? min(proj.damage, remaining) : 0
+	remaining -= main_absorbed
+	var/secondary_absorbed = blocks_projectiles ? min(secondary_damage, remaining) : 0
+	remaining -= secondary_absorbed
+	var/stamina_absorbed = blocks_stamina ? min(proj.stamina, remaining) : 0
 
-	var/total_absorbed = brute_absorbed + secondary_absorbed + stamina_absorbed
-	var/obj/item/bodypart/limb = wearer.get_bodypart(check_zone(def_zone))
-	apply_shield_hit(total_absorbed, limb)
+	var/total_absorbed = main_absorbed + secondary_absorbed + stamina_absorbed
+	if(total_absorbed <= 0)
+		return
+	apply_shield_hit(total_absorbed, wearer.get_bodypart(check_zone(def_zone)))
 
-	// Reduce the projectile's damage for whatever passes through
-	proj.damage -= brute_absorbed
-	if(secondary_damage && secondary_absorbed)
+	proj.damage -= main_absorbed
+	if(secondary_absorbed)
 		pulse_proj.secondary_damage -= secondary_absorbed
 	proj.stamina -= stamina_absorbed
 
-	// Fully absorbed — block the bullet entirely
 	if(total_absorbed >= total_damage)
 		return COMPONENT_BULLET_BLOCKED
 
@@ -270,7 +265,7 @@
 /obj/item/clothing/accessory/energy_shield/proc/on_check_block(mob/living/carbon/source, atom/hit_by, damage, attack_text, attack_type, armour_penetration, damage_type)
 	SIGNAL_HANDLER
 
-	if(!blocks_melee)
+	if(!(damage_type == STAMINA ? blocks_stamina : blocks_melee))
 		return FAILED_BLOCK
 	if(shield_health <= 0 || !shield_active)
 		return FAILED_BLOCK
@@ -298,14 +293,14 @@
 		return
 	if(damage <= 0)
 		return
-	// Projectiles are handled entirely by on_pre_bullet (brute + stamina absorption)
+	if(!(damagetype == STAMINA ? blocks_stamina : blocks_melee))
+		return
+	// Projectiles are handled entirely by on_pre_bullet
 	if(isprojectile(attacking_item))
 		return
 	// Only absorb external attacks (melee, thrown) — not embeds, wounds, or reagent damage.
 	// External attacks have an attack_direction or an attacking_item; internal sources have neither.
 	if(isnull(attack_direction) && isnull(attacking_item))
-		return
-	if(!blocks_melee)
 		return
 
 	var/absorbed = min(damage, shield_health)

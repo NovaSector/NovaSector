@@ -7,7 +7,7 @@
 	var/recharge_coeff = 1
 	/// The multiplier for rechargable magazines' charge rate.
 	VAR_PROTECTED/recharge_magazine_coeff = 1
-	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.55, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.05)
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.6, /datum/material/iron = SMALL_MATERIAL_AMOUNT)
 
 /obj/item/storage/belt/holster/energy/onegun
 	name = "high-output energy shoulder holster"
@@ -16,7 +16,7 @@
 	storage_type = /datum/storage/holster/energy/onegun
 	recharge_coeff = 2.5
 	recharge_magazine_coeff = 3
-	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.6, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.1)
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 1.1, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/diamond = SMALL_MATERIAL_AMOUNT)
 	/*
 	Theoretically, the coefficients could be buffed to 4 on both, matching the standalone recharger with a T4 capacitor.
 	With the state of the game as of writing being "everyone's easily capable of carrying 120+ rounds for whatever gun they're using",

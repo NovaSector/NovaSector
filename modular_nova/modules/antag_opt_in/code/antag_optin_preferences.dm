@@ -4,10 +4,10 @@
 	savefile_key = "antag_opt_in_status_pref"
 
 /datum/preference/choiced/antag_opt_in_status/init_possible_values()
-	return list(OPT_IN_YES_TEMP, OPT_IN_YES_KILL, OPT_IN_YES_ROUND_REMOVE, OPT_IN_NOT_TARGET)
+	return list(ANTAG_OPT_OUT, ANTAG_OPT_IN_YES_PARTIAL, ANTAG_OPT_IN_YES_KILL, ANTAG_OPT_IN_YES_ROUND_REMOVE)
 
 /datum/preference/choiced/antag_opt_in_status/create_default_value()
-	return OPT_IN_DEFAULT_LEVEL
+	return ANTAG_OPT_IN_DEFAULT_LEVEL
 
 /datum/preference/choiced/antag_opt_in_status/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
@@ -17,7 +17,7 @@
 
 /datum/preference/choiced/antag_opt_in_status/deserialize(input, datum/preferences/preferences)
 	if(CONFIG_GET(flag/disable_antag_opt_in_preferences))
-		return OPT_IN_DEFAULT_LEVEL
+		return ANTAG_OPT_IN_DEFAULT_LEVEL
 
 	return ..()
 

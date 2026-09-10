@@ -13,6 +13,7 @@
 	exp_required_type = EXP_TYPE_CREW
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "VIROLOGIST"
+	tgui_icon = FA_ICON_VIRUS
 
 	outfit = /datum/outfit/job/virologist
 	plasmaman_outfit = /datum/outfit/plasmaman/viro
@@ -49,7 +50,7 @@
 	uniform = /obj/item/clothing/under/rank/medical/virologist
 	suit = /obj/item/clothing/suit/toggle/labcoat/virologist
 	suit_store = /obj/item/flashlight/pen
-	belt = /obj/item/modular_computer/pda/viro
+	belt = /obj/item/modular_computer/pda/crew/viro
 	ears = /obj/item/radio/headset/headset_med
 	mask = /obj/item/clothing/mask/surgical
 	shoes = /obj/item/clothing/shoes/sneakers/white
@@ -61,11 +62,12 @@
 
 	box = /obj/item/storage/box/survival/medical
 
-/obj/item/modular_computer/pda/viro
+/obj/item/modular_computer/pda/crew/viro
 	name = "virology PDA"
-	icon_state = "/obj/item/modular_computer/pda/viro"
+	icon_state = "/obj/item/modular_computer/pda/crew/viro"
 	greyscale_config = /datum/greyscale_config/tablet/stripe_double
 	greyscale_colors = "#FAFAFA#355FAC#57C451"
+	painting_region = REGION_MEDBAY // Replaces the Nova entry that used to live in the removed PDA_PAINTING_REGIONS define
 	starting_programs = list(
 		/datum/computer_file/program/records/medical,
 		/datum/computer_file/program/robocontrol,

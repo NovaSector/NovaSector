@@ -7,13 +7,14 @@
 	supervisors = SUPERVISOR_HOP
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "BARBER"
+	tgui_icon = FA_ICON_SCISSORS
 
 	outfit = /datum/outfit/job/barber
 	plasmaman_outfit = /datum/outfit/plasmaman
 
 	paycheck = PAYCHECK_CREW
 	paycheck_department = ACCOUNT_SRV
-	display_order = JOB_DISPLAY_ORDER_BARTENDER
+	display_order = JOB_DISPLAY_ORDER_BARBER
 	bounty_types = CIV_JOB_BASIC
 	departments_list = list(
 		/datum/job_department/service,
@@ -28,9 +29,9 @@
 	jobtype = /datum/job/barber
 
 	glasses = /obj/item/clothing/glasses/sunglasses
-	belt = /obj/item/modular_computer/pda
+	belt = /obj/item/modular_computer/pda/crew
 	ears = /obj/item/radio/headset/headset_srv
-	uniform = /obj/item/clothing/under/rank/barber
+	uniform = /obj/item/clothing/under/rank/civilian/barber
 	shoes = /obj/item/clothing/shoes/laceup
 	id_trim = /datum/id_trim/job/barber
 	skillchips = list(/obj/item/skillchip/hair_expert)

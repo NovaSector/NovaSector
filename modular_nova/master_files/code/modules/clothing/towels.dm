@@ -196,10 +196,10 @@
 	change_towel_shape(user, LOWER_TEXT(choice))
 
 
-/obj/item/towel/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/towel/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 
-	if(!(attacking_item.tool_behaviour == TOOL_WIRECUTTER || attacking_item.get_sharpness()))
+	if(!(tool.tool_behaviour == TOOL_WIRECUTTER || tool.get_sharpness()))
 		return
 
 	if(flags_1 & HOLOGRAM_1) // Just in case there's ever holographic towels.
@@ -213,6 +213,7 @@
 
 	to_chat(user, span_notice("You tear [src] up into cloth."))
 	qdel(src)
+	return ITEM_INTERACT_SUCCESS
 
 
 /obj/item/towel/pre_attack_secondary(atom/target, mob/living/user, params)

@@ -105,7 +105,7 @@
 	initial_gas_mix = ATMOS_TANK_CO2
 
 /turf/open/floor/engine/plasma
-	name = "plasma floor"
+	name = "\improper Plasma floor"
 	initial_gas_mix = ATMOS_TANK_PLASMA
 
 /turf/open/floor/engine/o2
@@ -139,7 +139,7 @@
 	initial_gas_mix = ATMOS_TANK_H2
 
 /turf/open/floor/engine/hypernoblium
-	name = "\improper Hypernoblium floor"
+	name = "\improper Hyper-Noblium floor"
 	initial_gas_mix = ATMOS_TANK_HYPERNOBLIUM
 
 /turf/open/floor/engine/miasma
@@ -147,7 +147,7 @@
 	initial_gas_mix = ATMOS_TANK_MIASMA
 
 /turf/open/floor/engine/nitrium
-	name = "\improper nitrium floor"
+	name = "\improper Nitrium floor"
 	initial_gas_mix = ATMOS_TANK_NITRIUM
 
 /turf/open/floor/engine/pluoxium
@@ -176,7 +176,7 @@
 	initial_gas_mix = ATMOS_TANK_HELIUM
 
 /turf/open/floor/engine/antinoblium
-	name = "\improper Antinoblium floor"
+	name = "\improper Anti-Noblium floor"
 	initial_gas_mix = ATMOS_TANK_ANTINOBLIUM
 
 /turf/open/floor/engine/air
@@ -198,6 +198,7 @@
 /turf/open/floor/engine/cult/Initialize(mapload)
 	. = ..()
 	icon_state = "plating" //we're redefining the base icon_state here so that the Conceal/Reveal Presence spell works for cultists
+	icon = 'modular_nova/modules/aesthetics/floors/icons/floors.dmi' // NOVA EDIT ADDITION - aesthetic plating sprites live here
 
 	if (!mapload)
 		new /obj/effect/temp_visual/cult/turf/floor(src)

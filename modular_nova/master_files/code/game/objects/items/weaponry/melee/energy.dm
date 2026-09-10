@@ -10,7 +10,7 @@
 	name = "\improper Pattern I/H 'Bokuto' energy sword" // type I/Handmade
 	desc = "A handmade energy sword, used for live training and pest control, modeled after the infamous Type I 'Iaito'. It can be recharged with the dynamos in the handle."
 	block_chance = 25 // Surplus is 50
-	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3.25, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.37)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3.35, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 4)
 
 /obj/item/melee/energy/sword/surplus/improvised/Initialize(mapload)
 	. = ..()

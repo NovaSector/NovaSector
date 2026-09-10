@@ -96,7 +96,7 @@
 	else
 		player_ready_data[player_ref] = list(job_estimation_text, player.ckey)
 
-	RegisterSignal(player, COMSIG_JOB_PREF_UPDATED, PROC_REF(on_client_changes_job))
+	RegisterSignal(player, COMSIG_JOB_PREF_UPDATED, PROC_REF(on_client_changes_job), override = TRUE)
 
 /// Removes a player from the job estimation.
 /datum/controller/subsystem/statpanels/proc/remove_job_estimation(mob/dead/new_player/player)

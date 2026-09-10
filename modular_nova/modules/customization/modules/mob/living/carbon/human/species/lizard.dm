@@ -1,6 +1,7 @@
 /datum/species/lizard
 	body_markings = list()
-	mutant_organs = list()
+	// Customization handles horns/frills/snout/spines/tails as mutant bodyparts, but fangs are a functional organ and must be kept.
+	mutant_organs = list(/obj/item/organ/fangs/lizard)
 	payday_modifier = 1.0
 
 /datum/species/lizard/get_default_mutant_bodyparts()
@@ -48,12 +49,12 @@
 
 /datum/species/lizard/ashwalker/get_default_mutant_bodyparts()
 	var/list/default_parts = ..()
-	default_parts[FEATURE_SPINES] = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, TRUE)
+	default_parts[FEATURE_SPINES] = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = TRUE)
 	return default_parts
 
 /datum/species/lizard/silverscale/get_default_mutant_bodyparts()
 	var/list/default_parts = ..()
-	default_parts[FEATURE_SPINES] = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, TRUE)
+	default_parts[FEATURE_SPINES] = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = TRUE)
 	return default_parts
 
 /datum/species/lizard/randomize_features()
@@ -92,6 +93,7 @@
 
 /datum/species/lizard/ashwalker
 	always_customizable = TRUE
+	mutant_organs = list(/obj/item/organ/fangs/lizard/ash)
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 	)

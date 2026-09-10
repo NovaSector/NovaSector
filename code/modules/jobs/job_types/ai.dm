@@ -21,44 +21,27 @@
 	random_spawns_possible = FALSE
 	job_flags = JOB_NEW_PLAYER_JOINABLE | JOB_EQUIP_RANK | JOB_BOLD_SELECT_TEXT | JOB_CANNOT_OPEN_SLOTS
 	config_tag = "AI"
-
+	tgui_icon = FA_ICON_EYE
 
 /datum/job/ai/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
-	/* NOVA EDIT REMOVAL START
-	//we may have been created after our borg
-	if(SSticker.current_state == GAME_STATE_SETTING_UP)
-		for(var/mob/living/silicon/robot/R in GLOB.silicon_mobs)
-			if(!R.connected_ai)
-				R.TryConnectToAI()
-	*/ // NOVA EDIT REMOVAL END
+	if(!isAI(spawned))
+		return
+
 	var/mob/living/silicon/ai/ai_spawn = spawned
 	if(player_client)
 		ai_spawn.set_gender(player_client)
-	ai_spawn.log_current_laws()
-	// NOVA EDIT ADDITION START
-	for(var/mob/living/silicon/robot/sync_target in GLOB.silicon_mobs)
-		if(!(sync_target.z in SSmapping.levels_by_trait(ZTRAIT_STATION)) || (sync_target.z in SSmapping.levels_by_trait(ZTRAIT_ICE_RUINS_UNDERGROUND))) // Skip ghost cafe, interlink, and other cyborgs.
-			continue
-		if(sync_target.emagged) // Skip emagged cyborgs, they don't sync up to the AI anyways and emagged borgs are already outed by just looking at a robotics console.
-			continue
-		if(sync_target.connected_ai)
-			continue
-		sync_target.notify_ai(AI_NOTIFICATION_CYBORG_DISCONNECTED)
-		sync_target.set_connected_ai(ai_spawn)
-		log_combat(ai_spawn, sync_target, "synced cyborg [ADMIN_LOOKUP(sync_target)] to [ADMIN_LOOKUP(ai_spawn)] (AI spawn syncage)")
-		if(sync_target.shell)
-			sync_target.undeploy()
-			sync_target.notify_ai(AI_NOTIFICATION_AI_SHELL)
-		else
-			sync_target.notify_ai(TRUE)
-		sync_target.visible_message(span_notice("[sync_target] gently chimes."), span_notice("LawSync protocol engaged."))
-		log_combat(ai_spawn, sync_target, "forcibly synced cyborg laws via spawning in")
-		sync_target.lawsync()
-		sync_target.lawupdate = TRUE
-		sync_target.show_laws()
-	// NOVA EDIT ADDITION END
 
+	// when a cyborg is instantiated they will automatically try to link to us
+	// but if the cyborg was made first, they will not have an us to link to!
+	// gamestart borgs definitely want to be linked to the gamestart ai, so let's clean that up here
+	if(SSticker.current_state == GAME_STATE_SETTING_UP)
+		for(var/mob/living/silicon/robot/gamestart_borg in GLOB.silicon_mobs)
+			if(!gamestart_borg.connected_ai)
+				gamestart_borg.try_connect_to_ai(spawned)
+
+	ai_spawn.log_current_laws()
+	ai_spawn.show_laws(player_client.mob)
 
 /datum/job/ai/get_roundstart_spawn_point()
 	return get_latejoin_spawn_point()
@@ -115,4 +98,4 @@
 	new_character.AIize()
 
 /datum/job/ai/get_lobby_icon()
-	return icon('icons/mob/huds/hud.dmi', "hudai")
+	return icon(DEFAULT_HUDS_DMI, "hudai")

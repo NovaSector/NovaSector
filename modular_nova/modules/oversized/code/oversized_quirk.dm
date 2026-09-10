@@ -32,7 +32,7 @@
 		on_gain_limb(src, bodypart, special = FALSE)
 
 	human_holder.blood_volume_normal = BLOOD_VOLUME_OVERSIZED
-	human_holder.physiology.hunger_mod *= OVERSIZED_HUNGER_MOD //50% hungrier
+	MODIFY_PHYSIOLOGY(human_holder, PHYS_COEFF_HUNGER_MOD, OVERSIZED_HUNGER_MOD) //50% hungrier
 	human_holder.add_movespeed_modifier(/datum/movespeed_modifier/oversized)
 
 	human_holder.dna.species.gain_oversized_organs(human_holder, src) // handles the addition of oversized organs (species default is a plain oversized stomach)
@@ -67,7 +67,7 @@
 	UnregisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB)
 
 	human_holder.blood_volume_normal = BLOOD_VOLUME_NORMAL
-	human_holder.physiology.hunger_mod /= OVERSIZED_HUNGER_MOD
+	MODIFY_PHYSIOLOGY(human_holder, PHYS_COEFF_HUNGER_MOD, 1 / OVERSIZED_HUNGER_MOD)
 	human_holder.remove_movespeed_modifier(/datum/movespeed_modifier/oversized)
 
 	for(var/obj/item/organ/organ_to_restore in old_organs)

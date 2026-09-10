@@ -960,7 +960,7 @@ export const AdminTab = (props) => {
 
 export const TargetTab = (props) => {
   const { act, data } = useBackend();
-  const { current_crew = [], opt_in_colors = { optin, color } } = data;
+  const { current_crew = [], antag_opt_in_colors = { optin, color } } = data;
   return (
     <Stack vertical fill>
       <Stack.Item grow={10}>
@@ -974,14 +974,16 @@ export const TargetTab = (props) => {
                 <span
                   style={{
                     fontWeight: 'bold',
-                    color: opt_in_colors[crew.opt_in_status],
+                    color: antag_opt_in_colors[crew.antag_opt_in_status],
                   }}
                 >
-                  {crew.opt_in_status}
+                  {crew.antag_opt_in_status}
                 </span>
-                , Ideal Opt-in status:{' '}
+                , Ideal Opt-In status:{' '}
                 <span
-                  style={{ color: opt_in_colors[crew.ideal_opt_in_status] }}
+                  style={{
+                    color: antag_opt_in_colors[crew.ideal_opt_in_status],
+                  }}
                 >
                   {crew.ideal_opt_in_status}
                 </span>

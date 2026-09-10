@@ -7,10 +7,12 @@
 		TRAIT_LITERATE,
 		TRAIT_HATED_BY_DOGS,
 		TRAIT_MUTANT_COLORS,
-		TRAIT_CATLIKE_GRACE,
+		TRAIT_CATLIKE_INSTINCT,
 		TRAIT_WATER_HATER,
 	)
 	mutanttongue = /obj/item/organ/tongue/cat/tajaran
+	// Tajarans used to get their bite from /obj/item/organ/tongue/cat before TG split fangs out into their own organ.
+	mutant_organs = list(/obj/item/organ/fangs/cat/tajaran)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 
 	payday_modifier = 1.0
@@ -37,6 +39,9 @@
 /obj/item/organ/tongue/cat/tajaran
 	liked_foodtypes = GRAIN | MEAT
 	disliked_foodtypes = CLOTH
+
+/obj/item/organ/fangs/cat/tajaran
+	name = "tajaran fangs"
 
 
 /datum/species/tajaran/randomize_features()

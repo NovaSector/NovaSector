@@ -1,30 +1,20 @@
 /datum/sprite_accessory/ears
 	key = FEATURE_EARS
 	organ_type = /obj/item/organ/ears_external
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_MATRIXED_COLORS
+	flags_custom_mod_icon = MOD_ACCESSORY_HELMET
 
-/datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer)
-	var/obj/item/clothing/head/mod/worn_head = wearer.head
-	if(isnull(worn_head))
-		return FALSE
+/datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
 
-	// Can hide if wearing hat
-	if(key in wearer.try_hide_mutant_parts)
+	if(wearer.obscured_slots & HIDEHAIR)
+		if(istype(wearer.head, /obj/item/clothing/head/mod))
+			return FALSE // i'm so sorry, this is still required
+		if(wearer.obscured_slots & SHOWSPRITEEARS)
+			return FALSE
 		return TRUE
-
-	// Exception for MODs
-	if(istype(worn_head))
-		return FALSE
-
-	// Hide accessory if flagged to do so
-	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
-	if((worn_head.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR) \
-		// This line basically checks if we FORCE accessory-ears to show, for items with earholes like Balaclavas and Luchador masks
-		&& ((worn_head && !(worn_head.flags_inv & SHOWSPRITEEARS)) || (worn_mask && !(worn_mask?.flags_inv & SHOWSPRITEEARS))))
-		return TRUE
-
-	return FALSE
 
 /datum/sprite_accessory/ears/cat
 	recommended_species = list(
@@ -35,7 +25,6 @@
 		SPECIES_HUMANOID = 1,
 		SPECIES_GHOUL = 1,
 	)
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 	color_src = USE_ONE_COLOR
 	has_inner = TRUE
 
@@ -192,6 +181,11 @@
 /datum/sprite_accessory/ears/external/elephant
 	name = "Elephant"
 	icon_state = "elephant"
+	color_src = USE_ONE_COLOR
+
+/datum/sprite_accessory/ears/external/experiment
+	name = "Experiment"
+	icon_state = "expear"
 	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/ears/external/fennec

@@ -1053,6 +1053,11 @@ em {
   display: inline-block;
 }
 
+.mansus {
+  color: #0d9b00;
+  text-shadow: 0 0 6px #0d9b00;
+}
+
 .cyan {
   color: #bde0dc;
   text-shadow: 0 0 6px #bde0dc;
@@ -1522,5 +1527,35 @@ $border-width-px: $border-width * 1px;
   color: #6e001a;
   font-weight: bold;
   font-style: italic;
+}
+
+// Headshot thumbnail in the examine block, expands on hover
+.examine_headshot {
+  position: relative;
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0.25em 0;
+}
+
+.examine_headshot img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border: 1px solid hsla(220, 40%, 75%, 0.35);
+  border-radius: 2px;
+  image-rendering: auto;
+  transition:
+    width 120ms ease-out,
+    height 120ms ease-out;
+}
+
+.examine_headshot:hover img {
+  width: 250px;
+  height: 250px;
+  z-index: 50;
 }
 // NOVA EDIT ADDITION END

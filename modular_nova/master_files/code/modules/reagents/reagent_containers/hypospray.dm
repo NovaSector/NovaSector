@@ -36,23 +36,29 @@
 /obj/item/reagent_containers/hypospray/medipen/empty
 	init_empty = TRUE
 	used_up = TRUE
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.1)
 
 /obj/item/reagent_containers/hypospray/medipen/atropine/empty
 	init_empty = TRUE
 	used_up = TRUE
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.1)
 
 /obj/item/reagent_containers/hypospray/medipen/salbutamol/empty
 	init_empty = TRUE
 	used_up = TRUE
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.1)
 
 /obj/item/reagent_containers/hypospray/medipen/oxandrolone/empty
 	init_empty = TRUE
 	used_up = TRUE
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.1)
 
 /obj/item/reagent_containers/hypospray/medipen/salacid/empty
 	init_empty = TRUE
 	used_up = TRUE
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.1)
 
 /obj/item/reagent_containers/hypospray/medipen/penacid/empty
 	init_empty = TRUE
 	used_up = TRUE
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver = SHEET_MATERIAL_AMOUNT, /datum/material/iron = SMALL_MATERIAL_AMOUNT * 0.1)

@@ -1,4 +1,3 @@
-// GLOBAL_LIST_EMPTY(cached_mutant_icon_files)
 
 /datum/sprite_accessory
 	///Unique key of an accessory. All tails should have FEATURE_TAIL, ears FEATURE_EARS etc.
@@ -20,9 +19,6 @@
 
 	color_src = USE_ONE_COLOR
 
-	///Which layers does this accessory affect
-	var/relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, UNDER_UNIFORM_LAYER, ABOVE_BODY_FRONT_HEAD_LAYER)
-
 	///This is used to determine whether an accessory gets added to someone. This is important for accessories that are "None", which should have this set to false
 	var/factual = TRUE
 
@@ -33,8 +29,9 @@
 	var/always_color_customizable
 	///Special case of whether the accessory should be shifted in the X dimension, check taur genitals for example
 	var/special_x_dimension
-	///Special case for MODsuit overlays
-	var/use_custom_mod_icon
+	/// Flags that decide if this will have hardlight overlays applied when a MODsuit is active and
+	/// what parts of the MOD need to be deployed for the overlay to be applied or force visibility.
+	var/flags_custom_mod_icon = NONE
 	var/uses_emissives = FALSE
 	var/color_layer_names
 	/// If this sprite accessory will be inaccessable if ERP config is disabled
@@ -58,31 +55,47 @@
 				default_color = "#FFFFFF"
 
 	if(color_src == USE_MATRIXED_COLORS)
-
-		if(default_color != DEFAULT_MATRIXED)
-			default_color = DEFAULT_MATRIXED
-
+		default_color = DEFAULT_MATRIXED
 		color_layer_names = list()
 
-		if(!SSaccessories.cached_mutant_icon_files[icon])
-			SSaccessories.cached_mutant_icon_files[icon] = icon_states(new /icon(icon))
+		var/list/icon_states_list = SSaccessories.cached_mutant_icon_files[icon] || SSaccessories.build_cached_icon_states(icon)
+		var/icon_state_prefix = "m_[key]_[get_sprite_suffix()]"
 
-		var/icon_state_prefix = "m_[key]_[icon_state]"
-		var/list/icon_states_list = SSaccessories.cached_mutant_icon_files[icon]
-		for(var/layer in relevent_layers)
-			var/layertext = (layer == BODY_BEHIND_LAYER) ? "BEHIND" \
-							: ((layer == BODY_ADJ_LAYER) ? "ADJ" : "FRONT")
-
-			var/prefix = "[icon_state_prefix]_[layertext]"
-
+		for(var/postfix in SSaccessories.all_layer_postfixes)
+			var/prefix = "[icon_state_prefix]_[postfix]"
 			if("[prefix]_primary" in icon_states_list)
 				color_layer_names["1"] = "primary"
 			if("[prefix]_secondary" in icon_states_list)
 				color_layer_names["2"] = "secondary"
 			if("[prefix]_tertiary" in icon_states_list)
 				color_layer_names["3"] = "tertiary"
+			if(length(color_layer_names) == 3)
+				break // Found all three channels, nothing left to learn.
 
-/datum/sprite_accessory/proc/is_hidden(mob/living/carbon/human/owner)
+/// Returns the 'suffix' of the sprite (by default just the icon_state)
+/datum/sprite_accessory/proc/get_sprite_suffix()
+	return icon_state
+
+/// Decides if this accessory will be rendered on a body part.
+/// If this accessory works with [/mob/living/carbon/human/proc/mutant_part_visibility]
+/// and/or uses [flags_custom_mod_icon], you should call `..()` and return if it is already true.
+/datum/sprite_accessory/proc/is_hidden(mob/living/carbon/human/owner, datum/bodypart_overlay/mutant/bodypart_overlay)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(key in owner.try_hide_mutant_parts)
+		return TRUE
+
+	if(flags_custom_mod_icon != NONE && wearing_active_mod(owner))
+		// forced visibility if the owner has a matching MOD piece
+		if((flags_custom_mod_icon & MOD_ACCESSORY_HELMET) && istype(owner.head, /obj/item/clothing/head/mod))
+			return FALSE
+		if((flags_custom_mod_icon & MOD_ACCESSORY_CHESTPLATE) && istype(owner.wear_suit, /obj/item/clothing/suit/mod))
+			return FALSE
+		if((flags_custom_mod_icon & MOD_ACCESSORY_GAUNTLETS) && istype(owner.gloves, /obj/item/clothing/gloves/mod))
+			return FALSE
+		if((flags_custom_mod_icon & MOD_ACCESSORY_BOOTS) && istype(owner.shoes, /obj/item/clothing/shoes/mod))
+			return FALSE
+
 	return FALSE
 
 /datum/sprite_accessory/proc/get_special_icon(mob/living/carbon/human/H, passed_state)
@@ -90,10 +103,6 @@
 
 /datum/sprite_accessory/proc/get_special_x_dimension(mob/living/carbon/human/H, passed_state)
 	return 0
-
-// A proc for accessories which have 'use_custom_mod_icon' set to TRUE
-/datum/sprite_accessory/proc/get_custom_mod_icon(mob/living/carbon/human/owner, mutable_appearance/appearance_to_use = null)
-	return null
 
 /datum/sprite_accessory/proc/get_default_color(list/features, datum/species/species) //Needs features for the color information
 	var/list/colors
@@ -124,9 +133,6 @@
 	key = FEATURE_MOTH_MARKINGS
 	// organ_type = /obj/item/organ/moth_markings // UNCOMMENT THIS IF THEY EVER FIX IT UPSTREAM, CAN'T BE BOTHERED TO FIX IT MYSELF
 
-/datum/sprite_accessory/moth_markings/is_hidden(mob/living/carbon/human/owner)
-	return FALSE
-
 /datum/sprite_accessory/moth_markings/none
 	name = SPRITE_ACCESSORY_NONE
 	icon_state = "none"
@@ -151,15 +157,16 @@
 /datum/sprite_accessory/caps
 	key = FEATURE_MUSH_CAP
 	icon = 'icons/mob/human/species/mush_cap.dmi'
-	relevent_layers = list(BODY_ADJ_LAYER)
 	color_src = USE_ONE_COLOR
 	organ_type = /obj/item/organ/mushroom_cap
 
-/datum/sprite_accessory/caps/is_hidden(mob/living/carbon/human/human)
-	if(((human.head?.flags_inv & HIDEHAIR) || (human.wear_mask?.flags_inv & HIDEHAIR)) || (key in human.try_hide_mutant_parts))
-		return TRUE
+/datum/sprite_accessory/caps/is_hidden(mob/living/carbon/human/human, datum/bodypart_overlay/mutant/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
 
-	return FALSE
+	if(human.obscured_slots & HIDEHAIR)
+		return TRUE
 
 /datum/sprite_accessory/caps/none
 	name = SPRITE_ACCESSORY_NONE

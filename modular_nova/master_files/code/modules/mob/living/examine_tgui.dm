@@ -68,6 +68,8 @@
 	var/ooc_notes_nsfw = ""
 	var/ideal_antag_optin_status
 	var/current_antag_optin_status
+	var/ideal_conflict_optin_status
+	var/current_conflict_optin_status
 	var/headshot = ""
 
 	// OOC notes go first
@@ -85,13 +87,21 @@
 			ooc_notes_nsfw += "ERP Mechanics: [e_prefs_mechanical]\n"
 			ooc_notes_nsfw += "\n"
 
-		if(!CONFIG_GET(flag/disable_antag_opt_in_preferences))
-			var/antag_prefs = holder.mind?.ideal_opt_in_level
-			var/effective_opt_in_level = holder.mind?.get_effective_opt_in_level()
+/*		if(!CONFIG_GET(flag/disable_antag_opt_in_preferences))
+			var/antag_prefs = holder.mind?.ideal_antag_opt_in_level
+			var/effective_opt_in_level = holder.mind?.get_effective_antag_opt_in_level()
 			if(isnull(antag_prefs))
 				antag_prefs = preferences.read_preference(/datum/preference/choiced/antag_opt_in_status)
 			current_antag_optin_status = GLOB.antag_opt_in_strings[num2text(effective_opt_in_level)]
 			ideal_antag_optin_status = GLOB.antag_opt_in_strings[num2text(antag_prefs)]
+*/
+		if(!CONFIG_GET(flag/disable_conflict_opt_in_preferences))
+			var/conflict_prefs = holder.mind?.ideal_conflict_opt_in_level
+			var/effective_conflict_opt_in_level = holder.mind?.get_effective_conflict_opt_in_level()
+			if(isnull(conflict_prefs))
+				conflict_prefs = preferences.read_preference(/datum/preference/choiced/conflict_opt_in_status)
+			current_conflict_optin_status = GLOB.conflict_opt_in_strings[num2text(effective_conflict_opt_in_level)]
+			ideal_conflict_optin_status = GLOB.conflict_opt_in_strings[num2text(conflict_prefs)]
 
 	// Now we handle silicon and/or human, order doesn't matter as both obviously can't fire.
 	// If other variants of mob/living need to be handled at some point, put them here.
@@ -134,15 +144,18 @@
 		"flavor_text_nsfw" = flavor_text_nsfw,
 		"ooc_notes_nsfw" = ooc_notes_nsfw,
 		// Antaggery
-		"ideal_antag_optin_status" = ideal_antag_optin_status, // Our opt-in status from prefs when we joined the game
-		"current_antag_optin_status" = current_antag_optin_status, // What it's being forced to if applicable
+		"ideal_antag_optin_status" = ideal_antag_optin_status, // Our Antag Opt-In from prefs when we joined the game
+		"current_antag_optin_status" = current_antag_optin_status, // The current Antag Opt-In, if it was forced to be something different
+		"ideal_conflict_optin_status" = ideal_conflict_optin_status, // Our Conflict Opt-In from prefs when we joined the game
+		"current_conflict_optin_status" = current_conflict_optin_status, // The current Conflict Opt-In, if it was forced to be something different
 	)
 	return data
 
 /datum/examine_panel/ui_static_data(mob/user)
 	var/list/data = list(
 		"nova_star_status" = !!(holder.client && SSplayer_ranks.is_nova_star(holder.client, admin_bypass = FALSE)),
-		"opt_in_colors" = GLOB.antag_opt_in_colors,
+		"antag_opt_in_colors" = GLOB.antag_opt_in_colors,
+		"conflict_opt_in_colors" = GLOB.conflict_opt_in_colors,
 	)
 	return data
 

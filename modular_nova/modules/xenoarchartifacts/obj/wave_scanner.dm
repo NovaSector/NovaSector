@@ -7,6 +7,7 @@
 	icon_state = "wave_scanner"
 	worn_icon_state = "wave_scanner"
 	w_class = 3
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plasma = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/bluespace = SMALL_MATERIAL_AMOUNT)
 
 	var/obj/item/xenoarch/searcher/processor
 
@@ -18,10 +19,7 @@
 	toggle_searcher()
 
 // Tries to put searcher in hand
-/obj/item/xenoarch/wave_scanner_backpack/verb/toggle_searcher()
-	set name = "Toggle Searcher"
-	set category = "Object"
-
+GAME_VERB(/obj/item/xenoarch/wave_scanner_backpack, toggle_searcher, "Toggle Searcher", null)
 	if(!usr)
 		return
 
@@ -78,11 +76,11 @@
 	attempt_pickup(user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/item/xenoarch/wave_scanner_backpack/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
-	if(attacking_item == processor)
-		remove_processor()
-	else
+/obj/item/xenoarch/wave_scanner_backpack/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(tool != processor)
 		return ..()
+	remove_processor()
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/xenoarch/wave_scanner_backpack/dropped(mob/user)
 	. = ..()

@@ -66,7 +66,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	give_important_for_life(equipping)
 
 /datum/species/human/felinid
-	mutant_organs = list()
+	mutant_organs = list(/obj/item/organ/fangs/cat)
 
 /datum/species/human/felinid/get_default_mutant_bodyparts()
 	return list(
@@ -172,11 +172,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /datum/species/proc/get_random_body_markings(list/features) //Needs features to base the colour off of
 	return list()
 
-/datum/species/spec_stun(mob/living/carbon/human/target, amount)
-	if(istype(target))
-		target.unwag_tail()
-	return ..()
-
 /datum/species/regenerate_organs(mob/living/carbon/organ_holder, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 
@@ -214,7 +209,6 @@ GLOBAL_LIST_EMPTY(customizable_races)
 
 				// Apply accessory flags & layers
 				replacement.sprite_accessory_flags = mutant_accessory.flags_for_organ
-				replacement.relevant_layers = mutant_accessory.relevent_layers
 
 				if(robot_organs)
 					replacement.organ_flags |= ORGAN_ROBOTIC

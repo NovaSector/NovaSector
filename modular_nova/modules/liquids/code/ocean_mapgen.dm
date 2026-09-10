@@ -1,6 +1,11 @@
 /datum/map_generator/cave_generator/ocean
 	flora_spawn_chance = 13
-	noise_percent = 65
+	// Keep ocean generation mostly open even if upstream cavegen defaults change.
+	noise_percent = 75
+	ca_steps = 4
+	birth_limit = 5
+	survival_limit = 3
+	room_fill_percent = 45
 	feature_spawn_chance = 15
 	weighted_open_turf_types = list(/turf/open/water/deep_beach/planet_surface = 100)
 	weighted_closed_turf_types = list(/turf/closed/mineral/random/stationside/ocean = 1)
@@ -51,7 +56,7 @@
 	weighted_flora_spawn_list = list(/obj/structure/flora/rock/style_random = 100)
 
 /datum/map_generator/cave_generator/ocean/shallow/lagoon
-	noise_percent = 60
+	noise_percent = 75
 	weighted_flora_spawn_list = list(
 		/obj/structure/flora/ocean/seaweed = 10,
 		/obj/structure/flora/ocean/longseaweed = 3,

@@ -1,6 +1,7 @@
 /obj/item/disk/nifsoft_uploader/job/money_sense
 	name = "Automatic Apprasial"
 	loaded_nifsoft = /datum/nifsoft/money_sense
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
 
 /datum/nifsoft/money_sense
 	name = "Automatic Appraisal"

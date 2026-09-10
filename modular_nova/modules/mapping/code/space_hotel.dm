@@ -121,18 +121,19 @@
 	pixel_y = -10
 
 
-/obj/item/permanent_portal_anchor/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(!istype(attacking_item, /obj/item/permanent_portal_creator))
+/obj/item/permanent_portal_anchor/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/permanent_portal_creator))
 		return ..()
 
 	if(!anchored)
 		balloon_alert(user, "needs to be deployed!")
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	var/obj/item/permanent_portal_creator/portal_maker = attacking_item
+	var/obj/item/permanent_portal_creator/portal_maker = tool
 	portal_maker.linked_anchor = WEAKREF(src)
 
 	balloon_alert(user, "linking successful!")
+	return ITEM_INTERACT_SUCCESS
 
 
 /obj/item/permanent_portal_anchor/space_hotel

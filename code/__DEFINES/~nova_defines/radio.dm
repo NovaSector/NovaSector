@@ -2,7 +2,7 @@
 #define RADIO_KEY_CYBERSUN "q"
 #define RADIO_TOKEN_CYBERSUN ":q"
 
-#define FREQ_CYBERSUN 1211
+#define FREQ_CYBERSUN 1207
 
 #define RADIO_CHANNEL_INTERDYNE "Interdyne"
 #define RADIO_KEY_INTERDYNE "w"
@@ -11,8 +11,8 @@
 #define FREQ_INTERDYNE 1209
 
 #define RADIO_CHANNEL_GUILD "Guild"
-#define RADIO_KEY_GUILD "d"
-#define RADIO_TOKEN_GUILD ":d"
+#define RADIO_KEY_GUILD "1"
+#define RADIO_TOKEN_GUILD ":1"
 
 #define FREQ_GUILD 1214
 

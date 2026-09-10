@@ -24,22 +24,23 @@
 			. += span_notice("There is \a [cell] loaded in the chamber.") //Shows what cells are currently inside of the gun
 
 /// Handles insertion of weapon cells
-/obj/item/gun/energy/cell_loaded/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(is_type_in_list(attacking_item, allowed_cells)) // Checks allowed_cells to see if the gun is able to load the cells.
-		if(installedcells.len >= maxcells) //Prevents the user from loading any cells past the maximum cell allowance
-			to_chat(user, span_warning("[src] is full. Take a cell out to make room!"))
-			return
+/obj/item/gun/energy/cell_loaded/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!is_type_in_list(tool, allowed_cells)) // Checks allowed_cells to see if the gun is able to load the cells.
+		return ..()
 
-		var/obj/item/weaponcell/cell = attacking_item
-		if(!user.transferItemToLoc(cell, src))
-			return
+	if(length(installedcells) >= maxcells) //Prevents the user from loading any cells past the maximum cell allowance
+		to_chat(user, span_warning("[src] is full. Take a cell out to make room!"))
+		return ITEM_INTERACT_BLOCKING
 
-		playsound(loc, 'sound/machines/click.ogg', 50, 1)
-		to_chat(user, span_notice("You install [cell]."))
-		ammo_type += new cell.ammo_type(src)
-		installedcells += cell
-	else
-		..()
+	var/obj/item/weaponcell/cell = tool
+	if(!user.transferItemToLoc(cell, src))
+		return ITEM_INTERACT_BLOCKING
+
+	playsound(loc, 'sound/machines/click.ogg', 50, 1)
+	to_chat(user, span_notice("You install [cell]."))
+	ammo_type += new cell.ammo_type(src)
+	installedcells += cell
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/gun/energy/cell_loaded/update_overlays()
 	. = ..()

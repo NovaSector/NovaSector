@@ -47,17 +47,17 @@
 /// Returns a list of all hair/facial hair related overlays, or alternatively the debrained overlay if applicable
 /obj/item/bodypart/head/proc/get_hair_overlays(dropped)
 	. = list()
-	var/hair_hidden = is_husked || is_invisible || (owner?.obscured_slots & HIDEHAIR)
-	var/facial_hair_hidden = is_husked || is_invisible || (owner?.obscured_slots & HIDEFACIALHAIR)
+	if(is_invisible)
+		return .
 
-	if(!facial_hair_hidden && (head_flags & HEAD_FACIAL_HAIR))
+	if(!is_husked && !(owner?.obscured_slots & HIDEFACIALHAIR) && (head_flags & HEAD_FACIAL_HAIR))
 		. += get_base_facial_hair_overlays(dropped)
 
-	if(!hair_hidden)
+	if(is_husked != HUSKED_BURN && !(owner?.obscured_slots & HIDEHAIR))
 		var/obj/item/organ/brain/brain = locate() in src
 		if(QDELETED(brain) && (head_flags & HEAD_DEBRAIN))
 			. += get_debrain_overlay(dropped)
-		else if(head_flags & HEAD_HAIR)
+		else if(!is_husked && (head_flags & HEAD_HAIR))
 			. += get_base_hair_overlays(dropped)
 
 	return .
@@ -79,10 +79,11 @@
 	set_overlay_hair_color(facial_hair_overlay, facial_hair_color)
 	// Emissive blocker
 	if(blocks_emissive != EMISSIVE_BLOCK_NONE)
-		var/mutable_appearance/em_block = emissive_blocker(facial_hair_overlay.icon, facial_hair_overlay.icon_state, location, alpha = facial_hair_alpha)
+		var/mutable_appearance/em_block = emissive_blocker(facial_hair_overlay.icon, facial_hair_overlay.icon_state, location, -HAIR_LAYER, alpha = facial_hair_alpha)
 		if (dropped)
 			em_block = image(em_block, dir = SOUTH)
-		facial_hair_overlay.overlays += em_block
+		worn_face_offset?.apply_offset(em_block)
+		. += em_block
 
 	//Offsets
 	worn_face_offset?.apply_offset(facial_hair_overlay)
@@ -90,11 +91,25 @@
 
 	//Gradients
 	var/facial_hair_gradient_style = get_hair_gradient_style(GRADIENT_FACIAL_HAIR_KEY)
-	if(facial_hair_gradient_style != SPRITE_ACCESSORY_NONE)
-		var/facial_hair_gradient_color = get_hair_gradient_color(GRADIENT_FACIAL_HAIR_KEY)
-		var/image/facial_hair_gradient_overlay = get_gradient_overlay(icon(sprite_accessory.icon, sprite_accessory.icon_state), -HAIR_LAYER, SSaccessories.facial_hair_gradients_list[facial_hair_gradient_style], facial_hair_gradient_color, dropped)
-		. += facial_hair_gradient_overlay
+	if(facial_hair_gradient_style == SPRITE_ACCESSORY_NONE)
+		return .
 
+	var/facial_hair_gradient_color = get_hair_gradient_color(GRADIENT_FACIAL_HAIR_KEY)
+	var/image/facial_hair_gradient_overlay = get_gradient_overlay(icon(sprite_accessory.icon, sprite_accessory.icon_state), -HAIR_LAYER, SSaccessories.facial_hair_gradients_list[facial_hair_gradient_style], facial_hair_gradient_color, dropped)
+	if (facial_hair_alpha == 255)
+		. += facial_hair_gradient_overlay
+		return .
+
+	// If we have a gradient and hair alpha, we need to merge them into a single appearance by having a shared KEEP_TOGETHER holder
+	// since adding our gradient as an overlay would cause it to get colored
+	. -= facial_hair_overlay
+	facial_hair_overlay.alpha = 255
+	var/image/shared_holder = image(layer = -HAIR_LAYER, dir = image_dir)
+	shared_holder.alpha = facial_hair_alpha
+	shared_holder.appearance_flags |= KEEP_TOGETHER
+	shared_holder.overlays += facial_hair_overlay
+	shared_holder.overlays += facial_hair_gradient_overlay
+	. += shared_holder
 	return .
 
 /// Used in constructing the hair overlays - handles just the hair on top of the head
@@ -130,15 +145,16 @@
 		hair_overlay.pixel_z = hair_sprite_accessory.y_offset
 		// NOVA EDIT ADDITION START - Species hair offset
 		if(LAZYFIND(owner?.dna?.species?.offset_features, OFFSET_HAIR))
-			hair_overlay.pixel_x += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_X]
-			hair_overlay.pixel_z += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_Y]
+			hair_overlay.pixel_x += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_W]
+			hair_overlay.pixel_z += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_Z]
 		// NOVA EDIT ADDITION END
 		// Emissive blocker
 		if(blocks_emissive != EMISSIVE_BLOCK_NONE)
-			var/mutable_appearance/em_block = emissive_blocker(hair_overlay.icon, hair_overlay.icon_state, location, alpha = hair_alpha)
+			var/mutable_appearance/em_block = emissive_blocker(hair_overlay.icon, hair_overlay.icon_state, location, -HAIR_LAYER, alpha = hair_alpha)
 			if (dropped)
 				em_block = image(em_block, dir = SOUTH)
-			hair_overlay.overlays += em_block
+			em_block.pixel_z = hair_sprite_accessory.y_offset
+			. += em_block
 		// Offsets
 		worn_face_offset?.apply_offset(hair_overlay)
 		. += hair_overlay
@@ -153,17 +169,29 @@
 		// NOVA EDIT ADDITION END
 		// Gradients
 		var/hair_gradient_style = get_hair_gradient_style(GRADIENT_HAIR_KEY)
-		if(hair_gradient_style != SPRITE_ACCESSORY_NONE)
-			var/hair_gradient_color = get_hair_gradient_color(GRADIENT_HAIR_KEY)
-			var/image/hair_gradient_overlay = get_gradient_overlay(base_icon, hair_overlay.layer, SSaccessories.hair_gradients_list[hair_gradient_style], hair_gradient_color, dropped)
-			hair_gradient_overlay.pixel_z = hair_sprite_accessory.y_offset
-			// NOVA EDIT ADDITION START - Species hair offset
-			if(LAZYFIND(owner?.dna?.species?.offset_features, OFFSET_HAIR))
-				hair_gradient_overlay.pixel_x += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_X]
-				hair_gradient_overlay.pixel_z += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_Y]
-			// NOVA EDIT ADDITION END
-			. += hair_gradient_overlay
+		if(hair_gradient_style == SPRITE_ACCESSORY_NONE)
+			continue
 
+		var/hair_gradient_color = get_hair_gradient_color(GRADIENT_HAIR_KEY)
+		var/image/hair_gradient_overlay = get_gradient_overlay(base_icon, hair_overlay.layer, SSaccessories.hair_gradients_list[hair_gradient_style], hair_gradient_color, dropped)
+		hair_gradient_overlay.pixel_z = hair_sprite_accessory.y_offset
+		// NOVA EDIT ADDITION START - Species hair offset
+		if(LAZYFIND(owner?.dna?.species?.offset_features, OFFSET_HAIR))
+			hair_gradient_overlay.pixel_w += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_W]
+			hair_gradient_overlay.pixel_z += owner.dna.species.offset_features[OFFSET_HAIR][INDEX_Z]
+		// NOVA EDIT ADDITION END
+		if (hair_alpha == 255)
+			. += hair_gradient_overlay
+			continue
+
+		. -= hair_overlay
+		hair_overlay.alpha = 255
+		var/image/shared_holder = image(layer = -HAIR_LAYER, dir = image_dir)
+		shared_holder.alpha = facial_hair_alpha
+		shared_holder.appearance_flags |= KEEP_TOGETHER
+		shared_holder.overlays += hair_overlay
+		shared_holder.overlays += hair_gradient_overlay
+		. += shared_holder
 	return .
 
 /// Helper for setting hair color of an overlay appropriately
@@ -180,14 +208,17 @@
 /obj/item/bodypart/head/proc/get_eye_overlays(dropped)
 	. = list()
 
+	if(is_husked == HUSKED_BURN)
+		return .
+
 	var/obj/item/organ/eyes/eyes = owner?.get_organ_slot(ORGAN_SLOT_EYES) || locate() in src // NOVA EDIT CHANGE - Chest eyes dumb - ORIGINAL: var/obj/item/organ/eyes/eyes = locate() in src
 	if(QDELETED(eyes))
 		if(head_flags & HEAD_EYEHOLES)
 			. += get_eyeless_overlay(dropped)
-		return .
 
-	if(head_flags & HEAD_EYESPRITES)
-		. += eyes.generate_body_overlay(src)
+	else
+		if(head_flags & HEAD_EYESPRITES)
+			. += eyes.generate_body_overlay(src)
 
 	return .
 

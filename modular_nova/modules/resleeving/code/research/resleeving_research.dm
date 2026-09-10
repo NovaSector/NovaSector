@@ -1,7 +1,6 @@
 /datum/design/rsd_interface
 	name = "RSD Phylactery"
 	desc = "A brain interface that allows for transfer of Resonance from a handheld RSD, such as the Evoker model."
-	id = "rsd_interface"
 	build_type = PROTOLATHE | AWAY_LATHE
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE
 	category = list(
@@ -14,3 +13,9 @@
 	)
 	build_path = /obj/item/rsd_interface
 
+/datum/design/surgery/implant_phylactery
+	surgery = /datum/surgery_operation/organ/implant_phylactery
+	research_icon_state = "surgery_head"
+
+/datum/design/surgery/implant_phylactery/mechanic
+	surgery = /datum/surgery_operation/organ/implant_phylactery/mechanic

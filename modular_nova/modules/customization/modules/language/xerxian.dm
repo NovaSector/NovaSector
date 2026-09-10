@@ -8,7 +8,7 @@
 	between_word_space_chance = 75
 	additional_syllable_low = 0
 	additional_syllable_high = 1
-	flags = TONGUELESS_SPEECH
+	flags = LANGUAGE_TONGUELESS_SPEECH
 	syllables = list(
 		"a", "ah", "aah", "ba", "lah", "tha", "shah", "sa", "cha", "zah", "in", "al", "an", "har", "kham",
 		"i", "ih", "bi", "lih", "thih", "sha", "shih", "sih", "chi", "zih", "ji", "nn", "jo", "ja",

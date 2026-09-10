@@ -60,7 +60,7 @@
 #define CIV_JOB_SEC 4
 #define CIV_JOB_DRINK 5
 #define CIV_JOB_CHEM 6
-#define CIV_JOB_VIRO 7
+#define CIV_JOB_MED_VIRO 7
 #define CIV_JOB_SCI 8
 #define CIV_JOB_ENG 9
 #define CIV_JOB_MINE 10
@@ -68,7 +68,8 @@
 #define CIV_JOB_GROW 12
 #define CIV_JOB_ATMOS 13
 #define CIV_JOB_BITRUN 14
-#define CIV_JOB_RANDOM 24 // NOVA EDIT CHANGE - ORIGINAL: CIV_JOB_RANDOM 15
+#define CIV_JOB_RANDOM 26 // NOVA EDIT CHANGE - ORIGINAL: CIV_JOB_RANDOM 15
+#define CIV_JOB_VIRO 25 // NOVA EDIT ADDITION - We still have viro
 
 #define MAXIMUM_BOUNTY_JOBS 24 // NOVA EDIT CHANGE - ORIGINAL: #define MAXIMUM_BOUNTY_JOBS 14 //Should be equal to the highest numbered non-random job above.
 
@@ -104,3 +105,9 @@
 //Mood event from minor slot events like winning/losing a few bits.
 #define SLOTS_MOOD_CATEGORY "slots"
 
+/// Minimum amount of exports that can get boosted per economy fire
+#define EXPORT_BOOST_MIN_AMOUNT 2
+/// Maximum amount of exports that can get boosted per economy fire
+#define EXPORT_BOOST_MAX_AMOUNT 4
+/// Amount by which random exports are boosted each SSeconomy tick
+#define EXPORT_BOOST_MULT 3

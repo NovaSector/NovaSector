@@ -4,7 +4,7 @@
 	button_icon = 'modular_nova/master_files/icons/mob/actions/actions_items.dmi'
 	button_icon_state = "bite_off"
 	check_flags = AB_CHECK_CONSCIOUS
-	///Prevents biting from stacking with cat tongue bonuses - we use this to track whether we've applied our own bonuses or if the cat tongue is providing them so we know whether to remove them if the cat tongue is removed or if we deactivate bite mode.
+	///Prevents biting from stacking with fang bonuses - we use this to track whether we've applied our own bonuses or if a fang organ is providing them so we know whether to remove them if the fangs are removed or if we deactivate bite mode.
 	var/bite_bonuses_applied = FALSE
 
 // Randomly picks a name from the ability_name list for flavor
@@ -24,8 +24,8 @@
 
 /**
  * Activates bite mode, enabling biting attacks instead of normal unarmed attacks.
- * Applies damage bonuses matching cat tongue if no cat tongue is present.
- * Registers signals to handle dynamic organ changes (tongue implants/removals).
+ * Applies damage bonuses matching a fang organ if no fangs are present.
+ * Registers signals to handle dynamic organ changes (fang implants/removals).
  */
 /datum/action/innate/toggle_bite/Activate()
 	var/mob/living/carbon/human/human_owner = owner
@@ -38,8 +38,9 @@
 		to_chat(human_owner, span_warning("You need a head in order to bite!"))
 		return
 
-	var/obj/item/organ/tongue/cat/cat_tongue = human_owner.get_organ_slot(ORGAN_SLOT_TONGUE)
-	if(!istype(cat_tongue))
+	// Any fang organ already applies these bonuses to the head, so we only add our own if there are none.
+	var/obj/item/organ/fangs/existing_fangs = human_owner.get_organ_slot(ORGAN_SLOT_FANGS)
+	if(!istype(existing_fangs))
 		add_bite_bonuses(head)
 		RegisterSignal(human_owner, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(check_added_organ))
 	else
@@ -97,8 +98,8 @@
 
 /**
  * Signal handler for when an organ is removed from the mob.
- * If a cat tongue is removed while bite mode is active,
- * apply our bonuses (since cat tongue is no longer providing them) and switch to listening for organ gain.
+ * If a fang organ is removed while bite mode is active,
+ * apply our bonuses (since the fangs are no longer providing them) and switch to listening for organ gain.
  *
  * Arguments:
  * * loser - The mob that lost the organ
@@ -113,25 +114,25 @@
 	if(isnull(head))
 		return
 
-	if(istype(organ_lost, /obj/item/organ/tongue/cat))
+	if(istype(organ_lost, /obj/item/organ/fangs))
 		add_bite_bonuses(head)
 		UnregisterSignal(loser, COMSIG_CARBON_LOSE_ORGAN)
 		RegisterSignal(loser, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(check_added_organ))
 
 /**
- * Applies bite bonuses to the head, matching cat tongue bonuses.
+ * Applies bite bonuses to the head, matching the bonuses a baseline fang organ grants.
  * These bonuses are: +4/+7 damage, +10 effectiveness, +0.5 pummeling, and sharpness.
  *
  * Arguments:
  * * head - The head bodypart to apply bonuses to
  */
 /datum/action/innate/toggle_bite/proc/add_bite_bonuses(obj/item/bodypart/head/head)
-	// These numbers match what the cat tongue does - we want to be equivalent
-	head.unarmed_damage_low += 4
-	head.unarmed_damage_high += 7
-	head.unarmed_effectiveness += 10
-	head.unarmed_pummeling_bonus += 0.5
-	head.unarmed_sharpness = SHARP_EDGED
+	// Read straight off the fang organ so we stay equivalent to it if upstream retunes fangs
+	head.unarmed_damage_low += /obj/item/organ/fangs::bite_low
+	head.unarmed_damage_high += /obj/item/organ/fangs::bite_high
+	head.unarmed_effectiveness += /obj/item/organ/fangs::bite_effectiveness
+	head.unarmed_pummeling_bonus += /obj/item/organ/fangs::bite_pummeling_bonus
+	head.unarmed_sharpness = /obj/item/organ/fangs::bite_sharpness
 	bite_bonuses_applied = TRUE
 
 /**
@@ -143,17 +144,17 @@
 /datum/action/innate/toggle_bite/proc/remove_bite_bonuses(obj/item/bodypart/head/head)
 	// Only remove bonuses if we actually added them (safety check)
 	if(bite_bonuses_applied)
-		head.unarmed_damage_low -= 4
-		head.unarmed_damage_high -= 7
-		head.unarmed_effectiveness -= 10
-		head.unarmed_pummeling_bonus -= 0.5
-		head.unarmed_sharpness = NONE
+		head.unarmed_damage_low -= /obj/item/organ/fangs::bite_low
+		head.unarmed_damage_high -= /obj/item/organ/fangs::bite_high
+		head.unarmed_effectiveness -= /obj/item/organ/fangs::bite_effectiveness
+		head.unarmed_pummeling_bonus -= /obj/item/organ/fangs::bite_pummeling_bonus
+		head.unarmed_sharpness = initial(head.unarmed_sharpness)
 		bite_bonuses_applied = FALSE
 
 /*
- * Bitey quirk - allows toggling bite attacks without needing Feline Traits or cat tongue.
+ * Bitey quirk - allows toggling bite attacks without needing Feline Traits or cat fangs.
  * Provides the same biting ability as felinids, but as a standalone neutral quirk.
- * Automatically removes itself if the holder has or gains a cat tongue organ.
+ * Automatically removes itself if the holder has or gains a cat fang organ.
  */
 /datum/quirk/bitey
 	name = "Bitey"
@@ -173,29 +174,29 @@
 		return FALSE
 
 	// Avoid giving this quirk to someone who already has built-in feline biting.
-	if(istype(human_holder.get_organ_slot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/cat) || isfelinid(human_holder))
+	if(istype(human_holder.get_organ_slot(ORGAN_SLOT_FANGS), /obj/item/organ/fangs/cat) || isfelinid(human_holder))
 		return FALSE
 
 	return ..(new_holder, quirk_transfer = quirk_transfer, client_source = client_source, unique = unique, announce = announce)
 
 /*
  * Called when the quirk is first added to a mob.
- * Checks if the holder already has a cat tongue and removes the quirk if so.
+ * Checks if the holder already has cat fangs and removes the quirk if so.
  */
 /datum/quirk/bitey/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	if(!ishuman(human_holder))
 		return
 
-	var/obj/item/organ/tongue/cat/cat_tongue = human_holder.get_organ_slot(ORGAN_SLOT_TONGUE)
-	if(istype(cat_tongue) || isfelinid(human_holder))
+	var/obj/item/organ/fangs/cat/cat_fangs = human_holder.get_organ_slot(ORGAN_SLOT_FANGS)
+	if(istype(cat_fangs) || isfelinid(human_holder))
 		return
 
 	// Give them the action button to toggle bite mode
 	bite_action = new(human_holder)
 	bite_action.Grant(human_holder)
-	// Watch out in case they get a cat tongue implanted later - we'll remove ourselves then too
-	RegisterSignal(human_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(check_cat_tongue_gained))
+	// Watch out in case they get cat fangs implanted later - we'll remove ourselves then too
+	RegisterSignal(human_holder, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(check_cat_fangs_gained))
 	// Register for random bite chance on unarmed attacks
 	RegisterSignal(human_holder, COMSIG_MOB_ATTACK_HAND, PROC_REF(handle_random_bite))
 
@@ -238,24 +239,24 @@
 
 /**
  * Signal handler for when an organ is added to the quirk holder.
- * If a cat tongue is implanted, automatically removes this quirk
+ * If cat fangs are implanted, automatically removes this quirk
  * since felinids already have the biting ability.
  */
-/datum/quirk/bitey/proc/check_cat_tongue_gained(mob/living/carbon/human/recipient, obj/item/organ/organ_gained)
+/datum/quirk/bitey/proc/check_cat_fangs_gained(mob/living/carbon/human/recipient, obj/item/organ/organ_gained)
 	SIGNAL_HANDLER
 
-	if(istype(organ_gained, /obj/item/organ/tongue/cat))
+	if(istype(organ_gained, /obj/item/organ/fangs/cat))
 		qdel(src)
 
 /*
- * Override for cat tongue's go_feral action to prevent stacking with bitey quirk.
- * If the bitey quirk already has TRAIT_FERAL_BITER active, prevents the cat tongue
+ * Override for cat fangs' go_feral action to prevent stacking with bitey quirk.
+ * If the bitey quirk already has TRAIT_FERAL_BITER active, prevents the cat fangs
  * from also enabling feral mode to avoid duplicate abilities.
  */
 /datum/action/item_action/organ_action/go_feral/do_effect(trigger_flags)
-	var/obj/item/organ/tongue/cat/cat_tongue = target
+	var/obj/item/organ/fangs/cat/cat_fangs = target
 
-	if(!cat_tongue.feral_mode && HAS_TRAIT_NOT_FROM(cat_tongue.owner, TRAIT_FERAL_BITER, REF(cat_tongue)))
+	if(!cat_fangs.feral_mode && HAS_TRAIT_NOT_FROM(cat_fangs.owner, TRAIT_FERAL_BITER, REF(cat_fangs)))
 		return FALSE
 
 	return ..()

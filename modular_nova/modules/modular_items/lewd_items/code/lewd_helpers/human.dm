@@ -253,7 +253,7 @@
 /// Updating vagina slot
 /mob/living/carbon/human/proc/update_inv_vagina()
 	// on_mob stuff
-	remove_overlay(VAGINA_LAYER)
+	remove_overlay(VAGINA_CLOTHING_LAYER)
 
 	var/obj/item/clothing/sextoy/sex_toy = vagina
 
@@ -264,19 +264,19 @@
 	var/mutable_appearance/vagina_overlay
 
 	if(!vagina_overlay)
-		vagina_overlay = sex_toy?.build_worn_icon(default_layer = VAGINA_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_file = icon_file)
+		vagina_overlay = sex_toy?.build_worn_icon(default_layer = VAGINA_CLOTHING_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_file = icon_file)
 
 	var/obj/item/bodypart/chest/chest_part = get_bodypart(BODY_ZONE_CHEST)
 	chest_part?.worn_uniform_offset?.apply_offset(vagina_overlay) // every day we stray further and further from god
-	overlays_standing[VAGINA_LAYER] = vagina_overlay
+	overlays_standing[VAGINA_CLOTHING_LAYER] = vagina_overlay
 
-	apply_overlay(VAGINA_LAYER)
+	apply_overlay(VAGINA_CLOTHING_LAYER)
 	update_body_parts()
 
 /// Updating anus slot
 /mob/living/carbon/human/proc/update_inv_anus()
 	// on_mob stuff
-	remove_overlay(ANUS_LAYER)
+	remove_overlay(ANUS_CLOTHING_LAYER)
 
 	var/obj/item/clothing/sextoy/sex_toy = anus
 
@@ -287,20 +287,20 @@
 	var/mutable_appearance/anus_overlay
 
 	if(!anus_overlay)
-		anus_overlay = sex_toy?.build_worn_icon(default_layer = ANUS_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_file = icon_file)
+		anus_overlay = sex_toy?.build_worn_icon(default_layer = ANUS_CLOTHING_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_file = icon_file)
 
 	var/obj/item/bodypart/chest/chest_part = get_bodypart(BODY_ZONE_CHEST)
 
 	chest_part?.worn_uniform_offset?.apply_offset(anus_overlay) // and i keep on asking myself... why? why do we do this?
-	overlays_standing[ANUS_LAYER] = anus_overlay
+	overlays_standing[ANUS_CLOTHING_LAYER] = anus_overlay
 
-	apply_overlay(ANUS_LAYER)
+	apply_overlay(ANUS_CLOTHING_LAYER)
 	update_body_parts()
 
 /// Updating nipples slot
 /mob/living/carbon/human/proc/update_inv_nipples()
 	// on_mob stuff
-	remove_overlay(NIPPLES_LAYER)
+	remove_overlay(NIPPLES_CLOTHING_LAYER)
 
 	var/obj/item/clothing/sextoy/sex_toy = nipples
 
@@ -311,20 +311,20 @@
 	var/mutable_appearance/nipples_overlay
 
 	if(!nipples_overlay)
-		nipples_overlay = sex_toy?.build_worn_icon(default_layer = NIPPLES_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_file = icon_file)
+		nipples_overlay = sex_toy?.build_worn_icon(default_layer = NIPPLES_CLOTHING_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_file = icon_file)
 
 	var/obj/item/bodypart/chest/chest_part = get_bodypart(BODY_ZONE_CHEST)
 	chest_part?.worn_uniform_offset?.apply_offset(nipples_overlay) // then i realised something, something horrific
 
-	overlays_standing[NIPPLES_LAYER] = nipples_overlay
+	overlays_standing[NIPPLES_CLOTHING_LAYER] = nipples_overlay
 
-	apply_overlay(NIPPLES_LAYER)
+	apply_overlay(NIPPLES_CLOTHING_LAYER)
 	update_body_parts()
 
 /// Updating penis slot
 /mob/living/carbon/human/proc/update_inv_penis()
 	// on_mob stuff
-	remove_overlay(PENIS_LAYER)
+	remove_overlay(PENIS_CLOTHING_LAYER)
 
 	var/obj/item/clothing/sextoy/sex_toy = penis
 
@@ -335,14 +335,14 @@
 	var/mutable_appearance/penis_overlay
 
 	if(!penis_overlay)
-		penis_overlay = sex_toy?.build_worn_icon(default_layer = PENIS_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_file = icon_file)
+		penis_overlay = sex_toy?.build_worn_icon(default_layer = PENIS_CLOTHING_LAYER, default_icon_file = 'icons/mob/clothing/under/default.dmi', isinhands = FALSE, override_file = icon_file)
 
 	var/obj/item/bodypart/chest/chest_part = get_bodypart(BODY_ZONE_CHEST)
 	chest_part?.worn_uniform_offset?.apply_offset(penis_overlay) // we can never escape, we are forever governed by sex(two)
 
-	overlays_standing[PENIS_LAYER] = penis_overlay
+	overlays_standing[PENIS_CLOTHING_LAYER] = penis_overlay
 
-	apply_overlay(PENIS_LAYER)
+	apply_overlay(PENIS_CLOTHING_LAYER)
 	update_body_parts()
 
 /// Helper proc for calling all the lewd slot update_inv_ procs.

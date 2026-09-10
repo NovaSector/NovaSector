@@ -4,6 +4,7 @@
 	items_to_create = list(/obj/item/synth_powercord)
 	zone = "l_arm"
 	cannot_confiscate = TRUE
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 /obj/item/organ/cyberimp/arm/toolkit/power_cord/emp_act(severity)
 	. = ..()
@@ -151,7 +152,6 @@
 /datum/design/synth_charger
 	name = "Charging Cord Implant"
 	desc = "An internal power cord for synthetic use only. Requires connection the synthetic fuel cell to function."
-	id = "synth_charger"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(

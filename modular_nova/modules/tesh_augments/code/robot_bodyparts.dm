@@ -33,6 +33,7 @@
 
 	brute_modifier = 1
 	burn_modifier = 0.9
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /obj/item/bodypart/arm/right/robot/teshari
 	name = "cybernetic right raptoral forelimb"
@@ -47,6 +48,7 @@
 
 	brute_modifier = 1
 	burn_modifier = 0.9
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /obj/item/bodypart/leg/left/robot/teshari
 	name = "cybernetic left raptoral hindlimb"
@@ -62,6 +64,7 @@
 	brute_modifier = 1
 	burn_modifier = 0.9
 	speed_modifier = -0.1
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /obj/item/bodypart/leg/right/robot/teshari
 	name = "cybernetic right raptoral hindlimb"
@@ -77,6 +80,7 @@
 
 	brute_modifier = 1
 	burn_modifier = 0.9
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5)
 
 /obj/item/bodypart/chest/robot/teshari
 	name = "cybernetic raptoral torso"
@@ -90,6 +94,7 @@
 	burn_modifier = 0.9
 
 	robotic_emp_paralyze_damage_percent_threshold = 0.5
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6)
 
 /obj/item/bodypart/head/robot/teshari
 	name = "cybernetic raptoral head"
@@ -107,6 +112,7 @@
 
 	head_flags = HEAD_EYESPRITES|HEAD_EYECOLOR
 	eyes_icon = 'modular_nova/modules/organs/icons/teshari_eyes.dmi'
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.75)
 
 // teshari_ surplus
 
@@ -289,6 +295,7 @@
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
 
 	biological_state = (BIO_METAL|BIO_JOINTED)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/item/bodypart/arm/right/robot/teshari_advanced
 	name = "advanced right raptoral forelimb"
@@ -308,6 +315,7 @@
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
 
 	biological_state = (BIO_METAL|BIO_JOINTED)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/item/bodypart/leg/left/robot/teshari_advanced
 	name = "advanced left raptoral hindlimb"
@@ -328,6 +336,7 @@
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
 
 	biological_state = (BIO_METAL|BIO_JOINTED)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/item/bodypart/leg/right/robot/teshari_advanced
 	name = "advanced right raptoral hindlimb"
@@ -348,6 +357,7 @@
 	body_damage_coeff = LIMB_BODY_DAMAGE_COEFFICIENT_ADVANCED
 
 	biological_state = (BIO_METAL|BIO_JOINTED)
+	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5, /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 3)
 
 /obj/item/bodypart/arm/left/robot/teshari_advanced
 	name = "advanced left raptoral forelimb"

@@ -1,30 +1,21 @@
 /datum/sprite_accessory/horns
 	key = FEATURE_HORNS
-	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER, BODY_ADJ_LAYER)
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/horns.dmi'
 	default_color = "#555555"
 	organ_type = /obj/item/organ/horns
+	flags_custom_mod_icon = MOD_ACCESSORY_HELMET
 
-/datum/sprite_accessory/horns/is_hidden(mob/living/carbon/human/wearer)
-	var/obj/item/clothing/head/worn_head = wearer.head
-	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
-	if(isnull(worn_head) && isnull(worn_mask))
-		return FALSE
+/datum/sprite_accessory/horns/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
 
-	// Can hide if wearing hat
-	if(key in wearer.try_hide_mutant_parts)
+	if(wearer.obscured_slots & HIDEHAIR)
+		if(istype(wearer.head, /obj/item/clothing/head/mod))
+			return FALSE // i'm so sorry, this is still required
+		if(wearer.obscured_slots & SHOWSPRITEEARS)
+			return FALSE
 		return TRUE
-
-	// Exception for MODs
-	if(istype(wearer.head, /obj/item/clothing/head/mod))
-		return FALSE
-
-	// Hide accessory if flagged to do so
-	if((worn_head?.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR) \
-		&& !(worn_mask && worn_mask.flags_inv & SHOWSPRITEEARS))
-		return TRUE
-
-	return FALSE
 
 /datum/sprite_accessory/horns/none
 	name = SPRITE_ACCESSORY_NONE

@@ -68,25 +68,6 @@
 	ai_controller = /datum/ai_controller/basic_controller/evilborgs
 
 /*
-* Peace through surperior smacking
-*/
-
-/mob/living/basic/evilborgs/evilborg/peace
-	name = "Malfunctioning Peacekeeper Cyborg"
-	desc = "A cyborg unit, hacked or malfunctioning. This is a Peacekeeper model."
-	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
-	icon_state = "evilbotpeace"
-	icon_living = "evilbotpeace"
-	health = 125
-	maxHealth = 125
-	melee_damage_lower = 18
-	melee_damage_upper = 18
-	attack_verb_continuous = "smacks"
-	attack_verb_simple = "smack"
-	attack_sound = 'sound/items/weapons/cqchit1.ogg'
-	ai_controller = /datum/ai_controller/basic_controller/evilborgs
-
-/*
 * Zug Zug
 */
 
@@ -230,24 +211,3 @@
 	)
 	if (ranged_cooldown <= 1 SECONDS)
 		AddComponent(/datum/component/ranged_mob_full_auto)
-
-
-/*
-* Totally not copyright infringing content here
-*/
-
-/mob/living/basic/evilborgs/evilborg/protect
-	name = "Malfunctioning Standard Robot"
-	desc = "A civlian model robot, hacked or malfunctioning with mechanical claw arms."
-	icon = 'modular_nova/master_files/icons/mob/newmobs.dmi'
-	icon_state = "protectbot"
-	icon_living = "protectbot"
-	ranged_attacker = FALSE
-	health = 150
-	maxHealth = 150
-	melee_damage_lower = 15
-	melee_damage_upper = 15
-	attack_verb_continuous = "claws"
-	attack_verb_simple = "punch"
-	attack_sound = 'sound/items/weapons/genhit2.ogg'
-	ai_controller = /datum/ai_controller/basic_controller/evilborgs

@@ -1,5 +1,8 @@
 /// Fully randomizes everything in the character.
 /datum/preferences/proc/randomise_appearance_prefs(randomize_flags = ALL)
+	var/tree_key = "character[default_slot]"
+	if(!(tree_key in savefile.get_entry()))
+		savefile.set_entry(tree_key, list())
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
 		if (!preference.included_in_randomization_flags(randomize_flags))
 			continue
@@ -87,10 +90,10 @@
 	var/datum/job/preview_job
 	var/highest_pref = 0
 
-	for(var/job in job_preferences)
-		if(job_preferences[job] > highest_pref)
+	for(var/job, priority in job_preferences)
+		if(priority > highest_pref)
 			preview_job = SSjob.get_job(job)
-			highest_pref = job_preferences[job]
+			highest_pref = priority
 
 	return preview_job
 
@@ -119,6 +122,7 @@
 	)
 	*/ // NOVA EDIT REMOVAL END
 	// NOVA EDIT ADDITION START
+	var/needs_update = preview_pref != previous_preview_pref
 	switch(preview_pref)
 		if(PREVIEW_PREF_JOB)
 			mannequin.job = preview_job.title
@@ -151,9 +155,10 @@
 				if(gent)
 					gent.aroused = AROUSAL_FULL
 					gent.update_sprite_suffix()
+					needs_update = TRUE
 
 	mannequin.dna.update_body_size()
-	if(preview_pref != previous_preview_pref)
+	if(needs_update)
 		mannequin.update_body()
 	// NOVA EDIT ADDITION END
 

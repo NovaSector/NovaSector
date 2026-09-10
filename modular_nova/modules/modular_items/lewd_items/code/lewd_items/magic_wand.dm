@@ -21,7 +21,6 @@
 	var/mutable_appearance/magicwand_overlay
 	w_class = WEIGHT_CLASS_TINY
 	lewd_slot_flags = LEWD_SLOT_VAGINA | LEWD_SLOT_PENIS
-	clothing_flags = INEDIBLE_CLOTHING
 
 //some stuff for making overlay of this item. Why? Because.
 /obj/item/clothing/sextoy/magic_wand/worn_overlays(isinhands = FALSE)

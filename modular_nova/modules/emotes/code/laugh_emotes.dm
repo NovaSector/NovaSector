@@ -1,5 +1,17 @@
 /datum/emote/living/laugh
 	mob_type_allowed_typecache = list(/mob/living/carbon/human, /mob/living/silicon/pai)
+	sounds_by_mobtype = list(
+		/mob/living/carbon/human = list(
+			MALE = list(
+				'sound/mobs/humanoids/human/laugh/manlaugh1.ogg',
+				'sound/mobs/humanoids/human/laugh/manlaugh2.ogg',
+			),
+			FEMALE = list(
+				'modular_nova/modules/emotes/sound/emotes/female/female_giggle_1.ogg',
+				'modular_nova/modules/emotes/sound/emotes/female/female_giggle_2.ogg',
+			),
+		),
+	)
 
 // This sucks and is not how we should be allowing pais to use these emotes
 // for humans use selected_laugh, otherwise default to the species-specific laughs.
@@ -17,18 +29,3 @@
 	else
 		var/datum/laugh_type/female_laugh = GLOB.laugh_types[laugh_type.female_laugh_type]
 		return pick(female_laugh.laugh_sounds)
-
-// human laugh - for males use tg audio females use our version
-/datum/species/human/get_laugh_sound(mob/living/carbon/human/human)
-	if(!ishuman(human))
-		return
-	if(human.gender == FEMALE)
-		return pick(
-				'modular_nova/modules/emotes/sound/emotes/female/female_giggle_1.ogg',
-				'modular_nova/modules/emotes/sound/emotes/female/female_giggle_2.ogg',
-
-		)
-	return pick(
-		'sound/mobs/humanoids/human/laugh/manlaugh1.ogg',
-		'sound/mobs/humanoids/human/laugh/manlaugh2.ogg',
-	)

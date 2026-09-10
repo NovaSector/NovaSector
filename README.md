@@ -7,17 +7,21 @@
 
 [![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
-| Website                   | Link                                                                                                                                   |
-| -----------------------   | -------------------------------------------------------------------------------------------------------------------------------------- |
-| How to Write a Design Doc |  [https://hackmd.io/@tgstation/BkzmU9EyK](https://hackmd.io/@tgstation/BkzmU9EyK)                                                      |
-| Git / GitHub cheatsheet   | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
-| Guide to Modularization   | [./modular_nova/readme.md](./modular_nova/readme.md)                                                                                   |
-| Guide to Mirroring        | [./modular_nova/mirroring_guide.md](./modular_nova/mirroring_guide.md)                                                                 |
-| Code                      | [https://github.com/NovaSector/NovaSector](https://github.com/NovaSector/NovaSector)                                                   |
-| Wiki                      | [https://wiki.novasector13.com](https://wiki.novasector13.com)                                                                         |
-| Codedocs                  | [https://NovaSector.github.io/NovaSector/](https://NovaSector.github.io/NovaSector/)                                                   |
-| Nova Sector's Discord     | [https://discord.gg/novasector](https://discord.gg/novasector)                                                                         |
-| Coderbus Discord          | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                                                                               |
+| Website                          | Link                                                                                                                                   |
+| -----------------------          | -------------------------------------------------------------------------------------------------------------------------------------- |
+| How to Write a Design Doc        |  [https://hackmd.io/@tgstation/BkzmU9EyK](https://hackmd.io/@tgstation/BkzmU9EyK)                                                      |
+| Git / GitHub cheatsheet          | [https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833](https://www.notion.so/Git-GitHub-61bc81766b2e4c7d9a346db3078ce833) |
+| Guide to Modularization          | [./modular_nova/readme.md](./modular_nova/readme.md)                                                                                   |
+| Guide to Mirroring               | [./modular_nova/mirroring_guide.md](./modular_nova/mirroring_guide.md)                                                                 |
+| Code                             | [https://github.com/NovaSector/NovaSector](https://github.com/NovaSector/NovaSector)                                                   |
+| Wiki                             | [https://wiki.novasector13.com](https://wiki.novasector13.com)                                                                         |
+| Codedocs                         | [https://NovaSector.github.io/NovaSector/](https://NovaSector.github.io/NovaSector/)                                                   |
+| Nova Sector's Discord            | [https://discord.gg/novasector](https://discord.gg/novasector)                                                                         |
+| Coderbus Discord                 | [https://discord.gg/Vh8TJp9](https://discord.gg/Vh8TJp9)                                                                               |
+| Contribution Guide               | [./.github/CONTRIBUTING.md](./.github/CONTRIBUTING.md)                                                                                 |
+| Getting Started With Development | [https://hackmd.io/@tgstation/HJ8OdjNBc#tgstation-Development-Guide](https://hackmd.io/@tgstation/HJ8OdjNBc#tgstation-Development-Guide) |
+| Maintainer-Approved Design Docs  | [https://hackmd.io/@tgstation](https://hackmd.io/@tgstation)                                                                           |
+| Common Core Lore                 | [https://github.com/tgstation/common_core](https://github.com/tgstation/common_core)                                                   |
 
 This is Nova Sector's downstream fork of /tg/station created in byond.
 
@@ -50,16 +54,6 @@ Find `BUILD.bat` here in the root folder of tgstation, and double click it to in
 **Building tgstation in DreamMaker directly is deprecated and might produce errors**, such as `'tgui.bundle.js': cannot find file`.
 
 **[How to compile in VSCode and other build options](tools/build/README.md).**
-
-## Getting started
-
-For contribution guidelines refer to the [Guides for Contributors](.github/CONTRIBUTING.md).
-
-For getting started (dev env, compilation) see the HackMD document [here](https://hackmd.io/@tgstation/HJ8OdjNBc#tgstation-Development-Guide).
-
-For overall design documentation see [HackMD](https://hackmd.io/@tgstation).
-
-For lore, [see Common Core](https://github.com/tgstation/common_core).
 
 ## LICENSE
 

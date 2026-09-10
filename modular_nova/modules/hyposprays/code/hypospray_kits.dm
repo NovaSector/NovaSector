@@ -186,6 +186,7 @@
 
 /obj/item/storage/hypospraykit/empty
 	empty = TRUE
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3, /datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
 /// Interdyne hypokits: mostly for style, but preloaded with goodies.
 /obj/item/storage/hypospraykit/interdyne
@@ -222,6 +223,7 @@
 	icon_state = "emt-mini"
 	current_case = "emt"
 	empty = TRUE
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 6, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/silver = SHEET_MATERIAL_AMOUNT)
 
 /// Preloaded version: this is what goes in the locker.
 /obj/item/storage/hypospraykit/cmo/preloaded

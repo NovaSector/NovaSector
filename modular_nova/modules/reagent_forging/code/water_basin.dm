@@ -34,27 +34,27 @@
 	balloon_alert(user, "the water deepens!")
 	fishable = AddComponent(/datum/component/fishing_spot, /datum/fish_source/water_basin)
 
-/obj/structure/reagent_water_basin/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/stack/ore/glass))
-		var/obj/item/stack/ore/glass/glass_obj = attacking_item
+/obj/structure/reagent_water_basin/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(istype(tool, /obj/item/stack/ore/glass))
+		var/obj/item/stack/ore/glass/glass_obj = tool
 		if(!glass_obj.use(1))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		new /obj/item/stack/clay(get_turf(src))
 		user.mind.adjust_experience(/datum/skill/production, 1)
-		return
+		return ITEM_INTERACT_SUCCESS
 
-	if(istype(attacking_item, /obj/item/stack/ore/bluespace_crystal))
+	if(istype(tool, /obj/item/stack/ore/bluespace_crystal))
 		if(fishable)
-			return
-		var/obj/item/stack/ore/bluespace_crystal/bs_crystal = attacking_item
+			return ITEM_INTERACT_BLOCKING
+		var/obj/item/stack/ore/bluespace_crystal/bs_crystal = tool
 
 		if(!bs_crystal.use(1))
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		balloon_alert(user, "the water deepens!")
 		fishable = AddComponent(/datum/component/fishing_spot, /datum/fish_source/water_basin)
-		return
+		return ITEM_INTERACT_SUCCESS
 
 	return ..()
 

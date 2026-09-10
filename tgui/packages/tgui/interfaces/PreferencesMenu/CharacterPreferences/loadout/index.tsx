@@ -31,8 +31,7 @@ import { LoadoutModifyDimmer } from './ModifyPanel';
 export function LoadoutPage(props) {
   const serverData = useServerPrefs();
   const loadout_tabs = serverData?.loadout.loadout_tabs || [];
-  /* NOVA EDIT CHANGE - Original: const { data } = useBackend<LoadoutManagerData>();
-  const { erp_pref } = data; */
+  /* NOVA EDIT CHANGE - Original: const { data } = useBackend<LoadoutManagerData>(); */
   const erp_pref = useBackend<LoadoutManagerData>().data.erp_pref;
 
   const [searchLoadout, setSearchLoadout] = useState('');
