@@ -20572,7 +20572,7 @@
 /turf/open/floor/catwalk_floor,
 /area/station/hallway/floor2/fore)
 "flD" = (
-/obj/machinery/smartfridge,
+/obj/machinery/smartfridge/chemistry/virology,
 /obj/machinery/door/firedoor/heavy,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "viro-inner";
@@ -48133,7 +48133,7 @@
 /obj/machinery/button/door/directional/east{
 	name = "Cargo Lobby Lockdown";
 	id = "cargolobbylockdown";
-	req_access = list("cargo");
+	req_access = list("qm");
 	pixel_y = -5
 	},
 /turf/open/floor/iron/textured,
@@ -72174,6 +72174,15 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/cmo)
+"sgs" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
+/turf/open/floor/iron/smooth_half{
+	dir = 1
+	},
+/area/station/cargo/miningdock)
 "sgF" = (
 /obj/structure/closet/secure_closet/medical3,
 /obj/item/radio/intercom/directional/south,
@@ -91060,7 +91069,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/station/cargo/miningdock)
 "wMf" = (
@@ -127419,9 +127427,9 @@ uPM
 sJt
 nsi
 oQa
-uPM
 tIK
-nsi
+uPM
+sgs
 wMc
 fqP
 sLF
