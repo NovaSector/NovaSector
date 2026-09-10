@@ -152,6 +152,10 @@
 	tile_reskin_types = list(
 		/obj/item/stack/tile/mineral/bananium,
 		/obj/item/stack/tile/mineral/bananium/tiled,
+		// NOVA EDIT ADDITION START - FLOORS_AND_WALLS
+		/obj/item/stack/tile/mineral/bananium/alt,
+		/obj/item/stack/tile/mineral/bananium/tiled/alt,
+		// NOVA EDIT ADDITION END
 	)
 
 /obj/item/stack/tile/mineral/bananium/tiled
@@ -172,6 +176,11 @@
 	tile_reskin_types = list(
 		/obj/item/stack/tile/mineral/bluespace,
 		/obj/item/stack/tile/mineral/bluespace/tiled,
+		// NOVA EDIT ADDITION START - FLOORS_AND_WALLS
+		/obj/item/stack/tile/mineral/bluespace/n,
+		/obj/item/stack/tile/mineral/bluespace/alt,
+		/obj/item/stack/tile/mineral/bluespace/tiled/alt,
+		// NOVA EDIT ADDITION END
 	)
 
 /obj/item/stack/tile/mineral/bluespace/tiled
@@ -192,6 +201,11 @@
 	tile_reskin_types = list(
 		/obj/item/stack/tile/mineral/telecrystal,
 		/obj/item/stack/tile/mineral/telecrystal/tiled,
+		// NOVA EDIT ADDITION START - FLOORS_AND_WALLS
+		/obj/item/stack/tile/mineral/telecrystal/s,
+		/obj/item/stack/tile/mineral/telecrystal/alt,
+		/obj/item/stack/tile/mineral/telecrystal/tiled/alt,
+		// NOVA EDIT ADDITION END
 	)
 
 /obj/item/stack/tile/mineral/telecrystal/tiled
@@ -212,6 +226,10 @@
 	tile_reskin_types = list(
 		/obj/item/stack/tile/mineral/adamantine,
 		/obj/item/stack/tile/mineral/adamantine/tiled,
+		// NOVA EDIT ADDITION START - FLOORS_AND_WALLS
+		/obj/item/stack/tile/mineral/adamantine/plating,
+		/obj/item/stack/tile/mineral/adamantine/alt,
+		// NOVA EDIT ADDITION END
 	)
 
 /obj/item/stack/tile/mineral/adamantine/tiled
@@ -232,6 +250,10 @@
 	tile_reskin_types = list(
 		/obj/item/stack/tile/mineral/metal_hydrogen,
 		/obj/item/stack/tile/mineral/metal_hydrogen/tiled,
+		// NOVA EDIT ADDITION START - FLOORS_AND_WALLS
+		/obj/item/stack/tile/mineral/metal_hydrogen/alt,
+		/obj/item/stack/tile/mineral/metal_hydrogen/tiled/alt,
+		// NOVA EDIT ADDITION END
 	)
 
 /obj/item/stack/tile/mineral/metal_hydrogen/tiled
