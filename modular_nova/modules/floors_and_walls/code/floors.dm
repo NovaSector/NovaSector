@@ -21,7 +21,6 @@
 	icon_state = "tile-carpet-bear"
 	turf_type = /turf/open/floor/carpet/bear/alt
 	merge_type = /obj/item/stack/tile/carpet/bear/alt
-	tile_reskin_types = null
 
 /turf/open/floor/carpet/polar_bear/alt
 	name = "polar bear fur carpet (alt)"
@@ -34,7 +33,6 @@
 	icon_state = "tile-carpet-bear-polar"
 	turf_type = /turf/open/floor/carpet/polar_bear/alt
 	merge_type = /obj/item/stack/tile/carpet/polar_bear/alt
-	tile_reskin_types = null
 
 /turf/open/floor/carpet/moth/alt
 	name = "moth carpet (alt)"
@@ -47,7 +45,6 @@
 	icon_state = "tile-carpet-moth"
 	turf_type = /turf/open/floor/carpet/moth/alt
 	merge_type = /obj/item/stack/tile/carpet/moth/alt
-	tile_reskin_types = null
 
 /turf/open/floor/carpet/goliath/alt
 	name = "goliath hide carpet (alt)"
@@ -60,7 +57,6 @@
 	icon_state = "tile-carpet-goliath"
 	turf_type = /turf/open/floor/carpet/goliath/alt
 	merge_type = /obj/item/stack/tile/carpet/goliath/alt
-	tile_reskin_types = null
 
 /turf/open/floor/carpet/carp/alt
 	name = "carp scales carpet (alt)"
@@ -73,7 +69,6 @@
 	icon_state = "tile-carpet-carp"
 	turf_type = /turf/open/floor/carpet/carp/alt
 	merge_type = /obj/item/stack/tile/carpet/carp/alt
-	tile_reskin_types = null
 
 /turf/open/floor/carpet/lizard/alt
 	name = "lizard scales (alt)"
@@ -86,7 +81,6 @@
 	icon_state = "tile-carpet-lizard"
 	turf_type = /turf/open/floor/carpet/lizard/alt
 	merge_type = /obj/item/stack/tile/carpet/lizard/alt
-	tile_reskin_types = null
 
 /*
  * Wood
@@ -234,6 +228,7 @@
 	icon_state = "plasteel_straight"
 	turf_type = /turf/open/floor/mineral/plasteel/straight
 	merge_type = /obj/item/stack/tile/plasteel/straight
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
 /turf/open/floor/mineral/plasteel/corner
 	name = "corner plasteel floor"
@@ -247,6 +242,7 @@
 	icon_state = "plasteel_corner"
 	turf_type = /turf/open/floor/mineral/plasteel/corner
 	merge_type = /obj/item/stack/tile/plasteel/corner
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
 /turf/open/floor/mineral/plasteel/block
 	name = "blocky plasteel floor"
@@ -273,6 +269,7 @@
 	icon_state = "lock"
 	turf_type = /turf/open/floor/mineral/plasteel/lock
 	merge_type = /obj/item/stack/tile/plasteel/lock
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
 /turf/open/floor/mineral/plasteel/tiled
 	name = "tiled plasteel floor"
@@ -849,6 +846,7 @@
 	icon_state = "blade_sword"
 	turf_type = /turf/open/floor/silvergold/sword
 	merge_type = /obj/item/stack/tile/silvergold/sword
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
 /turf/open/floor/silvergold/void
 	name = "stars tile"
@@ -877,6 +875,7 @@
 	icon_state = "flow"
 	turf_type = /turf/open/floor/silvergold/flow
 	merge_type = /obj/item/stack/tile/silvergold/flow
+	tile_rotate_dirs = list(SOUTH, NORTH, EAST, WEST)
 
 /*
  * Hauntium

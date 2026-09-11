@@ -152,6 +152,14 @@
 		/obj/item/stack/tile/wood/wood_11,
 		/obj/item/stack/tile/wood/wood_12,
 		/obj/item/stack/tile/wood/wood_13,
+		/obj/item/stack/tile/wood/dark,
+		/obj/item/stack/tile/wood/dark/tile,
+		/obj/item/stack/tile/wood/dark/parquet,
+		/obj/item/stack/tile/wood/dark/large,
+		/obj/item/stack/tile/wood/light,
+		/obj/item/stack/tile/wood/light/tile,
+		/obj/item/stack/tile/wood/light/parquet,
+		/obj/item/stack/tile/wood/light/large,
 	)
 
 /turf/open/indestructible/cobble
