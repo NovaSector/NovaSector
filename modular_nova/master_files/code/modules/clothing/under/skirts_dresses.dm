@@ -51,7 +51,7 @@
 	post_init_icon_state = "swept_skirt"
 	icon_state = "/obj/item/clothing/under/dress/skirt/nova/swept"
 
-/obj/item/clothing/under/dress/nova/pleated_Pencil_skirt
+/obj/item/clothing/under/dress/nova/pleated_pencil_skirt
 	name = "Pleated Pencil Skirt"
 	desc = "A simple pleated skirt, stretchy and form fitting."
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
@@ -72,6 +72,7 @@
 	greyscale_config_worn = /datum/greyscale_config/slit_skirt/worn
 	greyscale_colors = "#424242"
 	body_parts_covered = GROIN|LEGS
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/dress/skirt/nova/striped_skirt
 	name = "red bra and striped skirt"
