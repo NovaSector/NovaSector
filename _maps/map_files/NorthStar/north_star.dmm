@@ -922,7 +922,7 @@
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor1/starboard/fore)
 "alf" = (
-/obj/effect/turf_decal/tile/green/anticorner{
+/obj/effect/turf_decal/tile/green/anticorner/contrasted{
 	dir = 1
 	},
 /obj/machinery/vending/sovietsoda,
@@ -11228,7 +11228,7 @@
 /turf/open/floor/grass,
 /area/station/hallway/floor1/aft)
 "cMU" = (
-/obj/effect/turf_decal/tile/green/anticorner{
+/obj/effect/turf_decal/tile/green/anticorner/contrasted{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -12231,7 +12231,7 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor1/fore)
 "cZe" = (
-/obj/effect/turf_decal/tile/green/half,
+/obj/effect/turf_decal/tile/green/half/contrasted,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/side,
@@ -16038,7 +16038,7 @@
 /turf/open/floor/mineral/plastitanium,
 /area/station/maintenance/floor2/starboard)
 "dYB" = (
-/obj/effect/turf_decal/tile/green/anticorner,
+/obj/effect/turf_decal/tile/green/anticorner/contrasted,
 /obj/structure/rack,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/mask/breath,
@@ -28906,7 +28906,7 @@
 /area/station/maintenance/floor3/starboard)
 "hrc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/green/half{
+/obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -30055,7 +30055,7 @@
 /turf/open/floor/mineral/plastitanium/pod,
 /area/station/maintenance/floor4/port/fore)
 "hGz" = (
-/obj/effect/turf_decal/tile/green/half,
+/obj/effect/turf_decal/tile/green/half/contrasted,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/warning/pods/directional/south,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -35106,7 +35106,7 @@
 	},
 /area/station/hallway/secondary/exit/departure_lounge)
 "iUQ" = (
-/obj/effect/turf_decal/tile/green/half,
+/obj/effect/turf_decal/tile/green/half/contrasted,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/secondary/exit/escape_pod)
@@ -49138,7 +49138,7 @@
 /area/station/hallway/floor3/fore)
 "msu" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/green/half{
+/obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -51417,7 +51417,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/office)
 "mVj" = (
-/obj/effect/turf_decal/tile/green/half,
+/obj/effect/turf_decal/tile/green/half/contrasted,
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/secondary/exit/escape_pod)
 "mVp" = (
@@ -66186,7 +66186,7 @@
 /turf/open/openspace,
 /area/station/maintenance/floor3/port)
 "qBP" = (
-/obj/effect/turf_decal/tile/green/half,
+/obj/effect/turf_decal/tile/green/half/contrasted,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/secondary/exit/escape_pod)
@@ -67372,7 +67372,7 @@
 "qRE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/green/half{
+/obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -72672,7 +72672,7 @@
 /area/station/command/teleporter)
 "snA" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/green/half{
+/obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -77221,7 +77221,7 @@
 /area/station/engineering/atmos)
 "tto" = (
 /obj/machinery/airalarm/directional/north,
-/obj/effect/turf_decal/tile/green/anticorner{
+/obj/effect/turf_decal/tile/green/anticorner/contrasted{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/side{
@@ -79986,7 +79986,7 @@
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor1/port/fore)
 "udF" = (
-/obj/effect/turf_decal/tile/green/anticorner{
+/obj/effect/turf_decal/tile/green/anticorner/contrasted{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air,
@@ -81586,7 +81586,7 @@
 /area/station/security/checkpoint/third)
 "uAi" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/green/half{
+/obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -82010,7 +82010,7 @@
 /turf/open/floor/iron/dark,
 /area/station/maintenance/floor2/starboard/fore)
 "uGt" = (
-/obj/effect/turf_decal/tile/green/half,
+/obj/effect/turf_decal/tile/green/half/contrasted,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
@@ -86756,7 +86756,7 @@
 /area/station/cargo/sorting)
 "vMm" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/green/half{
+/obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
 	},
 /turf/open/floor/iron/dark/side{
@@ -87243,7 +87243,7 @@
 /obj/structure/sign/poster/official/moth_hardhat/directional/east,
 /obj/structure/rack,
 /obj/effect/spawner/random/engineering/toolbox,
-/obj/effect/turf_decal/tile/green/half{
+/obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/side{
@@ -91735,7 +91735,7 @@
 /area/station/service/kitchen)
 "wUy" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/green/half{
+/obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -95884,7 +95884,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/eva)
 "xWV" = (
-/obj/effect/turf_decal/tile/green/half,
+/obj/effect/turf_decal/tile/green/half/contrasted,
 /obj/effect/landmark/navigate_destination/dockescpod,
 /obj/effect/spawner/random/engineering/tracking_beacon,
 /turf/open/floor/iron/dark/side,
