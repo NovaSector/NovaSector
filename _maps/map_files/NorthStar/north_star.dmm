@@ -19218,7 +19218,6 @@
 	},
 /obj/machinery/light/directional/west,
 /obj/machinery/computer/security/telescreen/engine/directional/west,
-/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/checkpoint/engineering)
 "eRe" = (
