@@ -1116,8 +1116,10 @@
 	max_antag_cap = 1
 	repeatable = TRUE
 
+/* // NOVA EDIT - Mid-Round Antag Consent - `modular_nova/master_files/code/controllers/subsystem/dynamic_rulesets_midround.dm`
 /datum/dynamic_ruleset/midround/from_living/collect_candidates()
 	return GLOB.alive_player_list
+*/ // NOVA EDIT END
 
 /datum/dynamic_ruleset/midround/from_living/is_valid_candidate(mob/candidate, client/candidate_client)
 	if(candidate.stat == DEAD || isnull(candidate.mind))
