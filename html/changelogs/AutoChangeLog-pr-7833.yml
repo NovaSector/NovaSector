@@ -1,0 +1,6 @@
+author: "Richard Blonski"
+delete-after: True
+changes:
+  - rscdel: "Mid-round antagonist candidates won't be ineligible for future mid-round polls."
+  - qol: "All mid-round antagonist candidates will now be polled on whether they actually wish to play as an antagonist."
+  - qol: "Mid-round antagonist polls have been increased from 15 seconds to --> 60 seconds."
