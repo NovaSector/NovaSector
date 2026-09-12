@@ -884,7 +884,7 @@
 /obj/structure/closet/secure_closet/brig{
 	name = "Prisoner Locker"
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/prison/visit)
 "akD" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
@@ -4678,7 +4678,7 @@
 /obj/effect/turf_decal/tile/red/diagonal_edge,
 /obj/structure/cable,
 /obj/machinery/firealarm/directional/north,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/prison/visit)
 "bhb" = (
 /obj/structure/cable,
@@ -10612,7 +10612,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/light/small/directional/north,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/checkpoint/escape)
 "cFK" = (
 /obj/structure/table/wood/poker,
@@ -12060,7 +12060,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/prison/visit)
 "cXs" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
@@ -24941,7 +24941,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/prison/visit)
 "grb" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
@@ -27367,7 +27367,7 @@
 "gXp" = (
 /obj/effect/turf_decal/tile/red/diagonal_edge,
 /obj/machinery/airalarm/directional/south,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/prison/visit)
 "gXs" = (
 /obj/structure/flora/bush/grassy/style_random,
@@ -29478,7 +29478,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/checkpoint/escape)
 "hyR" = (
 /obj/machinery/light/directional/west,
@@ -33350,7 +33350,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/prison/visit)
 "iyS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -41229,7 +41229,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/light/directional/north,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/prison/visit)
 "kwC" = (
 /obj/machinery/suit_storage_unit/security,
@@ -45314,7 +45314,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/prison/visit)
 "lxc" = (
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -59301,7 +59301,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/checkpoint/escape)
 "oRz" = (
 /obj/effect/turf_decal/delivery,
@@ -61128,7 +61128,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/checkpoint/escape)
 "pqY" = (
 /obj/structure/chair{
@@ -65269,7 +65269,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/checkpoint/escape)
 "qsH" = (
 /obj/structure/table/wood,
@@ -67494,7 +67494,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/red/diagonal_edge,
 /obj/structure/cable,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/prison/visit)
 "qTF" = (
 /obj/structure/disposalpipe/segment,
@@ -68473,7 +68473,7 @@
 	},
 /obj/effect/mapping_helpers/requests_console/information,
 /obj/effect/mapping_helpers/requests_console/assistance,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/checkpoint/escape)
 "reW" = (
 /obj/effect/turf_decal/trimline/green/line{
@@ -73816,7 +73816,7 @@
 /obj/effect/turf_decal/tile/red/diagonal_edge,
 /obj/structure/cable,
 /obj/machinery/photobooth/security,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/prison/visit)
 "sDg" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners{
@@ -78468,7 +78468,7 @@
 /obj/effect/turf_decal/tile/red/diagonal_edge,
 /obj/structure/chair,
 /obj/structure/reagent_dispensers/wall/peppertank/directional/north,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/checkpoint/escape)
 "tJn" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -85065,7 +85065,7 @@
 	},
 /obj/item/radio/intercom/directional/south,
 /obj/effect/turf_decal/tile/red/diagonal_edge,
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/checkpoint/escape)
 "vrn" = (
 /obj/effect/decal/cleanable/dirt,
@@ -90903,7 +90903,7 @@
 /area/station/tcommsat/server)
 "wKi" = (
 /obj/effect/turf_decal/tile/red/diagonal_edge,
-/turf/open/floor/iron/dark,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/prison/visit)
 "wKj" = (
 /obj/structure/chair/sofa/corp/left{
@@ -91746,7 +91746,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/turf/open/floor/iron/dark/textured_large,
+/turf/open/floor/iron/dark/diagonal,
 /area/station/security/checkpoint/escape)
 "wUK" = (
 /obj/machinery/light_switch/directional/north,
