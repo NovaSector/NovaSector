@@ -1,0 +1,5 @@
+author: "OrbisAnima"
+delete-after: True
+changes:
+  - balance: "Reduces the exponent of the Departamental Orders from 2.2 to 2, This makes the shortest order go from 7.5 min to 6.75 min and the longest from 20 min to 16 min."
+  - qol: "Makes it so the Bluespace miner crate comes with all the parts it needs to be built with, this should make it so people dont have to canibalize the teleporter to use it."
