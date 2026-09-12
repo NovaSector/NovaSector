@@ -161,3 +161,14 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
 	icon_state = "hosformal_black"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+
+/obj/item/clothing/suit/armor/hos/flak
+	name = "head of security's flak jacket"
+	desc = "A flak jacket enhanced with additional protective layers, emblazoned with the insignia of a HOS."
+	icon = 'modular_nova/master_files/icons/obj/clothing/suits/armor.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/suits/armor.dmi'
+	icon_state = "hos_flak"
+
+/obj/item/clothing/suit/armor/hos/flak/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon)

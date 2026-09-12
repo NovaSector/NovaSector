@@ -137,7 +137,7 @@
 
 /obj/item/clothing/neck/mantle/recolorable/primitive_catgirl_off_white
 	icon_state = "/obj/item/clothing/neck/mantle/recolorable/primitive_catgirl_off_white"
-	greyscale_colors = "#cec8bf"
+	greyscale_colors = "#cec8bf#cec8bf"
 
 /obj/item/clothing/neck/ranger_poncho/primitive_catgirl_leather
 	icon_state = "/obj/item/clothing/neck/ranger_poncho/primitive_catgirl_leather"
