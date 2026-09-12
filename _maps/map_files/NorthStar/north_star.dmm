@@ -10019,6 +10019,9 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance Hatch"
 	},
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor1/starboard)
 "cvX" = (
@@ -15666,6 +15669,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor4/port/aft)
 "dUP" = (
@@ -17178,6 +17184,22 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/floor2/fore)
+"env" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Maintenance Bulkhead"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 4
+	},
+/turf/open/floor/mineral/plastitanium/pod/dark,
+/area/station/maintenance/floor2/port/aft)
 "enE" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
@@ -28359,6 +28381,10 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 1
+	},
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor2/port/aft)
 "hjz" = (
@@ -29007,6 +29033,9 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /obj/structure/barricade/wooden/crude/snow,
 /obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium/pod/light,
@@ -31444,6 +31473,7 @@
 	name = "Ration Storage"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor1/port/aft)
 "hXI" = (
@@ -47184,6 +47214,9 @@
 	name = "Emergency Power"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 1
+	},
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor4/port/fore)
 "lUY" = (
@@ -56998,6 +57031,9 @@
 	name = "Vandalized Hatch"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 1
+	},
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor2/port/aft)
 "omq" = (
@@ -59033,6 +59069,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/disposalpipe/segment,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor2/port/aft)
 "oNn" = (
@@ -66039,6 +66076,9 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Oxygen Recycling"
 	},
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 1
+	},
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor1/starboard)
 "qAa" = (
@@ -66860,6 +66900,9 @@
 /obj/effect/mapping_helpers/airlock/access/any/engineering/atmos,
 /obj/machinery/door/airlock/hatch{
 	name = "Oxygen Recycling"
+	},
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 1
 	},
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor1/starboard)
@@ -71506,6 +71549,16 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/service)
+"rWn" = (
+/obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/obj/machinery/door/airlock/hatch{
+	name = "Maintenance Hatch"
+	},
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 8
+	},
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/station/maintenance/floor1/port)
 "rWo" = (
 /obj/effect/spawner/random/trash/moisture_trap,
 /turf/open/floor/mineral/plastitanium/pod/light,
@@ -74925,6 +74978,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/duct,
 /obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium/pod/dark,
@@ -84575,6 +84631,9 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 4
+	},
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor4/port)
 "vlf" = (
@@ -84664,6 +84723,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Maintenance Access"
 	},
+/obj/effect/mapping_helpers/airlock/unres/delayed,
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor2/port/fore)
 "vmc" = (
@@ -91950,6 +92010,9 @@
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 1
+	},
 /turf/open/floor/wood/parquet,
 /area/station/maintenance/floor2/port/aft)
 "wWk" = (
@@ -133188,7 +133251,7 @@ jXz
 hdA
 xgH
 xgH
-vmM
+rWn
 xgH
 xgH
 hdA
@@ -210527,7 +210590,7 @@ gJy
 uiF
 tPm
 nlN
-hjx
+env
 bnt
 nlN
 nlN
