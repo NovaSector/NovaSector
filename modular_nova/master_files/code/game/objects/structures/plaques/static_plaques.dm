@@ -17,11 +17,6 @@
 			Commissioned 14/04/2564\n\
 			'To Restless Research'"
 
-/// Serenity Station: merged on Jun 14, 2024 (https://github.com/NovaSector/NovaSector/pull/3040)
-/obj/structure/plaque/static_plaque/golden/commission/serenitystation
-	desc = "Serenity Station SS-13\n'Planetary' Class Outpost\n\
-			Commissioned 15/12/2563"
-
 /// NorthStar:
 /// - first added on the 13th of April, 2023 (https://github.com/tgstation/tgstation/pull/74371)
 /// - first removed on the 25th of November, 2024 (https://github.com/tgstation/tgstation/pull/87937)
