@@ -1034,7 +1034,7 @@
 /area/station/medical/medbay/lobby)
 "anb" = (
 /obj/machinery/vending/wardrobe/hydro_wardrobe,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
 "anf" = (
@@ -8766,7 +8766,7 @@
 /area/station/science/lobby)
 "cgR" = (
 /obj/structure/closet/secure_closet/hydroponics,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
@@ -22595,7 +22595,7 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor2/fore)
 "fNg" = (
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
@@ -28484,7 +28484,7 @@
 "hlo" = (
 /obj/structure/reagent_dispensers/watertank/high,
 /obj/item/radio/intercom/directional/south,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "hlG" = (
@@ -30892,7 +30892,7 @@
 /area/station/medical/break_room)
 "hRg" = (
 /obj/structure/closet/secure_closet/hydroponics,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
 "hRm" = (
@@ -41634,7 +41634,7 @@
 /area/station/command/teleporter)
 "kBj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
 "kBk" = (
@@ -42600,7 +42600,7 @@
 /area/station/maintenance/floor1/port)
 "kOA" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
 "kON" = (
@@ -43930,7 +43930,7 @@
 /area/station/maintenance/floor2/port/fore)
 "les" = (
 /obj/machinery/holopad,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
 "leu" = (
@@ -50842,7 +50842,7 @@
 /area/station/security/holding_cell)
 "mOh" = (
 /obj/structure/reagent_dispensers/watertank/high,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "mOj" = (
@@ -77534,7 +77534,7 @@
 /area/station/command/bridge)
 "twO" = (
 /obj/item/radio/intercom/directional/south,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
 "twP" = (
@@ -80336,7 +80336,7 @@
 /area/station/common/cryopods)
 "uiE" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/machinery/hydroponics/constructable,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
@@ -84983,7 +84983,7 @@
 /area/station/medical/surgery/aft)
 "vqp" = (
 /obj/structure/closet/secure_closet/hydroponics,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /turf/open/floor/iron,
@@ -85739,7 +85739,7 @@
 "vyH" = (
 /obj/machinery/biogenerator,
 /obj/machinery/camera/autoname/directional/south,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "vyK" = (
@@ -94821,7 +94821,7 @@
 /area/space/nearstation)
 "xJk" = (
 /obj/machinery/seed_extractor,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
