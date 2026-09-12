@@ -24,51 +24,68 @@
 			player.playsound_local(player, 'sound/machines/terminal/terminal_prompt_deny.ogg', 50, FALSE)
 
 
-/datum/dynamic_ruleset/midround/from_living/traitor
-	var/static/list/sleeper_current_polling = list()
-	var/static/list/rejected_traitor = list()
 
-/datum/dynamic_ruleset/midround/from_living/traitor/collect_candidates()
+/datum/dynamic_ruleset/midround/from_living/collect_candidates()
 	var/list/candidates = ..()
 	candidates = shuffle(trim_candidates(candidates))
-	return poll_candidates_for_one(candidates)
+	return poll_candidates(candidates)
+
+/datum/dynamic_ruleset/midround/from_living
+	var/midround_ask_question // Optional question asked to candidates for consent before rolling them into a midround antagonist.
+	var/midround_ask_alert_pic // Optional alert icon shown alongside the consent poll.
+	var/list/midround_custom_response_messages // Optional custom response messages for the consent poll.
 
 /**
- * Polls a group of candidates to see if they want to be a sleeper agent.
- *
- * @param candidates a list containing a candidate mobs
+ * Individually asks each candidate in the list if they want to become this antagonist,
+ * stopping and returning as soon as one accepts.
  */
-/datum/dynamic_ruleset/midround/from_living/traitor/proc/poll_candidates_for_one(candidates)
-	message_admins("Attempting to poll [length(candidates)] people individually to become a Sleeper Agent...first one to say yes gets chosen.")
+/datum/dynamic_ruleset/midround/from_living/proc/poll_candidates(list/candidates)
+	message_admins("MID-ROUND ANTAG: attempting to poll [length(candidates)] people individually to become [name].")
+	log_dynamic("MID-ROUND ANTAG: attempting to poll [length(candidates)] people individually to become [name].")
 	var/list/potential_candidates = shuffle(candidates)
 	var/list/yes_candidate = list()
 	for(var/mob/living/candidate in potential_candidates)
 		potential_candidates -= candidate
-		sleeper_current_polling += candidate
+		log_dynamic("MID-ROUND ANTAG: polling [key_name(candidate)] to become [name].")
 		yes_candidate += SSpolling.poll_candidates(
-		question = "Do you want to be a syndicate sleeper agent? If you ignore this, you will be considered to have declined and will be inelegible for all future rolls this round.",
-		group = list(candidate),
-		poll_time = 15 SECONDS,
-		flash_window = TRUE,
-		start_signed_up = FALSE,
-		announce_chosen = FALSE,
-		role_name_text = "Sleeper Agent",
-		alert_pic = /obj/structure/sign/poster/contraband/gorlex_recruitment,
-		custom_response_messages = list(
-			POLL_RESPONSE_SIGNUP = "You have signed up to be a traitor!",
-			POLL_RESPONSE_ALREADY_SIGNED = "You are already signed up to be a traitor.",
-			POLL_RESPONSE_NOT_SIGNED = "You aren't signed up to be a traitor.",
-			POLL_RESPONSE_TOO_LATE_TO_UNREGISTER = "It's too late to decide against being a traitor.",
-			POLL_RESPONSE_UNREGISTERED = "You decide against being a traitor.",
-		),
-		chat_text_border_icon = /obj/structure/sign/poster/contraband/gorlex_recruitment,
-	)
+			question = midround_ask_question || "Do you want to become [name]?.",
+			group = list(candidate),
+			poll_time = 60 SECONDS,
+			flash_window = TRUE,
+			start_signed_up = FALSE,
+			announce_chosen = FALSE,
+			role_name_text = name,
+			alert_pic = midround_ask_alert_pic,
+			custom_response_messages = midround_custom_response_messages || list(
+				POLL_RESPONSE_SIGNUP = "You have signed up to be a [name]!",
+				POLL_RESPONSE_ALREADY_SIGNED = "You are already signed up to be a [name].",
+				POLL_RESPONSE_NOT_SIGNED = "You aren't signed up to be a [name].",
+				POLL_RESPONSE_TOO_LATE_TO_UNREGISTER = "It's too late to decide against being a [name].",
+				POLL_RESPONSE_UNREGISTERED = "You decide against being a [name].",
+			),
+		)
 		if(length(yes_candidate))
-			sleeper_current_polling -= candidate
 			break
-		else
-			message_admins("Candidate [candidate] has declined to be a sleeper agent.")
-			rejected_traitor += candidate
-			sleeper_current_polling -= candidate
-
+		message_admins("Candidate [key_name(candidate)] has declined to become [name].")
+		log_dynamic("MID-ROUND ANTAG: Candidate [key_name(candidate)] has declined to become [name].")
+	if(!length(yes_candidate))
+		message_admins("MID-ROUND ANTAG: Nobody accepted the offer to become [name] - the ruleset will not execute this time.")
+		log_dynamic("MID-ROUND ANTAG: Nobody accepted the offer to become [name] - the ruleset will not execute this time.")
 	return yes_candidate
+
+/*
+ * Midround_ask_question and midround_ask_alert_pic - definations.
+*/
+/datum/dynamic_ruleset/midround/from_living/malf_ai
+	midround_ask_question = "Do you want to become a malfunctioning AI and turn against your Asimov laws?."
+
+/datum/dynamic_ruleset/midround/from_living/blob
+	midround_ask_question = "Do you want to become infected and turn into a blob host?."
+	midround_ask_alert_pic = /obj/structure/blob/normal
+
+/datum/dynamic_ruleset/midround/from_living/obsesed
+	midround_ask_question = "Do you want to become obsessed with another crew member?."
+
+/datum/dynamic_ruleset/midround/from_living/traitor/
+	midround_ask_question = "Do you want to be a syndicate sleeper agent?."
+	midround_ask_alert_pic = /obj/structure/sign/poster/contraband/gorlex_recruitment
