@@ -242,7 +242,15 @@
 	name = "Bluespace Miner"
 	desc = "Nanotrasen has revolutionized the procuring of materials with bluespace-- featuring the Bluespace Miner!"
 	cost = CARGO_CRATE_VALUE * 50 // 10,000
-	contains = list(/obj/item/circuitboard/machine/bluespace_miner)
+	contains = list(/obj/item/circuitboard/machine/bluespace_miner = 1,
+					/obj/item/stack/sheet/glass = 1,
+					/obj/item/stack/sheet/iron/five = 1,
+					/obj/item/stack/ore/bluespace_crystal/refined = 1,
+					/obj/item/stock_parts/servo = 2,
+					/obj/item/stock_parts/matter_bin = 2,
+					/obj/item/stock_parts/micro_laser = 2,
+					/obj/item/stack/cable_coil/five = 1,
+					)
 	crate_name = "Bluespace Miner Circuitboard Crate"
 	crate_type = /obj/structure/closet/crate
 
