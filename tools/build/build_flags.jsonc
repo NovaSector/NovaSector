@@ -44,6 +44,15 @@
 				{ "value": "nebulastation", "label": "NebulaStation" },
 				{ "value": "kilostation", "label": "Kilostation" },
 				{ "value": "catwalkstation", "label": "Catwalk Station" },
+				// NOVA EDIT ADDITION START
+				{ "value": "blueshift", "label": "Blueshift (Nova)" },
+				{ "value": "northstar", "label": "NorthStar (Nova)" },
+				{ "value": "oceanpubby", "label": "Pubby Station (Nova)" },
+				{ "value": "ouroboros", "label": "Ouroboros (Nova)" },
+				{ "value": "serenitystation", "label": "SerenityStation (Nova)" },
+				{ "value": "snowglobe", "label": "Snowglobe Station (Nova)" },
+				{ "value": "voidraptor", "label": "Void Raptor (Nova)" },
+				// NOVA EDIT ADDITION END
 				{ "value": "gateway_test", "label": "Gateway Test (test)" },
 				{ "value": "multiz_debug", "label": "MultiZ Debug (test)" },
 				{ "value": "runtimestation", "label": "Runtime Station (low memory)" },
@@ -175,6 +184,15 @@
 			"category": "Map",
 			"description": "Includes all map templates in the build (needed for some map/ruin testing).",
 		},
+		// NOVA EDIT ADDITION START
+		{
+			"id": "NOVA_TEMPLATES",
+			"define": "NOVA_TEMPLATES",
+			"label": "All Nova templates",
+			"category": "Map",
+			"description": "Includes all Nova map templates in the build (needed for testing our modular ruins, shuttles and away missions).",
+		},
+		// NOVA EDIT ADDITION END
 		{
 			"id": "ALL_MAPS",
 			"define": "ALL_MAPS",
