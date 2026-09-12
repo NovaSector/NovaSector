@@ -5199,7 +5199,7 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor3/fore)
 "blS" = (
-/obj/effect/turf_decal/tile/green/half,
+/obj/effect/turf_decal/tile/green/half/contrasted,
 /obj/structure/table,
 /obj/item/storage/bag/plants,
 /turf/open/floor/iron/dark/side{
@@ -5270,7 +5270,7 @@
 /turf/open/floor/iron/dark/textured,
 /area/station/maintenance/floor2/starboard/aft)
 "bmG" = (
-/obj/effect/turf_decal/tile/green/half,
+/obj/effect/turf_decal/tile/green/half/contrasted,
 /obj/structure/table,
 /obj/item/cultivator,
 /turf/open/floor/iron/dark/side{
@@ -10007,7 +10007,7 @@
 /turf/open/floor/iron,
 /area/station/service/hydroponics/garden)
 "cvP" = (
-/obj/effect/turf_decal/tile/green/half{
+/obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 4
 	},
 /turf/open/floor/iron/dark/side{
@@ -10534,7 +10534,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "cEb" = (
-/obj/effect/turf_decal/tile/green/half{
+/obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 8
 	},
 /turf/open/floor/iron/dark/side{
@@ -13902,7 +13902,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/floor3/aft)
 "dxG" = (
-/obj/effect/turf_decal/tile/green/half{
+/obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -14478,7 +14478,7 @@
 /turf/open/floor/plating,
 /area/station/engineering/gravity_generator)
 "dFy" = (
-/obj/effect/turf_decal/tile/green/half{
+/obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 8
 	},
 /obj/structure/disposalpipe/segment{
@@ -23882,7 +23882,7 @@
 /area/station/medical/treatment_center)
 "gcs" = (
 /obj/machinery/power/apc/auto_name/directional/south,
-/obj/effect/turf_decal/tile/green/half,
+/obj/effect/turf_decal/tile/green/half/contrasted,
 /obj/structure/cable,
 /turf/open/floor/iron/dark/side{
 	dir = 1
@@ -24021,7 +24021,7 @@
 /area/station/maintenance/floor3/port)
 "gej" = (
 /obj/machinery/airalarm/directional/south,
-/obj/effect/turf_decal/tile/green/half,
+/obj/effect/turf_decal/tile/green/half/contrasted,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
