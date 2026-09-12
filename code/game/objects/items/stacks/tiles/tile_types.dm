@@ -174,6 +174,7 @@
 	tile_reskin_types = list(
 		/obj/item/stack/tile/bamboo,
 		/obj/item/stack/tile/bamboo/planks,
+		/obj/item/stack/tile/bamboo/planks/alt, // NOVA EDIT ADDITION - FLOORS_AND_WALLS
 		/obj/item/stack/tile/bamboo/tatami,
 		/obj/item/stack/tile/bamboo/tatami/purple,
 		/obj/item/stack/tile/bamboo/tatami/black,
@@ -368,7 +369,7 @@
 	inhand_icon_state = "tile-carpet-bear"
 	turf_type = /turf/open/floor/carpet/bear
 	merge_type = /obj/item/stack/tile/carpet/bear
-	tile_reskin_types = null
+	tile_reskin_types = list(/obj/item/stack/tile/carpet/bear, /obj/item/stack/tile/carpet/bear/alt) // NOVA EDIT CHANGE - FLOORS_AND_WALLS - ORIGINAL: tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/polar_bear
 	name = "polar fur carpet"
@@ -377,7 +378,7 @@
 	inhand_icon_state = "tile-carpet-bear-polar"
 	turf_type = /turf/open/floor/carpet/polar_bear
 	merge_type = /obj/item/stack/tile/carpet/polar_bear
-	tile_reskin_types = null
+	tile_reskin_types = list(/obj/item/stack/tile/carpet/polar_bear, /obj/item/stack/tile/carpet/polar_bear/alt) // NOVA EDIT CHANGE - FLOORS_AND_WALLS - ORIGINAL: tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/moth
 	name = "moth fur carpet"
@@ -386,7 +387,7 @@
 	inhand_icon_state = "tile-carpet-moth"
 	turf_type = /turf/open/floor/carpet/moth
 	merge_type = /obj/item/stack/tile/carpet/moth
-	tile_reskin_types = null
+	tile_reskin_types = list(/obj/item/stack/tile/carpet/moth, /obj/item/stack/tile/carpet/moth/alt) // NOVA EDIT CHANGE - FLOORS_AND_WALLS - ORIGINAL: tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/goliath
 	name = "goliath hide carpet"
@@ -395,7 +396,7 @@
 	inhand_icon_state = "tile-carpet-goliath"
 	turf_type = /turf/open/floor/carpet/goliath
 	merge_type = /obj/item/stack/tile/carpet/goliath
-	tile_reskin_types = null
+	tile_reskin_types = list(/obj/item/stack/tile/carpet/goliath, /obj/item/stack/tile/carpet/goliath/alt) // NOVA EDIT CHANGE - FLOORS_AND_WALLS - ORIGINAL: tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/carp
 	name = "carp scales carpet"
@@ -404,7 +405,7 @@
 	inhand_icon_state = "tile-carpet-carp"
 	turf_type = /turf/open/floor/carpet/carp
 	merge_type = /obj/item/stack/tile/carpet/carp
-	tile_reskin_types = null
+	tile_reskin_types = list(/obj/item/stack/tile/carpet/carp, /obj/item/stack/tile/carpet/carp/alt) // NOVA EDIT CHANGE - FLOORS_AND_WALLS - ORIGINAL: tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/lizard
 	name = "lizard scales carpet"
@@ -413,7 +414,7 @@
 	inhand_icon_state = "tile-carpet-lizard"
 	turf_type = /turf/open/floor/carpet/lizard
 	merge_type = /obj/item/stack/tile/carpet/lizard
-	tile_reskin_types = null
+	tile_reskin_types = list(/obj/item/stack/tile/carpet/lizard, /obj/item/stack/tile/carpet/lizard/alt) // NOVA EDIT CHANGE - FLOORS_AND_WALLS - ORIGINAL: tile_reskin_types = null
 
 /obj/item/stack/tile/carpet/human
 	name = "human skin carpet"
@@ -1196,6 +1197,7 @@
 	tile_reskin_types = list(
 		/obj/item/stack/tile/plastic,
 		/obj/item/stack/tile/plastic/puzzle,
+		/obj/item/stack/tile/plastic/puzzle/alt, // NOVA EDIT ADDITION - FLOORS_AND_WALLS
 	)
 
 /obj/item/stack/tile/plastic/puzzle
@@ -1216,6 +1218,10 @@
 	tile_reskin_types = list(
 		/obj/item/stack/tile/hauntium,
 		/obj/item/stack/tile/hauntium/tiled,
+		// NOVA EDIT ADDITION START - FLOORS_AND_WALLS
+		/obj/item/stack/tile/hauntium/ghostbricked,
+		/obj/item/stack/tile/hauntium/alt,
+		// NOVA EDIT ADDITION END
 	)
 
 /obj/item/stack/tile/hauntium/tiled
