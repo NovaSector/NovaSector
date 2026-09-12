@@ -22,7 +22,7 @@
 	desc = "Serenity Station SS-13\n'Planetary' Class Outpost\n\
 			Commissioned 15/12/2563"
 
-/// The North Star Expeditionary Vessel
+/// NorthStar:
 /// - first added on the 13th of April, 2023 (https://github.com/tgstation/tgstation/pull/74371)
 /// - first removed on the 25th of November, 2024 (https://github.com/tgstation/tgstation/pull/87937)
 /// - re-implemented on Nova on the 11th of September, 2026 (https://github.com/NovaSector/NovaSector/pull/7818)
