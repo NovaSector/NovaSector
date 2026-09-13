@@ -188,3 +188,55 @@
   - sound: added can_hit.ogg
   Twaticus:
   - image: reverts/resprites multiple walls/floors from 'floors and walls pr'
+2026-09-13:
+  ArcaneMusic:
+  - rscadd: Cargo may now buy a brand new, Nanomusic Boombox! Comes free with 1 demo
+      tape. Two additional disks sold separately (as goodies).
+  - rscadd: A familiar-sounding tape has been added to the game's vendor's premium
+      goods.
+  - rscadd: A rare tape has been added to the black market.
+  - rscadd: A rare tape has been added as a bitrunning secondary reward.
+  MacaroniCritter:
+  - bugfix: Chemistry fixed on Ocean Pubby, other sections smoothed over.
+  MelokG000:
+  - rscadd: PLANKMAN-type portable generator! You can now burn wood for power!
+  Neocloudy:
+  - rscadd: Returning map, the North Star Expeditionary Vessel.
+  - map: 'NorthStar: The Cook/Chef/whatever will now have CQC in the Diner area. The
+      one actually outside their Kitchen.'
+  - map: 'NorthStar: If the Captain renames the ship, the announcement will actually
+      say ship rather than station.'
+  - map: 'NorthStar: Tweaked a lot of egregious decals.'
+  - map: 'NorthStar: Delayed unrestricted access is now used in all locations except
+      Medical, Science, Escape Pods and that one maintenance room that Assistants
+      can spawn in.'
+  - map: 'NorthStar: This means that if you''re in maintenance without proper access,
+      exiting maintenance will take longer due to the use of delayed unrestricted
+      access.'
+  - map: 'NorthStar: Some very specific spots deep inside maintenance that didn''t
+      have any unrestricted access now have delayed unrestricted access, so it''s
+      now more likely that you have at least one (slow!) path to exit maintenance,
+      even without access.'
+  - map: Updated Nova map commission plaques.
+  OrbisAnima:
+  - balance: Reduces the exponent of the Departamental Orders from 2.2 to 2, This
+      makes the shortest order go from 7.5 min to 6.75 min and the longest from 20
+      min to 16 min.
+  - qol: Makes it so the Bluespace miner crate comes with all the parts it needs to
+      be built with, this should make it so people dont have to canibalize the teleporter
+      to use it.
+  Richard Blonski:
+  - rscdel: Mid-round antagonist candidates won't be ineligible for future mid-round
+      polls.
+  - qol: All mid-round antagonist candidates will now be polled on whether they actually
+      wish to play as an antagonist.
+  - qol: Mid-round antagonist polls have been increased from 15 seconds to --> 60
+      seconds.
+  necromanceranne:
+  - rscadd: Some collars are now able to be cuffed to your arm.
+  sqnztb:
+  - rscadd: Reintroduces 77 new floors and 8 walls removed by TG. Reskin by using
+      them in hand.
+  vinylspiders:
+  - rscdel: deletes a bunch of unused, unreferenced assets from the game
+  - bugfix: fixes bot move path overlays not showing up
