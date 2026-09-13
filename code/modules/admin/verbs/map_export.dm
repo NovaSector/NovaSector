@@ -322,6 +322,10 @@ GLOBAL_LIST_INIT(save_file_chars, list(
 				if((save_flag & SAVE_TURFS) && (save_flag & SAVE_ATMOS) && !isspaceturf(pull_from))
 					var/metadata = generate_tgm_metadata(pull_from)
 					current_header += "[metadata]"
+				// NOVA EDIT ADDITION START - Player homes, saving rotated floor tiles
+				else if((save_flag & SAVE_TURFS) && (save_flag & SAVE_TURF_DIR) && pull_from && pull_from.dir != initial(pull_from.dir))
+					current_header += "{\n\tdir = [pull_from.dir]\n\t}"
+				// NOVA EDIT ADDITION END
 				current_header += ",\n[location])\n"
 				//====Fill the contents file====
 				var/textiftied_header = current_header.Join()

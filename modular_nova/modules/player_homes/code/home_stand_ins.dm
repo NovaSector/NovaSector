@@ -172,6 +172,33 @@ GLOBAL_LIST_INIT(home_water_depths, list(
 	. += NAMEOF(src, water_height)
 	return .
 
+/// Dropped by SShomes.repair_models() on a tile whose save named types that no longer exist.
+/obj/effect/home_load_error
+	name = "registry error marker"
+	desc = "The registry couldn't make sense of part of this tile's record, and restored what it could."
+	icon = 'icons/hud/screen_gen.dmi'
+	icon_state = "x"
+	anchored = TRUE
+	layer = HIGH_OBJ_LAYER
+	/// The type paths the save named here that don't exist any more. Set by the map loader.
+	var/list/missing_paths
+
+/obj/effect/home_load_error/examine(mob/user)
+	. = ..()
+	if(length(missing_paths))
+		. += span_warning("Lost from this tile: [jointext(missing_paths, ", ")].")
+	. += span_notice("Anything missing a floor was laid with plating. Saving now makes these repairs permanent - \
+		if something important is gone, ask an administrator before you save.")
+	. += span_notice("The owner can clear the marker by hand.")
+
+/obj/effect/home_load_error/attack_hand(mob/living/user, list/modifiers)
+	var/datum/home_instance/home = get_home_of(src)
+	if(!home?.is_owner(user))
+		return ..()
+	to_chat(user, span_notice("You clear \the [src]."))
+	qdel(src)
+	return TRUE
+
 /obj/item/home_water_marker
 	name = "hydrostatic marker tool"
 	desc = "Pools made easy. Click a tile to mark it as needing water."
@@ -258,3 +285,91 @@ GLOBAL_LIST_INIT(home_water_depths, list(
 	return ITEM_INTERACT_SUCCESS
 
 #undef HOME_WATER_REVEAL_TIME
+
+/*
+ * PAINT
+ * We could just have it change the `color` but material colors apply after that in the load order
+ * which would overwrite, meaning we need this sort of hacky workaround.
+ */
+/obj
+	/// Colour laid on by a residence spray can. Saved with the home and reapplied on every load.
+	var/home_paint
+
+/obj/get_save_vars()
+	. = ..()
+	. += NAMEOF(src, home_paint)
+	return .
+
+/// Paints this object, or strips its paint when passed null.
+/obj/proc/set_home_paint(new_paint)
+	home_paint = new_paint
+	// A washable coat outranks this one: it would hide the paint and stop color from saving.
+	remove_atom_colour(WASHABLE_COLOUR_PRIORITY)
+	if(new_paint)
+		add_atom_colour(new_paint, FIXED_COLOUR_PRIORITY)
+		return
+	remove_atom_colour(FIXED_COLOUR_PRIORITY)
+	// Any material tint doesn't come back until the next load, when materials apply it again.
+	if(initial(color))
+		add_atom_colour(initial(color), FIXED_COLOUR_PRIORITY)
+
+/obj/item/home_paint_can
+	name = "residence spray can"
+	desc = "Registry-issue paint. It only takes inside a residence, and it holds through every save."
+	desc_controls = "Use in hand to pick a colour. Click an object to paint it, right-click to strip its paint."
+	icon = 'icons/obj/art/crayons.dmi'
+	icon_state = "spraycan"
+	worn_icon_state = "spraycan"
+	inhand_icon_state = "spraycan"
+	lefthand_file = 'icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	w_class = WEIGHT_CLASS_SMALL
+	/// The colour the next object painted will take.
+	var/paint_color = COLOR_WHITE
+
+/obj/item/home_paint_can/Initialize(mapload)
+	. = ..()
+	update_appearance(UPDATE_OVERLAYS)
+
+/obj/item/home_paint_can/update_overlays()
+	. = ..()
+	var/mutable_appearance/paint_overlay = mutable_appearance(icon, "spraycan_colors")
+	paint_overlay.color = paint_color
+	. += paint_overlay
+
+/obj/item/home_paint_can/attack_self(mob/user, modifiers)
+	. = ..()
+	if(.)
+		return
+	var/picked = tgui_color_picker(user, "Pick a paint colour.", "Residence Spray Can", paint_color)
+	if(isnull(picked) || !user.can_perform_action(src))
+		return
+	paint_color = sanitize_hexcolor(picked)
+	update_appearance(UPDATE_OVERLAYS)
+	balloon_alert(user, "colour set")
+
+/obj/item/home_paint_can/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!isobj(interacting_with) || iseffect(interacting_with))
+		return NONE
+	if(isnull(get_home_of(interacting_with)))
+		balloon_alert(user, "only takes in a residence!")
+		return ITEM_INTERACT_BLOCKING
+	var/obj/target = interacting_with
+	if(target.home_paint == paint_color)
+		balloon_alert(user, "already that colour")
+		return ITEM_INTERACT_BLOCKING
+	target.set_home_paint(paint_color)
+	playsound(src, 'sound/effects/spray.ogg', 5, TRUE, 5)
+	balloon_alert(user, "painted")
+	return ITEM_INTERACT_SUCCESS
+
+/obj/item/home_paint_can/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!isobj(interacting_with) || iseffect(interacting_with))
+		return NONE
+	var/obj/target = interacting_with
+	if(!target.home_paint)
+		balloon_alert(user, "no paint to strip")
+		return ITEM_INTERACT_BLOCKING
+	target.set_home_paint(null)
+	balloon_alert(user, "paint stripped")
+	return ITEM_INTERACT_SUCCESS

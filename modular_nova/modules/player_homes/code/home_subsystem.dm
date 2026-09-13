@@ -125,6 +125,11 @@ SUBSYSTEM_DEF(homes)
 	for(var/turf/reserved as anything in home.reservation.reserved_turfs)
 		for(var/atom/movable/furnishing in reserved.get_all_contents())
 			ADD_TRAIT(furnishing, TRAIT_HOME_FURNISHING, HOME_FURNISHING_TRAIT)
+			// Materials painted over the saved colour while this initialized. See home_stand_ins.dm.
+			if(isobj(furnishing))
+				var/obj/painted = furnishing
+				if(painted.home_paint)
+					painted.set_home_paint(painted.home_paint)
 		CHECK_TICK
 
 /// Warps a mob into an already-loaded home.

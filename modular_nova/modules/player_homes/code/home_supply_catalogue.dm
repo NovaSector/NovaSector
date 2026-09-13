@@ -395,6 +395,11 @@
 	desc = "Marks a floor tile to have standing water for pools, baths, etc."
 	manifest = list(/obj/item/home_water_marker = 1)
 
+/datum/home_supply/tools/paint_can
+	name = "Residence spray can"
+	desc = "Paints furnishings any colour you like, and the colour holds through a save. Only works inside a residence."
+	manifest = list(/obj/item/home_paint_can = 1)
+
 /datum/home_supply/tools/light_replacer
 	name = "Bluespace light replacer"
 	desc = "Refills off glass sheets."

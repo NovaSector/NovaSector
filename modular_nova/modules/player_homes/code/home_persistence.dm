@@ -43,29 +43,82 @@
 	return TRUE
 
 /// Parses a .dmm off disk into a loadable template, or returns null if it isn't usable.
-/// Bad objects are fine, they disappear. Bad turfs are a bigger problem and it refuses the load.
+/// Tiles naming types that no longer exist are repaired rather than refused - see repair_models().
 /datum/controller/subsystem/homes/proc/build_runtime_template(path, template_name)
 	if(!path || !fexists(path))
 		return null
 	var/datum/map_template/home/player_save/candidate = new(path, template_name, TRUE)
 	if(isnull(candidate.cached_map))
+		// An empty read here on a file that looks fine afterwards points at I/O, not content.
+		log_game("Player homes: [path] rejected - no parseable map data ([length(file2text(path))] chars read).")
 		qdel(candidate)
 		return null
 	if(!candidate.width || !candidate.height || (candidate.width > HOME_MAX_DIMENSION) || (candidate.height > HOME_MAX_DIMENSION))
+		log_game("Player homes: [path] rejected - dimensions [candidate.width]x[candidate.height] (max [HOME_MAX_DIMENSION]).")
 		qdel(candidate)
 		return null
 
 	var/datum/map_report/report = candidate.cached_map.check_for_errors()
-	var/loadable = TRUE
 	if(report)
-		loadable = report.loadable
+		var/repaired = repair_models(candidate.cached_map, report)
+		if(repaired)
+			log_game("Player homes: [path] had [repaired] damaged tile model\s repaired - bad paths: [jointext(report.bad_paths, ", ")]")
 		qdel(report)
-	if(!loadable)
-		qdel(candidate)
-		return null
 
-	candidate.keep_cached_map = TRUE // the parse is already paid for, don't make load() do it twice
+	// Load-bearing, not just a saving: repair_models() patched this parse, and a fresh one would undo it.
+	candidate.keep_cached_map = TRUE
 	return candidate
+
+/// Rebuilds every tile model the parser couldn't fully read, so one renamed type costs a player a few
+/// tiles instead of their whole home. Unknown objects are dropped, a lost turf becomes plating, a lost
+/// area becomes the home's own, and every repaired tile gets a load error marker naming what went
+/// missing. load() reuses the patched cache as long as nobody rebuilds it with bad_paths again.
+/// Returns how many models were repaired.
+/datum/controller/subsystem/homes/proc/repair_models(datum/parsed_map/parsed, datum/map_report/report)
+	var/list/missing_by_key = list()
+	for(var/bad_path in report.bad_paths)
+		for(var/key in report.bad_paths[bad_path])
+			LAZYADD(missing_by_key[key], bad_path)
+	for(var/key in report.bad_keys) // turf or area count wrong without any unknown path
+		if(!(key in missing_by_key))
+			missing_by_key[key] = list()
+
+	var/static/list/default_list = GLOB.map_model_default
+	var/list/model_cache = parsed.modelCache
+	var/repaired = 0
+	for(var/key in missing_by_key)
+		var/list/model = model_cache[key]
+		if(isnull(model))
+			continue
+		var/list/members = model[1]
+		var/list/attributes = model[2]
+
+		// The loader reads the area off the end and the turf just before it, so rebuild in that order.
+		var/list/new_members = list(/obj/effect/home_load_error)
+		var/list/new_attributes = list(list("missing_paths" = missing_by_key[key]))
+		var/turf_type
+		var/list/turf_attributes
+		var/area_type
+		var/list/area_attributes
+		for(var/i in 1 to length(members))
+			var/member = members[i]
+			if(ispath(member, /area))
+				area_type = member
+				area_attributes = attributes[i]
+			else if(ispath(member, /turf))
+				turf_type = member
+				turf_attributes = attributes[i]
+			else
+				new_members += member
+				new_attributes += list(attributes[i])
+		new_members += turf_type || /turf/open/floor/plating
+		new_attributes += list(turf_type ? turf_attributes : default_list)
+		new_members += area_type || /area/misc/player_home
+		new_attributes += list(area_type ? area_attributes : default_list)
+
+		model_cache[key] = list(new_members, new_attributes)
+		repaired++
+	return repaired
 
 /// Picks what to actually put in the reservation: their save, else their backup, else the initial starter
 /datum/controller/subsystem/homes/proc/resolve_template(ckey, mob/user)
@@ -162,6 +215,15 @@
 	mark_furnishings(home)
 	home.apply_settings()
 	flush_pending_deliveries(home)
+
+	var/damaged_tiles = 0
+	for(var/turf/reserved as anything in reservation.reserved_turfs)
+		for(var/obj/effect/home_load_error/marker in reserved)
+			damaged_tiles++
+	if(damaged_tiles)
+		// Neutrally worded for the same reason as resolve_template(): it may not be the owner reading it.
+		to_chat(user, span_warning("[damaged_tiles] tile\s of this residence couldn't be fully restored and [damaged_tiles == 1 ? "is" : "are"] flagged with a red marker. Examine one to see what was lost."))
+		message_admins("Player homes: [ckey] home loaded with [damaged_tiles] damaged tile\s - see the game log for the missing paths.")
 	return home
 
 /// Moves every reserved turf into a freshly made /area/misc/player_home.

@@ -8,6 +8,7 @@
 #define SAVE_ATMOS (1 << 7) //! Save turf atmos
 // NOVA EDIT ADDITION START - For player homes
 #define SAVE_TURF_DECALS (1 << 8)
+#define SAVE_TURF_DIR (1 << 9) //! Save turf dir on its own, without SAVE_ATMOS pulling in every other turf var and the air
 // NOVA EDIT ADDITION END
 
 //Ignore turf if it contains
