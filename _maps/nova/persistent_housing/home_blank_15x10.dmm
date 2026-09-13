@@ -1,0 +1,205 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/closed/wall,
+/area/misc/player_home)
+"ab" = (
+/turf/open/floor/plating,
+/area/misc/player_home)
+"ac" = (
+/turf/closed/indestructible/hoteldoor/fakedoor/player_home,
+/area/misc/player_home)
+"ad" = (
+/obj/machinery/home_saver,
+/turf/open/floor/plating,
+/area/misc/player_home)
+"kk" = (
+/obj/item/construction/rld,
+/turf/open/floor/plating,
+/area/misc/player_home)
+"RX" = (
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/obj/item/flashlight/lantern,
+/turf/open/floor/plating,
+/area/misc/player_home)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(3,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(4,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(5,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(6,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ad
+aa
+"}
+(7,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+RX
+ab
+ac
+"}
+(8,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+kk
+ab
+aa
+"}
+(9,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(10,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(11,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(12,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(13,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(14,1,1) = {"
+aa
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aa
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

@@ -294,12 +294,26 @@ GLOBAL_LIST_INIT(save_file_chars, list(
 						if(save_flag & SAVE_OBJECT_PROPERTIES)
 							var/custom_data = thing.on_object_saved()
 							current_header += "[custom_data ? ",\n[custom_data]" : ""]"
+					// NOVA EDIT ADDITION START - Player homes, saving turf decals
+					// See modular_nova/modules/player_homes/code/home_stand_ins.dm
+					if(pull_from && (save_flag & SAVE_TURF_DECALS))
+						for(var/decal_entry in pull_from.get_decal_save_entries())
+							current_header += "[empty ? "" : ",\n"][decal_entry]"
+							empty = FALSE
+					// NOVA EDIT ADDITION END
 				//====SAVING MOBS====
 				if(save_flag & SAVE_MOBS)
 					for(var/mob/living/thing in pull_from)
 						CHECK_TICK
 						if(istype(thing, /mob/living/carbon)) //Ignore people, but not animals
 							continue
+						// NOVA EDIT ADDITION START - Player homes
+						// The carbon check above only covers most players. A cyborg, an AI shell or a
+						// player-controlled basic mob would otherwise be written into the file and
+						// respawn as an NPC copy of themselves every time the map is loaded back.
+						if(thing.mind || thing.ckey)
+							continue
+						// NOVA EDIT ADDITION END
 						var/metadata = generate_tgm_metadata(thing)
 						current_header += "[empty ? "" : ",\n"][thing.type][metadata]"
 						empty = FALSE
