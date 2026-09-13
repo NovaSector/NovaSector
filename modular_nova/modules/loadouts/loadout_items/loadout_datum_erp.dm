@@ -59,6 +59,10 @@
 	name = "Vibrating Ring"
 	item_path = /obj/item/clothing/sextoy/vibroring
 
+/datum/loadout_item/erp/portal_fleshlight
+	name = "Portal Device and Underwear"
+	item_path = /obj/item/storage/box/erp/portal_fleshlight
+
 /*
 *	DILDOS
 */
