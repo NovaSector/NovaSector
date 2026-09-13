@@ -12,7 +12,7 @@
 		if (!valid_node(node))
 			continue
 
-		output += "\n\n" + include_template("Autowiki/TechwebEntry", list(
+		output += AUTOWIKI_NEWLINE + include_template("Autowiki/TechwebEntry", list(
 			"name" = escape_value(node.display_name),
 			"description" = escape_value(node.description),
 			"prerequisites" = generate_prerequisites(node.prerequisite_nodes),
