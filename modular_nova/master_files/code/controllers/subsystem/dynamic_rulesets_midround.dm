@@ -26,7 +26,7 @@
 
 
 /datum/dynamic_ruleset/midround/from_living/collect_candidates()
-	var/list/candidates = ..()
+	var/list/candidates = GLOB.alive_player_list
 	candidates = shuffle(trim_candidates(candidates))
 	return poll_candidates(candidates)
 
