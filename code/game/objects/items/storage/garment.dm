@@ -95,6 +95,7 @@
 	new /obj/item/clothing/mask/gas/sechailer/swat(src)
 	new /obj/item/clothing/neck/cloak/hos(src)
 	// NOVA EDIT ADDITION START - EXTRA GOODIES
+	new /obj/item/clothing/suit/armor/hos/flak(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/nova(src)
 	new /obj/item/clothing/under/rank/security/head_of_security/nova/formal(src)
 	// NOVA EDIT ADDITION END

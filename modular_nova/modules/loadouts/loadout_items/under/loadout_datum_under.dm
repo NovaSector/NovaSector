@@ -229,6 +229,10 @@
 	name = "Formal Dress - Sailor"
 	item_path = /obj/item/clothing/under/dress/sailor
 
+/datum/loadout_item/under/formal/draped_dress
+	name = "Draped Dress"
+	item_path = /obj/item/clothing/under/dress/nova/draped_dress
+
 /datum/loadout_item/under/formal/inferno
 	name = "Inferno Suit"
 	item_path = /obj/item/clothing/under/suit/nova/inferno
@@ -300,9 +304,21 @@
 	name = "Pencilskirt - Shirtless"
 	item_path = /obj/item/clothing/under/suit/nova/pencil/noshirt
 
+/datum/loadout_item/under/formal/pencil/pleated
+	name = "Pencilskirt - Pleated"
+	item_path = /obj/item/clothing/under/dress/nova/pleated_pencil_skirt
+
 /datum/loadout_item/under/formal/pencil/checkered/noshirt
 	name = "Pencilskirt - Shirtless (Checkered)"
 	item_path = /obj/item/clothing/under/suit/nova/pencil/checkered/noshirt
+
+/datum/loadout_item/under/skirt/swept_skirt
+	name = "Swept Skirt"
+	item_path = /obj/item/clothing/under/dress/skirt/nova/swept
+
+/datum/loadout_item/under/skirt/striped_skirt
+	name = "Striped Skirt"
+	item_path = /obj/item/clothing/under/dress/skirt/nova/striped_skirt
 
 /datum/loadout_item/under/formal/recolorable_suit
 	name = "Suit  (Colorable)"
