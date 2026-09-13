@@ -59,3 +59,58 @@
 
 /obj/item/melee/baton/nunchaku
 	cooldown = 2 SECONDS // Original Melee CD (0.8 sec), weapon deemed too powerful with the throwmode that makes you immune to melee and throw
+
+
+/obj/item/melee/baton/security/shockwhip
+	name = "\improper IC-44 Shock Whip"
+	desc = "A highly specialized conductive monofilament wire whip. With the use of a power cell at the handle, the whip can be used to both kill and incapacitate. Due to its expensive and complex nature, it is only made available to highly specialized users."
+	icon = 'modular_nova/modules/modular_weapons/icons/obj/melee.dmi'
+	icon_state = "stunbaton"
+	inhand_icon_state = "chain"
+	base_inhand_state = "chain"
+	worn_icon_state = "whip"
+	icon_angle = -90
+	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
+	slot_flags = ITEM_SLOT_BELT
+	sharpness = SHARP_EDGED
+	force = 20
+	throwforce = 7
+	wound_bonus = 10
+	exposed_wound_bonus = 20
+	force_say_chance = 50
+	stamina_damage = 60
+	armour_type_against_stun = ENERGY
+	knockdown_time = 5 SECONDS
+	clumsy_knockdown_time = 15 SECONDS
+	reach = 2
+	active = FALSE
+	stun_on_harmbaton = TRUE
+	weak_against_armour = TRUE
+	w_class = WEIGHT_CLASS_NORMAL
+	light_range = 1.5
+	light_system = OVERLAY_LIGHT
+	light_on = FALSE
+	light_color = LIGHT_COLOR_BLUE
+	light_power = 0.5
+	attack_verb_continuous = list("Slashes", "whips", "lashes", "Lacerates")
+	attack_verb_simple = list("Slashes", "whip", "lash", "lacerate")
+	hitsound = 'sound/items/weapons/whip.ogg'
+	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT)
+
+/obj/item/melee/baton/security/shockwhip/update_icon_state()
+	var/base_inhand = base_inhand_state || base_icon_state
+	if(active)
+		icon_state = "[base_icon_state]_active"
+		if(active_changes_inhand)
+			inhand_icon_state = base_inhand
+	else if(!cell)
+		icon_state = "[base_icon_state]"
+		inhand_icon_state = base_inhand
+	else
+		icon_state = base_icon_state
+		inhand_icon_state = base_inhand
+	return ..()
+
+/obj/item/melee/baton/security/shockwhip/loaded
+	preload_cell_type = /obj/item/stock_parts/power_store/cell/bluespace
