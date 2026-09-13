@@ -383,6 +383,7 @@
 #include "~nova\liver_nova.dm"
 #include "~nova\neuroware_chips.dm"
 #include "~nova\opposing_force.dm"
+#include "~nova\player_homes.dm"
 #include "~nova\shuttle.dm"
 // NOVA EDIT END
 // END_INCLUDE
