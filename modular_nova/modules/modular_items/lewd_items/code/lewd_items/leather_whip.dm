@@ -12,7 +12,6 @@
 	worn_icon_muzzled = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_masks_muzzled.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 	hitsound = 'sound/items/weapons/whip.ogg'
-	clothing_flags = INEDIBLE_CLOTHING
 	obj_flags_nova = ERP_ITEM
 	//When taking that thing in mouth
 	flags_cover = MASKCOVERSMOUTH
@@ -44,6 +43,10 @@
 	var/list/moans_alt = list("Mhgm...", "Hmmmp!...", "GMmmhp!")
 	/// Probabilty that `moans_alt` is used instead of `moans`
 	var/moans_alt_probability = 5
+
+/// The funny things we write when certain clothg flags are removed.
+/obj/item/clothing/mask/leatherwhip/create_moth_snack()
+	return null
 
 /obj/item/clothing/mask/leatherwhip/worn_overlays(isinhands = FALSE)
 	. = ..()

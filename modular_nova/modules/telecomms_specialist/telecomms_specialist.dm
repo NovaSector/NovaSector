@@ -10,6 +10,7 @@
 	exp_required_type = EXP_TYPE_CREW
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "TELECOMMS_SPECIALIST"
+	tgui_icon = FA_ICON_TOWER_CELL
 
 	outfit = /datum/outfit/job/telecomms_specialist
 	plasmaman_outfit = /datum/outfit/plasmaman/engineering

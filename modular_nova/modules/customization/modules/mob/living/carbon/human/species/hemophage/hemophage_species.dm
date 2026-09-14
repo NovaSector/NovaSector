@@ -46,14 +46,14 @@
 	. = ..()
 	to_chat(new_hemophage, HEMOPHAGE_SPAWN_TEXT)
 	new_hemophage.set_blood_volume(BLOOD_VOLUME_ROUNDSTART_HEMOPHAGE)
-	new_hemophage.physiology.bleed_mod *= HEMOPHAGE_BLEED_MOD
+	MODIFY_PHYSIOLOGY(new_hemophage, PHYS_COEFF_BLEED, HEMOPHAGE_BLEED_MOD)
 	new_hemophage.update_body()
 
 
 /datum/species/hemophage/on_species_loss(mob/living/carbon/human/former_hemophage, datum/species/new_species, pref_load)
 	. = ..()
 	former_hemophage.set_blood_volume(BLOOD_VOLUME_NORMAL)
-	former_hemophage.physiology.bleed_mod /= HEMOPHAGE_BLEED_MOD
+	MODIFY_PHYSIOLOGY(former_hemophage, PHYS_COEFF_BLEED, 1 / HEMOPHAGE_BLEED_MOD)
 	former_hemophage.update_body()
 
 

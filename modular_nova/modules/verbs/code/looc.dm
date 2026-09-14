@@ -14,7 +14,7 @@ GAME_VERB_DESC(/client, looc_wallpierce, "LOOC(Wallpierce)", "Local OOC, seen by
 	if(!mob)
 		return
 
-	msg = copytext_char(sanitize(msg), 1, MAX_MESSAGE_LEN)
+	msg = copytext_char(sanitize(html_decode(msg)), 1, MAX_MESSAGE_LEN)
 	if(!msg)
 		return
 

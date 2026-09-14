@@ -25,7 +25,7 @@
 	bodyshape = BODYSHAPE_MONKEY
 	acceptable_bodyshape = BODYSHAPE_MONKEY
 	dmg_overlay_type = SPECIES_MONKEY
-	wing_types = list(/obj/item/organ/wings/functional/dragon)
+	wing_types = list(/obj/item/organ/wings/dragon)
 
 /obj/item/bodypart/chest/kobold/get_butt_sprite()
 	return icon('icons/mob/butts.dmi', BUTT_SPRITE_LIZARD)

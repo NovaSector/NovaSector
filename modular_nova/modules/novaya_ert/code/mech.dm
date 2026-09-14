@@ -1,9 +1,7 @@
 /obj/vehicle/sealed/mecha/warden
 	name = "\improper M/TACS-1-LF \"Warden\""
 	desc = "A frontier-optimized combat exosuit and the product of a rare collaboration between Kemppainen-Morozov Industrial Fabrication \
-		and Szot Dynamica. KMIF's unshakable chassis provides Durand-level resilience, while SŻD's responsive myomer systems \
-		grant it Gygax-like agility. Stripped of complex jump jets and grapples for ease of maintenance, it excels as a mobile firing \
-		platform and boarding-assault anchor."
+		and Szot Dynamica, designed as a mobile firing platform and boarding-assault anchor."
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "warden"
 	base_icon_state = "warden"
@@ -22,6 +20,15 @@
 		MECHA_ARMOR = 2,
 	)
 
+	/// Reusable smoke generator system
+	var/datum/effect_system/fluid_spread/smoke/smoke_system
+	/// Remaining smoke charges
+	var/smoke_charges = 5
+	/// Cooldown between using smoke
+	var/smoke_cooldown = 10 SECONDS
+	/// Bool for zoom on/off
+	var/zoom_mode = FALSE
+
 /datum/armor/warden
 	melee = 65
 	bullet = 60
@@ -33,8 +40,41 @@
 
 /obj/vehicle/sealed/mecha/warden/generate_actions()
 	. = ..()
-	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_smoke)
-	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/mech_zoom)
+	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/warden_smoke)
+	initialize_passenger_action_type(/datum/action/vehicle/sealed/mecha/warden_zoom)
+
+/obj/vehicle/sealed/mecha/warden/Initialize(mapload, built_manually)
+	. = ..()
+	smoke_system = new(src, 3, holder = src)
+	lore_jumpscare()
+
+/obj/vehicle/sealed/mecha/warden/Destroy()
+	QDEL_NULL(smoke_system)
+	return ..()
+
+/// Adds an examine_lore() component. Snowflaked for neater overriding (see the Arbiter/WUNK further down).
+/obj/vehicle/sealed/mecha/warden/proc/lore_jumpscare()
+	AddElement(/datum/element/examine_lore, \
+		lore = "The M/TACS-1-LF \"Warden\" is a frontier-optimized combat exosuit, the product of a rare collaboration between \
+		Kemppainen-Morozov Industrial Fabrication and Szot Dynamica.<br>\
+		<br>\
+		KMIF's unshakable chassis provides Durand-level resilience, while SŻD's responsive myomer systems grant it Gygax-like agility. \
+		Typically stripped of complex jump jets and grapples for ease of maintenance, it excels as a mobile firing \
+		platform and boarding-assault anchor.<br>\
+		<br>\
+		The Warden's typical armament of a M/FC-8-LF \"Forge\" fabrication cannon, with its ability to select appropriate ammunition for scanned targets, \
+		paired with a M/HP-22 \"Strele\" coaxial plasma pulse machinegun, gives it excellent tactical flexibility." \
+	)
+
+/obj/vehicle/sealed/mecha/warden/can_move(direction)
+	. = ..()
+	if(!. || !zoom_mode)
+		return
+
+	if(TIMER_COOLDOWN_FINISHED(src, COOLDOWN_MECHA_MESSAGE))
+		to_chat(occupants, "[icon2html(src, occupants)][span_warning("Unable to move while in zoom mode!")]")
+		TIMER_COOLDOWN_START(src, COOLDOWN_MECHA_MESSAGE, 2 SECONDS)
+	return FALSE
 
 /obj/structure/mecha_wreckage/warden
 	name = "\improper Warden wreckage"
@@ -57,10 +97,9 @@
 
 /obj/vehicle/sealed/mecha/warden/wunk
 	name = "\improper M/TACS-1A-LF \"Arbiter\" (WUNK)"
-	desc = "The Warden Urban Necessity Kit transforms the already formidable frontier combat exosuit into a dedicated urban-breaching \
-		asset. Reinforced chassis now incorporates supplemental armor pauldrons, a groin plate, and a rear skirt, while \
-		myomer systems are recalibrated to compensate. Its sensor suite provides wall-penetrating radar and 360° awareness. \
-		Heavier and slower than its predecessor, but unmatched in shipboard assaults and built-up environments."
+	desc = "An up-armed and up-armored frontier-optimized combat exosuit, the product of a rare collaboration between \
+		Kemppainen-Morozov Industrial Fabrication and Szot Dynamica. \
+		Heavier and slower than its lighter predecessor, but unmatched in shipboard assaults and built-up environments."
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "warden_wunk"
 	base_icon_state = "warden_wunk"
@@ -84,6 +123,24 @@
 	bomb = 55
 	fire = 100
 	acid = 100
+
+/obj/vehicle/sealed/mecha/warden/wunk/lore_jumpscare()
+	AddElement(/datum/element/examine_lore, \
+		lore = "The M/TACS-1A-LF \"Arbiter\" is an up-armed and up-armored variant of the \
+		M/TACS-1-LF \"Warden\" frontier-optimized combat exosuit, the product of a rare collaboration between \
+		Kemppainen-Morozov Industrial Fabrication and Szot Dynamica.<br>\
+		<br>\
+		KMIF's unshakable chassis, further reinforced by the additional armor pauldrons, groin plate, and rear skirt \
+		from the Warden Urban Necessity Kit (WUNK) upgrade suite, provide a remarkable level of resilience, \
+		while SŻD's responsive myomer systems, though strained by the additional load, still grant it remarkable agility after recalibration to compensate.<br>\
+		<br>\
+		Although typically stripped of complex jump jets and grapples for ease of maintenance, much like its predecessor, \
+		the WUNK's Argus-U distributed aperture sensor suite with wall-penetrating radar, \
+		and distributed frontal camera system grant the Arbiter provides 360° awareness.<br>\
+		<br>\
+		Though it's heavier and slower than its predecessor, it's essentially unmatched in shipboard assaults and built-up environments, \
+		especially if paired with its standard M/AC-41 \"Seklys\" autocannon and M/RP-66 \"Smilgas\" anti-tank guided rocket pod." \
+	)
 
 /obj/vehicle/sealed/mecha/warden/wunk/moved_inside(mob/living/carbon/human/human)
 	. = ..()
@@ -125,18 +182,29 @@
 
 //Abysmal copy-paste of the Ripley upgrade kit because upstream never envisioned making things easily editable.
 /obj/item/mecha_parts/mecha_equipment/wardenupgrade
-	name = "\improper Warden Urban Necessity Kit (WUNK) Conversion"
+	name = "\improper Warden Urban Necessity Kit (WUNK) conversion suite"
 	desc = "A comprehensive modernization package for the M/TACS-1-LF \"Warden\" exosuit. \
-		The WUNK (Warden Urban Necessity Kit) conversion adds supplemental armor pauldrons, \
-		a groin plate, and rear skirt protection, the Argus-U distributed aperture sensor suite \
-		with wall-penetrating radar, and the distributed frontal camera system. \
 		The conversion is non-reversible and requires an open maintenance panel and an unoccupied \
-		mech with a cell installed. Slightly reduces top speed in exchange for dramatically improved \
-		survivability in urban and shipboard environments."
+		mech with a cell installed.<br>\
+		<br>\
+		Slightly reduces top speed in exchange for dramatically improved survivability in urban and shipboard environments \
+		through improved armor and wall-penetrating radar for situational awareness."
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "upgrade_kit"
 	mech_flags = EXOSUIT_MODULE_COMBAT
 	var/result = /obj/vehicle/sealed/mecha/warden/wunk
+
+/obj/item/mecha_parts/mecha_equipment/wardenupgrade/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/examine_lore, \
+		lore = "The WUNK (Warden Urban Necessity Kit) conversion suite for M/TACS-1-LF \"Warden\" exosuits \
+		adds supplemental armor pauldrons, a groin plate, and rear skirt protection, \
+		along with the Argus-U distributed aperture sensor suite with wall-penetrating radar, and a distributed frontal camera system. \
+		The end result of such a comprehensive overhaul is a remarkably durable exosuit \
+		capable of detecting and tracking motion signatures for operators to handle as needed. \
+		Though installation of the modernization package is somewhat less than convenient, the peace of mind granted to pilots through the \
+		sensor suite and increased armor plating is quite well-received, even at the cost of some mobility." \
+	)
 
 /obj/item/mecha_parts/mecha_equipment/wardenupgrade/can_attach(obj/vehicle/sealed/mecha/warden/mecha, attach_right = FALSE, mob/user)
 	if(!istype(mecha, /obj/vehicle/sealed/mecha/warden))

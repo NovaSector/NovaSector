@@ -1,6 +1,6 @@
-/// Creates a masked icon for sprite accessories which have 'use_custom_mod_icon' set to TRUE
+/// Creates a masked icon for sprite accessories which have 'flags_custom_mod_icon' set to TRUE
 /datum/sprite_accessory/proc/get_custom_mod_icon(mob/living/carbon/human/owner, mutable_appearance/appearance_to_use = null)
-	if(!use_custom_mod_icon)
+	if(!flags_custom_mod_icon)
 		return null
 
 	if(!mod_overlay_active(owner))
@@ -23,11 +23,23 @@
 
 	return icon(special_icon)
 
-/// Is this accessory currently under an active hardlight MOD overlay? Used for determining if we should apply a mod overlay to a bodypart
+/// Checks that this accessory should be affected by a hardlight MOD overlay
 /datum/sprite_accessory/proc/mod_overlay_active(mob/living/carbon/human/wearer)
-	if(!istype(wearer?.wear_suit, /obj/item/clothing/suit/mod))
+	if(!wearing_active_mod(wearer))
 		return FALSE
-	var/obj/item/mod/control/modsuit_control = wearer.back
+	if((flags_custom_mod_icon & MOD_ACCESSORY_HELMET) && !istype(wearer.head, /obj/item/clothing/head/mod))
+		return FALSE
+	if((flags_custom_mod_icon & MOD_ACCESSORY_CHESTPLATE) && !istype(wearer.wear_suit, /obj/item/clothing/suit/mod))
+		return FALSE
+	if((flags_custom_mod_icon & MOD_ACCESSORY_GAUNTLETS) && !istype(wearer.gloves, /obj/item/clothing/gloves/mod))
+		return FALSE
+	if((flags_custom_mod_icon & MOD_ACCESSORY_BOOTS) && !istype(wearer.shoes, /obj/item/clothing/shoes/mod))
+		return FALSE
+	return TRUE
+
+/// Checks that a MOD control unit on the wearer is active or activating and has a hardlight theme
+/datum/sprite_accessory/proc/wearing_active_mod(mob/living/carbon/human/wearer)
+	var/obj/item/mod/control/modsuit_control = wearer?.back
 	if(!istype(modsuit_control))
 		return FALSE
 	return (modsuit_control.active || modsuit_control.activating) && modsuit_control.theme?.hardlight

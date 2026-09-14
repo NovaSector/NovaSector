@@ -48,6 +48,9 @@
 /area/ocean/monestary
 	name = "\improper Monastery Isle"
 
+/area/ocean/landingpad
+	name = "\improper Landing Pad"
+
 /area/station/solars/ocean
 	icon_state = "panels"
 	requires_power = FALSE

@@ -52,6 +52,8 @@ GLOBAL_LIST_INIT(nova_metal_airlock_recipes, list(
 
 GLOBAL_LIST_INIT(nova_plasteel_recipes, list(
 	new/datum/stack_recipe("plasteel barricade", /obj/structure/deployable_barricade/metal/plasteel, 2, time = 1 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
+	// FLOORS_AND_WALLS - re-added from tgstation #97241
+	new/datum/stack_recipe("plasteel tile", /obj/item/stack/tile/plasteel, 1, 4, 20, crafting_flags = NONE, category = CAT_TILES),
 ))
 
 /obj/item/stack/sheet/plasteel/get_main_recipes()
@@ -204,6 +206,8 @@ GLOBAL_LIST_INIT(nova_sand_recipes, list(
 
 GLOBAL_LIST_INIT(nova_sandstone_recipes, list(
 	new/datum/stack_recipe("brick well", /obj/structure/water_source/brick_well, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND | CRAFT_SKIP_MATERIALS_PARITY, category = CAT_STRUCTURE),
+	// FLOORS_AND_WALLS - #97241 added sandstone wall fillings without a way to make them; this mirrors the plastitanium one
+	new/datum/stack_recipe("sandstone wall filler", /obj/item/stack/wall_filling/sandstone/basic, 2, 1, 10, crafting_flags = NONE, category = CAT_STRUCTURE),
 ))
 
 /obj/item/stack/sheet/mineral/sandstone/get_main_recipes()

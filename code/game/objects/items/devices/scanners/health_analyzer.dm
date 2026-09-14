@@ -222,11 +222,12 @@
 	if(ishuman(target))
 		var/mob/living/carbon/human/humantarget = target
 
-		var/datum/physiology/physiology = humantarget.physiology
-		if (physiology.brute_mod != 1)
-			render_list += "<span class='danger ml-1'>Subject takes [(physiology.brute_mod) * 100]% brute damage.</span>\n"
-		if (physiology.burn_mod != 1)
-			render_list += "<span class='danger ml-1'>Subject takes [(physiology.burn_mod) * 100]% burn damage.</span>\n"
+		var/brute_mod = GET_PHYSIOLOGY(humantarget, BRUTE)
+		var/burn_mod = GET_PHYSIOLOGY(humantarget, BURN)
+		if (brute_mod != 1)
+			render_list += "<span class='danger ml-1'>Subject takes [brute_mod * 100]% brute damage.</span>\n"
+		if (burn_mod != 1)
+			render_list += "<span class='danger ml-1'>Subject takes [burn_mod * 100]% burn damage.</span>\n"
 	// NOVA EDIT ADDITION END
 	// Body part damage report
 	if(iscarbon(target))

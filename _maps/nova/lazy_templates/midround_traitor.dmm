@@ -568,10 +568,10 @@
 /turf/open/floor/iron/dark/small,
 /area/misc/operative_barracks/hangar)
 "iM" = (
-/obj/item/card/id/advanced/chameleon/black{
-	pixel_y = 4
-	},
 /obj/structure/table/reinforced,
+/obj/item/card/id/advanced/chameleon/elite/black{
+	pixel_y = 8
+	},
 /obj/item/radio/headset/chameleon/advanced{
 	pixel_x = -5;
 	pixel_y = -3

@@ -8,6 +8,7 @@
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/species/harpy_wings.dmi'
 	icon_state = "arfelharpy"
 	color_src = USE_ONE_COLOR
+	flags_custom_mod_icon = MOD_ACCESSORY_GAUNTLETS
 
 /datum/sprite_accessory/wings/mammal/harpy/alt/polish
 	name = "Harpy (Alt) Reshade"

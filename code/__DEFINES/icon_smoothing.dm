@@ -197,10 +197,10 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_BAMBOO_WALLS S_OBJ(17) //![/turf/closed/wall/mineral/bamboo, /obj/structure/falsewall/bamboo]
 #define SMOOTH_GROUP_CONCRETE_WALLS S_OBJ(18) ///turf/closed/wall/concrete
 
-//NOVA EDIT ADDITION
+// NOVA EDIT ADDITION START - AESTHETICS
 #define SMOOTH_GROUP_SHIPWALLS S_OBJ(19)	///turf/closed/wall/mineral/titanium/spaceship
 #define SMOOTH_GROUP_STONE_WALLS S_OBJ(20) ///turf/closed/wall/mineral/stone, /obj/structure/falsewall/stone
-//NOVA EDIT END
+// NOVA EDIT ADDITION END
 
 #define SMOOTH_GROUP_PAPERFRAME S_OBJ(21) ///obj/structure/window/paperframe, /obj/structure/mineral_door/paperframe
 
@@ -267,6 +267,15 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SMOOTH_GROUP_PLATFORMS_PAPER S_OBJ(86) ///obj/structure/platform/paper
 
 #define SMOOTH_GROUP_BOULDER_PLATFORM S_OBJ(87) ///obj/structure/lattice/catwalk/boulder
+
+// NOVA EDIT ADDITION START - FLOORS_AND_WALLS - mineral wall groups removed by tgstation #97723
+#define SMOOTH_GROUP_BONE_WALLS S_OBJ(88) ///turf/closed/wall/mineral/bone, /obj/structure/falsewall/bone
+#define SMOOTH_GROUP_ADAMANTINE_WALLS S_OBJ(89) ///turf/closed/wall/mineral/adamantine, /obj/structure/falsewall/adamantine
+#define SMOOTH_GROUP_METALHYDROGEN_WALLS S_OBJ(90) ///turf/closed/wall/mineral/metalhydrogen, /obj/structure/falsewall/metalhydrogen
+#define SMOOTH_GROUP_HAUNTIUM_WALLS S_OBJ(91) ///turf/closed/wall/mineral/hauntium, /obj/structure/falsewall/hauntium
+#define SMOOTH_GROUP_RUNITE_WALLS S_OBJ(92) ///turf/closed/wall/mineral/runite, /obj/structure/falsewall/runite
+#define SMOOTH_GROUP_MYTHRIL_WALLS S_OBJ(93) ///turf/closed/wall/mineral/mythril, /obj/structure/falsewall/mythril
+// NOVA EDIT ADDITION END
 
 /// Performs the work to set smoothing_groups and canSmoothWith.
 /// An inlined function used in both turf/Initialize and atom/Initialize.

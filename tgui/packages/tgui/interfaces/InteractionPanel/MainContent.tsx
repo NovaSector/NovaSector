@@ -15,19 +15,26 @@ enum InteractionTab {
   Interactions = 0,
   GenitalOptions = 1,
   LewdItems = 2,
+  Underwear = 3,
 }
 type Interaction = {
   erp_interaction: BooleanLike;
   genital_config: { name: string; ref: string }[];
+  underwear_config: { name: string }[];
 };
 
-import { GenitalLayeringTab, InteractionsTab, LewdItemsTab } from './tabs';
+import {
+  GenitalLayeringTab,
+  InteractionsTab,
+  LewdItemsTab,
+  UnderwearTab,
+} from './tabs';
 export const MainContent = () => {
   const [searchText, setSearchText] = useState('');
   const [tabIndex, setTabIndex] = useState(InteractionTab.Interactions);
   const [showCategories, setShowCategories] = useState(true);
   const { data } = useBackend<Interaction>();
-  const { erp_interaction, genital_config = [] } = data;
+  const { erp_interaction, genital_config = [], underwear_config = [] } = data;
   const placeholder =
     tabIndex === InteractionTab.Interactions
       ? 'Search for an interaction'
@@ -45,6 +52,14 @@ export const MainContent = () => {
             >
               Interactions
             </Tabs.Tab>
+            {underwear_config.length > 0 && (
+              <Tabs.Tab
+                selected={tabIndex === InteractionTab.Underwear}
+                onClick={() => setTabIndex(InteractionTab.Underwear)}
+              >
+                Underwear
+              </Tabs.Tab>
+            )}
             {genital_config.length > 0 && (
               <Tabs.Tab
                 selected={tabIndex === InteractionTab.LewdItems}
@@ -95,6 +110,8 @@ export const MainContent = () => {
           <Section fill>
             {tabIndex === InteractionTab.LewdItems ? (
               <GenitalLayeringTab />
+            ) : tabIndex === InteractionTab.Underwear ? (
+              <UnderwearTab />
             ) : tabIndex === InteractionTab.GenitalOptions ? (
               <LewdItemsTab searchText={searchText} />
             ) : (

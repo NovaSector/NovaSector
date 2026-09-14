@@ -45,3 +45,37 @@
 /obj/effect/turf_decal/caution/blue
 	icon = 'modular_nova/modules/aesthetics/decals/icon/turf_decals.dmi'
 	icon_state = "caution_blue"
+
+/obj/effect/turf_decal/tile/teal
+	name = "teal tile decal"
+	color = "#325C4B"
+
+/obj/effect/turf_decal/tile/teal/opposingcorners
+	icon_state = "tile_opposing_corners"
+
+/obj/effect/turf_decal/tile/teal/half
+	icon_state = "tile_half"
+
+/obj/effect/turf_decal/tile/teal/half/contrasted
+	icon_state = "tile_half_contrasted"
+
+/obj/effect/turf_decal/tile/teal/anticorner
+	icon_state = "tile_anticorner"
+
+/obj/effect/turf_decal/tile/teal/anticorner/contrasted
+	icon_state = "tile_anticorner_contrasted"
+
+/obj/effect/turf_decal/tile/teal/fourcorners
+	icon_state = "tile_fourcorners"
+
+/obj/effect/turf_decal/tile/teal/full
+	icon_state = "tile_full"
+
+/obj/effect/turf_decal/tile/teal/diagonal_centre
+	icon_state = "diagonal_centre"
+
+/obj/effect/turf_decal/tile/teal/diagonal_edge
+	icon_state = "diagonal_edge"
+
+/obj/effect/turf_decal/tile/teal/tram
+	icon_state = "tile_tram"

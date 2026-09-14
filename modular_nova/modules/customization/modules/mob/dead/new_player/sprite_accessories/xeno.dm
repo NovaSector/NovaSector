@@ -3,7 +3,7 @@
 	key = FEATURE_XENODORSAL
 	color_src = USE_ONE_COLOR
 	organ_type = /obj/item/organ/xenodorsal
-	use_custom_mod_icon = TRUE
+	flags_custom_mod_icon = MOD_ACCESSORY_CHESTPLATE
 
 /datum/sprite_accessory/xenodorsal/none
 	name = SPRITE_ACCESSORY_NONE
@@ -22,17 +22,6 @@
 /datum/sprite_accessory/xenodorsal/down
 	name = "Dorsal Down"
 	icon_state = "down"
-
-/datum/sprite_accessory/xenodorsal/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
-	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
-	if(!wearer.w_uniform && isnull(worn_suit))
-		return FALSE
-	// Can hide if wearing uniform
-	if(key in wearer.try_hide_mutant_parts)
-		return TRUE
-	// Exception for MODs
-	if(istype(worn_suit))
-		return FALSE
 
 //TAILS
 /datum/sprite_accessory/tails/mammal/wagging/xeno_tail
