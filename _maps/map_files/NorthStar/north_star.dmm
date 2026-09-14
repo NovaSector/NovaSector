@@ -41753,6 +41753,12 @@
 /obj/structure/railing/corner,
 /turf/open/floor/wood/tile,
 /area/station/service/library)
+"kCs" = (
+/obj/machinery/bouldertech/refinery{
+	dir = 1
+	},
+/turf/closed/wall,
+/area/station/cargo/miningoffice)
 "kCR" = (
 /obj/machinery/camera/autoname/directional/north{
 	network = list("ss13","rd")
@@ -43352,7 +43358,7 @@
 "kXj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
 "kXo" = (
@@ -75981,7 +75987,9 @@
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor3/port)
 "tbt" = (
-/obj/machinery/bouldertech/refinery/smelter,
+/obj/machinery/bouldertech/refinery/smelter{
+	dir = 4
+	},
 /obj/machinery/conveyor/inverted{
 	dir = 10;
 	id = "mining"
@@ -83247,7 +83255,9 @@
 /area/station/hallway/floor3/fore)
 "uSC" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/bouldertech/refinery,
+/obj/machinery/bouldertech/refinery{
+	dir = 8
+	},
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining"
@@ -127841,7 +127851,7 @@ tXJ
 dLp
 wMw
 kLn
-dLp
+kCs
 ePY
 eQH
 oqO
