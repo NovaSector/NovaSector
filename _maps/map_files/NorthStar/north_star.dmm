@@ -3490,6 +3490,11 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "med_lockdown";
+	name = "Medbay Lockdown Shutters"
+	},
 /turf/open/floor/plating,
 /area/station/medical/office)
 "aTh" = (
@@ -25444,6 +25449,11 @@
 /obj/structure/desk_bell{
 	pixel_y = 1;
 	pixel_x = -5
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "med_lockdown";
+	name = "Medbay Lockdown Shutters"
 	},
 /turf/open/floor/plating,
 /area/station/medical/office)
@@ -84969,7 +84979,8 @@
 /obj/effect/turf_decal/siding/blue/corner,
 /obj/machinery/button/door/directional/north{
 	id = "med_lockdown";
-	name = "Medbay Lockdown Shutters"
+	name = "Medbay Lockdown Shutters";
+	req_access = list("medical")
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/office)
@@ -89222,6 +89233,11 @@
 /obj/item/stack/medical/ointment{
 	pixel_y = -5;
 	pixel_x = 5
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "med_lockdown";
+	name = "Medbay Lockdown Shutters"
 	},
 /turf/open/floor/plating,
 /area/station/medical/office)
