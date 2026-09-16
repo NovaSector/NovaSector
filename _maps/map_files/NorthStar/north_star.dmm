@@ -41753,12 +41753,6 @@
 /obj/structure/railing/corner,
 /turf/open/floor/wood/tile,
 /area/station/service/library)
-"kCs" = (
-/obj/machinery/bouldertech/refinery{
-	dir = 1
-	},
-/turf/closed/wall,
-/area/station/cargo/miningoffice)
 "kCR" = (
 /obj/machinery/camera/autoname/directional/north{
 	network = list("ss13","rd")
@@ -127851,7 +127845,7 @@ tXJ
 dLp
 wMw
 kLn
-kCs
+dLp
 ePY
 eQH
 oqO
