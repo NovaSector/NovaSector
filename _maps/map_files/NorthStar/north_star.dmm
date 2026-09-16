@@ -22155,7 +22155,7 @@
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "fGW" = (
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/rack,
 /obj/item/mop{
 	pixel_x = -4
@@ -37058,7 +37058,7 @@
 /area/station/command/heads_quarters/captain/private)
 "jvQ" = (
 /obj/structure/table,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/sign/poster/random/directional/north,
 /obj/item/storage/box/mousetraps{
 	pixel_x = -3;
@@ -58371,7 +58371,7 @@
 /area/station/service/library/artgallery)
 "oEr" = (
 /obj/machinery/vending/wardrobe/jani_wardrobe,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/iron,
 /area/station/service/janitor)
@@ -65321,7 +65321,7 @@
 	pixel_x = -7;
 	pixel_y = 12
 	},
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/item/grenade/chem_grenade/cleaner{
 	pixel_x = -7;
 	pixel_y = 8
@@ -85076,7 +85076,7 @@
 	pixel_y = 8
 	},
 /obj/machinery/newscaster/directional/north,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/station/service/janitor)
 "vpE" = (
@@ -90820,7 +90820,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/station/service/janitor)
 "wIG" = (
