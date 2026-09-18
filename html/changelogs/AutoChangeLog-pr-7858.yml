@@ -1,0 +1,7 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - map: "NorthStar: Medbay Lockdown Shutters now have access, and the reception desk (office) has shutters."
+  - map: "NorthStar: Supply uses more full tile windows."
+  - map: "NorthStar: The foundry works out of the box."
+  - map: "NorthStar: Fixed a few bad decals around the ship."
