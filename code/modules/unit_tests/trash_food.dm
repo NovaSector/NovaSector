@@ -21,6 +21,7 @@
 		/obj/item/stack/rods, // kebab
 		/obj/item/paper/paperslip/fortune, // fortune cookie
 		/obj/item/dice/fudge, // /obj/item/food/fudgedice
+		/obj/item/wendigo_skull, // you get back the wendigo skull as it mostly acts as bowl.
 		/obj/item/trash/vendor_trash, // base type because it's a joke subtype // NOVA EDIT ADDITION
 	)
 
