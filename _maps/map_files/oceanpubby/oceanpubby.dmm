@@ -39805,15 +39805,15 @@
 "ltJ" = (
 /obj/effect/turf_decal/siding/dark/corner,
 /obj/structure/table/glass,
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = 8;
 	pixel_x = 4
 	},
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = 4;
 	pixel_x = 2
 	},
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/item/razor{
 	pixel_y = 5
 	},
@@ -48176,7 +48176,7 @@
 /area/station/security/prison/mess)
 "oXe" = (
 /obj/structure/table/glass,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/item/clothing/mask/balaclava,
 /obj/effect/turf_decal/tile/red/anticorner/contrasted{
 	dir = 8
@@ -52504,7 +52504,7 @@
 	},
 /obj/item/assembly/flash/handheld,
 /obj/item/assembly/flash/handheld,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/item/assembly/prox_sensor{
 	pixel_x = -8;
 	pixel_y = 4

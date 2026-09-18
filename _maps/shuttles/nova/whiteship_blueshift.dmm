@@ -2745,7 +2745,7 @@
 /area/shuttle/abandoned)
 "Af" = (
 /obj/structure/table,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /turf/open/floor/circuit,
 /area/shuttle/abandoned/engine)
 "As" = (

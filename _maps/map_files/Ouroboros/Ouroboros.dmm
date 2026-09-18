@@ -35938,7 +35938,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
 "krg" = (
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance,
 /obj/structure/disposalpipe/segment,
@@ -62020,13 +62020,13 @@
 "rUY" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/dark_red,
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = 6
 	},
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = 3
 	},
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
 	},
@@ -68280,7 +68280,7 @@
 /turf/open/floor/plating,
 /area/station/service/janitor)
 "tNi" = (
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/item/storage/toolbox/electrical{
 	pixel_y = 12
 	},

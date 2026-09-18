@@ -88410,9 +88410,9 @@
 	name = "science camera";
 	network = list("ss13","rd")
 	},
-/obj/item/mmi,
-/obj/item/mmi,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
 /turf/open/floor/iron,
 /area/station/science/robotics)
 "rOH" = (
@@ -107337,7 +107337,7 @@
 /obj/item/stack/sheet/plasteel{
 	amount = 10
 	},
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/item/assembly/prox_sensor,
 /obj/item/assembly/prox_sensor,
 /turf/open/floor/plating,
@@ -119751,8 +119751,8 @@
 /area/station/engineering/atmos)
 "xZo" = (
 /obj/structure/table/reinforced,
-/obj/item/mmi,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
 /obj/item/bodypart/chest/robot,
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron/dark,
