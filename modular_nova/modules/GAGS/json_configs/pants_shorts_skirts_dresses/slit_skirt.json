@@ -1,0 +1,10 @@
+{
+	"slit_skirt": [
+		{
+			"type": "icon_state",
+			"icon_state": "slit_skirt",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

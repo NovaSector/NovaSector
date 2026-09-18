@@ -534,7 +534,7 @@
 
 /datum/greyscale_config/mantle
 	name = "Mantle"
-	icon_file = 'modular_nova/modules/GAGS/icons/neck/neck.dmi'
+	icon_file = 'modular_nova/modules/GAGS/icons/neck/mantle.dmi'
 	json_config = 'modular_nova/modules/GAGS/json_configs/neck/mantle/mantle.json'
 
 /datum/greyscale_config/mantle/worn
@@ -542,13 +542,13 @@
 	json_config = 'modular_nova/modules/GAGS/json_configs/neck/mantle/mantle_worn.json'
 
 /datum/greyscale_config/mantle/worn/teshari
-	icon_file = 'modular_nova/modules/GAGS/icons/neck/neck_teshari.dmi'
+	icon_file = 'modular_nova/modules/GAGS/icons/neck/mantle_teshari.dmi'
 
 /datum/greyscale_config/mantle/worn/newvox
-	icon_file = 'modular_nova/modules/GAGS/icons/neck/neck_newvox.dmi'
+	icon_file = 'modular_nova/modules/GAGS/icons/neck/mantle_newvox.dmi'
 
 /datum/greyscale_config/mantle/worn/oldvox
-	icon_file = 'modular_nova/modules/GAGS/icons/neck/neck_oldvox.dmi'
+	icon_file = 'modular_nova/modules/GAGS/icons/neck/mantle_oldvox.dmi'
 
 //CAPES
 
@@ -1539,6 +1539,42 @@
 
 /datum/greyscale_config/formal_pen_skirt/worn
 	name = "Formal Pen Dress (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/swept_skirt
+	name = "Swept Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/swept_skirt.json'
+
+/datum/greyscale_config/swept_skirt/worn
+	name = "Swept Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/slit_skirt
+	name = "Slit Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/slit_skirt.json'
+
+/datum/greyscale_config/slit_skirt/worn
+	name = "Slit Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/pleated_pencil_skirt
+	name = "Pleated Pencil Skirt"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/pleated_pencil_skirt.json'
+
+/datum/greyscale_config/pleated_pencil_skirt/worn
+	name = "Pleated Pencil Skirt (Worn)"
+	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
+
+/datum/greyscale_config/draped_dress
+	name = "Draped Dress"
+	icon_file = 'modular_nova/master_files/icons/obj/clothing/under/skirts_dresses.dmi'
+	json_config = 'modular_nova/modules/GAGS/json_configs/pants_shorts_skirts_dresses/draped_dress.json'
+
+/datum/greyscale_config/draped_dress/worn
+	name = "Draped Dress (Worn)"
 	icon_file = 'modular_nova/master_files/icons/mob/clothing/under/skirts_dresses.dmi'
 
 // COSTUMES
