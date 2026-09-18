@@ -53,6 +53,18 @@ const MATERIAL_ICONS: Record<string, [number, string][]> = {
     [17, 'sheet-plastic_2'],
     [34, 'sheet-plastic_3'],
   ],
+  // NOVA EDIT ADDITION START - SHIPBREAKING MAKES CUSTOM MATERIALS DISPLAY CORRECTLY
+  aluminum: [
+    [0, 'aluminum'],
+    [17, 'aluminum_2'],
+    [34, 'aluminum_3'],
+  ],
+  nanocarbon: [
+    [0, 'nanocarbon'],
+    [17, 'nanocarbon_2'],
+    [34, 'nanocarbon_3'],
+  ],
+  // NOVA EDIT ADDITION END
 };
 
 export type MaterialIconProps = {
