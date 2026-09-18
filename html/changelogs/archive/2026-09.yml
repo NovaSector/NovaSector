@@ -246,15 +246,25 @@
   - qol: Mechs will now show their overlock percentage without having it enabled.
   - spellcheck: Mechs when examined now format their integrity text the same as when
       other things are falling apart.
+  FalloutFalcon:
+  - config: Removes "Disable mood" config
+  - code_imp: Dummies have a blank mood datum
   Fghj240:
   - balance: simplemob bomb armor grants linearly scaling damage reduction vs bombs
       instead of a random chance to reduce damage
   - bugfix: bomb immunity works on simplemobs
   - bugfix: bomb armor now protects simplemobs from being gibbed by explosions
   - code_imp: simplemob bomb code is less repetitive
+  - spellcheck: cybernetic fangs aren't called advanced in the printer anymore.
+  - bugfix: cybernetic fangs moved to combat cybernetic organs
   Jacquerel:
   - image: Added icons for the achievements "I Was a Teenage Anarchist", "A Bowl-d
       New World", and "How Do I Switch Hands???"
+  - rscadd: Plasmamen wearing a human skin suit won't catch fire. The suit itself
+      is flammable though, so make sure you change while under a shower or something.
+  - bugfix: Bitrunning antagonists can once again escape from an emagged server
+  - rscadd: Breathing Miasma can get you sick with the same diseases you get from
+      eating dirty food off the floor.
   JohnFulpWillard:
   - rscadd: Added bruise wounds to your hands if you attack people in a near-death
       state. They show up on autopsies.
@@ -268,6 +278,23 @@
   - balance: Added and removed several items from the clown operative outfit and uplink
   - spellcheck: 'Fix blood trail examine: "That''s a trail of blood" instead of "that''s
       some trail of blood"'
+  - qol: Many, many, many RND designs (primarily computers and machines) now have
+      more informative descriptions that explain what they do, rather than only stating
+      "This is a circuitboard."
+  - spellcheck: Examining a PanD.E.M.I.C 2200, Sheet-meister 2000, or the R&D Server
+      Controller now reads as "That's a [thing]" rather than "That's [thing]".
+  - rscdel: 'Heretic: "Crimson Cleave" spell removed.'
+  - rscadd: 'Heretic: Adds "The Crimson Cleaver", a tier four knowledge. A weapon
+      that can cleave and lifesteal. Non-heretics are capable of wielding it, at the
+      expense of their sanity and mind...'
+  - rscadd: 'Heretic: Adds "Rhythmic Lodestone", a tier one knowledge, which lets
+      the heretic track any imbued object with their living heart.'
+  - rscadd: 'Heretic: Adds "Blessed Poppy", a tier one knowledge, which heals wounds
+      and stabilizes mobs. Can be used by non-heretics.'
+  MrMelbert:
+  - map: '[Icebox] Remapped Atmospherics. The hallway of pain is gone.'
+  - map: '[Icebox] Remapped maintenance around Atmos and Science a bit.'
+  - image: Adds long corner trimline decals
   Neocloudy:
   - map: Updated Nova maps (other than NorthStar) to use delayed unrestricted access.
   - map: 'Ouroboros, Snowglobe: Repainted some airlocks in Medical.'
@@ -278,6 +305,16 @@
   - map: 'NorthStar: Fixed a few bad decals around the ship.'
   OnlineGirlfriend:
   - rscadd: pinup posters
+  PapaMichael:
+  - qol: AI shells now appear "off" when not being actively piloted.
+  Redwizz99:
+  - rscadd: bluspace scrubber and gas receiver machinery
+  - rscadd: bluespace scrubber and gas receiver circuits
+  - rscadd: adds bluespace scubber and gas receiver to tech node
+  - rscadd: sprites for bluespace scrubber and gas receiver
+  - rscadd: you can disconnect scrubbers linked to receiver, just use wirecutter
+  Richard Blonski:
+  - map: OceanPubby - Chemistry added, ChemDrobe, Toolbox, Plumbing Tool.
   Voyaker-coder:
   - rscadd: Adds a functional firing delay to the Abductor "Shrink Ray" pistol
   YesterdaysPromise:
@@ -289,6 +326,13 @@
       BBQ, Wendigo Killer Feast, and Ice Breaker to cooking recipes.
   - rscadd: Added Mouthwash (from fermented Inozhakusts), Strong Mouthwash, Stone
       Cold Stout, Icy Dorf, Ramp Rager, Ice Grave and Frozen-Sea Lantern drinks.
+  necromanceranne:
+  - balance: The CMO now has an advanced medical scanner in their medkit.
+  - balance: You can now once again print defibrillators and their compact variant
+      (with the researched tech) from cargo.
+  - balance: Defibs now can have their safeties switched off by EMP blasts. However,
+      they reset after a while.
+  - balance: The CMO's unique compact defibrillator has double the recharge rate.
   sqnztb:
   - bugfix: radio and entertainment chatter are no longer filtered out by local chat.
   timothymtorres:
@@ -316,3 +360,15 @@
   - refactor: changed the way ChangeTurf() handles signal registration, please report
       any weird issues with stuff that usually happens on entering certain turfs (elevation,
       bananium squeaks, lava burning things, etc)
+  - bugfix: fixes fish food missing their lefthand icon, and boxcutter should show
+      its inhand icon now, as well as a whole bunch of other random items that were
+      not linked up with their existing inhand icon states
+  - bugfix: fixes a bug that would cause a goldgrub to sometimes spawn a bugged boulder
+      when hitting a boss vent
+  - bugfix: boss vents can actually give diamonds and bluespace now like they're supposed
+      to
+  - bugfix: the carrier choice dropdown in the bring your pets to work day menu is
+      now visible
+  - rscadd: Adds two new pinup bunny contraband posters
+  - bugfix: fixes an issue where the tooltips on the escape menu buttons would be
+      render behind the buttons themselves
