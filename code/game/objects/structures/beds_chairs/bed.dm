@@ -402,3 +402,17 @@
 	if(target == goldilocks)
 		target.pixel_y -= 6
 		goldilocks = null
+
+//yoga mat
+
+/obj/structure/bed/yoga
+	name = "mat"
+	desc = "For exercising."
+	icon_state = "mat"
+	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_structures/mats.dmi'
+	anchored = TRUE
+	can_buckle = TRUE
+	buckle_lying = 270
+	resistance_flags = FLAMMABLE
+	custom_materials = list(/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2)
+	elevation = 2
