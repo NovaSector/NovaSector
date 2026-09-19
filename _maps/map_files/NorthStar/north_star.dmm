@@ -1275,7 +1275,7 @@
 /turf/open/floor/wood,
 /area/station/hallway/secondary/entry)
 "apC" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/middle,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
 	name = "Cargo Lockdown Shutters";
 	id = "cargolockdown"
@@ -3490,6 +3490,11 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "med_lockdown";
+	name = "Medbay Lockdown Shutters"
+	},
 /turf/open/floor/plating,
 /area/station/medical/office)
 "aTh" = (
@@ -13882,16 +13887,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/kitchen/herringbone,
 /area/station/service/kitchen)
-"dxz" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/end{
-	dir = 8
-	},
-/obj/machinery/door/poddoor/shutters/preopen{
-	name = "Cargo Lockdown Shutters";
-	id = "cargolockdown"
-	},
-/turf/open/floor/plating,
-/area/station/cargo/sorting)
 "dxD" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 9
@@ -22155,7 +22150,7 @@
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "fGW" = (
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/rack,
 /obj/item/mop{
 	pixel_x = -4
@@ -24210,7 +24205,7 @@
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/hfr_room)
 "ggO" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/end,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/cargo/storage)
 "ggQ" = (
@@ -25444,6 +25439,11 @@
 /obj/structure/desk_bell{
 	pixel_y = 1;
 	pixel_x = -5
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "med_lockdown";
+	name = "Medbay Lockdown Shutters"
 	},
 /turf/open/floor/plating,
 /area/station/medical/office)
@@ -26941,12 +26941,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/science)
-"gQx" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 4
-	},
-/turf/closed/wall/r_wall,
-/area/station/hallway/floor2/aft)
 "gQy" = (
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
 /obj/structure/cable,
@@ -37058,7 +37052,7 @@
 /area/station/command/heads_quarters/captain/private)
 "jvQ" = (
 /obj/structure/table,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/sign/poster/random/directional/north,
 /obj/item/storage/box/mousetraps{
 	pixel_x = -3;
@@ -37496,10 +37490,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/wood,
 /area/station/security/detectives_office)
-"jzH" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/middle,
-/turf/open/floor/plating,
-/area/station/cargo/storage)
 "jzL" = (
 /obj/structure/railing{
 	dir = 4
@@ -43352,7 +43342,7 @@
 "kXj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
 "kXo" = (
@@ -58365,7 +58355,7 @@
 /area/station/service/library/artgallery)
 "oEr" = (
 /obj/machinery/vending/wardrobe/jani_wardrobe,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/iron,
 /area/station/service/janitor)
@@ -65315,7 +65305,7 @@
 	pixel_x = -7;
 	pixel_y = 12
 	},
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/item/grenade/chem_grenade/cleaner{
 	pixel_x = -7;
 	pixel_y = 8
@@ -66495,16 +66485,6 @@
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor4/port)
-"qEi" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/end{
-	dir = 4
-	},
-/obj/machinery/door/poddoor/shutters/preopen{
-	name = "Cargo Lockdown Shutters";
-	id = "cargolockdown"
-	},
-/turf/open/floor/plating,
-/area/station/cargo/sorting)
 "qEt" = (
 /obj/structure/railing{
 	dir = 8
@@ -69715,12 +69695,6 @@
 /obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor3/port/aft)
-"rve" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/end{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/station/cargo/storage)
 "rvD" = (
 /obj/structure/sink/directional/south,
 /obj/structure/mirror/directional/north,
@@ -75981,7 +75955,9 @@
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor3/port)
 "tbt" = (
-/obj/machinery/bouldertech/refinery/smelter,
+/obj/machinery/bouldertech/refinery/smelter{
+	dir = 4
+	},
 /obj/machinery/conveyor/inverted{
 	dir = 10;
 	id = "mining"
@@ -77954,12 +77930,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor1/starboard/fore)
-"tAN" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/end{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/cargo/storage)
 "tAS" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/flora/bush/lavendergrass/style_random,
@@ -83247,7 +83217,9 @@
 /area/station/hallway/floor3/fore)
 "uSC" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/bouldertech/refinery,
+/obj/machinery/bouldertech/refinery{
+	dir = 8
+	},
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining"
@@ -84965,7 +84937,8 @@
 /obj/effect/turf_decal/siding/blue/corner,
 /obj/machinery/button/door/directional/north{
 	id = "med_lockdown";
-	name = "Medbay Lockdown Shutters"
+	name = "Medbay Lockdown Shutters";
+	req_access = list("medical")
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/office)
@@ -85066,7 +85039,7 @@
 	pixel_y = 8
 	},
 /obj/machinery/newscaster/directional/north,
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/station/service/janitor)
 "vpE" = (
@@ -89219,6 +89192,11 @@
 	pixel_y = -5;
 	pixel_x = 5
 	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 8;
+	id = "med_lockdown";
+	name = "Medbay Lockdown Shutters"
+	},
 /turf/open/floor/plating,
 /area/station/medical/office)
 "woH" = (
@@ -90514,7 +90492,7 @@
 /turf/open/floor/iron/dark,
 /area/station/command/teleporter)
 "wFB" = (
-/obj/effect/spawner/structure/window/hollow/reinforced/middle,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/station/cargo/storage)
@@ -90810,7 +90788,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/effect/turf_decal/tile/green/full,
+/obj/effect/turf_decal/tile/green/fourcorners,
 /turf/open/floor/iron,
 /area/station/service/janitor)
 "wIG" = (
@@ -122703,7 +122681,7 @@ cMA
 mnR
 bvf
 pxh
-jzH
+ggO
 kAu
 asl
 iNK
@@ -122960,7 +122938,7 @@ dMi
 mnR
 bvf
 pxh
-tAN
+ggO
 kxf
 xtp
 aKQ
@@ -122968,7 +122946,7 @@ pWF
 qvM
 aKQ
 aaP
-qEi
+apC
 rpj
 gqU
 imJ
@@ -123474,7 +123452,7 @@ hNB
 myW
 bRM
 pxh
-rve
+ggO
 cow
 xtp
 lAc
@@ -123482,7 +123460,7 @@ qaE
 mRm
 vEx
 xPs
-dxz
+apC
 rpj
 gqU
 wxE
@@ -201880,7 +201858,7 @@ kzK
 jSW
 nrX
 mkE
-gQx
+jRO
 avX
 xWy
 pfd
