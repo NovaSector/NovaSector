@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - bugfix: "resetting your keybinds probably won't bluescreen you any more."
