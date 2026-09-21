@@ -10057,7 +10057,7 @@
 /area/station/science/lab)
 "bkD" = (
 /obj/structure/table/reinforced,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /turf/open/floor/engine,
 /area/station/science/lab)
 "bkF" = (
