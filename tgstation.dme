@@ -8518,6 +8518,7 @@
 #include "modular_nova\modules\customization\modules\hydroponics\grown\muli.dm"
 #include "modular_nova\modules\customization\modules\hydroponics\grown\nakati.dm"
 #include "modular_nova\modules\customization\modules\hydroponics\grown\piru.dm"
+#include "modular_nova\modules\customization\modules\hydroponics\grown\peach.dm"
 #include "modular_nova\modules\customization\modules\hydroponics\grown\starfruit.dm"
 #include "modular_nova\modules\customization\modules\hydroponics\grown\tea_coffee.dm"
 #include "modular_nova\modules\customization\modules\jobs\_job.dm"
