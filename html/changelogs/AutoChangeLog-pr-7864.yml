@@ -1,5 +1,0 @@
-author: "YuiY1997"
-delete-after: True
-changes:
-  - rscadd: "creates usable borgmat along with crafting recipe"
-  - image: "adds 64x32 mat icon"

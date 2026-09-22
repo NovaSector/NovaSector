@@ -1,4 +1,0 @@
-author: "Richard Blonski"
-delete-after: True
-changes:
-  - config: "Mid-round antagonist candidates polling will now be 30 seconds instead of 60."

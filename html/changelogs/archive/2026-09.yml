@@ -372,3 +372,71 @@
   - rscadd: Adds two new pinup bunny contraband posters
   - bugfix: fixes an issue where the tooltips on the escape menu buttons would be
       render behind the buttons themselves
+2026-09-22:
+  Dmeto:
+  - bugfix: Gateway object collision aligns with itself.
+  Gboster-0:
+  - bugfix: pet carrier doors no longer clip through gags + pet carriers visual lock
+      indicator is no longer broken (it was for 2-5 years)
+  Melbert:
+  - spellcheck: '"gas pump" renamed to "pressure pump"'
+  - spellcheck: '"volumetric gas pump" renamed to "volume pump"'
+  - spellcheck: '"pressure valve" renamed to "pressure gate"'
+  - spellcheck: 'In the pipe dispenser UI only: "unary vent" renamed to "pump vent".'
+  - qol: In the pipe dispenser UI, most components now have a tooltip explaining what
+      they do and how they work.
+  PapaMichael:
+  - rscdel: Removed traitor reputation
+  - balance: Powerful traitor items are no longer timegated
+  - bugfix: Flashbangs now require both eye and ear protection to mitigate their effects,
+      not just ear protection
+  Richard Blonski:
+  - bugfix: Fixed TTS playing on messages that are out of range to be understood.
+  - config: Mid-round antagonist candidates polling will now be 30 seconds instead
+      of 60.
+  SmArtKar:
+  - bugfix: Fixed wounds not disabling limbs when they should, and disabling them
+      when splinted
+  TealSeer:
+  - bugfix: fixed R&D console not showing the name of who queued a research node
+  - bugfix: fixed being unable to dequeue research nodes you queued
+  Y0SH1M4S73R:
+  - rscadd: Relics are now assemblies - they can be attached to wires and connected
+      to other assemblies
+  - bugfix: The dimensional shifting relic effect's cooldown now increases as it was
+      intended to
+  YuiY1997:
+  - rscadd: creates usable borgmat along with crafting recipe
+  - image: adds 64x32 mat icon
+  curiousbookshelf:
+  - map: Touches up the Ocean Pubby Cargo and Mining shuttle landing zones
+  desertmote:
+  - image: The electric guitar can now be worn on your back-slot, and has a worn icon
+      state to match
+  - rscadd: You can visually tell how soaked someone is, and the drip VFX doesn't
+      display when you're only marginally wet
+  necromanceranne:
+  - qol: Rapid part exchange devices now hold significantly more parts, equivalent
+      to their bluespace upgraded version.
+  oranges:
+  - balance: Secure crates are now easier to open thanks to budget cuts
+  sqnztb:
+  - bugfix: resetting your keybinds probably won't bluescreen you any more.
+  the-orange-cow:
+  - bugfix: all directional glow effects work after being taken out of a bag
+  timothymtorres:
+  - code_imp: Remove unused lung defines
+  - code_imp: Add emissive effects to supermatter shards, gas meters, thermomachines,
+      pipe devices (filters, mixers, pumps, valves, etc.), circulator heat exchange,
+      SMESs, and PACMAN generators. Default SM now emits light even when not active.
+  - image: Add light masks to supermatter shards, gas meters, thermomachines, pipe
+      devices (filters, mixers, pumps, valves, etc.), circulator heat exchange, SMESs,
+      and PACMAN generators.
+  - rscadd: Holosigns are now vulnerable to EMPs
+  tontyGH:
+  - refactor: Man-Machine Interfaces and positronic brains have been rewritten internally.
+      Please report any unexpected behaviour.
+  vinylspiders:
+  - bugfix: fixes runtime/race condition with quick and slow shuttle station traits
+      not being applied, fixes a roundstart runtime caused by alert levels trying
+      to be changed before the shuttle is created.
