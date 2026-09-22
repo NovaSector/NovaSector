@@ -17822,7 +17822,7 @@
 	},
 /obj/structure/table,
 /obj/effect/turf_decal/bot_red,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /turf/open/floor/iron,
 /area/station/science/lab)
 "fhS" = (
@@ -42175,7 +42175,7 @@
 "mbw" = (
 /obj/machinery/light/directional/south,
 /obj/structure/table,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /obj/item/book/manual/wiki/telescience{
 	pixel_x = -2;
 	pixel_y = 2
@@ -49344,7 +49344,7 @@
 /obj/item/compact_remote,
 /obj/item/compact_remote,
 /obj/effect/turf_decal/bot_red,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 8
 	},
@@ -61060,10 +61060,10 @@
 /area/station/maintenance/orbital_maints)
 "rOD" = (
 /obj/structure/table,
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_x = 4
 	},
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/bot_red,
 /obj/effect/turf_decal/bot_red,
@@ -79759,7 +79759,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port)
 "xfI" = (
-/obj/item/relic,
+/obj/item/assembly/relic,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "xfN" = (
@@ -83084,7 +83084,7 @@
 /turf/open/floor/iron/dark,
 /area/station/commons/dorms/cyborgB)
 "yhr" = (
-/obj/item/relic,
+/obj/item/assembly/relic,
 /obj/effect/spawner/random/maintenance/two,
 /obj/structure/rack,
 /turf/open/floor/plating,

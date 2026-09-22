@@ -8,6 +8,7 @@
 	icon = 'modular_nova/modules/colony_fabricator/icons/machines.dmi'
 	icon_state = "fuel_generator_0"
 	base_icon_state = "fuel_generator"
+	light_mask = null // Our icons have no emissive state
 	circuit = null
 	anchored = TRUE
 	max_sheets = 25 // 50% worse than pacman, 25% better than superpacman

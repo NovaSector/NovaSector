@@ -124,11 +124,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/security/telescreen/traitor_
 	holder.selected_language = /datum/language/codespeak
 
 //mech or cyborg mmi
-/obj/item/mmi/posibrain/circuit/disk/syndie
+/obj/item/brain_processor/positronic/circuit/disk/syndie
 	req_access = list(ACCESS_SYNDICATE)
 	faction = list(ROLE_SYNDICATE)
 
-/obj/item/mmi/posibrain/circuit/disk/syndie/Initialize(mapload)
+/obj/item/brain_processor/positronic/circuit/disk/syndie/Initialize(mapload)
 	. = ..()
 	laws = new /datum/ai_laws/syndicate_override()
 	radio.set_on(FALSE)

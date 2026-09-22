@@ -7849,7 +7849,7 @@
 /area/station/engineering/atmos)
 "cqt" = (
 /obj/structure/table,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/item/storage/toolbox/electrical{
 	pixel_y = 12
 	},
@@ -22444,7 +22444,7 @@
 /area/station/security/interrogation)
 "gwJ" = (
 /obj/structure/table/wood,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /turf/open/floor/iron/grimy,
 /area/station/commons/vacant_room/office)
 "gwM" = (
@@ -42961,7 +42961,7 @@
 "lYn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /obj/item/binoculars,
 /turf/open/floor/glass/reinforced,
 /area/station/maintenance/port/fore)
@@ -52275,13 +52275,13 @@
 /obj/effect/turf_decal/tile/dark_red/anticorner/contrasted{
 	dir = 4
 	},
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = -14
 	},
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = -10
 	},
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = -5
 	},
 /turf/open/floor/iron/dark,
@@ -57245,7 +57245,7 @@
 	},
 /area/station/engineering/break_room)
 "pTK" = (
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /obj/item/assembly/prox_sensor,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
@@ -66053,8 +66053,8 @@
 /turf/open/floor/wood/large,
 /area/station/hallway/primary/central/fore)
 "spv" = (
-/obj/item/mmi,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic,
 /obj/item/bodypart/chest/robot,
 /obj/structure/rack,
 /obj/item/assembly/flash/handheld,
@@ -68370,7 +68370,7 @@
 "sTy" = (
 /obj/structure/closet,
 /obj/effect/spawner/random/maintenance/three,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/starboard/aft)
@@ -87030,7 +87030,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 10
 	},
-/obj/item/relic,
+/obj/item/assembly/relic,
 /obj/machinery/firealarm/directional/west{
 	pixel_y = 17
 	},
