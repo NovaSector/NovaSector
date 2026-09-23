@@ -44,5 +44,5 @@
 /obj/machinery/door/poddoor/blackmarket_trader/welder_act()
 	return
 
-/obj/machinery/door/poddoor/blackmarket_trader/open()
+/obj/machinery/door/poddoor/blackmarket_trader/open(forced = DEFAULT_DOOR_CHECKS, mob/living/opener)
 	qdel(src)
