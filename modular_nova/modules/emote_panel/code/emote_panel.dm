@@ -237,7 +237,7 @@
 	if(isbrain(src))
 		// Only brains in MMI have emotes
 		var/mob/living/brain/current_brain = src
-		if(current_brain.container && istype(current_brain.container, /obj/item/mmi))
+		if(current_brain.container && istype(current_brain.container, /obj/item/brain_processor))
 			available_emotes += brain_emotes
 	else
 		if(ismob(src))

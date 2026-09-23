@@ -1074,7 +1074,7 @@
 /area/ruin/space/has_grav/nova/blackmarket)
 "VF" = (
 /obj/effect/spawner/random/structure/closet_private,
-/obj/item/modular_computer/pda,
+/obj/item/modular_computer/pda/crew,
 /obj/item/storage/box/nif_ghost_box/ghost_role,
 /obj/item/storage/box/rubbershot,
 /turf/open/floor/iron/smooth_large,

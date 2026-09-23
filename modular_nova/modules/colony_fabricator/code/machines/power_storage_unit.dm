@@ -9,6 +9,7 @@
 	output_level_max = 400 KILO WATTS
 	total_capacity = 10 * STANDARD_BATTERY_CHARGE // Same as 1 whole high-capac megacell
 	circuit = /obj/item/circuitboard/machine/battery_pack
+	light_mask = null // Our icons have no emissive state
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/flatpacked_machine/station_battery
 

@@ -2745,7 +2745,7 @@
 /area/shuttle/abandoned)
 "Af" = (
 /obj/structure/table,
-/obj/item/mmi,
+/obj/item/brain_processor/organic,
 /turf/open/floor/circuit,
 /area/shuttle/abandoned/engine)
 "As" = (
@@ -4194,7 +4194,7 @@
 /obj/structure/cable,
 /obj/structure/closet/crate,
 /obj/item/grenade/chem_grenade/metalfoam,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /obj/item/t_scanner,
 /turf/open/floor/iron/dark,
 /area/shuttle/abandoned/cargo)
