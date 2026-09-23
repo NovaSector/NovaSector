@@ -152,6 +152,14 @@
 		/obj/item/stack/tile/wood/wood_11,
 		/obj/item/stack/tile/wood/wood_12,
 		/obj/item/stack/tile/wood/wood_13,
+		/obj/item/stack/tile/wood/dark,
+		/obj/item/stack/tile/wood/dark/tile,
+		/obj/item/stack/tile/wood/dark/parquet,
+		/obj/item/stack/tile/wood/dark/large,
+		/obj/item/stack/tile/wood/light,
+		/obj/item/stack/tile/wood/light/tile,
+		/obj/item/stack/tile/wood/light/parquet,
+		/obj/item/stack/tile/wood/light/large,
 	)
 
 /turf/open/indestructible/cobble
@@ -294,31 +302,10 @@
 /turf/open/chasm/true/fakeout
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/meat
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/bone
-	icon = 'icons/turf/floors.dmi'
-
 /turf/open/floor/hauntium
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/sandstone
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/silvergold
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/neo/red
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/neo/purple
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/neo/orange
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/neo/cyan
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/iron/recharge_floor/dark

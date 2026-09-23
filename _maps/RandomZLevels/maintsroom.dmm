@@ -2628,7 +2628,7 @@
 "iw" = (
 /obj/effect/spawner/random/trash/box,
 /mob/living/basic/mouse/rat,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "ix" = (
@@ -3127,7 +3127,7 @@
 	},
 /obj/structure/closet/crate/engineering/electrical,
 /obj/item/stock_parts/capacitor/adv,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "kn" = (
@@ -3430,7 +3430,7 @@
 "lf" = (
 /obj/effect/turf_decal/delivery,
 /obj/effect/spawner/random/structure/crate,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /turf/open/floor/iron,
 /area/awaymission/caves/maintsroom)
 "lg" = (
@@ -7017,7 +7017,7 @@
 /obj/item/toy/plush/narplush,
 /obj/item/soulstone,
 /obj/item/clothing/head/costume/crown/fancy,
-/obj/item/relic/lavaland,
+/obj/item/assembly/relic/lavaland,
 /turf/open/floor/engine/cult,
 /area/awaymission/caves/maintsroom)
 "xx" = (
@@ -9108,7 +9108,7 @@
 /obj/item/clothing/neck/stethoscope,
 /obj/item/biopsy_tool,
 /obj/effect/spawner/random/contraband/narcotics,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "EP" = (
@@ -9928,7 +9928,7 @@
 /area/awaymission/caves/maintsroom)
 "HC" = (
 /obj/effect/spawner/random/trash/box,
-/obj/item/relic/lavaland,
+/obj/item/assembly/relic/lavaland,
 /turf/open/floor/plating/rust,
 /area/awaymission/caves/maintsroom)
 "HD" = (
@@ -10363,7 +10363,7 @@
 /area/awaymission/caves/maintsroom)
 "Jg" = (
 /obj/effect/spawner/random/structure/crate,
-/obj/item/relic,
+/obj/item/assembly/relic,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "Jh" = (
@@ -12952,7 +12952,7 @@
 /obj/structure/table/reinforced,
 /obj/item/ai_module/upgrade/surveillance,
 /obj/item/ai_module/combat,
-/obj/item/mmi/posibrain,
+/obj/item/brain_processor/positronic,
 /turf/open/floor/circuit/red/anim,
 /area/awaymission/caves/maintsroom)
 "RF" = (

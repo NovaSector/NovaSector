@@ -523,6 +523,15 @@
 	},
 /turf/open/floor/iron/white,
 /area/mine/cafeteria)
+"dd" = (
+/obj/machinery/hydroponics/constructable,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/seeds/potato,
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/mine/laborcamp)
 "de" = (
 /obj/structure/railing{
 	dir = 6
@@ -1407,6 +1416,13 @@
 /obj/structure/stone_tile,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
+"hM" = (
+/obj/machinery/biogenerator,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 5
+	},
+/turf/open/floor/iron/dark,
+/area/mine/laborcamp)
 "hR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3318,6 +3334,12 @@
 	},
 /turf/open/floor/iron/freezer,
 /area/mine/living_quarters)
+"qK" = (
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/dark,
+/area/mine/laborcamp)
 "qN" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment,
@@ -4111,15 +4133,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp/security)
-"vO" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/trimline/green/filled/corner{
-	dir = 4
-	},
-/obj/machinery/hydroponics/constructable,
-/obj/item/seeds/tomato,
-/turf/open/floor/iron/dark,
-/area/mine/laborcamp)
 "vQ" = (
 /obj/machinery/door/airlock{
 	id_tag = "miningdorm2";
@@ -4924,6 +4937,10 @@
 	},
 /turf/open/misc/hay/lavaland,
 /area/lavaland/surface/outdoors)
+"AH" = (
+/obj/structure/candela_beacon,
+/turf/open/misc/asteroid/basalt/lava_land_surface,
+/area/lavaland/surface/outdoors)
 "AI" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5020,13 +5037,6 @@
 	},
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
-"BH" = (
-/obj/structure/window/spawner/directional/south,
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 6
-	},
-/turf/open/floor/iron/dark,
-/area/mine/laborcamp)
 "BK" = (
 /turf/open/floor/circuit,
 /area/mine/maintenance/service/comms)
@@ -5243,13 +5253,6 @@
 "Di" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/effect/turf_decal/trimline/green/filled/line,
-/turf/open/floor/iron/dark,
-/area/mine/laborcamp)
-"Dj" = (
-/obj/machinery/biogenerator,
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 1
-	},
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp)
 "Dk" = (
@@ -8400,15 +8403,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/mine/maintenance/labor)
-"VS" = (
-/obj/machinery/hydroponics/constructable,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 4
-	},
-/obj/item/seeds/potato,
-/turf/open/floor/iron/dark,
-/area/mine/laborcamp)
 "VU" = (
 /obj/structure/railing,
 /turf/open/misc/hay/lavaland,
@@ -8448,6 +8442,10 @@
 	},
 /turf/open/misc/hay/lavaland,
 /area/lavaland/surface/outdoors)
+"Wi" = (
+/obj/machinery/produceporter,
+/turf/open/floor/iron/smooth,
+/area/mine/laborcamp)
 "Wk" = (
 /obj/structure/railing,
 /obj/effect/spawner/random/lavaland_mob/raptor/young,
@@ -8474,10 +8472,6 @@
 /area/mine/laborcamp/security)
 "Wq" = (
 /obj/structure/flora/ash/leaf_shroom,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
-"Wr" = (
-/obj/structure/candela_beacon,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "Wt" = (
@@ -8548,6 +8542,14 @@
 	dir = 8
 	},
 /area/mine/lounge)
+"WN" = (
+/obj/structure/window/spawner/directional/south,
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 6
+	},
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/dark,
+/area/mine/laborcamp)
 "WO" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 8
@@ -8768,10 +8770,6 @@
 	},
 /turf/open/floor/iron/textured_large,
 /area/mine/living_quarters)
-"XW" = (
-/obj/item/kirbyplants/random,
-/turf/open/floor/iron/smooth,
-/area/mine/laborcamp)
 "XX" = (
 /obj/machinery/computer/mechpad,
 /obj/effect/turf_decal/trimline/purple/filled/line{
@@ -8851,6 +8849,12 @@
 /obj/effect/turf_decal/tile/brown/fourcorners,
 /turf/open/floor/iron/dark,
 /area/mine/production)
+"Ym" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/hydroponics/constructable,
+/obj/item/seeds/tomato,
+/turf/open/floor/iron/dark,
+/area/mine/laborcamp)
 "Yn" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -28630,8 +28634,8 @@ aj
 aj
 rX
 wu
-VS
-vO
+dd
+Ym
 Gr
 tE
 ro
@@ -28887,8 +28891,8 @@ aj
 aj
 rX
 rX
-rX
-Dj
+hM
+qK
 oN
 Jf
 Jf
@@ -29143,11 +29147,11 @@ aj
 pU
 aj
 aj
-aj
+rX
 rX
 OO
-BH
-XW
+WN
+Wi
 Sr
 Rf
 nq
@@ -29404,7 +29408,7 @@ aj
 rX
 rX
 rX
-kg
+rX
 kg
 yG
 kg
@@ -46599,7 +46603,7 @@ pU
 pU
 pU
 pU
-Wr
+AH
 pU
 aj
 aj

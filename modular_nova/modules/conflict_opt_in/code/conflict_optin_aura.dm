@@ -65,6 +65,7 @@ GAME_VERB_DESC(/mob/living, show_conflict_opt_in_verb, "Show Conflict Opt-In", "
 	show_conflict_opt_in()
 
 /datum/keybinding/living/conflict_opt_in
+	hotkey_keys = list(UNBOUND_KEY)
 	name = "conflict_opt_in"
 	full_name = "Show Conflict Opt-In"
 	description = "Displays nearby conflict opt-in statuses."
