@@ -63649,9 +63649,6 @@
 	},
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/siding/white,
-/obj/structure/disposalpipe/trunk{
-	dir = 1
-	},
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/white/corner{
 	dir = 8
