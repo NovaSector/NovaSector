@@ -5452,6 +5452,9 @@
 /obj/effect/spawner/random/decoration/statue{
 	spawn_loot_chance = 35
 	},
+/obj/structure/sign/painting/library_secure{
+	pixel_y = 32
+	},
 /turf/open/floor/wood/large,
 /area/station/service/library)
 "bBX" = (
@@ -9705,6 +9708,9 @@
 /obj/structure/table/wood/fancy,
 /obj/effect/spawner/random/decoration/statue{
 	spawn_loot_chance = 35
+	},
+/obj/structure/sign/painting/library_secure{
+	pixel_y = 32
 	},
 /turf/open/floor/wood/large,
 /area/station/service/library)
@@ -40908,11 +40914,9 @@
 	req_access = list("library")
 	},
 /obj/structure/table/wood/fancy,
-/obj/structure/sign/painting/large/library{
-	dir = 1
-	},
 /obj/item/storage/bag/books,
 /obj/machinery/light/directional/north,
+/obj/structure/sign/commemoration/directional/north,
 /turf/open/floor/wood/large,
 /area/station/service/library)
 "lKK" = (
@@ -115109,7 +115113,7 @@ lID
 rhn
 twZ
 qlb
-hCu
+haz
 cNk
 jUN
 nLC

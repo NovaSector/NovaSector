@@ -8927,8 +8927,12 @@
 /turf/open/floor/circuit/green,
 /area/station/cargo/bitrunning/den)
 "bfJ" = (
-/obj/machinery/photocopier/prebuilt,
-/obj/item/radio/intercom/directional/south,
+/obj/structure/chair/office{
+	dir = 4
+	},
+/obj/structure/sign/painting/library_secure{
+	pixel_y = -32
+	},
 /turf/open/floor/wood,
 /area/station/service/library)
 "bfL" = (
@@ -23768,6 +23772,7 @@
 	req_access = list("library");
 	pixel_x = 3
 	},
+/obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/wood,
 /area/station/service/library)
 "enf" = (
@@ -26518,6 +26523,15 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
+"fxO" = (
+/obj/structure/sign/painting/library_secure{
+	pixel_x = 32
+	},
+/obj/structure/chair/comfy/black{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/station/service/library)
 "fyk" = (
 /obj/structure/chair/pew{
 	dir = 4
@@ -30177,6 +30191,15 @@
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/iron/white,
 /area/station/medical/virology)
+"his" = (
+/obj/structure/easel,
+/obj/item/canvas/twentythree_twentythree,
+/obj/effect/turf_decal/bot_white,
+/obj/structure/sign/painting/library_secure{
+	pixel_x = 32
+	},
+/turf/open/floor/wood,
+/area/station/service/library)
 "hiw" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -31881,7 +31904,12 @@
 /turf/open/floor/iron,
 /area/station/cargo/miningfoundry)
 "hUU" = (
-/obj/machinery/vending/coffee,
+/obj/machinery/camera/autoname/directional/south,
+/obj/structure/table/wood,
+/obj/item/papercutter{
+	pixel_x = 4;
+	pixel_y = 2
+	},
 /turf/open/floor/wood,
 /area/station/service/library)
 "hVr" = (
@@ -35965,15 +35993,6 @@
 	id = "innerbridge";
 	name = "Bridge Interior Door Control";
 	normaldoorcontrol = 1;
-	pixel_x = 6;
-	pixel_y = 7;
-	req_access = list("command")
-	},
-/obj/machinery/button/door{
-	desc = "A door remote control switch for the exterior bridge doors.";
-	id = "outerbridge";
-	name = "Bridge Exterior Door Control";
-	normaldoorcontrol = 1;
 	pixel_x = -6;
 	pixel_y = 7;
 	req_access = list("command")
@@ -35986,6 +36005,15 @@
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted,
+/obj/machinery/button/door{
+	desc = "A door remote control switch for the exterior bridge doors.";
+	id = "outerbridge";
+	name = "Bridge Exterior Door Control";
+	normaldoorcontrol = 1;
+	pixel_x = 6;
+	pixel_y = 7;
+	req_access = list("command")
+	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/bridge_officer)
 "jJQ" = (
@@ -38340,6 +38368,10 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/smooth_half,
 /area/station/cargo/storage)
+"kOW" = (
+/obj/structure/sign/commemoration/directional/north,
+/turf/open/floor/wood,
+/area/station/service/library)
 "kPm" = (
 /obj/effect/turf_decal/trimline/dark_blue/corner,
 /turf/open/misc/beach/sand/nofishy,
@@ -39533,6 +39565,7 @@
 /area/station/hallway/primary/aft)
 "log" = (
 /obj/machinery/libraryscanner,
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/carpet,
 /area/station/service/library)
 "lor" = (
@@ -40808,6 +40841,10 @@
 /obj/structure/filingcabinet,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/qm)
+"lQx" = (
+/obj/effect/spawner/random/vending/snackvend,
+/turf/open/floor/wood/wood_1,
+/area/station/service/library)
 "lQJ" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
@@ -41617,11 +41654,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "miY" = (
-/obj/structure/table/wood,
-/obj/item/papercutter{
-	pixel_x = 4;
-	pixel_y = 2
-	},
+/obj/machinery/vending/coffee,
 /turf/open/floor/wood/wood_1,
 /area/station/service/library)
 "mjk" = (
@@ -43554,8 +43587,9 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/cargo/storage)
 "mXn" = (
-/obj/effect/spawner/random/vending/snackvend,
-/obj/machinery/camera/autoname/directional/south,
+/obj/structure/sign/painting/library_secure{
+	pixel_y = -32
+	},
 /turf/open/floor/wood,
 /area/station/service/library)
 "mXq" = (
@@ -45999,7 +46033,8 @@
 	cycle_id = "bridge-left"
 	},
 /obj/machinery/door/airlock/command/glass{
-	name = "Bridge"
+	name = "Bridge";
+	id = "outerbridge"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /obj/machinery/door/poddoor/preopen{
@@ -49799,7 +49834,13 @@
 /turf/open/floor/iron/dark,
 /area/station/service/library/artgallery)
 "pIz" = (
-/obj/structure/extinguisher_cabinet/directional/south,
+/obj/machinery/photocopier/prebuilt,
+/obj/structure/sign/painting/large/library{
+	pixel_y = -32
+	},
+/obj/structure/sign/painting/library_secure{
+	pixel_x = -32
+	},
 /turf/open/floor/wood,
 /area/station/service/library)
 "pIN" = (
@@ -50394,6 +50435,9 @@
 	name = "library camera"
 	},
 /obj/effect/turf_decal/bot_white,
+/obj/structure/sign/painting/library_secure{
+	pixel_y = 32
+	},
 /turf/open/floor/wood/wood_1,
 /area/station/service/library)
 "pVh" = (
@@ -50638,12 +50682,12 @@
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
 "pYo" = (
-/obj/structure/sign/painting/library_secure{
-	pixel_x = 32
-	},
-/obj/item/canvas/twentythree_twentythree,
-/obj/structure/easel,
-/obj/effect/turf_decal/bot_white,
+/obj/structure/table/wood,
+/obj/item/folder,
+/obj/item/folder,
+/obj/item/taperecorder,
+/obj/item/tape,
+/obj/item/radio/intercom/directional/east,
 /turf/open/floor/wood,
 /area/station/service/library)
 "pYr" = (
@@ -50734,6 +50778,12 @@
 /obj/structure/cable,
 /turf/open/water/beach/planet_surface,
 /area/ocean)
+"qbi" = (
+/obj/structure/sign/painting/library_secure{
+	pixel_y = 32
+	},
+/turf/open/floor/wood,
+/area/station/service/library)
 "qbv" = (
 /obj/machinery/atmospherics/components/trinary/filter/atmos/n2{
 	dir = 4
@@ -51039,7 +51089,8 @@
 	cycle_id = "bridge-left"
 	},
 /obj/machinery/door/airlock/command/glass{
-	name = "Bridge"
+	name = "Bridge";
+	id = "innerbridge"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -51575,6 +51626,18 @@
 /obj/structure/secure_safe/directional/west,
 /turf/open/floor/wood/large,
 /area/station/commons/dorms)
+"qsX" = (
+/obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper_multi{
+	cycle_id = "bridge-left"
+	},
+/obj/machinery/door/airlock/command/glass{
+	name = "Bridge";
+	id = "innerbridge"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/command/general,
+/turf/open/floor/iron/dark,
+/area/station/command/bridge)
 "qtg" = (
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/carpet/black,
@@ -53923,6 +53986,7 @@
 /obj/structure/table/wood/fancy,
 /obj/item/storage/photo_album,
 /obj/machinery/light/directional/north,
+/obj/machinery/firealarm/directional/north,
 /turf/open/floor/wood,
 /area/station/service/library)
 "ryB" = (
@@ -54048,8 +54112,9 @@
 /area/station/cargo/bitrunning/den)
 "rAP" = (
 /obj/effect/landmark/start/assistant,
-/obj/structure/chair/comfy/black,
-/obj/machinery/airalarm/directional/south,
+/obj/structure/sign/painting/library_secure{
+	pixel_y = -32
+	},
 /turf/open/floor/wood,
 /area/station/service/library)
 "rBn" = (
@@ -58543,7 +58608,6 @@
 /obj/structure/sign/painting/large/library{
 	dir = 1
 	},
-/obj/structure/chair/office,
 /obj/machinery/light/directional/north,
 /turf/open/floor/wood,
 /area/station/service/library)
@@ -65349,13 +65413,13 @@
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/captain)
 "wjX" = (
-/obj/item/folder,
-/obj/item/folder,
-/obj/structure/table/wood,
-/obj/item/taperecorder,
-/obj/item/tape,
-/obj/machinery/firealarm/directional/south,
 /obj/machinery/light/directional/south,
+/obj/structure/easel,
+/obj/effect/turf_decal/bot_white,
+/obj/item/canvas/twentythree_twentythree,
+/obj/structure/sign/painting/large/library{
+	pixel_y = -32
+	},
 /turf/open/floor/wood,
 /area/station/service/library)
 "wjY" = (
@@ -69195,7 +69259,8 @@
 	cycle_id = "bridge-left"
 	},
 /obj/machinery/door/airlock/command/glass{
-	name = "Bridge"
+	name = "Bridge";
+	id = "outerbridge"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /obj/machinery/door/poddoor/preopen{
@@ -103051,7 +103116,7 @@ wLh
 wEr
 hLA
 hoA
-aBy
+qsX
 klP
 qiF
 aAH
@@ -111542,8 +111607,8 @@ evT
 fZN
 xVA
 rGq
-evT
-evT
+cjp
+qbi
 mXn
 cjp
 aLk
@@ -111799,8 +111864,8 @@ evT
 iiG
 feV
 rGq
-evT
-evT
+cjp
+kOW
 rAP
 cjp
 vuK
@@ -112056,8 +112121,8 @@ oOH
 fZN
 evT
 rGq
-evT
-evT
+cjp
+qbi
 bfJ
 cjp
 eQj
@@ -112308,7 +112373,7 @@ xaX
 lbB
 fSN
 uNU
-oOH
+lQx
 oOH
 obs
 qyt
@@ -112566,13 +112631,13 @@ fPw
 rdA
 cjp
 ttW
-qXU
+evT
 jqI
 evT
 rGq
 jqI
-evT
-evT
+qXU
+his
 cjp
 tfz
 bbG
@@ -112822,7 +112887,7 @@ xaX
 fPw
 uYD
 cjp
-pYo
+fxO
 pYo
 gCO
 evT
