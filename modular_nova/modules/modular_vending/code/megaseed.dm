@@ -1,6 +1,14 @@
 /obj/machinery/vending/hydroseeds //sneed
 	product_categories_nova = list(
 		list(
+			"name" = "Fruits",
+			"icon" = "apple-whole",
+			"products" = list (
+				/obj/item/seeds/peach = 3,
+			),
+		),
+
+		list(
 			"name" = "Miscellaneous",
 			"icon" = "question",
 			"products" = list (
