@@ -43601,7 +43601,7 @@
 	},
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
-	id = "innerbridge"
+	id_tag = "innerbridge"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /turf/open/floor/iron/dark,
@@ -46055,7 +46055,7 @@
 	},
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
-	id = "outerbridge"
+	id_tag = "outerbridge"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /obj/machinery/door/poddoor/preopen{
@@ -51169,7 +51169,8 @@
 	},
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
-	id = "innerbridge"
+	id = "innerbridge";
+	id_tag = "innerbridge"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -69410,7 +69411,7 @@
 	},
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
-	id = "outerbridge"
+	id_tag = "outerbridge"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
 /obj/machinery/door/poddoor/preopen{
