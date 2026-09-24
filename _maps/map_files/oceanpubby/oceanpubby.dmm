@@ -51169,7 +51169,6 @@
 	},
 /obj/machinery/door/airlock/command/glass{
 	name = "Bridge";
-	id = "innerbridge";
 	id_tag = "innerbridge"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/general,
