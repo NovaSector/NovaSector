@@ -235,6 +235,10 @@
 	item_path = /obj/item/clothing/under/dress/skirt/nova/striped_skirt
 	group = "Casualwear"
 
+/datum/loadout_item/under/skirt/slit_skirt
+	name = "Slit Skirt"
+	item_path = /obj/item/clothing/under/dress/nova/slit_skirt
+
 /datum/loadout_item/under/miscellaneous/denim_skirt
 	name = "Skirt - Jean"
 	item_path = /obj/item/clothing/under/dress/skirt/nova/jean

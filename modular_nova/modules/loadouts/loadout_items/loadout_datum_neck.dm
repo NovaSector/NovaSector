@@ -461,11 +461,6 @@
 	item_path = /obj/item/clothing/neck/cloak/colonial/hc_police
 	group = "Cloaks and Shrouds"
 
-/datum/loadout_item/neck/mantle
-	name = "Mantle"
-	item_path = /obj/item/clothing/neck/mantle
-	group = "Cloaks and Shrouds"
-
 /datum/loadout_item/neck/gags_mantle
 	name = "Mantle (Colorable)"
 	item_path = /obj/item/clothing/neck/mantle/recolorable
