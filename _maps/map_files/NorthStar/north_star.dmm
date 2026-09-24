@@ -28535,7 +28535,7 @@
 	},
 /obj/item/kirbyplants/random,
 /obj/machinery/camera/autoname/directional/north,
-/obj/machinery/firealarm/directional/north,
+/obj/structure/sign/commemoration/directional/north,
 /turf/open/floor/wood/tile,
 /area/station/service/library)
 "hlX" = (
@@ -90566,6 +90566,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/dark,
+/area/station/maintenance/floor2/starboard/aft)
+"wGt" = (
+/obj/structure/sign/painting/library_secure{
+	pixel_x = -32
+	},
 /turf/open/floor/iron/dark,
 /area/station/maintenance/floor2/starboard/aft)
 "wGz" = (
@@ -209805,7 +209811,7 @@ tzB
 hRm
 tJR
 fXq
-ajb
+wGt
 mPw
 dEt
 nlN
