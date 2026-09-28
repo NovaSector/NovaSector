@@ -474,3 +474,7 @@
   - bugfix: Cybernetic fangs use the correct, metallic icon state.
   vinylspiders:
   - bugfix: instrument volume slider now works as intended
+2026-09-28:
+  GreytideSkye:
+  - balance: EMPerverts are no longer able to jam privacy holosigns. Picture of a
+      Crab stocks are in shambles.
