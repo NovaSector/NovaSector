@@ -39,12 +39,10 @@
 				SEALED_MESSAGE = CHESTPLATE_SEAL_MESSAGE,
 			),
 			/obj/item/clothing/gloves/mod = list(
-				CAN_OVERSLOT = TRUE,
 				UNSEALED_MESSAGE = GAUNTLET_UNSEAL_MESSAGE,
 				SEALED_MESSAGE = GAUNTLET_SEAL_MESSAGE,
 			),
 			/obj/item/clothing/shoes/mod = list(
-				CAN_OVERSLOT = TRUE,
 				UNSEALED_MESSAGE = BOOT_UNSEAL_MESSAGE,
 				SEALED_MESSAGE = BOOT_SEAL_MESSAGE,
 			),

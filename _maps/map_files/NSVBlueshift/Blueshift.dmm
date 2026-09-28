@@ -84727,9 +84727,6 @@
 /obj/machinery/recharger{
 	pixel_y = 3
 	},
-/obj/item/borg/sight/hud/sec{
-	pixel_y = 17
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
