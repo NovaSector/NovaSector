@@ -574,6 +574,9 @@
 		if(!AI?.client)
 			continue
 
+		if(user.invisibility > AI.see_invisible)
+			continue
+
 		// NOVA EDIT ADDITION START - Emote pref checks
 		if(pref_to_check && !AI.client.prefs.read_preference(pref_to_check))
 			continue

@@ -213,3 +213,12 @@
 
 /datum/id_trim/job/warden
 	honorifics = list("Officer", "Watchman", "Sergeant", "Sgt.") // Changed from Lieutenant and Lt to Sergeant and Sgt since we use Brig Sergeant and such. (original: honorifics = list("Officer", "Watchman", "Lieutenant", "Lt."))
+
+// tg pulled some access from these trims but we still need them
+/datum/id_trim/centcom/deathsquad/New()
+	. = ..()
+	access |= ACCESS_CENT_CAPTAIN
+
+/datum/id_trim/centcom/ert/commander/New()
+	. = ..()
+	access |= ACCESS_CENT_CAPTAIN
