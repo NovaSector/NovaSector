@@ -236,3 +236,11 @@ SAVEFILE_UPLOAD_LIMIT 2000
 
 ## Uncomment to force techweb base tech nodes to start unlocked instead of using the vanilla tg settings
 #ENABLE_NOVA_TECHWEB_STARTING_NODES
+
+## Uncomment to take persistent player homes offline. The cafe registry terminal goes inert;
+## nobody's saved residence is touched.
+#PLAYER_HOMES_ENABLED 0
+
+## Seconds a player must wait between filing home requisitions from their domicile console.
+## 0 removes the wait entirely. Default: 30 seconds.
+#PLAYER_HOME_SUPPLY_COOLDOWN 30
