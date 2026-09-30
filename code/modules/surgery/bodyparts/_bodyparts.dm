@@ -1304,9 +1304,10 @@
 
 	cut_overlays()
 	var/list/standing = get_limb_icon(dropped = TRUE)
-	if(!standing.len)
+	if(!length(standing))
 		icon_state = initial(icon_state)//no overlays found, we default back to initial icon.
 		return
+
 	for(var/image/img as anything in standing)
 		img.pixel_w += px_x
 		img.pixel_z += px_y
@@ -1342,10 +1343,6 @@
 	icon_state = "" //to erase the default sprite, we're building the visual aspects of the bodypart through overlays alone.
 
 	. = list()
-	var/image_dir = null
-	if (dropped)
-		image_dir = SOUTH
-
 	// Stumps are FAKE limbs that hold the spot for REAL limbs. thusly no sprite of their own, so early return!
 	if(IS_STUMP(src))
 		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
@@ -1357,9 +1354,10 @@
 		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
 		return .
 
+	var/image_dir = dropped ? SOUTH : null
 	// Handles invisibility (not alpha or actual invisibility but invisibility)
 	if(is_invisible)
-		. += image(icon_invisible, "invisible_[body_zone]", -BODYPARTS_LAYER, dir = image_dir)
+		.[image(icon_invisible, "invisible_[body_zone]", -BODYPARTS_LAYER, dir = image_dir)] = NONE
 		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
 		return .
 	// NOVA EDIT ADDITION START - For invisible taur limbs, so we are not caching invalid keys and repeatedly adding the same overlay. I hate it here
@@ -1369,13 +1367,8 @@
 
 	// Normal non-husk handling
 	// This is the MEAT of limb icon code
-	var/used_icon = icon_greyscale
-	if(!should_draw_greyscale || !icon_greyscale)
-		used_icon = icon_static
-
-	var/used_state = "[limb_id]_[body_zone]"
-	if(is_dimorphic) // Does this type of limb have sexual dimorphism?
-		used_state = "[limb_id]_[body_zone]_[limb_gender]"
+	var/used_icon = (should_draw_greyscale && icon_greyscale) || icon_static
+	var/used_state = "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""]"
 	// NOVA EDIT ADDITION START
 	if(bodyshape & BODYSHAPE_DIGITIGRADE) // Is this a digi limb?
 		used_state += "_[ICON_KEY_DIGI]"
@@ -1386,53 +1379,56 @@
 
 	icon_exists_or_scream(limb.icon, limb.icon_state) //Prints a stack trace on the first failure of a given iconstate.
 
-	. += limb
+	.[limb] = LIMB_OVERLAY_TEXTURED|LIMB_OVERLAY_CORE
 
 	if(aux_zone) //Hand shit
 		aux = image(limb.icon, "[limb_id]_[aux_zone]", -aux_layer, dir = image_dir)
-		. += aux
+		.[aux] = LIMB_OVERLAY_TEXTURED|LIMB_OVERLAY_CORE
 
 	if(dropped && dmg_overlay_type)
 		if(brutestate)
 			// divided into two overlays: one that gets colored and one that doesn't.
+			var/image/brute_damage_overlay = mutable_appearance('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0_overlay", -DAMAGE_LAYER)
+			brute_damage_overlay.appearance_flags |= RESET_COLOR
 			var/image/brute_blood_overlay = image('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0", -DAMAGE_LAYER, dir = SOUTH)
 			brute_blood_overlay.color = get_color_from_blood_list(blood_dna_info)
-			var/mutable_appearance/brute_damage_overlay = mutable_appearance('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0_overlay", -DAMAGE_LAYER, appearance_flags = RESET_COLOR)
-			if(brute_damage_overlay)
-				brute_blood_overlay.overlays += brute_damage_overlay
-			. += brute_blood_overlay
+			brute_blood_overlay.overlays += brute_damage_overlay
+			.[brute_blood_overlay] = NONE
 		if(burnstate)
-			. += image('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_0[burnstate]", -DAMAGE_LAYER, dir = SOUTH)
+			var/image/burn_damage_overlay = image('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_0[burnstate]", -DAMAGE_LAYER, dir = SOUTH)
+			.[burn_damage_overlay] = NONE
 
 	var/atom/location = loc || owner || src
 	if(blocks_emissive != EMISSIVE_BLOCK_NONE)
 		var/mutable_appearance/limb_em_block = emissive_blocker(limb.icon, limb.icon_state, location, layer = limb.layer, alpha = limb.alpha)
 		if (dropped)
 			limb_em_block = image(limb_em_block, dir = SOUTH)
-		. += limb_em_block
+		.[limb_em_block] = LIMB_OVERLAY_META
 
 		if(aux_zone)
 			var/mutable_appearance/aux_em_block = emissive_blocker(aux.icon, aux.icon_state, location, layer = aux.layer, alpha = aux.alpha)
 			if (dropped)
 				aux_em_block = image(aux_em_block, dir = SOUTH)
-			. += aux_em_block
+			.[aux_em_block] = LIMB_OVERLAY_META
 
 	if(!is_husked && is_emissive)
 		var/mutable_appearance/limb_em = emissive_appearance(limb.icon, "[limb.icon_state]_e", location, layer = limb.layer, alpha = limb.alpha)
 		if (dropped)
 			limb_em = image(limb_em, dir = SOUTH)
-		. += limb_em
+		.[limb_em] = LIMB_OVERLAY_META
 
 		if(aux_zone)
 			var/mutable_appearance/aux_em = emissive_appearance(aux.icon, "[aux.icon_state]_e", location, layer = aux.layer, alpha = aux.alpha)
 			if (dropped)
 				aux_em = image(aux_em, dir = SOUTH)
-			. += aux_em
+			.[aux_em] = LIMB_OVERLAY_META
 
 	if(is_husked)
-		. += huskify_image(thing_to_husk = limb)
+		for(var/image/husk_image as anything in huskify_image(limb))
+			.[husk_image] = LIMB_OVERLAY_TEXTURED|LIMB_OVERLAY_CORE
 		if(aux)
-			. += huskify_image(thing_to_husk = aux)
+			for(var/image/husk_image as anything in huskify_image(aux))
+				.[husk_image] = LIMB_OVERLAY_TEXTURED|LIMB_OVERLAY_CORE
 		draw_color = is_husked == HUSKED_ZOMBIE ? zombie_color : husk_color
 	else
 		update_draw_color()
@@ -1444,14 +1440,17 @@
 			aux.color = limb_color // NOVA EDIT CHANGE - ORIGINAL: aux.color = "[draw_color]"
 
 	// No need to handle leg layering if dropped, we only face south anyways
-	if(!dropped && ((body_zone == BODY_ZONE_R_LEG) || (body_zone == BODY_ZONE_L_LEG)))
+	if(!dropped)
 		// Legs are a bit goofy in regards to layering, and we will need two images instead of one to fix that
-		var/obj/item/bodypart/leg/leg_source = src
-		for(var/image/limb_image in .)
+		for(var/generated_overlay, generated_overlay_flags in .)
+			var/list/maked_generated_overlays = handle_masking(generated_overlay)
+			if(!length(maked_generated_overlays))
+				continue
 			// Remove the old, unmasked image
-			. -= limb_image
-			// Add two masked images based on the old one
-			. += leg_source.generate_masked_leg(limb_image)
+			. -= generated_overlay
+			// Add in the new, masked images (with the same flags)
+			for(var/masked_image in maked_generated_overlays)
+				.[masked_image] = generated_overlay_flags
 	// NOVA EDIT ADDITION START - MARKINGS CODE
 	var/override_color
 	var/atom/offset_spokesman = owner || src
@@ -1482,9 +1481,9 @@
 				accessory_overlay.color = override_color
 			else
 				accessory_overlay.color = marking[1]
-			. += accessory_overlay
+			.[accessory_overlay] = LIMB_OVERLAY_TEXTURED|LIMB_OVERLAY_CORE
 			if (emissive)
-				. += emissive
+				.[emissive] = LIMB_OVERLAY_META
 
 		if(aux_zone)
 			for(var/key, marking in aux_zone_markings)
@@ -1504,18 +1503,19 @@
 					accessory_overlay.color = override_color
 				else
 					accessory_overlay.color = marking[1]
-				. += accessory_overlay
+				.[accessory_overlay] = LIMB_OVERLAY_TEXTURED|LIMB_OVERLAY_CORE
 				if (emissive)
-					. += emissive
+					.[emissive] = LIMB_OVERLAY_META
 	// NOVA EDIT ADDITION END - MARKINGS CODE END
 
-	// Apply height to the overlays we generated so far
-	// This is done before collecting bodypart overlays so we don't apply height twice to the same overlays
-	if(!dropped && !isnull(owner))
-		for(var/image/generated_overlay as anything in .)
-			// While you may think that heads could be applied with UPPER_BODY instead of ENTIRE_BODY to save us one filter,
-			// it's more important to keep it consistent for things like getflaticon
-			owner.apply_height(generated_overlay, ENTIRE_BODY)
+	if(!dropped) // NOVA EDIT ADDITION - The markings code above splits upstream's if(!dropped) block in two
+		// Apply height to the overlays we generated so far
+		// This is done before collecting bodypart overlays so we don't apply height twice to the same overlays
+		if(!isnull(owner))
+			for(var/generated_overlay, generated_overlay_flags in .)
+				// While you may think that heads could be applied with UPPER_BODY instead of ENTIRE_BODY to save us one filter,
+				// it's more important to keep it consistent for things like getflaticon
+				owner.apply_height(generated_overlay, ENTIRE_BODY)
 
 	// Draw external organs like horns and frills
 	// Height is applied again in here so we can specify where the overlay is set (ie offset_location)
@@ -1523,27 +1523,34 @@
 		if(!overlay.can_draw_on_bodypart(src, owner))
 			continue
 
-		for (var/mutable_appearance/actual_overlay as anything in overlay.get_all_overlays(src))
+		for (var/actual_overlay, actual_overlay_flags in overlay.get_all_overlays(src))
 			if(dropped || isnull(owner))
-				. += image(actual_overlay, dir = SOUTH)
+				.[image(actual_overlay, dir = SOUTH)] = overlay.overlay_flags
 				continue
 
 			owner.apply_height(actual_overlay, overlay.offset_location)
-			. += actual_overlay
+			.[actual_overlay] = actual_overlay_flags
 
 	// Then texture everything at once, including bodypart overlays
 	for(var/datum/bodypart_texture/texture as anything in bodypart_textures)
 		if(!texture.can_texture_bodypart(src))
 			continue
-		for(var/image/generated_overlay as anything in .)
-			var/appearance_plane = PLANE_TO_TRUE(generated_overlay.plane)
-			if(appearance_plane != FLOAT_PLANE && appearance_plane != GAME_PLANE)
+		for(var/generated_overlay, generated_overlay_flags in .)
+			if(!(generated_overlay_flags & LIMB_OVERLAY_TEXTURED))
 				continue
 
-			texture.modify_bodypart_appearance(generated_overlay)
+			texture.modify_bodypart_appearance(generated_overlay, generated_overlay_flags)
+
+#ifndef UNIT_TESTS
+	if(PERFORM_ALL_TESTS(focus_only/bodypart_overlay_flags))
+		for(var/generated_overlay, generated_overlay_flags in .)
+			var/image/generated_overlay_real = generated_overlay
+			if(PLANE_TO_TRUE(generated_overlay_real.plane) == EMISSIVE_PLANE && !(generated_overlay_flags & LIMB_OVERLAY_META))
+				stack_trace("Emissive overlay without meta tag (icon state: [generated_overlay_real.icon_state])")
+#endif
 
 	SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
-	return .
+	return assoc_to_keys(.)
 
 /**
  * Takes in an image and greyscales it to later be recolored to look like a husk
