@@ -23,6 +23,7 @@
 	#include "map_files\Snowglobe\snowglobe.dmm"
 	#include "map_files\oceanpubby\oceanpubby.dmm"
 	#include "map_files\NorthStar\north_star.dmm"
+	#include "map_files\icy_landing\icy_landing.dmm"
 	// NOVA EDIT ADDITION END
 #endif
 #ifdef ALL_TEMPLATES

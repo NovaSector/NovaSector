@@ -1,0 +1,7 @@
+{
+    "map_name": "Crash Landing on Ice-planet.",
+    "map_path": "map_files/icy_landing",
+    "map_file": "crashship.dmm",
+    "shuttle_arrivals": "none",
+    "shuttle_emergency": "none"
+}
