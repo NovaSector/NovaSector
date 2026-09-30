@@ -1,0 +1,3 @@
+Credits to Paxilmaniac and others at Dopplerstation for the shipbreaking and ship related coding and spritework.
+https://github.com/DopplerShift13/DopplerShift
+Contents of their work was ported into this codebase under the GNU AGPL v3 license.
