@@ -2182,8 +2182,8 @@
 /obj/item/reagent_containers/condiment/milk,
 /obj/item/reagent_containers/condiment/soymilk,
 /obj/item/reagent_containers/condiment/soymilk,
-/obj/item/choice_beacon/ingredient,
-/obj/item/choice_beacon/ingredient,
+/obj/item/pizzavoucher,
+/obj/item/pizzavoucher,
 /obj/item/storage/box/beakers{
 	pixel_x = -4;
 	pixel_y = -2
@@ -9628,7 +9628,7 @@
 /obj/item/reagent_containers/condiment/milk,
 /obj/item/reagent_containers/condiment/soymilk,
 /obj/item/reagent_containers/condiment/soymilk,
-/obj/item/choice_beacon/ingredient,
+/obj/item/pizzavoucher,
 /obj/item/toy/figure/chef,
 /obj/item/circuitboard/machine/dish_drive,
 /obj/item/food/meat/slab,
