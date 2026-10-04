@@ -803,7 +803,6 @@ GLOBAL_LIST_INIT(call911_do_and_do_not, list(
 	backpack_contents = list(
 		/obj/item/storage/box/survival,
 		/obj/item/knife,
-		/obj/item/storage/box/ingredients/italian,
 		/obj/item/solfed_reporter/pizza_managers,
 	)
 	r_hand = /obj/item/pizzabox/meat

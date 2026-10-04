@@ -439,6 +439,7 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 	tgui_say.initialize()
 
 	initialize_escape_menu()
+	//initialize_lobby_menu() // NOVA EDIT REMOVAL - SEE: modular_nova\modules\title_screen
 
 	if(alert_mob_dupe_login && !holder)
 		// Notify admins if the connecting player's CID is configured to be ignored by stickybans
