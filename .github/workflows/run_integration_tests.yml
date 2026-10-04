@@ -35,12 +35,14 @@ jobs:
       - name: Checkout required files
         uses: actions/checkout@v7
         with:
+          # NOVA EDIT CHANGE - Adds modular_nova to the list
           sparse-checkout: |
             _maps
             .github
             build/behavior_trees
             code/datums/greyscale/json_configs
             icons
+            modular_nova
             sound/runtime
             strings
             tgui/public
