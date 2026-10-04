@@ -911,7 +911,7 @@ GLOBAL_ALIST_INIT(human_heights_to_offsets, alist(
 	#define BUTT_LAYER 19.8
 	// NOVA EDIT ADDITION END
 	/// Gauze specifically
-	#define GAUZE_LAYER 19.8
+	#define GAUZE_LAYER 19.85 // NOVA EDIT CHANGE -- Original #define GAUZE_LAYER 19.8
 	/// Damage indicators with overlays
 	#define DAMAGE_OVERLAY_LAYER 19.9
 /// Damage indicators (cuts and burns)

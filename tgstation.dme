@@ -7483,6 +7483,7 @@
 #include "modular_nova\master_files\code\game\objects\items\storage\holsters.dm"
 #include "modular_nova\master_files\code\game\objects\items\storage\job_boxes.dm"
 #include "modular_nova\master_files\code\game\objects\items\storage\lockbox.dm"
+#include "modular_nova\master_files\code\game\objects\items\storage\boxes\food_boxes.dm"
 #include "modular_nova\master_files\code\game\objects\items\storage\toolboxes\weapon.dm"
 #include "modular_nova\master_files\code\game\objects\items\tanks\tank_types.dm"
 #include "modular_nova\master_files\code\game\objects\items\tools\engineering\weldingtool.dm"
