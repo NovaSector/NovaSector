@@ -19,7 +19,11 @@
 		name = "breathing tube implant"
 		aug_overlay = "breathing_tube"
 		if(isnull(bodypart_aug)) //Need to ensure there's one of these on the Integrated one, which starts null
-			bodypart_aug = new(src)
+			bodypart_aug = new()
+			bodypart_aug.icon = aug_icon
+			bodypart_aug.icon_state = get_overlay_state()
+			bodypart_aug.emissive = emissive_overlay
+			bodypart_aug.set_layer("", overlay_layer)
 	else
 		name = "integrated breathing tube implant"
 		aug_overlay = null

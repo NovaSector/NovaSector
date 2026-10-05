@@ -8204,11 +8204,11 @@
 /area/ruin/space/has_grav/nova/des_two/service/lounge)
 "IG" = (
 /obj/structure/table,
-/obj/item/choice_beacon/ingredient{
+/obj/item/pizzavoucher{
 	pixel_x = -5;
 	pixel_y = 2
 	},
-/obj/item/choice_beacon/ingredient{
+/obj/item/pizzavoucher{
 	pixel_y = 11
 	},
 /obj/effect/turf_decal/siding/dark{
