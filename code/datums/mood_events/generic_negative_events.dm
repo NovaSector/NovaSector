@@ -666,3 +666,9 @@
 	description = span_warning("I was forced to eat cement...")
 	mood_change = -6
 	timeout = 4 MINUTES
+
+/datum/mood_event/shoe_pain
+	description = "These heels hurt like hell to walk in..."
+	mood_change = -1
+	timeout = 3 MINUTES
+	event_flags = MOOD_EVENT_PAIN
