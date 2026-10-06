@@ -24,7 +24,7 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 			skirt = TRUE
 
 	var/icon/legs = icon(SSgreyscale.GetColoredIconByType(greyscale_config, greyscale_colors), skirt ? "skirt_worn" : "jumpsuit_worn")
-	return replace_icon_legs(base_icon, legs)
+	return apply_icon_mask(base_icon, LEGS_MASK, legs)
 
 /**
  * Proc to generate a taur variation of clothes, with the intent of caching them.
