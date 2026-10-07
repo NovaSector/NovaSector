@@ -1,0 +1,7 @@
+author: "necromanceranne"
+delete-after: True
+changes:
+  - rscadd: "Knives do additional damage if you first grab hold of your target."
+  - rscadd: "Some knives can be impaled into someone with right click."
+  - balance: "Kitchen knives and shivs have embedding behaviour."
+  - balance: "Most knives have better chances of embedding. Only combat knives have particularly lethal embed effects."
