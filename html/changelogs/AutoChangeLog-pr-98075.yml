@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "hardcore random, anonymous theme and appearance-banned characters now get just a random set of personalities instead of a random set piled on top of their own"
+  - bugfix: "random personalities can no longer come with two that contradict each other, like loyal and disillusioned."
