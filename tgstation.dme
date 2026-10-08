@@ -2056,6 +2056,7 @@
 #include "code\datums\keybinding\artificial_intelligence.dm"
 #include "code\datums\keybinding\client.dm"
 #include "code\datums\keybinding\communication.dm"
+#include "code\datums\keybinding\dextrous.dm"
 #include "code\datums\keybinding\emote.dm"
 #include "code\datums\keybinding\human.dm"
 #include "code\datums\keybinding\living.dm"

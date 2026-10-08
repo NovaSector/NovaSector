@@ -355,8 +355,13 @@
 /mob/living/proc/can_catch_item(skip_throw_mode_check = FALSE, try_offhand = FALSE)
 	if(HAS_TRAIT(src, TRAIT_HANDS_BLOCKED))
 		return FALSE
-	if(get_active_held_item() && (!try_offhand || get_inactive_held_item() || !swap_hand()))
-		return FALSE
+
+	if(get_active_held_item())
+		if(!try_offhand)
+			return FALSE
+		var/empty_held_indexes = get_empty_held_indexes()
+		if(!length(empty_held_indexes) || !swap_hand(pick(empty_held_indexes)))
+			return FALSE
 	return TRUE
 
 /mob/living/fire_act()
