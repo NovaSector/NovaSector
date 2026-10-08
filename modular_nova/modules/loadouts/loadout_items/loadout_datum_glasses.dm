@@ -19,8 +19,7 @@
 		return
 	if(equipped_glasses.tint)
 		equipper.update_tint()
-	if(equipped_glasses.vision_flags \
-		|| equipped_glasses.invis_override \
+	if(equipped_glasses.invis_override \
 		|| equipped_glasses.invis_view \
 		|| !isnull(equipped_glasses.color_cutoffs))
 		equipper.update_sight()

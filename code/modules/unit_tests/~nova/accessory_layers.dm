@@ -10,7 +10,7 @@
 
 /datum/unit_test/accessory_layers/Run()
 	var/list/declared = list() // postfix -> first type that declares it, for error messages
-	for(var/overlay_path in subtypesof(/datum/bodypart_overlay))
+	for(var/overlay_path in subtypesof(/datum/bodypart_overlay/mutant))
 		var/datum/bodypart_overlay/overlay = new overlay_path()
 		for(var/postfix in overlay.get_layer_postfixes())
 			if(isnull(declared[postfix]))

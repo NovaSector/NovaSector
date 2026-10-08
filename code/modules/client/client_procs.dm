@@ -439,6 +439,7 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 	tgui_say.initialize()
 
 	initialize_escape_menu()
+	//initialize_lobby_menu() // NOVA EDIT REMOVAL - SEE: modular_nova\modules\title_screen
 
 	if(alert_mob_dupe_login && !holder)
 		// Notify admins if the connecting player's CID is configured to be ignored by stickybans
@@ -1178,7 +1179,10 @@ GLOBAL_LIST_INIT(unrecommended_builds, list(
 	for(var/procpath/verb_to_init as anything in verbstoprocess)
 		if(!verb_to_init || verb_to_init.hidden)
 			continue
-		if(!SSverbs.verbs_by_verb_path[verb_to_init] && !SSadmin_verbs.admin_verbs_by_verb_path[verb_to_init])
+		var/datum/verb_metadata/meta = SSverbs.verbs_by_verb_path[verb_to_init]
+		if(!meta && !SSadmin_verbs.admin_verbs_by_verb_path[verb_to_init])
+			continue
+		if(meta?.src_based)
 			continue
 		panel_verbs += list(SSverbs.serialize_verb(verb_to_init))
 	tgui_panel?.window?.send_message("verbs/init", list("verbs" = panel_verbs))

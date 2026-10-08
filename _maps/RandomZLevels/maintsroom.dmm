@@ -6303,8 +6303,6 @@
 /area/awaymission/caves/maintsroom)
 "vb" = (
 /obj/structure/rack,
-/obj/item/borg/sight/hud/med,
-/obj/item/borg/sight/hud/med,
 /obj/machinery/camera/xray/directional/south,
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
