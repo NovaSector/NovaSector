@@ -119,7 +119,7 @@
 	return TRUE
 
 /datum/keybinding/dextrous/drop_item_specific
-	hotkey_keys = list("CtrlX")
+	hotkey_keys = list("CtrlQ")
 	name = "drop_item_specific"
 	full_name = "Drop Item (Specific)"
 	description = "Drops the item in your active where your mouse cursor is, if in range."
