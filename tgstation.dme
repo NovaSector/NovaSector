@@ -4602,6 +4602,7 @@
 #include "code\modules\clothing\under\accessories\_accessories.dm"
 #include "code\modules\clothing\under\accessories\armbands.dm"
 #include "code\modules\clothing\under\accessories\badges.dm"
+#include "code\modules\clothing\under\accessories\earrings.dm"
 #include "code\modules\clothing\under\accessories\medals.dm"
 #include "code\modules\clothing\under\accessories\tribal.dm"
 #include "code\modules\clothing\under\accessories\vests.dm"
