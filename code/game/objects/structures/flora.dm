@@ -446,7 +446,6 @@
 
 /**************
  * Fancy Pine Trees *
- sprites from roguetown
  **************/
 
 /obj/structure/flora/tree/fancypine
