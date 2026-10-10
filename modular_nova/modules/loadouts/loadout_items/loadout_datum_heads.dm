@@ -727,7 +727,7 @@
 /datum/loadout_item/head/officergarrisoncap
 	name = "Guard Cap - Garrison"
 	item_path = /obj/item/clothing/head/security_garrison
-	restricted_roles = list(ALL_JOBS_SEC)
+	restricted_roles = list(ALL_JOBS_SEC, ALL_JOBS_DEPTGUARD)
 	group = "Guard"
 
 /datum/loadout_item/head/officerpatrolcap
