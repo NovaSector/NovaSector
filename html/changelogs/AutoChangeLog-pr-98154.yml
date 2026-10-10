@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - refactor: "gives all the icon_state mapping turf varedits their own types"
