@@ -471,6 +471,7 @@
 /obj/structure/flora/tree/fancypine/snowy
 	name = "snowy pine tree"
 	desc = "A snow covered coniferous pine tree."
+	icon = 'icons/obj/fluff/flora/pines.dmi'
 	icon = "pine2-snow"
 
 /obj/structure/flora/tree/fancypine/snowy/get_seethrough_map()
