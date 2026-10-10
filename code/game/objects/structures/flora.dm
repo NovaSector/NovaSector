@@ -456,6 +456,14 @@
 	pixel_x = -16
 	pixel_y = 0
 
+/obj/structure/flora/tree/fancypine
+	name = "pine tree"
+	desc = "A coniferous pine tree."
+	icon = 'icons/obj/fluff/flora/pines.dmi'
+	icon_state = "pine1"
+	pixel_x = -32
+	pixel_y = 0
+
 /obj/structure/flora/tree/fancypine/get_seethrough_map()
 	return SEE_THROUGH_MAP_THREE_X_TWO
 
@@ -468,16 +476,16 @@
 /obj/structure/flora/tree/fancypine/style_3
 	icon_state = "pine4"
 
-/obj/structure/flora/tree/fancypine/style_0
+/obj/structure/flora/tree/fancypine/snow/style_4
 	icon_state = "pine1-snow"
 
-/obj/structure/flora/tree/fancypine/style_1
+/obj/structure/flora/tree/fancypine/snow/style_5
 	icon_state = "pine2-snow"
 
-/obj/structure/flora/tree/fancypine/style_2
+/obj/structure/flora/tree/fancypine/snow/style_6
 	icon_state = "pine3-snow"
 
-/obj/structure/flora/tree/fancypine/style_3
+/obj/structure/flora/tree/fancypine/snow/style_7
 	icon_state = "pine4-snow"
 
 /**************
