@@ -445,6 +445,72 @@
 	update_appearance()
 
 /**************
+ * Fancy Pine Trees *
+ sprites from roguetown
+ **************/
+
+/obj/structure/flora/tree/fancypine
+	name = "pine tree"
+	desc = "A coniferous pine tree."
+	icon = 'icons/obj/fluff/flora/pines.dmi'
+	icon_state = "pine2"
+	pixel_x = -16
+	pixel_y = 0
+
+/obj/structure/flora/tree/fancypine/get_seethrough_map()
+	return SEE_THROUGH_MAP_THREE_X_TWO
+
+/obj/structure/flora/tree/fancypine/style_1
+	icon_state = "pine1"
+
+/obj/structure/flora/tree/fancypine/style_2
+	icon_state = "pine3"
+
+/obj/structure/flora/tree/fancypine/style_3
+	icon_state = "pine4"
+
+/obj/structure/flora/tree/fancypine/snowy
+	name = "snowy pine tree"
+	desc = "A snow covered coniferous pine tree."
+	icon = "pine2-snow"
+
+/obj/structure/flora/tree/fancypine/snowy/get_seethrough_map()
+	return SEE_THROUGH_MAP_THREE_X_TWO
+
+/obj/structure/flora/tree/fancypine/snowy/style_1
+	icon_state = "pine1-snow"
+
+/obj/structure/flora/tree/fancypine/snowy/style_2
+	icon_state = "pine3-snow"
+
+/obj/structure/flora/tree/fancypine/snowy/style_3
+	icon_state = "pine4-snow"
+
+/**************
+ * Maple Trees *
+ **************/
+
+/obj/structure/flora/tree/maple
+	name = "maple tree"
+	desc = "A orange maple tree."
+	icon = 'icons/obj/fluff/flora/maple_tree.dmi'
+	icon_state = "maple1"
+	pixel_x = -32
+	pixel_y = 0
+
+/obj/structure/flora/tree/maple/get_seethrough_map()
+	return SEE_THROUGH_MAP_DEFAULT_TWO_TALL
+
+/obj/structure/flora/tree/maple/style_1
+	icon_state = "maple2"
+
+/obj/structure/flora/tree/maple/style_2
+	icon_state = "maple3"
+
+/obj/structure/flora/tree/maple/style_3
+	icon_state = "maple4"
+
+/**************
  * Pine Trees *
  **************/
 
