@@ -110,7 +110,7 @@
 			visuals_only = visuals_only,
 		)
 
-	if(preference_source?.read_preference(/datum/preference/toggle/green_pin))
+	if(preference_source?.should_get_green_pin())
 		var/obj/item/clothing/under/uniform = w_uniform
 		uniform?.attach_accessory(new /obj/item/clothing/accessory/green_pin(), src, FALSE)
 
