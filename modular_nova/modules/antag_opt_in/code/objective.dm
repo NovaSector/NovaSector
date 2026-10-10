@@ -66,7 +66,11 @@
 /datum/objective/contract
 	default_opt_in_level = ANTAG_OPT_IN_YES_PARTIAL
 
+// Contractors can grab anyone opted in to being killed or worse, on top of the Sec/Command roles they can always take.
 /datum/objective/contract/opt_in_valid(datum/mind/target_mind)
+	if(target_mind.get_effective_antag_opt_in_level() >= ANTAG_OPT_IN_YES_KILL)
+		return TRUE
+
 	var/datum/job/target_job = target_mind.assigned_role
 	if (!target_job?.contractable)
 		return FALSE

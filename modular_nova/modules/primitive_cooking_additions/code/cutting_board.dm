@@ -106,42 +106,42 @@
 	qdel(processed_thing)
 	update_appearance()
 
-/obj/item/cutting_board/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
+/obj/item/cutting_board/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(user.combat_mode)
 		return ..()
 
-	if(attacking_item.tool_behaviour == TOOL_KNIFE)
+	if(tool.tool_behaviour == TOOL_KNIFE)
 		if(!length(contents))
 			balloon_alert(user, "nothing to process")
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		var/datum/food_processor_process/item_process_recipe = GET_RECIPE(contents[1])
 		if(!item_process_recipe)
 			log_admin("DEBUG: [src] (cutting board item) just tried to process [contents[1]] but wasn't able to get a recipe somehow, this should not be able to happen.")
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		playsound(src, 'sound/effects/butcher.ogg', 50, TRUE)
 		balloon_alert_to_viewers("cutting...")
 		if(!do_after(user, 3 SECONDS, target = src))
 			balloon_alert_to_viewers("stopped cutting")
-			return
+			return ITEM_INTERACT_BLOCKING
 
 		process_food(item_process_recipe, contents[1])
-		return
+		return ITEM_INTERACT_SUCCESS
 
-	var/datum/food_processor_process/gotten_recipe = GET_RECIPE(attacking_item)
+	var/datum/food_processor_process/gotten_recipe = GET_RECIPE(tool)
 	if(gotten_recipe)
 		if(length(contents))
 			balloon_alert(user, "board is full")
-			return
+			return ITEM_INTERACT_BLOCKING
 
-		attacking_item.forceMove(src)
-		balloon_alert(user, "placed [attacking_item] on board")
+		tool.forceMove(src)
+		balloon_alert(user, "placed [tool] on board")
 		update_appearance()
-		return
+		return ITEM_INTERACT_SUCCESS
 
-	if(IS_EDIBLE(attacking_item)) //We may have failed but the user wants some feedback on why they can't put x food item on the board
-		balloon_alert(user, "[attacking_item] can't be processed")
+	if(IS_EDIBLE(tool)) //We may have failed but the user wants some feedback on why they can't put x food item on the board
+		balloon_alert(user, "[tool] can't be processed")
 	return ..()
 
 #undef GET_RECIPE

@@ -22,29 +22,6 @@
 /datum/bodypart_overlay/mutant/tail/get_base_icon_state()
 	return sprite_datum.icon_state
 
-/datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
-	var/mob/living/carbon/human/wearer = owner || bodypart_owner.owner
-	if(!istype(wearer))
-		return TRUE
-	var/list/used_in_turf = list(FEATURE_TAIL)
-	// Emote exception
-	if(wearer.owned_turf?.name in used_in_turf)
-		return FALSE
-
-	var/obj/item/clothing/suit/mod/worn_suit = wearer.wear_suit
-	if(isnull(wearer.w_uniform) && isnull(worn_suit))
-		return ..()
-
-	// Can hide if wearing uniform
-	if(feature_key in wearer.try_hide_mutant_parts)
-		return FALSE
-
-	// Exception for MODs
-	if(istype(worn_suit))
-		return TRUE
-
-	return !(bodypart_owner.owner?.obscured_slots & HIDETAIL)
-
 /obj/item/organ/tail/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	if(sprite_accessory_flags & SPRITE_ACCESSORY_WAG_ABLE)
 		wag_flags |= WAG_ABLE

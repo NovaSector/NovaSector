@@ -50,14 +50,14 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/wall_torch, 28)
 	desc = mounted_torch ? "A simple torch mounted to the wall, for lighting and such." : "A simple torch mount, torches go here."
 
 
-/obj/structure/wall_torch/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/structure/wall_torch/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(!mounted_torch)
-		if(!istype(attacking_item, /obj/item/flashlight/flare/torch))
+		if(!istype(tool, /obj/item/flashlight/flare/torch))
 			return ..()
 
-		mounted_torch = attacking_item
-		RegisterSignal(attacking_item, COMSIG_QDELETING, PROC_REF(remove_torch))
-		attacking_item.forceMove(src)
+		mounted_torch = tool
+		RegisterSignal(tool, COMSIG_QDELETING, PROC_REF(remove_torch))
+		tool.forceMove(src)
 		update_appearance(UPDATE_NAME | UPDATE_DESC)
 
 		if(mounted_torch.light_on)
@@ -67,10 +67,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/wall_torch, 28)
 
 		mounted_torch.turn_off()
 
-		return
+		return ITEM_INTERACT_SUCCESS
 
-	if(!burning && attacking_item.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+	if(!burning && tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		light_it_up()
+		return ITEM_INTERACT_SUCCESS
 	else
 		return ..()
 

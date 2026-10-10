@@ -1,7 +1,6 @@
 /datum/design/ai_uplink_upload
 	name = "AI Uplink Brain"
 	desc = "A synthetic brain with capability to let AI control bodies directly."
-	id = "ai_uplink_brain"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2.5,

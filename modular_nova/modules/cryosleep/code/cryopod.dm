@@ -21,6 +21,7 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	desc = "An interface between crew and the cryogenic storage oversight systems."
 	icon = 'modular_nova/modules/cryosleep/icons/cryogenics.dmi'
 	icon_state = "cellconsole_1"
+	generate_map_preview = FALSE
 	icon_keyboard = null
 	icon_screen = null
 	use_power = FALSE
@@ -447,7 +448,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		for(var/obj/item/item_content in mob_occupant)
 			if(HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & (ABSTRACT|DROPDEL)) || (item_content.flags_1 & HOLOGRAM_1) || (item_content.obj_flags_nova & NO_CRYO_FREEZE) || QDELETED(item_content))
 				continue
-			if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
+			if (issilicon(mob_occupant) && istype(item_content, /obj/item/brain_processor))
 				continue
 			if(control_computer)
 				if(istype(item_content, /obj/item/modular_computer))
@@ -591,16 +592,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 /obj/machinery/cryopod/blob_act()
 	return // Sorta gamey, but we don't really want these to be destroyed.
 
-/obj/machinery/cryopod/attackby(obj/item/attacking_item, mob/living/user, list/modifiers, list/attack_modifiers)
+/obj/machinery/cryopod/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
-	if(istype(attacking_item, /obj/item/bedsheet))
+	if(istype(tool, /obj/item/bedsheet))
 		if(!occupant || !istype(occupant, /mob/living))
 			return
 		if(tucked)
 			to_chat(user, span_warning("[occupant.name] already looks pretty comfortable!"))
 			return
 		to_chat(user, span_notice("You tuck [occupant.name] into their pod!"))
-		qdel(attacking_item)
+		qdel(tool)
 		user.add_mood_event("tucked", /datum/mood_event/tucked_in, occupant)
 		tucked = TRUE
 

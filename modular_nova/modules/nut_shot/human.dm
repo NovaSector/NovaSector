@@ -8,7 +8,7 @@
 // For when you want to hurt a motherfucker
 /// Checks to see if it is possible to reach the mob's testicles and influence them through that - i.e. not medicated or unconscious. Knocks down when successful, with a small chance to vomit.
 /mob/living/carbon/human/proc/try_nut_shot(mob/living/attacker, limb_accuracy, staggered)
-	if(stat >= UNCONSCIOUS)
+	if(IS_UNCONSCIOUS(src))
 		return FALSE
 	if(!(attacker.zone_selected == BODY_ZONE_PRECISE_GROIN))
 		return FALSE

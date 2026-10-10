@@ -111,15 +111,15 @@
 	visible_message("[src] pings, updating its sorting direction!")
 	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
 
-/obj/effect/decal/conveyor_sorter/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attacking_item, /obj/item/conveyor_sorter))
-		var/obj/item/conveyor_sorter/cs_item = attacking_item
-		sorting_list = cs_item.current_sort
-		visible_message("[src] pings, updating its sorting list!")
-		playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
-		return
-	else
+/obj/effect/decal/conveyor_sorter/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/conveyor_sorter))
 		return ..()
+
+	var/obj/item/conveyor_sorter/cs_item = tool
+	sorting_list = cs_item.current_sort
+	visible_message("[src] pings, updating its sorting list!")
+	playsound(src, 'sound/machines/ping.ogg', 30, TRUE)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/effect/decal/conveyor_sorter/click_alt(mob/user)
 	visible_message("[src] pings, resetting its sorting list!")
@@ -142,7 +142,6 @@
 /datum/design/conveyor_sorter
 	name = "Conveyor Sorter"
 	desc = "A wonderful item that can set markers and forcefully move stuff to a direction."
-	id = "conveysorter"
 	build_type = PROTOLATHE | AWAY_LATHE
 	build_path = /obj/item/conveyor_sorter
 	materials = list(
@@ -175,7 +174,6 @@
 /datum/design/conveyor_sorter/improved
 	name = "Improved Conveyor Sorter"
 	desc = "A wonderful item that can set markers and forcefully move stuff to a direction. With more capacity to sort more!"
-	id = "conveyor_sorter_improved"
 	build_path = /obj/item/conveyor_sorter/improved
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
@@ -185,11 +183,10 @@
 	)
 
 /datum/techweb_node/conveyor_sorter/improved
-	id = TECHWEB_NODE_CONVEYOR_SORTER_IMPROVED
 	display_name = "Improved Conveyor Sorter"
 	description = "An improved version of the conveyor sorter, this one allows for more control over sorting."
-	prereq_ids = list(TECHWEB_NODE_MISC_CARGO)
-	design_ids = list(
-		"conveyor_sorter_improved",
+	prerequisite_nodes = list(/datum/techweb_node/misc_cargo)
+	unlocked_designs = list(
+		/datum/design/conveyor_sorter/improved,
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)

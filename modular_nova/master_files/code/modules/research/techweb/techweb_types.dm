@@ -5,9 +5,9 @@
 
 /datum/techweb/colony_fabricator/New() //Remove a few things to hopefully get this to work right.
 	. = ..()
-	for(var/id, current_design in SSresearch.techweb_designs)
+	for(var/design_path, current_design in SSresearch.techweb_designs)
 		var/datum/design/design = current_design
 		if(!(design.build_type & allowed_buildtypes)) //Define hell incoming if we make more subtypes.
 			continue
 
-		add_design_by_id(id)
+		add_design(design_path)

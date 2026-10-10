@@ -56,6 +56,8 @@
 /obj/item/clothing/head/soft/blueshield
 	name = "blueshield's cap"
 	desc = "A navy-blue baseball cap made of durathread with a genuine golden badge, denoting its owner as a Blueshield Lieutenant. It seems to be padded with nano-kevlar, making it tougher than standard caps."
+	icon = 'modular_nova/master_files/icons/obj/clothing/hats.dmi'
+	worn_icon = 'modular_nova/master_files/icons/mob/clothing/head.dmi'
 	icon_state = "blueshieldsoft"
 	soft_type = "blueshield"
 	inhand_icon_state = "greyscale_softcap"

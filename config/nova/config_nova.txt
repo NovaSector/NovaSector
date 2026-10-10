@@ -97,6 +97,7 @@ SSDECAY_LIGHT_FLICKER_PERCENT_CHANCE 10
 
 ## Disables any ERP preferences for codebases that don't want it.
 #DISABLE_ERP_PREFERENCES
+#DISABLE_TUMS_PREFERENCES
 #DISABLE_LEWD_ITEMS
 #ERP_EMOTES_TO_DISABLE cum
 
@@ -229,3 +230,9 @@ SAVEFILE_UPLOAD_LIMIT 2000
 
 ## Uncomment to disable the Star rank restrictions
 #ENABLE_NOVA_STAR_RESTRICTIONS 0
+
+## Uncomment to make the supermatter superheat and blast mobs away instead of dusting them when touched
+#DISABLE_SM_DUSTING
+
+## Uncomment to force techweb base tech nodes to start unlocked instead of using the vanilla tg settings
+#ENABLE_NOVA_TECHWEB_STARTING_NODES

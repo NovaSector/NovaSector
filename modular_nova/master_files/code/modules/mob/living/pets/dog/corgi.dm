@@ -74,9 +74,8 @@
 	if(health > rage_hp || is_friend)
 		return
 
-	borgi.set_movement_target(target)
-	borgi.blackboard[BB_DOG_HARASS_TARGET] = WEAKREF(target)
-	borgi.queue_behavior(/datum/ai_behavior/basic_melee_attack/dog, BB_DOG_HARASS_TARGET, BB_PET_TARGETING_STRATEGY)
+	// Picked up by the inherited dog_harassment subtree, which moves to and bites whatever is in this key.
+	borgi.set_blackboard_key(BB_DOG_HARASS_TARGET, target)
 
 /mob/living/basic/pet/dog/corgi/borgi/proc/on_attack_hand(datum/source, mob/living/target)
 	SIGNAL_HANDLER
@@ -172,8 +171,6 @@
 	UnregisterSignal(src, COMSIG_ATOM_EMAG_ACT)
 
 	do_sparks(number = 3, cardinal_only = TRUE, source = src)
-	var/datum/ai_controller/basic_controller/dog/borgi = ai_controller
-	LAZYCLEARLIST(borgi.current_behaviors)
 
 /mob/living/basic/pet/dog/corgi/borgi/proc/on_emag_act(mob/living/basic/pet/dog/target, mob/user)
 	SIGNAL_HANDLER
@@ -212,6 +209,7 @@
 
 /// Dog controller but with emag attack support
 /datum/ai_controller/basic_controller/dog/borgi
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/pets/dog/borgi.bt.json"
 	blackboard = list(
 		BB_DOG_HARASS_HARM = TRUE,
 		BB_VISION_RANGE = AI_DOG_VISION_RANGE,
@@ -219,56 +217,37 @@
 		BB_PET_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
 	)
 
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/emagged_borgi,
-		/datum/ai_planning_subtree/random_speech/dog,
-		/datum/ai_planning_subtree/pet_planning,
-		/datum/ai_planning_subtree/dog_harassment,
-	)
+/// Shoots at a nearby target on a cooldown, but only while the borgi has been emagged. No-ops otherwise.
+/datum/bt_node/ai_behavior/emagged_borgi_attack
+	time_between_perform = 3 SECONDS
+	/// Blackboard key we remember our current shooting target under.
+	var/target_key = BB_BORGI_EMAG_TARGET
+	/// How far to look for a target to shoot.
+	var/vision_range = 9
 
-/// Subtree that schedules borgi to randomly shoot if they're emagged.
-/datum/ai_planning_subtree/emagged_borgi
-	/// Probability that emagged borgi will randomly attack.
-	var/chance = 33
+/datum/bt_node/ai_behavior/emagged_borgi_attack/setup(datum/ai_controller/controller)
+	var/mob/living/basic/pet/dog/corgi/borgi/borgi_pawn = controller.pawn
+	return istype(borgi_pawn) && borgi_pawn.emagged
 
-/datum/ai_planning_subtree/emagged_borgi/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
-	. = ..()
-
-	// Emagged borgi?
+/datum/bt_node/ai_behavior/emagged_borgi_attack/perform(seconds_per_tick, datum/ai_controller/controller)
 	var/mob/living/basic/pet/dog/corgi/borgi/borgi_pawn = controller.pawn
 	if(!istype(borgi_pawn) || !borgi_pawn.emagged)
-		return
+		return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
 
-	// Target if not already targetted and prob check passes.
-	var/datum/weakref/weak_target = controller.blackboard[BB_BASIC_MOB_CURRENT_TARGET]
-	var/atom/target = weak_target?.resolve()
-	if(QDELETED(target))
-		if(!SPT_PROB(chance, seconds_per_tick))
-			return
-
-		controller.queue_behavior(/datum/ai_behavior/find_potential_targets, BB_BASIC_MOB_CURRENT_TARGET, BB_PET_TARGETING_STRATEGY, BB_BASIC_MOB_CURRENT_TARGET_HIDING_LOCATION)
-		return
-
-	// Attack.
-	controller.queue_behavior(/datum/ai_behavior/emagged_borgi_attack, BB_BASIC_MOB_CURRENT_TARGET)
-	return SUBTREE_RETURN_FINISH_PLANNING
-
-/**
- * Shoot a random target.
- */
-/datum/ai_behavior/emagged_borgi_attack
-	action_cooldown = 3 SECONDS
-
-/datum/ai_behavior/emagged_borgi_attack/perform(seconds_per_tick, datum/ai_controller/controller, target_key)
 	var/atom/target = controller.blackboard[target_key]
-	if(QDELETED(target))
-		return
-
-	var/mob/living/basic/pet/dog/corgi/borgi/borgi_pawn = controller.pawn
-	if(!istype(borgi_pawn))
-		return
+	if(QDELETED(target) || !can_see(borgi_pawn, target, vision_range))
+		target = null
+		for(var/mob/living/possible_target in oview(vision_range, borgi_pawn))
+			if(possible_target.stat == DEAD || borgi_pawn.faction_check_atom(possible_target))
+				continue
+			target = possible_target
+			break
+		if(!target)
+			return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_FAILED
+		controller.set_blackboard_key(target_key, target)
 
 	borgi_pawn.shoot_at(target)
+	return AI_BEHAVIOR_DELAY | AI_BEHAVIOR_SUCCEEDED
 
 /mob/living/basic/pet/dog/corgi/robocorgo
 	name = "robocorgi"

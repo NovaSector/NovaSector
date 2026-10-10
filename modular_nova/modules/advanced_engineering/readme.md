@@ -15,8 +15,8 @@ None
 ### Defines
 
 #define RADIO_CHANNEL_SOLFED "SolFed"
-#define RADIO_KEY_SOLFED "f"
-#define RADIO_TOKEN_SOLFED ":f"
+#define RADIO_KEY_SOLFED "2"
+#define RADIO_TOKEN_SOLFED ":2"
 
 #define FREQ_SOLFED 1377
 

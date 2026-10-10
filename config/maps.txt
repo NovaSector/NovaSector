@@ -50,9 +50,9 @@ map nebulastation
 	votable
 endmap
 
-map wawastation
+map kilostation
 	votable
-	minplayers 40
+	maxplayers 40
 endmap
 
 # Debug-only maps.
@@ -97,6 +97,11 @@ endmap
 
 map oceanpubby
     votable
+endmap
+
+map northstar
+    votable
+    minplayers 50
 endmap
 
 map runtimestation_minimal

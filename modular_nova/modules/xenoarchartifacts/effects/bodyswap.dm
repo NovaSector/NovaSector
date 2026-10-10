@@ -90,12 +90,12 @@
 	}
 
 	// IT WAS TRUE ALL ALONG
-	if(istype(caster.head, /obj/item/clothing/head/costume/foilhat))
+	if(istype(caster.get_item_by_slot(ITEM_SLOT_HEAD), /obj/item/clothing/head/costume/foilhat))
 		to_chat(caster, span_clockred("Your tinfoil hat vibrates, protecting your brain from some kind of invisible rays!"))
 		return FALSE
 
 	// THEY CONTROL US WITH INVISIBLE RAYS FROM SPACE SATELLITES
-	if(istype(to_swap.head, /obj/item/clothing/head/costume/foilhat))
+	if(istype(caster.get_item_by_slot(ITEM_SLOT_HEAD), /obj/item/clothing/head/costume/foilhat))
 		to_chat(to_swap, span_clockred("Your tinfoil hat vibrates, protecting your brain from some kind of invisible rays!"))
 		return FALSE
 

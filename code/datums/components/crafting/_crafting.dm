@@ -50,6 +50,27 @@
 	var/forced_mode = FALSE
 	/// crafting flags we ignore when considering a recipe
 	var/ignored_flags = NONE
+	/// Global crafting blacklist. These should be excluded from all crafting recipes no matter what.
+	var/static/list/global_blacklist = typecacheof(list(
+		/obj/item/cautery/augment,
+		/obj/item/cautery/cruel/augment,
+		/obj/item/circular_saw/augment,
+		/obj/item/circular_saw/cruel/augment,
+		/obj/item/crowbar/cyborg,
+		/obj/item/hemostat/augment,
+		/obj/item/hemostat/cruel/augment,
+		/obj/item/multitool/cyborg,
+		/obj/item/retractor/augment,
+		/obj/item/retractor/cruel/augment,
+		/obj/item/scalpel/augment,
+		/obj/item/scalpel/cruel/augment,
+		/obj/item/screwdriver/cyborg,
+		/obj/item/surgicaldrill/augment,
+		/obj/item/surgicaldrill/cruel/augment,
+		/obj/item/weldingtool/largetank/cyborg,
+		/obj/item/wirecutters/cyborg,
+		/obj/item/wrench/cyborg,
+	))
 
 /* This is what procs do:
 	get_environment - gets a list of things accessable for crafting by user
@@ -84,7 +105,7 @@
 		// Check we have the appropriate amount available in the contents list
 		for(var/content_item_path in contents)
 			// Right path and not blacklisted
-			if(!ispath(content_item_path, requirement_path) || (content_item_path in recipe.blacklist) || is_type_in_typecache(recipe.global_blacklist, content_item_path))
+			if(!ispath(content_item_path, requirement_path) || (content_item_path in recipe.blacklist))
 				continue
 			// If we are a recipe that is blacklisting its result, make sure we skip that path
 			if(recipe_result && content_item_path == recipe_result)
@@ -96,6 +117,9 @@
 
 		if(needed_amount > 0)
 			return FALSE
+
+		if (!(recipe.crafting_flags & CRAFT_COLLECT_REQUIREMENTS))
+			continue
 
 		// Store the instances of what we will use for recipe.check_requirements() for requirement_path
 		var/list/instances_list = list()
@@ -158,6 +182,13 @@
 		if(isitem(object))
 			var/obj/item/item = object
 			LAZYADDASSOCLIST(.[CONTENTS_INSTANCES], item.type, item)
+			if(item.tool_behaviour)
+				var/current_tool_speed = .[CONTENTS_TOOL_BEHAVIOUR][item.tool_behaviour]
+				if(current_tool_speed < item.toolspeed)
+					.[CONTENTS_TOOL_BEHAVIOUR][item.tool_behaviour] = item.toolspeed
+			// Blacklisted items can be tools but not components
+			if(is_type_in_typecache(item.type, global_blacklist))
+				continue
 			if(isstack(item))
 				var/obj/item/stack/stack = item
 				.[CONTENTS_REQS_COUNT][item.type] += stack.amount
@@ -167,10 +198,6 @@
 					var/obj/item/reagent_containers/container = item
 					for(var/datum/reagent/reagent as anything in container.reagents.reagent_list)
 						.[CONTENTS_REQS_COUNT][reagent.type] += reagent.volume
-			if(item.tool_behaviour)
-				var/current_tool_speed = .[CONTENTS_TOOL_BEHAVIOUR][item.tool_behaviour]
-				if(current_tool_speed < item.toolspeed)
-					.[CONTENTS_TOOL_BEHAVIOUR][item.tool_behaviour] = item.toolspeed
 		else if (ismachinery(object))
 			LAZYADDASSOCLIST(.[CONTENTS_MACHINERY], object.type, object)
 		else if (isstructure(object))
@@ -466,13 +493,6 @@
 
 	return return_list
 
-/datum/component/personal_crafting/proc/is_recipe_available(datum/crafting_recipe/recipe, mob/user)
-	if((recipe.crafting_flags & CRAFT_MUST_BE_LEARNED) && !(recipe.type in user?.mind?.learned_recipes)) //User doesn't actually know how to make this.
-		return FALSE
-	if (recipe.category == CAT_CULT && !IS_CULTIST(user)) // Skip blood cult recipes if not cultist
-		return FALSE
-	return TRUE
-
 /datum/component/personal_crafting/proc/component_ui_interact(atom/movable/screen/craft/image, location, control, params, user)
 	SIGNAL_HANDLER
 
@@ -498,9 +518,7 @@
 
 	var/list/surroundings = get_surroundings(user)
 	var/list/craftability = list()
-	for(var/datum/crafting_recipe/recipe as anything in (mode ? GLOB.cooking_recipes : GLOB.crafting_recipes))
-		if(!is_recipe_available(recipe, user))
-			continue
+	for(var/datum/crafting_recipe/recipe as anything in get_visible_recipes(user))
 		if(check_contents(user, recipe, surroundings) && check_tools(user, recipe, surroundings))
 			craftability["[REF(recipe)]"] = TRUE
 
@@ -520,10 +538,7 @@
 		var/mob/living/carbon/carbon = user
 		data["diet"] = carbon.dna.species.get_species_diet()
 
-	for(var/datum/crafting_recipe/recipe as anything in (mode ? GLOB.cooking_recipes : GLOB.crafting_recipes))
-		if(!is_recipe_available(recipe, user))
-			continue
-
+	for(var/datum/crafting_recipe/recipe as anything in get_visible_recipes(user))
 		if(recipe.category)
 			data["categories"] |= recipe.category
 
@@ -535,7 +550,7 @@
 
 		data["recipes"] += list(build_crafting_data(recipe))
 
-	var/list/atoms = mode ? GLOB.cooking_recipes_atoms : GLOB.crafting_recipes_atoms
+	var/list/datums = mode ? GLOB.cooking_recipes_datums : GLOB.crafting_recipes_datums
 
 	// Prepare atom data
 
@@ -546,12 +561,22 @@
 	var/datum/asset/spritesheet_batched/sheet = sprite_sheets[mode ? 2 : 1]
 
 	data["icon_data"] = list()
-	for(var/atom/atom as anything in atoms)
-		var/atom_id = atoms.Find(atom)
+	for(var/datum/atom as anything in datums)
+		var/atom_id = datums.Find(atom)
+		var/atom_name = ""
+		if(ispath(atom, /atom))
+			// future todo: some atoms have intentionally misleading names,
+			// and while their crafting recipe reveals their true nature,
+			// the displayed name here does not
+			var/atom/atom_path = atom
+			atom_name = atom_path::name
+		else if(ispath(atom, /datum/reagent))
+			var/datum/reagent/reagent_path = atom
+			atom_name = reagent_path::name
 
 		data["atom_data"] += list(list(
-			"name" = initial(atom.name),
-			"is_reagent" = ispath(atom, /datum/reagent/),
+			"name" = atom_name,
+			"is_reagent" = ispath(atom, /datum/reagent),
 		))
 
 		var/icon_size = sheet.icon_size_id("a[atom_id]")
@@ -562,7 +587,7 @@
 	for(var/atom/atom as anything in material_occurences)
 		if(material_occurences[atom] == 1)
 			continue // Don't include materials that appear only once
-		var/id = atoms.Find(atom)
+		var/id = datums.Find(atom)
 		data["material_occurences"] += list(list(
 				"atom_id" = "[id]",
 				"occurences" = material_occurences[atom]
@@ -584,6 +609,17 @@
 	user.investigate_log("crafted [recipe]", INVESTIGATE_CRAFTING)
 	return TRUE
 
+/// Returns a list of crafting recipe datums that are available given current crafting state and the user's learned recipes.
+/datum/component/personal_crafting/proc/get_visible_recipes(mob/user)
+	var/list/recipes_to_show = list()
+	switch(mode)
+		if(COOKING)
+			recipes_to_show += GLOB.cooking_recipes_default
+			recipes_to_show += SANITIZE_LIST(user.mind?.learned_cooking_recipes)
+		if(CRAFTING)
+			recipes_to_show += GLOB.crafting_recipes_default
+			recipes_to_show += SANITIZE_LIST(user.mind?.learned_crafting_recipes)
+	return recipes_to_show
 
 /datum/component/personal_crafting/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -626,12 +662,12 @@
 
 /datum/component/personal_crafting/proc/build_crafting_data(datum/crafting_recipe/recipe)
 	var/list/data = list()
-	var/list/atoms = mode ? GLOB.cooking_recipes_atoms : GLOB.crafting_recipes_atoms
+	var/list/datums = mode ? GLOB.cooking_recipes_datums : GLOB.crafting_recipes_datums
 
 	data["ref"] = "[REF(recipe)]"
 	var/atom/atom = recipe.result
 
-	data["id"] = atoms.Find(atom)
+	data["id"] = datums.Find(atom)
 
 	var/recipe_data = recipe.crafting_ui_data()
 	for(var/new_data in recipe_data)
@@ -676,32 +712,32 @@
 	if(recipe.tool_paths)
 		data["tool_paths"] = list()
 		for(var/req_atom in recipe.tool_paths)
-			data["tool_paths"] += atoms.Find(req_atom)
+			data["tool_paths"] += datums.Find(req_atom)
 
 	// Machinery
 	if(recipe.machinery)
 		data["machinery"] = list()
 		for(var/req_atom in recipe.machinery)
-			data["machinery"] += atoms.Find(req_atom)
+			data["machinery"] += datums.Find(req_atom)
 
 	// Structures
 	if(recipe.structures)
 		data["structures"] = list()
 		for(var/req_atom in recipe.structures)
-			data["structures"] += atoms.Find(req_atom)
+			data["structures"] += datums.Find(req_atom)
 
 	// Ingredients / Materials
 	data["reqs"] = list()
 	if(recipe.reqs.len)
 		for(var/req_atom in recipe.reqs)
-			var/id = atoms.Find(req_atom)
+			var/id = datums.Find(req_atom)
 			data["reqs"]["[id]"] = recipe.reqs[req_atom]
 
 	// Catalysts
 	if(LAZYLEN(recipe.chem_catalysts))
 		data["chem_catalysts"] = list()
 		for(var/req_atom, chem_amount in recipe.chem_catalysts)
-			var/id = atoms.Find(req_atom)
+			var/id = datums.Find(req_atom)
 			data["chem_catalysts"]["[id]"] = chem_amount
 
 	// Reaction data
@@ -713,7 +749,7 @@
 			if(!data["steps"])
 				data["steps"] = list()
 			if(reaction.required_container)
-				var/id = atoms.Find(reaction.required_container)
+				var/id = datums.Find(reaction.required_container)
 				data["reqs"]["[id]"] = 1
 				data["steps"] += "Add all ingredients into \a [initial(reaction.required_container.name)]"
 			else if(length(recipe.reqs) > 1 || length(reaction.required_catalysts))
@@ -734,22 +770,33 @@
 
 /// proc that teaches user a non-standard crafting recipe
 /datum/mind/proc/teach_crafting_recipe(recipe)
-	if(!learned_recipes)
-		learned_recipes = list()
-	learned_recipes |= recipe
+	if(!ispath(recipe, /datum/crafting_recipe))
+		stack_trace("Non-crafting recipe passed to teach_crafting_recipe")
+		return
+
+	var/learned_cooking = GLOB.cooking_recipes_by_typepath[recipe]
+	if(learned_cooking)
+		LAZYOR(learned_cooking_recipes, learned_cooking)
+		return
+
+	var/learned_crafting = GLOB.crafting_recipes_by_typepath[recipe]
+	if(learned_crafting)
+		LAZYOR(learned_crafting_recipes, learned_crafting)
+		return
+
+	stack_trace("teach_crafting_recipe called with invalid recipe: [recipe || "null"]")
 
 /// proc that makes user forget a specific crafting recipe
 /datum/mind/proc/forget_crafting_recipe(recipe)
-	learned_recipes -= recipe
+	LAZYREMOVE(learned_cooking_recipes, GLOB.cooking_recipes_by_typepath[recipe])
+	LAZYREMOVE(learned_crafting_recipes, GLOB.crafting_recipes_by_typepath[recipe])
 
-/datum/mind/proc/has_crafting_recipe(mob/user, potential_recipe)
-	if(!learned_recipes)
-		return FALSE
-	if(!ispath(potential_recipe, /datum/crafting_recipe))
-		CRASH("Non-crafting recipe passed to has_crafting_recipe")
-	for(var/recipe in user.mind.learned_recipes)
-		if(recipe == potential_recipe)
-			return TRUE
+/datum/mind/proc/has_crafting_recipe(potential_recipe)
+	ASSERT(ispath(potential_recipe, /datum/crafting_recipe), "Non-crafting recipe passed to has_crafting_recipe")
+	if(locate(potential_recipe) in learned_crafting_recipes)
+		return TRUE
+	if(locate(potential_recipe) in learned_cooking_recipes)
+		return TRUE
 	return FALSE
 
 /datum/component/personal_crafting/machine

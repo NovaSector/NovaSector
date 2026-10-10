@@ -17,7 +17,7 @@
 	. = ..()
 	var/obj/item/circuitboard/machine/stasis/board = circuit
 	var/patient_status = (buckled_mob.maxHealth - buckled_mob.health) > 10 ? "Injured" : "Healthy"
-	patient_status = buckled_mob.stat != CONSCIOUS ? "Critical" : patient_status
+	patient_status = IS_UNCONSCIOUS_OR_CRIT(buckled_mob) ? "Critical" : patient_status
 	if(board && board.announce_when_buckled)
 		aas_config_announce(/datum/aas_config_entry/stasis_announcement, list(
 			"PERSON" = buckled_mob.name,

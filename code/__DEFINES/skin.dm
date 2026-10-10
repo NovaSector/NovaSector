@@ -7,14 +7,23 @@
 #define SKIN_MAINWINDOW_TOOLTIP "mainwindow.tooltip"
 
 #define SKIN_MAPWINDOW "mapwindow"
-#define SKIN_MAPWINDOW_MAP "[SKIN_MAPWINDOW].map"
 #define SKIN_MAPWINDOW_STATUS_BAR "[SKIN_MAPWINDOW].status_bar"
+#define SKIN_MAP_LOBBY_SELECTOR "[SKIN_MAPWINDOW].map_lobby_selector"
+
+#define SKIN_MAP_SCREEN "map_screen"
+#define SKIN_MAPWINDOW_MAP "[SKIN_MAP_SCREEN].map"
+
+#define SKIN_LOBBY_SCREEN "lobby_screen"
+#define SKIN_LOBBY_MENU "[SKIN_LOBBY_SCREEN].lobby_menu"
 
 #define SKIN_INFOWINDOW "info"
 #define SKIN_INFOWINDOW_CHILD "[SKIN_INFOWINDOW].info_child"
 
 #define SKIN_TGUISAY "tgui_say"
 #define SKIN_TGUISAY_BROWSER "[SKIN_TGUISAY].browser"
+
+#define SKIN_ESCAPE_MENU "[SKIN_MAPWINDOW].escape_menu"
+#define ESCAPE_MENU_TOGGLE_MESSAGE "%7B%22type%22%3A%22toggle%22%2C%22payload%22%3Anull%7D"
 
 #define SKIN_DEFAULT "default"
 #define SKIN_DEFAULT_SHIFT "[SKIN_DEFAULT].Shift"

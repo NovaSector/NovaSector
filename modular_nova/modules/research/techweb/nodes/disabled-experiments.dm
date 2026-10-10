@@ -1,9 +1,10 @@
 /// changes required experiments to be discount instead
 /datum/techweb_node/proc/make_requirements_optional()
+	// These lists are null by default upstream, so they have to be built lazily.
 	for(var/experiment in required_experiments)
-		discount_experiments[experiment] = research_costs[TECHWEB_POINT_TYPE_GENERIC]
+		LAZYSET(discount_experiments, experiment, research_costs[TECHWEB_POINT_TYPE_GENERIC])
 
-	required_experiments = list()
+	required_experiments = null
 
 /datum/techweb_node/gas_compression/New()
 	make_requirements_optional()

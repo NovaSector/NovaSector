@@ -2,6 +2,8 @@
 #define IS_ORGANIC_ORGAN(organ) (organ.organ_flags & ORGAN_ORGANIC)
 /// Helper to figure out if an organ is robotic
 #define IS_ROBOTIC_ORGAN(organ) (organ.organ_flags & ORGAN_ROBOTIC)
+/// Helper to figure out if an organ is mineral
+#define IS_MINERAL_ORGAN(organ) (organ.organ_flags & ORGAN_MINERAL)
 
 /// List of organ flags that can not be bioscrambled
 #define ORGAN_BIOSCRAMBLE_INCOMPATIBLE (ORGAN_ROBOTIC | ORGAN_MINERAL)
@@ -43,13 +45,15 @@
 #define ORGAN_MUTANT (1<<15)
 /// The organ has been chomped or otherwise rendered unusable.
 #define ORGAN_UNUSABLE (1<<16)
+/// Used for organs that aren't really real organs, but holders for stuff and whatnot
+#define ORGAN_FAKE (1<<17)
 // NOVA EDIT ADDITION START - Customization
 /// Synthetic organ granted by a species (for use for organ replacements between species)
-#define ORGAN_SYNTHETIC_FROM_SPECIES (1<<17)
+#define ORGAN_SYNTHETIC_FROM_SPECIES (1<<18)
 /// Organ flag for organs of hemophage origin, or organs that have since been infected by an hemophage's tumor.
-#define ORGAN_TUMOR_CORRUPTED (1<<18)
+#define ORGAN_TUMOR_CORRUPTED (1<<19)
 /// Organ flag for nanomachine organs
-#define ORGAN_NANOMACHINE (1<<19)
+#define ORGAN_NANOMACHINE (1<<20)
 // NOVA EDIT ADDITION END
 
 /// Organ flags that correspond to bodytypes
@@ -87,6 +91,12 @@
 // Bodypart change blocking flags
 ///Bodypart does not get replaced during set_species()
 #define BP_BLOCK_CHANGE_SPECIES (1<<0)
+
+// is_husked values
+/// Husked from burns
+#define HUSKED_BURN 1
+/// Husked from zombification
+#define HUSKED_ZOMBIE 2
 
 // Flags for the head_flags var on /obj/item/bodypart/head
 /// Head can have hair

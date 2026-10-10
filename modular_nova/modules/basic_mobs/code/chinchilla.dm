@@ -57,35 +57,28 @@
 //ai behavior
 
 /datum/ai_controller/basic_controller/chinchilla
-	blackboard = list(
-		BB_CURRENT_HUNTING_TARGET = null, // dust to take dust baths
-	)
+	behavior_tree_json = "modular_nova/modules/basic_mobs/code/chinchilla.bt.json"
 
 	ai_traits = STOP_MOVING_WHEN_PULLED
 	ai_movement = /datum/ai_movement/basic_avoidance
-	idle_behavior = /datum/idle_behavior/idle_random_walk
-	planning_subtrees = list(
-		// chinchillas will try to look for dust to roll around in
-		/datum/ai_planning_subtree/find_and_hunt_target/look_for_dust,
-		// randomly squeak and shit
-		/datum/ai_planning_subtree/random_speech/chinchilla,
-	)
 
-/datum/ai_planning_subtree/find_and_hunt_target/look_for_dust
-	hunting_behavior = /datum/ai_behavior/hunt_target/dust_roll
-	hunt_targets = list(/obj/effect/decal/cleanable/ash, /obj/effect/decal/cleanable/food/flour)
-	hunt_range = 0 //need to be on top of anything dusty
-	hunt_chance = 50
+/// Dust piles chinchillas will look for to roll around in.
+/datum/target_source/oview_typed/dust_bath
+	typecache = list(/obj/effect/decal/cleanable/ash, /obj/effect/decal/cleanable/food/flour)
 
-/datum/ai_behavior/hunt_target/dust_roll
+/datum/target_source/oview_typed/dust_bath/New()
+	. = ..()
+	typecache = typecacheof(typecache)
+
+/datum/bt_node/ai_behavior/hunt_target/dust_roll
 	hunt_cooldown = 20 SECONDS
 
-/datum/ai_behavior/hunt_target/dust_roll/target_caught(mob/living/basic/pet/hunter, obj/effect/decal/cleanable/dust)
+/datum/bt_node/ai_behavior/hunt_target/dust_roll/target_caught(mob/living/basic/pet/hunter, obj/effect/decal/cleanable/dust)
 	hunter.visible_message(span_notice("[hunter] starts taking a dust bath in [dust]."))
 	hunter.spin(10, 1)
 	qdel(dust)
 
-/datum/ai_planning_subtree/random_speech/chinchilla
+/datum/bt_node/ai_behavior/random_speech/chinchilla
 	speech_chance = 5
 	emote_hear = list(
 		"squeaks.",

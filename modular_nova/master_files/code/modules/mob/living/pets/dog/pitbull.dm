@@ -8,21 +8,16 @@
 	ai_controller = /datum/ai_controller/basic_controller/pitbull
 
 /datum/ai_controller/basic_controller/pitbull
+	behavior_tree_json = "modular_nova/master_files/code/modules/mob/living/pets/dog/pitbull.bt.json"
 	blackboard = list(
-		BB_ALWAYS_IGNORE_FACTION = TRUE,
+		BB_DOG_HARASS_HARM = TRUE,
+		BB_VISION_RANGE = AI_DOG_VISION_RANGE,
+		BB_PET_TARGETING_STRATEGY = /datum/targeting_strategy/basic/not_friends,
+		// Find smaller mobs
 		BB_TARGETING_STRATEGY = /datum/targeting_strategy/basic/of_size/smaller,
-		BB_FLEE_TARGETING_STRATEGY = /datum/targeting_strategy/basic,
-	)
-
-	ai_movement = /datum/ai_movement/dumb
-	idle_behavior = /datum/idle_behavior/idle_dog
-	planning_subtrees = list(
-		/datum/ai_planning_subtree/target_retaliate/to_flee,
-		/datum/ai_planning_subtree/flee_target/from_flee_key,
-		/datum/ai_planning_subtree/dog_harassment,
-		/datum/ai_planning_subtree/simple_find_target,
-		/datum/ai_planning_subtree/basic_melee_attack_subtree,
-		/datum/ai_planning_subtree/random_speech/dog,
+		// With tongs in hand!
+		BB_TARGET_HELD_ITEM = /obj/item/kitchen/tongs,
+		BB_BABIES_PARTNER_TYPES = list(/mob/living/basic/pet/dog),
 	)
 
 /mob/living/basic/pet/dog/pitbull/Initialize(mapload)
@@ -33,16 +28,9 @@
 	AddElement(/datum/element/tiny_mob_hunter, MOB_SIZE_SMALL) //He eats anything that he sees as a toddler.
 	AddElement(/datum/element/footstep, footstep_type = FOOTSTEP_MOB_CLAW)
 
-/mob/living/basic/pet/dog/pitbull/hungry //Evil but not the gorilla pitbull.
+/mob/living/basic/pet/dog/pitbull/hungry //Evil
 	name = "hungry pitbull"
 	desc = "A wild pitbull denied their daily baby ration."
-	health = 60
-	maxHealth = 60
-	obj_damage = 20
-	melee_damage_lower = 10
-	melee_damage_upper = 15
-	wound_bonus = -25
-	exposed_wound_bonus = 45
 	sharpness = SHARP_EDGED
 	gold_core_spawnable = HOSTILE_SPAWN
 	faction = list(FACTION_HOSTILE)

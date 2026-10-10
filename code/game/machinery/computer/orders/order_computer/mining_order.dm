@@ -16,6 +16,7 @@
 	35% cheaper than express delivery."}
 	express_tooltip = @{"Sends your purchases instantly."}
 	credit_type = MONEY_MINING_SYMBOL
+	generate_map_preview = FALSE
 
 	order_categories = list(
 		CATEGORY_MINING,
@@ -39,7 +40,8 @@
 /obj/machinery/computer/order_console/mining/order_groceries(mob/living/purchaser, obj/item/card/id/card, list/groceries)
 	var/list/things_to_order = list()
 	for(var/datum/orderable_item/item as anything in groceries)
-		things_to_order[item.purchase_path] = groceries[item]
+		var/purchase_path = item.get_purchased_item(purchaser, card)
+		things_to_order[purchase_path] = groceries[item]
 
 	var/datum/supply_pack/custom/mining_pack = new(
 		purchaser = purchaser, \

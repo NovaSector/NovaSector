@@ -35,7 +35,6 @@
 /datum/design/synth_stomach
 	name = "Synthetic Fuel Cell"
 	desc = "A mini electrochemical reactor, for synthetic use only. Converts the chemical energy of a fuel into electricity to power synthetic bodies. Has a low-power mode to ensure baseline functions. Without this, synthetics are unable to stay powered."
-	id = "synth_stomach"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(

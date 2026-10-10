@@ -29,7 +29,7 @@
 		return
 	current_look = look_path
 	icon = current_look::icon
-	update_appearance(updates = UPDATE_ICON_STATE)
+	update_appearance(UPDATE_ICON_STATE)
 
 /mob/living/basic/regal_rat/update_icon_state()
 	. = ..()
@@ -95,7 +95,7 @@
 	return ..()
 
 /// Decides how regal rats can look
-/datum/rat_fashion/
+/datum/rat_fashion
 	var/name = ""
 	var/allow_random = TRUE
 	var/icon = 'modular_nova/modules/ratqueens/icons/rat.dmi'

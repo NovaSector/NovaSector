@@ -28,7 +28,7 @@
 	var/obj/item/clothing/head/cone_of_shame/bad_dog/thecone = new
 	if(iscarbon(target))
 		var/mob/living/carbon/shamed = target
-		var/obj/item/worn_necky = shamed.wear_neck
+		var/obj/item/worn_necky = target.get_item_by_slot(ITEM_SLOT_NECK)
 		if(istype(worn_necky))
 			shamed.dropItemToGround(worn_necky)
 		if(shamed.equip_to_slot_if_possible(thecone, ITEM_SLOT_NECK, qdel_on_fail = TRUE, disable_warning = TRUE, redraw_mob = TRUE))

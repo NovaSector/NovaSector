@@ -147,10 +147,6 @@
 /obj/structure/displaycase/trophy,
 /turf/open/floor/wood/tile,
 /area/misc/condo)
-"zq" = (
-/obj/machinery/door/airlock/wood,
-/turf/closed/wall/mineral/stone,
-/area/misc/condo)
 "Aj" = (
 /obj/structure/table/wood,
 /obj/item/pen/fountain{
@@ -257,11 +253,6 @@
 	},
 /turf/open/floor/carpet/green,
 /area/misc/condo)
-"Mw" = (
-/obj/structure/window/green_glass_pane,
-/obj/structure/curtain/cloth/fancy,
-/turf/closed/wall/mineral/stone,
-/area/misc/condo)
 "QG" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 9
@@ -327,7 +318,7 @@
 (1,1,1) = {"
 fB
 fB
-zq
+fB
 fB
 EF
 EF
@@ -393,7 +384,7 @@ zc
 EF
 "}
 (5,1,1) = {"
-Mw
+fB
 VL
 Zz
 FX
@@ -410,7 +401,7 @@ xt
 EF
 "}
 (6,1,1) = {"
-Mw
+fB
 UY
 Zz
 FX
@@ -495,7 +486,7 @@ Wu
 EF
 "}
 (11,1,1) = {"
-Mw
+fB
 VL
 Zz
 fN
@@ -512,7 +503,7 @@ xt
 EF
 "}
 (12,1,1) = {"
-Mw
+fB
 UY
 Zz
 FX
@@ -582,7 +573,7 @@ EF
 (16,1,1) = {"
 fB
 fB
-zq
+fB
 fB
 EF
 EF

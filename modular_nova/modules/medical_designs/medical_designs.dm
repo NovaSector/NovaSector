@@ -1,6 +1,5 @@
 /datum/design/surgical_gown
 	name = "Surgical Gown"
-	id = "surgical_gown"
 	build_type = PROTOLATHE
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT,
@@ -13,7 +12,6 @@
 
 /datum/design/medkit
 	name = "Medkit"
-	id = "medkit"
 	build_type = PROTOLATHE
 	materials = list(
 		/datum/material/plastic =  SHEET_MATERIAL_AMOUNT * 2,

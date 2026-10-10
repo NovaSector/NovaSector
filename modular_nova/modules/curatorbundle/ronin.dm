@@ -7,3 +7,4 @@
 	new /obj/item/clothing/head/costume/rice_hat(src)
 	new /obj/item/katana/weak/curator(src)
 	new /obj/item/clothing/shoes/sandal(src)
+	new /obj/item/storage/belt/sheath/katana/empty(src)

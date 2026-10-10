@@ -2,23 +2,25 @@
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'
 
 /obj/item/clothing/under/rank/medical/doctor/nurse
-	can_adjust = FALSE
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/medical.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	bodyshapes_with_variations = NONE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	can_adjust = TRUE
+	alt_covers_chest = TRUE
 	alternate_worn_layer = ABOVE_SHOES_LAYER
 
 /obj/item/clothing/under/rank/medical/doctor/nurse/seriouser
-	can_adjust = FALSE
 	icon_state = "nursesuit_alt"
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/medical.dmi'
 	worn_icon_digi = 'modular_nova/master_files/icons/mob/clothing/under/medical_digi.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	bodyshapes_with_variations = NONE
-	alternate_worn_layer = ABOVE_SHOES_LAYER
+	gets_cropped_on_taurs = FALSE
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
+	can_adjust = TRUE
+	alt_covers_chest = TRUE
 
 /obj/item/clothing/under/rank/medical/doctor/nova
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/medical.dmi'

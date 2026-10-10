@@ -1,6 +1,6 @@
 /// Iron blood type for proteans
 /datum/blood_type/iron
-	name = BLOOD_TYPE_IRON
+	name = "FE"
 	dna_string = "Iron"
 	color = BLOOD_COLOR_IRON
 	reagent_type = /datum/reagent/iron
@@ -16,7 +16,7 @@
 	siemens_coeff = 1.5 // Electricity messes you up.
 	payday_modifier = 1 // 30 percent poorer
 
-	exotic_bloodtype = BLOOD_TYPE_IRON
+	exotic_bloodtype = /datum/blood_type/iron
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
 	meat = /obj/item/stack/sheet/iron
@@ -93,16 +93,13 @@
 	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(gainer)
 	var/obj/item/mod/core/protean/core = suit?.core
 	core?.linked_protean = gainer
-	var/list/protean_verbs = list(
-		/mob/living/carbon/proc/protean_ui,
-		/mob/living/carbon/proc/protean_heal,
-		/mob/living/carbon/proc/lock_suit,
-		/mob/living/carbon/proc/suit_transformation,
-		/mob/living/carbon/proc/low_power,
-		/mob/living/carbon/proc/remove_assimilated_modsuit,
-		/mob/living/carbon/proc/remove_assimilated_plating,
-	)
-	add_verb(gainer, protean_verbs)
+	ASSIGN_GAME_VERB(gainer, /mob/living/carbon, protean_ui)
+	ASSIGN_GAME_VERB(gainer, /mob/living/carbon, protean_heal)
+	ASSIGN_GAME_VERB(gainer, /mob/living/carbon, lock_suit)
+	ASSIGN_GAME_VERB(gainer, /mob/living/carbon, suit_transformation)
+	ASSIGN_GAME_VERB(gainer, /mob/living/carbon, low_power)
+	ASSIGN_GAME_VERB(gainer, /mob/living/carbon, remove_assimilated_modsuit)
+	ASSIGN_GAME_VERB(gainer, /mob/living/carbon, remove_assimilated_plating)
 
 /// Replaces organs for protean ones, handling situations where organs are inserted via surgery or changed through quirks/mutations
 /datum/species/protean/proc/replace_incompatible_organs(mob/living/carbon/human/target)
@@ -152,20 +149,17 @@
 /datum/species/protean/on_species_loss(mob/living/carbon/human/gainer, datum/species/new_species, pref_load)
 	. = ..()
 	// Clean up verbs
-	var/list/protean_verbs = list(
-		/mob/living/carbon/proc/protean_ui,
-		/mob/living/carbon/proc/protean_heal,
-		/mob/living/carbon/proc/lock_suit,
-		/mob/living/carbon/proc/suit_transformation,
-		/mob/living/carbon/proc/low_power,
-		/mob/living/carbon/proc/remove_assimilated_modsuit,
-		/mob/living/carbon/proc/remove_assimilated_plating,
-	)
-	remove_verb(gainer, protean_verbs)
+	UNASSIGN_GAME_VERB(gainer, /mob/living/carbon, protean_ui)
+	UNASSIGN_GAME_VERB(gainer, /mob/living/carbon, protean_heal)
+	UNASSIGN_GAME_VERB(gainer, /mob/living/carbon, lock_suit)
+	UNASSIGN_GAME_VERB(gainer, /mob/living/carbon, suit_transformation)
+	UNASSIGN_GAME_VERB(gainer, /mob/living/carbon, low_power)
+	UNASSIGN_GAME_VERB(gainer, /mob/living/carbon, remove_assimilated_modsuit)
+	UNASSIGN_GAME_VERB(gainer, /mob/living/carbon, remove_assimilated_plating)
 	if(gainer)
 		UnregisterSignal(gainer, list(COMSIG_CARBON_GAIN_ORGAN, COMSIG_ATTEMPT_CARBON_ATTACH_LIMB))
 		// Clean up traits that may be active if protean is transformed or in critical state
-		REMOVE_TRAIT(gainer, TRAIT_CRITICAL_CONDITION, PROTEAN_TRAIT)
+		gainer.set_stat(STABLE)
 		gainer.remove_movespeed_modifier(/datum/movespeed_modifier/protean_slowdown)
 	var/obj/item/mod/control/pre_equipped/protean/suit = get_protean_modsuit(gainer)
 	if(suit?.stored_modsuit)

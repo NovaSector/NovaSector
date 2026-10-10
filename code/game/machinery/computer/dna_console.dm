@@ -74,6 +74,7 @@
 /obj/machinery/computer/dna_console
 	name = "DNA Console"
 	desc = "From here you can research mysteries of the DNA!"
+	icon_state = MAP_SWITCH("computer", "/obj/machinery/computer/dna_console")
 	icon_screen = "dna"
 	icon_keyboard = "med_key"
 	density = TRUE
@@ -350,7 +351,7 @@
 			data["subjectStatus"] = scanner_occupant.stat
 		data["subjectHealth"] = scanner_occupant.health
 		data["subjectEnzymes"] = scanner_occupant.dna.unique_enzymes
-		data["isMonkey"] = ismonkey(scanner_occupant)
+		data["isMonkey"] = HAS_TRAIT(scanner_occupant, TRAIT_LESSER_HUMANOID)
 		data["subjectUNI"] = scanner_occupant.dna.unique_identity
 		data["subjectUF"] = scanner_occupant.dna.unique_features
 		data["storage"]["occupant"] = tgui_occupant_mutations
@@ -838,6 +839,10 @@
 			if(!mutation)
 				return
 
+			if(length(mutation.sources) && get_mutation_class(mutation) == SCANNER_MUTATION_CLASS_OTHER)
+				say("ERROR: This mutation is anomalous, and cannot be printed.")
+				return
+
 			// Create a new DNA Injector and add the appropriate mutations to it
 			var/obj/item/dnainjector/activator/injector = new /obj/item/dnainjector/activator(loc)
 			LAZYADD(injector.add_mutations, mutation.make_copy())
@@ -964,6 +969,10 @@
 
 			// GUARD CHECK - This should not be possible. Unexpected result
 			if(!original)
+				return
+
+			if(length(original.sources) && get_mutation_class(original) == SCANNER_MUTATION_CLASS_OTHER)
+				say("ERROR: This mutation is anomalous, and cannot be saved.")
 				return
 
 			diskette.mutations += original.make_copy()
@@ -2165,6 +2174,7 @@
 		return SCANNER_MUTATION_CLASS_ACTIVATOR
 	if(MUTATION_SOURCE_MUTATOR in mutation.sources)
 		return SCANNER_MUTATION_CLASS_MUTATOR
+	return null
 
 /**
  * Checks whether a mutation alias has been discovered

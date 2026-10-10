@@ -72,7 +72,6 @@
 
 /datum/design/ammo_workbench_module_gimmick
 	name = "Ammo Workbench Niche Nonlethal Module"
-	id = "ammobench_gimmick"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
@@ -85,7 +84,6 @@
 
 /datum/design/ammo_workbench_module_niche
 	name = "Ammo Workbench Niche Lethal Module"
-	id = "ammobench_niche"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,

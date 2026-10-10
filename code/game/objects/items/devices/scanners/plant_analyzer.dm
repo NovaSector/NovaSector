@@ -62,7 +62,7 @@
 
 /// When we use the analyzer in hand - try to show the results of the last scan
 /obj/item/plant_analyzer/interact(mob/user)
-	if(user.stat != CONSCIOUS || !user.can_read(src) || user.is_blind())
+	if(IS_UNCONSCIOUS_OR_CRIT(user) || !user.can_read(src) || user.is_blind())
 		return
 	if(last_scan_data)
 		return ..()
@@ -116,7 +116,7 @@
 		span_notice("You analyze [scanned_mob]'s vitals.")
 		)
 
-	healthscan(user, scanned_mob, advanced = TRUE)
+	healthscan(user, scanned_mob, scanpower = SCANPOWER_ADVANCED)
 	add_fingerprint(user)
 
 /*
@@ -219,6 +219,7 @@
 	)
 
 	if(tray)
+		var/turf/tray_turf = get_turf(tray)
 		last_scan_data["tray_data"] = list(
 			"plant_health" = tray.plant_health,
 			"plant_age" = tray.age,
@@ -233,7 +234,7 @@
 			"yield_mod" = tray.yieldmod,
 			"being_pollinated" = tray.being_pollinated,
 			"self_sustaining" = tray.self_sustaining,
-			"light_level" = tray.light_level,
+			"light_level" = tray_turf?.get_lumcount() || 0,
 			"weeds" = tray.weedlevel,
 			"weeds_max" = MAX_TRAY_WEEDS,
 			"pests" = tray.pestlevel,

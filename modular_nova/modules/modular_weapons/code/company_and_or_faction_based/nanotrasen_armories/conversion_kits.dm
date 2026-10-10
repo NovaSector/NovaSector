@@ -20,6 +20,7 @@
 
 /datum/crafting_recipe/reclaimer_reverse
 	name = "rC-20 'Reclaimer' to NT20 Conversion"
+	crafting_flags = parent_type::crafting_flags | CRAFT_COLLECT_REQUIREMENTS
 	desc = "Do you care about honor, or do you use honor as an excuse? An excuse to exist in a violent world."
 	result = /obj/item/gun/ballistic/automatic/nt20/empty
 	reqs = list(
@@ -62,6 +63,7 @@
 
 /datum/crafting_recipe/c38_super
 	name = ".38 Revolver to NT/E Laevateinn Conversion"
+	crafting_flags = parent_type::crafting_flags | CRAFT_COLLECT_REQUIREMENTS
 	desc = "Under what circumstances would you need to carry around a .38 revolver converted into a railgun? Whatever circumstances you're in, apparently."
 	result = /obj/item/gun/ballistic/revolver/c38/super/empty
 	reqs = list(
@@ -102,6 +104,7 @@
 
 /datum/crafting_recipe/c38_speedloader_plus
 	name = ".38 Speedloader Expansion"
+	crafting_flags = parent_type::crafting_flags | CRAFT_COLLECT_REQUIREMENTS | CRAFT_SKIP_MATERIALS_PARITY
 	desc = "Six rounds is two less than eight, which makes reloading an eight-round cylinder with a six-round speedloader both annoying and suboptimal. \
 		This, however, is a fixable problem."
 	result = /obj/item/ammo_box/speedloader/c38/hicap/empty
@@ -117,7 +120,6 @@
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	time = 10 SECONDS
 	category = CAT_WEAPON_RANGED
-	crafting_flags = parent_type::crafting_flags | CRAFT_SKIP_MATERIALS_PARITY
 
 /datum/crafting_recipe/c38_speedloader_plus/New()
 	..()

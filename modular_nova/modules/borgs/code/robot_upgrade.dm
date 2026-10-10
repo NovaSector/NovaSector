@@ -278,7 +278,6 @@
 
 /datum/design/borg_upgrade_clamp
 	name = "improved Integrated Hydraulic Clamp Module"
-	id = "borg_upgrade_clamp"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/better_clamp
 	materials = list(

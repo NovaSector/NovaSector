@@ -9,31 +9,28 @@
 // Techweb node that shouldnt show up anywhere ever specifically for the fabricator to work with
 
 /datum/techweb_node/colony_fabricator_flatpacks
-	id = TECHWEB_NODE_COLONY_FLATPACKS
 	display_name = "Colony Fabricator Flatpack Designs"
 	description = "Contains all of the colony fabricator's flatpack machine designs."
-	design_ids = list(
-		"flatpack_solar_panel",
-		"flatpack_solar_panel_titaniumglass",
-		"flatpack_solar_panel_plasmaglass",
-		"flatpack_solar_panel_plastitaniumglass",
-		"flatpack_solar_tracker",
-		"flatpack_arc_furnace",
-		"flatpack_colony_fab",
-		"flatpack_station_battery",
-		"flatpack_station_battery_large",
-		"flatpack_fuel_generator",
-		"flatpack_rtg",
-		"flatpack_thermo",
-		"flatpack_ore_silo",
-		"flatpack_bsc",
-		"flatpack_turbine_team_fortress_two",
-		"flatpack_bootleg_teg",
+	unlocked_designs = list(
+		/datum/design/flatpack_solar_panel,
+		/datum/design/flatpack_solar_panel/titaniumglass,
+		/datum/design/flatpack_solar_panel/plasmaglass,
+		/datum/design/flatpack_solar_panel/plastitaniumglass,
+		/datum/design/flatpack_solar_tracker,
+		/datum/design/flatpack_arc_furnace,
+		/datum/design/flatpack_colony_fabricator,
+		/datum/design/flatpack_power_storage,
+		/datum/design/flatpack_power_storage_large,
+		/datum/design/flatpack_solids_generator,
+		/datum/design/flatpack_rtg,
+		/datum/design/flatpack_thermomachine,
+		/datum/design/flatpack_ore_silo,
+		/datum/design/flatpack_bsc,
+		/datum/design/flatpack_turbine_team_fortress_two,
+		/datum/design/flatpack_bootleg_teg,
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 50000000000000) // God save you
-	hidden = TRUE
-	show_on_wiki = FALSE
-	starting_node = TRUE
+	node_flags = TECHWEB_NODE_STARTER | TECHWEB_NODE_HIDDEN
 
 // Lets the colony lathe make more colony lathes but at very hihg cost, for fun
 
@@ -42,7 +39,6 @@
 	desc = "A deployable fabricator capable of producing other flat-packed machines and other special equipment tailored for \
 		rapidly constructing functional structures given resources and power. While it cannot be upgraded, it can be repacked \
 		and moved to any location you see fit."
-	id = "flatpack_colony_fab"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10,
@@ -63,7 +59,6 @@
 /datum/design/flatpack_solar_panel
 	name = "Flat-Packed Solar Panel"
 	desc = "A deployable solar panel, able to be repacked after placement for relocation or recycling."
-	id = "flatpack_solar_panel"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
@@ -78,7 +73,6 @@
 
 /datum/design/flatpack_solar_panel/titaniumglass
 	name = "Titanium Flat-Packed Solar Panel"
-	id = "flatpack_solar_panel_titaniumglass"
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
@@ -88,7 +82,6 @@
 
 /datum/design/flatpack_solar_panel/plasmaglass
 	name = "Plasma Flat-Packed Solar Panel"
-	id = "flatpack_solar_panel_plasmaglass"
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
@@ -98,7 +91,6 @@
 
 /datum/design/flatpack_solar_panel/plastitaniumglass
 	name = "Plastitanium Flat-Packed Solar Panel"
-	id = "flatpack_solar_panel_plastitaniumglass"
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.5,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
@@ -110,7 +102,6 @@
 /datum/design/flatpack_solar_tracker
 	name = "Flat-Packed Solar Tracker"
 	desc = "A deployable solar tracker, able to be repacked after placement for relocation or recycling."
-	id = "flatpack_solar_tracker"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
@@ -129,7 +120,6 @@
 	name = "Flat-Packed Arc Furnace"
 	desc = "A deployable furnace for refining ores. While slower and less safe than conventional refining methods, \
 		it multiplies the output of refined materials enough to still outperform simply recycling ore."
-	id = "flatpack_arc_furnace"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5,
@@ -147,7 +137,6 @@
 /datum/design/flatpack_power_storage
 	name = "Flat-Packed Stationary Battery"
 	desc = "A deployable station-scale power cell with an overall low capacity, but high input and output rate."
-	id = "flatpack_station_battery"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7,
@@ -164,7 +153,6 @@
 /datum/design/flatpack_power_storage_large
 	name = "Flat-Packed Large Stationary Battery"
 	desc = "A deployable station-scale power cell with an overall extremely high capacity, but low input and output rate."
-	id = "flatpack_station_battery_large"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 12,
@@ -184,7 +172,6 @@
 	name = "Flat-Packed A.W Generator"
 	desc = "A deployable uranium micro-generator capable of outperforming even upgraded P.A.C.M.A.N. type generators, \
 		at expense of outputting radiation, and steaming water vapor."
-	id = "flatpack_fuel_generator"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
@@ -205,7 +192,6 @@
 	name = "Flat-Packed Radioisotope Thermoelectric Generator"
 	desc = "A deployable radioisotope generator capable of producing a practically free trickle of power. \
 		It's improved radiation shielding and stabilizing agents left it inert, if volatile."
-	id = "flatpack_rtg"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
@@ -226,7 +212,6 @@
 	name = "Flat-Packed Atmospheric Temperature Regulator"
 	desc = "A deployable temperature control device for use with atmospherics pipe systems. \
 		Limited in its temperature range, however comes with a higher than normal heat capacity."
-	id = "flatpack_thermo"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5,
@@ -245,7 +230,6 @@
 	name = "Flat-Packed Ore Silo"
 	desc = "An all-in-one materials management solution. Connects resource-using machines \
 		through a network of distrobution systems."
-	id = "flatpack_ore_silo"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
@@ -263,7 +247,6 @@
 /datum/design/flatpack_bsc
 	name = "Compressed BSC Refinery Box"
 	desc = "An upgrade to a normal orebox. Lavaproof, Fireproof, and auto-receive boulders into stable storage."
-	id = "flatpack_bsc"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
@@ -281,7 +264,6 @@
 
 /datum/design/flatpack_turbine_team_fortress_two
 	name = "Flat-Packed Miniature Wind Turbine"
-	id = "flatpack_turbine_team_fortress_two"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
@@ -303,7 +285,6 @@
 		hot gasses through their inlet pipes, and being cooled by the ambient air around them. \
 		The cycling compression and expansion that this creates creates power, and this one is made \
 		to make power on the scale of small stations and outposts."
-	id = "flatpack_bootleg_teg"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 15,

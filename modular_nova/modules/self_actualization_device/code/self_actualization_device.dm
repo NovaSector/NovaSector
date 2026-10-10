@@ -12,7 +12,6 @@
 /datum/design/board/self_actualization_device
 	name = "Self-Actualization Device Board"
 	desc = "The circuit board for a Self-Actualization Device by Vey-Medical."
-	id = "self_actualization_device"
 	build_path = /obj/item/circuitboard/machine/self_actualization_device
 	category = list(RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_MEDICAL)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
@@ -231,6 +230,7 @@
 			return
 		old_ai_brain.undeploy()
 		real_ai_player.client?.prefs?.safe_transfer_prefs_to_with_damage(patient)
+		attempt_appendix_removal(patient, check_prefs)
 	else
 		patient.client?.prefs?.safe_transfer_prefs_to_with_damage(patient)
 
@@ -291,7 +291,7 @@
 	user.emote("scream")
 
 	if(do_after(user, BREAKOUT_TIME, target = src))
-		if(!user || user.stat != CONSCIOUS || user.loc != src || state_open)
+		if(!user || IS_UNCONSCIOUS_OR_CRIT(user) || user.loc != src || state_open)
 			return
 		user.visible_message(span_warning("[user] successfully broke out of [src]!"), \
 			span_notice("You successfully break out of [src]!"))
@@ -323,6 +323,7 @@
 /obj/machinery/self_actualization_device/proc/is_augmented_enough(datum/preferences/player_prefs)
 	var/mob/living/carbon/human/nullspace_dummy = new(null)
 	player_prefs?.apply_prefs_to(nullspace_dummy, icon_updates = FALSE)
+	attempt_appendix_removal(nullspace_dummy, player_prefs)
 	var/obj/item/organ/brain/cybernetic/ai/dummy_ai_brain = new
 	if(!dummy_ai_brain.Insert(nullspace_dummy, movement_flags = DELETE_IF_REPLACED))
 		QDEL_NULL(dummy_ai_brain)
@@ -333,6 +334,23 @@
 	QDEL_NULL(dummy_ai_brain)
 	QDEL_NULL(nullspace_dummy)
 	return result
+
+/*
+ * Helper function for the removal of appendices from a mob.
+ * Shamelessly stolen from /datum/quirk/no_appendix/post_add().
+ * If you have a better idea on how to handle this, i'd like to hear it,
+ * because add_quirk() isn't working.
+ */
+/obj/machinery/self_actualization_device/proc/attempt_appendix_removal(mob/living/carbon/human/shell, datum/preferences/player_prefs)
+	if (!(/datum/quirk/no_appendix::name in player_prefs?.all_quirks))
+		return FALSE // don't bother
+
+	var/obj/item/organ/appendix/old_appendix = shell.get_organ_slot(ORGAN_SLOT_APPENDIX)
+	if(isnull(old_appendix))
+		return FALSE // no appendix, no worries
+
+	old_appendix.Remove(shell, special = TRUE)
+	QDEL_NULL(old_appendix)
 
 #undef NO_CONSENT
 #undef CONSENT_GRANTED

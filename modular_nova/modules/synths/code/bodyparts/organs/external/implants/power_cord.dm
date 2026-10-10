@@ -152,7 +152,6 @@
 /datum/design/synth_charger
 	name = "Charging Cord Implant"
 	desc = "An internal power cord for synthetic use only. Requires connection the synthetic fuel cell to function."
-	id = "synth_charger"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(

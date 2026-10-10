@@ -58,12 +58,6 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	///Assoc list of controller groups, associated with key string group name with value of the plane master controller ref
 	var/list/atom/movable/plane_master_controller/plane_master_controllers = list()
 
-	/// Think of multiz as a stack of z levels. Each index in that stack has its own group of plane masters
-	/// This variable is the plane offset our mob/client is currently "on"
-	/// We use it to track what we should show/not show
-	/// Goes from 0 to the max (z level stack size - 1)
-	var/current_plane_offset = 0
-
 	/// UI for screentips that appear when you mouse over things
 	/// Stored directly as it is used in very hot MouseEntered code
 	var/atom/movable/screen/screentip/screentip_text = null
@@ -251,7 +245,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 
 	for(var/group_key in master_groups)
 		var/datum/plane_master_group/group = master_groups[group_key]
-		group.build_planes_offset(src, current_plane_offset)
+		group.refresh_planes_offset()
 
 /datum/hud/proc/should_use_scale()
 	return should_sight_scale(mymob.sight)
@@ -261,21 +255,10 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 
 /datum/hud/proc/eye_z_changed(atom/eye)
 	SIGNAL_HANDLER
-	update_parallax_pref() // If your eye changes z level, so should your parallax prefs
 	var/turf/eye_turf = get_turf(eye)
 	if(!eye_turf)
 		return
 	SEND_SIGNAL(src, COMSIG_HUD_Z_CHANGED, eye_turf.z)
-	var/new_offset = GET_TURF_PLANE_OFFSET(eye_turf)
-	if(current_plane_offset == new_offset)
-		return
-	var/old_offset = current_plane_offset
-	current_plane_offset = new_offset
-
-	SEND_SIGNAL(src, COMSIG_HUD_OFFSET_CHANGED, old_offset, new_offset)
-	for(var/group_key in master_groups)
-		var/datum/plane_master_group/group = master_groups[group_key]
-		group.build_planes_offset(src, new_offset)
 
 /datum/hud/proc/on_plane_increase(datum/source, old_max_offset, new_max_offset)
 	SIGNAL_HANDLER
@@ -345,6 +328,7 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	// I'm sorry
 	screenmob.client.clear_screen()
 	screenmob.client.apply_clickcatcher()
+	screenmob.client.apply_parallax()
 
 	var/display_hud_version = version
 	if (!display_hud_version) // If 0 or blank, display the next hud version
@@ -415,11 +399,6 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 	// Handles alerts - the things on the right side of the screen
 	reorganize_alerts(screenmob)
 	screenmob.reload_fullscreen()
-
-	if(screenmob == mymob)
-		update_parallax_pref()
-	else
-		viewmob.hud_used.update_parallax_pref()
 
 	update_reuse(screenmob)
 
@@ -495,19 +474,11 @@ GLOBAL_LIST_INIT(available_erp_ui_styles, list(
 			continue
 		show_to.client?.screen += reuse
 
-//Triggered when F12 is pressed (Unless someone changed something in the DMF)
-/mob/verb/button_pressed_F12()
-	set name = "F12"
-	set hidden = TRUE
-
-	if(hud_used && client)
-		hud_used.show_hud() //Shows the next hud preset
-		to_chat(usr, span_info("Switched HUD mode. Press F12 to toggle."))
-	else
-		to_chat(usr, span_warning("This mob type does not use a HUD."))
-
 /// Rebuilds our mob's hand slot screen elements
 /datum/hud/proc/build_hand_slots(update_hud = FALSE)
+	// Clean up existing hand slot objects
+	for (var/atom/movable/screen/inventory/hand/hand in screen_groups[HUD_GROUP_STATIC])
+		remove_screen_object(hand, FALSE)
 
 	for(var/i in 1 to length(mymob.held_items))
 		var/atom/movable/screen/inventory/hand/hand_box = add_screen_object(/atom/movable/screen/inventory/hand, HUD_KEY_HAND_SLOT(i), HUD_GROUP_STATIC, ui_style, ui_hand_position(i))

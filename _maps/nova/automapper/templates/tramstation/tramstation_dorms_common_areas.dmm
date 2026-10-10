@@ -1,0 +1,4224 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ah" = (
+/obj/effect/landmark/start/assistant,
+/turf/open/floor/carpet/blue,
+/area/station/commons/fitness/recreation/entertainment)
+"an" = (
+/obj/item/flashlight/lantern/on{
+	pixel_x = -6
+	},
+/obj/item/storage/toolbox/fishing{
+	pixel_x = 6;
+	pixel_y = -6
+	},
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"ao" = (
+/obj/effect/turf_decal/trimline/neutral/filled/corner,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"aq" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 1
+	},
+/obj/structure/chair/sofa/bench/tram/left{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"ar" = (
+/turf/open/floor/iron/stairs/medium{
+	dir = 1
+	},
+/area/station/commons/fitness/recreation/entertainment)
+"aw" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp,
+/turf/open/floor/carpet,
+/area/station/commons/dorms)
+"aA" = (
+/obj/effect/turf_decal/siding/thinplating/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"aE" = (
+/obj/structure/flora/bush/large{
+	pixel_y = -2
+	},
+/obj/structure/flora/bush/fullgrass,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 4;
+	pixel_y = 0
+	},
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"aK" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 4
+	},
+/obj/machinery/newscaster/directional/east,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"aQ" = (
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"aS" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/wood_8,
+/area/station/commons/fitness)
+"aU" = (
+/obj/effect/turf_decal/trimline/neutral/filled/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/neutral/filled/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"aV" = (
+/obj/structure/railing{
+	dir = 2;
+	pixel_y = 0
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"ba" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"bb" = (
+/obj/structure/flora/rock/pile/jungle/style_2,
+/obj/machinery/light/floor,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"bf" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"bg" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"bq" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/stairs/medium{
+	color = "#5d341f";
+	dir = 1
+	},
+/area/station/commons/dorms)
+"bw" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"bz" = (
+/obj/structure/flora/bush/fullgrass,
+/obj/structure/flora/bush/grassy/style_random,
+/obj/structure/flora/bush/lavendergrass/style_random,
+/obj/structure/flora/bush/flowers_yw,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"bD" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"bI" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"bS" = (
+/obj/structure/flora/bush/jungle,
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"bT" = (
+/obj/structure/flora/bush/flowers_pp/style_2,
+/obj/structure/tank_holder/extinguisher,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"ch" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp,
+/turf/open/floor/wood,
+/area/station/commons/dorms)
+"cw" = (
+/obj/structure/flora/bush/jungle/c,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"cT" = (
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"cU" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/sand/plating,
+/obj/effect/turf_decal/delivery/red,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"db" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"dm" = (
+/obj/effect/turf_decal/siding/wideplating{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"du" = (
+/obj/effect/turf_decal/siding/wideplating/corner,
+/obj/machinery/airalarm/directional/north,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/light/directional/north,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"dB" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 8
+	},
+/obj/structure/closet/boxinggloves,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"dT" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"ei" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/sign/poster/official/ue_no/directional/west,
+/turf/open/floor/stone,
+/area/station/service/cafeteria)
+"ej" = (
+/obj/machinery/camera/directional/north{
+	c_tag = "Jim Norton's Quebecois Coffee"
+	},
+/obj/structure/noticeboard/directional/north,
+/obj/item/reagent_containers/condiment/sugar{
+	pixel_y = 4
+	},
+/obj/item/storage/pill_bottle/happinesspsych{
+	pixel_x = -4;
+	pixel_y = -1
+	},
+/obj/item/storage/box/coffeepack,
+/obj/item/storage/box/coffeepack/robusta,
+/obj/item/reagent_containers/condiment/soymilk,
+/obj/item/reagent_containers/condiment/milk,
+/obj/structure/window/spawner/directional/east,
+/obj/structure/table/wood,
+/obj/structure/closet/mini_fridge{
+	name = "mini-fridge"
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"ep" = (
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"eB" = (
+/obj/effect/turf_decal/siding/wideplating{
+	dir = 9
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"eL" = (
+/obj/machinery/door/airlock{
+	name = "Recreation Area"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"eN" = (
+/obj/structure/chair/pew{
+	dir = 8
+	},
+/obj/effect/landmark/start/hangover,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/item/radio/intercom/directional/north,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/sauna)
+"eP" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/flora/bush/flowers_pp,
+/obj/structure/flora/bush/flowers_br,
+/obj/structure/flora/bush/flowers_yw,
+/turf/open/floor/grass,
+/area/station/service/cafeteria)
+"eZ" = (
+/obj/structure/table/wood,
+/obj/structure/window/spawner/directional/east,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/item/food/honey_roll{
+	pixel_y = 10
+	},
+/obj/item/food/honeybun{
+	pixel_y = -1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"fp" = (
+/obj/effect/decal/cleanable/blood/old,
+/obj/item/chair/plastic{
+	pixel_y = 12
+	},
+/turf/open/misc/asteroid,
+/area/station/commons/fitness)
+"fw" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"fx" = (
+/obj/structure/flora/bush/flowers_yw/style_2,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"fL" = (
+/obj/structure/railing/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"fT" = (
+/obj/structure/flora/bush/large{
+	pixel_y = -2
+	},
+/obj/structure/flora/bush/fullgrass,
+/obj/structure/railing{
+	dir = 2;
+	pixel_y = 0
+	},
+/obj/machinery/light/cold/directional/west,
+/obj/structure/flora/bush/flowers_yw,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"ga" = (
+/obj/structure/bed/pod{
+	dir = 4
+	},
+/obj/structure/fluff/beach_umbrella/cap,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"gk" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"gl" = (
+/obj/structure/flora/bush/flowers_br,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"gm" = (
+/obj/structure/weightmachine/weightlifter,
+/obj/structure/sign/gym{
+	pixel_y = 32
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"gE" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/bush/grassy,
+/obj/structure/flora/bush/flowers_br,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"gK" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness)
+"gN" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"gU" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/bush/grassy,
+/obj/structure/flora/bush/sunny,
+/obj/structure/flora/bush/flowers_pp,
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bounty-open";
+	icon_type = "bounty";
+	id = "privatej";
+	name = "curtain"
+	},
+/obj/effect/spawner/structure/window,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"hf" = (
+/obj/effect/turf_decal/siding/wideplating/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"hk" = (
+/obj/structure/chair/pew/left{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/sauna)
+"hw" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating/corner{
+	dir = 4
+	},
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"hJ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"hQ" = (
+/turf/open/floor/iron/stairs/medium{
+	color = "#5d341f";
+	dir = 1
+	},
+/area/station/commons/dorms)
+"ic" = (
+/obj/structure/railing,
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"id" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/machinery/light/floor,
+/obj/structure/dresser,
+/turf/open/floor/stone,
+/area/station/commons/fitness)
+"il" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/bush/grassy,
+/obj/structure/flora/bush/flowers_br,
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bounty-open";
+	icon_type = "bounty";
+	id = "privatek";
+	name = "curtain"
+	},
+/obj/effect/spawner/structure/window,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"io" = (
+/obj/structure/table/wood,
+/obj/structure/towel_bin{
+	pixel_y = 6
+	},
+/obj/structure/railing,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"iw" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/stone,
+/area/station/service/cafeteria)
+"iy" = (
+/obj/structure/chair/sofa/left/maroon{
+	dir = 8
+	},
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"iH" = (
+/obj/structure/flora/bush/lavendergrass,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"iO" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"jp" = (
+/obj/structure/weightmachine,
+/obj/machinery/light/directional/east,
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"jw" = (
+/obj/structure/flora/bush/flowers_yw,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"jN" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/structure/flora/bush/fullgrass/style_random,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"jU" = (
+/obj/structure/hedge,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"kf" = (
+/obj/effect/turf_decal/siding/wideplating{
+	dir = 5
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"kk" = (
+/turf/closed/wall/mineral/wood,
+/area/station/commons/fitness/recreation/sauna)
+"kt" = (
+/obj/machinery/door/airlock{
+	name = "Private Quarters K";
+	id_tag = "private_k"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/carpet,
+/area/station/commons/dorms)
+"kH" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/stone,
+/area/station/commons/fitness)
+"kI" = (
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"kO" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"kQ" = (
+/obj/structure/railing/corner,
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"kT" = (
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"lc" = (
+/obj/effect/turf_decal/siding/wood/corner,
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"ld" = (
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/thinplating/corner{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"lo" = (
+/obj/structure/railing{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 2
+	},
+/obj/structure/flora/bush/flowers_yw,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"lq" = (
+/obj/effect/turf_decal/trimline/neutral/filled/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"lC" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"lJ" = (
+/obj/structure/railing{
+	dir = 2;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"lN" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"lO" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"ma" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line,
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"mb" = (
+/obj/structure/flora/bush/fullgrass/style_random,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"mc" = (
+/obj/structure/railing/corner,
+/obj/effect/turf_decal/siding/thinplating_new,
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"md" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/turf/open/floor/stone,
+/area/station/commons/fitness)
+"mr" = (
+/obj/structure/railing,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"mA" = (
+/obj/structure/chair/plastic,
+/obj/effect/landmark/start/assistant,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"mS" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/obj/structure/railing{
+	dir = 5
+	},
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/coffee{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"mT" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"nm" = (
+/turf/closed/wall,
+/area/station/service/cafeteria)
+"no" = (
+/obj/structure/chair/sofa/right/maroon{
+	dir = 4
+	},
+/obj/effect/landmark/start/assistant,
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"nr" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"nz" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"nR" = (
+/obj/structure/flora/bush/reed/style_random,
+/turf/open/water/beach,
+/area/station/commons/fitness/recreation/entertainment)
+"nS" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/mug{
+	pixel_x = 9;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/cup/glass/mug{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"nU" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness)
+"od" = (
+/obj/structure/bonfire/grill_pre_attached,
+/obj/item/lighter/skull{
+	pixel_x = 8;
+	pixel_y = -3
+	},
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"oe" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood/wood_8,
+/area/station/commons/fitness)
+"oo" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"ov" = (
+/obj/machinery/door/airlock{
+	name = "Recreation Area"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"oA" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/water/beach,
+/area/station/commons/fitness/recreation/entertainment)
+"oB" = (
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wood,
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"oN" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"oT" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"pk" = (
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/thinplating_new,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"pl" = (
+/obj/structure/flora/grass/jungle/b,
+/obj/item/flashlight/lantern/on,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"pq" = (
+/obj/structure/chair/sofa/right/maroon{
+	dir = 8
+	},
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"pD" = (
+/obj/effect/spawner/random/structure/closet_private,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/carpet,
+/area/station/commons/dorms)
+"pV" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 9
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"pW" = (
+/obj/structure/weightmachine,
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"qf" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"qj" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness)
+"ql" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"qw" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/firealarm/directional/south,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"qH" = (
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"qM" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"qN" = (
+/obj/machinery/light/directional/west,
+/obj/structure/sign/calendar/directional/west,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"rm" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/bush/flowers_pp,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"rE" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"rO" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"rP" = (
+/turf/open/floor/iron/stairs/medium{
+	color = "#5d341f";
+	dir = 8
+	},
+/area/station/commons/fitness)
+"rX" = (
+/obj/structure/railing{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/light/floor,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"sa" = (
+/turf/open/water/deep_beach,
+/area/station/commons/fitness/recreation/entertainment)
+"sf" = (
+/obj/structure/table/glass,
+/obj/effect/turf_decal/siding/wood,
+/obj/machinery/light/floor,
+/obj/structure/towel_bin{
+	pixel_y = 5
+	},
+/turf/open/floor/stone,
+/area/station/commons/fitness)
+"sg" = (
+/obj/structure/reagent_dispensers/water_cooler/punch_cooler,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"ss" = (
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"sv" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/structure/flora/bush/fullgrass/style_random,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"sB" = (
+/obj/structure/decoration/rock/pile/jungle/third,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"sH" = (
+/obj/structure/bed/pod{
+	dir = 4
+	},
+/obj/structure/fluff/beach_umbrella,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"sJ" = (
+/obj/structure/decoration/bush/sparsegrass/third,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"tb" = (
+/obj/structure/chair/plastic{
+	dir = 1
+	},
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"tu" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"tC" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"tE" = (
+/obj/effect/turf_decal/siding/wideplating{
+	dir = 1
+	},
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"tQ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/railing,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"ub" = (
+/obj/effect/turf_decal/siding/wideplating/corner{
+	dir = 1
+	},
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"ue" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/structure/disposalpipe/junction/flip{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"ut" = (
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"uX" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/machinery/camera/directional/west{
+	name = "Civilian - Fitness Center South-East"
+	},
+/obj/structure/extinguisher_cabinet/directional/west,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"vb" = (
+/obj/structure/curtain/cloth/fancy,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"ve" = (
+/obj/item/chair/plastic{
+	pixel_y = 10
+	},
+/obj/item/chair/plastic{
+	pixel_y = 12
+	},
+/obj/item/chair/plastic{
+	pixel_y = 14
+	},
+/obj/structure/table,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"vk" = (
+/obj/structure/flora/bush/jungle/c/style_2,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"vl" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line,
+/obj/structure/chair/sofa/bench/tram,
+/obj/item/food/popcorn{
+	pixel_y = 3
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"vm" = (
+/obj/item/storage/basket{
+	pixel_y = 10;
+	pixel_x = 6
+	},
+/obj/item/bouquet/sunflower{
+	pixel_x = -9
+	},
+/turf/open/floor/carpet/blue,
+/area/station/commons/fitness/recreation/entertainment)
+"vs" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"vz" = (
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 8
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"vA" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/obj/structure/railing{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/structure/table/wood,
+/obj/item/bouquet/rose{
+	pixel_x = 3;
+	pixel_y = 11
+	},
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"vH" = (
+/obj/item/kirbyplants/random,
+/obj/machinery/light/floor,
+/turf/open/floor/stone,
+/area/station/commons/fitness)
+"vM" = (
+/obj/effect/landmark/start/hangover,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"vP" = (
+/obj/structure/flora/bush/jungle/c/style_3,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"vR" = (
+/obj/machinery/light/floor,
+/obj/effect/landmark/start/assistant,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"wk" = (
+/obj/structure/flora/bush/sparsegrass/style_3,
+/obj/structure/flora/bush/fullgrass/style_3,
+/obj/structure/flora/bush/ferny/style_random,
+/obj/structure/flora/bush/flowers_pp/style_2,
+/obj/machinery/light/floor,
+/obj/structure/flora/rock/pile/style_2,
+/obj/structure/flora/bush/large/style_2,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"wl" = (
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"ww" = (
+/obj/machinery/airalarm/directional/west,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/machinery/light/directional/west,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"wC" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/effect/landmark/start/assistant,
+/obj/structure/chair/stool/directional/south,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"wG" = (
+/obj/effect/turf_decal/siding/wideplating/corner,
+/turf/closed/wall,
+/area/station/commons/fitness/recreation/entertainment)
+"wS" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/machinery/door/window/left/directional/west{
+	name = "Fitness Ring"
+	},
+/obj/machinery/light/floor,
+/obj/effect/turf_decal/sand/plating,
+/obj/effect/turf_decal/delivery/red,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"xb" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/wood,
+/area/station/commons/dorms)
+"xi" = (
+/obj/structure/sauna_oven,
+/obj/machinery/light/small/directional/south,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/sauna)
+"xm" = (
+/obj/structure/bed/pod{
+	dir = 4
+	},
+/obj/structure/fluff/beach_umbrella/security,
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"xo" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"xr" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/wood_8,
+/area/station/service/cafeteria)
+"xs" = (
+/obj/structure/flora/bush/large{
+	pixel_y = -2
+	},
+/obj/structure/flora/bush/fullgrass,
+/obj/structure/railing{
+	dir = 6
+	},
+/obj/structure/flora/bush/flowers_yw,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"xt" = (
+/obj/structure/table/glass,
+/obj/item/towel{
+	pixel_y = 5;
+	pixel_x = -5
+	},
+/obj/item/reagent_containers/cup/glass/waterbottle{
+	pixel_y = 14;
+	pixel_x = 9
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"xB" = (
+/obj/structure/flora/grass/jungle,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"xC" = (
+/obj/structure/railing{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"xG" = (
+/obj/structure/chair/plastic,
+/obj/effect/landmark/start/assistant,
+/obj/structure/decoration/bush/sparsegrass/third,
+/obj/item/reagent_containers/cup/glass/bottle/beer/light{
+	pixel_x = -14;
+	pixel_y = -3
+	},
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"xT" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/door/airlock{
+	name = "Recreation Area"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"xY" = (
+/obj/structure/flora/bush/flowers_pp/style_2,
+/obj/structure/flora/bush/lavendergrass,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"xZ" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"yh" = (
+/obj/effect/turf_decal/trimline/neutral/filled/corner{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"yv" = (
+/obj/structure/chair/sofa/left/maroon{
+	dir = 4
+	},
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"yw" = (
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot,
+/obj/structure/cable,
+/obj/effect/landmark/navigate_destination/dorms,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"yx" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness)
+"yC" = (
+/obj/structure/table/wood,
+/obj/item/food/cherrycupcake{
+	pixel_y = 10
+	},
+/obj/item/food/muffin/berry{
+	pixel_x = 18;
+	pixel_y = 9
+	},
+/obj/item/food/cakeslice/pound_cake_slice{
+	pixel_x = 4;
+	pixel_y = -5
+	},
+/obj/structure/window/spawner/directional/south,
+/obj/structure/window/spawner/directional/west,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"yK" = (
+/obj/machinery/vending/sovietsoda,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"yQ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/item/radio/intercom/directional/west,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood/wood_8,
+/area/station/commons/fitness)
+"yV" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"zh" = (
+/turf/open/floor/stone,
+/area/station/commons/fitness)
+"zj" = (
+/obj/effect/turf_decal/siding/wideplating{
+	dir = 8
+	},
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"zu" = (
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"zz" = (
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/structure/flora/bush/flowers_yw/style_3,
+/turf/open/floor/grass,
+/area/station/commons/fitness)
+"zF" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/machinery/light/floor,
+/obj/machinery/door/window/left/directional/east{
+	name = "Fitness Ring"
+	},
+/obj/effect/turf_decal/sand/plating,
+/obj/effect/turf_decal/delivery/red,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"zQ" = (
+/obj/effect/turf_decal/trimline/neutral/filled/corner,
+/obj/effect/turf_decal/trimline/neutral/filled/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"zT" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/stone,
+/area/station/commons/fitness)
+"Aj" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"Ap" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/carpet,
+/area/station/commons/dorms)
+"Az" = (
+/obj/machinery/light/directional/west,
+/obj/machinery/vending/coffee,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"AI" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"Bu" = (
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"BJ" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/obj/machinery/light/directional/east,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"BN" = (
+/obj/structure/railing/corner,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/floor,
+/obj/structure/cable,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"BV" = (
+/obj/structure/sign/painting/large/library{
+	dir = 8;
+	pixel_x = -29
+	},
+/obj/structure/musician/piano/minimoog,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"Cg" = (
+/obj/structure/flora/bush/fullgrass,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"Ci" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/item/radio/intercom/directional/south,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"Cu" = (
+/obj/effect/turf_decal/trimline/neutral/filled/corner,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"Cw" = (
+/obj/structure/flora/bush/sparsegrass,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"CF" = (
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"CG" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lantern/on{
+	pixel_y = -4
+	},
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"CJ" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/bush/grassy,
+/obj/structure/flora/bush/flowers_yw,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"CO" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"CP" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/chair/stool/directional/north,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"CX" = (
+/turf/open/floor/carpet/blue,
+/area/station/commons/fitness/recreation/entertainment)
+"Dz" = (
+/obj/structure/railing{
+	dir = 4;
+	pixel_y = 0
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"DJ" = (
+/obj/structure/flora/tree/jungle/small,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"DP" = (
+/obj/structure/railing/corner,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"Ec" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/stone,
+/area/station/commons/fitness)
+"Es" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"Et" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/grass/jungle/b,
+/obj/structure/flora/bush/flowers_pp,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Ex" = (
+/obj/effect/landmark/start/hangover,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness)
+"EA" = (
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/mail_sorting/service/dormitories,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"Fa" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/structure/flora/bush/flowers_br,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Fg" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/structure/railing,
+/obj/machinery/light/directional/west,
+/obj/structure/chair/stool/directional/east,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"Fl" = (
+/obj/effect/turf_decal/siding/wideplating{
+	dir = 4
+	},
+/obj/machinery/camera/directional/west{
+	name = "Civilian - Pool"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"Fm" = (
+/obj/structure/chair/pew/right{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/machinery/airalarm/directional/south,
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/sauna)
+"Ft" = (
+/obj/structure/railing{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"Fz" = (
+/obj/structure/chair/stool/directional/west,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"FA" = (
+/obj/structure/railing{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/structure/closet/secure_closet/personal,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"FJ" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/stone,
+/area/station/commons/fitness)
+"FQ" = (
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Dormatories Maintenance Hatch"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor,
+/area/station/commons/dorms)
+"FR" = (
+/obj/effect/turf_decal/trimline/neutral/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"FW" = (
+/turf/closed/wall,
+/area/station/commons/fitness/recreation/entertainment)
+"FY" = (
+/obj/machinery/vending/hotdog,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"Ga" = (
+/obj/effect/turf_decal/siding/wideplating/corner{
+	dir = 8
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"Ge" = (
+/obj/structure/cable,
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"Gf" = (
+/obj/structure/flora/bush/large{
+	pixel_y = -2
+	},
+/obj/structure/flora/bush/fullgrass,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Gh" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"Gq" = (
+/obj/structure/flora/grass/jungle/b/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/structure/flora/bush/lavendergrass/style_random,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/effect/turf_decal/weather/dirt,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Gx" = (
+/obj/effect/turf_decal/siding/thinplating_new{
+	dir = 1;
+	pixel_y = 0
+	},
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"GC" = (
+/obj/effect/landmark/firealarm_sanity,
+/turf/open/misc/asteroid,
+/area/station/asteroid)
+"GK" = (
+/obj/item/reagent_containers/cup/bucket/wooden,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/sauna)
+"GN" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"GX" = (
+/obj/machinery/door/airlock{
+	name = "Unisex Restrooms"
+	},
+/turf/open/floor/iron/freezer,
+/area/station/commons/dorms)
+"Hj" = (
+/turf/template_noop,
+/area/template_noop)
+"Hl" = (
+/obj/effect/turf_decal/trimline/neutral/filled/corner{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"Hr" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/wood,
+/area/station/commons/dorms)
+"Hy" = (
+/turf/closed/mineral/random/stationside/asteroid/porus,
+/area/station/maintenance/central/lesser)
+"HG" = (
+/obj/structure/flora/bush/jungle,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"HL" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"HM" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/fireplace,
+/turf/open/floor/stone,
+/area/station/service/cafeteria)
+"HO" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"HR" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = -16
+	},
+/obj/structure/cable,
+/obj/item/radio/intercom/directional/west,
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"Id" = (
+/obj/structure/chair/pew{
+	dir = 4
+	},
+/obj/effect/landmark/start/hangover,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/structure/cable,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/sauna)
+"In" = (
+/obj/structure/chair/plastic{
+	dir = 4
+	},
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"Ix" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/structure/flora/bush/flowers_yw,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Iy" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/hedge,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"IA" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"IW" = (
+/obj/structure/railing/corner,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"IY" = (
+/obj/effect/turf_decal/trimline/neutral/filled/corner{
+	dir = 4
+	},
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"Jh" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/extinguisher_cabinet/directional/south,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"Ji" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 1
+	},
+/obj/structure/chair/sofa/bench/tram{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"Js" = (
+/turf/closed/wall,
+/area/station/commons/dorms)
+"JQ" = (
+/obj/structure/ore_vein/stone,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"JX" = (
+/obj/structure/table/wood,
+/obj/item/storage/cans/sixbeer{
+	pixel_y = 5;
+	pixel_x = 1
+	},
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"Ko" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"Kq" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/stripes/white/full,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"KE" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/machinery/light/cold/directional/west,
+/obj/machinery/airalarm/directional/west,
+/obj/machinery/light/floor,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"KF" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/machinery/light/floor,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/effect/turf_decal/sand/plating,
+/obj/effect/turf_decal/delivery/red,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"KJ" = (
+/turf/open/water/beach,
+/area/station/commons/fitness/recreation/entertainment)
+"KP" = (
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/grass/jungle/b,
+/obj/structure/flora/bush/flowers_pp,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Lk" = (
+/obj/structure/flora/bush/sunny,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"Lm" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood/wood_8,
+/area/station/commons/fitness)
+"Lt" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/mug{
+	pixel_x = 13;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/cup/glass/mug{
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/cup/glass/mug{
+	pixel_x = 13;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/cup/glass/shaker{
+	pixel_x = -2;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/cup/glass/ice{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/machinery/airalarm/directional/west,
+/obj/machinery/light/directional/west,
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"LE" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/item/food/meat/slab,
+/obj/item/food/kebab/raw_ballpark_tsukune,
+/obj/item/food/kebab/raw_ballpark_tsukune,
+/obj/item/food/kebab/raw_ballpark_tsukune,
+/obj/item/food/kebab/raw_ballpark_tsukune,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"LI" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 4
+	},
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"LP" = (
+/obj/structure/flora/bush/fullgrass/style_random,
+/mob/living/basic/goose{
+	name = "Birdboat"
+	},
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Mf" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/light/directional/east,
+/turf/open/floor/stone,
+/area/station/commons/fitness)
+"Mh" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line,
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"Mn" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/water/beach,
+/area/station/commons/fitness/recreation/entertainment)
+"Mr" = (
+/obj/structure/flora/bush/large{
+	pixel_y = -2
+	},
+/obj/structure/flora/bush/fullgrass,
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Mv" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"Mw" = (
+/obj/structure/punching_bag,
+/obj/effect/turf_decal/stripes/white/box,
+/obj/structure/sign/nanotrasen{
+	pixel_y = 32
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"MB" = (
+/turf/open/floor/iron/stairs/medium{
+	color = "#5d341f";
+	dir = 4
+	},
+/area/station/commons/fitness)
+"MD" = (
+/obj/structure/railing{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"ME" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/bottle/syrup_bottle/korta_nectar{
+	pixel_x = 5;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/cup/bottle/syrup_bottle/liqueur{
+	pixel_x = -5;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/cup/bottle/syrup_bottle/caramel{
+	pixel_x = 15;
+	pixel_y = 16
+	},
+/obj/item/storage/fancy/coffee_condi_display{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/effect/turf_decal/siding/wood,
+/obj/item/reagent_containers/cup/glass/shaker{
+	pixel_y = 9;
+	pixel_x = -10
+	},
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"MS" = (
+/obj/structure/bed{
+	dir = 8
+	},
+/obj/effect/spawner/random/bedsheet,
+/obj/effect/landmark/start/assistant,
+/obj/structure/sign/clock/directional/east,
+/obj/item/pillow/random,
+/turf/open/floor/carpet,
+/area/station/commons/dorms)
+"MW" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"MX" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 4
+	},
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/structure/flora/bush/flowers_yw,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Nm" = (
+/obj/structure/flora/ocean/seaweed,
+/turf/open/water/deep_beach,
+/area/station/commons/fitness/recreation/entertainment)
+"Nr" = (
+/obj/machinery/light/directional/east,
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"NK" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/bush/grassy,
+/obj/structure/flora/bush/flowers_yw,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"NM" = (
+/obj/effect/turf_decal/siding/wood,
+/obj/machinery/camera/directional/west{
+	name = "Civilian - Cafe"
+	},
+/obj/structure/sign/poster/contraband/bojack/directional/west,
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"NQ" = (
+/obj/effect/spawner/random/structure/closet_private,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/station/commons/dorms)
+"NZ" = (
+/turf/open/misc/asteroid,
+/area/station/asteroid)
+"Oa" = (
+/obj/structure/flora/bush/large/style_2,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Ob" = (
+/obj/structure/bed/pod{
+	dir = 4
+	},
+/obj/structure/fluff/beach_umbrella/science,
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"Od" = (
+/obj/machinery/firealarm/directional/west,
+/obj/effect/turf_decal/siding/wideplating{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"Oq" = (
+/obj/machinery/airalarm/directional/south,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"Or" = (
+/obj/structure/flora/grass/jungle/b/style_random,
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/structure/flora/bush/lavendergrass/style_random,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"OA" = (
+/obj/structure/flora/bush/fullgrass/style_3,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"OB" = (
+/obj/structure/cable,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"OI" = (
+/obj/effect/landmark/firealarm_sanity,
+/turf/closed/wall/mineral/wood,
+/area/station/commons/fitness/recreation/sauna)
+"OZ" = (
+/obj/structure/table/wood,
+/obj/machinery/microwave{
+	pixel_x = 1;
+	pixel_y = 6
+	},
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"Po" = (
+/obj/structure/decoration/rock/pile/jungle/large/third,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"PG" = (
+/obj/structure/curtain/cloth/fancy,
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"PO" = (
+/obj/machinery/light/cold/directional/west,
+/obj/structure/sign/departments/restroom{
+	pixel_x = -32;
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"Qc" = (
+/obj/machinery/firealarm/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"Qz" = (
+/obj/structure/flora/bush/fullgrass/style_random,
+/obj/structure/flora/bush/jungle/b/style_random,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"QD" = (
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Dormatories Maintenance Hatch"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/effect/mapping_helpers/airlock/unres/delayed,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor,
+/area/station/service/cafeteria)
+"QH" = (
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"QU" = (
+/obj/structure/table/glass,
+/obj/item/reagent_containers/condiment/protein{
+	pixel_x = -5;
+	pixel_y = 6
+	},
+/obj/structure/sign/gym/right{
+	pixel_y = 32
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"Rf" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/machinery/light/directional/west,
+/obj/structure/chair/stool/directional/east,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"Rt" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line,
+/obj/structure/chair/sofa/bench/tram/right,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"Rx" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"RD" = (
+/obj/machinery/light/floor,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"RI" = (
+/obj/effect/turf_decal/siding/wideplating,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"RN" = (
+/turf/closed/wall,
+/area/station/maintenance/central/lesser)
+"RW" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"RY" = (
+/turf/closed/mineral/random/stationside/asteroid/porus,
+/area/station/commons/fitness/recreation/entertainment)
+"Sc" = (
+/obj/machinery/door/airlock{
+	name = "Private Quarters J";
+	id_tag = "private_j"
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/station/commons/dorms)
+"St" = (
+/obj/structure/flora/bush/fullgrass,
+/obj/structure/flora/bush/lavendergrass,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Sy" = (
+/obj/structure/railing{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/structure/railing{
+	dir = 2;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"SL" = (
+/obj/structure/table,
+/obj/item/training_toolbox{
+	pixel_y = 8
+	},
+/obj/item/training_toolbox,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"SM" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 4
+	},
+/obj/machinery/camera/directional/east{
+	c_tag = "Civilian - Dormitories East"
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"Ta" = (
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"Tb" = (
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"Tf" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/station/commons/fitness)
+"Ti" = (
+/obj/machinery/button/door/directional/west{
+	name = "Privacy Bolts";
+	pixel_y = -9;
+	id = "private_n";
+	specialfunctions = 4;
+	normaldoorcontrol = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/button/curtain{
+	pixel_x = -24;
+	id = "privatek"
+	},
+/turf/open/floor/carpet,
+/area/station/commons/dorms)
+"Tl" = (
+/obj/machinery/button/door/directional/west{
+	name = "Privacy Bolts";
+	pixel_y = -9;
+	id = "private_j";
+	specialfunctions = 4;
+	normaldoorcontrol = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/button/curtain{
+	pixel_x = -24;
+	id = "privatej"
+	},
+/turf/open/floor/wood,
+/area/station/commons/dorms)
+"Tm" = (
+/obj/structure/bed{
+	dir = 8
+	},
+/obj/effect/spawner/random/bedsheet,
+/obj/structure/sign/clock/directional/east,
+/obj/item/pillow/random,
+/turf/open/floor/wood,
+/area/station/commons/dorms)
+"Tx" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/carpet,
+/area/station/commons/dorms)
+"TB" = (
+/obj/structure/flora/bush/fullgrass,
+/obj/structure/flora/bush/grassy,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Ul" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/stripes/white/full,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"Ut" = (
+/turf/closed/wall,
+/area/station/commons/fitness)
+"Uu" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/wood_8,
+/area/station/service/cafeteria)
+"UC" = (
+/obj/machinery/camera/directional/south{
+	c_tag = "Civilian - Fitness Center South-West"
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"UF" = (
+/obj/structure/flora/bush/fullgrass,
+/obj/structure/flora/bush/lavendergrass,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"UK" = (
+/obj/effect/turf_decal/siding/thinplating{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"UX" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/bush/flowers_pp,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/grass,
+/area/station/commons/fitness)
+"UY" = (
+/obj/structure/decoration/rock/pile/jungle/fifth,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Vc" = (
+/obj/structure/closet/secure_closet/personal,
+/obj/machinery/light/floor,
+/turf/open/floor/stone,
+/area/station/commons/fitness)
+"Vd" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"Ve" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 1
+	},
+/obj/structure/flora/bush/ferny/style_random,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Vp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/wood,
+/area/station/service/cafeteria)
+"Vv" = (
+/obj/structure/table/wood,
+/obj/item/storage/box/coffeepack{
+	pixel_x = 15;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/cup/glass/bottle/juice/cream{
+	pixel_x = 15;
+	pixel_y = 2
+	},
+/obj/machinery/coffeemaker/impressa{
+	pixel_y = 4
+	},
+/obj/structure/sign/chalkboard_menu{
+	pixel_y = 32
+	},
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"VC" = (
+/obj/structure/railing{
+	dir = 4;
+	pixel_y = 0
+	},
+/obj/machinery/disposal/bin/tagger,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"VY" = (
+/obj/structure/railing/corner,
+/obj/effect/turf_decal/siding/thinplating_new,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"Wb" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"Wi" = (
+/obj/structure/decoration/rock/pile/jungle/large/third,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"Wj" = (
+/obj/structure/flora/bush/jungle/c/style_3,
+/obj/structure/window/reinforced/spawner/directional/north,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Wl" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 1
+	},
+/obj/structure/chair/sofa/bench/tram/right{
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"Wo" = (
+/obj/machinery/door/airlock/wood{
+	name = "Sauna"
+	},
+/obj/structure/fans/tiny,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/sauna)
+"Wx" = (
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/flora/grass/jungle,
+/obj/structure/flora/bush/grassy,
+/obj/structure/flora/bush/flowers_yw,
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/grass,
+/area/station/commons/fitness)
+"WR" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"WW" = (
+/turf/open/misc/asteroid,
+/area/station/commons/fitness)
+"Xf" = (
+/obj/structure/flora/bush/fullgrass/style_random,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"Xn" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"Xo" = (
+/obj/structure/flora/rock/pile/shale,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"Xt" = (
+/obj/effect/turf_decal/siding/wideplating/corner{
+	dir = 4
+	},
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"Xu" = (
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"XH" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"XI" = (
+/obj/structure/railing,
+/obj/structure/table/wood,
+/obj/item/bikehorn/rubberducky,
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"XU" = (
+/obj/structure/flora/bush/grassy,
+/obj/structure/flora/bush/flowers_yw,
+/obj/structure/curtain/cloth/fancy/mechanical{
+	icon_state = "bounty-open";
+	icon_type = "bounty";
+	id = "privatej";
+	name = "curtain"
+	},
+/obj/effect/spawner/structure/window,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Yb" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"Yk" = (
+/obj/structure/closet/athletic_mixed,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"Ym" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/stone,
+/area/station/commons/fitness/recreation/entertainment)
+"Yx" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 8
+	},
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"Yy" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/turf/open/floor/wood/wood_8,
+/area/station/service/cafeteria)
+"YN" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line,
+/obj/effect/landmark/start/assistant,
+/obj/structure/chair/sofa/bench/tram/left,
+/turf/open/floor/iron,
+/area/station/commons/fitness)
+"Za" = (
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/flora/bush/grassy,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"Ze" = (
+/obj/effect/turf_decal/trimline/neutral/filled/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
+"ZA" = (
+/obj/structure/railing{
+	dir = 2;
+	pixel_y = 0
+	},
+/turf/open/floor/wood,
+/area/station/commons/fitness/recreation/entertainment)
+"ZF" = (
+/obj/effect/landmark/event_spawn,
+/turf/open/misc/asteroid,
+/area/station/commons/fitness)
+"ZK" = (
+/obj/structure/closet/secure_closet/personal,
+/turf/open/floor/stone,
+/area/station/commons/fitness)
+"ZM" = (
+/obj/item/food/poppypretzel{
+	pixel_x = -5;
+	pixel_y = -2
+	},
+/obj/item/food/hotcrossbun{
+	pixel_x = 5;
+	pixel_y = 7
+	},
+/obj/structure/table/wood,
+/obj/structure/window/spawner/directional/south,
+/obj/structure/window/spawner/directional/east,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
+/turf/open/floor/carpet/red,
+/area/station/service/cafeteria)
+"ZO" = (
+/obj/structure/chair/plastic{
+	dir = 8
+	},
+/turf/open/misc/asteroid,
+/area/station/commons/fitness/recreation/entertainment)
+"ZT" = (
+/turf/closed/wall,
+/area/station/maintenance/department/crew_quarters/dorms)
+"ZU" = (
+/obj/effect/turf_decal/weather/dirt{
+	dir = 8
+	},
+/obj/effect/landmark/start/hangover,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+"ZW" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/floor/grass,
+/area/station/commons/fitness/recreation/entertainment)
+
+(1,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Js
+GX
+Js
+GX
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+nm
+Hj
+Hj
+Hj
+Hj
+"}
+(2,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Js
+bI
+PO
+nr
+nm
+Lt
+HR
+NM
+qH
+BV
+Az
+nm
+nm
+nm
+nm
+nm
+"}
+(3,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Js
+bI
+ss
+nr
+nm
+Vv
+Ge
+ME
+qH
+Fz
+qH
+PG
+ei
+yv
+no
+nm
+"}
+(4,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Js
+bI
+ss
+Mh
+nm
+OZ
+qM
+yC
+qH
+qH
+qH
+nm
+HM
+CG
+nS
+nm
+"}
+(5,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Yx
+Hl
+lc
+Js
+nm
+ej
+eZ
+ZM
+qH
+qH
+vs
+PG
+iw
+pq
+iy
+nm
+"}
+(6,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+RW
+RW
+lN
+bq
+xr
+Vp
+Vp
+Vp
+Vp
+Vp
+Ci
+nm
+nm
+nm
+nm
+nm
+"}
+(7,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+gN
+kO
+db
+hQ
+Yy
+qH
+AI
+qH
+qH
+AI
+Vp
+Vp
+QD
+Hj
+Hj
+Hj
+"}
+(8,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Bu
+dT
+vz
+Js
+nm
+vb
+nm
+Uu
+Uu
+nm
+vb
+nm
+ZT
+Hj
+Hj
+Hj
+"}
+(9,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+oN
+dT
+EA
+Jh
+nm
+qH
+Fg
+MB
+MB
+Rf
+qH
+qH
+jU
+ZT
+Hj
+Hj
+"}
+(10,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+ld
+HO
+eP
+wC
+vA
+Yb
+Yb
+mS
+CP
+gk
+Iy
+ZT
+Hj
+Hj
+"}
+(11,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+zu
+HO
+IA
+ao
+Xn
+Xn
+Xn
+Xn
+Xn
+IY
+UC
+ZT
+Hj
+Hj
+"}
+(12,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+UK
+HO
+Tb
+bf
+wS
+nU
+nU
+nU
+KF
+Wb
+Tb
+ZT
+Hj
+Hj
+"}
+(13,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Es
+HO
+Tb
+Rt
+gK
+WW
+WW
+Ex
+qj
+aq
+Tb
+ZT
+Hj
+Hj
+"}
+(14,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+hw
+yw
+Tb
+vl
+gK
+WW
+ZF
+WW
+qj
+Ji
+Oq
+ZT
+Hj
+Hj
+"}
+(15,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+UK
+HO
+Tb
+YN
+gK
+Ex
+WW
+fp
+qj
+Wl
+Tb
+ZT
+Hj
+Hj
+"}
+(16,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Es
+HO
+Tb
+ma
+cU
+yx
+yx
+yx
+zF
+Wb
+Tb
+ZT
+Hj
+Hj
+"}
+(17,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+ut
+HO
+kI
+yh
+iO
+ve
+dB
+SL
+iO
+FR
+Yk
+ZT
+Hj
+Hj
+"}
+(18,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+aA
+HO
+zz
+kI
+Tb
+Tb
+mT
+mT
+mT
+Vd
+Yk
+ZT
+Hj
+Hj
+"}
+(19,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Ko
+HO
+Ut
+BJ
+Tb
+Tb
+mT
+Tb
+Nr
+yK
+ZT
+ZT
+Hj
+Hj
+"}
+(20,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+HL
+HO
+Ut
+Ut
+Wx
+Lm
+oe
+UX
+Ut
+Ut
+ZT
+Hj
+Hj
+Hj
+"}
+(21,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+ue
+xo
+yQ
+qN
+Tf
+IW
+Aj
+bw
+ww
+uX
+FQ
+Hj
+Hj
+Hj
+"}
+(22,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+tu
+tu
+tu
+tu
+Kq
+tu
+tu
+tu
+tu
+bD
+Gh
+HO
+aS
+wl
+tC
+ic
+sf
+rP
+rP
+id
+OI
+kk
+kk
+kk
+"}
+(23,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+aK
+SM
+LI
+zQ
+Ul
+LI
+qf
+aU
+qf
+lq
+Cu
+Ut
+Ut
+cT
+ql
+ic
+md
+FJ
+Ec
+zT
+kk
+Id
+hk
+kk
+"}
+(24,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Js
+Js
+Js
+kt
+Js
+Js
+Js
+Sc
+Js
+Ze
+MW
+Ut
+gm
+wl
+pW
+ic
+ZK
+zh
+zh
+kH
+Wo
+GK
+xi
+kk
+"}
+(25,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Js
+Tx
+Ti
+Ap
+Js
+xb
+Tl
+Hr
+Js
+xZ
+qw
+Ut
+QU
+wl
+xt
+ic
+ZK
+zh
+zh
+zh
+kk
+eN
+Fm
+kk
+"}
+(26,1,1) = {"
+Hj
+Hj
+Hj
+Hj
+Hj
+Js
+MS
+aw
+pD
+Js
+Tm
+ch
+NQ
+FW
+xT
+ov
+Ut
+Mw
+wl
+jp
+ic
+vH
+ZK
+Mf
+Vc
+kk
+kk
+kk
+kk
+"}
+(27,1,1) = {"
+Hj
+Hj
+Hj
+Js
+Js
+Js
+FW
+il
+il
+FW
+FW
+gU
+XU
+FW
+Qc
+tQ
+FW
+NK
+rm
+FW
+gE
+Za
+Ut
+Ut
+Ut
+Hj
+Hj
+Hj
+Hj
+"}
+(28,1,1) = {"
+Hj
+Hj
+Hj
+Js
+RY
+RY
+ga
+sH
+vR
+xm
+Ob
+RD
+sH
+fT
+Rx
+aV
+KE
+vk
+vP
+bS
+Xu
+UY
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(29,1,1) = {"
+Js
+Js
+Js
+Js
+RY
+FY
+CF
+ep
+OB
+OB
+ep
+CF
+ep
+pk
+lC
+oB
+oo
+Xu
+fx
+In
+Xu
+gl
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(30,1,1) = {"
+wG
+du
+Od
+dm
+Fl
+dm
+hf
+nz
+lO
+ep
+ep
+ep
+Ym
+mc
+GN
+kQ
+Fa
+Xu
+mA
+od
+tb
+Cg
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(31,1,1) = {"
+CJ
+RI
+KJ
+KJ
+KJ
+KJ
+kf
+Xt
+BN
+FA
+FA
+rX
+VC
+xs
+Rx
+ZA
+Ix
+vM
+xY
+ZO
+OA
+HG
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(32,1,1) = {"
+aQ
+RI
+KJ
+KJ
+KJ
+KJ
+oA
+tE
+mr
+bg
+Rx
+Rx
+Rx
+Rx
+Rx
+lJ
+Ve
+TB
+JX
+LE
+iH
+RY
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(33,1,1) = {"
+Wj
+RI
+KJ
+KJ
+KJ
+KJ
+ar
+Gx
+mr
+Rx
+fL
+Dz
+Dz
+Ta
+Ta
+Sy
+oT
+Cw
+bT
+RY
+RY
+RY
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(34,1,1) = {"
+St
+RI
+sa
+sa
+KJ
+KJ
+ar
+Gx
+pk
+hJ
+ZA
+pV
+fw
+fw
+ZU
+CO
+Xu
+UF
+RY
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(35,1,1) = {"
+CJ
+RI
+sa
+sa
+KJ
+KJ
+Mn
+tE
+VY
+XH
+ZA
+yV
+Wi
+Lk
+mb
+iH
+HG
+Oa
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(36,1,1) = {"
+Et
+RI
+sa
+sa
+KJ
+KJ
+eB
+ub
+XI
+WR
+ZA
+HG
+QH
+LP
+Xf
+JQ
+jw
+RY
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(37,1,1) = {"
+FW
+Ga
+zj
+zj
+zj
+zj
+ub
+sg
+io
+WR
+kT
+sv
+QH
+RY
+RY
+RY
+RY
+RY
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(38,1,1) = {"
+RY
+RY
+aE
+Gq
+Mv
+Mv
+Mr
+MX
+lo
+WR
+DP
+oo
+Qz
+RY
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(39,1,1) = {"
+eL
+rO
+WR
+WR
+WR
+WR
+WR
+WR
+WR
+WR
+ZA
+jN
+Xo
+RY
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(40,1,1) = {"
+eL
+Ta
+Ta
+Dz
+rE
+rE
+Dz
+MD
+Dz
+xC
+Ft
+oo
+nR
+RY
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(41,1,1) = {"
+RY
+RY
+RY
+Gf
+bz
+fw
+fw
+fw
+fw
+ba
+ba
+Xu
+KJ
+KJ
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(42,1,1) = {"
+RY
+RY
+RY
+xB
+ah
+CX
+QH
+QH
+DJ
+cw
+an
+KJ
+KJ
+KJ
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(43,1,1) = {"
+RY
+RY
+RY
+KP
+vm
+CX
+QH
+Or
+sB
+sB
+xG
+KJ
+KJ
+sa
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(44,1,1) = {"
+NZ
+RY
+RY
+RY
+KP
+pl
+RY
+ZW
+Po
+sJ
+KJ
+Nm
+sa
+Nm
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(45,1,1) = {"
+GC
+RY
+RY
+RY
+RY
+RY
+RY
+wk
+Or
+nR
+KJ
+KJ
+sa
+bb
+RY
+RY
+RY
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(46,1,1) = {"
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RY
+RN
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(47,1,1) = {"
+RY
+Hy
+RN
+RN
+RN
+RN
+RN
+RN
+RN
+RN
+RN
+RN
+RN
+RN
+RN
+RN
+RN
+RN
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}
+(48,1,1) = {"
+RY
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+Hj
+"}

@@ -66,6 +66,7 @@
 	name = "\improper SOAR Industries sales terminal"
 	desc = "A specially made SOAR Industries Sales Console for selling objects and things to deepspace buyers."
 	status_report = "Ready for delivery."
+	icon_state = MAP_SWITCH("computer", "/obj/machinery/computer/piratepad_control/ghostpad")
 	icon_screen = "civ_bounty"
 	icon_keyboard = "syndie_key"
 	warmup_time = SYN_BOUNTY_PAD_WARM_TIME

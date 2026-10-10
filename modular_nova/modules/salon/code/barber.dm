@@ -7,6 +7,7 @@
 	supervisors = SUPERVISOR_HOP
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "BARBER"
+	tgui_icon = FA_ICON_SCISSORS
 
 	outfit = /datum/outfit/job/barber
 	plasmaman_outfit = /datum/outfit/plasmaman
@@ -28,7 +29,7 @@
 	jobtype = /datum/job/barber
 
 	glasses = /obj/item/clothing/glasses/sunglasses
-	belt = /obj/item/modular_computer/pda
+	belt = /obj/item/modular_computer/pda/crew
 	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/civilian/barber
 	shoes = /obj/item/clothing/shoes/laceup

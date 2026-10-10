@@ -3,7 +3,7 @@
 	name = "Strange Object"
 	description = "Nanotrasen has taken an interest in strange objects. Find one in maintenance, and ship it off to CentCom right away."
 	reward = CARGO_CRATE_VALUE * 2.4
-	wanted_types = list(/obj/item/relic = TRUE)
+	wanted_types = list(/obj/item/assembly/relic = TRUE)
 */ // NOVA EDIT REMOVAL END
 
 /* NOVA EDIT REMOVAL START - Removes bounties, these are just boring.
@@ -153,7 +153,7 @@
 	description = "Commander Zot has the hots for Commander Zena. Send a shipment of geraniums - her favorite flower - and he'll happily reward you."
 	reward = CARGO_CRATE_VALUE * 8
 	required_count = 3
-	wanted_types = list(/obj/item/food/grown/poppy/geranium = TRUE)
+	wanted_types = list(/obj/item/food/grown/flower/poppy/geranium = TRUE)
 	include_subtypes = FALSE
 
 /datum/bounty/item/assistant/poppy
@@ -161,7 +161,7 @@
 	description = "Commander Zot really wants to sweep Security Officer Olivia off her feet. Send a shipment of Poppies - her favorite flower - and he'll happily reward you."
 	reward = CARGO_CRATE_VALUE * 2
 	required_count = 3
-	wanted_types = list(/obj/item/food/grown/poppy = TRUE)
+	wanted_types = list(/obj/item/food/grown/flower/poppy = TRUE)
 	include_subtypes = FALSE
 
 /datum/bounty/item/assistant/potted_plants

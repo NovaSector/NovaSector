@@ -84,10 +84,7 @@
 	. = ..()
 	if(. && atom_integrity > 0)
 		if(tank_volume && (damage_flag == BULLET || damage_flag == LASER))
-			//NOVA EDIT CHANGE
-			var/guaranteed_violent = (damage_flag == BULLET || damage_flag == LASER)
-			boom(damage_type, guaranteed_violent)
-			//NOVA EDIT END
+			boom()
 
 /obj/structure/reagent_dispensers/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(istype(tool, /obj/item/assembly_holder) && accepts_rig)
@@ -167,7 +164,7 @@
  * This is most dangerous for fuel tanks, which will explosion().
  * Other dispensers will scatter their contents within range.
  */
-/obj/structure/reagent_dispensers/proc/boom(damage_type = BRUTE, guaranteed_violent = FALSE) //NOVA EDIT CHANGE
+/obj/structure/reagent_dispensers/proc/boom()
 	if(QDELETED(src))
 		return // little bit of sanity sauce before we wreck ourselves somehow
 	var/datum/reagent/fuel/volatiles = reagents.has_reagent(/datum/reagent/fuel)
@@ -245,9 +242,9 @@
 	name = "high-capacity water tank"
 	desc = "A highly pressurized water tank made to hold gargantuan amounts of water."
 	icon_state = "water_high" //I was gonna clean my room...
-	tank_volume = 3000
+	tank_volume = 100000
 
-/obj/structure/reagent_dispensers/foamtank //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
+/obj/structure/reagent_dispensers/foamtank
 	name = "firefighting foam tank"
 	desc = "A tank full of firefighting foam."
 	icon_state = "foam"
@@ -256,7 +253,7 @@
 	openable = TRUE
 	climbable = TRUE
 
-/obj/structure/reagent_dispensers/fueltank //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
+/obj/structure/reagent_dispensers/fueltank
 	name = "fuel tank"
 	desc = "A tank full of industrial welding fuel. Do not consume."
 	icon_state = "fuel"
@@ -272,33 +269,25 @@
 		icon_state = "fuel_fools"
 		icon = 'icons/obj/medical/chemical_tanks.dmi' // NOVA EDIT ADDITION - undoes override
 
-/obj/structure/reagent_dispensers/fueltank/boom(damage_type = BRUTE, guaranteed_violent = FALSE) //NOVA EDIT CHANGE
-	if(damage_type == BURN || guaranteed_violent)
-		explosion(src, heavy_impact_range = 1, light_impact_range = 5, flame_range = 5)
-		qdel(src)
-	else
-		. = ..()
-	//NOVA EDIT END
-
 /obj/structure/reagent_dispensers/fueltank/blob_act(obj/structure/blob/B)
-	boom(guaranteed_violent = TRUE) //NOVA EDIT CHANGE
+	boom()
 
 /obj/structure/reagent_dispensers/fueltank/ex_act()
-	boom(guaranteed_violent = TRUE) //NOVA EDIT CHANGE
+	boom()
 	return TRUE
 
 /obj/structure/reagent_dispensers/fueltank/fire_act(exposed_temperature, exposed_volume)
-	boom(guaranteed_violent = TRUE) //NOVA EDIT CHANGE
+	boom()
 
 /obj/structure/reagent_dispensers/fueltank/zap_act(power, zap_flags)
 	. = ..() //extend the zap
 	if(ZAP_OBJ_DAMAGE & zap_flags)
-		boom(guaranteed_violent = TRUE) //NOVA EDIT CHANGE
+		boom()
 
 /obj/structure/reagent_dispensers/fueltank/bullet_act(obj/projectile/hitting_projectile)
 	if(hitting_projectile.damage > 0 && ((hitting_projectile.damage_type == BURN) || (hitting_projectile.damage_type == BRUTE)))
 		log_bomber(hitting_projectile.firer, "detonated a", src, "via projectile")
-		boom(guaranteed_violent = TRUE) // NOVA EDIT CHANGE
+		boom()
 		return hitting_projectile.on_hit(src, 0)
 
 	// we override parent like this because otherwise we won't actually properly log the fact that a projectile caused this welding tank to explode.
@@ -334,7 +323,7 @@
 		span_danger("[user] catastrophically fails at refilling [user.p_their()] [tool.name]!"),
 		span_userdanger("That was stupid of you."))
 	log_bomber(user, "detonated a", src, "via [tool.name]")
-	boom(guaranteed_violent = TRUE) //NOVA EDIT CHANGE - ORIGINAL: boom()
+	boom()
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/reagent_dispensers/fueltank/large
@@ -342,14 +331,6 @@
 	desc = "A tank full of a high quantity of welding fuel. Keep away from open flames."
 	icon_state = "fuel_high"
 	tank_volume = 5000
-
-/obj/structure/reagent_dispensers/fueltank/large/boom(damage_type = BRUTE, guaranteed_violent = FALSE) //NOVA EDIT CHANGE
-	if(damage_type == BURN || guaranteed_violent)
-		explosion(src, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 7, flame_range = 12)
-		qdel(src)
-	else
-		. = ..()
-	//NOVA EDIT END
 
 /// Wall mounted dispeners, like pepper spray or virus food. Not a normal tank, and shouldn't be able to be turned into a plumbed stationary one.
 /obj/structure/reagent_dispensers/wall
@@ -712,7 +693,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/reagent_dispensers/wall/virusfood, 30
 /obj/structure/reagent_dispensers/servingdish/unanchored
 	anchored = FALSE
 
-/obj/structure/reagent_dispensers/plumbed //NOVA EDIT - ICON OVERRIDDEN IN AESTHETICS MODULE
+/obj/structure/reagent_dispensers/plumbed
 	name = "stationary water tank"
 	anchored = TRUE
 	icon_state = "water_stationary"

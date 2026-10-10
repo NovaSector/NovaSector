@@ -66,14 +66,17 @@
 	if(!iscarbon(user))
 		return
 	var/mob/living/carbon/jedi = user
+	// NOVA EDIT ADDITION START
+	if(!CONFIG_GET(flag/disable_sm_dusting))
+		to_chat(jedi, span_userdanger("That was a really dense idea. Your body suddenly erupts in unbearable heat!"))
+		jedi.investigate_log("was superheated by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
+		jedi.apply_damage(600, BURN, spread_damage = TRUE)
+		jedi.become_husk(BURN)
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+	// NOVA EDIT ADDITION END
 	to_chat(jedi, span_userdanger("That was a really dense idea."))
 	jedi.investigate_log("had [jedi.p_their()] brain dusted by touching [src] with telekinesis.", INVESTIGATE_DEATHS)
-	//jedi.ghostize() // NOVA EDIT REMOVAL
-	// NOVA EDIT ADDITION START - Supermatter replacement
-	var/mob/living/carbon/human/jedi_human = user
-	if(!istype(jedi_human) || !jedi_human.replace_with_clone())
-		jedi.ghostize()
-	// NOVA EDIT ADDITION END
+	jedi.ghostize()
 	var/obj/item/organ/brain/rip_u = locate(/obj/item/organ/brain) in jedi.organs
 	if(rip_u)
 		rip_u.Remove(jedi)

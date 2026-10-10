@@ -7,14 +7,6 @@
 /datum/bodypart_overlay/mutant/frills/override_color(rgb_value)
 	return draw_color
 
-/datum/bodypart_overlay/mutant/frills/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
-	if(!..())
-		return FALSE
-	var/mob/living/carbon/human/human = owner || bodypart_owner.owner
-	if(!istype(human))
-		return TRUE
-	return !sprite_datum.is_hidden(human)
-
 /datum/bodypart_overlay/mutant/frills/get_global_feature_list()
 	return SSaccessories.sprite_accessories[FEATURE_FRILLS]
 

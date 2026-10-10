@@ -106,10 +106,15 @@
 // /obj access signals
 #define COMSIG_AIRLOCK_SHELL_ALLOWED "airlock_shell_try_allowed"
 
+//from /obj/machinery/door/open(): (forced)
+#define COMSIG_MOB_OPENED_DOOR "mob_opened_door"
+
 // /obj/machinery/door/airlock signals
 
 //from /obj/machinery/door/airlock/open(): (forced)
 #define COMSIG_AIRLOCK_OPEN "airlock_open"
+//from /obj/machinery/door/airlock/open(): (forced)
+#define COMSIG_MOB_OPENED_AIRLOCK "mob_opened_airlock"
 //from /obj/machinery/door/airlock/close(): (forced)
 #define COMSIG_AIRLOCK_CLOSE "airlock_close"
 ///from /obj/machinery/door/airlock/set_bolt():
@@ -153,6 +158,8 @@
 #define COMSIG_MOB_DROPPED_ITEM "mob_dropped_item"
 ///from base of obj/item/pickup(): (/mob/taker)
 #define COMSIG_ITEM_PICKUP "item_pickup"
+///from base of mob/put_in_hand(), after forceMove  item is now in the mob's hand: (mob/holder, hand_index)
+#define COMSIG_ITEM_ENTERED_HANDS "item_entered_hands"
 ///from base of obj/item/on_outfit_equip(): (mob/equipper, visuals_only, slot)
 #define COMSIG_ITEM_EQUIPPED_AS_OUTFIT "item_equip_as_outfit"
 ///from base of datum/storage/handle_enter(): (datum/storage/storage)
@@ -255,6 +262,13 @@
 #define COMSIG_CLOSET_INSERT "closet_insert"
 	///used to interrupt insertion
 	#define COMPONENT_CLOSET_INSERT_INTERRUPT (1<<0)
+
+/// From closet_teleporter_controller when something is teleporting through a closet
+#define COMSIG_CLOSET_TELEPORTER_PRE_SENDING "closet_teleporter_pre_sending"
+	/// Blocks the item from teleporting
+	#define CLOSET_TELEPORT_BLOCKED (1<<0)
+	/// Ignores the can_teleport check
+	#define CLOSET_TELEPORT_FORCED (1<<1)
 
 ///From open: (forced)
 #define COMSIG_CLOSET_PRE_OPEN "closet_pre_open"
@@ -381,7 +395,7 @@
 #define COMSIG_GUN_CHAMBER_PROCESSED "gun_chamber_processed"
 ///called in /obj/item/gun/ballistic/process_chamber (casing)
 #define COMSIG_CASING_EJECTED "casing_ejected"
-///called in /obj/item/gun/ballistic/sawoff(mob/user, obj/item/saw, handle_modifications) : (mob/user)
+///called in /obj/item/gun/ballistic/try_sawoff(mob/user, obj/item/saw, handle_modifications) : (mob/user)
 #define COMSIG_GUN_BEING_SAWNOFF "gun_being_sawnoff"
 	#define COMPONENT_CANCEL_SAWING_OFF (1<<0)
 #define COMSIG_GUN_SAWN_OFF "gun_sawn_off"
@@ -539,7 +553,7 @@
 ///from /datum/computer_file/program/nt_pay/_pay(), sent to every physical card of a bank account: (computer, money_received)
 #define COMSIG_ID_CARD_NTPAY_MONEY_RECEIVED "id_card_ntpay_money_received"
 
-///from base of /obj/item/mmi/set_brainmob(): (mob/living/brain/new_brainmob)
+///from base of /obj/item/brain_processor/set_brainmob(): (mob/living/brain/new_brainmob)
 #define COMSIG_MMI_SET_BRAINMOB "mmi_set_brainmob"
 
 /// from base of /obj/item/slimepotion/speed/interact_with_atom(): (obj/target, /obj/src, mob/user)
@@ -592,9 +606,9 @@
 /// from /obj/machinery/computer/camera_advanced/shuttle_docker/gatherNavComputerOverlays() : (list/images_out)
 #define COMSIG_SHUTTLE_NAV_COMPUTER_IMAGE_REQUESTED "shuttle_nav_computer_image_requested"
 
-/// Sent from /obj/item/organ/wings/functional/proc/open_wings(): (mob/living/carbon/owner)
+/// Sent from /obj/item/organ/wings/proc/open_wings(): (mob/living/carbon/owner)
 #define COMSIG_WINGS_OPENED "wings_opened"
-/// Sent from /obj/item/organ/wings/functional/proc/close_wings(): (mob/living/carbon/owner)
+/// Sent from /obj/item/organ/wings/proc/close_wings(): (mob/living/carbon/owner)
 #define COMSIG_WINGS_CLOSED "wings_closed"
 
 /// Sent from /obj/item/clothing/shoes/bhop/rocket/jet, specifically it's toggle action /datum/action/item_action/toggle_flight

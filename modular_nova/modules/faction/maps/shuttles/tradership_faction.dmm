@@ -38,15 +38,12 @@
 	callTime = 250;
 	can_move_docking_ports = 1;
 	dir = 2;
-	dwidth = 11;
-	height = 17;
 	id = "tradership";
 	launch_status = 0;
 	movement_force = list("KNOCKDOWN" = 0, "THROW" = 0);
 	name = "Trader Ship";
 	port_direction = 8;
-	preferred_direction = 4;
-	width = 33
+	preferred_direction = 4
 	},
 /turf/open/floor/plating,
 /area/shuttle/trader/crew)
@@ -247,9 +244,7 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/trader/engine)
 "ay" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/plating/airless,
 /area/shuttle/trader/engine)
 "az" = (
@@ -629,9 +624,7 @@
 /area/shuttle/trader/crew)
 "bf" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sign/poster/contraband/random{
-	pixel_x = 32
-	},
+/obj/structure/sign/poster/contraband/random/directional/east,
 /obj/structure/closet/wardrobe/black,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
@@ -806,10 +799,6 @@
 /obj/structure/bedsheetbin,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/power/apc{
-	name = "Salvage Ship Crew Quarters APC";
-	pixel_y = -23
-	},
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
@@ -817,6 +806,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/trader/crew)
 "bw" = (
@@ -1030,14 +1020,12 @@
 /obj/machinery/microwave,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sign/poster/contraband/random{
-	pixel_y = 32
-	},
 /obj/item/storage/box/donkpockets,
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+/obj/structure/sign/poster/contraband/random/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/trader/bar)
 "bN" = (
@@ -1071,16 +1059,12 @@
 	pixel_y = 3
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "Salvage Ship Bar APC";
-	pixel_y = 23
-	},
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron,
 /area/shuttle/trader/bar)
 "bP" = (
@@ -1090,9 +1074,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/vending/coffee,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sign/poster/contraband/random{
-	pixel_x = 32
-	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -1103,6 +1084,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
+/obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/bar)
 "bQ" = (
@@ -1240,11 +1222,6 @@
 /obj/item/pen{
 	pixel_x = -4
 	},
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "Salvage Ship Bridge APC";
-	pixel_y = 23
-	},
 /obj/item/camera{
 	pixel_x = 12;
 	pixel_y = 6
@@ -1253,6 +1230,7 @@
 	pixel_x = 14
 	},
 /obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/bridge)
 "ce" = (
@@ -1562,6 +1540,7 @@
 	pixel_x = 24
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster/contraband/random/directional/east,
 /turf/open/floor/iron,
 /area/shuttle/trader/bar)
 "cD" = (
@@ -1664,12 +1643,8 @@
 /area/shuttle/trader/engine)
 "cJ" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "Salvage Ship Cargo APC";
-	pixel_x = -25
-	},
 /obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/west,
 /turf/open/floor/iron/dark,
 /area/shuttle/trader/cargo)
 "cK" = (
@@ -1703,13 +1678,11 @@
 	pixel_y = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sign/poster/contraband/random{
-	pixel_y = -32
-	},
 /obj/effect/turf_decal/tile/bar,
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
+/obj/structure/sign/poster/contraband/random/directional/south,
 /turf/open/floor/iron,
 /area/shuttle/trader/bar)
 "cM" = (
@@ -1750,9 +1723,6 @@
 /obj/machinery/vending/cigarette,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sign/poster/contraband/random{
-	pixel_x = 32
-	},
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -2233,9 +2203,7 @@
 /area/shuttle/trader/bar)
 "dG" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sign/poster/contraband/random{
-	pixel_x = 32
-	},
+/obj/structure/sign/poster/contraband/random/directional/east,
 /obj/machinery/vending/hydroseeds{
 	use_power = 0
 	},
@@ -2263,10 +2231,6 @@
 /area/shuttle/trader/engine)
 "dJ" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/power/apc{
-	name = "Salvage Ship Engineering APC";
-	pixel_y = -23
-	},
 /obj/structure/closet/crate,
 /obj/item/stack/sheet/iron/twenty,
 /obj/item/stack/sheet/glass{
@@ -2277,6 +2241,7 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/plating,
 /area/shuttle/trader/engine)
 "dK" = (
@@ -2370,25 +2335,18 @@
 /area/shuttle/trader/bar)
 "dR" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = 11
-	},
 /obj/effect/decal/cleanable/food/flour,
+/obj/structure/sink/directional/west,
 /turf/open/floor/iron/cafeteria,
 /area/shuttle/trader/bar)
 "dS" = (
 /obj/machinery/smartfridge,
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/turf/open/space/basic,
 /area/shuttle/trader/bar)
 "dT" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/sink{
-	dir = 4;
-	pixel_x = -12;
-	pixel_y = 2
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sink/directional/east,
 /turf/open/floor/iron,
 /area/shuttle/trader/bar)
 "dU" = (
@@ -2512,7 +2470,6 @@
 	pixel_y = 14
 	},
 /obj/item/reagent_containers/condiment/enzyme{
-	layer = 5;
 	pixel_x = -5;
 	pixel_y = 6
 	},

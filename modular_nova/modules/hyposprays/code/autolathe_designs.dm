@@ -1,6 +1,5 @@
 /datum/design/hypovial
 	name = "Hypovial"
-	id = "hypovial"
 	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.5,
@@ -14,15 +13,14 @@
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/techweb_node/medbay_equip/New()
-	design_ids += list(
-		"hypovial",
+	unlocked_designs += list(
+		/datum/design/hypovial,
 	)
 	return ..()
 
 /// Large hypovials
 /datum/design/hypovial/large
 	name = "Large Hypovial"
-	id = "large_hypovial"
 	materials = list(
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.5,
@@ -31,7 +29,6 @@
 
 /datum/design/hypokit
 	name = "Hypospray Case"
-	id = "hypokit"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3,
@@ -47,7 +44,6 @@
 /// Hyposprays
 /datum/design/hypokit/deluxe
 	name = "Deluxe Hypospray Case"
-	id = "hypokit_deluxe"
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 6,
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
@@ -57,7 +53,6 @@
 
 /datum/design/hypomkii
 	name = "Hypospray Mk. II"
-	id = "hypomkii"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5,
@@ -72,15 +67,14 @@
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
 /datum/techweb_node/medbay_equip_adv/New()
-	design_ids += list(
-		"hypokit_deluxe",
-		"hypomkii_advanced",
+	unlocked_designs += list(
+		/datum/design/hypokit/deluxe,
+		/datum/design/hypomkii/piercing,
 	)
 	return ..()
 
 /datum/design/hypomkii/deluxe
 	name = "Hypospray Mk. II Deluxe Upgrade"
-	id = "hypomkii_deluxe"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 8,
@@ -94,15 +88,14 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/techweb_node/alien_surgery/New()
-	design_ids += list(
-		"hypomkii_deluxe",
+/datum/techweb_node/alien/surgery/New()
+	unlocked_designs += list(
+		/datum/design/hypomkii/deluxe,
 	)
 	return ..()
 
 /datum/design/hypomkii/piercing
 	name = "Hypospray Mk. II Advanced"
-	id = "hypomkii_advanced"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 5,
@@ -122,7 +115,6 @@
 /// I'm not touching this unless a maint asks me to because it feels weird and haunted, like the picture of a potato that bricks Source if you remove it.
 /datum/design/pen
 	name = "Pen"
-	id = "pen"
 	build_type = AUTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT,

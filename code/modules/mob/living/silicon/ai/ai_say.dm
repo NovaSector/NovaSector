@@ -66,12 +66,8 @@
 
 // Make sure that the code compiles with AI_VOX undefined
 #ifdef AI_VOX
-#define VOX_DELAY 300 // NOVA EDIT CHANGE - ORIGINAL: 600
-/mob/living/silicon/ai/verb/announcement_help()
-
-	set name = "Announcement Help"
-	set desc = "Display a list of vocal words to announce to the crew."
-	set category = "AI Commands"
+#define VOX_DELAY 300 // NOVA EDIT CHANGE - ORIGINAL: #define VOX_DELAY 600
+GAME_VERB_DESC(/mob/living/silicon/ai, announcement_help, "Announcement Help", "Display a list of vocal words to announce to the crew.", "AI Commands")
 
 	if(incapacitated)
 		return

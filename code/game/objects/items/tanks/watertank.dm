@@ -59,8 +59,7 @@
 		//Remove from their hands and put back "into" the tank
 		remove_noz()
 
-/obj/item/watertank/verb/toggle_mister_verb()
-	set name = "Toggle Mister"
+GAME_VERB(/obj/item/watertank, toggle_mister_verb, "Toggle Mister", null)
 	toggle_mister(usr)
 
 /obj/item/watertank/proc/make_noz()
@@ -90,12 +89,11 @@
 	else
 		return ..()
 
-/obj/item/watertank/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(attacking_item == noz)
-		remove_noz()
-		return TRUE
-	else
-		return ..()
+/obj/item/watertank/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(tool != noz)
+		return NONE
+	remove_noz()
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/watertank/dropped(mob/user)
 	..()

@@ -183,6 +183,8 @@
 /datum/quirk
 	/// Is this a quirk disabled by disabling the ERP config?
 	var/erp_quirk = FALSE
+	/// Is this a quirk disabled by disabling the tums module in the ERP config?
+	var/tum_quirk = FALSE
 
 /datum/quirk/masochism
 	name = "Masochism"
@@ -338,10 +340,11 @@
 *	EMPATH BONUS
 */
 
-/mob/living/carbon/human/examine(mob/user)
-	. = ..()
+/// Examine lines letting empaths read how aroused we are. Called by /mob/living/carbon/human/examine().
+/mob/living/carbon/human/proc/get_empath_examine(mob/user)
+	. = list()
 	var/mob/living/examiner = user
-	if(stat >= DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH) || src == examiner || !HAS_TRAIT(examiner, TRAIT_SEE_MASK_WHISPER)) // See mask whisper is for the empath quirk. This is more performant than GetComponent()...
+	if(src == examiner || IS_DEAD_OR_FAKING(src) || IS_UNCONSCIOUS(src) || !HAS_TRAIT(examiner, TRAIT_SEE_MASK_WHISPER)) // See mask whisper is for the empath quirk. This is more performant than GetComponent()...
 		return
 
 	if(examiner.client?.prefs?.read_preference(/datum/preference/toggle/erp))

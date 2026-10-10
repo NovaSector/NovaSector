@@ -2422,7 +2422,7 @@
 /obj/machinery/firealarm/directional/west,
 /obj/machinery/vending/medical/syndicate{
 	onstation = 0;
-	contraband = list(/obj/item/storage/box/gum/happiness=3, /obj/item/storage/box/hug/medical=3, /obj/item/mmi/syndie/interdyne=3);
+	contraband = list(/obj/item/storage/box/gum/happiness=3, /obj/item/storage/box/hug/medical=3, /obj/item/brain_processor/organic/syndie/interdyne=3);
 	extended_inventory = 1;
 	all_products_free = 1
 	},
@@ -6678,7 +6678,7 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/vault)
 "CF" = (
-/obj/item/mmi/posibrain/syndie/interdyne,
+/obj/item/brain_processor/positronic/syndie/interdyne,
 /obj/item/storage/box/beakers/bluespace,
 /obj/structure/table/glass/plasmaglass,
 /obj/item/storage/part_replacer/bluespace{

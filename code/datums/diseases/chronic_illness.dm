@@ -112,7 +112,7 @@
 					affected_mob.gib(DROP_ALL_REMAINS)
 					update_stage(1)
 				if(5)
-					if(affected_mob.stat == CONSCIOUS)
+					if(!IS_UNCONSCIOUS_OR_CRIT(affected_mob))
 						affected_mob.visible_message(span_danger("[affected_mob] clutches at [affected_mob.p_their()] chest as if [affected_mob.p_their()] heart is stopping!"), \
 					span_userdanger("You feel a horrible pain as your heart is replaced with one from another dimension!"))
 					var/obj/item/organ/heart/cursed/cheart = new /obj/item/organ/heart/cursed()

@@ -55,7 +55,7 @@
 		/obj/item/food/grown/cannabis = 1,
 		/obj/item/rag = 1,
 		/obj/effect/spawner/random/entertainment/drugs = 1,
-		/obj/item/modular_computer/pda = 1,
+		/obj/item/modular_computer/pda/crew = 1,
 		/obj/item/reagent_containers/syringe = 1,
 		/obj/effect/spawner/random/entertainment/cigar = 1,
 		/obj/item/stack/ore/gold = 1,
@@ -177,6 +177,8 @@
 		/obj/item/trash/vendor_trash/moth_bag = 1,
 		/obj/item/trash/vendor_trash/lizard_bag = 1,
 		/obj/item/trash/vendor_trash/lizard_box = 1,
+		/obj/item/trash/empty_side_pack/ration = 1,
+		/obj/item/trash/empty_side_pack/ration/bag = 1,
 		// NOVA EDIT END
 	)
 

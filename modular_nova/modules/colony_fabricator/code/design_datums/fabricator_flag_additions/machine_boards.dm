@@ -85,3 +85,9 @@
 /datum/design/board/manusmelter/New()
 	build_type |= COLONY_FABRICATOR
 	return ..()
+
+// Shuttle engine
+
+/datum/design/board/propulsion_engine/New()
+	build_type |= COLONY_FABRICATOR
+	return ..()

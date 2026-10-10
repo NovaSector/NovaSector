@@ -22,7 +22,6 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	reagent_flags = PROCESS_SYNTHETIC
 	payday_modifier = 1.0 // Matches the rest of the pay penalties the non-human crew have
-	death_sound = 'modular_nova/master_files/sound/effects/hacked.ogg'
 	species_language_holder = /datum/language_holder/machine
 	mutant_organs = list(/obj/item/organ/cyberimp/arm/toolkit/power_cord/left_arm)
 	mutantbrain = /obj/item/organ/brain/synth
@@ -34,7 +33,7 @@
 	mutantheart = /obj/item/organ/heart/synth
 	mutantliver = /obj/item/organ/liver/synth
 	mutantappendix = null
-	exotic_bloodtype =  BLOOD_TYPE_OIL
+	exotic_bloodtype =  /datum/blood_type/oil
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/synth,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/synth,
@@ -193,7 +192,7 @@
 	emag_effect = TRUE
 	playsound(source.loc, 'sound/misc/interference.ogg', 50)
 	to_chat(source, span_warning("Alert: Security breach detected in central processing unit. Error Code: 540-EXO"))
-	if(source.stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(source))
 		to_chat(user, span_warning("The cryptographic sequencer would probably not do anything to [source] in their current state..."))
 		return
 	source.visible_message(span_danger("[user] slides the cryptographic sequencer across [source]'s head[forced_speech == 0 ? "!" : " yet nothing happens..?"]"), span_userdanger("[user] slides the cryptographic sequencer across your head!"))

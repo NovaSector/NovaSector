@@ -22,6 +22,11 @@
 /datum/looping_sound/lewd/vibrator/high
 	volume = 100
 
+/mob/living/Move(atom/newloc, direct)
+	. = ..()
+	if((. && !moving_diagonally) || (!. && moving_diagonally == SECOND_DIAG_STEP))
+		SEND_SIGNAL(src, COMSIG_GENERAL_STEP_ACTION)
+
 /// Used to add a cum decal to the floor while transferring viruses and DNA to it
 /mob/living/proc/add_cum_splatter_floor(turf/the_turf, female = FALSE)
 	if(!the_turf)

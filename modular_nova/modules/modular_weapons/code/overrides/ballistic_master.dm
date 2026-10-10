@@ -20,6 +20,9 @@
 /obj/item/ammo_box/magazine/shitzu
 	reload_delay = CLICK_CD_MELEE
 
+/obj/item/ammo_box/magazine/m38
+	reload_delay = CLICK_CD_SLOW // battle rifle mags shouldn't outclass actual .38 speedloaders at reloading revolvers
+
 /// Reloading with ammo box can incur penalty with some guns
 /obj/item/gun/ballistic/proc/handle_box_reload(mob/user, obj/item/ammo, num_loaded)
 	SEND_SIGNAL(src, COMSIG_UPDATE_AMMO_HUD)

@@ -20,6 +20,9 @@
 	var/husk_type = "humanoid"
 	///The color to multiply the greyscaled husk sprites by. Can be null. Old husk sprite chest color is #A6A6A6
 	var/husk_color = "#A6A6A6"
+	/// The color to multiply the zombie husk sprites by.
+	var/zombie_color = "#006009"
+
 	layer = BELOW_MOB_LAYER //so it isn't hidden behind objects when on the floor
 	/// The mob that "owns" this limb
 	/// DO NOT MODIFY DIRECTLY. Use update_owner()
@@ -41,10 +44,14 @@
 	///Defines when a bodypart should not be changed. Example: BP_BLOCK_CHANGE_SPECIES prevents the limb from being overwritten on species gain
 	var/change_exempt_flags = NONE
 	///Random flags that describe this bodypart
-	var/bodypart_flags = BODYPART_VIRGIN
+	var/bodypart_flags = NONE
+	///Does this part have an internal or external anatomy biostate? Assigned on init based on biological_state
+	VAR_FINAL/bio_status = NONE
+	///Mangling state (interior, exterior) of the bodypart
+	var/mangled_state = BODYPART_MANGLED_NONE
 
 	///Whether the bodypart (and the owner) is husked.
-	var/is_husked = FALSE
+	var/is_husked = NONE
 	///Whether the bodypart (and the owner) is invisible through invisibleman trait.
 	var/is_invisible = FALSE
 	///The ID of a species used to generate the icon. Needs to match the icon_state portion in the limbs file!
@@ -222,9 +229,9 @@
 	var/list/bodypart_effects
 	/// The cached info about the blood this organ belongs to, set during on_removal()
 	var/list/blood_dna_info
-	/// What items we drop whenever we're butchered
-	/// If unset, the bodyparot cannot be butchered
-	var/list/butcher_drops = null
+	/// Lazy assoc list of [item type] = [amount] that we drop when butchered.
+	/// Overrides whatever we would drop normally based on our species datum.
+	var/list/butcher_drops_override
 	/// What skeleton limb, if any, we replace ourselves with when butchered?
 	var/obj/item/bodypart/butcher_replacement = null
 	/// How much meat do we add to butcher_drops when automatically generating them from our species datum?
@@ -254,6 +261,8 @@
 
 /obj/item/bodypart/Initialize(mapload)
 	. = ..()
+	bodypart_flags |= BODYPART_VIRGIN
+
 	if(can_be_disabled)
 		RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_gain))
 		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_loss))
@@ -265,7 +274,9 @@
 		add_bodypart_overlay(texture_bodypart_overlay, update = FALSE)
 
 	if(IS_ORGANIC_LIMB(src))
-		blood_dna_info = list("Unknown DNA" = get_blood_type(BLOOD_TYPE_O_PLUS))
+		blood_dna_info = list("Unknown DNA" = get_blood_type(/datum/blood_type/human/o_plus))
+
+	set_bio_state_status()
 
 	var/innate_state = NONE
 	if(!LIMB_HAS_SKIN(src))
@@ -278,11 +289,6 @@
 		add_surgical_state(innate_state)
 
 	name = "[limb_id] [parse_zone(body_zone)]"
-	// There's a lot of bodyparts in the world, and we don't need to have separate drops on each and every one of them
-	var/list/drop_results = get_butcher_drops()
-	if (length(drop_results))
-		butcher_drops = string_list(drop_results)
-		butcher_drop_cache[type] = butcher_drops
 	update_limb(TRUE)
 	update_icon_dropped()
 	refresh_bleed_rate()
@@ -326,17 +332,19 @@
 		return FALSE
 	return  ..()
 
-/// Returns an assoc list of items dropped when the limb is butchered
-/// force - Force an update of drops ignoring the cache
-/obj/item/bodypart/proc/get_butcher_drops(force = FALSE)
-	if(!isnull(butcher_drops) && !force)
-		return butcher_drops
-	if (butcher_drop_cache[type] && !force)
-		return butcher_drop_cache[type]
-	var/datum/species/species = GLOB.species_list[species_id || limb_id]
-	if (!species || !species.meat || !base_meat_amount)
+/// Returns a lazy assoc list of items dropped when the limb is butchered
+/obj/item/bodypart/proc/get_butcher_drops()
+	var/meat_to_spawn = max(base_meat_amount, values_sum(butcher_drops_override))
+	if(meat_to_spawn <= 0)
 		return null
-	return list(species.meat = base_meat_amount)
+	if(is_husked == HUSKED_ZOMBIE)
+		return list(/obj/item/food/meat/slab/human/mutant/zombie = meat_to_spawn)
+	if(length(butcher_drops_override))
+		return butcher_drops_override
+	var/datum/species/species = GLOB.species_list[species_id || limb_id]
+	if (!isnull(species?.meat))
+		return list(species.meat = meat_to_spawn)
+	return null
 
 /obj/item/bodypart/proc/on_forced_removal(atom/old_loc, dir, forced, list/old_locs)
 	SIGNAL_HANDLER
@@ -454,24 +462,28 @@
 
 	var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(applied_items, LIMB_ITEM_GAUZE)
 	var/obj/item/tourniquet/current_tourniquet = LAZYACCESS(applied_items, LIMB_ITEM_TOURNIQUET)
-	if(current_tourniquet || current_gauze)
-		if(current_tourniquet)
-			var/tourniquet_href = "<a href='byond://?src=[REF(owner)];remove_tourniquet=[REF(src)]'>[icon2html(current_tourniquet, examiner)] \a [current_tourniquet]</a>"
-			var/tourniquet_text = "\tThere is [tourniquet_href] tightly secured around [body_zone == BODY_ZONE_HEAD ? "your neck!" : "it."]"
-			if(body_zone == BODY_ZONE_HEAD)
-				check_list += span_boldwarning(tourniquet_text)
-			else
-				check_list += span_warning(tourniquet_text)
-		if(current_gauze)
-			// check_list += span_notice("\tThere is some [current_gauze.name] wrapped around it.") // NOVA EDIT REMOVAL
-			// NOVA EDIT ADDITION START - Copy of the tourniquet removal code above
-			var/gauze_href = "<a href='byond://?src=[REF(owner)];remove_gauze=[REF(src)]'>[icon2html(current_gauze, examiner)] \a [current_gauze]</a>"
-			var/gauze_text = "\tThere is some [gauze_href] wrapped around it."
-			if(body_zone == BODY_ZONE_HEAD)
-				check_list += span_boldwarning(gauze_text)
-			else
-				check_list += span_warning(gauze_text)
-			// NOVA EDIT ADDITION END
+	if(current_tourniquet)
+		var/tourniquet_href = "<a href='byond://?src=[REF(owner)];remove_tourniquet=[REF(src)]'>[icon2html(current_tourniquet, examiner)] \a [current_tourniquet]</a>"
+		var/tourniquet_text = "\tThere is [tourniquet_href] tightly secured around [body_zone == BODY_ZONE_HEAD ? "your neck!" : "it."]"
+		if(body_zone == BODY_ZONE_HEAD)
+			check_list += span_boldwarning(tourniquet_text)
+		else
+			check_list += span_warning(tourniquet_text)
+	if(current_gauze)
+		/* // NOVA EDIT REMOVAL START
+		var/gauze_href = "<a href='byond://?src=[REF(examiner)];gauze_limb=[REF(src)]'>[icon2html(current_gauze, examiner)] \a [current_gauze]</a>"
+		var/gauze_text = "\tThere is [gauze_href] wrapped around your [name]."
+		check_list += span_notice(gauze_text)
+		*/ // NOVA EDIT REMOVAL END
+		// NOVA EDIT ADDITION START - Copy of the tourniquet removal code above
+		var/gauze_href = "<a href='byond://?src=[REF(owner)];remove_gauze=[REF(src)]'>[icon2html(current_gauze, examiner)] \a [current_gauze]</a>"
+		var/gauze_text = "\tThere is some [gauze_href] wrapped around it."
+		if(body_zone == BODY_ZONE_HEAD)
+			check_list += span_boldwarning(gauze_text)
+		else
+			check_list += span_warning(gauze_text)
+		// NOVA EDIT ADDITION END
+
 	else if(can_bleed())
 		var/bleed_text = ""
 		switch(cached_bleed_rate)
@@ -744,15 +756,16 @@
 			wounding_type = WOUND_PIERCE
 
 	if(owner) // i tried to modularize the below, but the modifications to wounding_dmg and wounding_type cant be extracted to a proc
-		var/mangled_state = get_mangled_state()
+		if(!forced)
+			brute *= GET_PHYSIOLOGY(owner, BRUTE)
+			burn *= GET_PHYSIOLOGY(owner, BURN)
 		var/easy_dismember = HAS_TRAIT(owner, TRAIT_EASYDISMEMBER) // if we have easydismember, we don't reduce damage when redirecting damage to different types (slashing weapons on mangled/skinless limbs attack at 100% instead of 50%)
 
-		var/bio_status = get_bio_state_status()
+		var/has_exterior = (bio_status & ANATOMY_EXTERIOR)
+		var/has_interior = (bio_status & ANATOMY_INTERIOR)
 
-		var/has_exterior = ((bio_status & ANATOMY_EXTERIOR))
-		var/has_interior = ((bio_status & ANATOMY_INTERIOR))
-
-		var/exterior_ready_to_dismember = (!has_exterior || ((mangled_state & BODYPART_MANGLED_EXTERIOR)))
+		var/exterior_ready_to_dismember = (!has_exterior || (mangled_state & BODYPART_MANGLED_EXTERIOR))
+		var/interior_ready_to_dismember = (!has_interior || (mangled_state & BODYPART_MANGLED_INTERIOR))
 
 		// if we're bone only, all cutting attacks go straight to the bone
 		if(!has_exterior && has_interior)
@@ -771,7 +784,8 @@
 				if(wounding_type == WOUND_PIERCE && !easy_dismember)
 					wounding_dmg *= 0.75 // piercing weapons pass along 75% of their wounding damage to the bone since it's more concentrated
 				wounding_type = WOUND_BLUNT
-		if ((dismemberable_by_wound() || dismemberable_by_total_damage()) && try_dismember(wounding_type, wounding_dmg, wound_bonus, exposed_wound_bonus))
+
+		if (((exterior_ready_to_dismember && interior_ready_to_dismember) || dismemberable_by_total_damage()) && try_dismember(wounding_type, wounding_dmg, wound_bonus, exposed_wound_bonus))
 			return
 		// now we have our wounding_type and are ready to carry on with wounds and dealing the actual damage
 		if(wounding_dmg >= WOUND_MINIMUM_DAMAGE && wound_bonus != CANT_WOUND)
@@ -819,11 +833,10 @@
 			owner.updatehealth()
 	return update_bodypart_damage_state()
 
-/// Returns a bitflag using ANATOMY_EXTERIOR or ANATOMY_INTERIOR. Used to determine if we as a whole have a interior or exterior biostate, or both.
-/obj/item/bodypart/proc/get_bio_state_status()
-	SHOULD_BE_PURE(TRUE)
-
-	var/bio_status = NONE
+/// Assigns our bio_status to ANATOMY_EXTERIOR or/and ANATOMY_INTERIOR. Used to determine if we as a whole have a interior or exterior biostate, or both.
+/obj/item/bodypart/proc/set_bio_state_status()
+	if (bio_status)
+		CRASH("set_bio_state_status() called on [src] ([type]) bodypart with bio_status already set! Most likely bio_status was set on the type itself")
 
 	for (var/state in GLOB.bio_state_anatomy)
 		var/flag = text2num(state)
@@ -839,38 +852,26 @@
 		if ((bio_status & ANATOMY_EXTERIOR_AND_INTERIOR) == ANATOMY_EXTERIOR_AND_INTERIOR)
 			break
 
-	return bio_status
-
 /// Returns if our current mangling status allows us to be dismembered. Requires both no exterior/mangled exterior and no interior/mangled interior.
 /obj/item/bodypart/proc/dismemberable_by_wound()
 	SHOULD_BE_PURE(TRUE)
 
-	var/mangled_state = get_mangled_state()
+	var/has_exterior = (bio_status & ANATOMY_EXTERIOR)
+	var/has_interior = (bio_status & ANATOMY_INTERIOR)
 
-	var/bio_status = get_bio_state_status()
-
-	var/has_exterior = ((bio_status & ANATOMY_EXTERIOR))
-	var/has_interior = ((bio_status & ANATOMY_INTERIOR))
-
-	var/exterior_ready_to_dismember = (!has_exterior || ((mangled_state & BODYPART_MANGLED_EXTERIOR)))
-	var/interior_ready_to_dismember = (!has_interior || ((mangled_state & BODYPART_MANGLED_INTERIOR)))
+	var/exterior_ready_to_dismember = (!has_exterior || (mangled_state & BODYPART_MANGLED_EXTERIOR))
+	var/interior_ready_to_dismember = (!has_interior || (mangled_state & BODYPART_MANGLED_INTERIOR))
 
 	return (exterior_ready_to_dismember && interior_ready_to_dismember)
 
 /// Returns TRUE if our total percent damage is more or equal to our dismemberable percentage, but FALSE if a wound can cause us to be dismembered.
 /obj/item/bodypart/proc/dismemberable_by_total_damage()
-
 	update_wound_theory()
 
-	var/bio_status = get_bio_state_status()
-
-	var/has_interior = ((bio_status & ANATOMY_INTERIOR))
+	var/has_interior = (bio_status & ANATOMY_INTERIOR)
 	var/can_theoretically_be_dismembered_by_wound = (any_existing_wound_can_mangle_our_interior || (any_existing_wound_can_mangle_our_exterior && has_interior))
 
-	var/wound_dismemberable = dismemberable_by_wound()
-	var/ready_to_use_alternate_formula = (use_alternate_dismemberment_calc_even_if_mangleable || (!wound_dismemberable && !can_theoretically_be_dismembered_by_wound))
-
-	if (ready_to_use_alternate_formula)
+	if (use_alternate_dismemberment_calc_even_if_mangleable || (!dismemberable_by_wound() && !can_theoretically_be_dismembered_by_wound))
 		var/percent_to_total_max = (get_damage() / max_damage)
 		if (percent_to_total_max >= hp_percent_to_dismemberable)
 			return TRUE
@@ -986,7 +987,7 @@
 		if(total_damage < max_damage)
 			last_maxed = FALSE
 		else
-			if(!last_maxed && owner.stat < UNCONSCIOUS)
+			if(!last_maxed && !IS_UNCONSCIOUS(owner))
 				INVOKE_ASYNC(owner, TYPE_PROC_REF(/mob, emote), "scream")
 			last_maxed = TRUE
 		set_disabled(FALSE, update_limbs) // we only care about the paralysis trait
@@ -995,7 +996,7 @@
 	// we're now dealing solely with limbs that can be disabled through pure damage, AKA robot parts
 	if(total_damage >= max_damage * disabling_threshold_percentage)
 		if(!last_maxed)
-			if(owner.stat < UNCONSCIOUS)
+			if(!IS_UNCONSCIOUS(owner))
 				INVOKE_ASYNC(owner, TYPE_PROC_REF(/mob, emote), "scream")
 			last_maxed = TRUE
 		set_disabled(TRUE, update_limbs)
@@ -1168,8 +1169,8 @@
 
 	set_can_be_disabled(initial(can_be_disabled))
 
-//Updates an organ's brute/burn states for use by update_damage_overlays()
-//Returns 1 if we need to update overlays. 0 otherwise.
+/// Updates an organ's brute/burn states for use by update_damage_overlays().
+/// Returns TRUE if state changed (IE, an update is needed)
 /obj/item/bodypart/proc/update_bodypart_damage_state()
 	SHOULD_CALL_PARENT(TRUE)
 
@@ -1181,17 +1182,65 @@
 		return TRUE
 	return FALSE
 
+/// Gets overlays to apply to the mob when damaged.
+/obj/item/bodypart/proc/get_bodypart_damage_state()
+	if(!dmg_overlay_type)
+		return null
+
+	var/list/overlays
+	if(brutestate)
+		var/mutable_appearance/blood_overlay = mutable_appearance(
+			icon = 'icons/mob/effects/dam_mob.dmi',
+			icon_state = "[dmg_overlay_type]_[body_zone]_[brutestate]0",
+			layer = -DAMAGE_LAYER,
+		)
+		blood_overlay.color = owner?.get_bloodtype()?.get_damage_color(owner) || BLOOD_COLOR_RED // this should probably take from stored blood dna
+		LAZYADD(overlays, blood_overlay)
+
+		var/mutable_appearance/brute_damage_overlay = mutable_appearance(
+			icon = 'icons/mob/effects/dam_mob.dmi',
+			icon_state = "[dmg_overlay_type]_[body_zone]_[brutestate]0_overlay",
+			layer = -DAMAGE_OVERLAY_LAYER,
+			appearance_flags = RESET_COLOR,
+		)
+		LAZYADD(overlays, brute_damage_overlay)
+
+	if(burnstate)
+		var/mutable_appearance/burn_overlay = mutable_appearance(
+			icon = 'icons/mob/effects/dam_mob.dmi',
+			icon_state = "[dmg_overlay_type]_[body_zone]_0[burnstate]",
+			layer = -DAMAGE_LAYER,
+		)
+		LAZYADD(overlays, burn_overlay)
+
+	/* // NOVA EDIT REMOVAL START - We already draw gauze on limbs, see /mob/living/carbon/proc/update_bandage_overlays()
+	var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(applied_items, LIMB_ITEM_GAUZE)
+	if(current_gauze)
+		// future todo : icon states for dirty bandages as well
+		// future todo : different color for different gauze types (med gauze is blue)
+		var/mutable_appearance/gauze_overlay = current_gauze.build_worn_icon(
+			default_layer = GAUZE_LAYER, // build_worn_icon inverts it for us
+			override_file = 'icons/mob/human/bandage.dmi',
+			override_state = current_gauze.worn_icon_state,
+		)
+		LAZYADD(overlays, gauze_overlay)
+	*/ // NOVA EDIT REMOVAL END
+
+	return overlays
+
 //we inform the bodypart of the changes that happened to the owner, or give it the informations from a source mob.
 //set is_creating to true if you want to change the appearance of the limb outside of mutation changes or forced changes.
 /obj/item/bodypart/proc/update_limb(dropping_limb = FALSE, is_creating = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 
 	SEND_SIGNAL(src, COMSIG_BODYPART_UPDATED, dropping_limb, is_creating)
+	if(owner)
+		SEND_SIGNAL(owner, COMSIG_CARBON_BODYPART_UPDATED, src, dropping_limb, is_creating)
 
 	if(IS_ORGANIC_LIMB(src))
 		// Try to add a cached blood type data, we must do it in here because for some reason DNA gets initialized AFTER the mob's limbs are created.
 		// Should be fine as this gets called before all the important stuff happens
-		if(is_creating && !(bodypart_flags & ORGAN_VIRGIN))
+		if(is_creating && !(bodypart_flags & BODYPART_VIRGIN))
 			blood_dna_info = owner.get_blood_dna_list()
 			// need to remove the synethic blood DNA that is initialized
 			// wash also adds the blood dna again
@@ -1199,13 +1248,13 @@
 			bodypart_flags &= ~BODYPART_VIRGIN
 		if(!(bodypart_flags & BODYPART_UNHUSKABLE) && owner && HAS_TRAIT(owner, TRAIT_HUSK))
 			dmg_overlay_type = "" //no damage overlay shown when husked
-			is_husked = TRUE
+			is_husked = HAS_TRAIT_FROM_ONLY(owner, TRAIT_HUSK, /datum/status_effect/zombie::id) ? HUSKED_ZOMBIE : HUSKED_BURN
 		else if(owner && HAS_TRAIT(owner, TRAIT_INVISIBLE_MAN))
 			dmg_overlay_type = "" //no damage overlay shown when invisible since the wounds themselves are invisible.
 			is_invisible = TRUE
 		else
 			dmg_overlay_type = initial(dmg_overlay_type)
-			is_husked = FALSE
+			is_husked = NONE
 			is_invisible = FALSE
 
 	update_draw_color()
@@ -1305,9 +1354,10 @@
 
 	cut_overlays()
 	var/list/standing = get_limb_icon(dropped = TRUE)
-	if(!standing.len)
+	if(!length(standing))
 		icon_state = initial(icon_state)//no overlays found, we default back to initial icon.
 		return
+
 	for(var/image/img as anything in standing)
 		img.pixel_w += px_x
 		img.pixel_z += px_y
@@ -1343,13 +1393,21 @@
 	icon_state = "" //to erase the default sprite, we're building the visual aspects of the bodypart through overlays alone.
 
 	. = list()
-	var/image_dir = null
-	if (dropped)
-		image_dir = SOUTH
+	// Stumps are FAKE limbs that hold the spot for REAL limbs. thusly no sprite of their own, so early return!
+	if(IS_STUMP(src))
+		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
+		return .
 
+	// Arms past the first pair get body_zone suffixed (l_arm_2 and so on). No state exists for them
+	// This guard is bad :)
+	if(held_index >= 3)
+		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
+		return .
+
+	var/image_dir = dropped ? SOUTH : null
 	// Handles invisibility (not alpha or actual invisibility but invisibility)
 	if(is_invisible)
-		. += image(icon_invisible, "invisible_[body_zone]", -BODYPARTS_LAYER, dir = image_dir)
+		.[image(icon_invisible, "invisible_[body_zone]", -BODYPARTS_LAYER, dir = image_dir)] = NONE
 		SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
 		return .
 	// NOVA EDIT ADDITION START - For invisible taur limbs, so we are not caching invalid keys and repeatedly adding the same overlay. I hate it here
@@ -1359,13 +1417,8 @@
 
 	// Normal non-husk handling
 	// This is the MEAT of limb icon code
-	var/used_icon = icon_greyscale
-	if(!should_draw_greyscale || !icon_greyscale)
-		used_icon = icon_static
-
-	var/used_state = "[limb_id]_[body_zone]"
-	if(is_dimorphic) // Does this type of limb have sexual dimorphism?
-		used_state = "[limb_id]_[body_zone]_[limb_gender]"
+	var/used_icon = (should_draw_greyscale && icon_greyscale) || icon_static
+	var/used_state = "[limb_id]_[body_zone][is_dimorphic ? "_[limb_gender]" : ""]"
 	// NOVA EDIT ADDITION START
 	if(bodyshape & BODYSHAPE_DIGITIGRADE) // Is this a digi limb?
 		used_state += "_[ICON_KEY_DIGI]"
@@ -1376,29 +1429,57 @@
 
 	icon_exists_or_scream(limb.icon, limb.icon_state) //Prints a stack trace on the first failure of a given iconstate.
 
-	. += limb
+	.[limb] = LIMB_OVERLAY_TEXTURED|LIMB_OVERLAY_CORE
 
 	if(aux_zone) //Hand shit
 		aux = image(limb.icon, "[limb_id]_[aux_zone]", -aux_layer, dir = image_dir)
-		. += aux
+		.[aux] = LIMB_OVERLAY_TEXTURED|LIMB_OVERLAY_CORE
 
 	if(dropped && dmg_overlay_type)
 		if(brutestate)
 			// divided into two overlays: one that gets colored and one that doesn't.
+			var/image/brute_damage_overlay = mutable_appearance('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0_overlay", -DAMAGE_LAYER)
+			brute_damage_overlay.appearance_flags |= RESET_COLOR
 			var/image/brute_blood_overlay = image('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0", -DAMAGE_LAYER, dir = SOUTH)
 			brute_blood_overlay.color = get_color_from_blood_list(blood_dna_info)
-			var/mutable_appearance/brute_damage_overlay = mutable_appearance('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_[brutestate]0_overlay", -DAMAGE_LAYER, appearance_flags = RESET_COLOR)
-			if(brute_damage_overlay)
-				brute_blood_overlay.overlays += brute_damage_overlay
-			. += brute_blood_overlay
+			brute_blood_overlay.overlays += brute_damage_overlay
+			.[brute_blood_overlay] = NONE
 		if(burnstate)
-			. += image('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_0[burnstate]", -DAMAGE_LAYER, dir = SOUTH)
+			var/image/burn_damage_overlay = image('icons/mob/effects/dam_mob.dmi', "[dmg_overlay_type]_[body_zone]_0[burnstate]", -DAMAGE_LAYER, dir = SOUTH)
+			.[burn_damage_overlay] = NONE
+
+	var/atom/location = loc || owner || src
+	if(blocks_emissive != EMISSIVE_BLOCK_NONE)
+		var/mutable_appearance/limb_em_block = emissive_blocker(limb.icon, limb.icon_state, location, layer = limb.layer, alpha = limb.alpha)
+		if (dropped)
+			limb_em_block = image(limb_em_block, dir = SOUTH)
+		.[limb_em_block] = LIMB_OVERLAY_META
+
+		if(aux_zone)
+			var/mutable_appearance/aux_em_block = emissive_blocker(aux.icon, aux.icon_state, location, layer = aux.layer, alpha = aux.alpha)
+			if (dropped)
+				aux_em_block = image(aux_em_block, dir = SOUTH)
+			.[aux_em_block] = LIMB_OVERLAY_META
+
+	if(!is_husked && is_emissive)
+		var/mutable_appearance/limb_em = emissive_appearance(limb.icon, "[limb.icon_state]_e", location, layer = limb.layer, alpha = limb.alpha)
+		if (dropped)
+			limb_em = image(limb_em, dir = SOUTH)
+		.[limb_em] = LIMB_OVERLAY_META
+
+		if(aux_zone)
+			var/mutable_appearance/aux_em = emissive_appearance(aux.icon, "[aux.icon_state]_e", location, layer = aux.layer, alpha = aux.alpha)
+			if (dropped)
+				aux_em = image(aux_em, dir = SOUTH)
+			.[aux_em] = LIMB_OVERLAY_META
 
 	if(is_husked)
-		. += huskify_image(thing_to_husk = limb)
+		for(var/image/husk_image as anything in huskify_image(limb))
+			.[husk_image] = LIMB_OVERLAY_TEXTURED|LIMB_OVERLAY_CORE
 		if(aux)
-			. += huskify_image(thing_to_husk = aux)
-		draw_color = husk_color
+			for(var/image/husk_image as anything in huskify_image(aux))
+				.[husk_image] = LIMB_OVERLAY_TEXTURED|LIMB_OVERLAY_CORE
+		draw_color = is_husked == HUSKED_ZOMBIE ? zombie_color : husk_color
 	else
 		update_draw_color()
 
@@ -1408,40 +1489,18 @@
 		if(aux_zone)
 			aux.color = limb_color // NOVA EDIT CHANGE - ORIGINAL: aux.color = "[draw_color]"
 
-	var/atom/location = loc || owner || src
-	if(blocks_emissive != EMISSIVE_BLOCK_NONE)
-		var/mutable_appearance/limb_em_block = emissive_blocker(limb.icon, limb.icon_state, location, layer = limb.layer, alpha = limb.alpha)
-		if (dropped)
-			limb_em_block = image(limb_em_block, dir = SOUTH)
-		. += limb_em_block
-
-		if(aux_zone)
-			var/mutable_appearance/aux_em_block = emissive_blocker(aux.icon, aux.icon_state, location, layer = aux.layer, alpha = aux.alpha)
-			if (dropped)
-				aux_em_block = image(aux_em_block, dir = SOUTH)
-			. += aux_em_block
-
-	if(!is_husked && is_emissive)
-		var/mutable_appearance/limb_em = emissive_appearance(limb.icon, "[limb.icon_state]_e", location, layer = limb.layer, alpha = limb.alpha)
-		if (dropped)
-			limb_em = image(limb_em, dir = SOUTH)
-		. += limb_em
-
-		if(aux_zone)
-			var/mutable_appearance/aux_em = emissive_appearance(aux.icon, "[aux.icon_state]_e", location, layer = aux.layer, alpha = aux.alpha)
-			if (dropped)
-				aux_em = image(aux_em, dir = SOUTH)
-			. += aux_em
-
 	// No need to handle leg layering if dropped, we only face south anyways
-	if(!dropped && ((body_zone == BODY_ZONE_R_LEG) || (body_zone == BODY_ZONE_L_LEG)))
+	if(!dropped)
 		// Legs are a bit goofy in regards to layering, and we will need two images instead of one to fix that
-		var/obj/item/bodypart/leg/leg_source = src
-		for(var/image/limb_image in .)
+		for(var/generated_overlay, generated_overlay_flags in .)
+			var/list/maked_generated_overlays = handle_masking(generated_overlay)
+			if(!length(maked_generated_overlays))
+				continue
 			// Remove the old, unmasked image
-			. -= limb_image
-			// Add two masked images based on the old one
-			. += leg_source.generate_masked_leg(limb_image)
+			. -= generated_overlay
+			// Add in the new, masked images (with the same flags)
+			for(var/masked_image in maked_generated_overlays)
+				.[masked_image] = generated_overlay_flags
 	// NOVA EDIT ADDITION START - MARKINGS CODE
 	var/override_color
 	var/atom/offset_spokesman = owner || src
@@ -1472,9 +1531,9 @@
 				accessory_overlay.color = override_color
 			else
 				accessory_overlay.color = marking[1]
-			. += accessory_overlay
+			.[accessory_overlay] = LIMB_OVERLAY_TEXTURED|LIMB_OVERLAY_CORE
 			if (emissive)
-				. += emissive
+				.[emissive] = LIMB_OVERLAY_META
 
 		if(aux_zone)
 			for(var/key, marking in aux_zone_markings)
@@ -1494,18 +1553,19 @@
 					accessory_overlay.color = override_color
 				else
 					accessory_overlay.color = marking[1]
-				. += accessory_overlay
+				.[accessory_overlay] = LIMB_OVERLAY_TEXTURED|LIMB_OVERLAY_CORE
 				if (emissive)
-					. += emissive
+					.[emissive] = LIMB_OVERLAY_META
 	// NOVA EDIT ADDITION END - MARKINGS CODE END
 
-	// Apply height to the overlays we generated so far
-	// This is done before collecting bodypart overlays so we don't apply height twice to the same overlays
-	if(!dropped && !isnull(owner))
-		for(var/image/generated_overlay as anything in .)
-			// While you may think that heads could be applied with UPPER_BODY instead of ENTIRE_BODY to save us one filter,
-			// it's more important to keep it consistent for things like getflaticon
-			owner.apply_height(generated_overlay, ENTIRE_BODY)
+	if(!dropped) // NOVA EDIT ADDITION - The markings code above splits upstream's if(!dropped) block in two
+		// Apply height to the overlays we generated so far
+		// This is done before collecting bodypart overlays so we don't apply height twice to the same overlays
+		if(!isnull(owner))
+			for(var/generated_overlay, generated_overlay_flags in .)
+				// While you may think that heads could be applied with UPPER_BODY instead of ENTIRE_BODY to save us one filter,
+				// it's more important to keep it consistent for things like getflaticon
+				owner.apply_height(generated_overlay, ENTIRE_BODY)
 
 	// Draw external organs like horns and frills
 	// Height is applied again in here so we can specify where the overlay is set (ie offset_location)
@@ -1513,39 +1573,73 @@
 		if(!overlay.can_draw_on_bodypart(src, owner))
 			continue
 
-		for (var/mutable_appearance/actual_overlay as anything in overlay.get_all_overlays(src))
+		for (var/actual_overlay, actual_overlay_flags in overlay.get_all_overlays(src))
 			if(dropped || isnull(owner))
-				. += image(actual_overlay, dir = SOUTH)
+				.[image(actual_overlay, dir = SOUTH)] = overlay.overlay_flags
 				continue
 
 			owner.apply_height(actual_overlay, overlay.offset_location)
-			. += actual_overlay
+			.[actual_overlay] = actual_overlay_flags
 
 	// Then texture everything at once, including bodypart overlays
 	for(var/datum/bodypart_texture/texture as anything in bodypart_textures)
 		if(!texture.can_texture_bodypart(src))
 			continue
-		for(var/image/generated_overlay as anything in .)
-			var/appearance_plane = PLANE_TO_TRUE(generated_overlay.plane)
-			if(appearance_plane != FLOAT_PLANE && appearance_plane != GAME_PLANE)
+		for(var/generated_overlay, generated_overlay_flags in .)
+			if(!(generated_overlay_flags & LIMB_OVERLAY_TEXTURED))
 				continue
 
-			texture.modify_bodypart_appearance(generated_overlay)
+			texture.modify_bodypart_appearance(generated_overlay, generated_overlay_flags)
+
+#ifndef UNIT_TESTS
+	if(PERFORM_ALL_TESTS(focus_only/bodypart_overlay_flags))
+		for(var/generated_overlay, generated_overlay_flags in .)
+			var/image/generated_overlay_real = generated_overlay
+			if(PLANE_TO_TRUE(generated_overlay_real.plane) == EMISSIVE_PLANE && !(generated_overlay_flags & LIMB_OVERLAY_META))
+				stack_trace("Emissive overlay without meta tag (icon state: [generated_overlay_real.icon_state])")
+#endif
 
 	SEND_SIGNAL(src, COMSIG_BODYPART_GET_LIMB_ICON, ., dropped)
-	return .
+	return assoc_to_keys(.)
 
+/**
+ * Takes in an image and greyscales it to later be recolored to look like a husk
+ *
+ * Then returns a separate image/MA that is the blood overlay for the husk
+ * May return multiple if the blood overlay has an emissive associated
+ */
 /obj/item/bodypart/proc/huskify_image(image/thing_to_husk)
 	var/icon/husk_icon = new(thing_to_husk.icon)
 	husk_icon.ColorTone(HUSK_COLOR_TONE)
 	thing_to_husk.icon = husk_icon
-	var/mutable_appearance/husk_blood = mutable_appearance(icon_husk, "[husk_type]_husk_[body_zone]", appearance_flags = RESET_COLOR)
-	// BLEND_INSET_OVERLAY on KEEP_TOGETHER atoms masks itself with the atom, so we cannot add this as an overlay to our limb to have it automatically mask
+
+	var/mutable_appearance/husk_blood = mutable_appearance(icon_husk, "[husk_type]_husk_[body_zone]", thing_to_husk.layer, appearance_flags = RESET_COLOR)
+	. = list(husk_blood)
+
+	// BLEND_INSET_OVERLAY on KEEP_TOGETHER atoms masks itself with the atom,
+	// so we cannot add this as an overlay to our limb to have it automatically mask
 	husk_blood.blend_mode = BLEND_INSET_OVERLAY
 	husk_blood.dir = thing_to_husk.dir
-	husk_blood.layer = thing_to_husk.layer
-	husk_blood.color = LAZYLEN(blood_dna_info) ? get_color_from_blood_list(blood_dna_info) : BLOOD_COLOR_RED
-	return husk_blood
+
+	if(!LAZYLEN(blood_dna_info))
+		husk_blood.color = BLOOD_COLOR_RED
+		return .
+
+	husk_blood.color = get_color_from_blood_list(blood_dna_info)
+
+	var/average_emissive_alpha = 0
+	for(var/dna, blood_type in blood_dna_info)
+		average_emissive_alpha += astype(blood_type, /datum/blood_type)?.get_emissive_alpha(src)
+
+	if(!average_emissive_alpha)
+		return .
+
+	average_emissive_alpha /= LAZYLEN(blood_dna_info)
+	var/mutable_appearance/husk_blood_em = emissive_appearance(husk_blood.icon, husk_blood.icon_state, loc || owner || src, husk_blood.layer, average_emissive_alpha)
+	husk_blood_em.blend_mode = BLEND_INSET_OVERLAY
+	husk_blood_em.dir = husk_blood.dir
+	. += husk_blood_em
+	return .
 
 /**
  * Adds a bodypart overlay to the limb
@@ -1837,38 +1931,6 @@
 		LAZYREMOVE(applied_items, category)
 		SEND_SIGNAL(gone, COMSIG_ITEM_UNAPPLIED_FROM_LIMB, src)
 
-/**
- * Get how splinted this bodypart is based on applied items
- *
- * Multiplier applied to maluses, so lower = better
- */
-/obj/item/bodypart/proc/get_splint_factor()
-	var/factor = 1
-	var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(applied_items, LIMB_ITEM_GAUZE)
-	if(current_gauze)
-		factor *= current_gauze.splint_factor
-	return factor
-
-/**
- * Attempts to use up some of gauze applied
- * If we use up all of the gauze, it is deleted
- *
- * Arguments:
- * * seep_amt - How much absorption capacity we're removing from our current bandages (think, how much blood or pus are we soaking up this tick?)
- *
- * Return TRUE if we successfully used up some gauze
- * Return FALSE if we had no gauze to use up
- */
-/obj/item/bodypart/proc/seep_gauze(seep_amt = 0)
-	var/obj/item/stack/medical/wrap/current_gauze = LAZYACCESS(applied_items, LIMB_ITEM_GAUZE)
-	if(!current_gauze || !current_gauze.absorption_capacity)
-		return FALSE
-	current_gauze.absorption_capacity -= seep_amt
-	if(current_gauze.absorption_capacity <= 0)
-		owner.visible_message(span_danger("\The [current_gauze.name] on [owner]'s [name] falls away in rags."), span_warning("\The [current_gauze.name] on your [name] falls away in rags."), vision_distance=COMBAT_MESSAGE_RANGE)
-		qdel(current_gauze)
-	return TRUE
-
 ///A multi-purpose setter for all things immediately important to the icon and iconstate of the limb.
 /obj/item/bodypart/proc/change_appearance(icon, id, greyscale, dimorphic)
 	var/icon_holder
@@ -1964,6 +2026,8 @@
 
 /// Returns the generic description of our BIO_INTERNAL feature(s), prioritizing certain ones over others. Returns error on failure.
 /obj/item/bodypart/proc/get_internal_description()
+	if(biological_state & BIO_STONE)
+		return "bedrock"
 	if (biological_state & BIO_BONE)
 		return "bone"
 	if (biological_state & BIO_METAL)

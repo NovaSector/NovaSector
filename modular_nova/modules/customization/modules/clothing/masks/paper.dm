@@ -24,7 +24,7 @@
 	var/mob/living/carbon/carbon_user
 	if(iscarbon(user))
 		carbon_user = user
-	if(carbon_user && carbon_user.wear_mask == src)
+	if(carbon_user && carbon_user.get_item_by_slot(ITEM_SLOT_MASK) == src)
 		carbon_user.update_worn_mask()
 
 /datum/atom_skin/paper_mask/paper

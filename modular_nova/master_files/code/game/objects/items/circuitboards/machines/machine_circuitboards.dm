@@ -27,3 +27,11 @@
 	if(is_special_type)
 		return
 	. += span_info("[src] is registered for [skillsofts_name_paths[build_path]] chamber material. You can use a screwdriver to reconfigure it.")
+
+// Megacell Charger
+/obj/item/circuitboard/machine/megacell_charger
+	name = "Megacell Charger"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/megacell_charger
+	req_components = list(/datum/stock_part/capacitor = 3)
+	needs_anchored = FALSE

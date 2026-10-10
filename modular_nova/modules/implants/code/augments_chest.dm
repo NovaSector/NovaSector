@@ -28,9 +28,9 @@
 	if(our_scanner.has_chem_scan && (trigger_flags & TRIGGER_SECONDARY_ACTION))
 		chemscan(owner, owner)
 	if(our_scanner.advanced_scan_allowed)
-		healthscan(owner, owner, SCANNER_VERBOSE, TRUE)
+		healthscan(owner, owner, mode = SCANNER_VERBOSE, scanpower = SCANPOWER_ADVANCED)
 	else
-		healthscan(owner, owner, SCANNER_CONDENSED, TRUE)
+		healthscan(owner, owner, mode = SCANNER_CONDENSED, scanpower = SCANPOWER_ADVANCED)
 
 
 /obj/item/organ/cyberimp/chest/scanner/lite

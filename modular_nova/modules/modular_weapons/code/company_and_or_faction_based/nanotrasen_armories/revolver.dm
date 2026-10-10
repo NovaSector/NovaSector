@@ -3,6 +3,7 @@
 /datum/atom_skin/laevateinn_revolver
 	abstract_type = /datum/atom_skin/laevateinn_revolver
 	change_base_icon_state = TRUE
+	change_worn_icon_state = FALSE
 
 /datum/atom_skin/laevateinn_revolver/base
 	preview_name = "Baseline"

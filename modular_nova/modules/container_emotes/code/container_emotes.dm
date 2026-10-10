@@ -1,9 +1,6 @@
 #define EXME_MAX_LOC_RECURSION 10 //no infinite loops
 
-/mob/living/verb/container_emote()
-	set name = "Emote Using Vehicle/Container"
-	set category = "IC"
-
+GAME_VERB(/mob/living, container_emote, "Emote Using Vehicle/Container", "IC")
 	if (isturf(src.loc))
 		to_chat(src, span_danger("You are not within anything!"))
 		return
@@ -82,7 +79,7 @@
 
 	var/space = should_have_space_before_emote(html_decode(container_emote)[1]) ? " " : ""
 
-	container_message = ("[user.apply_message_emphasis(container_message)]")
+	container_message = ("[apply_message_emphasis(container_message)]")
 
 	var/atom/picked_loc
 	if (!length(locs_we_can_use))

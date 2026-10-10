@@ -1,5 +1,8 @@
 /// Fully randomizes everything in the character.
 /datum/preferences/proc/randomise_appearance_prefs(randomize_flags = ALL)
+	var/tree_key = "character[default_slot]"
+	if(!(tree_key in savefile.get_entry()))
+		savefile.set_entry(tree_key, list())
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
 		if (!preference.included_in_randomization_flags(randomize_flags))
 			continue
@@ -73,10 +76,6 @@
 			available_hardcore_quirks -= picked_quirk
 			continue
 
-		if((initial(picked_quirk.quirk_flags) & QUIRK_MOODLET_BASED) && CONFIG_GET(flag/disable_human_mood)) //check for moodlet quirks
-			available_hardcore_quirks -= picked_quirk
-			continue
-
 		all_quirks += initial(picked_quirk.name)
 		quirk_budget -= available_hardcore_quirks[picked_quirk]
 		. += available_hardcore_quirks[picked_quirk]
@@ -119,6 +118,7 @@
 	)
 	*/ // NOVA EDIT REMOVAL END
 	// NOVA EDIT ADDITION START
+	var/needs_update = preview_pref != previous_preview_pref
 	switch(preview_pref)
 		if(PREVIEW_PREF_JOB)
 			mannequin.job = preview_job.title
@@ -151,9 +151,10 @@
 				if(gent)
 					gent.aroused = AROUSAL_FULL
 					gent.update_sprite_suffix()
+					needs_update = TRUE
 
 	mannequin.dna.update_body_size()
-	if(preview_pref != previous_preview_pref)
+	if(needs_update)
 		mannequin.update_body()
 	// NOVA EDIT ADDITION END
 

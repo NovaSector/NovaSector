@@ -62,9 +62,9 @@
 	if(!.)
 		return
 	var/obj/item/clothing/head/deprivation_helmet/deprivation_helmet = target
-	var/mob/living/carbon/affected_carbon = usr
+	var/mob/living/carbon/human/affected_human = usr
 	if(istype(deprivation_helmet))
-		if(deprivation_helmet == affected_carbon.head)
+		if(deprivation_helmet == affected_human.head)
 			to_chat(usr, span_notice("You can't reach the deprivation helmet switch!"))
 		else
 			deprivation_helmet.SwitchHelmet("vision")
@@ -79,9 +79,9 @@
 	if(!.)
 		return
 	var/obj/item/clothing/head/deprivation_helmet/deprivation_helmet = target
-	var/mob/living/carbon/affected_carbon = usr
+	var/mob/living/carbon/human/affected_human = usr
 	if(istype(deprivation_helmet))
-		if(deprivation_helmet == affected_carbon.head)
+		if(deprivation_helmet == affected_human.head)
 			to_chat(usr, span_notice("You can't reach the deprivation helmet switch!"))
 		else
 			deprivation_helmet.SwitchHelmet("hearing")
@@ -96,9 +96,9 @@
 	if(!.)
 		return
 	var/obj/item/clothing/head/deprivation_helmet/deprivation_helmet = target
-	var/mob/living/carbon/affected_carbon = usr
+	var/mob/living/carbon/human/affected_human = usr
 	if(istype(deprivation_helmet))
-		if(deprivation_helmet == affected_carbon.head)
+		if(deprivation_helmet == affected_human.head)
 			to_chat(usr, span_notice("You can't reach the deprivation helmet switch!"))
 		else
 			deprivation_helmet.SwitchHelmet("speech")

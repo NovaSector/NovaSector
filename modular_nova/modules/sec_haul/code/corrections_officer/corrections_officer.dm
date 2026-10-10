@@ -11,6 +11,7 @@
 	exp_required_type = EXP_TYPE_CREW
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "CORRECTIONS_OFFICER"
+	tgui_icon = FA_ICON_HANDS_BOUND
 
 	paycheck = PAYCHECK_CREW
 	paycheck_department = ACCOUNT_SEC
@@ -54,7 +55,7 @@
 	messenger = /obj/item/storage/backpack/messenger/sec
 	head = /obj/item/clothing/head/security_garrison
 	box = /obj/item/storage/box/survival/security
-	belt = /obj/item/modular_computer/pda/security
+	belt = /obj/item/modular_computer/pda/crew/security
 
 	id_trim = /datum/id_trim/job/corrections_officer
 

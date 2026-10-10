@@ -81,14 +81,10 @@
 	RegisterSignal(door_area, COMSIG_AREA_FIRE_CHANGED, PROC_REF(update_fire_status))
 	RegisterSignal(SSdcs, COMSIG_GLOB_FORCE_ENG_OVERRIDE, PROC_REF(force_eng_override))
 
-///Check for the three states of open access. Emergency, Unrestricted, and Engineering Override
+/// If the station has the engineering override set, or
+/// the area has a fire alarm, allows peoples with [ACCESS_ENGINEERING]
+/// to open the airlock anyway (falls back to TG behavior otherwise)
 /obj/machinery/door/airlock/allowed(mob/user)
-	if(emergency)
-		return TRUE
-
-	if(unrestricted_side(user))
-		return TRUE
-
 	if(engineering_override || fire_active)
 		var/mob/living/carbon/human/interacting_human = user
 		if(!istype(interacting_human))

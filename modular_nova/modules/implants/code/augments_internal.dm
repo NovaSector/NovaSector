@@ -12,7 +12,7 @@
 		return
 
 	var/mob/living/carbon/human/human_owner = owner
-	if(human_owner.stat != UNCONSCIOUS)
+	if(!IS_UNCONSCIOUS(human_owner))
 		return
 
 	human_owner.AdjustUnconscious(-5 SECONDS * seconds_per_tick, FALSE)

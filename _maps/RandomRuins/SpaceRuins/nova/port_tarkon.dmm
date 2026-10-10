@@ -2182,8 +2182,8 @@
 /obj/item/reagent_containers/condiment/milk,
 /obj/item/reagent_containers/condiment/soymilk,
 /obj/item/reagent_containers/condiment/soymilk,
-/obj/item/choice_beacon/ingredient,
-/obj/item/choice_beacon/ingredient,
+/obj/item/pizzavoucher,
+/obj/item/pizzavoucher,
 /obj/item/storage/box/beakers{
 	pixel_x = -4;
 	pixel_y = -2
@@ -3023,7 +3023,7 @@
 "mT" = (
 /obj/effect/turf_decal/tile/purple/half,
 /obj/structure/table/reinforced,
-/obj/item/mmi/posibrain/sphere,
+/obj/item/brain_processor/positronic/sphere,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/port_tarkon/developement)
 "mV" = (
@@ -9628,7 +9628,7 @@
 /obj/item/reagent_containers/condiment/milk,
 /obj/item/reagent_containers/condiment/soymilk,
 /obj/item/reagent_containers/condiment/soymilk,
-/obj/item/choice_beacon/ingredient,
+/obj/item/pizzavoucher,
 /obj/item/toy/figure/chef,
 /obj/item/circuitboard/machine/dish_drive,
 /obj/item/food/meat/slab,

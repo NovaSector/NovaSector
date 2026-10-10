@@ -392,7 +392,6 @@
 /datum/design/board/ammo_workbench
 	name = "Ammunition Workbench"
 	desc = "A machine made specifically for manufacturing ammunition."
-	id = "ammo_workbench"
 	build_path = /obj/item/circuitboard/machine/ammo_workbench
 	category = list(RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_FAB)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY

@@ -197,7 +197,9 @@
 /area/awaymission/museum)
 "bF" = (
 /obj/effect/mapping_helpers/bombable_wall,
-/turf/closed/indestructible/reinforced,
+/turf/closed/indestructible/reinforced{
+	baseturfs = /turf/open/indestructible/plating
+	},
 /area/awaymission/museum)
 "bG" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -433,6 +435,11 @@
 /obj/structure/fluff/beach_umbrella,
 /turf/open/misc/beach/sand,
 /area/awaymission/museum/mothroachvoid)
+"dA" = (
+/turf/closed/indestructible/reinforced{
+	baseturfs = /turf/open/indestructible/plating
+	},
+/area/awaymission/museum)
 "dF" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
 /obj/effect/turf_decal/siding/dark_blue{
@@ -956,6 +963,15 @@
 /area/awaymission/museum/inaccessible)
 "hM" = (
 /turf/closed/wall/rock/porous,
+/area/awaymission/museum)
+"hP" = (
+/obj/effect/smooths_with_walls{
+	opacity = 1
+	},
+/turf/open/mirage{
+	dir = 1;
+	target_turf_y = -29
+	},
 /area/awaymission/museum)
 "hS" = (
 /obj/effect/turf_decal/tile/neutral/opposingcorners,
@@ -1988,6 +2004,14 @@
 /obj/item/pickaxe/drill/diamonddrill,
 /turf/open/misc/grass,
 /area/awaymission/museum/mothroachvoid)
+"qe" = (
+/obj/effect/smooths_with_walls{
+	opacity = 1
+	},
+/turf/open/mirage{
+	target_turf_y = 29
+	},
+/area/awaymission/museum)
 "qf" = (
 /obj/machinery/light/floor,
 /turf/open/floor/iron,
@@ -5379,6 +5403,9 @@
 	},
 /turf/closed/indestructible/reinforced,
 /area/awaymission/museum)
+"Sx" = (
+/turf/cordon/secret,
+/area/awaymission/museum)
 "SA" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/table,
@@ -5421,10 +5448,6 @@
 /area/awaymission/museum)
 "Ta" = (
 /obj/machinery/light/directional/west,
-/obj/effect/decal/cleanable/crayon/puzzle/pin{
-	pixel_x = -32;
-	puzzle_id = "museum_right_wing"
-	},
 /turf/open/floor/iron/white/small,
 /area/awaymission/museum)
 "Tr" = (
@@ -27539,7 +27562,7 @@ IP
 Zg
 fJ
 FK
-FK
+dA
 zE
 Hs
 eN
@@ -27551,7 +27574,7 @@ aZ
 FO
 FK
 ta
-FK
+FO
 AQ
 FK
 re
@@ -33927,7 +33950,7 @@ NB
 xu
 FK
 Fv
-re
+Sx
 re
 re
 re
@@ -33943,7 +33966,7 @@ re
 re
 re
 re
-re
+Sx
 AS
 FK
 FK
@@ -34184,6 +34207,7 @@ CC
 QP
 nh
 PW
+Sx
 re
 re
 re
@@ -34199,8 +34223,7 @@ re
 re
 re
 re
-re
-re
+Sx
 JK
 hV
 hV
@@ -34441,6 +34464,7 @@ CC
 QP
 TM
 PW
+Sx
 re
 re
 re
@@ -34456,8 +34480,7 @@ re
 re
 re
 re
-re
-re
+Sx
 JK
 uY
 TM
@@ -34698,6 +34721,7 @@ CC
 QP
 lf
 PW
+Sx
 re
 re
 re
@@ -34713,8 +34737,7 @@ re
 re
 re
 re
-re
-re
+Sx
 JK
 bV
 bV
@@ -34955,7 +34978,7 @@ dR
 xu
 FK
 Fv
-re
+Sx
 re
 re
 re
@@ -34971,7 +34994,7 @@ re
 re
 re
 re
-re
+Sx
 AS
 FK
 FK
@@ -35267,34 +35290,34 @@ re
 re
 re
 re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
 aZ
 FK
 FK
@@ -36291,7 +36314,7 @@ FK
 hw
 Be
 XM
-FK
+FO
 dZ
 dZ
 PC
@@ -36548,7 +36571,7 @@ FK
 FK
 FK
 Yd
-FO
+FK
 NO
 dZ
 mn
@@ -38571,8 +38594,8 @@ re
 re
 re
 re
-re
-hk
+Sx
+hP
 FK
 FK
 FK
@@ -38602,8 +38625,8 @@ FK
 FK
 FK
 FK
-lI
-re
+qe
+Sx
 re
 re
 re
@@ -38828,7 +38851,7 @@ re
 re
 re
 re
-re
+Sx
 AM
 Sr
 Sr
@@ -38860,39 +38883,39 @@ Sr
 Sr
 Sr
 VD
-re
+Sx
 re
 re
 re
 Uq
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
-re
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
+Sx
 FK
 ot
 rc
@@ -39085,7 +39108,7 @@ re
 re
 re
 re
-re
+Sx
 hk
 FK
 FK
@@ -39117,7 +39140,7 @@ FK
 FK
 FK
 lI
-re
+Sx
 re
 re
 re

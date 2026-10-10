@@ -1,8 +1,8 @@
 /datum/techweb_node/basic_arms/New()
-	design_ids += list(
-		"kineticballs",
-		"pepperballs",
-		"mag_nt20",
-		"mag_katyusha",
+	unlocked_designs += list(
+		/datum/design/kineticballs,
+		/datum/design/pepperballs,
+		/datum/design/mag_nt20,
+		/datum/design/mag_katyusha,
 	)
 	return ..()

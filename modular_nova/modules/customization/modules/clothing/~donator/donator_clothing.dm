@@ -359,7 +359,10 @@
 
 /obj/item/clothing/shoes/jackboots/heel/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/heel1.ogg' = 1, 'modular_nova/master_files/sound/effects/heel2.ogg' = 1), 50)
+	AddComponent(/datum/component/shoe_footstep, list(
+		'modular_nova/master_files/sound/effects/heel1.ogg',
+		'modular_nova/master_files/sound/effects/heel2.ogg',
+	), volume = 50, steps_per_play = 2, extrarange = -1, falloff_exponent = 10)
 
 // Donation reward for Bloodrite
 /obj/item/clothing/shoes/clown_shoes/britches
@@ -584,11 +587,13 @@
 	worn_icon = 'modular_nova/master_files/icons/donator/mob/clothing/mask.dmi'
 	inhand_icon_state = "gasmask_captain"
 	animal_type = "wolf"
-	unique_death = 'modular_nova/master_files/sound/effects/wolfhead_curse.ogg'
+	emote_sounds = list(
+		/datum/emote/living/deathgasp::key = 'modular_nova/master_files/sound/effects/wolfhead_curse.ogg',
+	)
 	visor_flags_inv = HIDEFACIALHAIR | HIDESNOUT
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
-	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT | GAS_FILTERING
+	clothing_flags = VOICEBOX_DISABLED | MASKINTERNALS | BLOCK_GAS_SMOKE_EFFECT
 	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER
 	use_radio_beeps_tts = TRUE
 
@@ -1216,17 +1221,18 @@
 	. = ..()
 	handle_sight_updating(user)
 
-/obj/item/clothing/glasses/welding/steampunk_goggles/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(!istype(attacking_item, /obj/item/clothing/glasses/welding))
+/obj/item/clothing/glasses/welding/steampunk_goggles/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/clothing/glasses/welding))
 		return ..()
 
 	if(welding_upgraded)
 		to_chat(user, span_warning("\The [src] was already upgraded to have welding protection!"))
-		return
-	qdel(attacking_item)
+		return ITEM_INTERACT_BLOCKING
+	qdel(tool)
 	welding_upgraded = TRUE
 	to_chat(user, span_notice("You upgrade \the [src] with some welding shutters, offering you the ability to toggle welding protection!"))
 	actions += new /datum/action/item_action/toggle_steampunk_goggles_welding_protection(src)
+	return ITEM_INTERACT_SUCCESS
 
 /// Proc that handles the whole toggling the welding protection on and off, with user feedback.
 /obj/item/clothing/glasses/welding/steampunk_goggles/proc/toggle_shutters(mob/user)
@@ -1441,14 +1447,16 @@
 		user.visible_message(span_notice("[user] shows you: [icon2html(src, viewers(user))] [src.name]."), span_notice("You show \the [src.name]."))
 	add_fingerprint(user)
 
-/obj/item/card/fuzzy_license/attackby(obj/item/attacking_item, mob/user, list/modifiers, list/attack_modifiers)
+/obj/item/card/fuzzy_license/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(user.ckey != "fuzlet")
-		return
+		return ITEM_INTERACT_BLOCKING
 
-	if(istype(attacking_item, /obj/item/pen) || istype(attacking_item, /obj/item/toy/crayon))
+	if(istype(tool, /obj/item/pen) || istype(tool, /obj/item/toy/crayon))
 		var/choice = input(user, "Select the license type", "License Type Selection") as null|anything in possible_types
 		if(!isnull(choice))
 			name = "license to [choice]"
+			return ITEM_INTERACT_SUCCESS
+	return ITEM_INTERACT_BLOCKING
 
 // Donation reward for 1ceres
 /obj/item/clothing/suit/jacket/gorlex_harness
@@ -1677,7 +1685,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/shoes/fancy_heels/drag/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1, 'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1), 70)
+	AddComponent(/datum/component/squeak, list(
+		'modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1,
+		'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1,
+	), 70, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, falloff_exponent = SOUND_FALLOFF_EXPONENT)
 
 // Donation reward for Razurath
 
@@ -2195,7 +2206,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/poster/contraband/korpstech, 32)
 
 /obj/item/clothing/shoes/rem_shoes/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/squeak, list('modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1, 'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1), 70)
+	AddComponent(/datum/component/squeak, list(
+		'modular_nova/master_files/sound/effects/footstep/highheel1.ogg' = 1,
+		'modular_nova/master_files/sound/effects/footstep/highheel2.ogg' = 1,
+	), 70, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, falloff_exponent = SOUND_FALLOFF_EXPONENT)
 
 /obj/item/clothing/under/bwake
 	name = "\improper Compression bodysuit"

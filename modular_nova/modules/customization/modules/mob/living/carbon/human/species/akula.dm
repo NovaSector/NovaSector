@@ -21,6 +21,7 @@
 	mutantlungs = /obj/item/organ/lungs/carp/akula
 	mutanttongue = /obj/item/organ/tongue/carp/akula
 	mutanteyes = /obj/item/organ/eyes/akula
+	mutant_organs = list(/obj/item/organ/fangs/carp/akula)
 	meat = /obj/item/food/fishmeat/human
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
@@ -206,15 +207,27 @@
 	RemoveElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
 	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp/akula)
 
-/obj/item/organ/tongue/carp/akula/on_mob_insert(mob/living/carbon/tongue_owner, special, movement_flags)
+//Fangs
+// Akula used to get their bite from /obj/item/organ/tongue/carp before TG split fangs out into their own organ,
+// so they get their own carp fangs to keep it, and to stay at the 5 organs the carp set bonus now asks for.
+/obj/item/organ/fangs/carp/akula
+	name = "azulean fangs"
+	desc = "A set of sharp, backward-curving teeth. Rather more orderly than a space carp's."
+
+/obj/item/organ/fangs/carp/akula/Initialize(mapload)
 	. = ..()
-	if(!ishuman(tongue_owner))
+	RemoveElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp)
+	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/carp/akula)
+
+/obj/item/organ/fangs/carp/akula/on_mob_insert(mob/living/carbon/fangs_owner, special, movement_flags)
+	. = ..()
+	if(!ishuman(fangs_owner))
 		return
-	var/mob/living/carbon/human/human_receiver = tongue_owner
+	var/mob/living/carbon/human/human_receiver = fangs_owner
 	if(!human_receiver.can_mutate())
 		return
 	var/datum/species/rec_species = human_receiver.dna.species
-	rec_species.update_no_equip_flags(tongue_owner, initial(rec_species.no_equip_flags))
+	rec_species.update_no_equip_flags(fangs_owner, initial(rec_species.no_equip_flags))
 
 //Lungs
 /obj/item/organ/lungs/carp/akula

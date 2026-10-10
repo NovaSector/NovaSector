@@ -16,7 +16,7 @@
 		TRAIT_RADIMMUNE,
 		TRAIT_LIMBATTACHMENT,
 		TRAIT_NOBREATH,
-		TRAIT_NO_ZOMBIFY,
+		TRAIT_UNHUSKABLE,
 	)
 	inherent_biotypes = MOB_UNDEAD | MOB_HUMANOID
 	mutanttongue = /obj/item/organ/tongue/zombie
@@ -83,12 +83,14 @@
 	human_who_gained_species.AddComponent(/datum/component/mutant_hands, mutant_hand_path = hands_to_give)
 	RegisterSignal(human_who_gained_species, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(queue_regeneration))
 	RegisterSignal(human_who_gained_species, COMSIG_LIVING_LIFE, PROC_REF(on_life))
+	RegisterSignal(human_who_gained_species, COMSIG_HUMAN_SPEC_STUN, PROC_REF(on_spec_stun))
 
 /datum/species/mutant/infectious/on_species_loss(mob/living/carbon/human/human_who_lost_species, datum/species/new_species, pref_load)
 	. = ..()
 	UnregisterSignal(human_who_lost_species, list(
 		COMSIG_MOB_AFTER_APPLY_DAMAGE,
 		COMSIG_LIVING_LIFE,
+		COMSIG_HUMAN_SPEC_STUN,
 	))
 
 /obj/item/bodypart/leg/left/mutant_zombie/infectious
@@ -147,8 +149,10 @@
 /datum/species/mutant/infectious/check_roundstart_eligible()
 	return FALSE
 
-/datum/species/mutant/infectious/spec_stun(mob/living/carbon/human/H,amount)
-	. = min(20, amount)
+/// Infectious mutants shrug off long stuns, capping them at 2 seconds.
+/datum/species/mutant/infectious/proc/on_spec_stun(mob/living/carbon/human/source, list/stun_amount)
+	SIGNAL_HANDLER
+	stun_amount[1] = min(20, stun_amount[1])
 
 /// Start the cooldown to regenerate - 5 seconds after taking damage
 /datum/species/mutant/infectious/proc/queue_regeneration()
@@ -162,7 +166,7 @@
 	//mutants never actually die, they just fall down until they regenerate enough to rise back up.
 	if(COOLDOWN_FINISHED(src, regen_cooldown))
 		var/heal_amt = heal_rate
-		if(HAS_TRAIT(carbon_mob, TRAIT_CRITICAL_CONDITION))
+		if(carbon_mob.stat == SOFT_CRIT || carbon_mob.stat == HARD_CRIT)
 			heal_amt *= 2
 		var/need_mob_update
 		need_mob_update += carbon_mob.heal_overall_damage(heal_amt * seconds_per_tick, heal_amt * seconds_per_tick, updating_health = FALSE)
@@ -174,7 +178,7 @@
 			var/datum/wound/iter_wound = i
 			if(SPT_PROB(2-(iter_wound.severity/2), seconds_per_tick))
 				iter_wound.remove_wound()
-	if(!HAS_TRAIT(carbon_mob, TRAIT_CRITICAL_CONDITION) && SPT_PROB(2, seconds_per_tick))
+	if(!(carbon_mob.stat == SOFT_CRIT || carbon_mob.stat == HARD_CRIT) && SPT_PROB(2, seconds_per_tick))
 		playsound(carbon_mob, pick(spooks), 50, TRUE, 10)
 
 #undef REGENERATION_DELAY
@@ -241,7 +245,7 @@
 		target.AddComponent(/datum/component/mutant_infection)
 		return TRUE
 
-	if(HAS_TRAIT(target, TRAIT_NO_ZOMBIFY))
+	if(HAS_TRAIT(target, TRAIT_UNHUSKABLE))
 		// cannot infect any NOZOMBIE subspecies (such as high functioning
 		// mutants)
 		return FALSE

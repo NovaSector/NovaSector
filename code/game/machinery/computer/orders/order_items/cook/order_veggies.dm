@@ -84,6 +84,7 @@
 	name = "Jar of pickles"
 	purchase_path = /obj/item/storage/fancy/pickles_jar
 	cost_per_order = 60
+	max_per_order = 4
 
 /datum/orderable_item/veggies/pickled_voltvine
 	name = "Pickled Voltvine"
@@ -153,7 +154,7 @@
 
 /datum/orderable_item/veggies/trumpet
 	name = "Spaceman's Trumpet"
-	purchase_path = /obj/item/food/grown/trumpet
+	purchase_path = /obj/item/food/grown/flower/trumpet
 	cost_per_order = 25
 
 /datum/orderable_item/veggies/banana

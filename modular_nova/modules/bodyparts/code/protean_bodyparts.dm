@@ -33,7 +33,7 @@
 	should_draw_greyscale = TRUE
 	change_exempt_flags = NONE
 	is_dimorphic = TRUE
-	wing_types = list(/obj/item/organ/wings/functional/robotic)
+	wing_types = list(/obj/item/organ/wings/robotic)
 	light_brute_msg = LIGHT_NANO_BRUTE
 	medium_brute_msg = MEDIUM_NANO_BRUTE
 	heavy_brute_msg = HEAVY_NANO_BRUTE
@@ -262,7 +262,7 @@
 	var/turf/limb_turf = get_turf(limb)
 	if(limb_turf)
 		playsound(limb_turf, 'sound/effects/wounds/sizzle2.ogg', 30, TRUE)
-		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(BLOOD_TYPE_IRON))
+		new /obj/effect/decal/cleanable/blood(limb_turf, null, get_blood_type(/datum/blood_type/iron))
 	qdel(limb)
 
 /// -- back slot interception --

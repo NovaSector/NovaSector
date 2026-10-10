@@ -1,16 +1,13 @@
-/mob/verb/do_verb(message as message)
-	set name = "Do"
-	set category = "IC"
-	set instant = TRUE
-
+GAME_VERB(/mob, do_verb, "Do", "IC")
+	VERB_ARG(message, VERB_ARG_TYPE_MESSAGE, VERB_ARG_SOURCE_INPUT)
 	if(GLOB.say_disabled)
 		to_chat(usr, span_danger("Speech is currently admin-disabled."))
 		return
 
 	if(message)
-		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, TYPE_VERB_REF(/mob/living, do_actual_verb), message), SSspeech_controller)
+		QUEUE_OR_CALL_VERB_FOR(VERB_CALLBACK(src, TYPE_PROC_REF(/mob/living, do_actual_verb), message), SSspeech_controller)
 
-/mob/living/verb/do_actual_verb(message as message)
+/mob/living/proc/do_actual_verb(message as message)
 	if (!message || !doverb_checks(message))
 		return
 
@@ -42,7 +39,7 @@
 		return
 
 	var/name_stub = " (<b>[usr]</b>)"
-	message = usr.apply_message_emphasis(message)
+	message = apply_message_emphasis(message)
 	message = trim(copytext_char(message, 1, (MAX_MESSAGE_LEN - length(name_stub))))
 	var/message_with_name = message + name_stub
 

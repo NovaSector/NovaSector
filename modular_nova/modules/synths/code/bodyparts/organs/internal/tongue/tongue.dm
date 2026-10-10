@@ -15,6 +15,10 @@
 	slot = ORGAN_SLOT_TONGUE
 	organ_flags = ORGAN_ROBOTIC | ORGAN_SYNTHETIC_FROM_SPECIES
 	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
+	emote_sounds = list(
+		/datum/emote/living/deathgasp::key = 'modular_nova/master_files/sound/effects/hacked.ogg',
+		/datum/emote/living/scream::key = 'modular_nova/modules/emotes/sound/voice/scream_silicon.ogg',
+	)
 
 /obj/item/organ/tongue/synth/can_speak_language(language)
 	return TRUE
@@ -25,7 +29,6 @@
 /datum/design/synth_tongue
 	name = "Synthetic Tongue"
 	desc = "A fully-functional synthetic tongue, encased in soft silicone. Features include high-resolution vocals and taste receptors."
-	id = "synth_tongue"
 	build_type = PROTOLATHE | AWAY_LATHE | MECHFAB
 	construction_time = 4 SECONDS
 	materials = list(

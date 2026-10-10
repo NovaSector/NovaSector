@@ -3,7 +3,7 @@
 	desc = "A little robot. It looks happy with its bike horn."
 	icon_state = "honkbot"
 	base_icon_state = "honkbot"
-	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 0, STAMINA = 0, OXY = 0)
+	physiology = list(TOX = 0, OXY = 0, STAMINA = 0)
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5.8, /datum/material/cardboard = SHEET_MATERIAL_AMOUNT, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 2)
 	req_access = list(ACCESS_ROBOTICS, ACCESS_THEATRE, ACCESS_JANITOR)
 	radio_key = /obj/item/encryptionkey/headset_service
@@ -55,7 +55,7 @@
 	return honkbot_sounds
 
 /mob/living/basic/bot/secbot/honkbot/proc/pre_slip()
-	return (prob(70) && ai_controller?.blackboard_key_exists(BB_BASIC_MOB_CURRENT_TARGET))
+	return (prob(70) && ai_controller?.blackboard_key_exists(BB_CURRENT_TARGET))
 
 /mob/living/basic/bot/secbot/honkbot/proc/post_slip()
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/mob/living/basic/bot, speak), HONKBOT_VOICED_HONK_SAD)

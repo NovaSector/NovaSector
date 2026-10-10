@@ -25,7 +25,6 @@
 
 /datum/design/a357/peacemaker
 	name = "Speed Loader (.357 Peacemaker)"
-	id = "a357PM"
 	build_type = AUTOLATHE
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,

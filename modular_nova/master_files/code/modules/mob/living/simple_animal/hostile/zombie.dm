@@ -1,9 +1,3 @@
-/mob/living/basic/zombie
-	var/no_corpse = FALSE
-
-/mob/living/basic/zombie/nocorpse
-	no_corpse = TRUE
-
 /mob/living/basic/zombie/cheesezombie
 	name = "Cheese Zombie"
 	desc = "Oh God it stinks!!"
@@ -13,7 +7,6 @@
 	maxHealth = 100
 	health = 100
 	basic_mob_flags = DEL_ON_DEATH
-	no_corpse = TRUE
 
 /mob/living/basic/zombie/cheesezombie/Initialize(mapload)
 	. = ..()

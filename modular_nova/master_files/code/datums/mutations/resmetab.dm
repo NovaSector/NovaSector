@@ -26,7 +26,7 @@
 	. = ..()
 
 	if(istype(owner))
-		owner.physiology.hunger_mod *= RESTMETA_HUNGRY_MOD
+		MODIFY_PHYSIOLOGY(owner, PHYS_COEFF_HUNGER_MOD, RESTMETA_HUNGRY_MOD)
 
 	START_PROCESSING(SSobj, src)
 
@@ -46,7 +46,7 @@
 	. = ..()
 
 	if(istype(owner))
-		owner.physiology.hunger_mod /= RESTMETA_HUNGRY_MOD
+		MODIFY_PHYSIOLOGY(owner, PHYS_COEFF_HUNGER_MOD, 1 / RESTMETA_HUNGRY_MOD)
 
 	STOP_PROCESSING(SSobj, src)
 

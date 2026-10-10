@@ -139,7 +139,7 @@
 //Secondary weapon that's just an effectively-infinite ammo coaxial Zaibas.
 /obj/item/mecha_parts/mecha_equipment/weapon/energy/zaibas_lmg
 	name = "\improper M/HP-22 \"Strele\" coaxial plasma pulse machinegun"
-	desc = "A weapon for combat exosuits, produced by KMIF-SŻD joint initiative. Shoots assault rifle caliber-proportionate plasma-saboted tungsten penetrators. \
+	desc = "A weapon for combat exosuits, produced by a KMIF-SŻD joint initiative. Shoots assault rifle caliber-proportionate plasma-saboted tungsten penetrators. \
 		The preloaded amounts of plasma and tungsten allow it to sustain fire indefinitely within regular combat scenarios."
 	icon = 'modular_nova/modules/novaya_ert/icons/mech.dmi'
 	icon_state = "mecha_plasma_lmg"

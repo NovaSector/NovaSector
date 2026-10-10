@@ -1,7 +1,6 @@
 /datum/design/c38_haywire
 	name = "Speed Loader (.38 Haywire) (Lethal)"
 	desc = "Designed to quickly reload revolvers. Haywire bullets create small electromagnetic pulses on impact; devastating against electronics."
-	id = "c38_haywire"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 10,
@@ -16,7 +15,6 @@
 /datum/design/c38_haywire_mag
 	name = "Magazine (.38 Haywire) (Lethal)"
 	desc = "Designed to tactically reload a NT BR-38 Battle Rifle. Haywire bullets create small electromagnetic pulses on impact; devastating against electronics."
-	id = "c38_haywire_mag"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT * 30,
@@ -32,7 +30,6 @@
 /datum/design/shotgun_frangible_slug
 	name = "Frangible Slug (Breaching)"
 	desc = "A frangible breaching slug."
-	id = "s12g_br"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,  /datum/material/titanium = SHEET_MATERIAL_AMOUNT * 4 , /datum/material/plastic = SHEET_MATERIAL_AMOUNT * 2)
 	build_path = /obj/item/ammo_casing/shotgun/frangible
@@ -43,7 +40,6 @@
 
 /datum/design/shotgun_dart_pen
 	name = "Penetrating Shotgun Dart (Lethal)"
-	id = "sec_dart_pen"
 	desc = "A penetrating dart shotgun shell. Fires a single projectile (a dart). \
 		Can be filled with chemicals, which it injects upon striking a target. Otherwise, very weak. \
 		Much less capacity than a regular shotgun dart, but can penetrate armor."
@@ -54,4 +50,3 @@
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
-	autolathe_exportable = FALSE

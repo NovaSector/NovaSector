@@ -65,7 +65,6 @@
 /datum/design/scythe
 	name = "Scythe (Tier 1)"
 	desc = "A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow."
-	id = "scythet1"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
@@ -79,7 +78,6 @@
 
 /datum/design/scythe/tier2
 	name = "Scythe (Tier 2)"
-	id = "scythet2"
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
@@ -88,7 +86,6 @@
 
 /datum/design/scythe/tier3
 	name = "Scythe (Tier 3)"
-	id = "scythet3"
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
@@ -97,7 +94,6 @@
 
 /datum/design/scythe/tier4
 	name = "Scythe (Tier 4)"
-	id = "scythet4"
 	materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
@@ -105,48 +101,44 @@
 	build_path = /obj/item/scythe/tier4
 
 /datum/techweb_node/scythe_t1
-	id = TECHWEB_NODE_SCYTHE_1
 	display_name = "Scythe (Tier 1)"
 	description = "Improved scythe for efficient culling."
-	prereq_ids = list(TECHWEB_NODE_EXP_TOOLS, TECHWEB_NODE_CHEM_SYNTHESIS, TECHWEB_NODE_BOTANY_EQUIP)
-	design_ids = list(
-		"scythet1",
+	prerequisite_nodes = list(/datum/techweb_node/exp_tools, /datum/techweb_node/chem_synthesis, /datum/techweb_node/botany_equip)
+	unlocked_designs = list(
+		/datum/design/scythe,
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = TECHWEB_TIER_1_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_SECURITY)
 
 /datum/techweb_node/scythe_t2
-	id = TECHWEB_NODE_SCYTHE_2
 	display_name = "Scythe (Tier 2)"
 	description = "Further improved scythe for efficient culling."
-	prereq_ids = list(TECHWEB_NODE_SCYTHE_1)
-	design_ids = list(
-		"scythet2",
+	prerequisite_nodes = list(/datum/techweb_node/scythe_t1)
+	unlocked_designs = list(
+		/datum/design/scythe/tier2,
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_SECURITY)
 
 /datum/techweb_node/scythe_t3
-	id = TECHWEB_NODE_SCYTHE_3
 	display_name = "Scythe (Tier 3)"
 	description = "Even further improved scythe for efficient culling."
-	prereq_ids = list(TECHWEB_NODE_SCYTHE_2)
-	design_ids = list(
-		"scythet3",
+	prerequisite_nodes = list(/datum/techweb_node/scythe_t2)
+	unlocked_designs = list(
+		/datum/design/scythe/tier3,
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
 	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = TECHWEB_TIER_3_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SERVICE, RADIO_CHANNEL_SECURITY)
 
 /datum/techweb_node/scythe_t4
-	id = TECHWEB_NODE_SCYTHE_4
 	display_name = "Scythe (Tier 4)"
 	description = "The most efficient scythe for culling."
-	prereq_ids = list(TECHWEB_NODE_SCYTHE_3)
-	design_ids = list(
-		"scythet4",
+	prerequisite_nodes = list(/datum/techweb_node/scythe_t3)
+	unlocked_designs = list(
+		/datum/design/scythe/tier4,
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS)
 	discount_experiments = list(/datum/experiment/scanning/random/plants/wild = TECHWEB_TIER_4_POINTS)

@@ -1,4 +1,5 @@
 /datum/mod_theme/entombed
+	parent_type = /datum/mod_theme/standard
 	name = "fused"
 	desc = "Circumstances have rendered this protective suit into someone's second skin. Literally."
 	extended_desc = "Some great aspect of someone's past has permanently bound them to this device, for better or worse."

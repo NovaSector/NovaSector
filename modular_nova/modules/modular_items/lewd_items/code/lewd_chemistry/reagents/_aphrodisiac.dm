@@ -83,21 +83,21 @@
 	// Not important at all, really, but I don't want folk complaining about a removed feature.
 	var/static/list/species_to_penis = list(
 		SPECIES_HUMAN = list(
-			"sheath" = SHEATH_NONE,
+			"sheath" = SPRITE_ACCESSORY_NONE,
 			"mutant_index" = "Human",
 			"balls" = "Pair"
 		),
 		SPECIES_LIZARD = list(
-			"sheath" = SHEATH_SLIT,
+			"sheath" = /datum/sprite_accessory/genital/sheath/slit::name,
 			"color" = "#FFB6C1",
-			"mutant_index" = "Flared",
-			"balls" = "Internal"
+			"mutant_index" = /datum/sprite_accessory/genital/penis/flared::name,
+			"balls" = /datum/sprite_accessory/genital/testicles/internal::name,
 		),
 		SPECIES_LIZARD_ASH = list(
-			"sheath" = SHEATH_SLIT,
+			"sheath" = /datum/sprite_accessory/genital/sheath/slit::name,
 			"color" = "#FFB6C1",
-			"mutant_index" = "Flared",
-			"balls" = "Internal"
+			"mutant_index" = /datum/sprite_accessory/genital/penis/flared::name,
+			"balls" = /datum/sprite_accessory/genital/testicles/internal::name,
 		),
 	)
 
@@ -461,17 +461,6 @@
 	else if(penis.name == SPRITE_ACCESSORY_NONE)
 		penis.name = data["mutant_index"]
 
-	var/datum/mutant_bodypart/testicles = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_TESTICLES]
-	if(isnull(testicles))
-		testicles = build_mutant_part(
-			data["balls"],
-			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_color/genital/testicles),
-			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_bool/genital/testicles),
-		)
-		LAZYSET(exposed_mob.dna.mutant_bodyparts, FEATURE_TESTICLES, testicles)
-	else if(testicles.name == SPRITE_ACCESSORY_NONE)
-		testicles.name = data["balls"]
-
 	var/colour = data["colour"]
 	if(colour)
 		penis.set_colors(list(colour))
@@ -502,6 +491,21 @@
 
 	if(!exposed_mob.client?.prefs.read_preference(/datum/preference/toggle/erp/new_genitalia_growth))
 		return
+
+	var/list/data = species_to_penis[exposed_mob.dna.species.id]
+	if(!data)
+		data = species_to_penis[SPECIES_HUMAN]
+
+	var/datum/mutant_bodypart/testicles = exposed_mob.dna.mutant_bodyparts[ORGAN_SLOT_TESTICLES]
+	if(isnull(testicles))
+		testicles = build_mutant_part(
+			data["balls"],
+			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_color/genital/testicles),
+			exposed_mob.client?.prefs.read_preference(/datum/preference/tri_bool/genital/testicles),
+		)
+		LAZYSET(exposed_mob.dna.mutant_bodyparts, FEATURE_TESTICLES, testicles)
+	else if(testicles.name == SPRITE_ACCESSORY_NONE)
+		testicles.name = data["balls"]
 
 	var/obj/item/organ/genital/testicles/new_balls = new
 	new_balls.build_from_dna(exposed_mob.dna, ORGAN_SLOT_TESTICLES)

@@ -65,6 +65,9 @@
 /obj/item/organ/tongue/teshari
 	liked_foodtypes = MEAT | GORE | RAW
 	disliked_foodtypes = GROSS | GRAIN
+	emote_sounds = list(
+		/datum/emote/living/scream::key = 'modular_nova/modules/emotes/sound/emotes/raptorscream.ogg',
+	)
 
 /datum/species/teshari/prepare_human_for_preview(mob/living/carbon/human/tesh)
 	var/base_color = "#c0965f"

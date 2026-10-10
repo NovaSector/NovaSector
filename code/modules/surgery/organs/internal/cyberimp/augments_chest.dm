@@ -88,7 +88,7 @@
 
 /obj/item/organ/cyberimp/chest/reviver/proc/try_heal()
 	if(reviving)
-		if(owner.stat == CONSCIOUS)
+		if(!IS_UNCONSCIOUS_OR_CRIT(owner))
 			COOLDOWN_START(src, reviver_cooldown, revive_cost)
 			reviving = FALSE
 			to_chat(owner, span_notice("Your reviver implant shuts down and starts recharging. It will be ready again in [DisplayTimeText(revive_cost)]."))
@@ -99,7 +99,7 @@
 	if(!COOLDOWN_FINISHED(src, reviver_cooldown) || HAS_TRAIT(owner, TRAIT_SUICIDED))
 		return
 
-	if(owner.stat != CONSCIOUS)
+	if(IS_UNCONSCIOUS_OR_CRIT(owner))
 		revive_cost = 0
 		reviving = TRUE
 		to_chat(owner, span_notice("You feel a faint buzzing as your reviver implant starts patching your wounds..."))
@@ -160,23 +160,23 @@
 		return
 
 	if(reviving)
-		revive_cost += 200
+		revive_cost += 200 / severity
 	else
-		reviver_cooldown += 20 SECONDS
+		reviver_cooldown += 20 SECONDS / severity
 
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_owner = owner
 		if(human_owner.stat != DEAD && prob(50 / severity) && human_owner.can_heartattack())
 			human_owner.set_heartattack(TRUE)
 			to_chat(human_owner, span_userdanger("You feel a horrible agony in your chest!"))
-			addtimer(CALLBACK(src, PROC_REF(undo_heart_attack)), 600 / severity)
+			addtimer(CALLBACK(src, PROC_REF(undo_heart_attack)), 50 SECONDS / severity)
 
 /obj/item/organ/cyberimp/chest/reviver/proc/undo_heart_attack()
 	var/mob/living/carbon/human/human_owner = owner
 	if(!istype(human_owner))
 		return
 	human_owner.set_heartattack(FALSE)
-	if(human_owner.stat == CONSCIOUS)
+	if(!IS_UNCONSCIOUS_OR_CRIT(human_owner))
 		to_chat(human_owner, span_notice("You feel your heart beating again!"))
 
 
@@ -189,6 +189,7 @@
 	base_icon_state = "imp_jetpack"
 	aug_overlay = "imp_jetpack"
 	emissive_overlay = TRUE
+	overlay_layer = BODYPARTS_HIGH_LAYER
 	actions_types = list(/datum/action/item_action/organ_action/toggle)
 	w_class = WEIGHT_CLASS_NORMAL
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/diamond = HALF_SHEET_MATERIAL_AMOUNT)
@@ -237,7 +238,6 @@
 	if(!silent)
 		to_chat(owner, span_notice("You turn your thrusters set on."))
 	update_appearance()
-	owner.update_body_parts()
 
 /obj/item/organ/cyberimp/chest/thrusters/proc/deactivate(silent = FALSE)
 	if(!on)
@@ -248,10 +248,10 @@
 		to_chat(owner, span_notice("You turn your thrusters set off."))
 	on = FALSE
 	update_appearance()
-	owner.update_body_parts()
 
 /obj/item/organ/cyberimp/chest/thrusters/update_icon_state()
 	icon_state = "[base_icon_state][on ? "-on" : null]"
+	update_overlay_state()
 	return ..()
 
 /obj/item/organ/cyberimp/chest/thrusters/proc/allow_thrust(num, use_fuel = TRUE)
@@ -289,13 +289,8 @@
 	deactivate(silent = TRUE)
 	return FALSE
 
-/obj/item/organ/cyberimp/chest/thrusters/get_overlay_state(image_layer, obj/item/bodypart/limb)
+/obj/item/organ/cyberimp/chest/thrusters/get_overlay_state()
 	return "[aug_overlay][on ? "_on" : ""]"
-
-/obj/item/organ/cyberimp/chest/thrusters/get_overlay(image_layer, obj/item/bodypart/limb)
-	. = ..()
-	for (var/image/overlay as anything in .)
-		overlay.layer = -BODYPARTS_HIGH_LAYER // makes absolutely zero sense why it would layer ontop of jumpsuits but it looks cool
 
 /obj/item/organ/cyberimp/chest/spine
 	name = "\improper Herculean gravitronic spinal implant"

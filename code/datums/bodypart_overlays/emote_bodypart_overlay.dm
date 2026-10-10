@@ -2,7 +2,8 @@
 /datum/bodypart_overlay/simple/emote
 	icon = 'icons/mob/human/emote_visuals.dmi'
 	offset_location = UPPER_BODY
-	layers = list(EXTERNAL_ADJACENT = BODY_ADJ_LAYER)
+	layers = list("" = BODY_ADJ_LAYER)
+	overlay_flags = NONE
 	///The body zone to attach the overlay to, overlay won't be added if no bodypart can be found with this
 	var/attached_body_zone = BODY_ZONE_CHEST
 	///The feature key used to figure out what specific bodily feature we offset this to follow
@@ -56,7 +57,7 @@
 	attached_body_zone = BODY_ZONE_HEAD
 
 /datum/bodypart_overlay/simple/emote/blush/color_image(image/overlay, obj/item/bodypart/limb, layer_index)
-	var/base_color = limb.owner?.get_bloodtype()?.get_damage_color()
+	var/base_color = limb.owner?.get_bloodtype()?.get_damage_color(limb.owner)
 	if(!base_color)
 		return ..()
 

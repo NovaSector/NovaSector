@@ -1,6 +1,5 @@
 /datum/design/borg_upgrade_shrink
 	name = "Shrink Module"
-	id = "borg_upgrade_shrink"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/shrink
 	materials = list(
@@ -14,7 +13,6 @@
 
 /datum/design/borg_upgrade_surgicaltools
 	name = "Advanced Surgical Tools Module"
-	id = "borg_upgrade_surgicaltools"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/surgerytools
 	materials = list(
@@ -33,7 +31,6 @@
 
 /datum/design/borg_upgrade_autopsyscanner
 	name = "Autopsy Scanner Module"
-	id = "borg_upgrade_autopsyscanner"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/autopsy_scanner
 	materials = list(
@@ -48,7 +45,6 @@
 
 /datum/design/borg_upgrade_chemistrygripper
 	name = "Chemistry Gripper Module"
-	id = "borg_upgrade_chemistrygripper"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/chemistrygripper
 	materials = list(
@@ -62,7 +58,6 @@
 
 /datum/design/affection_module
 	name = "Affection Module"
-	id = "affection_module"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/affectionmodule
 	materials = list(
@@ -76,7 +71,6 @@
 
 /datum/design/advanced_materials
 	name = "Advanced Materials Module"
-	id = "advanced_materials"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/advanced_materials
 	materials = list(
@@ -92,7 +86,6 @@
 
 /datum/design/borg_shapeshifter_module
 	name = "Shapeshifting Module"
-	id = "borg_shapeshifter_module"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/borg_shapeshifter
 	materials = list(
@@ -107,7 +100,6 @@
 
 /datum/design/borg_upgrade_welding
 	name = "Welding Module"
-	id = "borg_upgrade_welding"
 	construction_time = 6 SECONDS
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/welder
@@ -131,7 +123,6 @@
 
 /datum/design/borg_chest
 	name = "Cyborg Torso"
-	id = "borg_chest"
 	build_type = MECHFAB
 	build_path = /obj/item/bodypart/chest/robot
 	materials = list(
@@ -224,7 +215,6 @@
 
 /datum/design/borg_upgrade_cargo_apparatus
 	name = "Cargo Apparatus"
-	id = "borg_upgrade_cargo_apparatus"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/cargo_papermanipulator
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT*2.5)
@@ -238,7 +228,6 @@
 
 /datum/design/rld
 	name = "Cyborg Rapid Lighting Device"
-	id = "rld_cyborg"
 	build_type = MECHFAB
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT * 2.5)
 	build_path = /obj/item/borg/upgrade/rld
@@ -251,7 +240,6 @@
 
 /datum/design/borg_upgrade_brped
 	name = "Bluespace Rapid Part Exchange Device"
-	id = "borg_upgrade_brped"
 	build_type = MECHFAB
 	build_path = /obj/item/borg/upgrade/brped
 	materials = list(
@@ -268,7 +256,6 @@
 
 /datum/design/borgteleporter
 	name = "Cyborg Cargo Teleporter"
-	id = "borg_upgrade_cargo_teleporter"
 	build_type = MECHFAB
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2.5, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT * 2.5)
 	build_path = /obj/item/borg/upgrade/cargo_teleporter

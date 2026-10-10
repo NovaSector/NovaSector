@@ -1,8 +1,5 @@
 /// Prompts the parent mob to send a say message to the soulcatcher. Returns False if no soulcatcher or message could be found.
-/mob/living/proc/soulcatcher_say()
-	set name = "Soul Say"
-	set category = "IC"
-	set desc = "Send a Say message to your currently targeted soulcatcher room."
+GAME_VERB_PROC_DESC(/mob/living, soulcatcher_say, "Soul Say", "Send a Say message to your currently targeted soulcatcher room.", "IC")
 	var/datum/component/soulcatcher/target_soulcatcher = find_soulcatcher()
 	if(!target_soulcatcher || !target_soulcatcher.targeted_soulcatcher_room)
 		return FALSE
@@ -15,10 +12,7 @@
 	return TRUE
 
 /// Prompts the parent mob to send a emote to the soulcatcher. Returns False if no soulcatcher or emote could be found.
-/mob/living/proc/soulcatcher_emote()
-	set name = "Soul Me"
-	set category = "IC"
-	set desc = "Send an emote to your currently targeted soulcatcher room."
+GAME_VERB_PROC_DESC(/mob/living, soulcatcher_emote, "Soul Me", "Send an emote to your currently targeted soulcatcher room.", "IC")
 	var/datum/component/soulcatcher/target_soulcatcher = find_soulcatcher()
 	if(!target_soulcatcher || !target_soulcatcher.targeted_soulcatcher_room)
 		return FALSE

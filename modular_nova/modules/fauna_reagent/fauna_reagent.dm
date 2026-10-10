@@ -32,12 +32,12 @@
 		if(istype(reagents_within, /datum/reagent/toxin))
 			var/datum/reagent/toxin/toxin_reagent = reagents_within
 			var/toxin_damage = round(toxin_reagent.toxpwr)
-			adjustHealth(toxin_damage + 1)
+			adjust_brute_loss(toxin_damage + 1)
 			reagents?.remove_reagent(toxin_reagent.type, 0.5)
 			continue
 
 		if(istype(reagents_within, /datum/reagent/medicine))
-			adjustHealth(-1)
+			adjust_brute_loss(-1)
 			reagents?.remove_reagent(reagents_within.type, 0.5)
 
 /mob/living/basic
@@ -68,12 +68,12 @@
 		if(istype(reagents_within, /datum/reagent/toxin))
 			var/datum/reagent/toxin/toxin_reagent = reagents_within
 			var/toxin_damage = round(toxin_reagent.toxpwr)
-			adjust_health(toxin_damage + 1)
+			adjust_brute_loss(toxin_damage + 1)
 			reagents?.remove_reagent(toxin_reagent.type, 0.5)
 			continue
 
 		if(istype(reagents_within, /datum/reagent/medicine))
-			adjust_health(-1)
+			adjust_brute_loss(-1)
 			reagents?.remove_reagent(reagents_within.type, 0.5)
 
 /// Allows snowflake reagent handling, such as cockroaches dying *specifically* to pestkiller's special interact.

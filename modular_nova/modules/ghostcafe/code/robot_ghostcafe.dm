@@ -13,7 +13,6 @@
 
 /mob/living/silicon/robot/model/roleplay/make_laws()
 	laws = new /datum/ai_laws/roleplay()
-	laws.associate(src)
 
 /mob/living/silicon/robot/model/roleplay/binarycheck()
 	return FALSE //Roleplay borgs aren't truly borgs

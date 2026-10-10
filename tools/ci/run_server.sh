@@ -7,6 +7,7 @@ MAP_CONFIG=${2:-""}
 echo Testing $MAP
 
 tools/deploy.sh ci_test
+
 mkdir -p ci_test/config
 mkdir -p ci_test/data
 
@@ -17,7 +18,7 @@ if [ -n "$MAP_CONFIG" ]; then
 fi
 
 #set the map
-cp _maps/$MAP.json ci_test/data/next_map.json
+cp _maps/map_jsons/$MAP.json ci_test/data/next_map.json
 
 cd ci_test
 DreamDaemon tgstation.dmb -close -trusted -verbose -params "log-directory=ci"

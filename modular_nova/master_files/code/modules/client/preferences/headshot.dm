@@ -11,7 +11,7 @@
 	var/cooldown_timer = 0
 	///Assoc list of ckeys and their links, used to cut down on chat spam
 	var/list/stored_links = list()
-	var/static/link_regex = regex(@"i\.gyazo\.com|[a-z]\.l3n\.co|images2\.imgbox\.com|thumbs2\.imgbox\.com|files\.byondhome\.com")
+	var/static/link_regex = regex(@"i\.gyazo\.com|[a-z]\.l3n\.co|images2\.imgbox\.com|thumbs2\.imgbox\.com|files\.byondhome\.com|files\.catbox\.moe|i\.ibb\.co")
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
 
 /datum/preference/text/headshot/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
@@ -39,7 +39,7 @@
 
 	find_index = findtext(value, link_regex)
 	if(find_index != 9)
-		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Gyazo (i.gyazo.com), Byond (files.byondhome.com), Imgbox (images2.imgbox.com, thumbs2.imgbox.com), Lensdump (x.l3n.co)'"))
+		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Gyazo (i.gyazo.com), Byond (files.byondhome.com), Imgbox (images2.imgbox.com, thumbs2.imgbox.com), Lensdump (x.l3n.co), CatBox (files.catbox.moe), ImgBB (i.ibb.co)'"))
 		return
 
 	if(stored_links[usr.ckey] && stored_links[usr.ckey][type] != value && cooldown_timer <= world.time)
@@ -63,3 +63,10 @@
 
 /datum/preference/text/headshot/silicon/apply_to_human(mob/living/carbon/human/target, value, datum/preferences/preferences)
 	return FALSE
+
+/// Whether we see other people's headshots in the chat when we examine them.
+/datum/preference/toggle/show_headshot_on_examine
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	default_value = TRUE
+	savefile_key = "show_headshot_on_examine"
+	savefile_identifier = PREFERENCE_PLAYER

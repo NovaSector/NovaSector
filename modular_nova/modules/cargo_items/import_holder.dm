@@ -76,7 +76,6 @@
 /datum/design/goodycase_holder
 	name = "Goody Case Holder"
 	desc = "The solution to the plethora of goody cases that litter the cargonian halls."
-	id = "goodycase_holder"
 	build_type = PROTOLATHE | AWAY_LATHE
 	build_path = /obj/item/goodycase_holder
 	materials = list(
