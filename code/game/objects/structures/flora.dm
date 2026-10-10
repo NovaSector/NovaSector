@@ -468,22 +468,16 @@
 /obj/structure/flora/tree/fancypine/style_3
 	icon_state = "pine4"
 
-/obj/structure/flora/tree/fancypine/snowy
-	name = "snowy pine tree"
-	desc = "A snow covered coniferous pine tree."
-	icon = 'icons/obj/fluff/flora/pines.dmi'
-	icon = "pine1-snow"
+/obj/structure/flora/tree/fancypine/style_0
+	icon_state = "pine1-snow"
 
-/obj/structure/flora/tree/fancypine/snowy/get_seethrough_map()
-	return SEE_THROUGH_MAP_THREE_X_TWO
-
-/obj/structure/flora/tree/fancypine/snowy/style_1
+/obj/structure/flora/tree/fancypine/style_1
 	icon_state = "pine2-snow"
 
-/obj/structure/flora/tree/fancypine/snowy/style_2
+/obj/structure/flora/tree/fancypine/style_2
 	icon_state = "pine3-snow"
 
-/obj/structure/flora/tree/fancypine/snowy/style_3
+/obj/structure/flora/tree/fancypine/style_3
 	icon_state = "pine4-snow"
 
 /**************
