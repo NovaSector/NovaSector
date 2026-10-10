@@ -10,3 +10,6 @@
 
 /datum/outfit/pirate/medieval/warlord
 	backpack_contents = null
+
+/datum/outfit/pirate/siren
+	backpack_contents = null

@@ -1041,7 +1041,7 @@
 	else if(chosen_key == FEATURE_LEGS)
 		alterer.dna.features[FEATURE_LEGS] = chosen_name_key
 		alterer.update_body()
-		alterer.dna.species.replace_body(alterer, alterer.dna.species) // TODO: Replace this with something less stupidly expensive.
+		alterer.dna.species.replace_body(alterer, alterer.dna.species, alterer.dna.species) // TODO: Replace this with something less stupidly expensive.
 	else
 		if(selected_sprite_accessory.organ_type)
 			var/robot_organs = HAS_TRAIT(alterer, TRAIT_ROBOTIC_DNA_ORGANS)
