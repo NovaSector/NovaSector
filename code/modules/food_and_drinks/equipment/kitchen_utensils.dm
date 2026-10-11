@@ -183,7 +183,6 @@
 	pickup_sound = SFX_ROLLING_PIN_PICKUP
 	drop_sound = SFX_ROLLING_PIN_DROP
 
-
 /obj/item/kitchen/rollingpin/illegal
 	name = "metal rolling pin"
 	desc = "A heavy metallic rolling pin used to bash in those annoying ingredients."

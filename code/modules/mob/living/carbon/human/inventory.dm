@@ -56,6 +56,7 @@
 			return r_store
 		if(ITEM_SLOT_SUITSTORE)
 			return s_store
+
 	return ..()
 
 /mob/living/carbon/human/get_slot_by_item(obj/item/looking_for)
@@ -153,7 +154,6 @@
 		if(ITEM_SLOT_GLOVES)
 			if(gloves)
 				return
-
 			gloves = equipping
 			//NOVA EDIT ADDITION - ERP UPDATE
 			if(gloves.breakouttime)

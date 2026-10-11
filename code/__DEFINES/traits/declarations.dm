@@ -843,7 +843,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 ///This mob is currently blocking a projectile.
 #define TRAIT_BLOCKING_PROJECTILES "blocking_projectiles"
-
 ///Lava will be safe to cross while it has this trait.
 #define TRAIT_LAVA_STOPPED "lava_stopped"
 ///Chasms will be safe to cross while they've this trait.
