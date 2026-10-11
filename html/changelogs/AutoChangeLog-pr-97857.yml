@@ -1,0 +1,5 @@
+author: "FalloutFalcon"
+delete-after: True
+changes:
+  - bugfix: "Handling on if you can make eye contact is a bit more robust"
+  - bugfix: "Some examine text for eye effects acctaully checks if you have eyes"

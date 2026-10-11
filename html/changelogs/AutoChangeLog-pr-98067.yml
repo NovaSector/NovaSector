@@ -1,0 +1,5 @@
+author: "Melbert"
+delete-after: True
+changes:
+  - rscadd: "Fishes can toggle snouts in character creation (the same way they can toggle frills)"
+  - bugfix: "Fishes cannot be as dark as the abyss"

@@ -39,6 +39,7 @@
 
 	if(LAZYLEN(test_organ.organ_traits))
 		TEST_ASSERT(LAZYLEN(lab_rat._status_traits), TEST_ORGAN_INSERT_MESSAGE(test_organ, "should add Traits to lazylist `human._status_traits`."))
+		TEST_ASSERT(!(null in test_organ.organ_traits), "[test_organ.type] contains a null organ trait.")
 		for(var/test_trait in test_organ.organ_traits)
 			TEST_ASSERT(HAS_TRAIT(lab_rat, test_trait), TEST_ORGAN_INSERT_MESSAGE(test_organ, "should add Trait `[test_trait]` to lazylist `human._status_traits`"))
 
@@ -129,11 +130,11 @@
 
 /datum/unit_test/felinid_ears/Run()
 	var/mob/living/carbon/human/normal_dummy = allocate(/mob/living/carbon/human/consistent)
+	// NOVA EDIT REMOVAL - normal_dummy.dna.features[FEATURE_EARS] = SPRITE_ACCESSORY_NONE
 	normal_dummy.set_species(/datum/species/human/felinid, pref_load = TRUE)
 	TEST_ASSERT(!istype(normal_dummy.get_organ_slot(ORGAN_SLOT_EARS), /obj/item/organ/ears/cat), "Felinid with NONE ears set had cat ears on species gain.")
 	TEST_ASSERT_NOTNULL(normal_dummy.get_organ_slot(ORGAN_SLOT_EARS), "Felinid with NONE ears set had NO ears on species gain.")
 
 	var/mob/living/carbon/human/anime_dummy = allocate(/mob/living/carbon/human/consistent)
 	anime_dummy.set_species(/datum/species/human/felinid, pref_load = TRUE)
-
 	TEST_ASSERT(istype(anime_dummy.get_organ_slot(ORGAN_SLOT_EARS), /obj/item/organ/ears), "Felinid with default ears set did not have cat ears on species gain.") // NOVA EDIT CHANGE - fUCK your cat ears, seriously - ORIGINAL: TEST_ASSERT(istype(anime_dummy.get_organ_slot(ORGAN_SLOT_EARS), /obj/item/organ/ears/cat), "Felinid with default ears set did not have cat ears on species gain.")
