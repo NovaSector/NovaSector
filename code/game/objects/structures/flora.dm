@@ -503,13 +503,13 @@
 /obj/structure/flora/tree/maple/get_seethrough_map()
 	return SEE_THROUGH_MAP_DEFAULT_TWO_TALL
 
-/obj/structure/flora/tree/maple/style_1
+/obj/structure/flora/tree/maple/style_2
 	icon_state = "maple2"
 
-/obj/structure/flora/tree/maple/style_2
+/obj/structure/flora/tree/maple/style_3
 	icon_state = "maple3"
 
-/obj/structure/flora/tree/maple/style_3
+/obj/structure/flora/tree/maple/style_4
 	icon_state = "maple4"
 
 /**************
