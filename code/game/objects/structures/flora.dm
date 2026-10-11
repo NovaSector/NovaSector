@@ -467,25 +467,25 @@
 /obj/structure/flora/tree/fancypine/get_seethrough_map()
 	return SEE_THROUGH_MAP_THREE_X_TWO
 
-/obj/structure/flora/tree/fancypine/style_1
+/obj/structure/flora/tree/fancypine/style_2
 	icon_state = "pine2"
 
-/obj/structure/flora/tree/fancypine/style_2
+/obj/structure/flora/tree/fancypine/style_3
 	icon_state = "pine3"
 
-/obj/structure/flora/tree/fancypine/style_3
+/obj/structure/flora/tree/fancypine/style_4
 	icon_state = "pine4"
 
-/obj/structure/flora/tree/fancypine/snow/style_4
+/obj/structure/flora/tree/fancypine/snow/style_1
 	icon_state = "pine1-snow"
 
-/obj/structure/flora/tree/fancypine/snow/style_5
+/obj/structure/flora/tree/fancypine/snow/style_2
 	icon_state = "pine2-snow"
 
-/obj/structure/flora/tree/fancypine/snow/style_6
+/obj/structure/flora/tree/fancypine/snow/style_3
 	icon_state = "pine3-snow"
 
-/obj/structure/flora/tree/fancypine/snow/style_7
+/obj/structure/flora/tree/fancypine/snow/style_4
 	icon_state = "pine4-snow"
 
 /**************
