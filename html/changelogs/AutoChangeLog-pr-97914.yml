@@ -1,0 +1,6 @@
+author: "timothymtorres"
+delete-after: True
+changes:
+  - rscadd: "Add EMP effects to Thermomachines, Portable Canisters, Lights, Flashlights, Floorlights, Floodlights, Seclights on Guns, Lights on Plasmamen Helmets, Hardhat Lights, PDA Flashlights, Ore Silos, Buttons, Turret Controllers, Teleporter Beacons, Trapdoors, and Morgue Trays. Also improves admin logging for atmospheric EMP effects."
+  - rscadd: "Add EMP protection to EMP flashlights"
+  - rscadd: "Flares, candles, slime lights, and glowsticks no longer directly conduct electricity"

@@ -1,0 +1,4 @@
+author: "timothymtorres"
+delete-after: True
+changes:
+  - bugfix: "Fix wound chance for legs from falling z-levels decreasing the more z-levels you fall down"

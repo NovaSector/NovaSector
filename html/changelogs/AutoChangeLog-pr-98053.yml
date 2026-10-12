@@ -1,0 +1,4 @@
+author: "JohnFulpWillard"
+delete-after: True
+changes:
+  - qol: "Precise Drop's default action is now CtrlQ instead of CtrlX, to match Drop once again being Q."

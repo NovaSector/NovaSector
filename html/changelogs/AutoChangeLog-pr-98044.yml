@@ -1,0 +1,4 @@
+author: "FalloutFalcon"
+delete-after: True
+changes:
+  - bugfix: "some mobs like Migo, Creatures, and blank bodies now properly attack you and obstacles in there way"

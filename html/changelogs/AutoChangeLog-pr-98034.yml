@@ -1,0 +1,5 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "Monkeys no longer pull a weapon out of your hands or off your back when you picked it up before they got to it."
+  - bugfix: "Fish infusion organs now make better bait taste better to you, and a stoat tongue makes eggs and dead mice taste better, as intended."

@@ -1,0 +1,4 @@
+author: "vinylspiders"
+delete-after: True
+changes:
+  - bugfix: "raptor eggs that weren't laid by a raptor (mapped or spawned in) now hatch a proper chick instead of a bugged, invisible one."
