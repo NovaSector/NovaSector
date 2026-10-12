@@ -248,10 +248,22 @@
 /turf/open/floor/holofloor/wood
 	icon = 'icons/turf/floors.dmi'
 
+/turf/open/floor/iron/asteroid_5
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/asteroid_8
+	icon = 'icons/turf/floors.dmi'
+
 /turf/open/floor/iron/bluespace
 	icon = 'icons/turf/floors.dmi'
 
+/turf/open/floor/iron/dark/bus
+	icon = 'icons/turf/floors.dmi'
+
 /turf/open/floor/iron/grimy
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/pod_dark
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/iron/solarpanel
@@ -290,6 +302,9 @@
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/plating/foam
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/plating/foam_pattern
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/vault
