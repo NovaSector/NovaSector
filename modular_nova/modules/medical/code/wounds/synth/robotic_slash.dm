@@ -662,6 +662,11 @@
 	initial_flow = 0.5
 	minimum_flow = 0.1
 
+/datum/wound/slash/flesh/synth/item_can_treat(obj/item/potential_treater, mob/user)
+	if (istype(potential_treater, /obj/item/stack/rods))
+		return TRUE 
+
+	return ..()
 
 /datum/wound/slash/flesh/synth/treat(obj/item/tool, mob/user)
 	if(istype(tool, /obj/item/gun/energy/laser))
