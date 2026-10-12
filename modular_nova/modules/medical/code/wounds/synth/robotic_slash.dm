@@ -666,8 +666,12 @@
 /datum/wound/slash/flesh/synth/treat(obj/item/tool, mob/user)
 	if(istype(tool, /obj/item/gun/energy/laser))
 		las_cauterize(tool, user)
-	else if(tool.tool_behaviour == TOOL_WELDER)
-		tool_solder(tool, user)
+	else if(istype(tool, /obj/item/stack/rods))
+		var/obj/item/tool2 = user.get_inactive_held_item()
+		if (tool2.tool_behaviour != TOOL_WELDER)
+			to_chat(user, span_green("You need a lit welder."))
+			return
+		tool_solder(tool, tool2, user)
 	else if(tool.tool_behaviour == TOOL_CAUTERY || tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		tool_cauterize(tool, user)
 
@@ -742,7 +746,7 @@
 
 
 /// If someone is using either a welder tool or something with welding ability to cauterize this cut - I'd love to make this take metal rods but I'm not going that far
-/datum/wound/slash/flesh/synth/proc/tool_solder(obj/item/I, mob/user)
+/datum/wound/slash/flesh/synth/proc/tool_solder(obj/item/stack/rods/R, obj/item/I, mob/user)
 	var/improv_penalty_mult = (I.tool_behaviour == TOOL_WELDER ? 1 : 1.25) // 25% longer and less effective if you don't use a real cautery
 	var/self_penalty_mult = (user == victim ? 1.5 : 1) // 50% longer and less effective if you do it to yourself
 
@@ -766,6 +770,7 @@
 	var/blood_cauterized = (0.6 / (self_penalty_mult * improv_penalty_mult))
 	var/mob/victim_stored = victim
 	adjust_blood_flow(-blood_cauterized)
+	R.use(1)
 
 	if(blood_flow > minimum_flow)
 		try_treating(I, user)
