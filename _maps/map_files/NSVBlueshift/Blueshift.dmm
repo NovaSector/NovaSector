@@ -103342,10 +103342,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/interrogation)
 "uNl" = (
-/turf/open/floor/iron/stairs{
-	icon_state = "stairs_wood";
-	icon = 'icons/obj/stairs.dmi'
-	},
+/turf/open/floor/iron/stairs/wood,
 /area/station/common/pool)
 "uNn" = (
 /obj/effect/landmark/start/hangover,

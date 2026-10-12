@@ -10251,11 +10251,6 @@
 	dir = 4
 	},
 /area/awaymission/caves/maintsroom)
-"IK" = (
-/obj/structure/foamedmetal,
-/obj/structure/foamedmetal,
-/turf/open/floor/plating/foam,
-/area/awaymission/caves/maintsroom)
 "IL" = (
 /obj/structure/safe/floor,
 /obj/item/gun/energy/laser/musket,
@@ -19249,7 +19244,7 @@ GS
 XW
 qt
 ED
-IK
+xV
 xV
 qt
 ED
