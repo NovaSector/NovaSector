@@ -664,7 +664,7 @@
 
 /datum/wound/slash/flesh/synth/item_can_treat(obj/item/potential_treater, mob/user)
 	if (istype(potential_treater, /obj/item/stack/rods))
-		return TRUE 
+		return TRUE
 
 	return ..()
 
@@ -759,11 +759,12 @@
 
 	if(HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
 		treatment_delay *= 0.5
-		user.visible_message(span_danger("[user] begins expertly soldering [victim]'s [limb.plaintext_zone] with [I]..."), span_warning("You begin soldering [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I], keeping the holo-image indications in mind..."))
+		user.visible_message(span_danger("[user] begins expertly soldering [victim]'s [limb.plaintext_zone] with [I] and [R]..."), span_warning("You begin soldering [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I] and [R], keeping the holo-image indications in mind..."))
 	else
-		user.visible_message(span_danger("[user] begins soldering [victim]'s [limb.plaintext_zone] with [I]..."), span_warning("You begin soldering [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I]..."))
+		user.visible_message(span_danger("[user] begins soldering [victim]'s [limb.plaintext_zone] with [I] and [R]..."), span_warning("You begin soldering [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I] and [R]..."))
 
 	playsound(user, 'sound/items/handling/surgery/cautery1.ogg', 75, TRUE)
+	R.use(1)
 
 	if(!do_after(user, treatment_delay, target = victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 		return
@@ -775,7 +776,7 @@
 	var/blood_cauterized = (0.6 / (self_penalty_mult * improv_penalty_mult))
 	var/mob/victim_stored = victim
 	adjust_blood_flow(-blood_cauterized)
-	R.use(1)
+
 
 	if(blood_flow > minimum_flow)
 		try_treating(I, user)
