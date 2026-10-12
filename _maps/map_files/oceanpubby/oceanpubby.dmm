@@ -8186,10 +8186,7 @@
 /area/station/hallway/primary/aft)
 "bbA" = (
 /obj/effect/spawner/liquids_spawner/shoulders,
-/turf/open/floor/iron/pool{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "bcircuit"
-	},
+/turf/open/floor/iron/pool/bcircuit,
 /area/station/ai/satellite/equipment)
 "bbC" = (
 /obj/machinery/airalarm/directional/south,
@@ -34084,10 +34081,7 @@
 /area/station/hallway/primary/aft)
 "iUF" = (
 /obj/effect/spawner/liquids_spawner/shoulders,
-/turf/open/floor/iron/pool{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "bcircuit"
-	},
+/turf/open/floor/iron/pool/bcircuit,
 /area/station/ai/satellite/chamber)
 "iUU" = (
 /obj/effect/turf_decal/siding/wood{
@@ -46136,10 +46130,7 @@
 /area/station/science/genetics)
 "och" = (
 /obj/effect/spawner/liquids_spawner/shoulders,
-/turf/open/floor/iron/pool{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "bcircuit"
-	},
+/turf/open/floor/iron/pool/bcircuit,
 /area/station/ai/satellite/foyer)
 "ocu" = (
 /obj/item/kirbyplants/random,
@@ -46913,10 +46904,7 @@
 /area/station/engineering/storage_shared)
 "ouN" = (
 /obj/effect/spawner/liquids_spawner/shoulders,
-/turf/open/floor/iron/pool{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "bcircuit"
-	},
+/turf/open/floor/iron/pool/bcircuit,
 /area/station/ai/upload/chamber)
 "ouS" = (
 /obj/effect/turf_decal/siding/dark/corner{

@@ -66,6 +66,16 @@
 	base_icon_state = "cobble_corner"
 	icon_state = "cobble_corner"
 
+/turf/open/floor/iron/pool/dungeon_cobble
+	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi'
+	base_icon_state = "cobble"
+	icon_state = "cobble"
+
+/turf/open/floor/iron/pool/bcircuit
+	icon = 'icons/turf/floors.dmi'
+	base_icon_state = "bcircuit"
+	icon_state = "bcircuit"
+
 /turf/open/floor/iron/elevated
 	name = "elevated floor"
 	floor_tile = /obj/item/stack/tile/iron/elevated

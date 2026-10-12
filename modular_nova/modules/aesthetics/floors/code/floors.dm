@@ -260,6 +260,11 @@
 /turf/open/floor/iron/stairs
 	icon = 'icons/turf/floors.dmi'
 
+/turf/open/floor/iron/stairs/wood
+	icon = 'icons/obj/stairs.dmi'
+	icon_state = "stairs_wood"
+	base_icon_state = "stairs_wood"
+
 /turf/open/floor/iron/terracotta
 	icon = 'icons/turf/floors.dmi'
 
