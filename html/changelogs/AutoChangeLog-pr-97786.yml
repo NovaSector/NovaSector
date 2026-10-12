@@ -1,4 +1,0 @@
-author: "SmArtKar, LemonInTheDark"
-delete-after: True
-changes:
-  - refactor: "Separated overlay light visuals from the component/turf lumcount"

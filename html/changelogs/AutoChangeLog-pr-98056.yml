@@ -1,4 +1,0 @@
-author: "Jacquerel"
-delete-after: True
-changes:
-  - bugfix: "Colossus no longer enrages for no reason upon seeing a Golem"

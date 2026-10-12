@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "fixes ore bags throwing runtimes when you get in and out of closets/containers or drop them inside one"

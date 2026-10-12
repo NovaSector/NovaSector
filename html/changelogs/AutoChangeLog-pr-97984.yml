@@ -1,4 +1,0 @@
-author: "timothymtorres"
-delete-after: True
-changes:
-  - rscadd: "Welding affects nearby mobs that don't have flash protection. Special welding tools like the CE's experimental welder or the alien welding object can safely ignore harming nearby mobs."
