@@ -38440,9 +38440,6 @@
 	id = "AI";
 	pixel_x = -22
 	},
-/obj/machinery/power/apc/auto_name/directional/south{
-	pixel_x = 25
-	},
 /turf/open/floor/circuit,
 /area/station/ai/satellite/chamber)
 "lab" = (
@@ -79121,13 +79118,13 @@
 	id = "AI Chamber Entrance Shutters";
 	name = "AI Chamber Entrance Shutters Control";
 	req_access = list("ai_upload");
-	pixel_x = 6
+	pixel_x = 24
 	},
 /obj/machinery/button/door/directional/south{
 	id = "AI Core shutters";
 	name = "AI Core Shutters Control";
 	req_access = list("ai_upload");
-	pixel_x = -6
+	pixel_x = -24
 	},
 /obj/item/radio/intercom/directional/west{
 	freerange = 1;
@@ -79137,6 +79134,7 @@
 	pixel_y = -11;
 	listening = 0
 	},
+/obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/vault,
 /area/station/ai/satellite/chamber)
 "wKK" = (

@@ -40,5 +40,5 @@
 	target.dna.features[FEATURE_LEGS] = value
 
 	target.update_body()
-	target.dna.species.replace_body(target, target.dna.species) // TODO: Replace this with something less stupidly expensive.
+	target.dna.species.replace_body(target, target.dna.species, target.dna.species) // TODO: Replace this with something less stupidly expensive.
 	return TRUE
