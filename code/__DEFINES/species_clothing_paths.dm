@@ -13,3 +13,11 @@
 #define BIG_LEGS_UNIFORM_FILE 'modular_nova/master_files/icons/mob/clothing/uniform_taur_big_legs.dmi'
 #define BIG_LEGS_STANCED_UNIFORM_FILE 'modular_nova/master_files/icons/mob/clothing/uniform_taur_big_legs_stanced.dmi'
 // NOVA EDIT ADDITION END
+
+//CERULEAN TAIL PATHS
+///The dmi which has sprites for Ceruleans and their suits
+#define CERULEAN_SUIT_FILE 'icons/mob/human/species/misc/cerulean_suit.dmi'
+///The dmi which has the Ceruleans modsuits
+#define CERULEAN_MODSUIT_FILE 'icons/mob/human/species/misc/cerulean_modsuit.dmi'
+///The dmi which has modular modsuit parts to assemble in handle_cerulean_modsuit()
+#define CERULEAN_MODSUIT_GEN_FILE 'icons/mob/human/species/misc/cerulean_modsuit_gen.dmi'
