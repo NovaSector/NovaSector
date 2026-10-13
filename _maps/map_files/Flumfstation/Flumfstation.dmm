@@ -1590,9 +1590,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron/white,
-/area/station/command/heads_quarters/captain/private{
-	sound_environment = 20
-	})
+/area/station/command/heads_quarters/captain/private)
 "avh" = (
 /obj/machinery/shower/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
