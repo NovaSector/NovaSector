@@ -10797,7 +10797,6 @@
 /area/station/science/robotics/lab)
 "dBG" = (
 /obj/machinery/atmospherics/components/binary/pump{
-	dir = 2;
 	name = "Pure to Aux"
 	},
 /obj/effect/turf_decal/tile/bar/fourcorners,
@@ -13864,9 +13863,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood/old,
-/mob/living/basic/goat/pete{
-	name = "Pete"
-	},
+/mob/living/basic/goat/pete,
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
 "eBx" = (
@@ -23281,7 +23278,6 @@
 /area/station/security/evidence)
 "hAX" = (
 /obj/machinery/atmospherics/components/binary/pump{
-	dir = 2;
 	name = "Pure to Mix"
 	},
 /obj/effect/turf_decal/tile/green/fourcorners,
@@ -27524,7 +27520,6 @@
 "iHU" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
-	dir = 2;
 	id = "chemistry_shutters_2";
 	name = "Chemistry Hall Shutters"
 	},
@@ -35186,7 +35181,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/components/binary/pump/on{
-	dir = 2;
 	name = "Cold Loop Bypass"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -37887,8 +37881,7 @@
 "lUM" = (
 /obj/structure/table/reinforced/rglass,
 /obj/machinery/keycard_auth/wall_mounted/directional/south{
-	pixel_x = 7;
-	pixel_y = -26
+	pixel_x = 7
 	},
 /obj/machinery/light_switch/directional/south{
 	pixel_x = -8
@@ -46010,7 +46003,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/machinery/atmospherics/components/binary/pump/on/layer4{
-	dir = 2;
 	name = "Airlock Pump";
 	target_pressure = 300;
 	hide = 1
@@ -46496,8 +46488,7 @@
 /obj/effect/mapping_helpers/broken_floor,
 /obj/item/chair/stool{
 	pixel_y = 2;
-	pixel_x = 2;
-	dir = 2
+	pixel_x = 2
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
@@ -65749,7 +65740,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/machinery/atmospherics/components/binary/pump/on/layer4{
-	dir = 2;
 	name = "Airlock Pump";
 	target_pressure = 300;
 	hide = 1
@@ -69569,9 +69559,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/miningdock)
 "vTg" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
-	dir = 2
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible,
 /obj/effect/mapping_helpers/burnt_floor,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/disposal/incinerator)
@@ -73775,8 +73763,7 @@
 	},
 /obj/item/chair/stool{
 	pixel_y = 5;
-	pixel_x = 6;
-	dir = 2
+	pixel_x = 6
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/aft)
