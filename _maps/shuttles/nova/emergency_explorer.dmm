@@ -13,6 +13,8 @@
 /area/shuttle/escape)
 "bI" = (
 /obj/machinery/door/airlock/corporate/glass,
+/obj/structure/railing/corner/end,
+/obj/structure/railing/corner/end/flip,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "bV" = (
@@ -22,7 +24,7 @@
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "ce" = (
-/turf/open/floor/plating,
+/turf/open/floor/engine/hull/reinforced,
 /area/shuttle/escape)
 "cZ" = (
 /obj/structure/chair/comfy/shuttle{
@@ -32,6 +34,16 @@
 /area/shuttle/escape)
 "dd" = (
 /turf/open/floor/iron/sepia,
+/area/shuttle/escape)
+"dJ" = (
+/obj/machinery/light/floor,
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/obj/structure/railing/corner/end/flip{
+	dir = 8
+	},
+/turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "dM" = (
 /turf/open/floor/mineral/titanium/white,
@@ -56,11 +68,11 @@
 /area/shuttle/escape)
 "fK" = (
 /obj/structure/window/reinforced/spawner/directional/north,
-/turf/open/floor/plating,
+/turf/open/floor/engine/hull/reinforced,
 /area/shuttle/escape)
 "fN" = (
 /obj/machinery/power/shuttle_engine/large,
-/turf/open/floor/plating,
+/turf/open/floor/engine/hull/reinforced,
 /area/shuttle/escape)
 "gt" = (
 /obj/structure/table/reinforced,
@@ -120,6 +132,11 @@
 /obj/machinery/light/floor,
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
+"hK" = (
+/obj/structure/railing/corner/end/flip,
+/obj/structure/railing/corner/end,
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
 "hN" = (
 /obj/machinery/door/airlock/medical,
 /obj/effect/mapping_helpers/airlock/access/all/medical,
@@ -144,6 +161,27 @@
 /obj/structure/toilet,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
+"kj" = (
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
+"kJ" = (
+/obj/structure/railing/corner/end{
+	dir = 1
+	},
+/obj/structure/railing/corner/end/flip{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium,
+/area/shuttle/escape)
 "ls" = (
 /obj/machinery/light/floor,
 /obj/effect/turf_decal/siding{
@@ -154,6 +192,12 @@
 "ly" = (
 /obj/structure/table/wood/fancy/royalblack,
 /obj/machinery/light/floor,
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
+"lB" = (
+/obj/structure/railing/corner/end{
+	dir = 1
+	},
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "lZ" = (
@@ -185,12 +229,22 @@
 "no" = (
 /obj/machinery/door/airlock/shuttle/glass,
 /obj/docking_port/mobile/emergency,
-/turf/open/floor/plating,
+/turf/open/floor/engine/hull,
 /area/shuttle/escape)
 "oN" = (
 /obj/machinery/status_display/ai/directional/north,
 /obj/effect/turf_decal/siding,
 /turf/open/floor/iron/sepia,
+/area/shuttle/escape)
+"pl" = (
+/obj/structure/fake_stairs/directional/north,
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "pp" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/end{
@@ -207,6 +261,9 @@
 	},
 /obj/effect/turf_decal/trimline/dark_blue/filled/mid_joiner{
 	dir = 1
+	},
+/obj/structure/railing/corner/end/flip{
+	dir = 4
 	},
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
@@ -227,7 +284,7 @@
 /area/shuttle/escape)
 "qq" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
-/turf/closed/wall/mineral/titanium,
+/turf/open/floor/engine/hull/reinforced,
 /area/shuttle/escape)
 "qB" = (
 /obj/structure/railing{
@@ -278,6 +335,15 @@
 	dir = 1
 	},
 /turf/open/floor/iron/sepia,
+/area/shuttle/escape)
+"sL" = (
+/obj/structure/railing/corner/end{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/flip{
+	dir = 4
+	},
+/turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "sZ" = (
 /obj/structure/chair/comfy/shuttle,
@@ -331,6 +397,27 @@
 /obj/effect/turf_decal/trimline/dark_green/line,
 /obj/effect/turf_decal/trimline/dark_green/mid_joiner,
 /turf/open/floor/mineral/titanium,
+/area/shuttle/escape)
+"tU" = (
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding,
+/obj/structure/railing/corner/end,
+/obj/structure/railing/corner/end/flip,
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
+"tW" = (
+/obj/effect/turf_decal/siding{
+	dir = 1
+	},
+/obj/structure/railing/corner{
+	dir = 1
+	},
+/obj/structure/railing/corner{
+	dir = 4
+	},
+/turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "um" = (
 /obj/structure/window/reinforced/tinted/frosted/spawner/directional/east,
@@ -446,6 +533,12 @@
 /obj/structure/chair/comfy/shuttle,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
+"Bv" = (
+/obj/structure/railing/corner/end/flip{
+	dir = 1
+	},
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
 "BE" = (
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/mineral/titanium/blue,
@@ -472,6 +565,12 @@
 /area/shuttle/escape)
 "CK" = (
 /obj/structure/fake_stairs/directional/north,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "Dc" = (
@@ -507,6 +606,10 @@
 /area/shuttle/escape)
 "Er" = (
 /obj/structure/fake_stairs/directional/west,
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 1
+	},
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "EA" = (
@@ -530,7 +633,7 @@
 "Fo" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/power/shuttle_engine/heater,
-/turf/open/floor/plating,
+/turf/open/floor/engine/hull/reinforced,
 /area/shuttle/escape)
 "Fz" = (
 /obj/effect/turf_decal/trimline/dark_green/corner,
@@ -720,6 +823,11 @@
 /obj/structure/table/wood/fancy/royalblack,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
+"Np" = (
+/obj/structure/railing/corner/end,
+/obj/structure/railing/corner/end/flip,
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
 "NE" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/medkit/fire,
@@ -744,6 +852,12 @@
 /area/shuttle/escape)
 "PS" = (
 /obj/structure/fake_stairs/directional/south,
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Qf" = (
@@ -778,11 +892,20 @@
 /obj/effect/turf_decal/trimline/dark_blue/filled/mid_joiner{
 	dir = 1
 	},
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Sj" = (
-/obj/effect/spawner/structure/window/reinforced/shuttle,
-/turf/open/floor/plating,
+/obj/structure/fake_stairs/directional/south,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Sm" = (
 /obj/structure/curtain,
@@ -809,6 +932,12 @@
 /area/shuttle/escape)
 "Tn" = (
 /obj/structure/fake_stairs/directional/north,
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 8
+	},
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Ts" = (
@@ -830,6 +959,8 @@
 /area/shuttle/escape)
 "Tz" = (
 /obj/effect/turf_decal/siding,
+/obj/structure/railing/corner/end/flip,
+/obj/structure/railing/corner/end,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "TC" = (
@@ -850,7 +981,7 @@
 /area/shuttle/escape)
 "Uj" = (
 /obj/machinery/power/shuttle_engine/propulsion,
-/turf/open/floor/plating,
+/turf/open/floor/engine/hull/reinforced,
 /area/shuttle/escape)
 "UF" = (
 /obj/machinery/computer/security/telescreen/entertainment/directional/north,
@@ -906,11 +1037,11 @@
 /area/shuttle/escape)
 "Xt" = (
 /obj/machinery/door/airlock/shuttle/glass,
-/turf/open/floor/plating,
+/turf/open/floor/engine/hull,
 /area/shuttle/escape)
 "XT" = (
 /obj/machinery/power/shuttle_engine/huge,
-/turf/open/floor/plating,
+/turf/open/floor/engine/hull/reinforced,
 /area/shuttle/escape)
 "Yj" = (
 /obj/structure/chair/comfy/shuttle,
@@ -950,6 +1081,15 @@
 	dir = 8
 	},
 /obj/machinery/light/floor,
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
+"Zd" = (
+/obj/structure/railing/corner/end/flip{
+	dir = 1
+	},
+/obj/structure/railing/corner/end{
+	dir = 1
+	},
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Zn" = (
@@ -1020,17 +1160,17 @@ NV
 rS
 rS
 rS
-ce
+xO
 rS
-ce
+xO
 rS
 NE
 Iu
 ia
 rS
-ce
+xO
 rS
-ce
+xO
 rS
 YA
 YA
@@ -1042,7 +1182,7 @@ qa
 (3,1,1) = {"
 qa
 qa
-Sj
+qq
 LY
 NV
 cZ
@@ -1052,7 +1192,7 @@ NV
 NV
 NV
 TO
-NV
+sL
 rS
 Xt
 rS
@@ -1076,7 +1216,7 @@ qa
 (4,1,1) = {"
 qa
 qa
-Sj
+qq
 Fz
 sZ
 Eo
@@ -1110,7 +1250,7 @@ qa
 (5,1,1) = {"
 qa
 qa
-Sj
+qq
 LY
 NV
 Jp
@@ -1120,7 +1260,7 @@ NV
 NV
 Zn
 rS
-ve
+dJ
 rS
 OB
 dd
@@ -1282,9 +1422,9 @@ qa
 rS
 yA
 gy
-dd
+hK
 PS
-gS
+kj
 qU
 Qf
 rS
@@ -1312,8 +1452,8 @@ qa
 qa
 "}
 (11,1,1) = {"
-Sj
-Sj
+qq
+qq
 dd
 hq
 dd
@@ -1346,16 +1486,16 @@ fN
 qa
 "}
 (12,1,1) = {"
-Sj
+qq
 er
 Ts
 ls
 OB
 sy
 wg
-YF
+tU
 CK
-NV
+kJ
 ve
 rS
 rS
@@ -1384,7 +1524,7 @@ rS
 oN
 Zb
 iE
-dd
+Bv
 Rl
 Gh
 nf
@@ -1452,7 +1592,7 @@ rS
 wQ
 EA
 Vf
-dd
+lB
 pp
 Gh
 LS
@@ -1482,7 +1622,7 @@ qa
 qa
 "}
 (16,1,1) = {"
-Sj
+qq
 HD
 Hs
 bp
@@ -1491,8 +1631,8 @@ IT
 YV
 YF
 bI
-CK
-NV
+pl
+kJ
 NV
 Gv
 dd
@@ -1516,8 +1656,8 @@ fN
 qa
 "}
 (17,1,1) = {"
-Sj
-Sj
+qq
+qq
 dd
 MB
 dd
@@ -1554,9 +1694,9 @@ qa
 rS
 yA
 tq
-dd
-PS
-gS
+Np
+Sj
+tW
 Tb
 Hy
 rS
@@ -1688,7 +1828,7 @@ ce
 (22,1,1) = {"
 qa
 qa
-Sj
+qq
 Du
 Mb
 dd
@@ -1699,7 +1839,7 @@ dd
 dd
 Tz
 Tn
-dd
+Zd
 dd
 yA
 rS
@@ -1722,7 +1862,7 @@ ce
 (23,1,1) = {"
 qa
 qa
-Sj
+qq
 MO
 dd
 dd
@@ -1756,7 +1896,7 @@ qa
 (24,1,1) = {"
 qa
 qa
-Sj
+qq
 MO
 dd
 dd
@@ -1790,7 +1930,7 @@ qa
 (25,1,1) = {"
 qa
 qa
-Sj
+qq
 MO
 yv
 dd
@@ -1864,22 +2004,22 @@ rS
 rS
 rS
 rS
-Sj
-Sj
-Sj
+qq
+qq
+qq
 rS
 rS
-Sj
-Sj
-Sj
+qq
+qq
+qq
 rS
-Sj
-Sj
-Sj
+qq
+qq
+qq
 rS
 rS
-Sj
-Sj
+qq
+qq
 qq
 rS
 yg
