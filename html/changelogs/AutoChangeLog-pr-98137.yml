@@ -1,4 +1,0 @@
-author: "vinylspiders"
-delete-after: True
-changes:
-  - bugfix: "pyrophobia now builds fear from being on fire when no fire hallucination is present."
