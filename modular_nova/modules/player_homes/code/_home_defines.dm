@@ -12,7 +12,7 @@
 #define HOME_SAVE_VERSION 1
 
 /// Refuse a save holding more movables than this.
-#define HOME_MAX_OBJECTS 1500
+#define HOME_MAX_OBJECTS 2500
 
 /// Largest footprint a home interior may have, in tiles.
 #define HOME_MAX_DIMENSION 40

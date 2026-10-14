@@ -285,10 +285,16 @@
 		to_chat(user, span_warning("The console can't get a fix on the walls around you."))
 		return FALSE
 
-	// Direct turf contents is exactly what write_map() writes, so it's the honest measure.
+	// Count what write_map() will actually write: objs and non-player living mobs. Turf contents
+	// also holds lighting objects (one per lit tile), so length(contents) is no longer usable.
 	var/object_count = 0
 	for(var/turf/counted as anything in home.reservation.reserved_turfs)
-		object_count += length(counted.contents)
+		for(var/obj/thing in counted)
+			if(!save_blacklist[thing.type])
+				object_count++
+		for(var/mob/living/critter in counted)
+			if(!iscarbon(critter) && !critter.mind && !critter.ckey)
+				object_count++
 	if(object_count > HOME_MAX_OBJECTS)
 		to_chat(user, span_warning("Registry refused: [object_count] cataloguable objects exceeds the [HOME_MAX_OBJECTS] permitted. Clear some out and try again."))
 		return FALSE
