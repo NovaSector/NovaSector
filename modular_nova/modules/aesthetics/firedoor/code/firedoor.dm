@@ -18,7 +18,7 @@
 		. += mutable_appearance(icon, "firelock_alarm_type_bottom")
 		. += emissive_appearance(icon, "firelock_alarm_type_bottom", src, alpha = src.alpha)
 
-/obj/machinery/door/firedoor/open()
+/obj/machinery/door/firedoor/open(forced = DEFAULT_DOOR_CHECKS, mob/living/opener)
 	playsound(loc, door_open_sound, 100, TRUE)
 	. = ..()
 	reset_reopen_pending = FALSE

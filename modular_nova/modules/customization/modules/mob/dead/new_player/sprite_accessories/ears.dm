@@ -2,23 +2,19 @@
 	key = FEATURE_EARS
 	organ_type = /obj/item/organ/ears_external
 	color_src = USE_MATRIXED_COLORS
-	use_custom_mod_icon = TRUE
+	flags_custom_mod_icon = MOD_ACCESSORY_HELMET
 
 /datum/sprite_accessory/ears/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
-	if(!(wearer.obscured_slots & HIDEHAIR))
-		return (key in wearer.try_hide_mutant_parts)
-	if(key in wearer.try_hide_mutant_parts)
+	. = ..()
+	if(.)
+		return
+
+	if(wearer.obscured_slots & HIDEHAIR)
+		if(istype(wearer.head, /obj/item/clothing/head/mod))
+			return FALSE // i'm so sorry, this is still required
+		if(wearer.obscured_slots & SHOWSPRITEEARS)
+			return FALSE
 		return TRUE
-	var/obj/item/worn_head = wearer.head
-	if(istype(worn_head, /obj/item/clothing/head/mod))
-		return FALSE
-	// Items with earholes (balaclavas, luchador masks) force ears to show
-	if(worn_head && (worn_head.flags_inv & (HIDEHAIR|SHOWSPRITEEARS)) == (HIDEHAIR|SHOWSPRITEEARS))
-		return FALSE
-	var/obj/item/worn_mask = wearer.wear_mask
-	if(worn_mask && (worn_mask.flags_inv & (HIDEHAIR|SHOWSPRITEEARS)) == (HIDEHAIR|SHOWSPRITEEARS))
-		return FALSE
-	return TRUE
 
 /datum/sprite_accessory/ears/cat
 	recommended_species = list(

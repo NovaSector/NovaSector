@@ -308,11 +308,11 @@
 /datum/supply_pack/companies/machines/interdyne/mmi
 	name = "Interdyne MMI Brain"
 	desc = "A morally questionable device, that you can use to turn living brains into cyborgs!"
-	contains = list(/obj/item/mmi/syndie/interdyne)
+	contains = list(/obj/item/brain_processor/organic/syndie/interdyne)
 	cost = CARGO_CRATE_VALUE * 5
 
 /datum/supply_pack/companies/machines/interdyne/posibrain
 	name = "Interdyne Posi Brain"
 	desc = "A less morally questionable device, useful in activating new cyborgs!"
-	contains = list(/obj/item/mmi/posibrain/syndie/interdyne)
+	contains = list(/obj/item/brain_processor/positronic/syndie/interdyne)
 	cost = CARGO_CRATE_VALUE * 5

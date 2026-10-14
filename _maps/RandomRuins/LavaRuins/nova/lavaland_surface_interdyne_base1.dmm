@@ -1720,7 +1720,7 @@
 /obj/item/reagent_containers/condiment/milk,
 /obj/item/reagent_containers/condiment/soymilk,
 /obj/item/reagent_containers/condiment/soymilk,
-/obj/item/choice_beacon/ingredient,
+/obj/item/pizzavoucher,
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/siding/dark_green,
 /turf/open/floor/iron/textured_large,

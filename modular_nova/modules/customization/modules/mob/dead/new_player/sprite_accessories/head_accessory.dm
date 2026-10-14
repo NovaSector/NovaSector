@@ -17,13 +17,17 @@
 	natural_spawn = FALSE
 	factual = FALSE
 
-/datum/sprite_accessory/head_accessory/is_hidden(mob/living/carbon/human/owner, datum/bodypart_overlay/mutant/bodypart_overlay)
-	var/obj/item/clothing/head/worn_head = owner.head
-	var/obj/item/clothing/mask/worn_mask = owner.wear_mask
-	if((worn_head?.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR) \
-		&& !(worn_mask && worn_mask.flags_inv & SHOWSPRITEEARS))
+/datum/sprite_accessory/head_accessory/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
+	. = ..()
+	if(.)
+		return
+
+	if(wearer.obscured_slots & HIDEHAIR)
+		if(istype(wearer.head, /obj/item/clothing/head/mod))
+			return FALSE // i'm so sorry, this is still required
+		if(wearer.obscured_slots & SHOWSPRITEEARS)
+			return FALSE
 		return TRUE
-	return FALSE
 
 /datum/sprite_accessory/head_accessory/sylveon_bow
 	name = "Sylveon Bow"

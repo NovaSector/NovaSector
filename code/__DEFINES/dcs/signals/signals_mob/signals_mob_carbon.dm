@@ -150,6 +150,9 @@
 ///from /mob/living/carbon/human/get_id_name; only returns if the mob has TRAIT_UNKNOWN and it's being overridden: (identity)
 #define COMSIG_HUMAN_GET_FORCED_NAME "human_get_forced_name"
 
+///from /mob/living/carbon/human/spec_stun(): (list/amount)
+#define COMSIG_HUMAN_SPEC_STUN "human_spec_stun"
+
 // Mob transformation signals
 ///Called when a human turns into a monkey, from /mob/living/carbon/proc/finish_monkeyize()
 #define COMSIG_HUMAN_MONKEYIZE "human_monkeyize"
@@ -223,5 +226,3 @@
 #define COMSIG_END_DREAMING "end_dreaming"
 /// From /mob/living/carbon/item_coverage_changed: (added_slots, removed_slots)
 #define COMSIG_CARBON_ITEM_COVERAGE_CHANGED "carbon_item_coverage_changed"
-/// From /mob/living/carbon/proc/get_sight_and_cutoffs(): (list/new_sight_flags)
-#define COMSIG_CARBON_UPDATE_SIGHT_CUTOFFS "carbon_update_sight_cutoffs"

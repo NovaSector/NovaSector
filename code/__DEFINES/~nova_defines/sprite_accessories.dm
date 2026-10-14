@@ -6,3 +6,13 @@
 #define SPRITE_ACCESSORY_HIDE_SHOES (1<<2)
 /// The flag to that controls whether or not this sprite accessory should force worn facewear to use layers 5 (for glasses) and 4 (for masks and hats).
 #define SPRITE_ACCESSORY_USE_ALT_FACEWEAR_LAYER (1<<3)
+
+// Flags for rendering hardlight overlays
+/// Must have boots active to render hardlight overlays
+#define MOD_ACCESSORY_BOOTS (1 << 0)
+/// Must have gauntlets active to render hardlight overlays
+#define MOD_ACCESSORY_GAUNTLETS (1 << 1)
+/// Must have a chestplate active to render hardlight overlays
+#define MOD_ACCESSORY_CHESTPLATE (1 << 2)
+/// Must have a helmet active to render hardlight overlays
+#define MOD_ACCESSORY_HELMET (1 << 3)

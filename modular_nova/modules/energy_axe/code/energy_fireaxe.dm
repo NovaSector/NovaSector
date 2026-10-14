@@ -3,6 +3,7 @@
 /obj/item/fireaxe/energy
 	icon = 'modular_nova/master_files/icons/obj/energy_axe.dmi'
 	icon_state = "energy_axe0"
+	inhand_icon_state = "energy_axe0"
 	base_icon_state = "energy_axe"
 	worn_icon_state = "energy_axe"
 	lefthand_file = 'modular_nova/master_files/icons/mob/energyaxe_lefthand.dmi'
@@ -30,6 +31,7 @@
 	SIGNAL_HANDLER
 
 	hitsound = 'sound/items/weapons/blade1.ogg'
+	inhand_icon_state = "[base_icon_state]1"
 	START_PROCESSING(SSobj, src)
 	set_light_on(TRUE)
 
@@ -39,5 +41,6 @@
 	SIGNAL_HANDLER
 
 	hitsound = SFX_SWING_HIT
+	inhand_icon_state = "[base_icon_state]0"
 	STOP_PROCESSING(SSobj, src)
 	set_light_on(FALSE)

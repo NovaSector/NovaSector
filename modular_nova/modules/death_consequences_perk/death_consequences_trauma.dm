@@ -200,7 +200,7 @@
 	if ((world.time - time_between_reminders) > time_of_last_message_sent)
 		send_reminder()
 
-/datum/brain_trauma/severe/death_consequences/proc/on_received_stamina_damage(mob/living/source, current_level, amount_actual, amount)
+/datum/brain_trauma/severe/death_consequences/proc/on_received_stamina_damage(mob/living/source, current_level)
 	SIGNAL_HANDLER
 	if(current_level <= current_minimum_stamina_damage)
 		return COMPONENT_LIVING_BLOCK_STAMINA_REGEN_TIMER

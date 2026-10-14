@@ -154,7 +154,7 @@
 		human.update_sight()
 	return ..()
 
-/obj/vehicle/sealed/mecha/warden/wunk/mmi_moved_inside(obj/item/mmi/MMI, mob/user)
+/obj/vehicle/sealed/mecha/warden/wunk/mmi_moved_inside(obj/item/brain_processor/MMI, mob/user)
 	. = ..()
 	if(. && !isnull(MMI.brainmob) && !HAS_TRAIT(MMI.brainmob, TRAIT_THERMAL_VISION))
 		ADD_TRAIT(MMI.brainmob, TRAIT_THERMAL_VISION, VEHICLE_TRAIT)

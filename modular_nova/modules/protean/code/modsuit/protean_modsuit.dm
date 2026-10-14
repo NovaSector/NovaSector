@@ -20,6 +20,7 @@
 	var/datum/mod_theme/stored_theme
 
 /datum/mod_theme/protean
+	parent_type = /datum/mod_theme/standard
 	name = "protean"
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 

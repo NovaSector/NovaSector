@@ -152,6 +152,14 @@
 		/obj/item/stack/tile/wood/wood_11,
 		/obj/item/stack/tile/wood/wood_12,
 		/obj/item/stack/tile/wood/wood_13,
+		/obj/item/stack/tile/wood/dark,
+		/obj/item/stack/tile/wood/dark/tile,
+		/obj/item/stack/tile/wood/dark/parquet,
+		/obj/item/stack/tile/wood/dark/large,
+		/obj/item/stack/tile/wood/light,
+		/obj/item/stack/tile/wood/light/tile,
+		/obj/item/stack/tile/wood/light/parquet,
+		/obj/item/stack/tile/wood/light/large,
 	)
 
 /turf/open/indestructible/cobble
@@ -240,10 +248,22 @@
 /turf/open/floor/holofloor/wood
 	icon = 'icons/turf/floors.dmi'
 
+/turf/open/floor/iron/asteroid_5
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/asteroid_8
+	icon = 'icons/turf/floors.dmi'
+
 /turf/open/floor/iron/bluespace
 	icon = 'icons/turf/floors.dmi'
 
+/turf/open/floor/iron/dark/bus
+	icon = 'icons/turf/floors.dmi'
+
 /turf/open/floor/iron/grimy
+	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/pod_dark
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/iron/solarpanel
@@ -251,6 +271,11 @@
 
 /turf/open/floor/iron/stairs
 	icon = 'icons/turf/floors.dmi'
+
+/turf/open/floor/iron/stairs/wood
+	icon = 'icons/obj/stairs.dmi'
+	icon_state = "stairs_wood"
+	base_icon_state = "stairs_wood"
 
 /turf/open/floor/iron/terracotta
 	icon = 'icons/turf/floors.dmi'
@@ -279,6 +304,9 @@
 /turf/open/floor/plating/foam
 	icon = 'icons/turf/floors.dmi'
 
+/turf/open/floor/plating/foam_pattern
+	icon = 'icons/turf/floors.dmi'
+
 /turf/open/floor/vault
 	icon = 'icons/turf/floors.dmi'
 
@@ -294,31 +322,10 @@
 /turf/open/chasm/true/fakeout
 	icon = 'icons/turf/floors.dmi'
 
-/turf/open/floor/meat
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/bone
-	icon = 'icons/turf/floors.dmi'
-
 /turf/open/floor/hauntium
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/sandstone
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/silvergold
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/neo/red
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/neo/purple
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/neo/orange
-	icon = 'icons/turf/floors.dmi'
-
-/turf/open/floor/neo/cyan
 	icon = 'icons/turf/floors.dmi'
 
 /turf/open/floor/iron/recharge_floor/dark

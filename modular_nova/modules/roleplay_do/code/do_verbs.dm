@@ -39,7 +39,7 @@ GAME_VERB(/mob, do_verb, "Do", "IC")
 		return
 
 	var/name_stub = " (<b>[usr]</b>)"
-	message = usr.apply_message_emphasis(message)
+	message = apply_message_emphasis(message)
 	message = trim(copytext_char(message, 1, (MAX_MESSAGE_LEN - length(name_stub))))
 	var/message_with_name = message + name_stub
 

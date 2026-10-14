@@ -66,6 +66,33 @@
 	base_icon_state = "cobble_corner"
 	icon_state = "cobble_corner"
 
+/turf/open/floor/iron/pool/cobble/wateryrock
+	icon = 'icons/turf/mining.dmi'
+	base_icon_state = "wateryrock"
+	icon_state = "wateryrock"
+
+/turf/open/floor/iron/pool/cobble/wateryrock/variant_4
+	base_icon_state = "wateryrock4"
+	icon_state = "wateryrock4"
+
+/turf/open/floor/iron/pool/cobble/wateryrock/variant_6
+	base_icon_state = "wateryrock6"
+	icon_state = "wateryrock6"
+
+/turf/open/floor/iron/pool/cobble/wateryrock/variant_7
+	base_icon_state = "wateryrock7"
+	icon_state = "wateryrock7"
+
+/turf/open/floor/iron/pool/dungeon_cobble
+	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi'
+	base_icon_state = "cobble"
+	icon_state = "cobble"
+
+/turf/open/floor/iron/pool/bcircuit
+	icon = 'icons/turf/floors.dmi'
+	base_icon_state = "bcircuit"
+	icon_state = "bcircuit"
+
 /turf/open/floor/iron/elevated
 	name = "elevated floor"
 	floor_tile = /obj/item/stack/tile/iron/elevated

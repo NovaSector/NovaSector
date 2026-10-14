@@ -1,26 +1,18 @@
 /datum/sprite_accessory/moth_antennae
 	key = FEATURE_MOTH_ANTENNAE
 	organ_type = /obj/item/organ/antennae
-	use_custom_mod_icon = TRUE
+	flags_custom_mod_icon = MOD_ACCESSORY_HELMET
 
 /datum/sprite_accessory/moth_antennae/is_hidden(mob/living/carbon/human/wearer, datum/bodypart_overlay/mutant/bodypart_overlay)
-	var/obj/item/clothing/head/mod/worn_head = wearer.head
-	if(isnull(worn_head))
-		return FALSE
+	. = ..()
+	if(.)
+		return
 
-	// Can hide if wearing hat
-	if(key in wearer.try_hide_mutant_parts)
-		return TRUE
-
-	// Exception for MODs
-	if(istype(worn_head))
-		return FALSE
-
-	// Hide accessory if flagged to do so
-	var/obj/item/clothing/mask/worn_mask = wearer.wear_mask
-	if((worn_head?.flags_inv & HIDEHAIR || worn_mask?.flags_inv & HIDEHAIR) \
-		// This line basically checks if we FORCE accessory-ears to show, for items with earholes like Balaclavas and Luchador masks
-		&& ((worn_head && !(worn_head.flags_inv & SHOWSPRITEEARS)) || (worn_mask && !(wearer.wear_mask?.flags_inv & SHOWSPRITEEARS))))
+	if(wearer.obscured_slots & HIDEHAIR)
+		if(istype(wearer.head, /obj/item/clothing/head/mod))
+			return FALSE // i'm so sorry, this is still required
+		if(wearer.obscured_slots & SHOWSPRITEEARS)
+			return FALSE
 		return TRUE
 
 /datum/sprite_accessory/moth_antennae/none

@@ -3,6 +3,7 @@
 	desc = "An RCD of an improved design with a \"Tarkon Industries\" logo on it. Reload using metal, glass, or plasteel."
 	icon = 'modular_nova/modules/tarkon/icons/misc/tools.dmi'
 	icon_state = "trcd"
+	inhand_icon_state = "trcd"
 	righthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/righthand.dmi'
 	lefthand_file = 'modular_nova/modules/tarkon/icons/mob/inhands/lefthand.dmi'
 	canRturf = FALSE //We at tarkon industries believe in "Manual Correction". memorize the Rwall decon sequence and you're hired.

@@ -448,7 +448,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 		for(var/obj/item/item_content in mob_occupant)
 			if(HAS_TRAIT(item_content, TRAIT_NODROP) || (item_content.item_flags & (ABSTRACT|DROPDEL)) || (item_content.flags_1 & HOLOGRAM_1) || (item_content.obj_flags_nova & NO_CRYO_FREEZE) || QDELETED(item_content))
 				continue
-			if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
+			if (issilicon(mob_occupant) && istype(item_content, /obj/item/brain_processor))
 				continue
 			if(control_computer)
 				if(istype(item_content, /obj/item/modular_computer))
@@ -463,7 +463,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	// Borgs will splash the ground with their beaker reagents on qdel, let's make sure this does not happen
 	if(iscyborg(occupant))
 		var/mob/living/silicon/robot/cyborg_occupant = occupant
-		var/obj/item/borg/apparatus/beaker/borg_beaker = (locate() in cyborg_occupant.model.modules) || (locate() in cyborg_occupant.held_items)
+		var/obj/item/borg/apparatus/beaker/borg_beaker = (locate() in cyborg_occupant.model.modules) || (locate() in cyborg_occupant.get_held_items())
 		if(borg_beaker && borg_beaker.stored)
 			var/obj/item/reagent_containers/reagent_container = borg_beaker.stored
 			reagent_container.reagents?.clear_reagents()

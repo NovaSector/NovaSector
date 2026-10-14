@@ -84,7 +84,7 @@
 /// Multiplies the logarithmic value calculating the free crate cooldown
 #define DEPARTMENTAL_ORDER_COOLDOWN_COEFFICIENT 60
 /// Used for the power of the logarithmic value for the free crate cooldown
-#define DEPARTMENTAL_ORDER_COOLDOWN_EXPONENT 2.2
+#define DEPARTMENTAL_ORDER_COOLDOWN_EXPONENT 2 // NOVA EDIT CHANGE - ORIGINAL : 2.2
 
 //At 320 it's 475 credits, at 1400 it's 669 credits,  at 3000 (around gun crates) its 778, at 8000 (hat crate) it's 925 credits, at 9000 (expensive atmos cans) it's 943 credits, and at the 20k crate it's 1070 credits.
 

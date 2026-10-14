@@ -47,14 +47,14 @@
 /obj/item/ammo_casing/shotgun/incendiary
 	desc = "A 12 gauge shotgun slug coated with incendiary material.\
 		<br><br>\
-		<i>INCENDIARY: Sets targets aflame. Leaves a flaming trail when shot.</i>"
+		<i>INCENDIARY: Sets targets aflame. Bursts into flames on impact.</i>"
 	ammo_categories = AMMO_CLASS_NICHE
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT)
 
-/obj/item/ammo_casing/shotgun/incendiary/no_trail
-	desc = "A 12 gauge shotgun slug coated with incendiary material.\
+/obj/item/ammo_casing/shotgun/incendiary/milspec
+	desc = "A hot-loaded 12 gauge milspec shotgun slug coated with incendiary material.\
 		<br><br>\
-		<i>PRECISION INCENDIARY: Sets targets aflame. Does not leave a flaming trail when shot.</i>"
+		<i>MILSPEC INCENDIARY: Sets targets aflame. Bursts into flames on impact.</i>"
 
 /obj/item/ammo_casing/shotgun/dragonsbreath
 	can_be_printed = FALSE // techshell. assumed intended balance being a pain to assemble

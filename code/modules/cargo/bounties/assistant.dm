@@ -3,7 +3,7 @@
 	name = "Strange Object"
 	description = "Nanotrasen has taken an interest in strange objects. Find one in maintenance, and ship it off to CentCom right away."
 	reward = CARGO_CRATE_VALUE * 2.4
-	wanted_types = list(/obj/item/relic = TRUE)
+	wanted_types = list(/obj/item/assembly/relic = TRUE)
 */ // NOVA EDIT REMOVAL END
 
 /* NOVA EDIT REMOVAL START - Removes bounties, these are just boring.
