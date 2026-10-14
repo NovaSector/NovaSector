@@ -1,0 +1,4 @@
+author: "sqnztb"
+delete-after: True
+changes:
+  - bugfix: "green pins should no longer erroneously equip on players with more than 100h of playtime (unless you add it via loadout)"
