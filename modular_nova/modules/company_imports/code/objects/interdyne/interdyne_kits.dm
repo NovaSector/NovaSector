@@ -74,7 +74,7 @@
 	inhand_icon_state = "medkit-tactical-premium"
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
-	storage_type = /datum/storage/duffel/deforest_big_surgery/interdyne_medkit
+	storage_type = /datum/storage/medkit/combat/interdyne
 	obj_flags = UNIQUE_RENAME
 
 /obj/item/storage/medkit/tactical/premium/interdyne/setup_reskins()
