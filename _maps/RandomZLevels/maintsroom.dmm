@@ -2639,10 +2639,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "iy" = (
-/turf/open/floor/plating{
-	icon_state = "wall_thermite";
-	name = "melted wall"
-	},
+/turf/open/floor/plating/melted,
 /area/awaymission/caves/maintsroom)
 "iz" = (
 /obj/structure/frame/computer{
@@ -3443,6 +3440,11 @@
 	spawn_scatter_radius = 1
 	},
 /turf/open/floor/plating/rust,
+/area/awaymission/caves/maintsroom)
+"lh" = (
+/obj/effect/mapping_helpers/broken_floor,
+/obj/item/grenade/stingbang/mega,
+/turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "li" = (
 /obj/effect/spawner/random/structure/girder,
@@ -5657,6 +5659,11 @@
 	},
 /turf/open/floor/iron/smooth,
 /area/awaymission/caves/maintsroom)
+"sN" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/obj/structure/foamedmetal,
+/turf/open/floor/plating,
+/area/awaymission/caves/maintsroom)
 "sO" = (
 /mob/living/basic/bot/secbot/grievous{
 	faction = list("hostile","cult")
@@ -7123,9 +7130,8 @@
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "xV" = (
-/turf/open/floor/plating{
-	icon_state = "foam_plating"
-	},
+/obj/structure/foamedmetal,
+/turf/open/floor/plating/foam,
 /area/awaymission/caves/maintsroom)
 "xW" = (
 /obj/structure/chair/stool/directional/west,
@@ -15128,10 +15134,7 @@
 	},
 /area/awaymission/caves/maintsroom)
 "Zn" = (
-/obj/item/grenade/stingbang/mega,
-/turf/open/floor/plating{
-	icon_state = "foam_plating"
-	},
+/turf/open/floor/plating/foam,
 /area/awaymission/caves/maintsroom)
 "Zo" = (
 /obj/effect/turf_decal/weather/snow,
@@ -18592,7 +18595,7 @@ uG
 uG
 Yg
 xV
-ED
+sN
 ED
 bO
 uG
@@ -18807,7 +18810,7 @@ Lf
 By
 hr
 ED
-qt
+lh
 Zn
 xV
 qt

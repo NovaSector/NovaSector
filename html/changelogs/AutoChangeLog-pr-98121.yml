@@ -1,0 +1,4 @@
+author: "RusselNotSCP"
+delete-after: True
+changes:
+  - bugfix: "Footsoldier's Razor recipe no longer has dumb overlap with Pump-up, and instead now uses it as an ingredient"

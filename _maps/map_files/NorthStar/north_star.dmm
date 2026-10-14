@@ -8764,11 +8764,6 @@
 /obj/machinery/door/firedoor/heavy,
 /turf/open/floor/iron/dark,
 /area/station/science/xenobiology/hallway)
-"cgM" = (
-/turf/open/floor/iron/stairs{
-	icon_state = "stairs-m"
-	},
-/area/station/science/lobby)
 "cgR" = (
 /obj/structure/closet/secure_closet/hydroponics,
 /obj/effect/turf_decal/tile/green/fourcorners,
@@ -15790,9 +15785,7 @@
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor3/port/aft)
 "dVH" = (
-/turf/open/misc/asteroid/snow/standard_air{
-	icon_state = "snow10"
-	},
+/turf/open/misc/asteroid/snow/standard_air,
 /area/station/maintenance/floor2/port/aft)
 "dVQ" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -19782,11 +19775,8 @@
 /turf/open/floor/iron/white,
 /area/station/medical/psychology)
 "faq" = (
-/obj/effect/turf_decal/trimline/purple/end,
 /obj/machinery/shower/directional/south,
-/turf/open/floor/noslip{
-	icon_state = "textured_white"
-	},
+/turf/open/floor/noslip,
 /area/station/science/robotics/lab)
 "faw" = (
 /obj/machinery/light/directional/south,
@@ -29600,9 +29590,7 @@
 /area/station/command/teleporter)
 "hzR" = (
 /obj/item/shovel,
-/turf/open/misc/asteroid/snow/standard_air{
-	icon_state = "snow5"
-	},
+/turf/open/misc/asteroid/snow/standard_air,
 /area/station/maintenance/floor2/port/aft)
 "hzU" = (
 /obj/machinery/door/airlock/hatch{
@@ -36914,9 +36902,7 @@
 	amount = 10
 	},
 /obj/machinery/light_switch/directional/south,
-/turf/open/misc/asteroid/snow/standard_air{
-	icon_state = "snow8"
-	},
+/turf/open/misc/asteroid/snow/standard_air,
 /area/station/maintenance/floor2/port/aft)
 "jth" = (
 /obj/machinery/porta_turret/ai,
@@ -40565,12 +40551,7 @@
 /area/station/maintenance/solars/starboard/fore)
 "knT" = (
 /obj/structure/sink/directional/north,
-/obj/effect/turf_decal/trimline/purple/end{
-	dir = 1
-	},
-/turf/open/floor/noslip{
-	icon_state = "textured_white"
-	},
+/turf/open/floor/noslip,
 /area/station/science/robotics/lab)
 "knW" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/middle,
@@ -64618,9 +64599,7 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible{
 	dir = 1
 	},
-/turf/open/misc/asteroid/snow/standard_air{
-	icon_state = "snow12"
-	},
+/turf/open/misc/asteroid/snow/standard_air,
 /area/station/maintenance/floor2/port/aft)
 "qhH" = (
 /obj/effect/turf_decal/trimline/green/warning{
@@ -71241,11 +71220,6 @@
 /obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor3/port)
-"rSw" = (
-/turf/open/misc/asteroid/snow/standard_air{
-	icon_state = "snow1"
-	},
-/area/station/maintenance/floor2/port/aft)
 "rSC" = (
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible/layer2{
 	dir = 4
@@ -188988,7 +188962,7 @@ cwq
 cwq
 xuv
 njc
-cgM
+hMV
 lIL
 fFu
 auU
@@ -211118,7 +211092,7 @@ hXu
 xui
 nlN
 hzR
-rSw
+dVH
 tzu
 nlN
 hMU
