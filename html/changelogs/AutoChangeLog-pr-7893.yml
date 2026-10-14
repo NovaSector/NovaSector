@@ -1,0 +1,4 @@
+author: "Richard Blonski"
+delete-after: True
+changes:
+  - qol: "Interdyne Premium Medkit can now hold medium items as well."
