@@ -284,11 +284,17 @@
   - rscadd: Ethereals can now equip underwear in the character customization menu!
       Now you too can impress your friends with your pride flag socks and union jack
       boxer shorts.
+  Melbert:
+  - qol: Dynamic avoids spawning midrounds while the shuttle is called. (Previously,
+      it only avoided spawning midrounds if the shuttle was half way to the station).
   Moonridden:
   - config: The help link for revenants now uses the config set, rather than a hard-coded
       link.
   PapaMichael:
   - bugfix: Imported chat settings will last longer than one round
+  Richard Blonski:
+  - bugfix: Uncommon Blood Packs are properly named again.
+  - qol: Interdyne Premium Medkit can now hold medium items as well.
   RusselNotSCP:
   - bugfix: Footsoldier's Razor recipe no longer has dumb overlap with Pump-up, and
       instead now uses it as an ingredient
@@ -311,6 +317,10 @@
   - balance: Dragonsbreath also now bounces.
   - code_imp: Correctly identifies the Tesla Cannon's design datum path as being the
       tesla revolver, no the stun revolver.
+  sqnztb:
+  - bugfix: icons should crop against taurs properly now
+  - bugfix: green pins should no longer erroneously equip on players with more than
+      100h of playtime (unless you add it via loadout)
   vinylspiders:
   - bugfix: pyrophobia now builds fear from being on fire when no fire hallucination
       is present.
