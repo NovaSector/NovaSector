@@ -116,10 +116,12 @@ export const underwear_color: Feature<string> = {
   component: FeatureColorInput,
 };
 
+// NOVA EDIT ADDITION START
 export const bra_color: Feature<string> = {
   name: 'Bra color',
   component: FeatureColorInput,
 };
+// NOVA EDIT ADDITION END
 
 export const feature_vampire_status: Feature<string> = {
   name: 'Vampire status',
@@ -138,5 +140,10 @@ export const feature_fish_tail_color: Feature<string> = {
 
 export const feature_cerulean_frills: FeatureToggle = {
   name: 'Fish frills',
+  component: CheckboxInput,
+};
+
+export const feature_cerulean_snout: FeatureToggle = {
+  name: 'Fish snout',
   component: CheckboxInput,
 };
