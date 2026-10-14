@@ -24865,12 +24865,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/hos)
-"gnZ" = (
-/obj/effect/spawner/random/structure/crate{
-	loot = list(/obj/item/toy/plush/carpplushie,/obj/item/toy/plush/slimeplushie,/obj/item/toy/plush/lizard_plushie,/obj/item/toy/plush/snakeplushie,/obj/item/toy/plush/plasmamanplushie,/obj/item/toy/plush/human,/obj/item/toy/plush/beeplushie,/obj/item/toy/plush/moth,/obj/item/toy/plush/pkplush,/obj/item/toy/plush/horse,/obj/item/toy/plush/monkey)list(/obj/item/toy/plush/carpplushie,/obj/item/toy/plush/slimeplushie,/obj/item/toy/plush/lizard_plushie,/obj/item/toy/plush/snakeplushie,/obj/item/toy/plush/plasmamanplushie,/obj/item/toy/plush/human,/obj/item/toy/plush/beeplushie,/obj/item/toy/plush/moth,/obj/item/toy/plush/pkplush,/obj/item/toy/plush/horse,/obj/item/toy/plush/monkey)
-	},
-/turf/open/floor/plating,
-/area/station/maintenance/fore/upper)
 "god" = (
 /obj/structure/fake_stairs/directional/north,
 /turf/open/floor/plating,
@@ -176369,7 +176363,7 @@ bEj
 bEj
 bEj
 vLj
-gnZ
+qhM
 fEe
 fEe
 qub
