@@ -158,7 +158,13 @@
 	to_chat(user, span_notice("\The [src] chimes. Your home is on the record exactly as it stands."))
 
 /obj/machinery/home_saver/proc/restore_backup(datum/home_instance/home, mob/living/user)
-	if(tgui_alert(user, "Restoring rolls your home back to the save before your last one. Everything currently in these rooms is lost. Continue?", "Restore Previous Save", list("Restore", "Cancel")) != "Restore")
+	var/latest = home.last_saved ? "your save from [home.last_saved] UTC" : "your most recent save"
+	if(tgui_alert(user, "This is NOT an undo for unsaved changes. Restoring throws away [latest] and rolls your home back to the save BEFORE it. Everything currently in these rooms is lost. If you have unsaved changes you would like to undo, exit and reenter your home instead. Continue?", "Restore Previous Save", list("Restore", "Cancel")) != "Restore")
+		return
+	if(!user.Adjacent(src) || !home.is_owner(user))
+		return
+	// Asked twice on purpose: a restore permanently overwrites the newest save and cannot itself be undone.
+	if(tgui_alert(user, "Last chance. [capitalize(latest)] will be permanently overwritten and cannot be recovered, not even by staff. Restore anyway?", "Restore Previous Save", list("Yes, overwrite it", "Cancel")) != "Yes, overwrite it")
 		return
 	if(!user.Adjacent(src) || !home.is_owner(user))
 		return

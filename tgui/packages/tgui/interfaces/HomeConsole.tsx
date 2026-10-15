@@ -117,9 +117,14 @@ const TheRecord = (props) => {
       <Button
         fluid
         icon="clock-rotate-left"
+        color="caution"
         textAlign="center"
         disabled={!has_backup}
-        tooltip={has_backup ? undefined : 'No earlier record on file.'}
+        tooltip={
+          has_backup
+            ? 'Discards your latest save and goes back to the one before it. This cannot be undone.'
+            : 'No earlier record on file.'
+        }
         onClick={() => act('restore')}
       >
         Restore previous save
