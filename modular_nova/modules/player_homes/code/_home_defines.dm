@@ -79,6 +79,92 @@
 	landing_zone_x_offset = 2
 	landing_zone_y_offset = 9
 
+
+/datum/map_template/home/cabin
+	name = "Home - Cabin In The Woods"
+	blurb = "Timber walls, a stove, and a great many trees that are none of your business."
+	mappath = "_maps/nova/persistent_housing/home_cabin.dmm"
+	landing_zone_x_offset = 2
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/conservatory
+	name = "Home - Conservatory"
+	blurb = "A glasshouse garden with a lily pond, a few resident butterflies, and somewhere to sleep after."
+	mappath = "_maps/nova/persistent_housing/home_conservatory.dmm"
+	landing_zone_x_offset = 6
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/haunted_manor
+	name = "Home - Haunted Manor"
+	blurb = "Candlelit, cobwebbed, and sold as-is. The previous owner is technically still in residence."
+	mappath = "_maps/nova/persistent_housing/home_haunted_manor.dmm"
+	landing_zone_x_offset = 4
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/neon_loft
+	name = "Home - Neon Loft"
+	blurb = "Glowing carpet, a battlestation, and a kitchen used exclusively for reheating pizza."
+	mappath = "_maps/nova/persistent_housing/home_neon_loft.dmm"
+	landing_zone_x_offset = 7
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/penthouse
+	name = "Home - Penthouse Suite"
+	blurb = "A hot tub, a wet bar, a grand piano, and a view you'll have to take on faith."
+	mappath = "_maps/nova/persistent_housing/home_penthouse.dmm"
+	landing_zone_x_offset = 6
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/scholars_study
+	name = "Home - Scholar's Study"
+	blurb = "Books to the ceiling, a fire in the hearth, and no excuse left not to finish that novel."
+	mappath = "_maps/nova/persistent_housing/home_scholars_study.dmm"
+	landing_zone_x_offset = 6
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/seaside_bungalow
+	name = "Home - Seaside Bungalow"
+	blurb = "A beach, a bar, and a lagoon kept at exactly the right temperature."
+	mappath = "_maps/nova/persistent_housing/home_seaside_bungalow.dmm"
+	landing_zone_x_offset = 7
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/snowy_cabin
+	name = "Home - Snowy Cabin"
+	blurb = "A nice cozy cabin out in the snow. Bundle up!"
+	mappath = "_maps/nova/persistent_housing/home_snowycabin.dmm"
+	landing_zone_x_offset = 10
+	landing_zone_y_offset = 5
+
+/datum/map_template/home/starlight_diner
+	name = "Home - Starlight Diner"
+	blurb = "Booths, a griddle that has never once been turned off and bottomless coffee."
+	mappath = "_maps/nova/persistent_housing/home_starlight_diner.dmm"
+	landing_zone_x_offset = 8
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/starship_cabin
+	name = "Home - Starship Cabin"
+	blurb = "A tramp freighter's living deck, minus the freighter. The cockpit is decorative."
+	mappath = "_maps/nova/persistent_housing/home_starship_cabin.dmm"
+	landing_zone_x_offset = 3
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/survival_bunker
+	name = "Home - Survival Bunker"
+	blurb = "Reinforced walls, a year of canned beans, and the quiet confidence of someone who was right all along."
+	mappath = "_maps/nova/persistent_housing/home_survival_bunker.dmm"
+	landing_zone_x_offset = 6
+	landing_zone_y_offset = 1
+
+/datum/map_template/home/tea_house
+	name = "Home - Tea House"
+	blurb = "Paper walls, a koi pond with no koi, subtle reminders that bamboo is an invasive plant."
+	mappath = "_maps/nova/persistent_housing/home_tea_house.dmm"
+	landing_zone_x_offset = 3
+	landing_zone_y_offset = 1
+
+
 // Blank plots: a wall perimeter, plating, a front door and a console, and nothing else. For players
 // who would rather build from scratch than move into somebody's idea of a house.
 
@@ -110,29 +196,15 @@
 	landing_zone_x_offset = 6
 	landing_zone_y_offset = 1
 
-/datum/map_template/home/cabin
-	name = "Home - Cabin In The Woods"
-	blurb = "Timber walls, a stove, and a great many trees that are none of your business."
-	mappath = "_maps/nova/persistent_housing/home_cabin.dmm"
-	landing_zone_x_offset = 2
-	landing_zone_y_offset = 1
-
-/datum/map_template/home/snowy_cabin
-	name = "Home - Snowy Cabin"
-	blurb = "A nice cozy cabin out in the snow. Bundle up!"
-	mappath = "_maps/nova/persistent_housing/home_snowycabin.dmm"
-	landing_zone_x_offset = 10
-	landing_zone_y_offset = 5
-
-
-// Big, restricted lots.
-
-/datum/map_template/home/restricted/blank_20x20
+/datum/map_template/home/blank_20x20
 	name = "Home - Blank Plot (20x20)"
 	blurb = "Four hundred tiles of nothing whatsoever. Ambition sold separately."
 	mappath = "_maps/nova/persistent_housing/home_blank_20x20.dmm"
 	landing_zone_x_offset = 9
 	landing_zone_y_offset = 1
+
+
+// Big, restricted lots.
 
 /datum/map_template/home/restricted/blank_25x25
 	name = "Home - Blank Plot (25x25)"
