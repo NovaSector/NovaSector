@@ -1026,3 +1026,12 @@ NOVA EDIT END */
 	name = "Maid Headband Inhands Right"
 	icon_file = 'icons/mob/inhands/clothing/hats_righthand.dmi'
 	json_config = 'code/datums/greyscale/json_configs/maid.json'
+
+/datum/greyscale_config/earrings
+	name = "Earrings"
+	icon_file = 'icons/obj/clothing/accessories.dmi'
+	json_config = 'code/datums/greyscale/json_configs/earrings.json'
+
+/datum/greyscale_config/earrings/worn
+	name = "Earrings (Worn)"
+	icon_file = 'icons/mob/clothing/accessories.dmi'

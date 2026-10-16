@@ -1,0 +1,10 @@
+{
+	"earrings": [
+		{
+			"type": "icon_state",
+			"icon_state": "earrings",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}
