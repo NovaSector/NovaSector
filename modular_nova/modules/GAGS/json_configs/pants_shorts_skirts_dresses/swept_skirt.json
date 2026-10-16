@@ -1,0 +1,10 @@
+{
+	"swept_skirt": [
+		{
+			"type": "icon_state",
+			"icon_state": "swept_skirt",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}
