@@ -16,6 +16,7 @@
 	#include "map_files\NebulaStation\NebulaStation.dmm"
 	#include "map_files\KiloStation\KiloStation.dmm"
 	// NOVA EDIT ADDITION START - Compiling our modular maps too!
+	#include "map_files\Flumfstation\Flumstation.dmm"
 	#include "map_files\VoidRaptor\VoidRaptor.dmm"
 	#include "map_files\NSVBlueshift\Blueshift.dmm"
 	#include "map_files\Ouroboros\Ouroboros.dmm"
