@@ -7167,10 +7167,7 @@
 	dir = 9
 	},
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "bTu" = (
 /turf/closed/wall/r_wall,
@@ -8394,10 +8391,7 @@
 	pixel_x = 8
 	},
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "cjk" = (
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -11493,10 +11487,7 @@
 	pixel_y = 5
 	},
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "daw" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -17687,10 +17678,7 @@
 /obj/structure/flora/ocean/seaweed,
 /obj/structure/flora/bush/sparsegrass,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "eLZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -18784,10 +18772,7 @@
 	dir = 1
 	},
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "faZ" = (
 /obj/structure/chair/pew/right{
@@ -23689,10 +23674,7 @@
 /obj/structure/flora/ocean/longseaweed,
 /mob/living/basic/frog,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "gsH" = (
 /obj/structure/reagent_dispensers/watertank/high,
@@ -24399,10 +24381,7 @@
 	},
 /obj/structure/flora/bush/stalky,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "gBJ" = (
 /turf/open/floor/iron/edge,
@@ -30884,10 +30863,7 @@
 	pixel_y = 12
 	},
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "ilr" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
@@ -35879,9 +35855,7 @@
 /obj/structure/railing/wooden_fencing{
 	dir = 1
 	},
-/turf/open/floor/iron/stairs{
-	icon_state = "stairs_wood";
-	icon = 'icons/obj/stairs.dmi';
+/turf/open/floor/iron/stairs/wood{
 	dir = 8
 	},
 /area/station/security/courtroom)
@@ -37229,10 +37203,7 @@
 	pixel_y = 5
 	},
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "jTm" = (
 /turf/open/floor/iron/smooth_large,
@@ -41215,10 +41186,7 @@
 	},
 /obj/structure/flora/bush/reed/style_2,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "kTt" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -42159,10 +42127,7 @@
 	pixel_x = -6
 	},
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "lhq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -49017,10 +48982,7 @@
 	dir = 5
 	},
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "net" = (
 /obj/structure/cable,
@@ -52513,10 +52475,7 @@
 "nYE" = (
 /obj/structure/flora/ocean/longseaweed,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "nYL" = (
 /obj/structure/cable,
@@ -53564,20 +53523,14 @@
 "olA" = (
 /obj/structure/flora/ocean/coral,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "olC" = (
 /obj/structure/railing{
 	dir = 4
 	},
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "olF" = (
 /obj/effect/turf_decal/tile/red{
@@ -54269,9 +54222,7 @@
 /area/station/medical/medbay/central)
 "oxO" = (
 /obj/structure/railing/wooden_fencing,
-/turf/open/floor/iron/stairs{
-	icon_state = "stairs_wood";
-	icon = 'icons/obj/stairs.dmi';
+/turf/open/floor/iron/stairs/wood{
 	dir = 8
 	},
 /area/station/security/courtroom)
@@ -60269,10 +60220,7 @@
 "qhK" = (
 /obj/structure/flora/bush/sparsegrass/style_3,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "qhR" = (
 /obj/structure/table/wood,
@@ -62701,10 +62649,7 @@
 	},
 /obj/structure/flora/bush/stalky/style_2,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "qPP" = (
 /obj/effect/turf_decal/siding/wood{
@@ -62994,10 +62939,7 @@
 "qUA" = (
 /obj/structure/flora/bush/sparsegrass,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "qUJ" = (
 /obj/machinery/space_heater,
@@ -65835,10 +65777,7 @@
 	pixel_x = -6
 	},
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "rLY" = (
 /obj/structure/railing/wooden_fence,
@@ -74621,9 +74560,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/secondary/command)
 "tWy" = (
-/turf/open/floor/iron/stairs{
-	icon_state = "stairs_wood";
-	icon = 'icons/obj/stairs.dmi';
+/turf/open/floor/iron/stairs/wood{
 	dir = 1
 	},
 /area/station/service/theater/abandoned)
@@ -74760,10 +74697,7 @@
 	},
 /obj/structure/flora/bush/stalky/style_random,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "tYj" = (
 /obj/structure/cable,
@@ -74831,10 +74765,7 @@
 	pixel_y = 5
 	},
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "tYL" = (
 /obj/structure/disposalpipe/segment{
@@ -79403,10 +79334,7 @@
 	},
 /obj/structure/flora/bush/stalky/style_3,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "vmy" = (
 /obj/effect/turf_decal/trimline/green/filled/line{
@@ -83650,10 +83578,7 @@
 	},
 /obj/structure/flora/bush/stalky/style_random,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "wss" = (
 /obj/structure/cable,
@@ -85266,9 +85191,7 @@
 /turf/open/floor/wood/tile,
 /area/station/service/library)
 "wMH" = (
-/turf/open/floor/iron/stairs{
-	icon_state = "stairs_wood";
-	icon = 'icons/obj/stairs.dmi';
+/turf/open/floor/iron/stairs/wood{
 	dir = 8
 	},
 /area/station/security/courtroom)
@@ -85278,9 +85201,7 @@
 /turf/open/floor/plating,
 /area/station/security/checkpoint/customs/fore)
 "wMU" = (
-/turf/open/floor/iron/stairs{
-	icon_state = "stairs_wood";
-	icon = 'icons/obj/stairs.dmi';
+/turf/open/floor/iron/stairs/wood{
 	dir = 1
 	},
 /area/station/service/chapel)
@@ -88024,10 +87945,7 @@
 "xvv" = (
 /obj/structure/railing,
 /obj/effect/spawner/liquids_spawner,
-/turf/open/floor/iron/pool{
-	icon = 'modular_nova/modules/mapping/icons/unique/dungeon.dmi';
-	icon_state = "cobble"
-	},
+/turf/open/floor/iron/pool/dungeon_cobble,
 /area/station/hallway/floor2)
 "xvB" = (
 /obj/structure/cable,

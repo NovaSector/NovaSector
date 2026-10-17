@@ -56,6 +56,7 @@
 			return r_store
 		if(ITEM_SLOT_SUITSTORE)
 			return s_store
+
 	return ..()
 
 /mob/living/carbon/human/get_slot_by_item(obj/item/looking_for)
@@ -153,7 +154,6 @@
 		if(ITEM_SLOT_GLOVES)
 			if(gloves)
 				return
-
 			gloves = equipping
 			//NOVA EDIT ADDITION - ERP UPDATE
 			if(gloves.breakouttime)
@@ -376,7 +376,7 @@
 	if(override_outfit_path)
 		outfit_to_equip = new override_outfit_path
 	else
-		dna.species.give_important_for_life(src) // NOVA EDIT CHANGE - ORIGINAL: dna.species.give_important_for_life()
+		dna.species.give_important_for_life(src)
 		outfit_to_equip = new outfit
 
 	if(isnull(outfit_to_equip))

@@ -1,0 +1,4 @@
+author: "Iajret"
+delete-after: True
+changes:
+  - bugfix: "fixed gas mask from fire closets, glass gas mask, M40 gas mask and probably some others rendering flat faced icon variations for snouted characters."
