@@ -339,6 +339,9 @@
 
 /datum/design/vaporizer
 	name = "Hydro-Vaporizer"
+	desc = "An expensive device manufactured for the civilian work-force of the Azulean military power. \
+		Relying on an internal battery, the coil mechanism synthesizes a hydrogen oxygen mixture, \
+		which can then be used to moisturize the wearer's skin."
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(/datum/material/gold = SMALL_MATERIAL_AMOUNT*2.5, /datum/material/silver =SMALL_MATERIAL_AMOUNT*5)
 	build_path = /obj/item/clothing/accessory/vaporizer
