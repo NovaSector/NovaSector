@@ -25,7 +25,7 @@
 	name = "science utility uniform"
 	desc = "A utility uniform worn by NT-certified Science staff."
 	icon_state = "util_sci"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK | CLOTHING_CERULEAN_MASK_LEGS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 

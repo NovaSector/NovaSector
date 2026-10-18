@@ -60,8 +60,8 @@
 	name = "ash walker tunic"
 	desc = "A tattered red tunic of reddened fabric."
 	icon_state = "caesar_clothes"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	bodyshapes_with_variations = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_CERULEAN_MASK_LEGS
+	bodyshapes_with_variations = BODYSHAPE_CERULEAN
 
 /obj/item/clothing/under/costume/gladiator/ash_walker/legskirt_d
 	icon = 'modular_nova/master_files/icons/obj/clothing/uniforms.dmi'

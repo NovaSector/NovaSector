@@ -50,7 +50,8 @@
 	can_adjust = TRUE
 	has_sensor = HAS_SENSORS
 	armor_type = /datum/armor/clothing_under
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK | CLOTHING_CERULEAN_MASK_LEGS
+	bodyshapes_with_variations = BODYSHAPE_CERULEAN
 	resistance_flags = FLAMMABLE
 
 /obj/item/clothing/under/syndicate/tacticool/setup_reskins()
@@ -178,7 +179,7 @@
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
 	armor_type = /datum/armor/clothing_under/syndicate
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK | CLOTHING_CERULEAN_MASK_LEGS
 
 /obj/item/clothing/under/syndicate/nova/tactical/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tactical_turtleneck)

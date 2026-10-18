@@ -221,7 +221,7 @@
 	icon_state = "ip_turtleneck"
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK | CLOTHING_CERULEAN_MASK_LEGS
 
 /obj/item/clothing/under/syndicate/nova/interdyne/miner
 	name = "interdyne jumpsuit"
