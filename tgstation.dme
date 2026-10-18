@@ -8605,6 +8605,7 @@
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\abductorweak.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\akula.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\aquatic.dm"
+#include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\cerulean.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\dwarf.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\ghoul.dm"
 #include "modular_nova\modules\customization\modules\mob\living\carbon\human\species\golemweak.dm"

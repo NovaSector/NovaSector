@@ -739,6 +739,28 @@
 	relevant_mutant_bodypart = FEATURE_TAUR
 	type_to_check = /datum/preference/toggle/mutant_toggle/taur
 
+/datum/preference/toggle/mutant_toggle/taur/is_accessible(datum/preferences/preferences)
+	return ..() && preferences.species_grows_legs()
+
+/datum/preference/choiced/mutant_choice/taur/is_part_enabled(datum/preferences/preferences)
+	return ..() && preferences.species_grows_legs()
+
+/datum/preference/tri_color/taur/is_accessible(datum/preferences/preferences)
+	return ..() && preferences.species_grows_legs()
+
+/datum/preference/tri_bool/taur/is_accessible(datum/preferences/preferences)
+	return ..() && preferences.species_grows_legs()
+
+/**
+ * Returns whether the chosen species grows legs of its own.
+ *
+ * A taur body replaces the legs, and a legless species' own tail fills the tail slot, so neither the
+ * taur nor the tail preferences apply to one. Their saved values are kept for other species.
+ */
+/datum/preferences/proc/species_grows_legs()
+	var/datum/species/species = GLOB.species_prototypes[read_preference(/datum/preference/choiced/species)]
+	return species.grows_legs()
+
 /// Xenodorsal
 
 /datum/preference/toggle/mutant_toggle/xenodorsal

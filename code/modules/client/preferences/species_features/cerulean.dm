@@ -11,6 +11,7 @@
 /datum/preference/color/fish_tail_color/create_default_value()
 	return pick(GLOB.carp_colors - COLOR_CARP_SILVER)
 
+/* // NOVA EDIT REMOVAL START - We have these options already
 /// cerulean frills. not a choice like lizard frills. just a toggle for yes or no, the accessory is aquatic
 /datum/preference/toggle/cerulean_frills
 	savefile_key = "feature_cerulean_frills"
@@ -28,3 +29,4 @@
 		target.dna.features[FEATURE_FRILLS] = /datum/sprite_accessory/frills/aquatic::name
 		target.dna.species.mutant_organs[/obj/item/organ/frills] = /datum/sprite_accessory/frills/aquatic::name
 	target.dna.species.regenerate_organs(target, GLOB.species_prototypes[target.dna.species.type], visual_only = FALSE)
+*/ // NOVA EDIT REMOVAL END
