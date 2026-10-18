@@ -19564,7 +19564,8 @@
 /obj/machinery/atmospherics/pipe/smart/simple/violet/visible{
 	dir = 8
 	},
-/turf/closed/wall/r_wall,
+/obj/effect/spawner/structure/window/hollow/plasma,
+/turf/open/floor/plating,
 /area/station/engineering/atmos/storage/gas)
 "eVy" = (
 /obj/structure/cable,
@@ -25202,7 +25203,7 @@
 /area/station/command/heads_quarters/hos)
 "gnZ" = (
 /obj/effect/spawner/random/structure/crate{
-   loot = list(/obj/item/toy/plush/carpplushie,/obj/item/toy/plush/slimeplushie,/obj/item/toy/plush/lizard_plushie,/obj/item/toy/plush/snakeplushie,/obj/item/toy/plush/plasmamanplushie,/obj/item/toy/plush/human,/obj/item/toy/plush/beeplushie,/obj/item/toy/plush/moth,/obj/item/toy/plush/pkplush,/obj/item/toy/plush/horse,/obj/item/toy/plush/monkey)
+	loot = list(/obj/item/toy/plush/carpplushie,/obj/item/toy/plush/slimeplushie,/obj/item/toy/plush/lizard_plushie,/obj/item/toy/plush/snakeplushie,/obj/item/toy/plush/plasmamanplushie,/obj/item/toy/plush/human,/obj/item/toy/plush/beeplushie,/obj/item/toy/plush/moth,/obj/item/toy/plush/pkplush,/obj/item/toy/plush/horse,/obj/item/toy/plush/monkey)
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/fore/upper)
@@ -42361,7 +42362,8 @@
 	dir = 4
 	},
 /obj/machinery/meter,
-/turf/closed/wall/r_wall,
+/obj/effect/spawner/structure/window/hollow/plasma,
+/turf/open/floor/plating,
 /area/station/engineering/atmos/storage/gas)
 "kEX" = (
 /obj/structure/cable,
@@ -43983,7 +43985,6 @@
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{
 	dir = 9
 	},
-/obj/effect/landmark/start/atmospheric_technician,
 /turf/open/floor/iron,
 /area/station/engineering/atmos)
 "laK" = (
@@ -54971,7 +54972,8 @@
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible{
 	dir = 4
 	},
-/turf/closed/wall/r_wall,
+/obj/effect/spawner/structure/window/hollow/plasma,
+/turf/open/floor/plating,
 /area/station/engineering/atmos/storage/gas)
 "nNJ" = (
 /obj/structure/cable,
@@ -59487,6 +59489,11 @@
 /obj/machinery/light/directional/east,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/rd/private)
+"oVp" = (
+/obj/machinery/atmospherics/components/binary/pump/on/general/visible,
+/obj/effect/landmark/start/atmospheric_technician,
+/turf/open/floor/iron,
+/area/station/engineering/atmos)
 "oVr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -78613,7 +78620,8 @@
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible{
 	dir = 4
 	},
-/turf/closed/wall/r_wall,
+/obj/effect/spawner/structure/window/hollow/plasma,
+/turf/open/floor/plating,
 /area/station/engineering/atmos/storage/gas)
 "tJw" = (
 /obj/effect/spawner/random/structure/crate,
@@ -81870,6 +81878,11 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/dark,
 /area/station/maintenance/department/eva)
+"uBV" = (
+/obj/machinery/atmospherics/pipe/smart/simple/green/visible,
+/obj/effect/landmark/start/atmospheric_technician,
+/turf/open/floor/iron,
+/area/station/engineering/atmos)
 "uBY" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -90162,7 +90175,8 @@
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
 	dir = 4
 	},
-/turf/closed/wall/r_wall,
+/obj/effect/spawner/structure/window/hollow/plasma,
+/turf/open/floor/plating,
 /area/station/engineering/atmos/storage/gas)
 "wCX" = (
 /obj/effect/turf_decal/tile/yellow/full,
@@ -95767,7 +95781,8 @@
 	dir = 4
 	},
 /obj/machinery/meter,
-/turf/closed/wall/r_wall,
+/obj/effect/spawner/structure/window/hollow/plasma,
+/turf/open/floor/plating,
 /area/station/engineering/atmos/storage/gas)
 "xZw" = (
 /obj/effect/turf_decal/trimline/red/line{
@@ -147944,7 +147959,7 @@ vZo
 wbw
 vZo
 vZo
-vZo
+uBV
 wbw
 vZo
 vZo
@@ -148207,7 +148222,7 @@ eCa
 brC
 wAq
 jkq
-kZU
+oVp
 iiv
 iPg
 pgk
