@@ -33326,9 +33326,7 @@
 /area/station/common/night_club)
 "ipE" = (
 /obj/structure/table,
-/obj/machinery/computer/security/telescreen/entertainment{
-	network = list("wrestling")
-	},
+/obj/machinery/computer/security/telescreen/entertainment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/grimy,
 /area/station/command/heads_quarters/ce/private)
@@ -41474,9 +41472,7 @@
 /turf/open/floor/iron,
 /area/station/maintenance/department/science/upper)
 "kuD" = (
-/obj/machinery/computer/security/telescreen/entertainment/directional/east{
-	network = list("wrestling")
-	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/east,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/rd/private)
 "kuP" = (
@@ -62269,9 +62265,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 10
 	},
-/obj/machinery/computer/security/telescreen/entertainment/directional/west{
-	network = list("wrestling")
-	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/west,
 /turf/open/floor/wood/light,
 /area/station/security/detectives_office)
 "pDy" = (
@@ -69680,9 +69674,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/prison/safe)
 "rtt" = (
-/obj/machinery/computer/security/telescreen/entertainment/directional/west{
-	network = list("wrestling")
-	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/west,
 /turf/open/floor/wood/dark,
 /area/station/command/heads_quarters/cmo/private)
 "rtw" = (
@@ -77819,10 +77811,6 @@
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /turf/open/floor/iron/smooth_large,
 /area/station/ai/satellite/atmos)
-"tAJ" = (
-/obj/effect/spawner/random/structure/crate_abandoned,
-/turf/open/floor/plating,
-/area/station/maintenance/night_club)
 "tAM" = (
 /obj/machinery/camera/autoname/directional/west,
 /obj/effect/turf_decal/tile/dark_blue{
@@ -80960,9 +80948,7 @@
 /turf/open/floor/iron/dark,
 /area/station/service/library/private)
 "upp" = (
-/obj/machinery/computer/security/telescreen/entertainment/directional/north{
-	network = list("wrestling")
-	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/engineering/break_room)
 "upt" = (
@@ -81533,7 +81519,6 @@
 /area/station/ai/satellite/chamber)
 "uwW" = (
 /obj/effect/spawner/random/structure/barricade,
-/obj/machinery/door/airlock/maintenance,
 /turf/open/floor/iron,
 /area/station/maintenance/night_club)
 "uxa" = (
@@ -85542,9 +85527,7 @@
 /area/station/maintenance/department/cargo)
 "vxr" = (
 /obj/structure/fireplace,
-/obj/machinery/computer/security/telescreen/entertainment/directional/north{
-	network = list("wrestling")
-	},
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/floor/iron/brick,
 /area/station/command/corporate_suite)
 "vxs" = (
@@ -88328,9 +88311,7 @@
 /turf/open/floor/engine,
 /area/station/engineering/atmos/project)
 "wfe" = (
-/obj/machinery/computer/security/telescreen/entertainment{
-	network = list("wrestling")
-	},
+/obj/machinery/computer/security/telescreen/entertainment,
 /obj/effect/turf_decal/siding/thinplating/terracotta{
 	dir = 1
 	},
@@ -124342,7 +124323,7 @@ kPA
 tcS
 pAp
 pAp
-tAJ
+tcS
 hya
 rLF
 hya
