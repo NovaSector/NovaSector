@@ -6,9 +6,9 @@
 // Default values for C2 chemicals.
 /datum/reagent/medicine/c2
 	/// Brute healed per 5u
-	var/brute_heal_per_5u = 15
+	var/brute_heal_per_5u = 0
 	/// Burn healed per 5u
-	var/burn_heal_per_5u = 15
+	var/burn_heal_per_5u = 0
 	/// Stamina damage dealt per 5u
 	var/stamina_damage_per_5u = 0
 	/// Organ damage dealt per 5u, as list(ORGAN_SLOT_X = amount)
@@ -20,27 +20,27 @@
 
 /datum/reagent/medicine/c2/libital
 	brute_heal_per_5u = 15
-	organ_damage_per_5u = list(ORGAN_SLOT_LIVER = 3.75)
+	organ_damage_per_5u = list(ORGAN_SLOT_LIVER = 7.5)
 	USE_BALANCE
 
 /datum/reagent/medicine/c2/probital
 	brute_heal_per_5u = 15
-	stamina_damage_per_5u = 37.5
+	stamina_damage_per_5u = 75
 	USE_BALANCE
 
 /datum/reagent/medicine/c2/aiuri
 	burn_heal_per_5u = 15
-	organ_damage_per_5u = list(ORGAN_SLOT_EYES = 3.125)
+	organ_damage_per_5u = list(ORGAN_SLOT_EYES = 6.25)
 	USE_BALANCE
 
 /datum/reagent/medicine/c2/lenturi
 	burn_heal_per_5u = 15
-	organ_damage_per_5u = list(ORGAN_SLOT_STOMACH = 5)
+	organ_damage_per_5u = list(ORGAN_SLOT_STOMACH = 10)
 	USE_BALANCE
 
-/// Applies the per-5u values. One tick metabolizes 0.4u, so per tick = amount * 0.4 / 5.
+/// Applies the per-5u values. A tick metabolizes 0.4u and the effect is multiplied by seconds_per_tick (2), so scale = 0.4 / 5 / 2.
 /datum/reagent/medicine/c2/proc/apply_balanced_effects(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
-	var/scale = 0.08 * metabolization_ratio * seconds_per_tick
+	var/scale = 0.04 * metabolization_ratio * seconds_per_tick
 	var/need_mob_update = FALSE
 	if(brute_heal_per_5u)
 		need_mob_update += affected_mob.adjust_brute_loss(-brute_heal_per_5u * scale * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
