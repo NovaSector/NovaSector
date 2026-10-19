@@ -27251,10 +27251,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/sign/poster/timeclock_psa/directional/south{
-	pixel_y = -28
-	},
 /obj/machinery/light/small/directional/south,
+/obj/structure/sign/poster/timeclock_psa/directional/south,
 /turf/open/floor/iron/dark/brick_half{
 	dir = 1
 	},
