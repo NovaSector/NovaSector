@@ -1,14 +1,10 @@
 // Rebalances the healing and side effects of common medicines while being modular.
 // Each chemical is configured in the MAIN block with plain per-5-units values, example: brute_heal_per_5u = 15, heals 15 brute from 5u.
-// To balance another chemical, copy an entry in MAIN and change the numbers; keep USE_BALANCE on it.
-// USE_BALANCE switches that reagent from its original on_mob_life effects to apply_balanced_effects().
+// To balance another chemical, copy an entry in MAIN, change the numbers, and add it to the override list below.
 // If your chemical has special effects beyond brute, burn, stamina, or organ damage, you will need to implement them within apply_balanced_effects() or handle them separately in the chemical's own on_mob_life.
-#define USE_BALANCE use_rebalance_effects = TRUE
 
 // VARIABLES
 /datum/reagent/medicine
-	/// Whether this reagent uses the shared balanced healing implementation instead of its original on_mob_life effects
-	var/use_rebalance_effects = FALSE
 	/// Brute healed per 5u
 	var/brute_heal_per_5u = 0
 	/// Burn healed per 5u
@@ -29,41 +25,40 @@
 /datum/reagent/medicine/c2/libital
 	brute_heal_per_5u = 15
 	organ_damage_per_5u = list(ORGAN_SLOT_LIVER = 4)
-	USE_BALANCE
 
 /datum/reagent/medicine/c2/probital
 	brute_heal_per_5u = 15
 	stamina_damage_per_5u = 15
-	USE_BALANCE
 
 /datum/reagent/medicine/sal_acid
 	brute_heal_per_5u = 5
 	severe_damage_threshold = 60
 	severe_brute_heal_per_5u = 40
-	USE_BALANCE
 
 // Burn
 /datum/reagent/medicine/c2/aiuri
 	burn_heal_per_5u = 15
 	organ_damage_per_5u = list(ORGAN_SLOT_EYES = 3)
-	USE_BALANCE
 
 /datum/reagent/medicine/c2/lenturi
 	burn_heal_per_5u = 15
 	organ_damage_per_5u = list(ORGAN_SLOT_STOMACH = 5)
-	USE_BALANCE
 
 /datum/reagent/medicine/oxandrolone
 	burn_heal_per_5u = 5
 	severe_damage_threshold = 60
 	severe_burn_heal_per_5u = 40
-	USE_BALANCE
 
-/// Routes opted-in chemicals through the shared rebalanced effects.
-/datum/reagent/medicine/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
-	. = ..()
-	if(use_rebalance_effects)
-		return apply_balanced_effects(affected_mob, seconds_per_tick, metabolization_ratio)
+// Replace each reagent's existing on_mob_life body and call the shared implementation directly.
+// You need to include this macro for each reagent type you want to apply the balance effects to.
+#define BALANCE_ON_MOB_LIFE(reagent_type) reagent_type/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio) { . = ..(); return apply_balanced_effects(affected_mob, seconds_per_tick, metabolization_ratio) }
+BALANCE_ON_MOB_LIFE(/datum/reagent/medicine/c2/libital)
+BALANCE_ON_MOB_LIFE(/datum/reagent/medicine/c2/probital)
+BALANCE_ON_MOB_LIFE(/datum/reagent/medicine/sal_acid)
+BALANCE_ON_MOB_LIFE(/datum/reagent/medicine/c2/aiuri)
+BALANCE_ON_MOB_LIFE(/datum/reagent/medicine/c2/lenturi)
+BALANCE_ON_MOB_LIFE(/datum/reagent/medicine/oxandrolone)
+#undef BALANCE_ON_MOB_LIFE
 
 /// Applies the per-5u values. ratio / REM is the units metabolized this tick, so scale = units / 5.
 /datum/reagent/medicine/proc/apply_balanced_effects(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
@@ -82,4 +77,3 @@
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
 
-#undef USE_BALANCE
