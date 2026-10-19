@@ -7136,9 +7136,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/grille{
-	resistance_flags = 3
-	},
+/obj/effect/spawner/random/structure/grille,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/greater)
 "ctw" = (
@@ -70170,6 +70168,10 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/dark/brick,
 /area/station/hallway/primary/fore)
+"ybZ" = (
+/obj/effect/spawner/random/structure/grille,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/aft)
 "ycl" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -108422,7 +108424,7 @@ phu
 blQ
 cwK
 gvJ
-eSK
+ybZ
 tdI
 iMJ
 kac
@@ -108681,10 +108683,10 @@ aub
 aub
 aub
 aub
-eSK
+ybZ
 sib
 poq
-eSK
+ybZ
 eSA
 hcl
 fjj
