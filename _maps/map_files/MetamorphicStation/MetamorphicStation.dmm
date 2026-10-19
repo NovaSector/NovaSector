@@ -5612,9 +5612,6 @@
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/exit/departure_lounge)
-"bTE" = (
-/turf/open/genturf,
-/area/lavaland/surface/outdoors)
 "bTU" = (
 /obj/structure/chair{
 	dir = 4
@@ -93866,7 +93863,7 @@ odi
 odi
 odi
 odi
-bTE
+khK
 khK
 khK
 khK
@@ -94123,7 +94120,7 @@ odi
 odi
 odi
 odi
-bTE
+khK
 khK
 khK
 khK
@@ -106774,7 +106771,7 @@ khK
 khK
 khK
 khK
-bTE
+khK
 ikX
 fcl
 fcl
@@ -107031,7 +107028,7 @@ khK
 khK
 khK
 khK
-bTE
+khK
 mOm
 mOm
 mOm
@@ -107288,7 +107285,7 @@ khK
 khK
 khK
 khK
-bTE
+khK
 mOm
 mOm
 mOm
@@ -107545,7 +107542,7 @@ khK
 khK
 khK
 khK
-bTE
+khK
 mOm
 mOm
 mOm
@@ -113453,7 +113450,7 @@ khK
 khK
 khK
 khK
-bTE
+khK
 odi
 odi
 goU
@@ -114399,7 +114396,7 @@ ioH
 odi
 odi
 odi
-bTE
+khK
 khK
 goU
 goU
@@ -120339,7 +120336,7 @@ mOm
 mOm
 mOm
 mOm
-bTE
+khK
 khK
 khK
 khK
@@ -132087,7 +132084,7 @@ goU
 goU
 goU
 goU
-bTE
+khK
 khK
 khK
 khK
