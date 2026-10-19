@@ -1,39 +1,35 @@
 // Modular medicine balance.
-// To add a chemical, copy one entry below and change the numbers. Every value is per 5 units of the chemical.
-// Core files are untouched; USE_BALANCE replaces the chem's upstream on_mob_life with the shared proc at the bottom.
+// To add a chemical, copy an entry in the MAIN block and change the numbers. Every value is per 5 units of the chemical.
+// Core files are untouched; USE_BALANCE replaces the chem's upstream on_mob_life with apply_balanced_effects() below.
 #define USE_BALANCE on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio) { . = ..(); return apply_balanced_effects(affected_mob, seconds_per_tick, metabolization_ratio) }
 
-/// Var definiations.
+// VARIABLES
 /datum/reagent/medicine
-	/// Heals
-	// Brute healed per 5u
+	/// Brute healed per 5u
 	var/brute_heal_per_5u = 0
-	// Burn healed per 5u
+	/// Burn healed per 5u
 	var/burn_heal_per_5u = 0
-	// Above this much damage of the healed type, the severe_* values are used instead (0 = never)
+	/// Damage of the healed type above which the severe_* values are used instead, 0 to never use them
 	var/severe_damage_threshold = 0
-	// Brute healed per 5u above severe_damage_threshold
+	/// Brute healed per 5u above severe_damage_threshold
 	var/severe_brute_heal_per_5u = 0
-	// Burn healed per 5u above severe_damage_threshold
+	/// Burn healed per 5u above severe_damage_threshold
 	var/severe_burn_heal_per_5u = 0
-
-	/// Damages
-	// Stamina damage dealt per 5u
+	/// Stamina damage dealt per 5u
 	var/stamina_damage_per_5u = 0
-	// Organ damage dealt per 5u, as list(ORGAN_SLOT_X = amount)
+	/// Organ damage dealt per 5u, as list(ORGAN_SLOT_X = amount)
 	var/list/organ_damage_per_5u
-/// END Var definiations.
 
-/// MAIN changes block.
+// MAIN
 // Brute
 /datum/reagent/medicine/c2/libital
 	brute_heal_per_5u = 15
-	organ_damage_per_5u = list(ORGAN_SLOT_LIVER = 7.5)
+	organ_damage_per_5u = list(ORGAN_SLOT_LIVER = 4)
 	USE_BALANCE
 
 /datum/reagent/medicine/c2/probital
 	brute_heal_per_5u = 15
-	stamina_damage_per_5u = 75
+	stamina_damage_per_5u = 15
 	USE_BALANCE
 
 /datum/reagent/medicine/sal_acid
@@ -45,12 +41,12 @@
 // Burn
 /datum/reagent/medicine/c2/aiuri
 	burn_heal_per_5u = 15
-	organ_damage_per_5u = list(ORGAN_SLOT_EYES = 6.25)
+	organ_damage_per_5u = list(ORGAN_SLOT_EYES = 3)
 	USE_BALANCE
 
 /datum/reagent/medicine/c2/lenturi
 	burn_heal_per_5u = 15
-	organ_damage_per_5u = list(ORGAN_SLOT_STOMACH = 10)
+	organ_damage_per_5u = list(ORGAN_SLOT_STOMACH = 5)
 	USE_BALANCE
 
 /datum/reagent/medicine/oxandrolone
@@ -58,7 +54,6 @@
 	severe_damage_threshold = 60
 	severe_burn_heal_per_5u = 40
 	USE_BALANCE
-/// END MAIN changes block.
 
 /// Applies the per-5u values. ratio / REM is the units metabolized this tick, so scale = units / 5.
 /datum/reagent/medicine/proc/apply_balanced_effects(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
