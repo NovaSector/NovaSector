@@ -754,7 +754,7 @@
 	if(!welder.tool_start_check(user, amount = 1)) // welder is off or out of fuel
 		return
 
-	var/treatment_delay = base_treat_time * self_penalty_mult * improv_penalty_mult
+	var/treatment_delay = base_treat_time * self_penalty_mult
 	if(HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
 		treatment_delay *= 0.5
 		user.visible_message(span_danger("[user] begins expertly soldering [victim]'s [limb.plaintext_zone] with [welder] and [rods]..."), span_warning("You begin soldering [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [welder] and [rods], keeping the holo-image indications in mind..."))
@@ -762,14 +762,7 @@
 		user.visible_message(span_danger("[user] begins soldering [victim]'s [limb.plaintext_zone] with [welder] and [rods]..."), span_warning("You begin soldering [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [welder] and [rods]...")))
 
 	playsound(user, 'sound/items/handling/surgery/cautery1.ogg', 75, TRUE)
-	if(!do_after(user, treatment_delay, target = victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
-		return
-	rods.use(1)
-	playsound(user, 'sound/items/handling/surgery/cautery2.ogg', 75, TRUE)
-
-	var/bleeding_wording = (!limb.can_bleed() ? "cuts" : "leaks")
-	user.visible_message(span_green("[user] repairs some of the [bleeding_wording] on [victim]."), span_green("You repair some of the [bleeding_wording] on [victim]."))
-	var/blood_cauterized = (0.4 / self_penalty_mult)
+	if(!welder.use_tool(victim, user, treatment_delay, amount = 1, volume = 50, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
 	var/mob/victim_stored = victim
 	adjust_blood_flow(-blood_cauterized)
 	if(blood_flow > minimum_flow)
