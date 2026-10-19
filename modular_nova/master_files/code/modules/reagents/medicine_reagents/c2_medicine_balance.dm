@@ -1,6 +1,8 @@
-// Modular medicine balance.
-// To add a chemical, copy an entry in the MAIN block and change the numbers. Every value is per 5 units of the chemical.
-// Core files are untouched; USE_BALANCE replaces the chem's upstream on_mob_life with apply_balanced_effects() below.
+// Rebalances the healing and side effects of common medicines while being modular.
+// Each chemical is configured in the MAIN block with plain per-5-units values, example: brute_heal_per_5u = 15, heals 15 brute from 5u.
+// To balance another chemical, copy an entry in MAIN and change the numbers; USE_BALANCE must stay on it.
+// USE_BALANCE overrides the chemical's upstream on_mob_life with apply_balanced_effects(), so its original effects no longer run.
+// If your chemical has special effects beyond brute, burn, stamina, or organ damage, you will need to implement them within apply_balanced_effects() or handle them separately in the chemical's own on_mob_life.
 #define USE_BALANCE on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio) { . = ..(); return apply_balanced_effects(affected_mob, seconds_per_tick, metabolization_ratio) }
 
 // VARIABLES
