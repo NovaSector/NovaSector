@@ -1,0 +1,32 @@
+{
+	"version": 1,
+	"map_name": "Metamorphic Station",
+	"map_path": "map_files/metamorphicstation",
+	"map_file": "MetaMorphicStation.dmm",
+	"space_ruin_levels": 0,
+	"space_empty_levels": 0,
+	"wilderness_levels": 0,
+	"planetary": 1,
+	"shuttles": {
+		"cargo": "cargo_nova",
+		"ferry": "ferry_fancy",
+		"whiteship": "whiteship_meta",
+		"emergency": "emergency_meta"
+	},
+	"traits": [
+		{
+			"Mining": "Grid",
+			"Gravity": true,
+			"Baseturf": "/turf/open/misc/asteroid/basalt/lava_land_surface",
+			"No Parallax": true
+		}
+	],
+	"job_changes": {
+		"Cook": {
+			"additional_cqc_areas": ["/area/station/commons/lounge"]
+		},
+		"Chaplain": {
+			"has_monastery": 1
+		}
+	}
+}
