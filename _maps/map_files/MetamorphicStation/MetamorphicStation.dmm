@@ -6101,8 +6101,7 @@
 "cdz" = (
 /obj/machinery/power/solar{
 	id = "prison";
-	name = "Prison Hab Solar Array";
-	chat_color_name = id
+	name = "Prison Hab Solar Array"
 	},
 /turf/open/floor/iron/solarpanel,
 /area/lavaland/surface/outdoors)
@@ -39126,8 +39125,7 @@
 /obj/structure/cable,
 /obj/machinery/power/solar{
 	id = "prison";
-	name = "Prison Hab Solar Array";
-	chat_color_name = id
+	name = "Prison Hab Solar Array"
 	},
 /turf/open/floor/iron/solarpanel,
 /area/lavaland/surface/outdoors)
