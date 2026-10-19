@@ -23,7 +23,7 @@
 	/// the cell which will be used to power the item
 	var/obj/item/stock_parts/power_store/cell/cell
 	/// how much will be drawn from the cell every time it applies wet stacks
-	var/power_cost = 45 JOULES
+	var/power_cost = 15 JOULES // NOVA EDIT CHANGE - Reduced power cost significantly - ORIGINAL: var/power_cost = 45 JOULES
 
 /obj/item/vaporizer/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
