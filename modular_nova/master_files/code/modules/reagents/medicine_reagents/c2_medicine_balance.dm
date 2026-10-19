@@ -1,23 +1,31 @@
-// Modular C2 medicine balance. To add a chemical, copy one entry in the MAIN block and change the numbers.
-// Every value is "per 5 units" of the chemical, e.g. brute_heal_per_5u = 15 heals 15 brute from 5u.
+// Modular medicine balance.
+// To add a chemical, copy one entry below and change the numbers. Every value is per 5 units of the chemical.
 // Core files are untouched; USE_BALANCE replaces the chem's upstream on_mob_life with the shared proc at the bottom.
 #define USE_BALANCE on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio) { . = ..(); return apply_balanced_effects(affected_mob, seconds_per_tick, metabolization_ratio) }
 
-// Default values for C2 chemicals.
-/datum/reagent/medicine/c2
-	/// Brute healed per 5u
+/// Var definiations.
+/datum/reagent/medicine
+	/// Heals
+	// Brute healed per 5u
 	var/brute_heal_per_5u = 0
-	/// Burn healed per 5u
+	// Burn healed per 5u
 	var/burn_heal_per_5u = 0
-	/// Stamina damage dealt per 5u
+	// Above this much damage of the healed type, the severe_* values are used instead (0 = never)
+	var/severe_damage_threshold = 0
+	// Brute healed per 5u above severe_damage_threshold
+	var/severe_brute_heal_per_5u = 0
+	// Burn healed per 5u above severe_damage_threshold
+	var/severe_burn_heal_per_5u = 0
+
+	/// Damages
+	// Stamina damage dealt per 5u
 	var/stamina_damage_per_5u = 0
-	/// Organ damage dealt per 5u, as list(ORGAN_SLOT_X = amount)
+	// Organ damage dealt per 5u, as list(ORGAN_SLOT_X = amount)
 	var/list/organ_damage_per_5u
+/// END Var definiations.
 
-/*
-/// XXX Comment explaining how to insert new entries here.
-*/
-
+/// MAIN changes block.
+// Brute
 /datum/reagent/medicine/c2/libital
 	brute_heal_per_5u = 15
 	organ_damage_per_5u = list(ORGAN_SLOT_LIVER = 7.5)
@@ -28,6 +36,13 @@
 	stamina_damage_per_5u = 75
 	USE_BALANCE
 
+/datum/reagent/medicine/sal_acid
+	brute_heal_per_5u = 5
+	severe_damage_threshold = 60
+	severe_brute_heal_per_5u = 40
+	USE_BALANCE
+
+// Burn
 /datum/reagent/medicine/c2/aiuri
 	burn_heal_per_5u = 15
 	organ_damage_per_5u = list(ORGAN_SLOT_EYES = 6.25)
@@ -38,14 +53,23 @@
 	organ_damage_per_5u = list(ORGAN_SLOT_STOMACH = 10)
 	USE_BALANCE
 
-/// Applies the per-5u values. A tick metabolizes 0.4u and the effect is multiplied by seconds_per_tick (2), so scale = 0.4 / 5 / 2.
-/datum/reagent/medicine/c2/proc/apply_balanced_effects(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
-	var/scale = 0.04 * metabolization_ratio * seconds_per_tick
+/datum/reagent/medicine/oxandrolone
+	burn_heal_per_5u = 5
+	severe_damage_threshold = 60
+	severe_burn_heal_per_5u = 40
+	USE_BALANCE
+/// END MAIN changes block.
+
+/// Applies the per-5u values. ratio / REM is the units metabolized this tick, so scale = units / 5.
+/datum/reagent/medicine/proc/apply_balanced_effects(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
+	var/scale = metabolization_ratio / (REM * 5)
 	var/need_mob_update = FALSE
 	if(brute_heal_per_5u)
-		need_mob_update += affected_mob.adjust_brute_loss(-brute_heal_per_5u * scale * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
+		var/brute_heal = (severe_damage_threshold && affected_mob.get_brute_loss() > severe_damage_threshold) ? severe_brute_heal_per_5u : brute_heal_per_5u
+		need_mob_update += affected_mob.adjust_brute_loss(-brute_heal * scale * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
 	if(burn_heal_per_5u)
-		need_mob_update += affected_mob.adjust_fire_loss(-burn_heal_per_5u * scale * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
+		var/burn_heal = (severe_damage_threshold && affected_mob.get_fire_loss() > severe_damage_threshold) ? severe_burn_heal_per_5u : burn_heal_per_5u
+		need_mob_update += affected_mob.adjust_fire_loss(-burn_heal * scale * normalise_creation_purity(), updating_health = FALSE, required_bodytype = affected_bodytype)
 	if(stamina_damage_per_5u)
 		need_mob_update += affected_mob.adjust_stamina_loss(stamina_damage_per_5u * scale, updating_stamina = FALSE)
 	for(var/organ_slot in organ_damage_per_5u)
