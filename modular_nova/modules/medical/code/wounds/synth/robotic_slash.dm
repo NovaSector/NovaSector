@@ -673,15 +673,14 @@
 		las_cauterize(tool, user)
 	else if(istype(tool, /obj/item/stack/rods))
 		var/obj/item/tool2 = user.get_inactive_held_item()
-		if (tool2.tool_behaviour != TOOL_WELDER)
-			to_chat(user, span_green("You need a lit welder."))
+		if (tool2?.tool_behaviour != TOOL_WELDER)
+			to_chat(user, span_warning("You need a lit welder in your other hand."))
 			return
 		tool_solder(tool, tool2, user)
 	else if(tool.tool_behaviour == TOOL_CAUTERY || tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		tool_cauterize(tool, user)
 
 /datum/wound/slash/flesh/synth/adjust_blood_flow(adjust_by, minimum)
-	. = ..()
 	if(blood_flow > WOUND_MAX_BLOODFLOW)
 		blood_flow = WOUND_MAX_BLOODFLOW
 	if(blood_flow < minimum_flow && !QDELETED(src))
@@ -750,36 +749,32 @@
 
 
 
-/// If someone is using either a welder tool or something with welding ability to cauterize this cut - I'd love to make this take metal rods but I'm not going that far
-/datum/wound/slash/flesh/synth/proc/tool_solder(obj/item/stack/rods/R, obj/item/I, mob/user)
-	var/improv_penalty_mult = (I.tool_behaviour == TOOL_WELDER ? 1 : 1.25) // 25% longer and less effective if you don't use a real cautery
-	var/self_penalty_mult = (user == victim ? 1.5 : 1) // 50% longer and less effective if you do it to yourself
-
-	var/treatment_delay = base_treat_time * self_penalty_mult * improv_penalty_mult
-
-	if(HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
-		treatment_delay *= 0.5
-		user.visible_message(span_danger("[user] begins expertly soldering [victim]'s [limb.plaintext_zone] with [I] and [R]..."), span_warning("You begin soldering [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I] and [R], keeping the holo-image indications in mind..."))
-	else
-		user.visible_message(span_danger("[user] begins soldering [victim]'s [limb.plaintext_zone] with [I] and [R]..."), span_warning("You begin soldering [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [I] and [R]..."))
-
-	playsound(user, 'sound/items/handling/surgery/cautery1.ogg', 75, TRUE)
-	R.use(1)
-
-	if(!do_after(user, treatment_delay, target = victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
+/// If someone is using either a welder tool or something with welding ability to cauterize this cut - I made this take metal rods
+/datum/wound/slash/flesh/synth/proc/tool_solder(obj/item/stack/rods/rods, obj/item/welder, mob/user)
+	if(!welder.tool_start_check(user, amount = 1)) // welder is off or out of fuel
 		return
 
+	var/treatment_delay = base_treat_time * self_penalty_mult * improv_penalty_mult
+	if(HAS_TRAIT(src, TRAIT_WOUND_SCANNED))
+		treatment_delay *= 0.5
+		user.visible_message(span_danger("[user] begins expertly soldering [victim]'s [limb.plaintext_zone] with [welder] and [rods]..."), span_warning("You begin soldering [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [welder] and [rods], keeping the holo-image indications in mind..."))
+	else
+		user.visible_message(span_danger("[user] begins soldering [victim]'s [limb.plaintext_zone] with [welder] and [rods]..."), span_warning("You begin soldering [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone] with [welder] and [rods]...")))
+
+	playsound(user, 'sound/items/handling/surgery/cautery1.ogg', 75, TRUE)
+	if(!do_after(user, treatment_delay, target = victim, extra_checks = CALLBACK(src, PROC_REF(still_exists))))
+		return
+	rods.use(1)
 	playsound(user, 'sound/items/handling/surgery/cautery2.ogg', 75, TRUE)
 
 	var/bleeding_wording = (!limb.can_bleed() ? "cuts" : "leaks")
 	user.visible_message(span_green("[user] repairs some of the [bleeding_wording] on [victim]."), span_green("You repair some of the [bleeding_wording] on [victim]."))
-	var/blood_cauterized = (0.6 / (self_penalty_mult * improv_penalty_mult))
+	var/blood_cauterized = (0.4 / self_penalty_mult)
 	var/mob/victim_stored = victim
 	adjust_blood_flow(-blood_cauterized)
-
-
 	if(blood_flow > minimum_flow)
-		try_treating(I, user)
+        if(!QDELETED(rods))
+            try_treating(rods, user)
 
 	else if(demotes_to)
 		to_chat(user, span_green("You successfully lower the severity of [user == victim_stored ? "your" : "[victim_stored]'s"] [get_blood_noun()] leaks."))
