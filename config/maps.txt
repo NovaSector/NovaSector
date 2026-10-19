@@ -104,5 +104,11 @@ map northstar
     minplayers 50
 endmap
 
+map MetaMorphic Station
+	votable
+endmap
+
 map runtimestation_minimal
 endmap
+
+
