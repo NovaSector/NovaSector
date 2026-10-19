@@ -801,13 +801,8 @@
 
 // NOVA EDIT ADDITION START - Synth bleeding
 /datum/wound/proc/get_blood_noun()
-	var/noun_blood = "blood"
-	if(!ishuman(victim))
-		return noun_blood
-	var/mob/living/carbon/human/human_victim = victim
-	if(!human_victim.dna?.blood_type?.reagent_type)
-		return noun_blood
-	var/datum/reagent/blood_reagent = human_victim.dna.blood_type.reagent_type
-	noun_blood = (initial(blood_reagent.name))
-	return noun_blood
+	var/datum/blood_type/blood_type = victim?.get_bloodtype()
+	if(isnull(blood_type))
+		return "blood"
+	return LOWER_TEXT(blood_type.get_blood_name())
 // NOVA EDIT ADDITION END
