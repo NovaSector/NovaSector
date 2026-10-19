@@ -1,12 +1,14 @@
 // Rebalances the healing and side effects of common medicines while being modular.
 // Each chemical is configured in the MAIN block with plain per-5-units values, example: brute_heal_per_5u = 15, heals 15 brute from 5u.
-// To balance another chemical, copy an entry in MAIN and change the numbers; USE_BALANCE must stay on it.
-// USE_BALANCE overrides the chemical's upstream on_mob_life with apply_balanced_effects(), so its original effects no longer run.
+// To balance another chemical, copy an entry in MAIN and change the numbers; keep USE_BALANCE on it.
+// USE_BALANCE switches that reagent from its original on_mob_life effects to apply_balanced_effects().
 // If your chemical has special effects beyond brute, burn, stamina, or organ damage, you will need to implement them within apply_balanced_effects() or handle them separately in the chemical's own on_mob_life.
-#define USE_BALANCE on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio) { . = ..(); return apply_balanced_effects(affected_mob, seconds_per_tick, metabolization_ratio) }
+#define USE_BALANCE use_rebalance_effects = TRUE
 
 // VARIABLES
 /datum/reagent/medicine
+	/// Whether this reagent uses the shared balanced healing implementation instead of its original on_mob_life effects
+	var/use_rebalance_effects = FALSE
 	/// Brute healed per 5u
 	var/brute_heal_per_5u = 0
 	/// Burn healed per 5u
@@ -56,6 +58,12 @@
 	severe_damage_threshold = 60
 	severe_burn_heal_per_5u = 40
 	USE_BALANCE
+
+/// Routes opted-in chemicals through the shared rebalanced effects.
+/datum/reagent/medicine/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
+	. = ..()
+	if(use_rebalance_effects)
+		return apply_balanced_effects(affected_mob, seconds_per_tick, metabolization_ratio)
 
 /// Applies the per-5u values. ratio / REM is the units metabolized this tick, so scale = units / 5.
 /datum/reagent/medicine/proc/apply_balanced_effects(mob/living/carbon/affected_mob, seconds_per_tick, metabolization_ratio)
