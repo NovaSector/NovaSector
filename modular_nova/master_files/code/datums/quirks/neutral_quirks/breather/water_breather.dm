@@ -8,7 +8,7 @@
 	lose_text = span_danger("You suddenly feel like you aren't bound to breathing through liquid anymore.")
 	value = 0
 	breathing_mask = NONE
-	breathing_tank = /obj/item/vaporizer
+	breathing_tank = /obj/item/vaporizer/with_cell
 	breath_type = "water"
 	// bonus trait
 	mob_trait = TRAIT_WATER_BREATHING
