@@ -11319,11 +11319,12 @@
 /area/station/hallway/primary/central)
 "dVg" = (
 /obj/structure/stone_tile/slab,
-/mob/living/basic/mining/legion/lesser{
-	name = "Pun Pun...?"
-	},
-/turf/open/floor/fakebasalt,
-/area/station/service/bar)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/firealarm_sanity,
+/turf/open/floor/cult,
+/area/station/commons/dorms)
 "dVA" = (
 /obj/machinery/atmospherics/pipe/smart/simple/green/visible,
 /turf/open/floor/iron/dark,
@@ -12858,6 +12859,10 @@
 /area/station/security/checkpoint/supply)
 "evl" = (
 /obj/structure/table/reinforced/plastitaniumglass,
+/obj/item/stamp/head/captain{
+	pixel_x = -8;
+	pixel_y = 8
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/captain/private)
 "evu" = (
@@ -14193,6 +14198,7 @@
 	pixel_x = 2
 	},
 /obj/structure/table/wood/fancy/red,
+/obj/item/storage/photo_album/chapel,
 /turf/open/floor/cult,
 /area/station/service/chapel)
 "eQz" = (
@@ -15065,6 +15071,13 @@
 /obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
+"ffs" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/iron/dark/small,
+/area/station/science/research)
 "ffH" = (
 /obj/structure/table/wood/shuttle_bar,
 /obj/structure/stone_tile/slab,
@@ -22690,6 +22703,10 @@
 	slowdown = 0
 	},
 /area/lavaland/surface/outdoors)
+"hKR" = (
+/obj/effect/landmark/firealarm_sanity,
+/turf/open/indestructible/necropolis/air,
+/area/station/service/chapel)
 "hLa" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/turf_decal/stripes/white/line,
@@ -23558,7 +23575,6 @@
 "iaJ" = (
 /obj/structure/lattice,
 /obj/machinery/door/airlock/external/glass,
-/obj/machinery/door/firedoor,
 /turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "iaK" = (
@@ -27519,6 +27535,7 @@
 /obj/item/plant_analyzer,
 /obj/item/reagent_containers/cup/watering_can,
 /obj/structure/table/glass,
+/obj/machinery/firealarm/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
 "joZ" = (
@@ -35045,6 +35062,7 @@
 	color = "#DE3A3A";
 	dir = 2
 	},
+/mob/living/carbon/human/species/monkey/punpun,
 /turf/open/floor/cult,
 /area/station/service/bar)
 "maQ" = (
@@ -48752,7 +48770,7 @@
 "qKd" = (
 /obj/machinery/status_display/evac/directional/north,
 /obj/structure/bed/dogbed/ian,
-/mob/living/basic/pet/dog/corgi/narsie,
+/mob/living/basic/pet/dog/corgi/ian,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
 "qKi" = (
@@ -52256,6 +52274,13 @@
 	},
 /turf/open/floor/mineral/plastitanium/pod,
 /area/station/security/prison/safe)
+"rZA" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/directional/north,
+/obj/machinery/firealarm/directional/north,
+/turf/open/floor/iron/dark/brick_half,
+/area/station/hallway/primary/port)
 "rZL" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/simple/supply/hidden,
@@ -57063,6 +57088,7 @@
 /area/station/cargo/miningoffice)
 "tMb" = (
 /obj/structure/closet/firecloset/full,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/dark/brick_half,
 /area/station/service/chapel)
 "tMo" = (
@@ -58565,6 +58591,7 @@
 /obj/structure/table/wood,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
+/obj/item/storage/photo_album/bar,
 /turf/open/floor/cult,
 /area/station/service/bar/backroom)
 "unM" = (
@@ -60945,6 +60972,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/dark/brick_half{
 	dir = 1
 	},
@@ -83880,7 +83908,7 @@ fsQ
 nYu
 uxy
 srg
-pGV
+rZA
 gsa
 bnx
 lPw
@@ -85010,7 +85038,7 @@ noq
 noq
 vLu
 vqH
-vqH
+hKR
 vqH
 vqH
 vqH
@@ -87580,7 +87608,7 @@ odi
 odi
 hzE
 lka
-fIz
+oLf
 mLP
 fIz
 lka
@@ -90927,7 +90955,7 @@ rCK
 xoW
 qid
 hqR
-kym
+ffs
 rvz
 hoB
 goU
@@ -102109,7 +102137,7 @@ pkH
 szg
 hIl
 wPf
-kZa
+dVg
 wRT
 kTZ
 hqf
@@ -105963,7 +105991,7 @@ pwN
 bDe
 dOE
 iIV
-dVg
+iIV
 hQm
 lHQ
 pdF
