@@ -8715,6 +8715,7 @@
 #include "modular_nova\modules\delam_emergency_stop\code\scram.dm"
 #include "modular_nova\modules\delam_emergency_stop\code\supermatter_replacement.dm"
 #include "modular_nova\modules\Department_Budgets\cards.dm"
+#include "modular_nova\modules\shift_start_emergency_access\code\shift_start_emergency_access.dm"
 #include "modular_nova\modules\departmentization\cargo_technician.dm"
 #include "modular_nova\modules\departmentization\clothing_overrides.dm"
 #include "modular_nova\modules\departmentization\quartermaster.dm"
@@ -10087,3 +10088,4 @@
 #include "modular_nova\modules\xenomorph\queen.dm"
 #include "modular_nova\modules\zubbers_taur\code\taur.dm"
 // END_INCLUDE
+
