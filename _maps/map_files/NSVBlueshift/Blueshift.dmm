@@ -744,17 +744,6 @@
 /obj/structure/sign/poster/random/directional/east,
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
-"aiq" = (
-/obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 6
-	},
-/turf/open/indestructible{
-	base_icon_state = "reinf_glass";
-	icon = 'icons/turf/floors/reinf_glass.dmi';
-	icon_state = "reinf_glass-0";
-	name = "Ultra Reinforced Glass Floor"
-	},
-/area/station/ai/satellite/interior)
 "air" = (
 /mob/living/basic/cockroach,
 /obj/effect/decal/cleanable/dirt,
@@ -5272,12 +5261,7 @@
 /area/station/maintenance/port/fore)
 "beZ" = (
 /obj/item/beacon,
-/turf/open/indestructible{
-	base_icon_state = "reinf_glass";
-	icon = 'icons/turf/floors/reinf_glass.dmi';
-	icon_state = "reinf_glass-0";
-	name = "Ultra Reinforced Glass Floor"
-	},
+/turf/open/floor/glass/reinforced/plasma,
 /area/station/ai/satellite/interior)
 "bfo" = (
 /obj/effect/turf_decal/siding/wood,
@@ -10932,9 +10916,8 @@
 /area/station/security/brig)
 "clb" = (
 /obj/structure/cable,
-/turf/open/floor/iron/stairs{
-	dir = 8;
-	initial_gas_mix = "TEMP=2.7"
+/turf/open/floor/iron/stairs/airless{
+	dir = 4
 	},
 /area/space/nearstation)
 "clo" = (
@@ -19872,15 +19855,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark,
 /area/station/common/night_club)
-"dZA" = (
-/obj/effect/turf_decal/siding/thinplating/dark,
-/turf/open/indestructible{
-	base_icon_state = "reinf_glass";
-	icon = 'icons/turf/floors/reinf_glass.dmi';
-	icon_state = "reinf_glass-0";
-	name = "Ultra Reinforced Glass Floor"
-	},
-/area/station/ai/satellite/interior)
 "dZQ" = (
 /obj/machinery/light/directional/east,
 /obj/structure/disposalpipe/segment,
@@ -32760,17 +32734,6 @@
 /obj/machinery/rnd/production/protolathe/department/science,
 /turf/open/floor/iron,
 /area/station/science/lab)
-"gCy" = (
-/obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 5
-	},
-/turf/open/indestructible{
-	base_icon_state = "reinf_glass";
-	icon = 'icons/turf/floors/reinf_glass.dmi';
-	icon_state = "reinf_glass-0";
-	name = "Ultra Reinforced Glass Floor"
-	},
-/area/station/ai/satellite/interior)
 "gCH" = (
 /obj/machinery/portable_atmospherics/canister,
 /obj/effect/turf_decal/bot,
@@ -33223,15 +33186,7 @@
 	},
 /area/station/hallway/secondary/command)
 "gIh" = (
-/obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 10
-	},
-/turf/open/indestructible{
-	base_icon_state = "reinf_glass";
-	icon = 'icons/turf/floors/reinf_glass.dmi';
-	icon_state = "reinf_glass-0";
-	name = "Ultra Reinforced Glass Floor"
-	},
+/turf/open/floor/glass/reinforced/plasma,
 /area/station/ai/satellite/interior)
 "gIj" = (
 /obj/structure/cable,
@@ -77846,17 +77801,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/station/maintenance/starboard/fore)
-"pLW" = (
-/obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 4
-	},
-/turf/open/indestructible{
-	base_icon_state = "reinf_glass";
-	icon = 'icons/turf/floors/reinf_glass.dmi';
-	icon_state = "reinf_glass-0";
-	name = "Ultra Reinforced Glass Floor"
-	},
-/area/station/ai/satellite/interior)
 "pLY" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -82222,17 +82166,6 @@
 /obj/structure/window/fulltile,
 /turf/open/floor/grass,
 /area/station/hallway/primary/upper)
-"qDf" = (
-/obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 1
-	},
-/turf/open/indestructible{
-	base_icon_state = "reinf_glass";
-	icon = 'icons/turf/floors/reinf_glass.dmi';
-	icon_state = "reinf_glass-0";
-	name = "Ultra Reinforced Glass Floor"
-	},
-/area/station/ai/satellite/interior)
 "qDn" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -103409,10 +103342,7 @@
 /turf/open/floor/iron/dark,
 /area/station/security/interrogation)
 "uNl" = (
-/turf/open/floor/iron/stairs{
-	icon_state = "stairs_wood";
-	icon = 'icons/obj/stairs.dmi'
-	},
+/turf/open/floor/iron/stairs/wood,
 /area/station/common/pool)
 "uNn" = (
 /obj/effect/landmark/start/hangover,
@@ -110283,17 +110213,6 @@
 /obj/item/clothing/head/soft/rainbow,
 /turf/open/floor/iron/dark,
 /area/station/common/tailoring)
-"weA" = (
-/obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 8
-	},
-/turf/open/indestructible{
-	base_icon_state = "reinf_glass";
-	icon = 'icons/turf/floors/reinf_glass.dmi';
-	icon_state = "reinf_glass-0";
-	name = "Ultra Reinforced Glass Floor"
-	},
-/area/station/ai/satellite/interior)
 "weB" = (
 /obj/structure/window/spawner/directional/west,
 /obj/structure/chair/sofa/corp/right{
@@ -119115,17 +119034,6 @@
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
-"xSR" = (
-/obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 9
-	},
-/turf/open/indestructible{
-	base_icon_state = "reinf_glass";
-	icon = 'icons/turf/floors/reinf_glass.dmi';
-	icon_state = "reinf_glass-0";
-	name = "Ultra Reinforced Glass Floor"
-	},
-/area/station/ai/satellite/interior)
 "xSZ" = (
 /obj/structure/table/wood,
 /obj/item/storage/briefcase,
@@ -217961,8 +217869,8 @@ gLc
 qyl
 ohL
 aAo
-xSR
-weA
+gIh
+gIh
 gIh
 qyl
 owM
@@ -218218,9 +218126,9 @@ gLc
 qyl
 xRR
 aAo
-qDf
+gIh
 beZ
-dZA
+gIh
 qyl
 yiC
 iQN
@@ -218475,9 +218383,9 @@ gLc
 qyl
 ooY
 aAo
-gCy
-pLW
-aiq
+gIh
+gIh
+gIh
 qyl
 wxK
 mRw
