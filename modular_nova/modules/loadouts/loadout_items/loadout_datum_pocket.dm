@@ -229,23 +229,23 @@
 	group = "Gear"
 
 /datum/loadout_item/pocket_items/deforest_cheesekit
-	name = "Medical Kit - Civil Defense"
-	item_path = /obj/item/storage/medkit/civil_defense/stocked
+	name = "Medical Kit - Civil Defense (Empty)"
+	item_path = /obj/item/storage/medkit/civil_defense
 	group = "Gear"
 
 /datum/loadout_item/pocket_items/medkit
-	name = "Medical Kit - First-Aid"
-	item_path = /obj/item/storage/medkit/regular
+	name = "Medical Kit - First-Aid (Empty)"
+	item_path = /obj/item/storage/medkit/regular/empty
 	group = "Gear"
 
 /datum/loadout_item/pocket_items/deforest_frontiermedkit
-	name = "Medical Kit - Frontier"
-	item_path = /obj/item/storage/medkit/frontier/stocked
+	name = "Medical Kit - Frontier (Empty)"
+	item_path = /obj/item/storage/medkit/frontier
 	group = "Gear"
 
 /datum/loadout_item/pocket_items/synthetic_medkit
-	name = "Medical Kit - Robotics"
-	item_path = /obj/item/storage/medkit/robotic_repair/stocked
+	name = "Medical Kit - Robotics (Empty)"
+	item_path = /obj/item/storage/medkit/robotic_repair
 	group = "Gear"
 
 /datum/loadout_item/pocket_items/mini_extinguisher

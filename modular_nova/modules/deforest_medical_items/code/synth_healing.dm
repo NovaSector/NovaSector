@@ -4,7 +4,7 @@
 	singular_name = "robotic repair spray"
 	desc = "A needle-tip foam gun filled with an advanced synthetic foam that rapidly \
 		fills and stabilizes structural damage in synthetics. The damaged area will be \
-		vulnerable to further damage while the foam hardens"
+		vulnerable to further damage while the foam hardens. It can only treat moderate wounds."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
 	icon_state = "robofoam"
 	inhand_icon_state = "implantcase"
@@ -27,15 +27,16 @@
 	healed_mob.reagents.add_reagent(/datum/reagent/medicine/nanite_slurry, 5)
 	healed_mob.reagents.add_reagent(/datum/reagent/medicine/coagulant/fabricated, 5)
 
-// Used to cure practically any synthetic wound
+// Used to cure up to severe synthatic wounds (not critical).
 /obj/item/stack/medical/wound_recovery/robofoam_super
 	name = "premium robotic repair spray"
 	singular_name = "premium robotic repair spray"
+	maximum_wound_severity = WOUND_SEVERITY_SEVERE
 	desc = "A needle-tip foam gun filled with an advanced synthetic foam that rapidly \
 		fills and stabilizes structural damage in synthetics. The damaged area will be \
 		vulnerable to further damage while the foam hardens. \
-		This special premium type can also be used to repair almost any possible type \
-		of synthetic damage."
+		This special premium type treats a wider range of synthetic wounds, including \
+		severe injuries."
 	icon = 'modular_nova/modules/deforest_medical_items/icons/stack_items.dmi'
 	icon_state = "robofoam_super"
 	inhand_icon_state = "implantcase"
@@ -53,7 +54,7 @@
 
 /obj/item/stack/medical/wound_recovery/robofoam_super/examine(mob/user)
 	. = ..()
-	. += span_notice("This more <b>expensive</b> foam can be used to fill <b>any</b> type of wound on synthetics.")
+	. += span_notice("This more <b>expensive</b> foam can treat more types of synthetic wounds than standard robofoam, including severe wounds.")
 	return .
 
 /obj/item/stack/medical/wound_recovery/robofoam_super/post_heal_effects(amount_healed, mob/living/carbon/healed_mob, mob/user)

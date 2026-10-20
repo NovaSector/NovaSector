@@ -29,13 +29,16 @@
 		/datum/wound/blunt/bone,
 		/datum/wound/muscle,
 	)
+	/// Maximum wound severity such items can treat. More severe wounds will not be treated (example: Severe wounds would still require surgery or other treatment.)
+	var/maximum_wound_severity = WOUND_SEVERITY_MODERATE
 	/// The sound we play upon successfully treating the wound
 	var/treatment_sound = 'sound/items/duct_tape/duct_tape_rip.ogg'
 
 /// Searches for a wound that this item is capable of treating
 /obj/item/stack/medical/wound_recovery/proc/find_suitable_wound(obj/item/bodypart/limb)
 	for(var/datum/wound/wound as anything in limb.wounds)
-		if((wound.wound_flags & ACCEPTS_GAUZE) && is_type_in_list(wound, applicable_wounds))
+		if((wound.wound_flags & ACCEPTS_GAUZE) && is_type_in_list(wound, applicable_wounds) \
+			&& wound.severity <= maximum_wound_severity)
 			return wound
 
 /obj/item/stack/medical/add_item_context(obj/item/source, list/context, atom/target, mob/living/user)
@@ -104,6 +107,7 @@
 /obj/item/stack/medical/wound_recovery/rapid_coagulant
 	name = "rapid coagulant applicator"
 	singular_name = "rapid coagulant applicator"
+	maximum_wound_severity = WOUND_SEVERITY_CRITICAL
 	desc = "A small device filled with a fast acting coagulant of some type. \
 		When used on a bleeding area, will nearly instantly stop all bleeding. \
 		This rapid clotting action may result in temporary vulnerability to further \

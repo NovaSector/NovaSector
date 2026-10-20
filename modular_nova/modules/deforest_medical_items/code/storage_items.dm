@@ -159,6 +159,10 @@
 	)
 	generate_items_inside(items_inside,src)
 
+// Empty version for the character loadout.
+/obj/item/storage/medkit/regular/empty
+	empty = TRUE
+
 // Pre-packed combat surgeon medkit, with items for fixing more specific injuries and wounds
 /obj/item/storage/medkit/combat_surgeon
 	name = "combat surgeon medical kit"
