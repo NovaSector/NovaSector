@@ -81,9 +81,7 @@
 /turf/open/floor/holofloor/dark,
 /area/template_noop)
 "p" = (
-/turf/open/floor/holofloor{
-	icon_state = "stairs"
-	},
+/turf/open/floor/holofloor/stairs,
 /area/template_noop)
 "r" = (
 /obj/effect/turf_decal/siding/wood{
@@ -155,8 +153,7 @@
 /turf/open/floor/holofloor/wood,
 /area/template_noop)
 "E" = (
-/turf/open/floor/holofloor{
-	icon_state = "stairs";
+/turf/open/floor/holofloor/stairs{
 	dir = 1
 	},
 /area/template_noop)
