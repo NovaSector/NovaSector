@@ -104,7 +104,7 @@ map northstar
     minplayers 50
 endmap
 
-map MetaMorphic Station
+map MetamorphicStation
 	votable
 endmap
 
