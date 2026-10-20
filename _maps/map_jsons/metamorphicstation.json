@@ -18,7 +18,10 @@
 			"Mining": "true",
 			"Gravity": true,
 			"Baseturf": "/turf/open/misc/asteroid/basalt/lava_land_surface",
+			"Weather_Ashstorm": true,
+			"Lava Ruins": true,
 			"No Parallax": true
+
 		}
 	],
 	"job_changes": {

@@ -2493,8 +2493,8 @@
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "aUX" = (
-/obj/item/beacon,
 /obj/effect/turf_decal/delivery,
+/obj/machinery/mining_weather_monitor/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/hallway/secondary/entry)
 "aVc" = (
@@ -5638,6 +5638,7 @@
 "bTD" = (
 /obj/structure/table/reinforced,
 /obj/machinery/light/directional/north,
+/obj/machinery/mining_weather_monitor/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/exit/departure_lounge)
 "bTU" = (
@@ -8548,7 +8549,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "cVB" = (
-/obj/machinery/status_display/ai,
+/obj/machinery/mining_weather_monitor,
 /turf/closed/wall,
 /area/station/hallway/secondary/entry)
 "cWi" = (
@@ -10299,7 +10300,7 @@
 /obj/machinery/vending/cigarette,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/dark/smooth_large,
-/area/lavaland/surface/outdoors)
+/area/station/hallway/secondary/entry)
 "dCq" = (
 /obj/structure/inflatable,
 /turf/open/misc/asteroid/basalt/standard_air,
@@ -10355,6 +10356,7 @@
 	pixel_x = 4
 	},
 /obj/machinery/firealarm/directional/south,
+/obj/machinery/mining_weather_monitor/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/engineering/transit_tube)
 "dDe" = (
@@ -15491,7 +15493,7 @@
 /obj/machinery/vending/coffee,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/dark/smooth_large,
-/area/lavaland/surface/outdoors)
+/area/station/hallway/secondary/entry)
 "fjj" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -16782,6 +16784,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/machinery/mining_weather_monitor/directional/west,
 /turf/open/floor/iron/dark/small,
 /area/station/science/auxlab)
 "fDL" = (
@@ -16842,6 +16845,7 @@
 	dir = 8
 	},
 /obj/structure/sign/nanotrasen/directional/west,
+/obj/machinery/mining_weather_monitor/directional/east,
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
 "fEC" = (
@@ -17064,7 +17068,7 @@
 "fIw" = (
 /obj/structure/stone_tile/slab/cracked,
 /obj/structure/fluff/big_chain,
-/turf/open/space/basic,
+/turf/open/lava/smooth/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "fIz" = (
 /obj/effect/spawner/structure/window,
@@ -20929,6 +20933,7 @@
 /obj/structure/cable,
 /obj/structure/chair/stool/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/obj/machinery/mining_weather_monitor/directional/south,
 /turf/open/floor/plating,
 /area/station/maintenance/solars/port/aft)
 "gXX" = (
@@ -23003,6 +23008,7 @@
 "hLa" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/turf_decal/stripes/white/line,
+/obj/machinery/mining_weather_monitor/directional/north,
 /turf/open/floor/iron/dark/small,
 /area/station/science/ordnance/testlab)
 "hLf" = (
@@ -23928,6 +23934,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/brick_half{
 	dir = 4
 	},
@@ -34168,9 +34175,12 @@
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/rd)
 "lBc" = (
-/obj/structure/sign/warning/docking,
-/turf/closed/wall,
-/area/lavaland/surface/outdoors)
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/mining_weather_monitor/directional/north,
+/turf/open/floor/iron/dark/brick_half,
+/area/station/hallway/secondary/entry)
 "lBf" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -37502,9 +37512,14 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/greater)
 "mEF" = (
-/obj/structure/flora/rock/pile/style_random,
-/turf/open/misc/asteroid/basalt/standard_air,
-/area/lavaland/surface/outdoors)
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron/dark/brick_corner{
+	dir = 4
+	},
+/area/station/hallway/secondary/entry)
 "mEN" = (
 /obj/structure/cable,
 /obj/structure/lattice/catwalk,
@@ -40210,8 +40225,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/chemistry)
 "nBF" = (
-/obj/structure/sign/warning/vacuum/external/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/mining_weather_monitor/directional/west,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "nBK" = (
@@ -42478,6 +42493,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
+/obj/machinery/mining_weather_monitor/directional/south,
 /turf/open/floor/plating,
 /area/station/maintenance/aft/lesser)
 "oqm" = (
@@ -43951,7 +43967,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
 /turf/open/floor/iron/dark/smooth_large,
-/area/lavaland/surface/outdoors)
+/area/station/hallway/secondary/entry)
 "oPU" = (
 /obj/item/shard,
 /obj/effect/mapping_helpers/broken_floor,
@@ -44109,6 +44125,7 @@
 /obj/machinery/camera/directional/west{
 	c_tag = "Solar Maintenance - Fore Port"
 	},
+/obj/machinery/mining_weather_monitor/directional/west,
 /turf/open/floor/plating,
 /area/station/maintenance/solars/port/fore)
 "oSE" = (
@@ -52574,7 +52591,6 @@
 /turf/open/floor/plating/reinforced,
 /area/station/cargo/miningoffice)
 "rRE" = (
-/obj/structure/sign/warning/vacuum/external/directional/north,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/spawner/random/structure/crate,
 /turf/open/floor/plating,
@@ -61044,6 +61060,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
+/obj/machinery/mining_weather_monitor/directional/east,
 /turf/open/floor/plating,
 /area/station/maintenance/solars/starboard/aft)
 "uRB" = (
@@ -61965,6 +61982,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/mining_weather_monitor/directional/north,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/aft)
 "vjl" = (
@@ -63142,12 +63160,6 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
-"vGz" = (
-/obj/structure/closet/emcloset,
-/obj/effect/turf_decal/delivery,
-/obj/effect/landmark/start/hangover,
-/turf/open/floor/iron/dark/smooth_large,
-/area/lavaland/surface/outdoors)
 "vGC" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -63646,6 +63658,7 @@
 "vPG" = (
 /obj/machinery/light/small/directional/north,
 /obj/effect/turf_decal/stripes/corner,
+/obj/machinery/mining_weather_monitor/directional/north,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
 "vPM" = (
@@ -65324,12 +65337,10 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/miningoffice)
 "wsw" = (
-/obj/effect/turf_decal/stripes/line,
-/obj/machinery/atmospherics/components/unary/airlock_pump{
-	dir = 1
-	},
-/turf/open/floor/plating,
-/area/lavaland/surface/outdoors)
+/obj/structure/stone_tile/slab,
+/obj/machinery/mining_weather_monitor/directional/north,
+/turf/open/misc/asteroid,
+/area/station/commons/dorms)
 "wsx" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
@@ -65831,7 +65842,7 @@
 	space_dir = 2
 	},
 /turf/open/floor/plating,
-/area/lavaland/surface/outdoors)
+/area/station/hallway/secondary/entry)
 "wBx" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/preopen{
@@ -69148,7 +69159,7 @@
 "xKq" = (
 /obj/machinery/light/small/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
-/obj/structure/sign/warning/vacuum/external/directional/west,
+/obj/machinery/mining_weather_monitor/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/cargo/miningoffice)
 "xKz" = (
@@ -79834,7 +79845,7 @@ dzV
 dzV
 dzV
 dzV
-aMJ
+lBc
 ktS
 sUw
 evV
@@ -79842,8 +79853,8 @@ wKZ
 dzV
 dzV
 dzV
-eaO
-eaO
+rcu
+rcu
 bZD
 odi
 xsu
@@ -80098,7 +80109,7 @@ evV
 mGw
 wrh
 dzV
-lGa
+dzV
 wPC
 odi
 shG
@@ -80355,7 +80366,7 @@ evV
 irk
 kjl
 dzV
-lBc
+kUV
 wPC
 gRr
 odi
@@ -80612,7 +80623,7 @@ gjw
 irk
 xfp
 dzV
-lGa
+dzV
 wPC
 jUV
 svj
@@ -80869,10 +80880,10 @@ gjw
 rOd
 gVU
 dzV
-lGa
-wPC
-mEF
-tXw
+dzV
+dzV
+rcu
+rcu
 rpI
 shu
 eHS
@@ -81118,18 +81129,18 @@ odi
 odi
 tlb
 odi
-lGa
+dzV
 dzV
 lwg
 nkT
 nkT
 qSm
 gVU
-dzV
-dzV
-dzV
-eaO
-eaO
+ibM
+mEF
+wEI
+hGF
+wBi
 mBz
 eVg
 odi
@@ -81382,11 +81393,11 @@ iFm
 iFm
 omI
 jPC
-ibM
-qyW
-wEI
-wsw
-wBi
+baj
+pcR
+uRj
+rcu
+rcu
 odi
 odi
 dRs
@@ -81639,11 +81650,11 @@ vDT
 iFm
 diC
 kFJ
-baj
-pcR
-uRj
-eaO
-eaO
+uqm
+ePc
+wrh
+viP
+rcu
 wAx
 eVg
 odi
@@ -81896,17 +81907,17 @@ sar
 bzd
 kVr
 pbK
-uqm
-ePc
-wrh
-vGz
-eaO
+sUw
+fdf
+eJd
+hVT
+rcu
 odi
 odi
 kTI
 odi
 odi
-rcu
+dzV
 aUX
 gMh
 rVv
@@ -82156,8 +82167,8 @@ uqm
 sUw
 fdf
 eJd
-vGz
-eaO
+hVT
+rcu
 skX
 odi
 fpd
@@ -82414,7 +82425,7 @@ cVB
 yhi
 eJd
 dCc
-eaO
+rcu
 hfi
 yeQ
 dRs
@@ -82671,7 +82682,7 @@ irk
 dzq
 lRQ
 fjf
-eaO
+rcu
 typ
 jYp
 mBz
@@ -82927,8 +82938,8 @@ uqm
 baj
 eJd
 rcu
-eaO
-eaO
+rcu
+rcu
 typ
 typ
 wfG
@@ -83181,10 +83192,10 @@ mfu
 iFm
 khW
 jbS
-baj
-eJd
+irk
+eHT
 wEI
-wsw
+hGF
 wBi
 typ
 typ
@@ -83441,8 +83452,8 @@ uqm
 baj
 eJd
 uRj
-eaO
-eaO
+rcu
+rcu
 ahv
 lbS
 odi
@@ -83698,7 +83709,7 @@ fSv
 pvZ
 ihX
 oPQ
-eaO
+rcu
 bZD
 bZD
 bZD
@@ -108578,7 +108589,7 @@ wMD
 rHf
 nkl
 eJL
-ceM
+wsw
 aje
 qIX
 ceM
