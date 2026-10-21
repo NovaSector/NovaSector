@@ -21566,10 +21566,7 @@
 	},
 /area/station/hallway/primary/port)
 "hcD" = (
-/obj/structure/fermenting_barrel{
-	reagents = list(/datum/reagent/consumable/ethanol/wine = 1000);
-	name = "wine barrel"
-	},
+/obj/structure/reagent_dispensers/keg/rum,
 /turf/open/floor/cult,
 /area/station/maintenance/port/aft)
 "hcL" = (
@@ -44942,10 +44939,7 @@
 /turf/open/floor/iron/dark/textured_half,
 /area/station/hallway/primary/central)
 "oRV" = (
-/obj/structure/fermenting_barrel{
-	reagents = list(/datum/reagent/consumable/ethanol/rum = 1000);
-	name = "rum barrel"
-	},
+/obj/structure/reagent_dispensers/keg/beer,
 /turf/open/floor/cult,
 /area/station/maintenance/port/aft)
 "oSp" = (
@@ -61887,7 +61881,7 @@
 	},
 /obj/structure/necropolis_gate/locked,
 /obj/structure/opacity_blocker,
-/turf/closed/indestructible/riveted/boss,
+/turf/open/floor/cult,
 /area/station/service/chapel)
 "uLe" = (
 /obj/machinery/holopad/secure,
@@ -86753,7 +86747,7 @@ bpi
 odi
 odi
 odi
-bpi
+wti
 wti
 wNX
 djC
@@ -87010,7 +87004,7 @@ bpi
 odi
 odi
 odi
-odi
+wti
 wti
 noq
 noq
@@ -87025,7 +87019,7 @@ xbR
 wyo
 noq
 noq
-noq
+wti
 noq
 wti
 hfi
@@ -87267,7 +87261,7 @@ bpi
 odi
 odi
 odi
-odi
+wti
 uLc
 noq
 noq
@@ -87282,7 +87276,7 @@ xbR
 eII
 knx
 noq
-noq
+wti
 noq
 uLc
 hfi
@@ -87524,7 +87518,7 @@ bpi
 odi
 odi
 odi
-odi
+wti
 wti
 noq
 noq
@@ -87539,7 +87533,7 @@ jGP
 sFS
 noq
 noq
-noq
+wti
 noq
 wti
 hfi
@@ -87781,7 +87775,7 @@ gpV
 odi
 odi
 odi
-bpi
+wti
 wti
 wNX
 djC
