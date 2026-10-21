@@ -3798,7 +3798,6 @@
 /turf/open/floor/sandstone,
 /area/station/commons/lounge)
 "bop" = (
-/obj/machinery/light/small/directional/south,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
@@ -18253,6 +18252,7 @@
 "fVY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/command/teleporter)
 "fWc" = (
@@ -19382,14 +19382,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/port)
-"gpP" = (
-/obj/machinery/door/airlock/command{
-	name = "Teleport Access"
-	},
-/obj/effect/mapping_helpers/airlock/access/any/command/teleporter,
-/obj/effect/landmark/navigate_destination/teleporter,
-/turf/open/floor/iron/dark,
-/area/station/command/teleporter)
 "gpV" = (
 /obj/structure/stone_tile/surrounding/cracked{
 	dir = 1
@@ -39535,6 +39527,14 @@
 	},
 /turf/open/floor/mineral/plastitanium/pod,
 /area/station/security/prison/safe)
+"naz" = (
+/obj/machinery/door/airlock/command{
+	name = "Teleport Access"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/command/teleporter,
+/obj/effect/landmark/navigate_destination/teleporter,
+/turf/open/floor/iron/dark,
+/area/station/command/teleporter)
 "naL" = (
 /obj/structure/railing{
 	dir = 5;
@@ -96544,7 +96544,7 @@ lOc
 opz
 cvT
 bop
-gpP
+naz
 keI
 eqO
 iAs
