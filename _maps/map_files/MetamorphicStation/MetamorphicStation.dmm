@@ -67,7 +67,8 @@
 /area/station/engineering/storage/tech)
 "abt" = (
 /obj/effect/decal/cleanable/crayon/rune4{
-	color = "#7D1717"
+	color = "#7D1717";
+	paint_colour = "#7D1717"
 	},
 /obj/effect/decal/cleanable/blood/innards,
 /obj/item/organ/heart,
@@ -616,6 +617,18 @@
 /area/station/hallway/secondary/entry)
 "all" = (
 /obj/structure/table/wood,
+/obj/item/storage/basket{
+	pixel_y = 16;
+	pixel_x = -3
+	},
+/obj/item/food/muffin/berry{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/cup/glass/waterbottle/tea/strawberry{
+	pixel_x = -3;
+	pixel_y = 4
+	},
 /turf/open/misc/asteroid,
 /area/station/hallway/primary/central)
 "aln" = (
@@ -4313,8 +4326,29 @@
 /obj/structure/stone_tile/block{
 	dir = 1
 	},
-/obj/structure/sign/plaques/kiddie/badger{
-	pixel_y = 32
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_y = 12;
+	pixel_x = -11
+	},
+/obj/structure/sign/commemoration/directional/north,
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_y = 12;
+	pixel_x = 12
+	},
+/obj/item/flashlight/flare/candle/infinite{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/bouquet/rose{
+	pixel_y = 7
+	},
+/obj/effect/decal/cleanable/wrapping/pinata/syndie{
+	pixel_y = 16;
+	name = "flower petals"
+	},
+/obj/effect/decal/cleanable/wrapping/pinata/syndie{
+	pixel_y = 4;
+	name = "flower petals"
 	},
 /turf/open/misc/asteroid/basalt/standard_air,
 /area/station/hallway/primary/central)
@@ -5073,6 +5107,18 @@
 "bIU" = (
 /obj/structure/table/wood,
 /obj/machinery/light/small/directional/south,
+/obj/item/reagent_containers/cup/glass/bottle/cognac{
+	pixel_y = 14;
+	pixel_x = -1
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_y = 3;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass/shotglass{
+	pixel_y = 5;
+	pixel_x = 5
+	},
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/captain/private)
 "bIV" = (
@@ -10921,7 +10967,10 @@
 /turf/open/floor/iron/dark,
 /area/station/security/checkpoint/engineering)
 "dID" = (
-/obj/machinery/button/door/directional/south,
+/obj/machinery/button/door/directional/south{
+	name = "Bitrunning Shutters";
+	id = "gamerden"
+	},
 /turf/open/floor/carpet/neon/simple/pink/nodots,
 /area/station/cargo/bitrunning/den)
 "dIL" = (
@@ -13249,6 +13298,14 @@
 	pixel_x = -8;
 	pixel_y = 8
 	},
+/obj/item/stamp/denied{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/stamp/granted{
+	pixel_x = 8;
+	pixel_y = 2
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/captain/private)
 "evu" = (
@@ -15050,6 +15107,10 @@
 /area/station/medical/break_room)
 "eXk" = (
 /obj/structure/fireplace,
+/obj/item/stack/sheet/mineral/wood/thirty{
+	pixel_y = 8;
+	pixel_x = 15
+	},
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/captain/private)
 "eXl" = (
@@ -19321,6 +19382,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/maintenance/port)
+"gpP" = (
+/obj/machinery/door/airlock/command{
+	name = "Teleport Access"
+	},
+/obj/effect/mapping_helpers/airlock/access/any/command/teleporter,
+/obj/effect/landmark/navigate_destination/teleporter,
+/turf/open/floor/iron/dark,
+/area/station/command/teleporter)
 "gpV" = (
 /obj/structure/stone_tile/surrounding/cracked{
 	dir = 1
@@ -22143,7 +22212,8 @@
 /obj/item/restraints/handcuffs/cult,
 /obj/effect/gibspawner/human,
 /obj/effect/decal/cleanable/crayon/rune2{
-	color = "#7D1717"
+	color = "#7D1717";
+	paint_colour = "#7D1717"
 	},
 /mob/living/basic/shade{
 	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile
@@ -27520,6 +27590,14 @@
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/window/reinforced/spawner/directional/east,
+/obj/item/paper_bin{
+	pixel_y = 6;
+	pixel_x = -1
+	},
+/obj/item/pen/fountain/captain{
+	pixel_y = 7;
+	pixel_x = -2
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/captain/private)
 "jcr" = (
@@ -28006,7 +28084,6 @@
 	name = "Teleport Access"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/command/teleporter,
-/obj/effect/landmark/navigate_destination/teleporter,
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/command/teleporter)
@@ -30148,7 +30225,7 @@
 	},
 /obj/effect/decal/cleanable/wrapping/pinata/syndie{
 	pixel_y = -10;
-	name = "flower pedals";
+	name = "flower petals";
 	pixel_x = 6
 	},
 /turf/open/floor/sandstone/cobbled,
@@ -30810,7 +30887,8 @@
 	},
 /obj/effect/mob_spawn/corpse/human/damaged/ashwalker,
 /obj/effect/decal/cleanable/crayon/rune2{
-	color = "#7D1717"
+	color = "#7D1717";
+	paint_colour = "#7D1717"
 	},
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
@@ -31254,6 +31332,9 @@
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
+	},
+/obj/item/storage/fancy/cigarettes/cigars/cohiba{
+	pixel_y = 9
 	},
 /turf/open/floor/carpet/royalblue,
 /area/station/command/heads_quarters/captain/private)
@@ -33777,6 +33858,9 @@
 /area/station/commons/lounge)
 "lfI" = (
 /obj/structure/stone_tile/slab/cracked,
+/obj/item/wallframe/painting{
+	pixel_y = -32
+	},
 /turf/open/misc/asteroid/basalt/standard_air,
 /area/station/hallway/primary/central)
 "lgb" = (
@@ -35648,7 +35732,8 @@
 "lQk" = (
 /obj/effect/mob_spawn/corpse/human/blood_cultist,
 /obj/effect/decal/cleanable/crayon/rune4{
-	color = "#7D1717"
+	color = "#7D1717";
+	paint_colour = "#7D1717"
 	},
 /turf/open/floor/cult,
 /area/lavaland/surface/outdoors)
@@ -37566,6 +37651,18 @@
 	},
 /turf/open/floor/wood/large,
 /area/station/commons/lounge)
+"mvy" = (
+/obj/structure/table/wood,
+/obj/item/lighter{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/storage/fancy/candle_box{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/turf/open/misc/asteroid,
+/area/station/hallway/primary/central)
 "mvA" = (
 /obj/structure/barricade/wooden,
 /turf/open/floor/cult,
@@ -39286,6 +39383,9 @@
 /area/station/hallway/primary/central)
 "mXK" = (
 /obj/structure/stone_tile/surrounding,
+/obj/item/wallframe/painting{
+	pixel_y = -32
+	},
 /turf/open/misc/asteroid/basalt/standard_air,
 /area/station/hallway/primary/central)
 "mXN" = (
@@ -40230,6 +40330,12 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/item/storage/bag/tray{
+	pixel_y = 2
+	},
+/obj/item/food/moonfish_demiglace{
+	pixel_y = 6
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/captain/private)
 "npj" = (
@@ -41004,7 +41110,8 @@
 "nCk" = (
 /obj/item/assembly/relic/lavaland,
 /obj/effect/decal/cleanable/crayon/rune4{
-	color = "#7D1717"
+	color = "#7D1717";
+	paint_colour = "#7D1717"
 	},
 /turf/open/misc/asteroid/basalt/standard_air,
 /area/station/maintenance/port/aft)
@@ -47498,7 +47605,8 @@
 /area/station/maintenance/starboard/greater)
 "pJz" = (
 /obj/effect/decal/cleanable/crayon/rune4{
-	color = "#7D1717"
+	color = "#7D1717";
+	paint_colour = "#7D1717"
 	},
 /obj/effect/mob_spawn/corpse/human/assistant,
 /obj/item/organ/legion_tumour,
@@ -47931,7 +48039,7 @@
 	},
 /obj/effect/decal/cleanable/wrapping/pinata/syndie{
 	pixel_y = 23;
-	name = "flower pedals";
+	name = "flower petals";
 	pixel_x = 6
 	},
 /turf/open/floor/sandstone/cobbled,
@@ -48036,7 +48144,7 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "pTq" = (
-/obj/effect/decal/cleanable/blood/hitsplatter,
+/obj/effect/decal/cleanable/blood/old,
 /turf/closed/indestructible/riveted/boss,
 /area/lavaland/surface/outdoors)
 "pTt" = (
@@ -50736,7 +50844,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/wrapping/pinata/syndie{
 	pixel_y = 7;
-	name = "flower pedals"
+	name = "flower petals"
 	},
 /turf/open/floor/sandstone/cobbled,
 /area/station/commons/dorms/room4)
@@ -52764,7 +52872,8 @@
 "rCA" = (
 /obj/effect/turf_decal/sand/plating/volcanic,
 /obj/effect/decal/cleanable/crayon/rune4{
-	color = "#7D1717"
+	color = "#7D1717";
+	paint_colour = "#7D1717"
 	},
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating,
@@ -53595,6 +53704,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "rRI" = (
+/obj/structure/sign/flag/nanotrasen/directional/north,
+/obj/item/kirbyplants/random,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/captain/private)
 "rRY" = (
@@ -55047,6 +55158,9 @@
 	dir = 1
 	},
 /obj/structure/stone_tile/cracked,
+/obj/item/wallframe/painting{
+	pixel_y = 32
+	},
 /turf/open/misc/asteroid/basalt/standard_air,
 /area/station/hallway/primary/central)
 "sst" = (
@@ -55183,7 +55297,8 @@
 "suB" = (
 /obj/item/melee/cultblade/dagger,
 /obj/effect/decal/cleanable/crayon/rune2{
-	color = "#7D1717"
+	color = "#7D1717";
+	paint_colour = "#7D1717"
 	},
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -55570,7 +55685,7 @@
 "sBJ" = (
 /obj/effect/decal/cleanable/wrapping/pinata/syndie{
 	pixel_y = 18;
-	name = "flower pedals";
+	name = "flower petals";
 	pixel_x = 1
 	},
 /obj/item/flashlight/flare/candle/infinite{
@@ -56002,7 +56117,7 @@
 	},
 /obj/effect/decal/cleanable/wrapping/pinata/syndie{
 	pixel_y = -1;
-	name = "flower pedals";
+	name = "flower petals";
 	pixel_x = -1
 	},
 /obj/item/flashlight/flare/candle/infinite{
@@ -56910,6 +57025,10 @@
 	dir = 2
 	},
 /obj/structure/cable,
+/obj/machinery/button/door/directional/west{
+	id = "teleshutter";
+	name = "Teleporter Shuttle Control"
+	},
 /turf/open/floor/iron/dark,
 /area/station/command/teleporter)
 "taj" = (
@@ -59559,6 +59678,11 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
+/obj/item/lighter/greyscale{
+	pixel_x = -10;
+	pixel_y = 10
+	},
+/obj/structure/sign/flag/nanotrasen/directional/north,
 /turf/open/floor/iron/dark/small,
 /area/station/command/heads_quarters/captain/private)
 "tUc" = (
@@ -66734,6 +66858,10 @@
 "wur" = (
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/structure/window/reinforced/spawner/directional/south,
+/obj/item/folder/blue{
+	pixel_y = 4;
+	pixel_x = -4
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/captain/private)
 "wuF" = (
@@ -67412,6 +67540,13 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/cup/glass/drinkingglass{
+	pixel_x = 5;
+	pixel_y = 4
+	},
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/captain/private)
 "wGh" = (
@@ -69001,7 +69136,7 @@
 /turf/open/floor/wood/large,
 /area/station/commons/lounge)
 "xjo" = (
-/obj/structure/transit_tube/station/dispenser{
+/obj/structure/transit_tube/station/dispenser/reverse/flipped{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium/pod/redlight,
@@ -96409,7 +96544,7 @@ lOc
 opz
 cvT
 bop
-opz
+gpP
 keI
 eqO
 iAs
@@ -99516,7 +99651,7 @@ pJM
 vCL
 hrw
 ppB
-all
+mvy
 jtr
 kSI
 jtr
