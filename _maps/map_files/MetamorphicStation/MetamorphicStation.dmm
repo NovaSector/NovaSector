@@ -6373,14 +6373,12 @@
 /area/station/command/heads_quarters/captain/private)
 "ceY" = (
 /obj/structure/table/wood,
-/obj/item/ship_in_a_bottle{
-	pixel_y = 10;
-	pixel_x = -2
-	},
-/obj/item/ship_in_a_bottle{
-	pixel_y = 2;
-	pixel_x = -4
-	},
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
 /area/lavaland/surface/outdoors)
 "cfo" = (
@@ -19507,8 +19505,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "gsO" = (
-/obj/vehicle/ridden/lavaboat/dragon,
-/turf/open/lava/smooth/lava_land_surface,
+/obj/structure/stone_tile/slab,
+/obj/vehicle/ridden/lavaboat,
+/turf/open/floor/cult,
 /area/lavaland/surface/outdoors)
 "gsP" = (
 /obj/structure/stone_tile/block/cracked{
@@ -31608,6 +31607,9 @@
 	pixel_x = 4;
 	pixel_y = 6
 	},
+/obj/item/gps/mining,
+/obj/item/gps/mining,
+/obj/item/gps/mining,
 /turf/open/floor/iron/dark/small,
 /area/station/hallway/secondary/exit/departure_lounge)
 "kuC" = (
@@ -46185,6 +46187,13 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/commons/vacant_room/commissary)
+"pnE" = (
+/obj/structure/stone_tile/slab,
+/obj/vehicle/ridden/lavaboat{
+	dir = 4
+	},
+/turf/open/floor/cult,
+/area/lavaland/surface/outdoors)
 "pnN" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -116394,10 +116403,10 @@ mOm
 kxD
 bQH
 fhr
-gby
 gsO
 goU
-gsO
+goU
+goU
 goU
 goU
 goU
@@ -116908,10 +116917,10 @@ goU
 kxD
 eqz
 odi
-gby
 gsO
 goU
-gsO
+goU
+goU
 goU
 goU
 goU
@@ -117423,9 +117432,9 @@ bpi
 bpi
 rUL
 bpi
-gby
-gby
-gby
+pnE
+pnE
+pnE
 bpi
 goU
 goU
