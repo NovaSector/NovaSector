@@ -3803,7 +3803,7 @@
 "boA" = (
 /obj/structure/inflatable,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/area/station/maintenance/starboard/aft)
 "boD" = (
 /obj/effect/turf_decal/stripes{
 	dir = 5
@@ -4211,7 +4211,6 @@
 /area/station/science/ordnance/testlab)
 "buH" = (
 /obj/structure/closet/crate/wooden/toy,
-/obj/machinery/light_switch/directional/south,
 /turf/open/floor/wood,
 /area/station/service/theater)
 "buQ" = (
@@ -14955,10 +14954,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/science/lobby)
-"eVj" = (
-/obj/structure/inflatable/window_airbag,
-/turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
 "eVp" = (
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/medbay/lobby)
@@ -31773,7 +31768,7 @@
 "kwI" = (
 /obj/structure/inflatable/door,
 /turf/open/misc/asteroid/basalt/lava_land_surface,
-/area/lavaland/surface/outdoors)
+/area/station/maintenance/starboard/aft)
 "kwJ" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/newscaster/directional/east,
@@ -108282,7 +108277,7 @@ qeG
 qeG
 dqO
 qeG
-eVj
+oDt
 cPe
 amA
 lbA
@@ -109310,7 +109305,7 @@ qeG
 qeG
 oDt
 bwX
-eVj
+oDt
 pDC
 keA
 odi
