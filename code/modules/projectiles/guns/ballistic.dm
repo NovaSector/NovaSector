@@ -545,7 +545,6 @@
 	if (display_message)
 		balloon_alert(user, "[magazine_wording] unloaded")
 
-
 /obj/item/gun/ballistic/can_shoot()
 	return chambered?.loaded_projectile
 

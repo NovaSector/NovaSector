@@ -4270,9 +4270,7 @@
 	dir = 4;
 	id = "abandoned_kitchen"
 	},
-/obj/structure/displaycase/forsale/kitchen{
-	pixel_y = 8
-	},
+/obj/structure/tipjar/prefilled,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "nV" = (
