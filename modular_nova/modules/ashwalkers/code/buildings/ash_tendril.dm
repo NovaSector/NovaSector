@@ -125,10 +125,7 @@
 
 		for(var/mob/living/living_observers in view(src, 5))
 			if(living_observers.mind?.has_antag_datum(/datum/antagonist/ashwalker))
-				living_observers.add_mood_event("oogabooga", /datum/mood_event/sacrifice_good)
-
-			else
-				living_observers.add_mood_event("oogabooga", /datum/mood_event/sacrifice_bad)
+				living_observers.add_mood_event("tendril sacrifice", /datum/mood_event/sacrifice_good)
 
 		ashies.sacrifices_made++
 

@@ -66,12 +66,6 @@
 	worn_icon_state = "crowbar"
 	toolspeed = 0.7
 
-/obj/item/crowbar/large/orange
-	name = "frontier crowbar"
-	desc = "A large crowbar with a plastic grip coated with orange paint in the middle, commonly printed from a colony fabricator."
-	icon_state = "crowbar_orange"
-
-
 /obj/item/crowbar/large/emergency
 	name = "emergency crowbar"
 	desc = "It's a bulky crowbar. It almost seems deliberately designed to not be able to fit inside of a backpack."
@@ -379,7 +373,7 @@
 /obj/item/crowbar/mechremoval/Initialize(mapload)
 	. = ..()
 	transform = transform.Translate(0, -8)
-	AddComponent(/datum/component/two_handed, force_unwielded = 5, force_wielded = 19, icon_wielded = "[base_icon_state]1")
+	AddComponent(/datum/component/two_handed, force_unwielded = 5, force_wielded = 19, update_icon_state = TRUE)
 
 /obj/item/crowbar/mechremoval/update_icon_state()
 	icon_state = "[base_icon_state]0"
