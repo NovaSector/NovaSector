@@ -14,7 +14,6 @@
 	equip_sound = 'modular_nova/modules/modular_items/lewd_items/sounds/latex.ogg'
 	can_adjust = FALSE
 	strip_delay = 10
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 	flags_inv = HIDETAUR
 
 //this fragment of code makes unequipping not instant

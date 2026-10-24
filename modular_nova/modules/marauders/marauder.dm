@@ -134,7 +134,7 @@
 
 /datum/outfit/marauder/akula
 	name = "Marauder (Akula)"
-	r_pocket = /obj/item/clothing/accessory/vaporizer
+	r_pocket = /obj/item/vaporizer/with_cell
 
 /datum/outfit/marauder/vox
 	name = "Marauder (Vox)"

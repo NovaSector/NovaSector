@@ -184,6 +184,18 @@
 	relevant_mutant_bodypart = FEATURE_TAIL
 	type_to_check = /datum/preference/toggle/mutant_toggle/tail
 
+/datum/preference/toggle/mutant_toggle/tail/is_accessible(datum/preferences/preferences)
+	return ..() && !preferences.has_taur_tail() && preferences.species_grows_legs()
+
+/datum/preference/choiced/mutant_choice/tail/is_part_enabled(datum/preferences/preferences)
+	return ..() && !preferences.has_taur_tail() && preferences.species_grows_legs()
+
+/datum/preference/tri_color/tail/is_accessible(datum/preferences/preferences)
+	return ..() && !preferences.has_taur_tail() && preferences.species_grows_legs()
+
+/datum/preference/tri_bool/tail/is_accessible(datum/preferences/preferences)
+	return ..() && !preferences.has_taur_tail() && preferences.species_grows_legs()
+
 /// Snouts
 
 /datum/preference/toggle/mutant_toggle/snout
@@ -738,6 +750,45 @@
 	savefile_key = "taur_emissive"
 	relevant_mutant_bodypart = FEATURE_TAUR
 	type_to_check = /datum/preference/toggle/mutant_toggle/taur
+
+/datum/preference/toggle/mutant_toggle/taur/is_accessible(datum/preferences/preferences)
+	return ..() && preferences.species_grows_legs()
+
+/datum/preference/choiced/mutant_choice/taur/is_part_enabled(datum/preferences/preferences)
+	return ..() && preferences.species_grows_legs()
+
+/datum/preference/tri_color/taur/is_accessible(datum/preferences/preferences)
+	return ..() && preferences.species_grows_legs()
+
+/datum/preference/tri_bool/taur/is_accessible(datum/preferences/preferences)
+	return ..() && preferences.species_grows_legs()
+
+/**
+ * Returns whether these preferences give the character a taur body that brings its own tail.
+ *
+ * That tail fills the tail slot, so the tail preferences step aside while it is chosen. Their saved
+ * values are kept for when the character goes back to a taur without one.
+ *
+ * Returns:
+ * - TRUE: The taur choice will be applied and its body has a tail, drawn separately or baked in.
+ * - FALSE: No taur will be applied, or its body has no tail.
+ */
+/datum/preferences/proc/has_taur_tail()
+	var/datum/preference/choiced/mutant_choice/taur/taur_preference = GLOB.preference_entries[/datum/preference/choiced/mutant_choice/taur]
+	if(!taur_preference.is_visible(preferences = src))
+		return FALSE
+	var/datum/sprite_accessory/taur/taur = SSaccessories.sprite_accessories[FEATURE_TAUR][read_preference(/datum/preference/choiced/mutant_choice/taur)]
+	return taur?.has_tail
+
+/**
+ * Returns whether the chosen species grows legs of its own.
+ *
+ * A taur body replaces the legs, and a legless species' own tail fills the tail slot, so neither the
+ * taur nor the tail preferences apply to one. Their saved values are kept for other species.
+ */
+/datum/preferences/proc/species_grows_legs()
+	var/datum/species/species = GLOB.species_prototypes[read_preference(/datum/preference/choiced/species)]
+	return species.grows_legs()
 
 /// Xenodorsal
 

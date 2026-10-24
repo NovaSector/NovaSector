@@ -3,8 +3,7 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/centcom.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/under/centcom.dmi'
 	female_sprite_flags = NO_FEMALE_UNIFORM
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	bodyshapes_with_variations = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON | CLOTHING_CERULEAN_MASK_LEGS
 
 /obj/item/clothing/under/rank/azulean/old_blood
 	name = "\improper Agurkrral Oldblood's royal regalia"
@@ -15,7 +14,7 @@
 		Due to being constructed for comfort and flash rather than practicality, the technology used in Shoredresses to hydrate the wearer could not be implemented; \
 		only a mount for a Shoredress's helm."
 	icon_state = "oldblood"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK | CLOTHING_BIG_LEGS_MASK
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK | CLOTHING_BIG_LEGS_MASK | CLOTHING_CERULEAN_MASK_LEGS
 
 /obj/item/clothing/under/rank/azulean/old_blood/skirt
 	name = "\improper Agurkrral Oldblood's royal regalia"
@@ -31,7 +30,7 @@
 		Due to being constructed for a degree of expendability, the technology used in Shoredresses to hydrate the wearer is \
 		an extremely rare sight in these outfits; only the mount for a Shoredress's helm."
 	icon_state = "upstart"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK | CLOTHING_BIG_LEGS_MASK
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK | CLOTHING_BIG_LEGS_MASK | CLOTHING_CERULEAN_MASK_LEGS
 
 /obj/item/clothing/under/rank/azulean/upstart/skirt
 	name = "\improper Agurkrral Upstart's noble getup"
