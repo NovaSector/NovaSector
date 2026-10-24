@@ -1,0 +1,2 @@
+output_name = "nanocarbon_wall"
+template = "bitmask/diagonal_corner_32x32.toml"
