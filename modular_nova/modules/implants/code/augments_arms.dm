@@ -42,6 +42,13 @@
 	user.do_attack_animation(M,null,some_item)
 	some_item.attack(M,user)
 
+/// Creates an extra tool unlocked after initialization (e.g. by emagging) and adds it to the implant's tools
+/obj/item/organ/cyberimp/arm/toolkit/proc/add_extra_item(obj/item/typepath)
+	var/obj/item/new_item = new typepath(src)
+	prepare_init_item(new_item)
+	items_list |= new_item
+	return new_item
+
 /obj/item/organ/cyberimp/arm/toolkit/armblade
 	zone = BODY_ZONE_R_ARM
 	slot = ORGAN_SLOT_RIGHT_ARM_AUG
@@ -69,14 +76,18 @@
 /obj/item/organ/cyberimp/arm/toolkit/armblade
 	name = "arm blade implant"
 	desc = "An integrated blade implant designed to be installed into a persons arm. Stylish and deadly; Although, being caught with this without proper permits is sure to draw unwanted attention."
-	items_to_create = list(/obj/item/melee/implantarmblade)
 	icon = 'modular_nova/modules/implants/icons/implanted_blade.dmi'
 	icon_state = "mantis_blade"
 	aug_icon = "toolkit"
 
+/obj/item/organ/cyberimp/arm/toolkit/armblade/get_init_items()
+	return list(/obj/item/melee/implantarmblade)
+
 /obj/item/organ/cyberimp/arm/toolkit/armblade/early
 	name = "outdated arm blade implant"
-	items_to_create = list(/obj/item/melee/implantarmblade/early)
+
+/obj/item/organ/cyberimp/arm/toolkit/armblade/early/get_init_items()
+	return list(/obj/item/melee/implantarmblade/early)
 
 /obj/item/organ/cyberimp/arm/toolkit/armblade/early
 	zone = BODY_ZONE_R_ARM
@@ -90,7 +101,7 @@
 	if(obj_flags & EMAGGED)
 		return FALSE
 	to_chat(usr, span_notice("You unlock [src]'s integrated energy arm blade! You madman!"))
-	items_list += WEAKREF(new /obj/item/melee/implantarmblade/energy(src))
+	add_extra_item(/obj/item/melee/implantarmblade/energy)
 	obj_flags |= EMAGGED
 	return TRUE
 
@@ -168,13 +179,15 @@
 /obj/item/organ/cyberimp/arm/toolkit/razor_claws
 	name = "razor claws implant"
 	desc = "A set of hidden, retractable blades built into the fingertips; cyborg mercenary approved."
-	items_to_create = list(/obj/item/knife/razor_claws)
 	actions_types = list(/datum/action/item_action/organ_action/toggle/razor_claws)
 	icon = 'modular_nova/modules/implants/icons/razorclaws.dmi'
 	icon_state = "wolverine"
 	extend_sound = 'sound/items/unsheath.ogg'
 	retract_sound = 'sound/items/sheath.ogg'
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+
+/obj/item/organ/cyberimp/arm/toolkit/razor_claws/get_init_items()
+	return list(/obj/item/knife/razor_claws)
 
 /obj/item/organ/cyberimp/arm/toolkit/razor_claws/emp_act(severity)
 	. = ..()
@@ -219,11 +232,13 @@
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a steel mining drill to extend over the user's hand. Little by little, we advance a bit further with each turn. That's how a drill works!"
 	icon = 'modular_nova/modules/implants/icons/drillimplant.dmi'
 	icon_state = "steel"
-	items_to_create = list(/obj/item/pickaxe/drill/implant)
 	aug_icon = 'modular_nova/modules/implants/icons/implants_onmob.dmi'
 	aug_overlay = "steel"
 	hand_state = FALSE
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+
+/obj/item/organ/cyberimp/arm/toolkit/mining_drill/get_init_items()
+	return list(/obj/item/pickaxe/drill/implant)
 
 /obj/item/organ/cyberimp/arm/toolkit/mining_drill/emp_act(severity)
 	. = ..()
@@ -294,9 +309,11 @@ GAME_VERB_DESC(/obj/item/pickaxe/drill/implant, spin, "Spin Drillbit", "Click to
 	name = "\improper Dalba Masterworks 'Tunneler' Diamond Integrated Drill"
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a masterwork diamond mining drill to extend over the user's hand. This drill will open a hole in the universe, and that hole will be a path for those behind us!"
 	icon_state = "diamond"
-	items_to_create = list(/obj/item/pickaxe/drill/implant/diamond)
 	aug_overlay = "toolkit"
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/diamond = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
+
+/obj/item/organ/cyberimp/arm/toolkit/mining_drill/diamond/get_init_items()
+	return list(/obj/item/pickaxe/drill/implant/diamond)
 
 /obj/item/pickaxe/drill/implant/diamond
 	name = "integrated diamond mining drill"
@@ -314,15 +331,19 @@ GAME_VERB_DESC(/obj/item/pickaxe/drill/implant, spin, "Spin Drillbit", "Click to
 	desc = "An small arm implant containing an advanced screwdriver, wirecutters, and multitool designed for engineers and on-the-field machine modification. Actually legal, despite what the name may make you think."
 	icon = 'icons/obj/items_cyborg.dmi'
 	icon_state = "toolkit_engiborg_multitool"
-	items_to_create = list(/obj/item/screwdriver/cyborg, /obj/item/wirecutters/cyborg, /obj/item/multitool/abductor/implant)
 	aug_overlay = "toolkit"
+
+/obj/item/organ/cyberimp/arm/toolkit/hacker/get_init_items()
+	return list(/obj/item/screwdriver/cyborg, /obj/item/wirecutters/cyborg, /obj/item/multitool/abductor/implant)
 
 /obj/item/organ/cyberimp/arm/toolkit/botany
 	name = "botany arm implant"
 	desc = "A rather simple arm implant containing tools used in gardening and botanical research."
-	items_to_create = list(/obj/item/cultivator, /obj/item/shovel/spade, /obj/item/hatchet, /obj/item/gun/energy/floragun, /obj/item/plant_analyzer, /obj/item/geneshears, /obj/item/secateurs, /obj/item/storage/bag/plants, /obj/item/storage/bag/plants/portaseeder)
 	aug_overlay = "toolkit"
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/plastic = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+
+/obj/item/organ/cyberimp/arm/toolkit/botany/get_init_items()
+	return list(/obj/item/cultivator, /obj/item/shovel/spade, /obj/item/hatchet, /obj/item/gun/energy/floragun, /obj/item/plant_analyzer, /obj/item/geneshears, /obj/item/secateurs, /obj/item/storage/bag/plants, /obj/item/storage/bag/plants/portaseeder)
 
 /obj/item/implant_mounted_chainsaw
 	name = "integrated chainsaw"
@@ -347,7 +368,7 @@ GAME_VERB_DESC(/obj/item/pickaxe/drill/implant, spin, "Spin Drillbit", "Click to
 	if(obj_flags & EMAGGED)
 		return FALSE
 	to_chat(usr, span_notice("You unlock [src]'s deluxe landscaping equipment!"))
-	items_list += WEAKREF(new /obj/item/implant_mounted_chainsaw(src)) //time to landscape the station
+	add_extra_item(/obj/item/implant_mounted_chainsaw) //time to landscape the station
 	obj_flags |= EMAGGED
 	return TRUE
 
@@ -360,31 +381,35 @@ GAME_VERB_DESC(/obj/item/pickaxe/drill/implant, spin, "Spin Drillbit", "Click to
 /obj/item/organ/cyberimp/arm/toolkit/janitor
 	name = "janitorial tools implant"
 	desc = "A set of janitorial tools on the user's arm."
-	items_to_create = list(/obj/item/lightreplacer, /obj/item/holosign_creator, /obj/item/soap/nanotrasen, /obj/item/reagent_containers/spray/cyborg_drying, /obj/item/mop/advanced, /obj/item/paint/paint_remover, /obj/item/reagent_containers/cup/beaker/large, /obj/item/reagent_containers/spray/cleaner) //Beaker if for refilling sprays
 	aug_overlay = "toolkit"
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+
+/obj/item/organ/cyberimp/arm/toolkit/janitor/get_init_items()
+	return list(/obj/item/lightreplacer, /obj/item/holosign_creator, /obj/item/soap/nanotrasen, /obj/item/reagent_containers/spray/cyborg_drying, /obj/item/mop/advanced, /obj/item/paint/paint_remover, /obj/item/reagent_containers/cup/beaker/large, /obj/item/reagent_containers/spray/cleaner) //Beaker if for refilling sprays
 
 /obj/item/organ/cyberimp/arm/toolkit/janitor/emag_act()
 	if(obj_flags & EMAGGED)
 		return FALSE
 	to_chat(usr, span_notice("You unlock [src]'s integrated deluxe cleaning supplies!"))
-	items_list += WEAKREF(new /obj/item/soap/syndie(src)) //We add not replace.
-	items_list += WEAKREF(new /obj/item/reagent_containers/spray/cyborg_lube(src))
+	add_extra_item(/obj/item/soap/syndie) //We add not replace.
+	add_extra_item(/obj/item/reagent_containers/spray/cyborg_lube)
 	obj_flags |= EMAGGED
 	return TRUE
 
 /obj/item/organ/cyberimp/arm/toolkit/lighter
 	name = "lighter implant"
 	desc = "A... implanted lighter. Incredibly useless."
-	items_to_create = list(/obj/item/lighter/greyscale) //Hilariously useless.
 	aug_overlay = "toolkit"
 	custom_materials = list(/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+
+/obj/item/organ/cyberimp/arm/toolkit/lighter/get_init_items()
+	return list(/obj/item/lighter/greyscale) //Hilariously useless.
 
 /obj/item/organ/cyberimp/arm/toolkit/lighter/emag_act()
 	if(obj_flags & EMAGGED)
 		return FALSE
 	to_chat(usr, span_notice("You unlock [src]'s integrated Zippo lighter! Finally, classy smoking!"))
-	items_list += WEAKREF(new /obj/item/lighter(src)) //Now you can choose between bad and worse!
+	add_extra_item(/obj/item/lighter) //Now you can choose between bad and worse!
 	obj_flags |= EMAGGED
 	return TRUE
 
@@ -443,10 +468,12 @@ GAME_VERB_DESC(/obj/item/pickaxe/drill/implant, spin, "Spin Drillbit", "Click to
 	name = "razorwire spool implant"
 	desc = "An integrated spool of razorwire, capable of being used as a weapon when whipped at your foes. \
 		Built into the back of your hand, try your best to not get it tangled."
-	items_to_create = list(/obj/item/melee/razorwire)
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "razorwire"
 	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+
+/obj/item/organ/cyberimp/arm/toolkit/razorwire/get_init_items()
+	return list(/obj/item/melee/razorwire)
 
 /obj/item/organ/cyberimp/arm/toolkit/razorwire
 	zone = BODY_ZONE_R_ARM
@@ -461,26 +488,26 @@ GAME_VERB_DESC(/obj/item/pickaxe/drill/implant, spin, "Spin Drillbit", "Click to
 	starting_organ = /obj/item/organ/cyberimp/arm/toolkit/razorwire
 // Surgical toolsets (normal + cruel) additions
 
-/obj/item/organ/cyberimp/arm/toolkit/surgery/Initialize(mapload)
+/obj/item/organ/cyberimp/arm/toolkit/surgery/get_init_items()
+	. = ..()
 	if (src.type == /obj/item/organ/cyberimp/arm/toolkit/surgery)
-		items_to_create += list(
+		. += list(
 			/obj/item/bonesetter/augment,
 			/obj/item/blood_filter/augment,
 		)
-	return ..()
 
 // Block swapping while a blood filter is active
-/obj/item/organ/cyberimp/arm/toolkit/surgery/swap_tools(active_item)
+/obj/item/organ/cyberimp/arm/toolkit/surgery/on_inhand_use(obj/item/source, mob/user)
 	if (istype(src.active_item, /obj/item/blood_filter))
 		return
 	return ..()
 
-/obj/item/organ/cyberimp/arm/toolkit/surgery/cruel/Initialize(mapload)
-	items_to_create += list(
+/obj/item/organ/cyberimp/arm/toolkit/surgery/cruel/get_init_items()
+	. = ..()
+	. += list(
 		/obj/item/bonesetter/cruel/augment,
 		/obj/item/blood_filter/cruel/augment,
 	)
-	return ..()
 
 // Shell launch system, an arm mounted single-shot shotgun/.980 grenade launcher that comes out of your arm
 
@@ -506,15 +533,35 @@ GAME_VERB_DESC(/obj/item/pickaxe/drill/implant, spin, "Spin Drillbit", "Click to
 	bolt_type = BOLT_TYPE_NO_BOLT
 	can_be_sawn_off = FALSE
 	pb_knockback = 2
-	can_modify_ammo = TRUE
-	initial_caliber = CALIBER_SHOTGUN
-	alternative_caliber = CALIBER_980TYDHOUER
 	recoil = 4
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
 
 /obj/item/gun/ballistic/shotgun/shell_launcher/give_gun_safeties()
 	return
+
+/// Wrenching swaps the internal magazine between shotgun shells and .980 Tydhouer grenades
+/obj/item/gun/ballistic/shotgun/shell_launcher/wrench_act(mob/living/user, obj/item/tool)
+	if(!user.is_holding(src))
+		balloon_alert(user, "hold to modify!")
+		return ITEM_INTERACT_BLOCKING
+
+	if(get_ammo())
+		balloon_alert(user, "can't modify while loaded!")
+		return ITEM_INTERACT_BLOCKING
+
+	balloon_alert(user, "tinkering...")
+	tool.play_tool_sound(src)
+	if(!tool.use_tool(src, user, 3 SECONDS))
+		return ITEM_INTERACT_BLOCKING
+
+	if(magazine.caliber == CALIBER_SHOTGUN)
+		magazine.caliber = CALIBER_980TYDHOUER
+		to_chat(user, span_notice("You modify [src]. Now it will fire [CALIBER_980TYDHOUER] rounds."))
+	else
+		magazine.caliber = CALIBER_SHOTGUN
+		to_chat(user, span_notice("You reset [src]. Now it will fire [CALIBER_SHOTGUN] rounds."))
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/ammo_box/magazine/internal/shot/shell_cannon
 	name = "shell launch system internal magazine"
@@ -526,11 +573,13 @@ GAME_VERB_DESC(/obj/item/pickaxe/drill/implant, spin, "Spin Drillbit", "Click to
 /obj/item/organ/cyberimp/arm/toolkit/shell_launcher
 	name = "shell launch system implant"
 	desc = "A mounted, single-shot housing for a shell launch cannon; capable of firing either twelve gauge shotgun shells, or .980 Tydhouer grenades."
-	items_to_create = list(/obj/item/gun/ballistic/shotgun/shell_launcher)
 	icon = 'modular_nova/modules/implants/icons/implants.dmi'
 	icon_state = "shell_cannon"
 	aug_overlay = "toolkit"
 	custom_materials = list(/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 3, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT, /datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT)
+
+/obj/item/organ/cyberimp/arm/toolkit/shell_launcher/get_init_items()
+	return list(/obj/item/gun/ballistic/shotgun/shell_launcher)
 
 /obj/item/autosurgeon/syndicate/shell_launcher
 	name = "shell launcher autosurgeon"
