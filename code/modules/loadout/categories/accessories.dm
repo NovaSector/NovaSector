@@ -87,3 +87,7 @@
 	name = "Pride Pin"
 	item_path = /obj/item/clothing/accessory/pride
 	reskin_datum = /datum/atom_skin/pride_pin
+
+/datum/loadout_item/accessory/earrings
+	name = "Earrings"
+	item_path = /obj/item/clothing/accessory/earrings
