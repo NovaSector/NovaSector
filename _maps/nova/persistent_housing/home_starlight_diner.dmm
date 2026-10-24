@@ -1,0 +1,409 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/closed/wall,
+/area/misc/player_home)
+"ab" = (
+/obj/structure/chair/sofa/bench{
+	dir = 4
+	},
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"ac" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/condiment/saltshaker{
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/condiment/peppermill{
+	pixel_x = 6
+	},
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"ad" = (
+/obj/structure/chair/sofa/bench{
+	dir = 8
+	},
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"ae" = (
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"af" = (
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"ag" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 8
+	},
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"ah" = (
+/obj/structure/closet/secure_closet/freezer/kitchen/all_access,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"ai" = (
+/obj/machinery/oven/range,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"aj" = (
+/obj/machinery/griddle,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"ak" = (
+/obj/machinery/deepfryer,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"al" = (
+/obj/structure/sink/kitchen/directional/south,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"am" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave,
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"an" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/cup/glass/coffee,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"ao" = (
+/turf/open/floor/iron/kitchen,
+/area/misc/player_home)
+"ap" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/condiment/ketchup,
+/obj/item/reagent_containers/condiment/saltshaker{
+	pixel_x = 8
+	},
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"aq" = (
+/obj/structure/table/reinforced,
+/obj/machinery/coffeemaker/impressa,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"ar" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/fancy/donut_box,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"as" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"at" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/coffeepack,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"au" = (
+/obj/structure/chair/stool/bar/directional/north,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"av" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"aw" = (
+/obj/machinery/door/airlock,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"ax" = (
+/obj/structure/bed/double,
+/obj/effect/spawner/random/bedsheet/any/double,
+/turf/open/floor/carpet/red,
+/area/misc/player_home)
+"ay" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp{
+	pixel_y = 6
+	},
+/turf/open/floor/carpet/red,
+/area/misc/player_home)
+"az" = (
+/obj/structure/dresser,
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/carpet/red,
+/area/misc/player_home)
+"aA" = (
+/obj/structure/toilet,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"aB" = (
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"aC" = (
+/obj/structure/sink/directional/west,
+/obj/structure/mirror/directional/east,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"aD" = (
+/turf/open/floor/carpet/red,
+/area/misc/player_home)
+"aE" = (
+/obj/structure/closet/cabinet,
+/turf/open/floor/carpet/red,
+/area/misc/player_home)
+"aF" = (
+/obj/structure/chair{
+	dir = 4
+	},
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"aG" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/condiment/ketchup,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"aH" = (
+/obj/structure/chair{
+	dir = 8
+	},
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"aI" = (
+/obj/machinery/shower/directional/west,
+/obj/structure/curtain,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"aJ" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/carpet/red,
+/area/misc/player_home)
+"aK" = (
+/obj/item/kirbyplants/random,
+/obj/structure/sign/poster/random/directional/west,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"aL" = (
+/obj/machinery/home_saver,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"aM" = (
+/obj/machinery/light/warm/directional/south,
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"aN" = (
+/obj/structure/towel_bin,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"aO" = (
+/turf/closed/indestructible/hoteldoor/fakedoor/player_home,
+/area/misc/player_home)
+"hi" = (
+/obj/structure/chair/sofa/bench/right{
+	dir = 4
+	},
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"IE" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 4
+	},
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+"Tm" = (
+/obj/structure/chair/sofa/bench/left{
+	dir = 8
+	},
+/turf/open/floor/iron/checker,
+/area/misc/player_home)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+IE
+ab
+hi
+af
+av
+aa
+ax
+aD
+aJ
+aa
+"}
+(3,1,1) = {"
+aa
+ac
+an
+ac
+af
+af
+aw
+aD
+aD
+aD
+aa
+"}
+(4,1,1) = {"
+aa
+ag
+ad
+Tm
+af
+af
+aa
+az
+aE
+ay
+aa
+"}
+(5,1,1) = {"
+aa
+ae
+af
+af
+af
+af
+aa
+aa
+aa
+aa
+aa
+"}
+(6,1,1) = {"
+aa
+af
+af
+af
+af
+af
+af
+af
+aF
+aK
+aa
+"}
+(7,1,1) = {"
+aa
+af
+af
+af
+af
+af
+af
+af
+aG
+af
+aa
+"}
+(8,1,1) = {"
+aa
+aa
+aa
+ap
+au
+af
+af
+af
+aH
+aL
+aa
+"}
+(9,1,1) = {"
+aa
+ah
+ao
+aq
+au
+af
+af
+af
+af
+af
+aO
+"}
+(10,1,1) = {"
+aa
+ai
+ao
+ar
+au
+af
+af
+af
+af
+aM
+aa
+"}
+(11,1,1) = {"
+aa
+aj
+ao
+as
+au
+af
+aa
+aa
+aa
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+ak
+ao
+at
+au
+af
+aa
+aA
+aB
+aB
+aa
+"}
+(13,1,1) = {"
+aa
+al
+ao
+as
+au
+af
+aw
+aB
+aB
+aB
+aa
+"}
+(14,1,1) = {"
+aa
+am
+ao
+ao
+af
+av
+aa
+aC
+aI
+aN
+aa
+"}
+(15,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

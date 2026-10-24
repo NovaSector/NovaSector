@@ -775,9 +775,10 @@ GLOBAL_LIST_EMPTY(map_model_default)
 			var/atom_def = text2path(path_to_init) //path definition, e.g /obj/foo/bar
 
 			if(!ispath(atom_def, /atom)) // Skip the item if the path does not exist.  Fix your crap, mappers!
+				members_attributes.len-- // NOVA EDIT ADDITION - The attributes entry was already added above; leaving it shifts every later var edit onto the wrong atom
 				if(bad_paths)
 					// Rare case, avoid the var to save time most of the time
-					LAZYOR(bad_paths[copytext(line, 1, -1)], model_key)
+					LAZYOR(bad_paths[path_to_init], model_key) // NOVA EDIT CHANGE - Area lines have no trailing comma to strip - ORIGINAL: LAZYOR(bad_paths[copytext(line, 1, -1)], model_key)
 				continue
 			// Index is already incremented either way, just gotta set the path and all
 			members += atom_def
