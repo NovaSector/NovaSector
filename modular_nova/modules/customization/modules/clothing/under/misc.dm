@@ -4,7 +4,6 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/uniform.dmi'
 	icon_state = "tracksuit_blue"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK | CLOTHING_CERULEAN_MASK_LEGS
 
 /obj/item/clothing/under/tachawaiian
 	name = "orange tactical hawaiian outfit"
@@ -12,7 +11,6 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/uniform.dmi'
 	icon_state = "tacticool_hawaiian_orange"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK | CLOTHING_CERULEAN_MASK_LEGS
 
 /obj/item/clothing/under/tachawaiian/blue
 	name = "blue tactical hawaiian outfit"
@@ -32,7 +30,6 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/uniform.dmi'
 	icon_state = "texas"
-	supports_variations_flags = NONE
 
 /obj/item/clothing/under/doug_dimmadome
 	name = "dimmadome formal outfit"
@@ -40,7 +37,6 @@
 	icon = 'modular_nova/master_files/icons/obj/clothing/uniforms.dmi'
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/uniform.dmi'
 	icon_state = "doug_dimmadome"
-	supports_variations_flags = NONE
 
 /obj/item/clothing/under/pants/tactical
 	icon = 'modular_nova/master_files/icons/obj/clothing/under/shorts_pants_shirts.dmi'

@@ -6,7 +6,6 @@
 	worn_icon = 'modular_nova/master_files/icons/mob/clothing/uniform.dmi'
 	icon_state = "cyberpunksleek"
 	body_parts_covered = CHEST|ARMS|GROIN|LEGS
-	supports_variations_flags = NONE
 	can_adjust = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK | CLOTHING_BIG_LEGS_MASK | CLOTHING_CERULEAN_MASK_LEGS
 

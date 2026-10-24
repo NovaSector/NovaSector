@@ -228,7 +228,6 @@
 	name = "command utility uniform"
 	desc = "A utility uniform worn by Station Command."
 	icon_state = "util_com"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK | CLOTHING_CERULEAN_MASK_LEGS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 
@@ -239,7 +238,6 @@
 /obj/item/clothing/under/imperial
 	desc = "A naval uniform, with a rank badge denoting an Officer. Doesn't protect against blaster fire."
 	name = "officer's naval jumpsuit"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK | CLOTHING_CERULEAN_MASK_LEGS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	greyscale_colors = "#A49C9C#A49C9C#A49C9C#373741#FFFFFF#FFFFFF#FFFFFF"
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
@@ -273,7 +271,6 @@
 	greyscale_config = /datum/greyscale_config/officersnavalvest
 	greyscale_config_worn = /datum/greyscale_config/officersnavalvest/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/officersnavalvest/worn/digi
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 	armor_type = /datum/armor/clothing_under/security_head_of_security
 	can_adjust = FALSE
 
