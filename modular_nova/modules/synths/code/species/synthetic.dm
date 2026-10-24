@@ -91,6 +91,7 @@
 
 	RegisterSignal(transformer, COMSIG_LIVING_LIFE, PROC_REF(on_life))
 	RegisterSignal(transformer, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
+	RegisterSignal(transformer, COMSIG_HUMAN_ON_HANDLE_BLOOD, PROC_REF(synth_blood))
 
 	var/datum/action/sing_tones/sing_action = new
 	sing_action.Grant(transformer)
@@ -153,6 +154,7 @@
 	UnregisterSignal(human, list(
 		COMSIG_ATOM_EMAG_ACT,
 		COMSIG_LIVING_LIFE,
+		COMSIG_HUMAN_ON_HANDLE_BLOOD,
 	))
 
 	var/obj/item/organ/eyes/eyes = human.get_organ_slot(ORGAN_SLOT_EYES)
