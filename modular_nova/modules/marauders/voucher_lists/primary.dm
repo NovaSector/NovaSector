@@ -14,12 +14,12 @@
 	)
 
 /datum/voucher_set/traitor/primary_weapon/syndi_revolver
-	name = /obj/item/gun/ballistic/revolver/badass::name
-	description = /obj/item/gun/ballistic/revolver/badass::desc
-	icon = /obj/item/gun/ballistic/revolver/badass::icon
-	icon_state = /obj/item/gun/ballistic/revolver/badass::icon_state
+	name = /obj/item/gun/ballistic/revolver/syndicate/badass::name
+	description = /obj/item/gun/ballistic/revolver/syndicate/badass::desc
+	icon = /obj/item/gun/ballistic/revolver/syndicate/badass::icon
+	icon_state = /obj/item/gun/ballistic/revolver/syndicate/badass::icon_state
 	set_items = list(
-		/obj/item/gun/ballistic/revolver/badass,
+		/obj/item/gun/ballistic/revolver/syndicate/badass,
 		/obj/item/ammo_box/speedloader/c357,
 		/obj/item/ammo_box/speedloader/c357,
 	)
