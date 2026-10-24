@@ -265,14 +265,8 @@
 	pixel_x = 10;
 	pixel_y = 4
 	},
-/obj/item/gun/ballistic/automatic/wt550{
-	pixel_x = 4;
-	pixel_y = -7;
-	can_misfire = 1;
-	spawnwithmagazine = 0;
-	misfire_probability = 10
-	},
 /obj/effect/mob_spawn/corpse/human/engineer,
+/obj/item/gun/ballistic/automatic/wt550,
 /turf/open/floor/iron/white/side{
 	dir = 1
 	},
