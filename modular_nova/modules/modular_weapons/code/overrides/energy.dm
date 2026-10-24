@@ -232,9 +232,6 @@
 	)
 
 // xray laser no wallbang variant
-/datum/crafting_recipe/laser/xraylaser
-	result = /obj/item/gun/energy/laser/xray/no_wallbang
-
 /obj/item/gun/energy/laser/xray/no_wallbang
 	name = "\improper Type 6/RP X-ray laser gun"
 	desc = "The Type 6 Heat Delivery System, Reduced Penetration variant, developed by Nanotrasen. \
