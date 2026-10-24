@@ -651,4 +651,13 @@
 	department_name = DEPARTMENT_CARGO
 	occupancy_limit = "40"
 
+/datum/map_template/shuttle/emergency/explorer
+	suffix = "explorer"
+	name = "SFS Explorer"
+	description = "Previously an exploratory vessel, retrofitted for evacuation duties."
+	admin_notes = "Really big. Will not fit on Pubbystation. Bridge is publically accessible. Reference to the Enterprise from Star Trek. Price is a reference to awards the series received."
+	credit_cost = CARGO_CRATE_VALUE * 14
+	who_can_purchase = list(ACCESS_CAPTAIN)
+	occupancy_limit = 75
+
 #undef EMAG_LOCKED_SHUTTLE_COST
