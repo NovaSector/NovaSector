@@ -269,7 +269,7 @@
 	post_init_icon_state = "tailored_jacket"
 	greyscale_config = /datum/greyscale_config/tailored_jacket
 	greyscale_config_worn = /datum/greyscale_config/tailored_jacket/worn
-	greyscale_colors = "#8c8c8c#8c8c8c#8c8c8c#bf9f78#8c8c8c#8c8c8c#8c8c8c#bf9f78#8c8c8c" // Look this has a lot of colorable sections
+	greyscale_colors = "#8c8c8c#bf9f78#8c8c8c#bf9f78"
 	body_parts_covered = CHEST|ARMS
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
@@ -287,7 +287,7 @@
 	post_init_icon_state = "tailored_jacket"
 	greyscale_config = /datum/greyscale_config/tailored_short_jacket
 	greyscale_config_worn = /datum/greyscale_config/tailored_short_jacket/worn
-	greyscale_colors = "#8c8c8c#8c8c8c#8c8c8c#bf9f78#8c8c8c#8c8c8c#bf9f78#8c8c8c"
+	greyscale_colors = "#8c8c8c##bf9f78#8c8c8cbf9f78"
 
 /obj/item/clothing/suit/warm_coat
 	name = "warm coat"
