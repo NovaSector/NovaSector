@@ -21,3 +21,11 @@
 
 /datum/supply_pack/security/armory/thermal
 	express_lock = TRUE
+
+/datum/supply_pack/security/armory/rnd_locked/xray
+	desc = "Contains a Type 6/RP X-ray Laser Gun, an atypical energy gun that fires radioactive-infused laser beams, \
+		which are capable of penetrating most forms of armor, but not walls."
+	contains = list(/obj/item/gun/energy/laser/xray/no_wallbang = 1)
+
+/datum/supply_pack/security/armory/rnd_locked/xray/three_pack
+	contains = list(/obj/item/gun/energy/laser/xray/no_wallbang = 3)

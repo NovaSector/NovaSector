@@ -79,6 +79,14 @@
 			SPECIES_PERK_NAME = "Meal Plan",
 			SPECIES_PERK_DESC = "Moths can eat clothes for nourishment.",
 		),
+		/* // NOVA EDIT REMOVAL START - Nova moths do not have chest-arms
+		list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "hand-spock",
+			SPECIES_PERK_NAME = "Handy",
+			SPECIES_PERK_DESC = "Moths have extra hands on the front of their chests.",
+		),
+		*/ // NOVA EDIT REMOVAL END
 		list(
 			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 			SPECIES_PERK_ICON = "fire",
@@ -93,6 +101,14 @@
 				themselves, such as against security officers or when welding. Welding \
 				masks will work.",
 		),
+		/* // NOVA EDIT REMOVAL START - Nova moths do not use the tg fragility modifiers
+		list(
+			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+			SPECIES_PERK_ICON = "face-dizzy",
+			SPECIES_PERK_NAME = "Fragile",
+			SPECIES_PERK_DESC = "Moth anatomy is fragile at their size, it's easier to seriously hurt them."
+		)
+		*/ // NOVA EDIT REMOVAL END
 	)
 
 	return to_add
