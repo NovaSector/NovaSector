@@ -7485,6 +7485,7 @@
 #include "modular_nova\master_files\code\game\objects\items\devices\laserpointer.dm"
 #include "modular_nova\master_files\code\game\objects\items\devices\mod_link.dm"
 #include "modular_nova\master_files\code\game\objects\items\devices\traitordevices.dm"
+#include "modular_nova\master_files\code\game\objects\items\devices\vaporizer.dm"
 #include "modular_nova\master_files\code\game\objects\items\devices\radio\radio.dm"
 #include "modular_nova\master_files\code\game\objects\items\implants\implant_deathrattle.dm"
 #include "modular_nova\master_files\code\game\objects\items\stacks\sheets\sheet_types.dm"
