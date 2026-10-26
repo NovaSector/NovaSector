@@ -37,6 +37,10 @@
 	icon_state = "holosign_privacy"
 	base_icon_state = "holosign_privacy"
 
+/obj/structure/holosign/privacy/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/empprotection, EMP_PROTECT_SELF|EMP_NO_EXAMINE)
+
 /obj/structure/holosign/privacy/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	. = ..()
 	if(tool != projector)

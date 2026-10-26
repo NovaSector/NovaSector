@@ -21,6 +21,7 @@ Pretty much anything that changes emotes is in here
 | ------------------------------------------------ | ----------------------------------------------------------------------------------- |
 | code/datums/emotes.dm                            | `/datum/emote/proc/check_cooldown(mob/user, intentional)`                           |
 | code/datums/emotes.dm                            | `/datum/emote/proc/run_emote(mob/user, params, type_override, intentional = FALSE)` |
+| code/datums/emotes.dm                            | `/proc/relay_visual_emote_to_ai_runechat(mob/user, msg)` - separation, pref checks  |
 | code/modules/mob/living/carbon/carbon_defense.dm | `/mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)`                       |
 
 ### TG File Changes:

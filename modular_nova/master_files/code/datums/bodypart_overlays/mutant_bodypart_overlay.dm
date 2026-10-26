@@ -44,9 +44,14 @@
 // We do this here like this so that we handle matrixed color bodypart overlays and emissives.
 /datum/bodypart_overlay/mutant/get_overlay(obj/item/bodypart/limb, layer_index, layer_real)
 	inherit_color(limb) // If draw_color is not set yet, go ahead and do that (matches upstream, needed for ORGAN_COLOR_INHERIT overlays)
-	. = get_images(limb, layer_index, layer_real)
-	color_images(., limb, layer_index)
-	. = add_emissives(., limb)
+	var/list/images = get_images(limb, layer_index, layer_real)
+	color_images(images, limb, layer_index)
+	var/image_count = length(images)
+	images = add_emissives(images, limb)
+	// The limb expects an associative list of overlay -> LIMB_OVERLAY_* flags. Emissives are appended after the regular images.
+	. = list()
+	for(var/index in 1 to length(images))
+		.[images[index]] = index > image_count ? LIMB_OVERLAY_META : overlay_flags
 
 
 /// Generate a unique key based on our sprites. So that if we've aleady drawn these sprites,

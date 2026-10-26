@@ -114,10 +114,8 @@
 	flash_protect = initial(flash_protect)
 	tint = initial(tint)
 	color_cutoffs = initial(color_cutoffs)
-	vision_flags = initial(vision_flags)
 
 /obj/item/clothing/glasses/hud/ar/proc/disable_vars(mob/user)
-	vision_flags = 0 /// Sets vision_flags to 0 to disable meson view mainly
 	color_cutoffs = null // Resets lighting_alpha to user's default one
 
 /// Create new icon and worn_icon, with only the first frame of every state and setting that as icon.
@@ -188,8 +186,7 @@
 	desc = "A heads-up display used by engineering and mining staff to see basic structural and terrain layouts through walls, regardless of lighting conditions. This HUD has been fitted inside of a pair of sunglasses."
 	icon_state = "aviator_meson"
 	flash_protect = FLASH_PROTECTION_NONE
-	clothing_traits = list(TRAIT_MADNESS_IMMUNE)
-	vision_flags = SEE_TURFS
+	clothing_traits = list(TRAIT_MADNESS_IMMUNE, TRAIT_MESON_VISION)
 	color_cutoffs = list(5, 15, 5)
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
 	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.7, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 4)
@@ -233,7 +230,7 @@
 /obj/item/clothing/glasses/hud/ar/aviator/meson/prescription
 	name = "prescription meson HUD aviators"
 	desc = "A heads-up display used by engineering and mining staff to see basic structural and terrain layouts through walls, regardless of lighting conditions. This HUD has been fitted inside of a pair of sunglasses which has lenses that help correct eye sight."
-	clothing_traits = list(TRAIT_MADNESS_IMMUNE, TRAIT_NEARSIGHTED_CORRECTED)
+	clothing_traits = list(TRAIT_MADNESS_IMMUNE, TRAIT_MESON_VISION, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/aviator/diagnostic/prescription
 	name = "prescription diagnostic HUD aviators"
@@ -261,7 +258,7 @@
 /obj/item/clothing/glasses/hud/ar/projector/meson
 	name = "retinal projector meson HUD"
 	icon_state = "projector_meson"
-	vision_flags = SEE_TURFS
+	clothing_traits = list(TRAIT_MESON_VISION)
 	color_cutoffs = list(10, 30, 10)
 	custom_materials = list(/datum/material/glass = SHEET_MATERIAL_AMOUNT * 0.8, /datum/material/iron = SHEET_MATERIAL_AMOUNT * 0.7, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 4)
 

@@ -237,6 +237,7 @@
 /datum/bodypart_overlay/mutant/cat_ears/cybernetic
 	color_source = null
 	dyable = FALSE
+	overlay_flags = NONE
 	/// Color of the inner ear
 	var/inner_color = "#F0004A"
 
@@ -255,7 +256,8 @@
 	//var/mutable_appearance/ear_holder = all_images[1] // NOVA EDIT REMOVAL - Our ear overlays are done differently, see /datum/bodypart_overlay/mutant/get_images()
 	var/mutable_appearance/inner = all_images[2] // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/inner = ear_holder.overlays[2]
 	inner.color = inner_color // NOVA EDIT ADDITION - We do not actually call get_image, instead we call get_singular_image(). This works fine here though.
-	all_images += emissive_appearance(inner.icon, inner.icon_state, limb, layer = inner.layer, alpha = inner.alpha * 0.75)
+	var/mutable_appearance/emissive_overlay = emissive_appearance(inner.icon, inner.icon_state, limb, layer = inner.layer, alpha = inner.alpha * 0.75)
+	all_images[emissive_overlay] = LIMB_OVERLAY_META
 	return all_images
 
 /datum/bodypart_overlay/mutant/cat_ears/cybernetic/green

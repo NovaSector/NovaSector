@@ -1,6 +1,6 @@
 // Keybinding setup for code\modules\admin\admin_verbs.dm:toggle_admin_esp
 /datum/keybinding/admin/toggle_admin_esp
-	hotkey_keys = null
+	hotkey_keys = list(UNBOUND_KEY)
 	name = "admin_esp"
 	full_name = "Admin ESP / Ghost Eyes"
 	description = "Toggles your Admin ESP shinigami-styled eyes. Lets you see ghosts!"

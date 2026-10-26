@@ -186,6 +186,7 @@ GLOBAL_LIST_INIT(nova_snow_recipes, list(
 GLOBAL_LIST_INIT(nova_plastic_recipes, list(
 	new /datum/stack_recipe("cone collar", /obj/item/clothing/head/cone_of_shame, time = 1 SECONDS, category = CAT_CLOTHING),
 	new /datum/stack_recipe("pet training clicker", /obj/item/petclicker, time = 1 SECONDS, category = CAT_ENTERTAINMENT),
+	new/datum/stack_recipe("exercise mat", /obj/structure/bed/yoga, 2, time = 1 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_FURNITURE),
 ))
 
 /obj/item/stack/sheet/plastic/get_main_recipes()

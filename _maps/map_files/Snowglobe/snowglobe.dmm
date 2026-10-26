@@ -10203,8 +10203,8 @@
 /area/station/service/kitchen/diner)
 "cIS" = (
 /obj/structure/table,
-/obj/item/mmi,
-/obj/item/mmi{
+/obj/item/brain_processor/organic,
+/obj/item/brain_processor/organic{
 	pixel_y = -5
 	},
 /obj/effect/turf_decal/trimline/purple/filled/line{
@@ -46639,10 +46639,10 @@
 /obj/item/storage/backpack/duffelbag/science/robo/surgery{
 	pixel_y = 7
 	},
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = -5
 	},
-/obj/item/mmi{
+/obj/item/brain_processor/organic{
 	pixel_y = -5
 	},
 /obj/effect/turf_decal/trimline/purple/filled/line{

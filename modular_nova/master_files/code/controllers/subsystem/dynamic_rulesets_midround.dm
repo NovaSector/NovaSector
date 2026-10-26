@@ -50,7 +50,7 @@
 		yes_candidate += SSpolling.poll_candidates(
 			question = midround_ask_question || "Do you want to become [name]?.",
 			group = list(candidate),
-			poll_time = 60 SECONDS,
+			poll_time = 30 SECONDS,
 			flash_window = TRUE,
 			start_signed_up = FALSE,
 			announce_chosen = FALSE,
