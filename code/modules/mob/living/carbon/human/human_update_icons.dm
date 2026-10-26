@@ -537,7 +537,7 @@ There are several things that need to be remembered:
 				icon_file = snout_icon_file
 				mutant_override = TRUE
 		// NOVA EDIT ADDITION END
-		var/mutable_appearance/mask_overlay = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
+		var/mutable_appearance/mask_overlay = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape, override_file = mutant_override ? icon_file : null) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/mask_overlay = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = icon_file, bodyshape = bodyshape)
 		apply_height(mask_overlay, UPPER_BODY)
 		if(!mutant_override) my_head.worn_mask_offset?.apply_offset(mask_overlay) // NOVA EDIT CHANGE - ORIGINAL: my_head.worn_mask_offset?.apply_offset(mask_overlay)
 		overlays_standing[FACEMASK_LAYER] = mask_overlay
@@ -580,12 +580,8 @@ There are several things that need to be remembered:
 		held_right.overlays.Cut()
 		held_right.underlays.Cut()
 	// NOVA EDIT ADDITION END
-	for(var/obj/item/worn_item in held_items)
-		var/held_index = get_held_index_of_item(worn_item)
-		var/t_state = worn_item.inhand_icon_state
-		if(!t_state)
-			t_state = worn_item.icon_state
-
+	for(var/held_index in get_active_held_indexes())
+		var/obj/item/worn_item = get_item_for_held_index(held_index)
 
 		var/icon_file = IS_RIGHT_INDEX(held_index) ? worn_item.righthand_file : worn_item.lefthand_file
 		var/mutable_appearance/hand_overlay = worn_item.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE, bodyshape = bodyshape)
@@ -680,6 +676,9 @@ There are several things that need to be remembered:
 /// Modifies a sprite to conform to custom body shapes
 /obj/item/proc/get_bodyshape_icon(icon/base_icon, key, greyscale_colors, bodyshape)
 	ASSERT(istext(key), "get_bodyshape_icon: no key passed")
+	if(bodyshape & BODYSHAPE_CERULEAN)
+		if((bodyshapes_with_variations & BODYSHAPE_CERULEAN) || (supports_variations_flags & (CERULEAN_MASKING)))
+			return generate_cerulean_icons(base_icon, key, greyscale_colors, bodyshape)
 	if((bodyshape & BODYSHAPE_DIGITIGRADE) && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK) && !(supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION)) // NOVA EDIT CHANGE - ORIGINAL: if((bodyshape & BODYSHAPE_DIGITIGRADE) && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK))
 		var/used_greyscale = greyscale_colors
 		if(isnull(used_greyscale) || length(SSgreyscale.ParseColorString(used_greyscale)) > 1)
@@ -723,18 +722,6 @@ There are several things that need to be remembered:
 			return icon(resulting_icon)
 	return base_icon
 	// NOVA EDIT ADDITION END
-
-/// Modifies a sprite to replace the legs with a new version
-/proc/replace_icon_legs(icon/base_icon, icon/new_legs)
-	var/static/icon/leg_mask
-	if(!leg_mask)
-		leg_mask = icon('icons/mob/clothing/under/masking_helpers.dmi', "digi_leg_mask")
-
-	// cuts the legs off
-	base_icon.Blend(leg_mask, ICON_SUBTRACT)
-	// staples the new legs on
-	base_icon.Blend(new_legs, ICON_OVERLAY)
-	return base_icon
 
 /**
  * Generates a digitigrade version of this item's worn icon
@@ -952,31 +939,37 @@ generate/load female uniform sprites matching all previously decided variables
 	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN) || HAS_TRAIT(src, TRAIT_NO_UNDERWEAR))
 		return .
 
+	var/body_type = MALE
+	if(dna.species.sexes)
+		var/obj/item/bodypart/chest/our_chest = get_bodypart(BODY_ZONE_CHEST)
+		if(our_chest?.is_dimorphic)
+			body_type = physique
+
 	// Underwear, Undershirts & Socks
 	if(underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES)) // NOVA EDIT CHANGE - ORIGINAL: if(underwear)
 		var/datum/sprite_accessory/clothing/underwear/undie_accessory = SSaccessories.underwear_list[underwear]
-		var/mutable_appearance/underwear_overlay = undie_accessory?.make_appearance(underwear_color, physique, bodyshape)
+		var/mutable_appearance/underwear_overlay = undie_accessory?.make_appearance(underwear_color, body_type, bodyshape)
 		if(underwear_overlay)
 			. += underwear_overlay
 
 	// NOVA EDIT ADDITION START - Bras
 	if(bra && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
 		var/datum/sprite_accessory/clothing/bra/bra_accessory = SSaccessories.bra_list[bra]
-		var/mutable_appearance/bra_overlay = bra_accessory?.make_appearance(bra_color, physique, bodyshape)
+		var/mutable_appearance/bra_overlay = bra_accessory?.make_appearance(bra_color, body_type, bodyshape)
 		if(bra_accessory)
 			. += bra_overlay
 
 	// NOVA EDIT ADDITION END - Bras
 	if(undershirt && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT)) // NOVA EDIT CHANGE - ORIGINAL: if(undershirt))
 		var/datum/sprite_accessory/clothing/undershirt/shirt_accessory = SSaccessories.undershirt_list[undershirt]
-		var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(undershirt_color, physique, bodyshape) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(null, physique, bodyshape)
+		var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(undershirt_color, body_type, bodyshape) // NOVA EDIT CHANGE - ORIGINAL: var/mutable_appearance/shirt_overlay = shirt_accessory?.make_appearance(null, body_type, bodyshape)
 		if(shirt_overlay)
 			. += shirt_overlay
 
 	/* // NOVA EDIT REMOVAL START - Original TG sock handling
 	if(socks && num_legs >= 2 && !(bodyshape & BODYSHAPE_DIGITIGRADE))
 		var/datum/sprite_accessory/clothing/socks/sock_accessory = SSaccessories.socks_list[socks]
-		var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(null, physique, bodyshape)
+		var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(null, body_type, bodyshape)
 		if(socks_overlay)
 			. += socks_overlay
 	*/ // NOVA EDIT REMOVAL END
@@ -985,7 +978,7 @@ generate/load female uniform sprites matching all previously decided variables
 		var/datum/mutant_bodypart/taur_body = dna.mutant_bodyparts[FEATURE_TAUR]
 		if(isnull(taur_body))
 			var/datum/sprite_accessory/clothing/socks/sock_accessory = SSaccessories.socks_list[socks]
-			var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(socks_color, physique, bodyshape)
+			var/mutable_appearance/socks_overlay = sock_accessory?.make_appearance(socks_color, body_type, bodyshape)
 			if(socks_overlay)
 				. += socks_overlay
 	// NOVA EDIT ADDITION END
