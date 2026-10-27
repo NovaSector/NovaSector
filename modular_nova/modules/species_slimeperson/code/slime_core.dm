@@ -413,7 +413,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
  * Processes different types of items and prepares them to be stored when the core is ejected.
  */
 /obj/item/organ/brain/slime/proc/process_items(mob/living/carbon/human/victim) // Handle all items to be stored into core.
-	for(var/obj/item/held_item as anything in victim.held_items.Copy())
+	for(var/obj/item/held_item as anything in victim.get_held_items())
 		if(QDELETED(held_item))
 			continue
 		victim.temporarilyRemoveItemFromInventory(held_item, force = TRUE, idrop = FALSE)
