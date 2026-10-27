@@ -300,7 +300,6 @@
 		/datum/crafting_recipe/runic_greataxe,
 		/datum/crafting_recipe/runic_greatsword,
 		/datum/crafting_recipe/runic_spear,
-		/datum/crafting_recipe/skeleton_key,
 		/datum/crafting_recipe/white_pelt_bed,
 	)
 

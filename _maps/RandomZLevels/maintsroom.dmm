@@ -776,7 +776,7 @@
 	},
 /obj/item/clothing/neck/cross,
 /obj/item/clothing/mask/gas/nightlight,
-/obj/item/gun/ballistic/revolver/cowboy,
+/obj/item/gun/ballistic/revolver/syndicate/cowboy,
 /obj/item/storage/backpack/tinypakc,
 /obj/effect/light_emitter/fake_outdoors,
 /obj/item/storage/belt/holster,
@@ -4270,9 +4270,7 @@
 	dir = 4;
 	id = "abandoned_kitchen"
 	},
-/obj/structure/displaycase/forsale/kitchen{
-	pixel_y = 8
-	},
+/obj/structure/tipjar/prefilled,
 /turf/open/floor/plating,
 /area/awaymission/caves/maintsroom)
 "nV" = (

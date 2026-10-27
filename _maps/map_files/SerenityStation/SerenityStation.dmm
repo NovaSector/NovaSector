@@ -61620,9 +61620,7 @@
 "rWD" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/obj/structure/displaycase/forsale/kitchen{
-	pixel_y = 8
-	},
+/obj/structure/tipjar/prefilled,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "kitchen_counter";
 	name = "Kitchen Counter Shutters"
@@ -81535,9 +81533,7 @@
 /area/station/maintenance/department/engineering/atmos/hfr_maint)
 "xJN" = (
 /obj/structure/table/reinforced,
-/obj/structure/displaycase/forsale/kitchen{
-	pixel_y = 8
-	},
+/obj/structure/tipjar/prefilled,
 /obj/effect/turf_decal/tile/bar/opposingcorners,
 /obj/machinery/barsign/all_access/directional/north,
 /turf/open/floor/iron,

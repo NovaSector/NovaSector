@@ -248,6 +248,7 @@
 	destination.socks = socks
 	destination.jumpsuit_style = jumpsuit_style
 
+
 /// Fully randomizes everything according to the given flags.
 /mob/living/carbon/human/proc/randomize_human_appearance(randomize_flags = ALL)
 	var/datum/preferences/preferences = new(new /datum/client_interface)
@@ -304,7 +305,7 @@
  * Args:
  * location - The turf the human will be spawned on.
  */
-/mob/living/carbon/human/proc/make_full_human_copy(turf/location, client/quirk_client)
+/mob/living/carbon/human/proc/make_full_human_copy(turf/location)
 	RETURN_TYPE(/mob/living/carbon/human)
 
 	var/mob/living/carbon/human/clone = new(location)

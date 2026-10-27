@@ -124,7 +124,6 @@
 
 			current_research -= 100
 			new /obj/structure/closet/crate/necropolis/tendril(src_turf)
-			new /obj/item/skeleton_key(src_turf)
 
 		if("Anomalous Crystal (100)")
 			if(current_research < 100)
