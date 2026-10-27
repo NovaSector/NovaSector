@@ -1560,6 +1560,9 @@
 "atR" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/machinery/disposal/delivery_chute,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "atT" = (
@@ -9107,10 +9110,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/science/lobby)
-"cof" = (
-/obj/structure/trash_pile,
-/turf/open/floor/plating,
-/area/space)
 "cog" = (
 /turf/open/openspace,
 /area/station/maintenance/aft/upper)
@@ -15030,6 +15029,7 @@
 /obj/structure/disposaloutlet{
 	dir = 1
 	},
+/obj/structure/disposalpipe/trunk,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "dJR" = (
@@ -15776,10 +15776,10 @@
 "dTa" = (
 /obj/machinery/door/poddoor/shutters{
 	id = "EscapePODbridgeID2";
-	name = "cargo space bridge shutter"
+	name = "Cargo space bridge shutter"
 	},
 /turf/open/space/basic,
-/area/space)
+/area/station/maintenance/starboard/aft)
 "dTe" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/landmark/start/hangover,
@@ -24522,6 +24522,7 @@
 /obj/machinery/disposal/delivery_chute{
 	dir = 1
 	},
+/obj/structure/disposalpipe/trunk,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "fXv" = (
@@ -25817,7 +25818,7 @@
 "glo" = (
 /obj/machinery/door/poddoor/shutters{
 	id = "EscapePODbridgeID2";
-	name = "cargo space bridge shutter"
+	name = "Cargo space bridge shutter"
 	},
 /obj/effect/spawner/random/maintenance/dumpster,
 /turf/open/floor/engine/hull/air,
@@ -32352,10 +32353,6 @@
 /obj/machinery/air_sensor/nitrous_tank,
 /turf/open/floor/engine/n2o,
 /area/station/engineering/atmos)
-"hNE" = (
-/obj/effect/spawner/random/trash/graffiti,
-/turf/open/floor/plating,
-/area/space)
 "hNI" = (
 /obj/effect/spawner/random/trash/mess,
 /turf/open/floor/plating,
@@ -43942,7 +43939,7 @@
 "kFU" = (
 /obj/structure/table,
 /turf/open/floor/plating,
-/area/space)
+/area/station/maintenance/starboard/aft)
 "kFX" = (
 /obj/effect/mapping_helpers/airlock/access/all/security/general,
 /obj/machinery/door/airlock/security/glass{
@@ -49721,8 +49718,9 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/upper)
 "mca" = (
+/obj/machinery/light/small/directional/east,
 /turf/open/floor/plating,
-/area/space)
+/area/station/maintenance/starboard/aft)
 "mcc" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/firedoor/border_only{
@@ -53418,10 +53416,6 @@
 /obj/effect/spawner/random/trash/graffiti,
 /turf/open/floor/plating,
 /area/station/maintenance/aft)
-"mVU" = (
-/obj/effect/spawner/structure/window,
-/turf/open/floor/engine/hull/air,
-/area/space)
 "mVW" = (
 /obj/effect/landmark/start/cyborg,
 /turf/open/floor/iron,
@@ -57370,6 +57364,7 @@
 /obj/machinery/disposal/delivery_chute{
 	dir = 1
 	},
+/obj/structure/disposalpipe/trunk,
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "nTU" = (
@@ -60468,7 +60463,7 @@
 	id = "EscapePODbridgeID2"
 	},
 /turf/open/floor/engine/hull/air,
-/area/space)
+/area/station/maintenance/starboard/aft)
 "oIo" = (
 /obj/structure/chair/sofa/corp/corner{
 	dir = 8
@@ -64942,7 +64937,7 @@
 	},
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/plating,
-/area/space)
+/area/station/maintenance/starboard/aft)
 "pJM" = (
 /obj/machinery/telecomms/server/presets/engineering,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -66728,6 +66723,9 @@
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/disposaloutlet,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "qge" = (
@@ -69757,6 +69755,7 @@
 /obj/structure/disposaloutlet{
 	dir = 1
 	},
+/obj/structure/disposalpipe/trunk,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "qRU" = (
@@ -70467,8 +70466,9 @@
 /obj/effect/spawner/random/vendor_meal_mains/ration_two,
 /obj/effect/spawner/random/vendor_meal_mains/ration_two,
 /obj/effect/spawner/random/vendor_meal_mains/ration_two,
+/obj/machinery/light/directional/south,
 /turf/open/floor/plating,
-/area/space)
+/area/station/maintenance/starboard/aft)
 "qZO" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -77414,7 +77414,7 @@
 /obj/effect/spawner/random/vendor_meal_sides/nt,
 /obj/effect/spawner/random/vendor_meal_sides/nt,
 /turf/open/floor/plating,
-/area/space)
+/area/station/maintenance/starboard/aft)
 "sNL" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/brown/visible{
 	dir = 1
@@ -79497,6 +79497,9 @@
 "toR" = (
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/machinery/disposal/delivery_chute,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /turf/open/floor/iron/showroomfloor,
 /area/station/science/xenobiology)
 "toT" = (
@@ -81152,7 +81155,7 @@
 "tHO" = (
 /obj/machinery/door/poddoor/shutters{
 	id = "EscapePODbridgeID2";
-	name = "cargo space bridge shutter"
+	name = "Cargo space bridge shutter"
 	},
 /turf/open/floor/engine/hull/air,
 /area/station/maintenance/starboard/aft)
@@ -81162,7 +81165,7 @@
 	},
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/plating,
-/area/space)
+/area/station/maintenance/starboard/aft)
 "tHQ" = (
 /obj/structure/railing,
 /obj/structure/cable,
@@ -83556,7 +83559,7 @@
 "umo" = (
 /obj/machinery/door/poddoor/shutters{
 	id = "EscapePODbridgeID1";
-	name = "cargo space bridge shutter"
+	name = "Cargo space bridge shutter"
 	},
 /turf/open/floor/engine/hull/air,
 /area/station/maintenance/starboard/aft)
@@ -87488,6 +87491,9 @@
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/disposaloutlet,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "vjB" = (
@@ -87594,7 +87600,7 @@
 /obj/structure/chair,
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/plating,
-/area/space)
+/area/station/maintenance/starboard/aft)
 "vlh" = (
 /obj/machinery/camera/directional/west{
 	network = list("aicore");
@@ -94341,7 +94347,7 @@
 /area/station/maintenance/department/engineering/central)
 "wRh" = (
 /turf/open/floor/engine/hull/air,
-/area/space)
+/area/station/maintenance/starboard/aft)
 "wRl" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -96906,8 +96912,9 @@
 /turf/open/floor/iron,
 /area/station/science/xenobiology/hallway)
 "xwU" = (
-/turf/closed/wall,
-/area/space)
+/obj/machinery/light/directional/north,
+/turf/open/floor/plating,
+/area/station/maintenance/starboard/aft)
 "xxb" = (
 /obj/structure/cable,
 /turf/open/floor/iron/terracotta/diagonal,
@@ -99014,7 +99021,7 @@
 "xYQ" = (
 /obj/structure/sign/warning/vacuum/directional/west,
 /turf/open/floor/plating,
-/area/space)
+/area/station/maintenance/starboard/aft)
 "xYT" = (
 /turf/open/openspace,
 /area/station/common/wrestling/arena)
@@ -147708,23 +147715,23 @@ iFr
 jsT
 jsT
 jsT
-xwU
-xwU
-xwU
-xwU
-xwU
-xwU
-xwU
-xwU
-xwU
-xwU
-xwU
-xwU
+jsT
+jsT
+iFr
+iFr
+iFr
+iFr
+jsT
+jsT
+jsT
+jsT
+jsT
+jsT
 oIb
-xwU
-xwU
-xwU
-xwU
+jsT
+jsT
+jsT
+jsT
 ppq
 ppq
 ppq
@@ -147965,23 +147972,23 @@ siU
 uAS
 siU
 fYo
+fYo
+fYo
+fYo
+fYo
 mca
-mca
-mca
-mca
-mca
-mca
-mca
-mca
-mca
-hNE
-mca
-mca
-mca
+fYo
+fYo
+fYo
+fYo
+vDi
+fYo
+fYo
+fYo
 xYQ
-mca
-mca
-xwU
+fYo
+fYo
+jsT
 ppq
 ppq
 ppq
@@ -148222,23 +148229,23 @@ iFr
 jsT
 siU
 jsT
-xwU
-xwU
-xwU
-xwU
-xwU
-xwU
-xwU
-cof
-mca
-mca
-mca
-mca
-hNE
-mca
-mca
-cof
-xwU
+jsT
+jsT
+jsT
+jsT
+jsT
+jsT
+jsT
+aHV
+fYo
+fYo
+fYo
+fYo
+vDi
+fYo
+fYo
+aHV
+jsT
 ppq
 ppq
 ppq
@@ -148485,17 +148492,17 @@ ppq
 ppq
 ppq
 ppq
-xwU
-xwU
-xwU
-mca
-mca
-mca
-mca
+jsT
+jsT
+jsT
+fYo
+fYo
+fYo
+fYo
 sNI
-xwU
-xwU
-xwU
+jsT
+jsT
+jsT
 ppq
 ppq
 ppq
@@ -148744,13 +148751,13 @@ ppq
 ppq
 ppq
 ppq
+jsT
 xwU
-mca
-mca
-mca
-mca
+fYo
+fYo
+fYo
 qZN
-xwU
+jsT
 ppq
 ppq
 ppq
@@ -149001,13 +149008,13 @@ mLn
 mLn
 ppq
 ppq
-mVU
-hNE
-mca
+iFr
+vDi
+fYo
 tHP
-mca
-mca
-mVU
+fYo
+fYo
+iFr
 ppq
 ppq
 ppq
@@ -149258,13 +149265,13 @@ ppq
 mLn
 ppq
 ppq
-mVU
-mca
+iFr
+fYo
 vld
 kFU
 pJD
-mca
-mVU
+fYo
+iFr
 ppq
 ppq
 ppq
@@ -149515,13 +149522,13 @@ ppq
 mLn
 ppq
 ppq
-mVU
-mVU
-mVU
-mVU
-mVU
-mVU
-mVU
+iFr
+iFr
+iFr
+iFr
+iFr
+iFr
+iFr
 ppq
 ppq
 ppq
