@@ -622,6 +622,8 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 			healed = TRUE
 		else if((i % 50) != 0 && i > 50) // A message once every 5 seconds until the final 5 seconds which count down individualy
 			sleep(1 SECONDS)
+			if(QDELETED(src))
+				return
 			continue
 		else if(i > 50)
 			message = "[DisplayTimeText(i, TRUE)] [count_down_messages[3]]"
@@ -645,6 +647,8 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 			return // delam averted
 		sleep(1 SECONDS)
+		if(QDELETED(src))
+			return
 
 	delamination_strategy.delaminate(src)
 

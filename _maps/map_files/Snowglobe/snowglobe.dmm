@@ -12038,9 +12038,7 @@
 "djP" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/obj/structure/displaycase/forsale/kitchen{
-	pixel_y = 8
-	},
+/obj/structure/tipjar/prefilled,
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "kitchenshutters2";
 	name = "Kitchen Shutter";

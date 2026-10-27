@@ -3201,7 +3201,6 @@
 /turf/open/floor/carpet/orange,
 /area/ruin/space/has_grav/hotel)
 "pS" = (
-/obj/structure/holopay,
 /obj/effect/turf_decal/bot_blue,
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 1
