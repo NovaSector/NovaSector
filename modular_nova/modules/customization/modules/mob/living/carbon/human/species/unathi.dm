@@ -77,15 +77,15 @@
 /datum/species/unathi/get_species_lore()
 	return list(
 		"https://wiki.novasector13.com/wiki/Lore:Unathi", //I don't know why the Tiziran author chose to separate lines to roughly 160 characters. Was this intended to be tweeted?
+		"Unathi are a diaspora of clans spread across a smudge of the Orion Arm of the Milky Way six thousand two hundred light years long, which expands outwards in \
+			generally one direction - away from Tizira. Loosely descended from a single exodus from their evolutionary homeworld, none of the Unathi are particularly \
+			keen on discussing why they left, nor why they do not rebuild the bridge burnt rashly half a millennium ago. ",
 		"The Tizirans, an ancient lizard-like species, originated on the desert world of Tizira and developed a complex society rooted in spirituality and nature. \
 			Their history is marked by two major ideologies: the Daysong Way, focused on collective action and unity, and Takuhism, emphasizing personal growth and \
 			harmony with nature. Over centuries, Tiziran society evolved from nomadic clans to an advanced civilization, achieving space travel by the 2360s. However, \
 			internal divisions deepened between the two philosophies, leading to a cultural schism. As the Tizirans began colonizing space, factions broke away, forming \
 			the Unathi and Ashwalkers. This split weakened their unity, ultimately contributing to their vulnerability during the Terran War—a devastating conflict with \
 			humanity that shattered their moon, Atra'Kor, and left their civilization in turmoil.",
-		"Unathi are a diaspora of clans spread across a smudge of the Orion Arm of the Milky Way six thousand two hundred light years long, which expands outwards in \
-			generally one direction - away from Tizira. Loosely descended from a single exodus from their evolutionary homeworld, none of the Unathi are particularly \
-			keen on discussing why they left, nor why they do not rebuild the bridge burnt rashly half a millennium ago. ",
 		"Leaving Tizira over 500 years ago, the Unathi took to the stars, spreading their ways from Tizira, trailing (against the spin) around the Milky Way. Numerous Unathi \
 			colonies litter the galaxy, each championed by a few Clans. Rather than a large migratory cluster slowly depositing complacent stragglers, the diaspora spread organically \
 			from their chosen homeworld of Moghes. Every so often, a smaller clan will leave their present settlement, via resentment, politicks, a failed coup, etc., and take to the \
