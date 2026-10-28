@@ -497,7 +497,7 @@
 /datum/station_trait/nebula/hostile/process(seconds_per_tick)
 	// NOVA EDIT ADDITION START
 	if(!storms_enabled)
-		get_shielding_level() // So shields still produce tritium
+		get_shielding_level(seconds_per_tick) // So shields still produce tritium
 		return
 	// NOVA EDIT ADDITION END
 	calculate_nebula_strength()

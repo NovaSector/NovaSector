@@ -138,8 +138,8 @@
 	desc = "A dormant piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange symbols resembling Ættmál runes, their lines worn and shallow. Tribes whisper that only by carving them anew with a chisel can its purpose be revealed."
 	icon = 'icons/obj/antags/cult/items.dmi'
 	icon_state = "cult_sharpener_used"
-	drop_sound = SFX_STONE_DROP
-	pickup_sound = SFX_STONE_PICKUP
+	drop_sound = /datum/sound_effect/stone_drop
+	pickup_sound = /datum/sound_effect/stone_pickup
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT, /datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT)
 
 // Doesn't mess with the spawners and replaces it anywhere if its ever spawns outside of heartkin maps
@@ -154,8 +154,8 @@
 	desc = "A piece of ancient tech, carbon-dated to roughly 300 years ago. One side is etched with strange glowing symbols resembling Ættmál runes. Perhaps the natives could uncover its purpose."
 	icon = 'icons/obj/antags/cult/items.dmi'
 	icon_state = "cult_sharpener"
-	drop_sound = SFX_STONE_DROP
-	pickup_sound = SFX_STONE_PICKUP
+	drop_sound = /datum/sound_effect/stone_drop
+	pickup_sound = /datum/sound_effect/stone_pickup
 
 ///Hearthkins can use a chisel on inactive ship fragments to activate them.
 /obj/item/hearthkin_ship_fragment_inactive/item_interaction(mob/living/user, obj/item/tool, list/modifiers)

@@ -16,7 +16,6 @@
 	)
 
 /datum/sound_effect/keyboard
-	key = SFX_KEYBOARD
 	file_paths = list(
 		'modular_nova/modules/aesthetics/computer/sound/keypress1.ogg',
 		'modular_nova/modules/aesthetics/computer/sound/keypress2.ogg',
@@ -24,8 +23,7 @@
 		'modular_nova/modules/aesthetics/computer/sound/keypress4.ogg',
 		'modular_nova/modules/aesthetics/computer/sound/keystroke4.ogg',
 	)
-/datum/sound_effect/impact_metal
-	key = SFX_BULLET_IMPACT_METAL // This is the one that will be used most, it is extensive.
+/datum/sound_effect/impact_metal // This is the one that will be used most, it is extensive.
 	file_paths = list(
 		'modular_nova/modules/gunsgalore/sound/impact/impact_metal_01.ogg',
 		'modular_nova/modules/gunsgalore/sound/impact/impact_metal_02.ogg',
@@ -47,7 +45,6 @@
 	)
 
 /datum/sound_effect/impact_flesh
-	key = SFX_BULLET_IMPACT_FLESH
 	file_paths = list(
 		'modular_nova/modules/gunsgalore/sound/impact/impact_flesh_01.ogg',
 		'modular_nova/modules/gunsgalore/sound/impact/impact_flesh_02.ogg',
@@ -61,7 +58,6 @@
 	)
 
 /datum/sound_effect/impact_ice
-	key = SFX_BULLET_IMPACT_ICE
 	file_paths = list(
 		'modular_nova/modules/gunsgalore/sound/impact/impact_snow_01.ogg',
 		'modular_nova/modules/gunsgalore/sound/impact/impact_snow_02.ogg',
@@ -76,7 +72,6 @@
 	)
 
 /datum/sound_effect/impact_wood
-	key = SFX_BULLET_IMPACT_WOOD
 	file_paths = list(
 		'modular_nova/modules/gunsgalore/sound/impact/impact_wood_01.ogg',
 		'modular_nova/modules/gunsgalore/sound/impact/impact_wood_02.ogg',
@@ -91,7 +86,6 @@
 	)
 
 /datum/sound_effect/impact_concrete
-	key = SFX_BULLET_IMPACT_CONCRETE
 	file_paths = list(
 		'modular_nova/modules/gunsgalore/sound/impact/impact_masonry_01.ogg',
 		'modular_nova/modules/gunsgalore/sound/impact/impact_masonry_02.ogg',
@@ -106,7 +100,6 @@
 	)
 
 /datum/sound_effect/impact_glass
-	key = SFX_BULLET_IMPACT_GLASS
 	file_paths = list(
 		'modular_nova/modules/gunsgalore/sound/impact/impact_glass_01.ogg',
 		'modular_nova/modules/gunsgalore/sound/impact/impact_glass_02.ogg',
@@ -121,7 +114,6 @@
 	)
 
 /datum/sound_effect/brick_drop
-	key = SFX_BRICK_DROP
 	file_paths = list(
 		'modular_nova/master_files/sound/items/bricks/brick_drop_1.ogg',
 		'modular_nova/master_files/sound/items/bricks/brick_drop_2.ogg',
@@ -129,7 +121,6 @@
 	)
 
 /datum/sound_effect/brick_pickup
-	key = SFX_BRICK_PICKUP
 	file_paths = list(
 		'modular_nova/master_files/sound/items/bricks/brick_pick_up_1.ogg',
 		'modular_nova/master_files/sound/items/bricks/brick_pick_up_2.ogg',
@@ -151,104 +142,104 @@
 // This is an atom level variable to prevent extensive typechecking for impacts.
 /atom
 	/// The sound we make if hit by a bullet
-	var/bullet_impact_sound = SFX_BULLET_IMPACT_METAL
+	var/bullet_impact_sound = /datum/sound_effect/impact_metal
 
 // TURFS
 /turf/closed/wall/ice
-	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
+	bullet_impact_sound = /datum/sound_effect/impact_ice
 
 /turf/closed/wall/mineral/snow
-	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
+	bullet_impact_sound = /datum/sound_effect/impact_ice
 
 /turf/closed/wall/mineral/wood
-	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = /datum/sound_effect/impact_wood
 
 /turf/closed/wall/mineral/bamboo
-	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = /datum/sound_effect/impact_wood
 
 /turf/closed/wall/mineral/sandstone
-	bullet_impact_sound = SFX_BULLET_IMPACT_CONCRETE
+	bullet_impact_sound = /datum/sound_effect/impact_concrete
 
 /turf/closed/wall/vault/rock
-	bullet_impact_sound = SFX_BULLET_IMPACT_CONCRETE
+	bullet_impact_sound = /datum/sound_effect/impact_concrete
 
 /turf/closed/wall/vault/sandstone
-	bullet_impact_sound = SFX_BULLET_IMPACT_CONCRETE
+	bullet_impact_sound = /datum/sound_effect/impact_concrete
 
 /turf/closed/wall/rock
-	bullet_impact_sound = SFX_BULLET_IMPACT_CONCRETE
+	bullet_impact_sound = /datum/sound_effect/impact_concrete
 
 /turf/closed/wall/mineral/diamond
-	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = /datum/sound_effect/impact_glass
 
 /turf/closed/wall/mineral/plasma
-	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = /datum/sound_effect/impact_glass
 
 // MOBS
 /mob/living
-	bullet_impact_sound = SFX_BULLET_IMPACT_FLESH
+	bullet_impact_sound = /datum/sound_effect/impact_flesh
 
 // STRUCTURES
 /obj/structure/window
-	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = /datum/sound_effect/impact_glass
 
 /obj/structure/table/glass
-	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = /datum/sound_effect/impact_glass
 
 /obj/structure/table/reinforced/rglass
-	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = /datum/sound_effect/impact_glass
 
 /obj/structure/table/reinforced/plasmarglass
-	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = /datum/sound_effect/impact_glass
 
 /obj/structure/table/reinforced/plastitaniumglass
-	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = /datum/sound_effect/impact_glass
 
 /obj/structure/table/reinforced/titaniumglass
-	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = /datum/sound_effect/impact_glass
 
 /obj/structure/table/wood
-	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = /datum/sound_effect/impact_wood
 
 /obj/structure/barricade/wooden
-	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = /datum/sound_effect/impact_wood
 
 /obj/structure/chair/wood
-	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = /datum/sound_effect/impact_wood
 
 /obj/structure/closet/crate/wooden
-	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = /datum/sound_effect/impact_wood
 
 /obj/structure/door_assembly/door_assembly_wood
-	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = /datum/sound_effect/impact_wood
 
 /obj/structure/falsewall/wood
-	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = /datum/sound_effect/impact_wood
 
 /obj/structure/table_frame/wood
-	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = /datum/sound_effect/impact_wood
 
 /obj/structure/deployable_barricade/wooden
-	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = /datum/sound_effect/impact_wood
 	custom_materials = list(/datum/material/wood = SHEET_MATERIAL_AMOUNT * 5)
 
 /obj/structure/statue/snow
-	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
+	bullet_impact_sound = /datum/sound_effect/impact_ice
 
 /obj/structure/deployable_barricade/snow
-	bullet_impact_sound = SFX_BULLET_IMPACT_ICE
+	bullet_impact_sound = /datum/sound_effect/impact_ice
 	custom_materials = list(/datum/material/snow = SHEET_MATERIAL_AMOUNT * 2)
 
 // MACHINERY
 /obj/machinery/door/window
-	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = /datum/sound_effect/impact_glass
 
 /obj/machinery/computer
-	bullet_impact_sound = SFX_BULLET_IMPACT_GLASS
+	bullet_impact_sound = /datum/sound_effect/impact_glass
 
 /obj/machinery/door/airlock/wood
-	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = /datum/sound_effect/impact_wood
 
 /obj/machinery/computer/security/wooden_tv
-	bullet_impact_sound = SFX_BULLET_IMPACT_WOOD
+	bullet_impact_sound = /datum/sound_effect/impact_wood
 

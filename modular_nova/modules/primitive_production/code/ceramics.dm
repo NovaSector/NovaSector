@@ -16,8 +16,8 @@
 	merge_type = /obj/item/stack/sheet/mineral/clay
 	material_type = /datum/material/clay
 	mats_per_unit = list(/datum/material/clay = SHEET_MATERIAL_AMOUNT)
-	drop_sound = SFX_BRICK_DROP
-	pickup_sound = SFX_BRICK_PICKUP
+	drop_sound = /datum/sound_effect/brick_drop
+	pickup_sound = /datum/sound_effect/brick_pickup
 
 //And now for our lavaland dwelling friends, sand, but in stone form! Truly revolutionary.
 /datum/material/clay

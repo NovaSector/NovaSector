@@ -380,7 +380,7 @@
 	ricochet_chance = 0
 	jitter = 1 SECONDS
 	eyeblur = 1 SECONDS
-	hitsound = SFX_CLOWN_STEP
+	hitsound = /datum/sound_effect/clown_step
 	range = 4
 	icon_state = "guardian"
 

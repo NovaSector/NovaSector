@@ -87,9 +87,9 @@
 	attack_verb_simple = list("attack", "slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
-	operating_sound = SFX_KNIFE_SLICE
-	pickup_sound = SFX_KNIFE_PICKUP
-	drop_sound = SFX_KNIFE_DROP
+	operating_sound = /datum/sound_effect/knife_slice
+	pickup_sound = /datum/sound_effect/knife_pickup
+	drop_sound = /datum/sound_effect/knife_drop
 
 /obj/item/forging/reagent_weapon/dagger/Initialize(mapload)
 	. = ..()

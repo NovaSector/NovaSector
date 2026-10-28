@@ -114,7 +114,7 @@
 	flags_cover = initial(flags_cover)
 
 	if(break_it)
-		playsound(src, SFX_SHATTER, 70, TRUE)
+		playsound(src, /datum/sound_effect/shatter, 70, TRUE)
 		new /obj/effect/decal/cleanable/glass(drop_location(src))
 		qdel(face_shield)
 		face_shield = null // just to be safe
