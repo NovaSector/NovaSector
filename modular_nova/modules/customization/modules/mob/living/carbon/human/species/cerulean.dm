@@ -1,5 +1,6 @@
 /datum/species/human/cerulean
 	digitigrade_customization = DIGITIGRADE_NEVER
+	species_language_holder = /datum/language_holder/akula
 
 /datum/species/human/cerulean/get_default_mutant_bodyparts()
 	return list(
