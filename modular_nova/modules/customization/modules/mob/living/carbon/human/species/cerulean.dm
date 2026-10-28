@@ -1,8 +1,6 @@
 /datum/species/human/cerulean
 	digitigrade_customization = DIGITIGRADE_NEVER
 
-// the fish tail is the Cerulean's lower body, so there are no tail or legs choices to make.
-// frills and snout offer the fish styles (aquatic, fish) without mismatched parts.
 /datum/species/human/cerulean/get_default_mutant_bodyparts()
 	return list(
 		FEATURE_EARS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
@@ -11,7 +9,6 @@
 		FEATURE_WINGS = MUTPART_BLUEPRINT(SPRITE_ACCESSORY_NONE, is_randomizable = FALSE),
 	)
 
-// frills come from the mutant bodyparts, in the tail's color, and the preview wears no snout
 /datum/species/human/cerulean/prepare_human_for_preview(mob/living/carbon/human/cerulean)
 	cerulean.set_haircolor("#C2DFED", update = FALSE)
 	cerulean.set_hairstyle(/datum/sprite_accessory/hair/highponytail::name, update = TRUE)
@@ -25,6 +22,12 @@
 	var/list/features = ..()
 	features |= /datum/preference/color/fish_tail_color::savefile_key
 	return features
+
+/datum/species/human/cerulean/get_species_description()
+	return placeholder_description
+
+/datum/species/human/cerulean/get_species_lore()
+	return list(placeholder_lore)
 
 /obj/item/organ/tail/fish/cerulean
 	// not a styled tail. it neither writes nor clears the DNA's tail entry, which the DNA pass would swap it for

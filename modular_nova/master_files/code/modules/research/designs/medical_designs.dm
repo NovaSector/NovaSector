@@ -46,13 +46,3 @@
 
 /obj/item/defibrillator
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver = SHEET_MATERIAL_AMOUNT * 1.5, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 0.75)
-
-/datum/design/vaporizer
-	name = "Hydro-Vaporizer"
-	build_type = PROTOLATHE | AWAY_LATHE
-	materials = /obj/item/vaporizer::custom_materials
-	build_path = /obj/item/vaporizer
-	category = list(
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_GAS_TANKS_EQUIPMENT
-	)
-	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_ENGINEERING
