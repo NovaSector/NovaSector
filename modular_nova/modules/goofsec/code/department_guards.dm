@@ -1027,7 +1027,7 @@
 					span_warning("[user] prods you with [src]. Luckily, it shut off due to being in the wrong area."))
 				turn_off()
 				balloon_alert(user, "wrong department")
-				playsound(src, SFX_SPARKS, 75, TRUE, -1)
+				playsound(src, /datum/sound_effect/sparks, 75, TRUE, -1)
 				update_appearance()
 				return FALSE
 	return ..()
@@ -1049,7 +1049,7 @@
 							span_warning("You scramble [src]'s departmental lock, allowing it to be used freely!"),
 							span_hear("You hear a faint electrical spark."))
 		balloon_alert(user, "emagged")
-		playsound(src, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		playsound(src, /datum/sound_effect/sparks, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		obj_flags |= EMAGGED
 		emagged = TRUE
 		return TRUE
