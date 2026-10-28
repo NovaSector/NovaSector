@@ -1,0 +1,4 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - balance: "[NOVA] The supply shuttle will not spawn crates on tiles occupied by conveyor belts, conveyor switches, sorters, and other machinery. This can prevent orders from being confirmed if there are fewer un-occupied tiles in the shuttle than unique items that need to be spawned."
