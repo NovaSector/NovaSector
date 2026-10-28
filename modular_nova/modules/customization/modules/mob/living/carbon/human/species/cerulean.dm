@@ -23,11 +23,47 @@
 	features |= /datum/preference/color/fish_tail_color::savefile_key
 	return features
 
+/datum/species/human/cerulean/get_physical_attributes()
+	return "Ceruleans struggle with the need to be wet at all times, the pull of gravity, and a lack of legs. \
+			They're slightly more durable, and can fly while not affected by gravity."
+
 /datum/species/human/cerulean/get_species_description()
-	return placeholder_description
+	return "Ceruleans are upright, ambulatory descendants of Space Carp and genetic siblings to the bipedal Akulans. \
+			They lack distinct legs—when they absolutely must move on land alone, they flop awkwardly with their thick, muscled tail. \
+			They also require water within their lungs, a step up from Akulans' need to just remain moist."
 
 /datum/species/human/cerulean/get_species_lore()
-	return list(placeholder_lore)
+	return list(
+			"Ceruleans are upright, ambulatory descendants of Space Carp and genetic siblings to the bipedal Akulans. \
+			The main distinction lies in the tail and legs: Akulans have jointed plantigrade legs and a tail, \
+			and Ceruleans have a larger tail with vestigial leg-bones within.",
+
+			"Ceruleans require water within their lungs, in contrast to Akulans' need to merely remain moist, \
+			and both achieve this through portable hydro-vaporizers. The Cerulean tail is flexible vertically, \
+			as typical of mammals, aided by the muscular formations typical of a leg, while the Akulan tail flexes \
+			horizontally, aided by their gluteal muscles. Ceruleans tend to inhabit deeper waters than Akulans, \
+			though given the Akulan propensity to live on land, this isn't a low bar to sink beneath.",
+
+			"As a deep-sea creature, Ceruleans wanting to experience the greater galaxy and drag themselves among \
+			the ambulatory need a slight surgery or augmentation to adjust their body's inner pressure, lest they \
+			bloat like a blobfish. This can come from significant fat cell eradication, significant blood volume loss, \
+			or microgravity adjustments, all of which allow the Cerulean body to thrive in human-standard atmospheric conditions \
+			without skin tearing. These \"Surfaced\" Ceruleans may find it difficult to return home, potentially succumbing to human conditions \
+			like the Bends when free-diving so deep.",
+
+			"Ceruleans are sheltered from the violent Akulan past by simple virtue of their cultural exclusion from space-faring. \
+			The most action Ceruleans were allowed to see was a careful escort to other oceanic planets, for settling and housekeeping. \
+			Only with the advent of modern technology like MODsuits and wheelchairs are Ceruleans considered able to properly interact with society.",
+
+			"There is one category of technology the Ceruleans have managed to stand out with: they are pioneers of gravity manipulation technology. \
+			Not many decades ago, Ceruleans of planet Marina, known as the Marinians, built grav-gen megastructures onto their sea beds to cast its planet's ocean currents \
+			upward past atmosphere, building an aquatic bridge flowing towards Moryana into a connection between the two worlds within modern Void Imperium borders.",
+
+			"While Ceruleans have been, and continue to be, part of the Azulean Empire, Marina and several other oceanic conquests stand out as strictly Cerulean habitations. \
+			Azula are permitted but not welcome there, and the harsh oceanic conditions tend to deter other groups from more than a surface-level interest. \
+			Cerulean cultures tend to reject the Azulean notions of goofy knighthood and over-servile repentance for their war crimes, \
+			instead attempting to allow the Akulan past to remain water under the bridge.",
+		)
 
 /obj/item/organ/tail/fish/cerulean
 	// not a styled tail. it neither writes nor clears the DNA's tail entry, which the DNA pass would swap it for
