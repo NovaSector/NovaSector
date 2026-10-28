@@ -7,4 +7,4 @@
 	. = ..()
 	if(world.time > next_clicksound && isliving(user))
 		next_clicksound = world.time + 5
-		playsound(src, SFX_KEYBOARD, 40)
+		playsound(src, /datum/sound_effect/keyboard, 40)

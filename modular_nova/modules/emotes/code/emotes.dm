@@ -12,7 +12,6 @@
 /datum/emote/living/custom
 	mob_type_blacklist_typecache = list(/mob/living/brain)
 	cooldown = 0
-	stat_allowed = SOFT_CRIT
 
 //me-verb emotes should not have a cooldown check
 /datum/emote/living/custom/check_cooldown(mob/user, intentional)
@@ -244,7 +243,7 @@
 	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
 	sounds_by_mobtype = list(
 		/mob/living/carbon/human = 'modular_nova/modules/emotes/sound/emotes/hiss.ogg',
-		/mob/living/carbon/alien = SFX_HISS,
+		/mob/living/carbon/alien = /datum/sound_effect/hiss,
 	)
 
 /datum/emote/living/moth/mchitter

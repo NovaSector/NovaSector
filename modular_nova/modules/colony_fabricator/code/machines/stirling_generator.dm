@@ -32,7 +32,7 @@
 /obj/machinery/power/stirling_generator/Initialize(mapload)
 	. = ..()
 	soundloop = new(src, FALSE)
-	connected_chamber = new(loc, src, dir, CELL_VOLUME * 0.5)
+	connected_chamber = new(src, CELL_VOLUME * 0.5)
 	connect_to_network()
 	AddElement(/datum/element/repackable, deconstruction_type, 10 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
