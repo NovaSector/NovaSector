@@ -1,0 +1,293 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/misc/player_home)
+"ab" = (
+/obj/structure/bed/pod,
+/obj/item/bedsheet/blue,
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/mineral/titanium/blue,
+/area/misc/player_home)
+"ac" = (
+/obj/structure/closet/cabinet,
+/turf/open/floor/mineral/titanium/blue,
+/area/misc/player_home)
+"ad" = (
+/obj/machinery/computer,
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"ae" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave,
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"af" = (
+/obj/structure/closet/secure_closet/freezer/kitchen/all_access,
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"ag" = (
+/obj/structure/bed/pod,
+/obj/item/bedsheet/black,
+/turf/open/floor/mineral/titanium/blue,
+/area/misc/player_home)
+"ah" = (
+/turf/open/floor/mineral/titanium/blue,
+/area/misc/player_home)
+"ai" = (
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"aj" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"ak" = (
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"am" = (
+/obj/structure/sink/kitchen/directional/west,
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"an" = (
+/obj/structure/closet,
+/obj/item/clothing/suit/hooded/wintercoat,
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"ao" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/donkpockets,
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"aq" = (
+/obj/structure/table/reinforced,
+/obj/item/toy/cards/deck,
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"ar" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/cup/glass/coffee,
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"at" = (
+/obj/machinery/light/cold/directional/east,
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"au" = (
+/obj/machinery/door/airlock/titanium,
+/turf/open/floor/mineral/titanium,
+/area/misc/player_home)
+"av" = (
+/obj/structure/closet/crate,
+/turf/open/floor/plating,
+/area/misc/player_home)
+"aw" = (
+/obj/structure/closet/crate/large,
+/turf/open/floor/plating,
+/area/misc/player_home)
+"ax" = (
+/turf/open/floor/plating,
+/area/misc/player_home)
+"ay" = (
+/obj/structure/rack,
+/obj/item/clothing/mask/gas,
+/obj/item/flashlight,
+/turf/open/floor/plating,
+/area/misc/player_home)
+"az" = (
+/obj/structure/toilet,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"aA" = (
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"aB" = (
+/obj/structure/sink/directional/west,
+/obj/structure/mirror/directional/east,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"aC" = (
+/obj/structure/closet/crate/internals,
+/turf/open/floor/plating,
+/area/misc/player_home)
+"aD" = (
+/obj/structure/rack,
+/obj/item/storage/toolbox/mechanical,
+/turf/open/floor/plating,
+/area/misc/player_home)
+"aE" = (
+/obj/machinery/shower/directional/east,
+/obj/structure/curtain,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"aF" = (
+/obj/structure/towel_bin,
+/turf/open/floor/iron/freezer,
+/area/misc/player_home)
+"aG" = (
+/obj/structure/closet/emcloset,
+/turf/open/floor/plating,
+/area/misc/player_home)
+"aH" = (
+/obj/machinery/home_saver,
+/turf/open/floor/plating,
+/area/misc/player_home)
+"aI" = (
+/obj/machinery/light/cold/directional/south,
+/turf/open/floor/plating,
+/area/misc/player_home)
+"aJ" = (
+/turf/closed/indestructible/hoteldoor/fakedoor/player_home,
+/area/misc/player_home)
+"aK" = (
+/obj/structure/sign/warning/vacuum,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/misc/player_home)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+aa
+ab
+ag
+ah
+an
+aa
+av
+aC
+aG
+aa
+"}
+(3,1,1) = {"
+aa
+ac
+ah
+ah
+ak
+aa
+aw
+ax
+aH
+aa
+"}
+(4,1,1) = {"
+aa
+aa
+aa
+ak
+ak
+aa
+ax
+ax
+ax
+aJ
+"}
+(5,1,1) = {"
+aa
+ad
+ai
+ak
+ak
+aa
+ax
+ax
+aI
+aa
+"}
+(6,1,1) = {"
+aa
+ad
+aj
+aq
+ak
+au
+ax
+ax
+ax
+aK
+"}
+(7,1,1) = {"
+aa
+ad
+aj
+ar
+ak
+aa
+ay
+aD
+ax
+aa
+"}
+(8,1,1) = {"
+aa
+ad
+ak
+ak
+ak
+aa
+aa
+aa
+aa
+aa
+"}
+(9,1,1) = {"
+aa
+aa
+aa
+ak
+ak
+aa
+az
+aE
+aa
+aa
+"}
+(10,1,1) = {"
+aa
+ae
+ak
+ak
+ak
+au
+aA
+aA
+aa
+aa
+"}
+(11,1,1) = {"
+aa
+af
+am
+ao
+at
+aa
+aB
+aF
+aa
+aa
+"}
+(12,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
