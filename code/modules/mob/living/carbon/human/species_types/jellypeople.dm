@@ -127,7 +127,7 @@
 
 /datum/species/jelly/get_species_lore()
 	return list(
-		"A distant cousin to Xenobiolical Slime Hybrids, Jellypeople are knwon for their three eyes and unclear origins.",
+		"A distant cousin to Xenobiolical Slime Hybrids, Jellypeople are known for their three eyes and unclear origins.",
 		"Jellypeople are actively being experimented on my Nanotrasen scientists, who are trying to unlock the secrets of their unique biology.",
 	)
 
