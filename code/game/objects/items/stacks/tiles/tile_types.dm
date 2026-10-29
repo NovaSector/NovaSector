@@ -1186,6 +1186,13 @@
 	turf_type = /turf/open/floor/circuit/red/anim
 	merge_type = /obj/item/stack/tile/circuit/red/anim
 
+/obj/item/stack/tile/circuit/pool
+	name = "bitrunner pod coolant bay tile"
+	singular_name = "bitrunner pod coolant bay tile"
+	desc = "Specialized coolant fluid is pumped into this recessed floor tile to manage the temperature of bitrunner pods."
+	turf_type = /turf/open/floor/circuit/pool
+	merge_type = /obj/item/stack/tile/circuit/pool
+
 /obj/item/stack/tile/plastic
 	name = "plastic tile"
 	singular_name = "plastic floor tile"
