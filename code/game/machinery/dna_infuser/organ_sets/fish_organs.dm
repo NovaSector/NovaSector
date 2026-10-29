@@ -309,7 +309,7 @@
 		gills = new()
 		AddElement(/datum/element/noticable_organ, "%PRONOUN_Theyve a set of gills on %PRONOUN_their neck.", BODY_ZONE_PRECISE_MOUTH)
 	AddComponent(/datum/component/bubble_icon_override, "fish", BUBBLE_ICON_PRIORITY_ORGAN)
-	AddComponent(/datum/component/speechmod, replacements = strings("crustacean_replacement.json", "crustacean"))
+	//AddComponent(/datum/component/speechmod, replacements = strings("crustacean_replacement.json", "crustacean")) // NOVA EDIT REMOVAL - done here due to COMPONENT_DUPE_ALLOWED: removing fish puns because of Ceruleans
 
 /obj/item/organ/lungs/fish/Destroy()
 	QDEL_NULL(gills)
