@@ -715,10 +715,10 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 /datum/holiday/halloween
 	name = HALLOWEEN
-	begin_day = 29
+	begin_day = 25
 	begin_month = OCTOBER
-	end_day = 2
-	end_month = NOVEMBER
+	end_day = 26
+	end_month = OCTOBER
 	holiday_colors = list(COLOR_MOSTLY_PURE_ORANGE, COLOR_PRISONER_BLACK)
 	holiday_mail = list(
 		/obj/item/food/cookie/sugar/spookycoffin,
