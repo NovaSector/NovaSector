@@ -1,7 +1,7 @@
 /datum/outfit/akula
 	name = "Akula"
 	uniform = /obj/item/clothing/under/akula_wetsuit
-	accessory = /obj/item/clothing/accessory/vaporizer
+	r_pocket = /obj/item/vaporizer/with_cell
 
 /datum/outfit/akula/station_engineer
 	name = "Akula Engineer"

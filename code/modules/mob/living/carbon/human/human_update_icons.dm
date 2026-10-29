@@ -118,6 +118,10 @@ There are several things that need to be remembered:
 
 		// NOVA EDIT ADDITION START - Taur-friendly suits!
 		var/mutant_styles = NONE
+		if(bodyshape & BODYSHAPE_CERULEAN)
+			female_sprite_flags &= ~FEMALE_UNIFORM_FULL // clear the FEMALE_UNIFORM_DIGI_FULL bit if it was set, we don't want that.
+			female_sprite_flags |= FEMALE_UNIFORM_TOP_ONLY // and set the FEMALE_UNIFORM_TOP_ONLY bit if it is unset.
+
 		if(bodyshape & BODYSHAPE_TAUR)
 			mutant_styles |= get_taur_mode()
 			female_sprite_flags &= ~FEMALE_UNIFORM_FULL // clear the FEMALE_UNIFORM_DIGI_FULL bit if it was set, we don't want that.
@@ -659,7 +663,7 @@ There are several things that need to be remembered:
 #define FEMALE_RELEVANT_BODYSHAPE (BODYSHAPE_DIGITIGRADE | BODYSHAPE_TAUR)
 /// Modifies a sprite slightly to conform to female body shapes
 /proc/wear_female_version(icon_state, icon_file_path, icon, type, greyscale_colors, bodyshape)
-	var/index = "[icon_file_path]-[icon_state]-[greyscale_colors]"
+	var/index = "[icon_file_path]-[icon_state]-[greyscale_colors]-[type]-[bodyshape & BODYSHAPE_DIGITIGRADE]" // NOVA EDIT CHANGE - key by the mask, Taurs and Ceruleans support - ORIGINAL: var/index = "[icon_file_path]-[icon_state]-[greyscale_colors]"
 	var/static/list/female_clothing_icons = list()
 	var/icon/female_clothing_icon = female_clothing_icons[index]
 	if(!female_clothing_icon) //Create standing/laying icons if they don't exist
