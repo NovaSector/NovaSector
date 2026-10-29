@@ -1,9 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bp" = (
-/obj/machinery/light/floor,
-/obj/effect/turf_decal/siding{
-	dir = 8
-	},
+/obj/structure/railing,
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "bA" = (
@@ -183,11 +181,8 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "ls" = (
-/obj/machinery/light/floor,
-/obj/effect/turf_decal/siding{
-	dir = 4
-	},
-/turf/open/floor/iron/sepia,
+/obj/machinery/light/directional/west,
+/turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "ly" = (
 /obj/structure/table/wood/fancy/royalblack,
@@ -226,10 +221,25 @@
 	},
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
+"nk" = (
+/obj/structure/table/wood/fancy/royalblack,
+/obj/machinery/light/directional/south,
+/turf/open/floor/mineral/titanium,
+/area/shuttle/escape)
 "no" = (
 /obj/machinery/door/airlock/shuttle/glass,
 /obj/docking_port/mobile/emergency,
 /turf/open/floor/engine/hull,
+/area/shuttle/escape)
+"nT" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
+"oC" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "oN" = (
 /obj/machinery/status_display/ai/directional/north,
@@ -290,7 +300,6 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/obj/machinery/computer/shuttle/ferry/shuttle,
 /obj/effect/turf_decal/trimline/white/filled/corner,
 /obj/effect/turf_decal/trimline/white/filled/corner{
 	dir = 8
@@ -301,6 +310,7 @@
 /obj/effect/turf_decal/trimline/white/filled/mid_joiner{
 	dir = 1
 	},
+/obj/machinery/computer/emergency_shuttle,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "qU" = (
@@ -436,9 +446,8 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "vm" = (
-/obj/structure/railing,
-/obj/machinery/light/floor,
-/turf/open/floor/iron/sepia,
+/obj/machinery/light/directional/south,
+/turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "wg" = (
 /obj/structure/railing{
@@ -514,6 +523,10 @@
 	dir = 1
 	},
 /turf/open/floor/mineral/titanium,
+/area/shuttle/escape)
+"zO" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "AK" = (
 /obj/machinery/biogenerator/food_replicator{
@@ -597,6 +610,11 @@
 /obj/effect/turf_decal/siding/corner{
 	dir = 8
 	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
+"Ec" = (
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Eo" = (
@@ -616,7 +634,6 @@
 /obj/structure/railing{
 	dir = 5
 	},
-/obj/machinery/computer/security/shuttle,
 /obj/effect/turf_decal/trimline/white/filled/end{
 	dir = 4
 	},
@@ -627,7 +644,12 @@
 /obj/effect/turf_decal/trimline/white/filled/mid_joiner{
 	dir = 4
 	},
-/obj/machinery/light/floor,
+/obj/machinery/computer/communications,
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
+"EM" = (
+/obj/structure/railing,
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Fo" = (
@@ -728,7 +750,6 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "Ir" = (
-/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
@@ -740,10 +761,22 @@
 /obj/machinery/light/small/directional/west,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/escape)
+"IB" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
 "IT" = (
 /obj/structure/railing{
 	dir = 5
 	},
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
+"Jc" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Jp" = (
@@ -792,6 +825,7 @@
 /obj/structure/chair/sofa/right/maroon{
 	dir = 4
 	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Mp" = (
@@ -799,7 +833,7 @@
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "MB" = (
-/obj/machinery/computer/atmos_alert/station_only{
+/obj/machinery/computer/station_alert{
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/yellow/filled/end{
@@ -840,14 +874,14 @@
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "OB" = (
-/obj/machinery/light/floor,
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "OD" = (
-/obj/structure/window/reinforced/spawner/directional/east,
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "PS" = (
@@ -955,6 +989,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/siding/corner,
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Tz" = (
@@ -986,6 +1021,7 @@
 "UF" = (
 /obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /obj/effect/turf_decal/siding,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Vf" = (
@@ -993,6 +1029,10 @@
 	dir = 4
 	},
 /turf/open/floor/iron/sepia,
+/area/shuttle/escape)
+"Vm" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "Vo" = (
 /obj/machinery/recharge_station,
@@ -1013,6 +1053,7 @@
 	pixel_y = 6
 	},
 /obj/machinery/light/floor,
+/obj/machinery/light/floor,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Wx" = (
@@ -1023,10 +1064,10 @@
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "WX" = (
-/obj/structure/window/reinforced/spawner/directional/west,
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Xc" = (
@@ -1038,6 +1079,10 @@
 "Xt" = (
 /obj/machinery/door/airlock/shuttle/glass,
 /turf/open/floor/engine/hull,
+/area/shuttle/escape)
+"XG" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "XT" = (
 /obj/machinery/power/shuttle_engine/huge,
@@ -1069,7 +1114,6 @@
 /obj/structure/railing{
 	dir = 9
 	},
-/obj/machinery/computer/crew/shuttle,
 /obj/effect/turf_decal/trimline/white/filled/end{
 	dir = 8
 	},
@@ -1080,7 +1124,7 @@
 /obj/effect/turf_decal/trimline/white/filled/mid_joiner{
 	dir = 8
 	},
-/obj/machinery/light/floor,
+/obj/machinery/computer/station_alert,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Zd" = (
@@ -1152,7 +1196,7 @@ rS
 tP
 Wx
 Wx
-Wx
+ls
 Wx
 Wx
 NV
@@ -1223,13 +1267,13 @@ Eo
 tg
 Eo
 Ic
-NV
+vm
 yA
 rS
 Er
 rS
 dd
-dd
+zO
 dd
 rS
 gt
@@ -1237,7 +1281,7 @@ mc
 Wx
 rS
 dd
-dd
+zO
 dd
 rS
 eO
@@ -1262,7 +1306,7 @@ Zn
 rS
 dJ
 rS
-OB
+dd
 dd
 dd
 rS
@@ -1270,7 +1314,7 @@ rS
 rS
 wS
 rS
-OB
+dd
 dd
 dd
 rS
@@ -1304,7 +1348,7 @@ Dp
 Cs
 dM
 rS
-Bm
+oC
 dd
 dd
 rS
@@ -1338,7 +1382,7 @@ Wx
 Wx
 Wx
 rS
-Bm
+Yj
 dd
 dd
 rS
@@ -1364,7 +1408,7 @@ Sm
 NV
 AW
 rS
-dd
+XG
 dd
 OB
 rS
@@ -1372,9 +1416,9 @@ dM
 dM
 Wx
 rS
-Bm
+Yj
 dd
-OB
+dd
 rS
 xO
 xO
@@ -1389,13 +1433,13 @@ qa
 rS
 yA
 WT
-GU
+EM
 gS
 dd
 WT
 rS
 Sm
-ve
+NV
 AW
 rS
 dd
@@ -1406,9 +1450,9 @@ um
 gM
 dM
 rS
-Bm
+nT
 dd
-dd
+OB
 rS
 xO
 xO
@@ -1429,7 +1473,7 @@ qU
 Qf
 rS
 iY
-NV
+Vm
 NV
 qf
 dd
@@ -1440,7 +1484,7 @@ Wx
 Wx
 hx
 rS
-Bm
+Yj
 dd
 dd
 rS
@@ -1454,10 +1498,10 @@ qa
 (11,1,1) = {"
 qq
 qq
-dd
+zO
 hq
 dd
-vm
+GU
 TC
 Tw
 yA
@@ -1468,15 +1512,15 @@ rS
 yA
 dd
 dd
-OB
-rS
-xG
-xG
-xG
-rS
-Bm
 dd
-OB
+rS
+xG
+xG
+xG
+rS
+Yj
+dd
+dd
 rS
 Tv
 xO
@@ -1489,8 +1533,8 @@ qa
 qq
 er
 Ts
-ls
-OB
+Ts
+dd
 sy
 wg
 tU
@@ -1508,7 +1552,7 @@ rS
 rS
 rS
 yA
-Bm
+IB
 dd
 dd
 Ll
@@ -1538,11 +1582,11 @@ dd
 dd
 dd
 Ir
+Dc
+Jc
+Dc
 WX
-WX
-WX
-WX
-Bm
+dd
 dd
 dd
 rS
@@ -1564,19 +1608,19 @@ Vu
 sD
 rS
 rS
-NV
+ve
 NV
 Gv
 dd
-OB
 dd
 dd
 dd
-OB
 dd
 dd
 dd
-OB
+dd
+dd
+dd
 dd
 dd
 rS
@@ -1601,10 +1645,7 @@ rS
 rS
 rS
 rS
-dd
-dd
-HK
-Bm
+XG
 dd
 HK
 Bm
@@ -1612,7 +1653,10 @@ dd
 HK
 Bm
 dd
+HK
+Bm
 dd
+OB
 rS
 Tv
 xO
@@ -1625,8 +1669,8 @@ qa
 qq
 HD
 Hs
-bp
-OB
+Hs
+dd
 IT
 YV
 YF
@@ -1658,16 +1702,16 @@ qa
 (17,1,1) = {"
 qq
 qq
-dd
+Ec
 MB
 dd
-vm
+GU
 Jw
 DR
 yA
 yA
-ve
 NV
+vm
 rS
 Mp
 dd
@@ -1680,7 +1724,7 @@ dd
 HK
 Bm
 dd
-dd
+OB
 rS
 Tv
 xO
@@ -1708,11 +1752,11 @@ dd
 HK
 Bm
 dd
-OB
 dd
 dd
 dd
-OB
+dd
+dd
 dd
 dd
 rS
@@ -1729,7 +1773,7 @@ qa
 rS
 yA
 Ki
-GU
+bp
 gS
 dd
 Ki
@@ -1738,7 +1782,7 @@ Vo
 Vo
 rS
 Mp
-OB
+dd
 dd
 dd
 dd
@@ -1801,14 +1845,14 @@ yA
 dd
 dd
 dd
-dd
+zO
 dd
 er
 yA
 dd
 dd
-OD
-OD
+BX
+BX
 OD
 Ki
 HK
@@ -1877,7 +1921,7 @@ dd
 dd
 dd
 dd
-dd
+zO
 dd
 dd
 bV
@@ -1899,13 +1943,13 @@ qa
 qq
 MO
 dd
-dd
+OB
 yA
 yA
 dd
 yv
 yv
-dd
+OB
 rS
 dd
 Dc
@@ -1918,7 +1962,7 @@ dd
 xv
 NV
 MR
-MR
+nk
 rS
 eO
 xO
