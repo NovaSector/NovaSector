@@ -96,9 +96,9 @@
 			vibrant color palettes with intense shading, with popular subjects of contemporary Unathi artwork frequently revolving around expansionism, warfare, and glory, \
 			accompanied by a pervasive undertone of regret and hollow achievements.",
 		"Core to the clans of Unathi are their historical achievements stemming back to the beginning of the diaspora. Great effort is taken to compose orchestras, songs, \
-		 	and music which honors this past. Unathi composers are famous for their painstaking attention to detail and complex, beautiful melodies found enjoyable by many across \
-		 	the galaxy. Collaboration with artists of all starfaring civilizations, spreading the reach of Unathi music, is highly accepted within broad Unathi culture in their \
-		 	journey to create the perfect music to encapsulate the vibe of each clan, and show respect to their ancestors.",
+			and music which honors this past. Unathi composers are famous for their painstaking attention to detail and complex, beautiful melodies found enjoyable by many across \
+			the galaxy. Collaboration with artists of all starfaring civilizations, spreading the reach of Unathi music, is highly accepted within broad Unathi culture in their \
+			journey to create the perfect music to encapsulate the vibe of each clan, and show respect to their ancestors.",
 		"Sitting in stark contrast, martial and governmental structures are often megalithic things, extremely minimalistic and harsh in design; in the case of the most wealthy \
 			clans, jutting above the horizon in at least some capacity, aiming to project stubbornness and ruggedness to any who approach. These decisions are a form of artistic \
 			expression as well - simply very on the nose.",
