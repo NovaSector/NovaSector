@@ -41,8 +41,9 @@
 
 /datum/species/snail/get_species_lore()
 	return list(
-		"Normally, Snailpeople are a result of a genetic experiment gone wrong, but they have since become recognized species in their own right, \
-		similar to the Felinid.",
+		"Snailpeople were one of many strange species to grow in those warm rich jungles. Evolving from mollusc ancestors that dwelled in the effervescent jungle pools of Lush, Snailpeople grew into a humanoid form inspired by the constant pressure of the dangerous amphibious fauna that hunted Lush’s undergrowths.",
+		"Unlike many humanoid species that evolved as hunter-gatherers, Snailpeople evolved as grazing prey. Their arms and legs evolved to better traverse the jungle landscape, powered by a series of tough fluid-bladders that work as bone and muscle alike. While they were a slow people with no twitch reflexes to speak of their gradually evolving forms allowed them to find the most defensive places on Lush and settle them, using both tools and their tough calcium rich shells to protect themselves and the small communities that formed. ",
+		"Snailpeople never intended to conquer their own planets ecosphere. They instead made perfect habitats within their own homes. Snailpeople compounds, by their atomic age, were enclosed private communities with perfect atmospheric controls. Any threats outside their walls were dissuaded by powerful automatic defenses, with Snailpeople themselves rarely taking fights. Snailpeople pre and post FTL were a quiet introspective species who respected their personal space. To give out access codes to ones compound and share private space was a deeply personal affair. As Lush held long warm days and beautiful nights the sky above them was enriched with celestial views, inspiring Snailpeople with a cultural respect for the stars forming pantheons of faith that adored each celestial body they could spy. ",
 	)
 
 /datum/species/snail/create_pref_unique_perks()

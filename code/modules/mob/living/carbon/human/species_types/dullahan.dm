@@ -143,17 +143,25 @@
 /datum/species/dullahan/get_physical_attributes()
 	return "A dullahan is much like a human, but their head is detached from their body and must be carried around."
 
+//NOVA EDIT BEGIN
 /datum/species/dullahan/get_species_description()
-	return "An angry spirit, hanging onto the land of the living for \
-		unfinished business. Or that's what the books say. They're quite nice \
-		when you get to know them."
+	return "A class of people whose heads come off, non-fatally. Through various links, the body can operate at a distance from the head, where the center of consciousness remains. Traditionally, Dullahans are human in origin, though traditions only carry so much weight in contrast to their defining feature: headlessness. "
 
 /datum/species/dullahan/get_species_lore()
 	return list(
+		"https://wiki.novasector13.com/wiki/Lore:Dullahan",
 		"\"No wonder they're all so grumpy! Their hands are always full! I used to think, \
 		\"Wouldn't this be cool?\" but after watching these creatures suffer from their head \
-		getting dunked down disposals for the nth time, I think I'm good.\" - Captain Larry Dodd"
+		getting dunked down disposals for the nth time, I think I'm good.\" - Captain Larry Dodd",
+		"Historically an angry spirit, hanging onto the land of the living for \
+		unfinished business. Nowadays, someone with a tech-based link and no neck to speak of. They're quite nice \
+		when you get to know them.",
+		"Early in the MECU’s exile, mortality loomed over top brass and, without access to SolFed’s typical life extension means, new methodologies were explored. \"Entangled Mindswapping\" involves severing the head of a late-term person and, through acids and nutrients, slowly eroding the surrounding biomatter and freeing the brain within, careful as to not induce more than a moment of brain death. Over a matter of weeks, the brain's natural neuroplasticity adapts to the novel sensory inputs of the jar it's entombed in, learning to process the binary feeds from the jar's sensors into sight and sound, and soon thereafter, output electrical signals akin to motor functions. This prolongs the consciousness of the executive within, from one century to numerous. ",
+		"With the reconnection to SolFed came modern medical advances. Not only could they keep the body going indefinitely, with patented Nutrient Pumps and CNS Control implants, but the connection between brain and neck could reliably go wireless, carrying direct neural signals over airwaves, as opposed to interpreting the brain's motor signals, then translating those to muscle contractions. The first to be transitioned and updated described it \"as if I were alive again,\" despite having already met the MECU's legal definition of life. ",
+		"In modern times, undergoing a Dullahan procedure is both risky and cosmetic; most who would choose to leave their neck behind would incorporate themselves into a synthetic or cybernetic shell. Most modern Dullahans utilize a modified MMI designed to preserve the entire head, not simply the brain, with servos to emulate neck muscle movements, permitting complex facial expressions and audible speech.",
+		"The head is a self-sustaining container that doesn't need nutrition or oxygenation. It has innate self-respiration and a miniaturized nutriment implant specifically tuned to keep the head alive and independent even in the worst case scenario (separated from body). It uses an experimental short range RSD network link, similar to room transfers between containers/RSD Evokers."
 	)
+//NOVA EDIT END
 
 /datum/species/dullahan/create_pref_unique_perks()
 	var/list/to_add = list()

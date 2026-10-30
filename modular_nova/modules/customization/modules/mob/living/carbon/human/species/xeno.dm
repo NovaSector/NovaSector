@@ -50,10 +50,17 @@
 	)
 
 /datum/species/xeno/get_species_description()
-	return placeholder_description
+	return "Chitinous persons with sharp claws, plasma-affiliated organs, and innate plasma-spreading weeds. These Xenomorphic Hybrids resemble the interstellar terror, Xenomorphs, but are fully sapient, capable of education and employment, and so are no more threatening than any particular human."
 
 /datum/species/xeno/get_species_lore()
-	return list(placeholder_lore)
+	return list("https://wiki.novasector13.com/wiki/Lore:Xenomorphic_Hybrid",
+		"According to the 2550 SolFed Census, there are over 30 Xenomorphic Hybrid individuals within the galaxy. According to most people in space, there are over 30 unique Xenofolk across the past two stations they've been on. This discrepancy can be explained by the nebulous definitions of what makes one a \"xenomorph hybrid.\" ",
+		"Sociologists have narrowed down a more specific definition of a \"Xenomorphic Hybrid,\" broader than the 2550 Census's but narrower than the layperson's:",
+		"Acidic blood: While the specific acid and solution of proteins and amino acids vary between individuals, anyone legally designated a Xenomorphic Hybrid can be treated with basic Sulphuric Acid. The injection may inflict some external damage, but once contained within their cardiovascular system, the sulphuric acid works similarly to blood.",
+		"Plasma affinity: For varying biological reasons, a Xenomorphic Hybrid is not allergic or humbled by the exotic matter Plasma, but instead stores a small reserve of it. Different individuals thrive with varying degrees in the presence of Plasma, and the most Xenomorphic individuals can infest their surroundings as the full-blooded Xenomorphs do, spreading purple weeds that scrape against the veil between Bluespace and reality, fostering the development of plasma in any Xenomorphic plasmocile atop them.",
+		"Hivemind connection: Poetically described as \"whispering on the winds of plasma, of the scars between this world and the infinite,\" and scientifically described as impossible, many Xenomorphic individuals possess a limited form of the Xenomorphic hivemind, permitting them to speak at significant distances to fellow Xenomorphs. The NIFsoft Hivemind is loosely based upon the communication protocols reverse engineered through medical study.",
+		"Most modern Xenomorphic Hybrids, or Xenomen, come from various genemodding experiments onto humans or other conventional bipedals. While almost all of SolFed and her neighbors recognize Xenomorphic Hybrids as people, their unclear origins preclude a solitary homeworld, even ignoring the fear that a 'hive world' would draw. Xenomen intermingle wherever space travelers are welcomed.",
+	)
 
 /datum/species/xeno/create_pref_unique_perks()
 	var/list/to_add = list()

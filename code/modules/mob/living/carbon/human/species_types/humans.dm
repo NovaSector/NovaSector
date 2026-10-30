@@ -18,6 +18,8 @@
 
 /datum/species/human/get_species_lore()
 	return list(
+		"https://wiki.novasector13.com/wiki/Lore:Humans",
+
 		"These primate-descended creatures, originating from the mostly harmless Earth, \
 		have long-since outgrown their home and semi-benign designation. \
 		The space age has taken humans out of their solar system and into the galaxy-at-large.",
@@ -27,13 +29,14 @@
 		This included the lizards - if anyone was offended by these upstarts, it was certainly lizardkind.",
 
 		"Humanity never managed to find the kind of peace to fully unite under one banner like other species. \
-		The pencil and paper pushing of the UN bureaucrat lives on in the mosaic that is TerraGov; \
+		The pencil and paper pushing of the UN bureaucrat lives on in the mosaic that is SolFed; \
 		a composite of the nation-states that still live on in human society.",
 
 		"The human spirit of opportunity and enterprise continues on in its peak form: \
-		the hypercorporation. Acting outside of TerraGov's influence, literally and figuratively, \
-		hypercorporations buy the senate votes they need and establish territory far past the Earth Government's reach. \
-		In hypercorporation territory company policy is law, giving new meaning to \"employee termination\".",
+		the hypercorporation. The binds of SolFed's influence barely impede her members, \
+		for hypercorporations buy the senate votes they need and establish territory far past the Earth Government's reach. \
+		Particularly large companies declare nationhood directly as a Sovereign Corporation. \
+		In Sovereign Corporation territory company policy is law, giving new meaning to \"employee termination\".",
 	)
 
 /datum/species/human/create_pref_unique_perks()

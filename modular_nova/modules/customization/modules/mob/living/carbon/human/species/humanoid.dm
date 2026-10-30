@@ -32,10 +32,12 @@
 	)
 
 /datum/species/humanoid/get_species_description()
-	return "This is a template species for your own creations!"
+	return "A generic template for your custom species, covering thousands of human-equivalent species who resmble - but do not identify as - humans."
 
 /datum/species/humanoid/get_species_lore()
-	return list("Make sure you fill out your own custom species lore!")
+	return list("https://wiki.novasector13.com/wiki/Lore:Genemodders",
+	"A taxonomic class of human-equivalent sapient persons. Most are derived from humanity through genemodding, though covergent evolution does occasionally spur an unrelated species close enough to fall into this category.",
+	"The DSM medical guidelines divide species up by treatment guidelines, not cultural or genetic differences. Surgical treatment for any of these 'generic' persons in this class will be functionally identical to the surgeon.")
 
 /datum/species/humanoid/prepare_human_for_preview(mob/living/carbon/human/human)
 	var/main_color = "#722011"

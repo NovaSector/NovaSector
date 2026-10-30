@@ -2,7 +2,7 @@
 	race = /datum/species/insectoid
 
 /datum/species/insectoid
-	name = "\improper Insectoid"
+	name = "\improper Insectoid" //TODO: either get code permission to change this to like Webweaver, or don't.
 	plural_form = "Insectoid"
 	id = SPECIES_INSECTOID
 	inherent_traits = list(
@@ -52,12 +52,12 @@
 	human_for_preview.update_body(is_creating = TRUE)
 
 /datum/species/insectoid/get_species_description()
-	return "Nothing yet."
+	return "Spidermen, no hyphen, and not necessarily spider-derived. A generic template for your custom species, covering thousands of human-equivalent species who resmble web-weaving insects or other chitinous critters."
 
 /datum/species/insectoid/get_species_lore()
-	return list(
-		"Nothing yet.",
-	)
+	return list("https://wiki.novasector13.com/wiki/Lore:Genemodders",
+	"A taxonomic class of human-equivalent sapient persons who have web-weaving traits and resemble insects. Most are derived from humanity through genemodding, though covergent evolution does occasionally spur an unrelated species close enough to fall into this category.",
+	"The DSM medical guidelines divide species up by treatment guidelines, not cultural or genetic differences. Surgical treatment for any of these 'generic' persons in this class will be functionally identical to the surgeon.")
 
 /obj/item/organ/eyes/bug
 	blink_animation = FALSE

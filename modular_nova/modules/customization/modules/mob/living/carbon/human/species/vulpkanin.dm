@@ -74,10 +74,20 @@
 	return markings
 
 /datum/species/vulpkanin/get_species_description()
-	return placeholder_description
+	return "Vulpkanin are often described as 'misleadingly similar to human foxes'. Their outward appearance is typical - four limbs, two eyes, a mouth, the likes of most sapient life found in the known galaxy."
 
 /datum/species/vulpkanin/get_species_lore()
-	return list(placeholder_lore)
+	return list(
+		"While most furred animals form Keratin to produce body hair, Vulpkanin instead produce fur made out of Spidroin. While this insulates them much better, this protein is quite more flammable and may rapidly catch on fire if exposed. Vulpkanin are equally capable of producing such proteins via glands located all over their skin. This not only allows them to rapidly regrow burnt fur but also weave complex patterns from their hands, which evolved as a method to secure shelter during the formative years of their existance.",
+
+		"Their legs' muscular and vascular structures allows every vulpkanin to 'leap' a distance forward, far further than a baseline human can typically lunge. Special tendons, pressure sacs and hollow tibias combine together to allow a sudden end to any chase. Their recovery from said tackles tend to not be any better than a baseline human's, however.",
+
+		"Vulpkanen no longer have a single homeworld. When their star unexpectedly turned supernova, Vulpkanen who could flee did so in 'The Exodus.' Prior to the Exodus, Vulpkanin were competitively monarchical, with over a thousand kings fighting at any given time. This eventually gave rise to the Zealot-King, sole leader of their homeworld. Tto be a Zealot-King, one had to be physically, mentally, and spiritually strong, a rather obvious display of how old the Vulpkanin self-betterment doctrine is. They were typically the strongest warlord on their homeworld, capable of holding a stake on the Zealot’s throne by force alone. In this case, the most relevant and logistics-capable of them had started a several hundred years regime change into an absolute monarchy, former generals becoming advisers, advisers becoming jurors. The last Zealot-King was known as Setath Sho Rhell-Zennha, a prime mover in the Vulpkanin Exodus.",
+
+		"For their failures in preventing the Exodus, Setath Sho Rhell-Zennha was executed on live television. he downfall of royalty in the Post-Exodus Vulpkanin era - what is now known as the ‘Modern’ era - has deeply affected its culture: not only has it shifted the focus of excellence from a single member of society to its entire populace, it has led to the actual use of 'noble' terms as an insulting, demeaning adjective for things. Pretending to have royal blood is a social death sentence for a Vulpkanin. With the death of the Zealot-King, the only remaining upper echelon of leaders within Vulpkanin society were the Advisors of the Vulpkan’aan court. ",
+
+		"Practice of Vulpkanin star worship varied from person to person, as each Vulpkanin alive tended to congregate around worship of a particular star’s assigned deity. A common ritual by Vulpkanin astrologers past the invention of electricity was to use keen instruments to essentially listen into a star’s output of radio waves, divining messages from what was called ‘celestial noise.’ This pattern of low-frequency noise would be adjusted, tuned, and remixed until coherent patterns were made more obvious; used for ritual, future-telling, and sometimes even to name children, all by assigning certain patterns to different motions of the body used in the non-verbal communication aspects of Canilunzt. Most contemporary Vulpkanin music would use the output of different stars as a sort of ‘bassline’, thought to promote healthy living. Different positions of their homeworld’s moons over their sun would hold great significance in astrology as well, an equivalent of human zodiac signs previously existing based on what shape the moons would create, depicted as different circular drawings. "
+	)
 
 /datum/species/vulpkanin/prepare_human_for_preview(mob/living/carbon/human/vulp)
 	var/main_color = "#FF8800"

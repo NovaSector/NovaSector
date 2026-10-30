@@ -1,5 +1,5 @@
 /datum/species/aquatic
-	name = "Akula (Generic)"
+	name = "Aquatic"
 	id = SPECIES_AQUATIC
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
@@ -78,7 +78,9 @@
 	return markings
 
 /datum/species/aquatic/get_species_description()
-	return placeholder_description
+	return "A generic template for your custom species, covering thousands of aquatic human-equivalent species who breathe in water."
 
 /datum/species/aquatic/get_species_lore()
-	return list(placeholder_lore)
+	return list("https://wiki.novasector13.com/wiki/Lore:Genemodders",
+	"A taxonomic class of human-equivalent sapient persons, possessing traits befitting a water-based lifestyle. Most are derived from humanity through genemodding, though covergent evolution does occasionally spur an unrelated species close enough to fall into this category.",
+	"The DSM medical guidelines divide species up by treatment guidelines, not cultural or genetic differences. Surgical treatment for any of these 'generic' persons in this class will be functionally identical to the surgeon.")
