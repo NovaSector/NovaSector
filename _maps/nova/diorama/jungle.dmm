@@ -23,7 +23,7 @@
 /area/centcom/interlink)
 "k" = (
 /obj/modular_map_connector,
-/obj/structure/sign/plaques/kiddie/diorama/jungle{
+/obj/structure/plaque/kiddie/diorama/jungle{
 	pixel_y = 8
 	},
 /turf/closed/wall,

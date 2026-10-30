@@ -83798,7 +83798,7 @@
 /turf/open/floor/catwalk_floor/iron,
 /area/station/security/prison/safe)
 "qUH" = (
-/obj/structure/sign/plaques/kiddie/perfect_man{
+/obj/structure/plaque/kiddie/perfect_man{
 	pixel_y = -32
 	},
 /obj/machinery/light/directional/south,

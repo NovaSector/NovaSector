@@ -130,7 +130,7 @@
 /turf/open/floor/wood/wood_5,
 /area/station/command/heads_quarters/nt_rep)
 "H" = (
-/obj/structure/sign/plaques/kiddie/perfect_man{
+/obj/structure/plaque/kiddie/perfect_man{
 	pixel_x = 32;
 	dir = 4
 	},
