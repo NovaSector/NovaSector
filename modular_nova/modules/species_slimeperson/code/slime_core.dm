@@ -121,7 +121,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	)
 	playsound(user, 'sound/items/handling/surgery/organ1.ogg', 80, TRUE)
 
-	if(!do_after(user, 15 SECONDS, src))
+	if(!do_after(user, 10 SECONDS, src))
 		user.visible_message(
 			span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!"),
 			span_notice("Your hand slips out of the goopy core before you can find any dense objects inside."),
@@ -153,7 +153,7 @@ GLOBAL_LIST_EMPTY_TYPED(dead_slime_cores, /obj/item/organ/brain/slime)
 	)
 	playsound(user, 'sound/items/handling/surgery/organ1.ogg', 80, TRUE)
 
-	if(!do_after(user, 15 SECONDS, src))
+	if(!do_after(user, 10 SECONDS, src))
 		user.visible_message(
 			span_warning("[user]'s hand slips out of the core before [user.p_they()] can cause any harm!"),
 			span_notice("Your hand slips out of the goopy core before you can find it's densest point."),
