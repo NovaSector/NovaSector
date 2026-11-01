@@ -226,14 +226,14 @@
 			var/datum/species/dullahan/dullahan_species = human.dna.species
 			if(isobj(dullahan_species.my_head.loc))
 				var/obj/head = dullahan_species.my_head.loc
-				// NOVA EDIT ADDITION START
-				if(speech_args[SPEECH_MODS][MODE_HEADSET] || speech_args[SPEECH_MODS][RADIO_EXTENSION])
-					human.radio(message = speech_args[SPEECH_MESSAGE], message_mods = speech_args[SPEECH_MODS], spans = speech_args[SPEECH_SPANS], language = speech_args[SPEECH_LANGUAGE])
-				// NOVA EDIT ADDITION END
 				if(speech_args[SPEECH_MODS][WHISPER_MODE]) // whisper away
 					speech_args[SPEECH_SPANS] |= SPAN_ITALICS
 				// The body's own speech is blanked below, so its treat_message() (capitalization, accents, ...) never runs on this message
 				var/list/treated_message = human.treat_message(speech_args[SPEECH_MESSAGE])
+				// NOVA EDIT ADDITION START - Dullahan radio relay, uses the treated message so radio matches the head's speech
+				if(speech_args[SPEECH_MODS][MODE_HEADSET] || speech_args[SPEECH_MODS][RADIO_EXTENSION])
+					human.radio(message = treated_message["message"], message_mods = speech_args[SPEECH_MODS], spans = speech_args[SPEECH_SPANS], language = speech_args[SPEECH_LANGUAGE])
+				// NOVA EDIT ADDITION END
 				head.say(treated_message["message"], spans = speech_args[SPEECH_SPANS], sanitize = FALSE, language = speech_args[SPEECH_LANGUAGE], message_range = speech_args[SPEECH_RANGE], message_mods = speech_args[SPEECH_MODS])
 	speech_args[SPEECH_MESSAGE] = ""
 
