@@ -7135,7 +7135,7 @@
 	},
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/item/kirbyplants/photosynthetic,
-/obj/structure/sign/plaques/kiddie{
+/obj/structure/plaque/kiddie/developer{
 	pixel_x = -32
 	},
 /turf/open/floor/circuit/green,
@@ -50289,7 +50289,7 @@
 	},
 /obj/machinery/light/warm/directional/north,
 /obj/structure/displaycase/trophy,
-/obj/structure/sign/plaques/kiddie/perfect_man{
+/obj/structure/plaque/kiddie/perfect_man{
 	pixel_y = 32
 	},
 /turf/open/floor/wood/large,
@@ -50369,7 +50369,7 @@
 	network = list("minisat");
 	start_active = 1
 	},
-/obj/structure/sign/plaques/kiddie{
+/obj/structure/plaque/kiddie/developer{
 	pixel_x = 32
 	},
 /turf/open/floor/circuit,
@@ -76197,7 +76197,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/primary/aft)
 "uXH" = (
-/obj/structure/sign/plaques/kiddie/library{
+/obj/structure/plaque/kiddie/library{
 	pixel_x = 32
 	},
 /obj/structure/bed/dogbed{
@@ -83842,7 +83842,7 @@
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/item/kirbyplants/photosynthetic,
-/obj/structure/sign/plaques/kiddie{
+/obj/structure/plaque/kiddie/developer{
 	pixel_x = -32
 	},
 /turf/open/floor/circuit/green,

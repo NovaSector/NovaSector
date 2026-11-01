@@ -1604,7 +1604,7 @@
 	pixel_x = -9;
 	pixel_y = 5
 	},
-/obj/structure/sign/plaques/kiddie/perfect_man{
+/obj/structure/plaque/kiddie/perfect_man{
 	pixel_y = 32
 	},
 /turf/open/floor/wood/large,
@@ -43845,7 +43845,7 @@
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "mBu" = (
-/obj/structure/sign/plaques/kiddie/library{
+/obj/structure/plaque/kiddie/library{
 	pixel_x = 32
 	},
 /obj/structure/bookcase/random/fiction,
@@ -62703,7 +62703,7 @@
 /turf/open/floor/iron,
 /area/station/security/prison)
 "slY" = (
-/obj/structure/sign/plaques/kiddie{
+/obj/structure/plaque/kiddie/developer{
 	pixel_x = 32
 	},
 /turf/open/floor/circuit,
@@ -78544,7 +78544,7 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "wMR" = (
-/obj/structure/sign/plaques/kiddie{
+/obj/structure/plaque/kiddie/developer{
 	pixel_x = 32
 	},
 /obj/effect/turf_decal/trimline/neutral/filled/line{
