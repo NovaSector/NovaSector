@@ -61,7 +61,6 @@
 /datum/species/mutant/infectious
 	name = "Mutated Abomination"
 	id = SPECIES_MUTANT_INFECTIOUS
-	damage_modifier = 10
 	mutanteyes = /obj/item/organ/eyes/zombie
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | ERT_SPAWN
 	bodypart_overrides = list(
@@ -103,7 +102,6 @@
 	name = "Fast Mutated Abomination"
 	id = SPECIES_MUTANT_FAST
 	hands_to_give = /obj/item/hnz_mutant_hand/fast
-	damage_modifier = 0
 	/// The rate the mutants regenerate at
 	heal_rate = 0.5
 	bodypart_overrides = list(
@@ -124,7 +122,6 @@
 /datum/species/mutant/infectious/slow
 	name = "Slow Mutated Abomination"
 	id = SPECIES_MUTANT_SLOW
-	damage_modifier = 15
 	/// The rate the mutants regenerate at
 	heal_rate = 1.5
 	bodypart_overrides = list(

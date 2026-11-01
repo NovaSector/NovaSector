@@ -71,9 +71,10 @@
 	RegisterSignal(parent, COMSIG_ITEM_UI_ACTION_CLICK, PROC_REF(on_toggle_pressed))
 	RegisterSignal(parent, COMSIG_ITEM_UI_ACTION_SLOT_CHECKED, PROC_REF(on_action_slot_checked))
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_parent_equipped))
+	RegisterSignal(parent, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(remove_deployable))
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED_AS_OUTFIT, PROC_REF(on_parent_equipped_outfit))
 	if (down_overlay_state_suffix)
-		var/overlay_state = "[initial(clothing_parent.post_init_icon_state) || initial(clothing_parent.icon_state)][down_overlay_state_suffix]"
+		var/overlay_state = "[INITIAL_ICON_STATE(clothing_parent)][down_overlay_state_suffix]"
 		undeployed_overlay = mutable_appearance(initial(clothing_parent.worn_icon), overlay_state, -SUIT_LAYER)
 		RegisterSignal(parent, COMSIG_ITEM_GET_WORN_OVERLAYS, PROC_REF(on_checked_overlays))
 		clothing_parent.update_slot_icon()
@@ -140,7 +141,7 @@
 	currently_deployed = TRUE
 	on_deployed?.Invoke(deployable)
 	if (parent_icon_state_suffix)
-		parent_gear.icon_state = "[initial(parent_gear.post_init_icon_state) || initial(parent_gear.icon_state)][parent_icon_state_suffix]"
+		parent_gear.icon_state = "[INITIAL_ICON_STATE(parent_gear)][parent_icon_state_suffix]"
 		parent_gear.worn_icon_state = parent_gear.icon_state
 	parent_gear.update_slot_icon()
 	wearer.update_mob_action_buttons()
@@ -195,6 +196,7 @@
 
 /// Removes our deployed equipment from the wearer
 /datum/component/toggle_attached_clothing/proc/remove_deployable()
+	SIGNAL_HANDLER
 	unequip_deployable()
 	if (!currently_deployed)
 		return
@@ -205,7 +207,7 @@
 	if(destroy_on_removal)
 		QDEL_NULL(deployable)
 	if(parent_icon_state_suffix)
-		parent_gear.icon_state = "[initial(parent_gear.post_init_icon_state) || initial(parent_gear.icon_state)]"
+		parent_gear.icon_state = INITIAL_ICON_STATE(parent_gear)
 		parent_gear.worn_icon_state = parent_gear.icon_state
 	parent_gear.update_slot_icon()
 	parent_gear.update_item_action_buttons()

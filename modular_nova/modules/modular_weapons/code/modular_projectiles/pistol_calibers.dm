@@ -46,9 +46,6 @@
 	custom_materials = AMMO_MATS_EMP
 
 // ammo boxes
-/obj/item/ammo_box/speedloader/c38
-	caliber = CALIBER_38
-
 /obj/item/ammo_box/speedloader/c38/haywire
 	name = "speed loader (.38 Haywire)"
 	desc = "Designed to quickly reload revolvers. These rounds create small electromagnetic pulses upon impact."

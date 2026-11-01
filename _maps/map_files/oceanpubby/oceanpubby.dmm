@@ -1132,7 +1132,7 @@
 "akb" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk,
-/obj/structure/sign/plaques/kiddie{
+/obj/structure/plaque/kiddie/developer{
 	desc = "An embossed piece of paper from the University of Nanotrasen at Portpoint.";
 	name = "\improper 'Diploma' frame";
 	pixel_y = 32
@@ -5495,7 +5495,7 @@
 /area/station/command/heads_quarters/nt_rep)
 "aLA" = (
 /obj/structure/closet/secure_closet/nanotrasen_consultant,
-/obj/structure/sign/plaques/kiddie/perfect_man{
+/obj/structure/plaque/kiddie/perfect_man{
 	pixel_y = 32
 	},
 /obj/structure/sign/calendar/directional/east,
@@ -8186,10 +8186,7 @@
 /area/station/hallway/primary/aft)
 "bbA" = (
 /obj/effect/spawner/liquids_spawner/shoulders,
-/turf/open/floor/iron/pool{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "bcircuit"
-	},
+/turf/open/floor/iron/pool/bcircuit,
 /area/station/ai/satellite/equipment)
 "bbC" = (
 /obj/machinery/airalarm/directional/south,
@@ -11573,7 +11570,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
 	},
-/obj/structure/sign/plaques/kiddie/perfect_drone{
+/obj/structure/plaque/kiddie/perfect_drone{
 	pixel_y = 32
 	},
 /obj/machinery/light{
@@ -23303,7 +23300,7 @@
 	},
 /area/station/commons/lounge)
 "ebp" = (
-/obj/structure/sign/plaques/kiddie{
+/obj/structure/plaque/kiddie/developer{
 	desc = "It reads: PRIVATE EXHIBIT -  Please inquire with library staff for guided tours.";
 	name = "\improper Private Section Notice";
 	pixel_y = 32
@@ -32895,7 +32892,7 @@
 "irB" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
-/obj/structure/displaycase/forsale/kitchen,
+/obj/structure/tipjar/prefilled,
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 1
 	},
@@ -34084,10 +34081,7 @@
 /area/station/hallway/primary/aft)
 "iUF" = (
 /obj/effect/spawner/liquids_spawner/shoulders,
-/turf/open/floor/iron/pool{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "bcircuit"
-	},
+/turf/open/floor/iron/pool/bcircuit,
 /area/station/ai/satellite/chamber)
 "iUU" = (
 /obj/effect/turf_decal/siding/wood{
@@ -46136,10 +46130,7 @@
 /area/station/science/genetics)
 "och" = (
 /obj/effect/spawner/liquids_spawner/shoulders,
-/turf/open/floor/iron/pool{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "bcircuit"
-	},
+/turf/open/floor/iron/pool/bcircuit,
 /area/station/ai/satellite/foyer)
 "ocu" = (
 /obj/item/kirbyplants/random,
@@ -46913,10 +46904,7 @@
 /area/station/engineering/storage_shared)
 "ouN" = (
 /obj/effect/spawner/liquids_spawner/shoulders,
-/turf/open/floor/iron/pool{
-	icon = 'icons/turf/floors.dmi';
-	icon_state = "bcircuit"
-	},
+/turf/open/floor/iron/pool/bcircuit,
 /area/station/ai/upload/chamber)
 "ouS" = (
 /obj/effect/turf_decal/siding/dark/corner{
@@ -55263,7 +55251,7 @@
 	id = "kitchenshutters";
 	name = "Kitchen Shutters"
 	},
-/obj/structure/displaycase/forsale/kitchen,
+/obj/structure/tipjar/prefilled,
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 8
@@ -57255,7 +57243,7 @@
 /obj/machinery/porta_turret/ai{
 	dir = 8
 	},
-/obj/structure/sign/plaques/kiddie{
+/obj/structure/plaque/kiddie/developer{
 	pixel_x = 32
 	},
 /turf/open/floor/iron/white,
@@ -69601,7 +69589,7 @@
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "xJy" = (
-/obj/structure/sign/plaques/kiddie{
+/obj/structure/plaque/kiddie/developer{
 	desc = "An embossed piece of paper from the Third University of Harvard.";
 	name = "\improper 'Diploma' frame";
 	pixel_y = 32

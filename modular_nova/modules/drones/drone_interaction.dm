@@ -54,42 +54,18 @@
 	return ..() || isdrone(user.mob)
 
 // Inventory interactions
-/mob/living/basic/drone/equip_to_slot(obj/item/equipping, slot, initial = FALSE, redraw_mob = FALSE, indirect_action = FALSE)
-	if(!slot)
-		return
-	if(!istype(equipping))
-		return
-
-	var/index = get_held_index_of_item(equipping)
-	if(index)
-		held_items[index] = null
-	update_held_items()
-
-	if(equipping.pulledby)
-		equipping.pulledby.stop_pulling()
-
-	equipping.screen_loc = null
-	equipping.forceMove(src)
-	SET_PLANE_EXPLICIT(equipping, ABOVE_HUD_PLANE, src)
-
+/mob/living/basic/drone/handle_set_item_in_slot(obj/item/equipping, slot)
+	// Pockets are part of ITEM_SLOT_STORAGE, so they have to be handled before the parent puts them in internal storage
 	switch(slot)
-		if(ITEM_SLOT_HEAD)
-			head = equipping
-			update_worn_head()
-		if(ITEM_SLOT_DEX_STORAGE)
-			internal_storage = equipping
-			update_inv_internal_storage()
 		if(ITEM_SLOT_LPOCKET)
 			l_store = equipping
 			update_pockets()
+			return TRUE
 		if(ITEM_SLOT_RPOCKET)
 			r_store = equipping
 			update_pockets()
-		else
-			to_chat(src, span_danger("You are trying to equip this item to an unsupported inventory slot!"))
-			return
-
-	has_equipped(equipping, slot)
+			return TRUE
+	return ..()
 
 /mob/living/basic/drone/doUnEquip(obj/item/item_dropping, force, newloc, no_move, invdrop = TRUE, silent = FALSE)
 	if(..())

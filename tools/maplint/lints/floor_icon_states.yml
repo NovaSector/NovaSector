@@ -1,0 +1,28 @@
+help: Use a floor subtype instead of editing icon_state.
+
+/turf/open/floor:
+  banned_variables:
+    - icon_state
+  # NOVA EDIT ADDITION START - Condo maps are exempt from this lint, Nova ferry and arrivals shuttles are exempt pending a decision on their shuttle floor signs
+  skip_files:
+    - modular_nova/modules/condos/_maps
+    - _maps/shuttles/nova/ferry_nova.dmm
+    - _maps/templates/ferry_nova.dmm
+    - _maps/shuttles/nova/arrivals_nova.dmm
+  # NOVA EDIT ADDITION END
+
+/turf/open/misc/asteroid:
+  banned_variables:
+    - icon_state
+  # NOVA EDIT ADDITION START - Condo maps are exempt from this lint
+  skip_files:
+    - modular_nova/modules/condos/_maps
+  # NOVA EDIT ADDITION END
+
+/turf/open/indestructible:
+  banned_variables:
+    - icon_state
+  # NOVA EDIT ADDITION START - Condo maps are exempt from this lint
+  skip_files:
+    - modular_nova/modules/condos/_maps
+  # NOVA EDIT ADDITION END

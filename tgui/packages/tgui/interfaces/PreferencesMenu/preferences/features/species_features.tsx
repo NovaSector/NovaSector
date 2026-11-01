@@ -1,8 +1,10 @@
 import {
+  CheckboxInput,
   type Feature,
   type FeatureChoiced,
   type FeatureChoicedServerData,
   FeatureColorInput,
+  type FeatureToggle,
   type FeatureValueProps,
 } from './base';
 import { FeatureDropdownInput } from './dropdowns';
@@ -114,10 +116,12 @@ export const underwear_color: Feature<string> = {
   component: FeatureColorInput,
 };
 
+// NOVA EDIT ADDITION START
 export const bra_color: Feature<string> = {
   name: 'Bra color',
   component: FeatureColorInput,
 };
+// NOVA EDIT ADDITION END
 
 export const feature_vampire_status: Feature<string> = {
   name: 'Vampire status',
@@ -127,4 +131,19 @@ export const feature_vampire_status: Feature<string> = {
 export const heterochromatic: Feature<string> = {
   name: 'Heterochromatic (Right Eye) color',
   component: FeatureColorInput,
+};
+
+export const feature_fish_tail_color: Feature<string> = {
+  name: 'Fish tail color',
+  component: FeatureColorInput,
+};
+
+export const feature_cerulean_frills: FeatureToggle = {
+  name: 'Fish frills',
+  component: CheckboxInput,
+};
+
+export const feature_cerulean_snout: FeatureToggle = {
+  name: 'Fish snout',
+  component: CheckboxInput,
 };

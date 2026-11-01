@@ -39,7 +39,7 @@
 
 /mob/living/basic/drone/get_slot_by_item(obj/item/target_item)
 	if(target_item == internal_storage)
-		return ITEM_SLOT_DEX_STORAGE
+		return ITEM_SLOT_STORAGE
 	if(target_item == head)
 		return ITEM_SLOT_HEAD
 	if(target_item == l_store)

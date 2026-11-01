@@ -60,7 +60,7 @@
 	qdel(GetComponent(/datum/component/butchering))
 
 	var/datum/component/overlay_lighting/lighting_object = src.GetComponent(/datum/component/overlay_lighting)
-	var/image/cone = lighting_object.cone
+	var/image/cone = lighting_object.light.cone
 	cone.transform = cone.transform.Translate(0, -16) // adjust the little headlamp
 
 /mob/living/basic/pet/poppy/death()

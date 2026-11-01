@@ -1225,9 +1225,7 @@
 "art" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/obj/structure/displaycase/forsale{
-	pixel_y = 8
-	},
+/obj/structure/tipjar,
 /turf/open/floor/wood,
 /area/station/hallway/secondary/entry)
 "ary" = (
@@ -7137,7 +7135,7 @@
 	},
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/item/kirbyplants/photosynthetic,
-/obj/structure/sign/plaques/kiddie{
+/obj/structure/plaque/kiddie/developer{
 	pixel_x = -32
 	},
 /turf/open/floor/circuit/green,
@@ -9157,9 +9155,7 @@
 /area/station/engineering/supermatter/room)
 "cJP" = (
 /obj/structure/table/wood,
-/obj/structure/displaycase/forsale{
-	pixel_y = 8
-	},
+/obj/structure/tipjar,
 /obj/structure/railing{
 	dir = 6
 	},
@@ -12716,9 +12712,7 @@
 /area/station/service/kitchen/abandoned)
 "dJF" = (
 /obj/structure/table/wood,
-/obj/structure/displaycase/forsale{
-	pixel_y = 8
-	},
+/obj/structure/tipjar,
 /obj/structure/railing{
 	dir = 10
 	},
@@ -14615,9 +14609,7 @@
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/service/chapel)
 "ein" = (
-/obj/structure/displaycase/forsale/kitchen{
-	pixel_y = 8
-	},
+/obj/structure/tipjar/prefilled,
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -41365,9 +41357,7 @@
 /area/station/maintenance/department/engine/atmos/lesser)
 "lEn" = (
 /obj/structure/table/wood,
-/obj/structure/displaycase/forsale{
-	pixel_y = 8
-	},
+/obj/structure/tipjar,
 /obj/structure/railing{
 	dir = 5
 	},
@@ -45834,9 +45824,7 @@
 	id = "kitchen_counter";
 	name = "Kitchen Counter Shutters"
 	},
-/obj/structure/displaycase/forsale/kitchen{
-	pixel_y = 8
-	},
+/obj/structure/tipjar/prefilled,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "mPl" = (
@@ -49997,9 +49985,7 @@
 /area/station/command/teleporter)
 "nWc" = (
 /obj/structure/table/wood,
-/obj/structure/displaycase/forsale{
-	pixel_y = 8
-	},
+/obj/structure/tipjar,
 /obj/structure/railing{
 	dir = 9
 	},
@@ -50303,7 +50289,7 @@
 	},
 /obj/machinery/light/warm/directional/north,
 /obj/structure/displaycase/trophy,
-/obj/structure/sign/plaques/kiddie/perfect_man{
+/obj/structure/plaque/kiddie/perfect_man{
 	pixel_y = 32
 	},
 /turf/open/floor/wood/large,
@@ -50383,7 +50369,7 @@
 	network = list("minisat");
 	start_active = 1
 	},
-/obj/structure/sign/plaques/kiddie{
+/obj/structure/plaque/kiddie/developer{
 	pixel_x = 32
 	},
 /turf/open/floor/circuit,
@@ -76211,7 +76197,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/primary/aft)
 "uXH" = (
-/obj/structure/sign/plaques/kiddie/library{
+/obj/structure/plaque/kiddie/library{
 	pixel_x = 32
 	},
 /obj/structure/bed/dogbed{
@@ -83856,7 +83842,7 @@
 /obj/structure/window/reinforced/spawner/directional/south,
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/item/kirbyplants/photosynthetic,
-/obj/structure/sign/plaques/kiddie{
+/obj/structure/plaque/kiddie/developer{
 	pixel_x = -32
 	},
 /turf/open/floor/circuit/green,
@@ -86017,9 +86003,7 @@
 "xNd" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/obj/structure/displaycase/forsale{
-	pixel_y = 8
-	},
+/obj/structure/tipjar,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},

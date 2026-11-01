@@ -66,10 +66,10 @@
 		remove_track(user)
 		return NONE
 	var/mob/living/carbon/human/breach_buddy = breacher
-	var/target_item = breach_buddy.held_items.Find(src, 1, 0)
+	var/target_item = breach_buddy.get_held_index_of_item(src)
 	var/obj/item/melee/breaching_hammer/second_hammer = null
 	if(target_item)
-		second_hammer = breach_buddy.held_items[target_item]
+		second_hammer = breach_buddy.get_item_for_held_index(target_item)
 	if(!second_hammer)
 		remove_track(user)
 		return FALSE

@@ -232,9 +232,6 @@
 	)
 
 // xray laser no wallbang variant
-/datum/crafting_recipe/laser/xraylaser
-	result = /obj/item/gun/energy/laser/xray/no_wallbang
-
 /obj/item/gun/energy/laser/xray/no_wallbang
 	name = "\improper Type 6/RP X-ray laser gun"
 	desc = "The Type 6 Heat Delivery System, Reduced Penetration variant, developed by Nanotrasen. \
@@ -242,9 +239,9 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/xray/no_wallbang)
 
 /obj/item/ammo_casing/energy/xray/no_wallbang
-	projectile_type = /obj/projectile/beam/xray/no_wallbang
+	projectile_type = /obj/projectile/beam/laser/xray/no_wallbang
 
-/obj/projectile/beam/xray/no_wallbang/Initialize(mapload)
+/obj/projectile/beam/laser/xray/no_wallbang/Initialize(mapload)
 	pass_flags &= ~(PASSCLOSEDTURF | PASSMACHINE | PASSSTRUCTURE | PASSDOORS)
 	return ..()
 

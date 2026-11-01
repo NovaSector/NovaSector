@@ -67,10 +67,10 @@
 
 		if(ready == PLAYER_NOT_READY)
 			auto_deadmin_on_ready_or_latejoin()
-			ready = PLAYER_READY_TO_PLAY
+			ready()
 			SSstatpanels.add_job_estimation(src)
 		else
-			ready = PLAYER_NOT_READY
+			unready()
 			SSstatpanels.remove_job_estimation(src)
 
 		client << output((ready == PLAYER_READY_TO_PLAY) ? 1 : 0, "nova_title_browser:toggle_ready")

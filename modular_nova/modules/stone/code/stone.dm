@@ -14,8 +14,8 @@
 	source = null
 	walltype = /turf/closed/wall/mineral/stone
 	stairs_type = /obj/structure/stairs/stone
-	drop_sound = SFX_BRICK_DROP
-	pickup_sound = SFX_BRICK_PICKUP
+	drop_sound = /datum/sound_effect/brick_drop
+	pickup_sound = /datum/sound_effect/brick_pickup
 
 GLOBAL_LIST_INIT(stone_recipes, list (
 	new/datum/stack_recipe("stone brick wall", /turf/closed/wall/mineral/stone, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),

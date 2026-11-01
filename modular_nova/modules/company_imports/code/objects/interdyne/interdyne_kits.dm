@@ -61,6 +61,11 @@
 	preview_name = "Surgical"
 	new_icon_state = "interdyne_premium_surgical"
 
+/// Same as the combat surgeon medkit (no whitelist, items up to normal size) with the Interdyne kit's old capacity.
+/datum/storage/medkit/combat/interdyne
+	max_total_storage = 14 * WEIGHT_CLASS_NORMAL
+	max_slots = 14
+
 /obj/item/storage/medkit/tactical/premium/interdyne
 	name = "\improper Interdyne Premium Doctor's Kit"
 	desc = "a kit specially made by the interdyne corporation to utilize the most essential tools."
@@ -69,7 +74,7 @@
 	inhand_icon_state = "medkit-tactical-premium"
 	lefthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_lefthand.dmi'
 	righthand_file = 'modular_nova/master_files/icons/mob/inhands/equipment/medical_righthand.dmi'
-	storage_type = /datum/storage/duffel/deforest_big_surgery
+	storage_type = /datum/storage/medkit/combat/interdyne
 	obj_flags = UNIQUE_RENAME
 
 /obj/item/storage/medkit/tactical/premium/interdyne/setup_reskins()

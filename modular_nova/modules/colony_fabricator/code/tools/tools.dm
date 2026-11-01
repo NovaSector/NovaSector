@@ -114,6 +114,17 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 
+// A plain large crowbar, painted orange to match the rest of the frontier tools
+
+/obj/item/crowbar/large/orange
+	name = "frontier crowbar"
+	desc = "A large crowbar with a plastic grip coated with orange paint in the middle, commonly printed from a colony fabricator."
+	icon = 'modular_nova/modules/colony_fabricator/icons/tools.dmi'
+	icon_state = "crowbar_orange"
+	inhand_icon_state = "crowbar_orange"
+	lefthand_file = 'modular_nova/modules/colony_fabricator/icons/tools_lefthand.dmi'
+	righthand_file = 'modular_nova/modules/colony_fabricator/icons/tools_righthand.dmi'
+
 // Backpackable mining drill
 
 /obj/item/pickaxe/drill/compact

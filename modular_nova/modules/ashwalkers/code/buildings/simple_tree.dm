@@ -270,7 +270,7 @@
 			return ITEM_INTERACT_BLOCKING
 
 		COOLDOWN_START(src, sap_cooldown, 1 MINUTES)
-		playsound(get_turf(src), SFX_TREE_CHOP, 50, vary = FALSE)
+		playsound(get_turf(src), /datum/sound_effect/tree_chop, 50, vary = FALSE)
 		var/obj/item/reagent_containers/container_tool = tool
 		if(container_tool.is_refillable())
 			if(!container_tool.reagents.holder_full())
@@ -282,14 +282,14 @@
 
 	if(istype(tool, /obj/item/graft))
 		var/obj/item/graft/tool_graft = tool
-		playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = FALSE)
+		playsound(src, /datum/sound_effect/crunchy_bush_whack, 50, vary = FALSE)
 		to_chat(user, span_notice("You begin to graft the [tool_graft.plant_dna.plantname] graft onto [src]."))
 		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
 		if(!do_after(user, 10 SECONDS * skill_modifier, target = src))
 			to_chat(user, span_warning("You decide against the grafting!"))
 			return ITEM_INTERACT_BLOCKING
 
-		playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = FALSE)
+		playsound(src, /datum/sound_effect/crunchy_bush_whack, 50, vary = FALSE)
 
 		if(length(graft_list) >= 3)
 			to_chat(user, span_warning("[src] is already full of grafts!"))
@@ -317,7 +317,7 @@
 	if(COOLDOWN_FINISHED(src, harvest_cooldown))
 		COOLDOWN_START(src, harvest_cooldown, 30 SECONDS)
 		update_appearance(UPDATE_OVERLAYS)
-		playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = FALSE)
+		playsound(src, /datum/sound_effect/crunchy_bush_whack, 50, vary = FALSE)
 		user.mind?.adjust_experience(/datum/skill/primitive, 5)
 		to_chat(user, span_notice("You harvest some fruit from [src]."))
 		var/turf/user_turf = get_turf(user)
@@ -332,7 +332,7 @@
 	if(tree_bee)
 		tree_bee.forceMove(get_turf(user))
 		to_chat(user, span_warning("You pull [tree_bee] from [src]!"))
-		playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = FALSE)
+		playsound(src, /datum/sound_effect/crunchy_bush_whack, 50, vary = FALSE)
 		tree_bee = null
 		update_appearance(UPDATE_OVERLAYS)
 		return
@@ -351,7 +351,7 @@
 
 /// tapping the tree, to allow for drainage of sap; who, with what, tapping or untapping, how long, and if forced
 /obj/structure/simple_tree/proc/tap_tree(mob/user, obj/item/tool, tapping_direction = TRUE, use_time = 4 SECONDS, forced_tool = FALSE)
-	playsound(get_turf(src), SFX_TREE_CHOP, 50, vary = FALSE)
+	playsound(get_turf(src), /datum/sound_effect/tree_chop, 50, vary = FALSE)
 	if(!forced_tool)
 		to_chat(user, span_notice("You begin to use [tool] on [src]..."))
 		var/skill_modifier = user.mind?.get_skill_modifier(/datum/skill/primitive, SKILL_SPEED_MODIFIER)
@@ -363,7 +363,7 @@
 		user.mind?.adjust_experience(/datum/skill/primitive, 5)
 		tool.forceMove(src)
 
-	playsound(get_turf(src), SFX_TREE_CHOP, 50, vary = FALSE)
+	playsound(get_turf(src), /datum/sound_effect/tree_chop, 50, vary = FALSE)
 	tapped_tree = tapping_direction
 	update_appearance(UPDATE_OVERLAYS)
 
@@ -397,7 +397,7 @@
 		user.mind?.adjust_experience(/datum/skill/primitive, 5)
 		return
 
-	playsound(get_turf(src), SFX_TREE_CHOP, 50, vary = FALSE)
+	playsound(get_turf(src), /datum/sound_effect/tree_chop, 50, vary = FALSE)
 	user.mind?.adjust_experience(/datum/skill/primitive, 10)
 	new /obj/item/stack/sheet/mineral/wood(get_turf(user), 4)
 
@@ -408,7 +408,7 @@
 		to_chat(user, span_warning("You damage [src] trying to harvest something!"))
 		return
 
-	playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = FALSE)
+	playsound(src, /datum/sound_effect/crunchy_bush_whack, 50, vary = FALSE)
 	if(!tree_bee || !COOLDOWN_FINISHED(src, honeycomb_cooldown))
 		to_chat(user, span_warning("There is nothing to harvest from [src]!"))
 		return
@@ -422,7 +422,7 @@
 		user.mind?.adjust_experience(/datum/skill/primitive, 5)
 		return
 
-	playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = FALSE)
+	playsound(src, /datum/sound_effect/crunchy_bush_whack, 50, vary = FALSE)
 	for(var/iteration in 1 to rand(1, 2))
 		var/obj/item/food/honeycomb/new_comb = new(get_turf(user))
 		new_comb.set_reagent(tree_bee.queen.beegent.type)
@@ -461,7 +461,7 @@
 	tree_stage = clamp(tree_stage + 1, TREE_STAGE_ONE, TREE_STAGE_THREE)
 	update_appearance(UPDATE_ICON)
 	tree_current_health = tree_max_health
-	playsound(src, SFX_TREE_CHOP, 50, vary = FALSE)
+	playsound(src, /datum/sound_effect/tree_chop, 50, vary = FALSE)
 
 /// updates the reagents that will be inserted into the product
 /obj/structure/simple_tree/proc/update_graft_reagents()
@@ -473,7 +473,7 @@
 /// adjusts the trees health, clamped from 0 to the max health; if 0, will qdel the tree
 /obj/structure/simple_tree/proc/adjust_health(damage_number)
 	tree_current_health = clamp(tree_current_health + damage_number, 0, tree_max_health)
-	playsound(get_turf(src), SFX_TREE_CHOP, 50, vary = FALSE)
+	playsound(get_turf(src), /datum/sound_effect/tree_chop, 50, vary = FALSE)
 	if(tree_current_health == 0)
 		new /obj/item/stack/sheet/mineral/wood(get_turf(src), tree_stage * 3)
 		qdel(src)
