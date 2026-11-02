@@ -8748,9 +8748,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/blue/corner,
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
 /obj/effect/turf_decal/trimline/blue/filled/corner,
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
@@ -15028,7 +15025,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/hallway/secondary/exit/departure_lounge)
 "dMs" = (
-/obj/structure/sign/poster/official/cleanliness/directional/east,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 4
 	},
@@ -15040,6 +15036,7 @@
 /obj/item/wheelchair{
 	pixel_y = 3
 	},
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/iron/dark/small,
 /area/station/medical/storage)
 "dMt" = (
@@ -22331,16 +22328,12 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/station/maintenance/floor2/starboard/aft)
 "fIU" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/obj/machinery/disposal/bin,
 /obj/machinery/light/cold/directional/east,
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
 	},
 /obj/effect/turf_decal/siding/blue,
-/obj/machinery/firealarm/directional/east,
+/obj/structure/sign/poster/official/cleanliness/directional/east,
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
 "fIX" = (
@@ -77003,7 +76996,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment{
-	dir = 1
+	dir = 9
 	},
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/blue/filled/warning{
@@ -85709,6 +85702,10 @@
 "vxu" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 9
+	},
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
