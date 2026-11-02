@@ -73247,6 +73247,7 @@
 /obj/structure/railing,
 /obj/machinery/door/firedoor/border_only,
 /obj/structure/disposalpipe/segment,
+/obj/structure/marker_beacon/jade,
 /turf/open/floor/catwalk_floor,
 /area/station/maintenance/floor3/port/aft)
 "suv" = (
@@ -95138,6 +95139,15 @@
 /obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor3/aft)
+"xLj" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/structure/railing,
+/obj/machinery/door/firedoor/border_only,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/catwalk_floor,
+/area/station/maintenance/floor3/port/aft)
 "xLo" = (
 /obj/machinery/atmospherics/components/trinary/filter,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -269770,7 +269780,7 @@ piR
 piR
 piR
 piR
-mom
+xLj
 wNa
 hcT
 piR
