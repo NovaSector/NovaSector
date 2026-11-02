@@ -75292,9 +75292,6 @@
 	dir = 4
 	},
 /obj/structure/sign/poster/official/random/directional/west,
-/obj/machinery/camera/autoname/directional/south{
-	network = list("ss13","cargo")
-	},
 /turf/open/floor/iron/smooth,
 /area/station/cargo/sorting)
 "sUH" = (
