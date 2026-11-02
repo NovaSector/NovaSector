@@ -23171,7 +23171,9 @@
 	pixel_y = -4
 	},
 /obj/item/radio/intercom/directional/east,
-/obj/machinery/camera/autoname/directional/east,
+/obj/machinery/camera/autoname/directional/east{
+	network = list("ss13","rd")
+	},
 /turf/open/floor/iron/showroomfloor{
 	name = "lab floor"
 	},
