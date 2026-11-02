@@ -16423,6 +16423,9 @@
 	dir = 1
 	},
 /area/centcom/holding/cafepark)
+"rGj" = (
+/turf/open/indestructible/dark,
+/area/centcom/holding/cafe)
 "rGI" = (
 /obj/effect/light_emitter/interlink,
 /obj/structure/railing{
@@ -58618,7 +58621,7 @@ aPf
 aRH
 iqY
 aUA
-iCR
+rGj
 sfN
 rcq
 iGS
@@ -58875,7 +58878,7 @@ aPf
 agb
 aEf
 aDQ
-iCR
+rGj
 hpX
 aTD
 aTV
@@ -59651,7 +59654,7 @@ aPf
 aPf
 iGS
 aHj
-iCR
+rGj
 fvx
 njQ
 iGS
@@ -60164,7 +60167,7 @@ ayI
 ayI
 ayI
 aTV
-iCR
+rGj
 cQH
 kJz
 pwV
@@ -60678,8 +60681,8 @@ aPf
 aPf
 aPf
 iGS
-iCR
-iCR
+rGj
+rGj
 iGS
 iGS
 iGS
@@ -60935,8 +60938,8 @@ iGS
 iGS
 iGS
 iGS
-iCR
-iCR
+rGj
+rGj
 iGS
 uXf
 iNW
@@ -61193,7 +61196,7 @@ amF
 amF
 iGS
 fGv
-iCR
+rGj
 iGS
 tKt
 tKt
@@ -61449,8 +61452,8 @@ qfy
 amF
 amF
 pXT
-iCR
-iCR
+rGj
+rGj
 fbM
 tKt
 tKt
@@ -61706,8 +61709,8 @@ clF
 amF
 ssi
 iGS
-iCR
-iCR
+rGj
+rGj
 iGS
 iYC
 fza
@@ -65758,7 +65761,7 @@ aPf
 aNY
 aNY
 alN
-iCR
+rGj
 buX
 afj
 aqf
