@@ -22123,6 +22123,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/corner{
 	dir = 8
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "fGt" = (
@@ -43125,7 +43126,6 @@
 	pixel_x = 12
 	},
 /obj/effect/landmark/start/orderly,
-/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "kUo" = (
