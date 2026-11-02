@@ -6749,9 +6749,6 @@
 /obj/item/cigbutt/cigarbutt{
 	pixel_x = 7
 	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/cargo/bitrunning/den)
@@ -31188,6 +31185,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark/smooth_half,
 /area/station/cargo/bitrunning/den)
 "hUc" = (
@@ -46638,6 +46636,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 9
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/cargo/bitrunning/den)
