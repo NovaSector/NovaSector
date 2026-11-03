@@ -35656,6 +35656,9 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/security/warden)
+"kea" = (
+/turf/open/floor/circuit/green/xenobio,
+/area/station/science/xenobiology)
 "kek" = (
 /obj/effect/turf_decal/trimline/neutral/filled/warning{
 	dir = 1
@@ -105763,7 +105766,7 @@ axD
 kVR
 eCK
 eCK
-tAl
+kea
 eCK
 eCK
 aIs
