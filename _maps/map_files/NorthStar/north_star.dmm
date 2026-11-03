@@ -65396,7 +65396,6 @@
 "qsH" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/captain)
 "qsL" = (
@@ -72761,7 +72760,6 @@
 	dir = 8
 	},
 /obj/effect/landmark/start/captain,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/captain)
 "snO" = (
@@ -82395,6 +82393,10 @@
 /obj/structure/grille,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor3/port)
+"uJh" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/carpet,
+/area/station/command/heads_quarters/captain)
 "uJi" = (
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -314507,7 +314509,7 @@ rNN
 vLW
 qoI
 rbK
-wnO
+uJh
 keg
 vLW
 geA
