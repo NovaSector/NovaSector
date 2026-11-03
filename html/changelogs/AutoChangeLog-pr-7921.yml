@@ -1,0 +1,4 @@
+author: "Ruslanllll"
+delete-after: True
+changes:
+  - bugfix: "kill once objective now considered to be completed after target died from *any* cause, rather than forcing traitors to kill their target permanently."
