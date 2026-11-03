@@ -77,7 +77,13 @@
 	// Gather all airlocks and their associated departments, ignoring command and shared accesses.
 	var/list/command_accesses = COMMAND_ACCESS + PRIVATE_COMMAND_ACCESS + CAPTAIN_ACCESS
 	for(var/obj/machinery/door/airlock/airlock as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/door/airlock))
-		if(QDELETED(airlock) || !istype(get_area(airlock), /area/station))
+		if(QDELETED(airlock))
+			continue
+		var/area/airlock_area = get_area(airlock)
+		var/is_station_airlock = istype(airlock_area, /area/station)
+		var/obj/docking_port/mobile/supply/cargo_shuttle = SSshuttle.supply
+		var/is_cargo_shuttle_airlock = cargo_shuttle && cargo_shuttle.shuttle_areas[airlock_area]
+		if(!is_station_airlock && !is_cargo_shuttle_airlock)
 			continue
 		// Maintenance access in req_one_access is an any-access rule, so don't open that maintenance door.
 		if(ACCESS_MAINT_TUNNELS in airlock.req_one_access)
@@ -93,6 +99,8 @@
 			continue
 
 		for(var/department_type in department_accesses)
+			if(!is_station_airlock && department_type != /datum/job_department/cargo)
+				continue
 			var/list/department_specific_accesses = department_accesses[department_type] - ignored_department_accesses
 			// Match only department-specific requirements, not the shared accesses excluded above.
 			if(!length(required_accesses & department_specific_accesses))
