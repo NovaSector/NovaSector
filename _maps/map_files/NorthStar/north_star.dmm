@@ -5903,7 +5903,7 @@
 /area/station/hallway/secondary/entry)
 "buu" = (
 /obj/machinery/door/airlock/research{
-	name = ""Operating Room""
+	name = "Operating Room"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/science/robotics,
