@@ -7999,6 +7999,11 @@
 	},
 /turf/open/floor/catwalk_floor/iron,
 /area/station/engineering/lobby)
+"bXm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/floor/mineral/plastitanium/pod/light,
+/area/station/maintenance/floor3/starboard)
 "bXn" = (
 /obj/effect/turf_decal/trimline/blue/warning{
 	dir = 6
@@ -11503,6 +11508,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/floor4/port/fore)
+"cQK" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/light/red/dim/directional/west,
+/turf/open/floor/catwalk_floor,
+/area/station/maintenance/floor3/starboard/fore)
 "cQL" = (
 /obj/machinery/atmospherics/pipe/smart/simple/purple/visible/layer1{
 	dir = 9
@@ -27173,6 +27185,7 @@
 /area/station/engineering/supermatter/engine)
 "gTs" = (
 /obj/structure/closet/emcloset/anchored,
+/obj/machinery/light/small/directional/north,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor2/starboard/aft)
 "gTt" = (
@@ -31742,6 +31755,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/tcommsat/server)
+"ibv" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/floor/catwalk_floor,
+/area/station/maintenance/floor3/starboard)
 "ibw" = (
 /turf/closed/wall,
 /area/station/science/genetics)
@@ -41937,6 +41957,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/unres/delayed{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor2/starboard)
 "kEZ" = (
@@ -46333,6 +46356,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor1/port/aft)
+"lJL" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/light/red/dim/directional/south,
+/turf/open/floor/catwalk_floor,
+/area/station/maintenance/floor3/starboard)
 "lJN" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -54496,6 +54526,7 @@
 "nFq" = (
 /obj/item/stack/cable_coil/cut,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/red/dim/directional/south,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor2/starboard)
 "nFr" = (
@@ -59547,6 +59578,9 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/unres/delayed{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium/pod/dark,
@@ -65874,6 +65908,12 @@
 	dir = 8
 	},
 /area/station/hallway/floor1/fore)
+"qxD" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/red/dim/directional/east,
+/turf/open/floor/catwalk_floor,
+/area/station/maintenance/floor3/starboard/fore)
 "qxE" = (
 /obj/structure/bookcase{
 	name = "Forbidden Knowledge"
@@ -69049,6 +69089,10 @@
 	dir = 1
 	},
 /area/station/hallway/floor1/fore)
+"rlq" = (
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/floor/mineral/plastitanium/pod/dark,
+/area/station/maintenance/floor3/starboard)
 "rlr" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted{
 	dir = 1
@@ -69324,6 +69368,13 @@
 /obj/structure/closet/firecloset,
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor2/port/fore)
+"roN" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/light/red/dim/directional/south,
+/turf/open/floor/catwalk_floor,
+/area/station/maintenance/floor3/starboard/aft)
 "roZ" = (
 /obj/machinery/light/floor,
 /turf/open/floor/iron,
@@ -95985,6 +96036,7 @@
 /area/station/maintenance/floor1/starboard)
 "xVt" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/red/dim/directional/west,
 /turf/open/floor/mineral/plastitanium/pod/dark,
 /area/station/maintenance/floor2/starboard)
 "xVC" = (
@@ -250020,7 +250072,7 @@ hEu
 hEu
 igy
 hEu
-hEu
+qxD
 hEu
 wRJ
 jyc
@@ -251299,7 +251351,7 @@ mDe
 twa
 oBd
 iDw
-hEu
+qxD
 hEu
 hEu
 igy
@@ -252331,7 +252383,7 @@ siB
 siB
 ccH
 igy
-igy
+cQK
 igy
 igy
 igy
@@ -258506,7 +258558,7 @@ wLD
 iHm
 oDe
 qrd
-iKT
+bXm
 sSB
 dIv
 qrd
@@ -259528,7 +259580,7 @@ aJD
 bzB
 urv
 iHm
-sSB
+ibv
 ccV
 sSB
 mQd
@@ -261837,7 +261889,7 @@ kgT
 sLS
 lTA
 sSB
-jpz
+tQS
 qrd
 oeQ
 xgb
@@ -262346,7 +262398,7 @@ ucA
 ucA
 qrd
 qrd
-kgT
+rlq
 rov
 vnv
 qrd
@@ -263122,7 +263174,7 @@ djF
 kgT
 tkB
 qrd
-sSB
+ibv
 jpz
 goh
 kgT
@@ -264921,7 +264973,7 @@ qrd
 nlg
 nlg
 qrd
-sSB
+lJL
 qrd
 eBM
 qrd
@@ -269030,7 +269082,7 @@ ucA
 kRw
 kRw
 nvo
-cIM
+roN
 kRw
 iMN
 hlU
@@ -270829,7 +270881,7 @@ ucA
 kRw
 kRw
 jrM
-cIM
+roN
 kRw
 jgB
 cOt
