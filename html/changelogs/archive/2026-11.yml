@@ -70,3 +70,18 @@
   - admin: overflayer once again shows the base plane and offset for unregistered
       planes it can decode.
   - bugfix: the potential manifest in the pre-game lobby updates when someone unreadies.
+2026-11-03:
+  Ruslanllll:
+  - bugfix: kill once objective now considered to be completed after target died from
+      *any* cause, rather than forcing traitors to kill their target permanently.
+  SmArtKar:
+  - bugfix: Fixed a sleeping proc in lobstrocity charge
+  cacogen:
+  - rscadd: Added the ability to alt right-click the gas analyzer to get it to point
+      to the nearest air alarm in the current area.
+  - qol: Added on mouseover hotkey hints to the multitool and the gas analyzer
+  sohpeach:
+  - bugfix: Pressure tanks now keep the correct amount of gas when deconstructed or
+      merged into groups
+  sqnztb:
+  - qol: away maps should no longer have their decals colored by holiday effects.
