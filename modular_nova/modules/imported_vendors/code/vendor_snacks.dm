@@ -200,6 +200,7 @@
 	name = "\improper Gyárhajó 1506: Navy Rum"
 	desc = "A can of navy rum brewed up and imported from a detachment of the nomad fleet, or so the can says."
 	icon_state = "navy_rum"
+	crushed_icon_state = "navyrum"
 	list_reagents = list(/datum/reagent/consumable/ethanol/navy_rum = 30)
 	drink_type = ALCOHOL
 
@@ -212,6 +213,7 @@
 	name = "\improper Gyárhajó 1023: Soda Water"
 	desc = "A can of soda water. Why not make a rum and soda? Now that you think of it, maybe not."
 	icon_state = "soda_water"
+	crushed_icon_state = "sodawater"
 	list_reagents = list(/datum/reagent/consumable/sodawater = 30)
 	drink_type = SUGAR
 
