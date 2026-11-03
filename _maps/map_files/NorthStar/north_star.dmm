@@ -5902,8 +5902,8 @@
 /turf/open/floor/iron/dark/side,
 /area/station/hallway/secondary/entry)
 "buu" = (
-/obj/machinery/door/airlock/medical{
-	name = "Operating Room"
+/obj/machinery/door/airlock/research{
+	name = ""Operating Room""
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/science/robotics,
@@ -14009,6 +14009,10 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/station/service/kitchen/diner)
+"dzh" = (
+/obj/effect/spawner/structure/window/reinforced/tinted,
+/turf/open/floor/plating,
+/area/station/science/robotics/lab)
 "dzo" = (
 /obj/machinery/computer/mech_bay_power_console{
 	dir = 4
@@ -15362,7 +15366,10 @@
 /area/station/engineering/storage/tech)
 "dQX" = (
 /obj/effect/turf_decal/tile/purple/fourcorners,
-/obj/machinery/quantumpad,
+/obj/machinery/quantumpad{
+	map_pad_id = "rnd_main";
+	map_pad_link_id = "robotics_main"
+	},
 /turf/open/floor/iron,
 /area/station/science/auxlab)
 "dRb" = (
@@ -16780,6 +16787,9 @@
 /area/station/hallway/floor3/aft)
 "eix" = (
 /obj/machinery/firealarm/directional/west,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
 /turf/open/floor/iron/showroomfloor{
 	name = "lab floor"
 	},
@@ -27482,6 +27492,7 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced/rglass,
+/obj/machinery/computer/records/medical/laptop,
 /turf/open/floor/iron/large,
 /area/station/science/robotics/lab)
 "gYe" = (
@@ -34196,6 +34207,7 @@
 /area/station/tcommsat/server)
 "iHI" = (
 /obj/effect/landmark/start/roboticist,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/showroomfloor{
 	name = "lab floor"
 	},
@@ -39562,15 +39574,10 @@
 	dir = 8
 	},
 /obj/structure/table/reinforced/rglass,
-/obj/item/multitool{
-	pixel_x = -5;
-	pixel_y = 6
-	},
 /obj/item/storage/belt/utility/full{
-	pixel_x = 4;
-	pixel_y = -4
+	pixel_x = 0;
+	pixel_y = 5
 	},
-/obj/item/screwdriver,
 /turf/open/floor/iron/large,
 /area/station/science/robotics/lab)
 "kbM" = (
@@ -62455,7 +62462,10 @@
 /area/station/maintenance/floor3/starboard/aft)
 "pFT" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
-/obj/machinery/quantumpad,
+/obj/machinery/quantumpad{
+	map_pad_id = "robotics_main";
+	map_pad_link_id = "rnd_main"
+	},
 /turf/open/floor/iron/smooth,
 /area/station/science/robotics/mechbay)
 "pFW" = (
@@ -68169,9 +68179,7 @@
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "raz" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/showroomfloor{
 	name = "lab floor"
 	},
@@ -204555,7 +204563,7 @@ oVg
 bcH
 gqs
 feH
-iVN
+dzh
 bUh
 uXl
 eix
@@ -205069,7 +205077,7 @@ vFw
 prS
 wcT
 pbm
-iVN
+dzh
 kHJ
 eYL
 fTo
