@@ -209,10 +209,14 @@
 	var/obj/item/bodypart/leg/right/part_default_r_leg = /obj/item/bodypart/leg/right
 
 /datum/species/ghoul/get_species_description()
-	return placeholder_description
+	return "Decrepit, twisted people whose flesh is fairly interchangible and loosely connected to them."
 
 /datum/species/ghoul/get_species_lore()
-	return list(placeholder_lore)
+	return list("Reductively, Ghouls are effectively a 'meat golem'. Despite their theming and incoherent bodies, Ghouls are not undead abominations." ,
+	"When DNA goes wrong, refuses to replicate or does so harmfully, various treatments exist to keep the person alive. These bypass the uses of DNA, though might still be able to use it, resulting in a person poorly coupled to their body." ,
+	"Ghouls structure their body via intentional design, not via the encoded shapes inherent in their DNA. Ghouls can separate their limbs into meaty mass, and consume raw animal meat to regrow lost limbs. Through odd means, this means that muscle tissue is interchangeable for Ghouls, whether it originates from them or not.",
+	"This also means the body does not care as much when any particular piece of it is lost; limbs fall off easily and are replaced just as easily, and as a result the person generally is exceedingly fragile.",
+	)
 
 /datum/species/ghoul/prepare_human_for_preview(mob/living/carbon/human/human)
 	regenerate_organs(human, src, visual_only = TRUE)

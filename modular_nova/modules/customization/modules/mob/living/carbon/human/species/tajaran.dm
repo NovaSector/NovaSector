@@ -80,10 +80,12 @@
 	return markings
 
 /datum/species/tajaran/get_species_description()
-	return placeholder_description
+	return "Twin-hearted Feline xeno-anthropomorphic race, mammalian in their nature. With retractile claws, huge external ears, and well-developed whiskers, they tend to stand anywhere between four to seven feet tall on digitigrade legs."
 
 /datum/species/tajaran/get_species_lore()
-	return list(placeholder_lore)
+	return list("https://wiki.novasector13.com/wiki/Lore:Tajaran",
+	"Tajarans hail from the Sagittarius Arm, originally from a vast spacefaring empire covering its every star system. For countless years, Tajarans expanded and maintained their Infinite Empire with cryostasis-enhanced sub-light spaceflight -- the distances between vassal states being the Infinite Empire's strength, and the sudden introduction of FTL travel cutting those distances to shreds quite literally upending Tajaran culture overnight. In the year 2000 a new council of six pirate faction leaders and the remnants of the Imperial Navy established themselves as the central Tajaran power in an act that still leaves scars in the hearts and minds of Tajaran people.",
+	"In modern times, most Tajarans live with House Names in service to House Contracts of the Six and One, often working as sanctioned privateers, domestic servants, merchants, or all sorts of vocations under them; even alongside other species. The Six exist in contrast to the One, the Seventh House corresponding to what is left of the original Imperial Navy, a seat of the council that often remains unfilled by any living member. Tajarans are fiercely loyal to themselves, their House, and their people, balancing prestige and restraint (Face & Heart) as measures of social standing, morality, and even personhood. ")
 
 /datum/species/tajaran/prepare_human_for_preview(mob/living/carbon/human/cat)
 	var/main_color = "#AA9988"

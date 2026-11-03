@@ -137,6 +137,7 @@
 	return "Felinids are very similar to humans in almost all respects, with their biggest differences being the ability to lick their wounds, \
 		and an increased sensitivity to noise, which is often detrimental. They are also rather fond of eating oranges."
 
+//NOVA EDIT BEGIN
 /datum/species/human/felinid/get_species_description()
 	return "Felinids are one of the many types of bespoke genetic \
 		modifications to come of humanity's mastery of genetic science, and are \
@@ -144,6 +145,8 @@
 
 /datum/species/human/felinid/get_species_lore()
 	return list(
+		"https://wiki.novasector13.com/wiki/Lore:Genemodders",
+
 		"Bio-engineering at its felinest, Felinids are the peak example of humanity's mastery of genetic code. \
 			One of many \"Animalid\" variants, Felinids are the most popular and common, as well as one of the \
 			biggest points of contention in genetic-modification.",
@@ -151,10 +154,11 @@
 		"Body modders were eager to splice human and feline DNA in search of the holy trifecta: ears, eyes, and tail. \
 			These traits were in high demand, with the corresponding side effects of vocal and neurochemical changes being seen as a minor inconvenience.",
 
-		"Sadly for the Felinids, they were not minor inconveniences. Shunned as subhuman and monstrous by many, Felinids (and other Animalids) \
+		"Sadly for the Felinids, they were not minor inconveniences. Briefly shunned as subhuman and monstrous by many, Felinids (and other Animalids) \
 			sought their greener pastures out in the colonies, cloistering in communities of their own kind. \
-			As a result, outer Human space has a high Animalid population.",
+			As a result, outer Human space and Mars have a high Genemodder population.",
 	)
+//NOVA EDIT END
 
 // Felinids are subtypes of humans.
 // This shouldn't call parent or we'll get a buncha human related perks (though it doesn't have a reason to).

@@ -577,10 +577,14 @@
 	return span_notice("[owner.p_They()] is oozing out an oily coating onto [owner.p_their()] outer membrane, water rolling right off.")
 
 /datum/species/jelly/get_species_description()
-	return placeholder_description
+	return "Squishy, human-shaped slimes, ascended from xenobiology's slimes thinking hard until they decided to be people. Amorphous fauna entirely native to bluespace."
 
 /datum/species/jelly/get_species_lore()
-	return list(placeholder_lore)
+	return list(
+		"https://wiki.novasector13.com/wiki/Lore:Slimeperson",
+		"Despite their amorphous and shape-shifting nature as liquids, slimes that reach the point of personhood can become rapidly affixed to a single identity. Thought of by the Ordoht as 'mimicking themselves' and looping in on their own habits, a slime's disposition can become extraordinarily individualistic and defined in most cultures it's exposed to. Even before and after the point of peak memetic saturation, slimes will ruthlessly chase any new cultural or philosophical information to either adopt or discard. ",
+		"Slimes are capable of incredible feats of learning and overall mental agility, necessary to navigate the currents and eddies of their home dimension. Within even a few months of existing in realspace, a slime can be brought to resemble almost any organism it typically interacts with, and able to react to speech in under an hour. Further work can give one a roughly humanoid shape, upon which the Ordoht would recognize them as capable of complex learning-- the foundations of becoming a person. ",
+	)
 
 /datum/species/jelly/roundstartslime
 	name = "Xenobiological Slime Hybrid"

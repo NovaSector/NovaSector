@@ -35,10 +35,12 @@
 	)
 
 /datum/species/insect/get_species_description()
-	return placeholder_description
+	return "A generic template for your custom species, covering thousands of human-equivalent species who resmble - but do not identify as - insect."
 
 /datum/species/insect/get_species_lore()
-	return list(placeholder_lore)
+	return list("https://wiki.novasector13.com/wiki/Lore:Genemodders",
+	"A taxonomic class of human-equivalent sapient persons who resemble insects, but lack specific insect traits. Most are derived from humanity through genemodding, though covergent evolution does occasionally spur an unrelated species close enough to fall into this category.",
+	"The DSM medical guidelines divide species up by treatment guidelines, not cultural or genetic differences. Surgical treatment for any of these 'generic' persons in this class will be functionally identical to the surgeon.")
 
 /datum/species/insect/prepare_human_for_preview(mob/living/carbon/human/human)
 	var/main_color = "#644b07"
