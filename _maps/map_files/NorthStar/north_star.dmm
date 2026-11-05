@@ -1023,6 +1023,9 @@
 /turf/open/floor/plating,
 /area/station/construction/mining/aux_base)
 "amM" = (
+/obj/effect/turf_decal/siding/yellow{
+	dir = 8
+	},
 /turf/open/floor/iron/white/small,
 /area/station/medical/medbay/lobby)
 "anb" = (
@@ -12780,6 +12783,9 @@
 /area/station/maintenance/floor3/starboard)
 "dfB" = (
 /obj/machinery/digital_clock/directional/south,
+/obj/effect/turf_decal/siding/yellow{
+	dir = 8
+	},
 /turf/open/floor/iron/white/small,
 /area/station/medical/medbay/lobby)
 "dfP" = (
@@ -12914,9 +12920,6 @@
 /turf/open/floor/iron,
 /area/station/hallway/floor2/fore)
 "dhZ" = (
-/obj/effect/turf_decal/siding/blue{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/structure/cable,
 /turf/open/floor/iron/white,
@@ -15734,6 +15737,9 @@
 /area/station/hallway/floor2/aft)
 "dUj" = (
 /obj/structure/cable,
+/obj/effect/turf_decal/siding/blue{
+	dir = 4
+	},
 /turf/open/floor/iron/white/small,
 /area/station/medical/medbay/lobby)
 "dUr" = (
@@ -27419,9 +27425,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/floor2/port/aft)
 "gVI" = (
-/obj/effect/turf_decal/siding/yellow{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /obj/structure/table,
 /obj/machinery/light/cold/directional/north,
@@ -31147,9 +31150,6 @@
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
 "hSv" = (
-/obj/effect/turf_decal/siding/blue{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/structure/chair{
 	dir = 1
@@ -32358,9 +32358,6 @@
 /turf/open/floor/iron,
 /area/station/maintenance/disposal/incinerator)
 "ihL" = (
-/obj/effect/turf_decal/siding/yellow{
-	dir = 4
-	},
 /obj/effect/turf_decal/tile/yellow/fourcorners,
 /obj/structure/chair{
 	dir = 1
@@ -49564,6 +49561,9 @@
 /area/station/security/checkpoint/third)
 "mve" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/siding/yellow{
+	dir = 8
+	},
 /turf/open/floor/iron/white/small,
 /area/station/medical/medbay/lobby)
 "mvg" = (
@@ -67161,6 +67161,9 @@
 	},
 /obj/effect/landmark/start/orderly,
 /obj/item/radio/intercom/directional/south,
+/obj/effect/turf_decal/siding/blue{
+	dir = 4
+	},
 /turf/open/floor/iron/white/small,
 /area/station/medical/medbay/lobby)
 "qJT" = (
@@ -73531,6 +73534,9 @@
 /area/station/science/xenobiology)
 "suB" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/effect/turf_decal/siding/yellow{
+	dir = 8
+	},
 /turf/open/floor/iron/white/small,
 /area/station/medical/medbay/lobby)
 "suD" = (
@@ -77574,13 +77580,6 @@
 /obj/structure/table/reinforced/rglass,
 /turf/open/floor/iron/large,
 /area/station/science/robotics/lab)
-"tsN" = (
-/obj/effect/turf_decal/siding/blue{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue/fourcorners,
-/turf/open/floor/iron/white,
-/area/station/medical/medbay/lobby)
 "ttb" = (
 /turf/closed/wall,
 /area/station/hallway/floor2/aft)
@@ -80937,6 +80936,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/station/maintenance/disposal/incinerator)
+"ukt" = (
+/obj/effect/turf_decal/siding/blue{
+	dir = 4
+	},
+/turf/open/floor/iron/white/small,
+/area/station/medical/medbay/lobby)
 "ukC" = (
 /obj/structure/grille,
 /turf/open/floor/catwalk_floor,
@@ -91665,9 +91670,6 @@
 /turf/open/floor/iron,
 /area/station/command/eva)
 "wMN" = (
-/obj/effect/turf_decal/siding/blue{
-	dir = 8
-	},
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/structure/table,
 /obj/machinery/light/cold/directional/north,
@@ -95711,13 +95713,6 @@
 /obj/effect/spawner/random/structure/crate,
 /turf/open/floor/mineral/plastitanium/pod/light,
 /area/station/maintenance/floor1/port/aft)
-"xNd" = (
-/obj/effect/turf_decal/siding/yellow{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/yellow/fourcorners,
-/turf/open/floor/iron/white,
-/area/station/medical/medbay/lobby)
 "xNf" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/start/hangover,
@@ -198492,8 +198487,8 @@ jLQ
 bWK
 ilR
 gVI
-xNd
-xNd
+hOX
+hOX
 ihL
 mGz
 hYk
@@ -199776,8 +199771,8 @@ xYM
 jLQ
 mJJ
 mtI
-amM
-amM
+ukt
+ukt
 dUj
 qJN
 iSP
@@ -200034,7 +200029,7 @@ jLQ
 dyC
 ilR
 wMN
-tsN
+sFG
 dhZ
 hSv
 iSP
