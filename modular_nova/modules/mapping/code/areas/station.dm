@@ -198,6 +198,10 @@
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "forge"
 
+/area/space/nearstation/shuttle_pad
+    name = "Shuttle Landing Pad"
+    icon_state = "orbital_dock"
+
 // Wrestling areas for BlueShift
 /area/station/common/wrestling
 	name = "Wrestling"
