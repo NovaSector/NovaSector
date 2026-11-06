@@ -69,7 +69,7 @@
 
 	// If the tile uses holiday colors, apply them here
 #ifndef MAP_TEST
-	if(use_holiday_colors)
+	if(use_holiday_colors && !is_away_level(z)) // NOVA EDIT CHANGE - ORIGINAL: if(use_holiday_colors)
 		var/custom_color = request_decoration_colors(src, pattern)
 		if(custom_color)
 			color = custom_color

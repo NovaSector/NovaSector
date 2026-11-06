@@ -40,7 +40,7 @@
 /obj/item/fireaxe/energy/proc/energy_unwield(obj/item/source, mob/living/carbon/user)
 	SIGNAL_HANDLER
 
-	hitsound = SFX_SWING_HIT
+	hitsound = /datum/sound_effect/swing_hit
 	inhand_icon_state = "[base_icon_state]0"
 	STOP_PROCESSING(SSobj, src)
 	set_light_on(FALSE)

@@ -16846,6 +16846,18 @@
 /obj/machinery/shower/directional/north,
 /turf/open/floor/iron/smooth,
 /area/mine/eva)
+"eHs" = (
+/obj/structure/chair{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/plaque/kiddie/library{
+	pixel_x = 32;
+	dir = 4
+	},
+/turf/open/floor/iron,
+/area/station/hallway/primary/starboard)
 "eHC" = (
 /obj/structure/marker_beacon/burgundy,
 /obj/effect/turf_decal/weather/snow/corner{
@@ -20340,6 +20352,14 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
+"fJj" = (
+/obj/machinery/door/poddoor/preopen{
+	id = "lawyer_blast";
+	name = "Privacy Door"
+	},
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/station/security/prison/rec)
 "fJl" = (
 /obj/machinery/computer/accounting{
 	dir = 4
@@ -29004,18 +29024,6 @@
 "igm" = (
 /turf/closed/wall/ice,
 /area/mine/living_quarters)
-"igt" = (
-/obj/structure/chair{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/sign/plaques/kiddie/library{
-	pixel_x = 32;
-	dir = 4
-	},
-/turf/open/floor/iron,
-/area/station/hallway/primary/starboard)
 "igw" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -30125,13 +30133,6 @@
 	},
 /turf/open/floor/iron/grimy,
 /area/station/commons/vacant_room/office)
-"ixl" = (
-/obj/structure/sign/plaques/kiddie/devils_tooth{
-	pixel_y = 32;
-	dir = 1
-	},
-/turf/open/misc/asteroid/snow/icemoon,
-/area/icemoon/underground/explored)
 "ixu" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "Teleporter"
@@ -33127,6 +33128,13 @@
 	},
 /turf/open/floor/iron,
 /area/station/science/robotics/lab)
+"jsb" = (
+/obj/structure/plaque/kiddie/gameoflife{
+	pixel_y = 32;
+	dir = 1
+	},
+/turf/open/floor/iron,
+/area/station/command/heads_quarters/rd)
 "jsq" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -38530,14 +38538,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
-"kPN" = (
-/obj/machinery/door/poddoor/preopen{
-	id = "lawyer_blast";
-	name = "Privacy Door"
-	},
-/obj/effect/spawner/structure/window/reinforced,
-/turf/open/floor/plating,
-/area/station/security/prison/rec)
 "kQc" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -41742,13 +41742,6 @@
 	},
 /turf/open/floor/iron/half,
 /area/station/service/hydroponics)
-"lKV" = (
-/obj/structure/cable,
-/obj/effect/spawner/structure/window/hollow/reinforced/middle{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/station/security/prison/rec)
 "lLf" = (
 /obj/structure/table/wood,
 /obj/item/storage/dice,
@@ -45325,6 +45318,13 @@
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
+"mMe" = (
+/obj/structure/cable,
+/obj/effect/spawner/structure/window/hollow/reinforced/middle{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/station/security/prison/rec)
 "mMk" = (
 /obj/machinery/telecomms/message_server/preset,
 /turf/open/floor/iron/dark/telecomms,
@@ -62864,6 +62864,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
+"rvU" = (
+/obj/structure/table,
+/obj/effect/turf_decal/tile/green{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark_green,
+/obj/structure/plaque/kiddie/developer{
+	pixel_y = 32
+	},
+/obj/effect/spawner/round_default_module,
+/obj/item/radio/intercom/directional/west,
+/turf/open/floor/iron/dark,
+/area/station/ai/upload/chamber)
 "rvZ" = (
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron,
@@ -63588,6 +63601,17 @@
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/lesser)
+"rGS" = (
+/obj/effect/spawner/random/structure/chair_flipped,
+/obj/effect/spawner/random/trash/cigbutt,
+/obj/effect/spawner/random/trash/cigbutt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/plaque/kiddie/perfect_drone{
+	pixel_x = 32;
+	dir = 4
+	},
+/turf/open/floor/iron/checker,
+/area/station/maintenance/port/fore)
 "rGY" = (
 /obj/machinery/airalarm/directional/east,
 /obj/structure/table,
@@ -65216,19 +65240,6 @@
 /obj/effect/spawner/random/structure/steam_vent,
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
-"sgo" = (
-/obj/structure/table,
-/obj/effect/turf_decal/tile/green{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/dark_green,
-/obj/structure/sign/plaques/kiddie{
-	pixel_y = 32
-	},
-/obj/effect/spawner/round_default_module,
-/obj/item/radio/intercom/directional/west,
-/turf/open/floor/iron/dark,
-/area/station/ai/upload/chamber)
 "sgu" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
 	dir = 4
@@ -65434,17 +65445,6 @@
 	dir = 8
 	},
 /area/station/science/ordnance/office)
-"sjp" = (
-/obj/effect/spawner/random/structure/chair_flipped,
-/obj/effect/spawner/random/trash/cigbutt,
-/obj/effect/spawner/random/trash/cigbutt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/sign/plaques/kiddie/perfect_drone{
-	pixel_x = 32;
-	dir = 4
-	},
-/turf/open/floor/iron/checker,
-/area/station/maintenance/port/fore)
 "sjr" = (
 /obj/effect/spawner/structure/window/hollow/reinforced/plasma/middle,
 /turf/open/floor/plating,
@@ -66786,6 +66786,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/showroomfloor,
 /area/station/maintenance/department/medical/morgue)
+"sBM" = (
+/obj/structure/plaque/kiddie/devils_tooth{
+	pixel_y = 32;
+	dir = 1
+	},
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
 "sBV" = (
 /obj/machinery/computer/security/telescreen/entertainment/directional/south,
 /obj/effect/spawner/random/vending/snackvend,
@@ -84972,13 +84979,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/cargo/storage)
-"xKk" = (
-/obj/structure/sign/plaques/kiddie/gameoflife{
-	pixel_y = 32;
-	dir = 1
-	},
-/turf/open/floor/iron,
-/area/station/command/heads_quarters/rd)
 "xKo" = (
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 8
@@ -110961,9 +110961,9 @@ tZk
 rfu
 rfu
 rfu
-lKV
-lKV
-lKV
+mMe
+mMe
+mMe
 rfu
 jrv
 oBz
@@ -112763,7 +112763,7 @@ foO
 xtq
 foO
 foO
-kPN
+fJj
 qGb
 yem
 uRi
@@ -169607,7 +169607,7 @@ wjP
 wMw
 hoZ
 iwS
-ixl
+sBM
 iDt
 iDt
 iDt
@@ -242821,7 +242821,7 @@ sDl
 sDl
 hEI
 vAi
-sjp
+rGS
 rqk
 ure
 lJO
@@ -245676,7 +245676,7 @@ lCg
 wEG
 ybv
 ybv
-sgo
+rvU
 oiB
 kCl
 jJi
@@ -260581,7 +260581,7 @@ qMm
 hUD
 sOH
 hUx
-igt
+eHs
 rek
 hUx
 rNQ
@@ -260861,7 +260861,7 @@ xGA
 jTZ
 xGA
 wHc
-xKk
+jsb
 emK
 uvU
 rHi

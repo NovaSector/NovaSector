@@ -170,7 +170,7 @@
 	emote_sounds = list(
 		/datum/emote/living/deathgasp::key = 'sound/mobs/non-humanoids/hiss/hiss6.ogg',
 		/datum/emote/living/scream::key = 'sound/mobs/non-humanoids/hiss/hiss6.ogg',
-		/datum/emote/living/carbon/hiss::key = SFX_HISS,
+		/datum/emote/living/carbon/hiss::key = /datum/sound_effect/hiss,
 	)
 
 /obj/item/organ/tongue/xeno_hybrid/Initialize(mapload)

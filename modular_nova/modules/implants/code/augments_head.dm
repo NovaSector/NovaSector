@@ -81,7 +81,7 @@
 
 /obj/item/qani_laaca_telegraph/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/can_shatter, /obj/effect/decal/cleanable/glass, 1, SFX_SHATTER)
+	AddElement(/datum/element/can_shatter, /obj/effect/decal/cleanable/glass, 1, /datum/sound_effect/shatter)
 	transform = transform.Scale(0.75, 0.75)
 
 /datum/action/cooldown/sensory_enhancer/overcharge

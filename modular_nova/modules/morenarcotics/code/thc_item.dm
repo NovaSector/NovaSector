@@ -88,6 +88,7 @@
 	desc = "The taste of a star in liquid form. Spiked with an orange-flavored THC blend to make the day go by a little easier."
 	icon = 'modular_nova/modules/morenarcotics/icons/thcsnacks.dmi'
 	icon_state = "thcdrink"
+	crushed_icon_state = "lemon-lime" // no crushed sprite of our own, use tg's
 	list_reagents = list(/datum/reagent/consumable/space_cola = 11, /datum/reagent/consumable/orangejuice = 11, /datum/reagent/drug/thc = 8)
 	drink_type = SUGAR | FRUIT | JUNKFOOD
 
