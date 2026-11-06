@@ -239,9 +239,9 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/xray/no_wallbang)
 
 /obj/item/ammo_casing/energy/xray/no_wallbang
-	projectile_type = /obj/projectile/beam/xray/no_wallbang
+	projectile_type = /obj/projectile/beam/laser/xray/no_wallbang
 
-/obj/projectile/beam/xray/no_wallbang/Initialize(mapload)
+/obj/projectile/beam/laser/xray/no_wallbang/Initialize(mapload)
 	pass_flags &= ~(PASSCLOSEDTURF | PASSMACHINE | PASSSTRUCTURE | PASSDOORS)
 	return ..()
 

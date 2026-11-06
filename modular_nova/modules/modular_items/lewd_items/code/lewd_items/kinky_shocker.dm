@@ -20,7 +20,7 @@
 	/// If the user should be able to remove the cell or not
 	var/can_remove_cell = TRUE
 	/// The custom part of the string that is displayed on activation of the shocker
-	var/activate_sound = "sparks"
+	var/activate_sound = /datum/sound_effect/sparks
 
 /obj/item/kinky_shocker/get_cell()
 	return cell

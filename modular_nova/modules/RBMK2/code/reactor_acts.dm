@@ -108,7 +108,7 @@
 	if(obj_flags & EMAGGED)
 		return FALSE
 
-	playsound(src, SFX_SPARKS, 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(src, /datum/sound_effect/sparks, 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	safety = FALSE
 	obj_flags |= EMAGGED
 	balloon_alert(user, "overdrive engaged!")

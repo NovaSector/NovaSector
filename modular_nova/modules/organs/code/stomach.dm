@@ -35,7 +35,7 @@
 
 /obj/item/organ/stomach/ethereal/proc/ethereal_shock_absorb(mob/living/stomach_owner = owner, shock_damage, shock_source, siemens_coeff = 1, flags = NONE)
 	do_sparks(number = 5, cardinal_only = TRUE, source = shock_source)
-	playsound(src, SFX_SPARKS, 75, TRUE, -1)
+	playsound(src, /datum/sound_effect/sparks, 75, TRUE, -1)
 	adjust_charge(25)
 	if(!(flags & SHOCK_SUPPRESS_MESSAGE))
 		stomach_owner.visible_message(

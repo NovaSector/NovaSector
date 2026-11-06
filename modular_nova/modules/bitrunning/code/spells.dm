@@ -151,5 +151,5 @@
 		living_target_getting_hit.visible_message(span_warning("[living_target_getting_hit] is set ablaze!"), span_userdanger("You've been set ablaze!"))
 		living_target_getting_hit.adjust_fire_stacks(2)
 		living_target_getting_hit.ignite_mob()
-		playsound(living_target_getting_hit, SFX_SEAR, 50, TRUE)
+		playsound(living_target_getting_hit, /datum/sound_effect/sear, 50, TRUE)
 	qdel(src)

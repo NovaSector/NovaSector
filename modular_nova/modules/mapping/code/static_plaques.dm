@@ -33,43 +33,46 @@
 	desc = "Spinward Sector Station SS-13\n'Box' Class Outpost (Revision 2.3: 'Journey')\nCommissioned 19/04/2561\n'Unbroken Champion'"
 
 /// diorama plaques
-/obj/structure/sign/plaques/kiddie/diorama
+/obj/structure/plaque/kiddie/diorama
 	name = "A standard Diorama Plaque"
 	desc = "Write what you want here."
 	icon = 'modular_nova/master_files/icons/obj/floorplaque.dmi'
-	icon_state ="floorplaque"
+	icon_state = "floorplaque"
+	base_icon_state = "floorplaque"
+	custom_sprite = TRUE // floorplaque.dmi has no _written state
+	engraved = TRUE
 
 // Ash
-/obj/structure/sign/plaques/kiddie/diorama/ash
+/obj/structure/plaque/kiddie/diorama/ash
 	name = "Ashlands Diorama"
 	desc = "A representation of the ashen wastes."
 
 // Beach
-/obj/structure/sign/plaques/kiddie/diorama/beach
+/obj/structure/plaque/kiddie/diorama/beach
 	name = "Beach Diorama"
 	desc = "A representation of what crew dream of: some water, a blanket to lay on against the sun, and of course, plenty of legal substances to consume."
 
 // Borg
-/obj/structure/sign/plaques/kiddie/diorama/borg
+/obj/structure/plaque/kiddie/diorama/borg
 	name = "Borg Factory Diorama"
 	desc = "A representation of a small borg factory: prior to robotics being station-side, cyborgs were made in an assembly line."
 
 // ice
-/obj/structure/sign/plaques/kiddie/diorama/ice
+/obj/structure/plaque/kiddie/diorama/ice
 	name = "Snow Diorama"
 	desc = "A representation of snow. Do you want to build a snowman with the penguins?"
 
 // jungle
-/obj/structure/sign/plaques/kiddie/diorama/jungle
+/obj/structure/plaque/kiddie/diorama/jungle
 	name = "Jungle Diorama"
 	desc = "A representation of a jungle environment. Caution should be taken if one of the frogs grow to be larger than they should."
 
 // Strike
-/obj/structure/sign/plaques/kiddie/diorama/strike
+/obj/structure/plaque/kiddie/diorama/strike
 	name = "defaced diorama plaque"
 	desc = "Someone with spite seems to have gouged all information out."
 
 // Vet
-/obj/structure/sign/plaques/kiddie/diorama/vet
+/obj/structure/plaque/kiddie/diorama/vet
 	name = "Veterinarian Diorama"
 	desc = "A representation of the crew's animal boarding station: while they work, crew will sometimes board their pets in one of these facilities."
