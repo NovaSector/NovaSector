@@ -7807,9 +7807,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/cargo/miningdock)
 "bUB" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
-/turf/closed/wall/r_wall,
-/area/station/engineering/atmospherics_engine)
+/obj/structure/trash_pile,
+/turf/open/floor/plating,
+/area/station/maintenance/department/medical/central)
 "bUI" = (
 /obj/structure/closet/secure_closet/miner,
 /turf/open/floor/iron/dark/smooth_large,
@@ -9941,9 +9941,6 @@
 /area/station/maintenance/aft/upper)
 "cux" = (
 /obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_atmos{
-	dir = 4
-	},
-/obj/machinery/atmospherics/components/binary/pump/on/general/visible{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -27695,10 +27692,10 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/upper)
 "guK" = (
-/obj/effect/spawner/random/trash/graffiti,
-/obj/machinery/light/directional/south,
-/turf/open/floor/iron,
-/area/station/maintenance/department/science/upper)
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/department/medical/central)
 "guR" = (
 /obj/effect/turf_decal/tile/dark_green/half/contrasted{
 	dir = 4
@@ -29269,7 +29266,7 @@
 /turf/open/floor/iron/large,
 /area/station/maintenance/department/cargo)
 "gNF" = (
-/obj/effect/landmark/atmospheric_sanity/mark_all_station_areas_as_goal,
+/obj/effect/landmark/atmospheric_sanity/ignore_area,
 /turf/closed/wall/r_wall,
 /area/station/engineering/atmospherics_engine)
 "gNH" = (
@@ -49740,10 +49737,6 @@
 	},
 /turf/open/floor/iron/large,
 /area/station/science/robotics/lab)
-"lEP" = (
-/obj/structure/trash_pile,
-/turf/open/floor/plating,
-/area/station/maintenance/department/medical/central)
 "lEV" = (
 /turf/open/floor/engine/vacuum,
 /area/station/engineering/atmos/project)
@@ -54892,6 +54885,11 @@
 	},
 /turf/open/floor/carpet/black,
 /area/station/common/night_club)
+"mOL" = (
+/obj/effect/spawner/random/trash/graffiti,
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron,
+/area/station/maintenance/department/science/upper)
 "mOS" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/curtain/cloth/fancy/mechanical/start_closed{
@@ -59392,7 +59390,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/station/ai/satellite/foyer)
 "nQw" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible/layer2,
 /turf/closed/wall/r_wall,
 /area/station/engineering/atmospherics_engine)
 "nQD" = (
@@ -73578,11 +73576,6 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/herringbone,
 /area/station/commons/dorms/laundry)
-"rcT" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/department/medical/central)
 "rcY" = (
 /turf/open/floor/iron/dark/corner{
 	dir = 4
@@ -157627,7 +157620,7 @@ nwm
 mDi
 nQw
 fQV
-bUB
+nQw
 nOe
 owD
 nYZ
@@ -204324,7 +204317,7 @@ aoj
 aoj
 aoj
 jNd
-lEP
+bUB
 bXH
 bXC
 kgg
@@ -205095,7 +205088,7 @@ tvH
 uKG
 uCn
 jNd
-rcT
+guK
 bXC
 bXC
 tkP
@@ -208942,7 +208935,7 @@ bZY
 kuC
 sHg
 eQh
-guK
+mOL
 jNd
 veP
 jNd
