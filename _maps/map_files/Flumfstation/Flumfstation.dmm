@@ -7994,9 +7994,7 @@
 /obj/machinery/computer/atmos_alert/station_only{
 	dir = 4
 	},
-/obj/machinery/computer/security/telescreen/ce/directional/west{
-	network = list("engine","tcomms","minisat","Shush")
-	},
+/obj/machinery/computer/security/telescreen/ce/directional/west,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/command/heads_quarters/ce/private)
 "bWx" = (
@@ -10711,7 +10709,7 @@
 /area/station/hallway/floor2/fore)
 "cDt" = (
 /obj/machinery/camera/autoname/directional/north{
-	network = list("Shush")
+	network = list("engine")
 	},
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 1;

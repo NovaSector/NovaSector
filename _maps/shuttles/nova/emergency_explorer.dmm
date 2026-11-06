@@ -1053,7 +1053,6 @@
 	pixel_y = 6
 	},
 /obj/machinery/light/floor,
-/obj/machinery/light/floor,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
 "Wx" = (
