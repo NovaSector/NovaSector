@@ -78,6 +78,11 @@
 /turf/open/floor/circuit/no_light
 	always_off = TRUE
 
+/turf/open/floor/circuit/pool
+	floor_tile = /obj/item/stack/tile/circuit/pool
+	liquid_height = -30
+	turf_height = -30
+
 /turf/open/floor/circuit/airless
 	initial_gas_mix = AIRLESS_ATMOS
 
