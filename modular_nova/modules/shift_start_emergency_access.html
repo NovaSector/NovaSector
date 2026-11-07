@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_nova/modules/shift_start_emergency_access/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_nova/modules/shift_start_emergency_access/readme.md <a href="https://github.com/NovaSector/NovaSector/blob/5ce2bd2215c0355ba9c54ff56d52ae20c90d36da/modular_nova/modules/shift_start_emergency_access/readme.md"><img src="git.png" width="16" height="16" title="modular_nova/modules/shift_start_emergency_access/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2 id="title-shift-start-department-emergency-access">Title: Shift-Start Department Emergency Access</h2>
+<p>MODULE ID: SHIFT_START_EMERGENCY_ACCESS</p>
+<h3 id="description">Description:</h3>
+<p>Gives departments a grace period at the start of a shift to fill their jobs. After the delay, the system finds station airlocks whose access requirements match an unstaffed department, announces the affected departments, and enables emergency access on those airlocks. Cargo's supply shuttle doors are included. When a player later spawns into a department, the system revokes emergency access from airlocks it enabled for that department. Airlocks already in emergency mode before the system's scan are left unchanged.</p>
+<p>Engineering, Medical, Science, Cargo, and Service are included. Command and Security are excluded. Matching uses required access flags rather than area location. Unrestricted doors, doors with command access, and doors with <code>ACCESS_MAINT_TUNNELS</code> in <code>req_one_access</code> are ignored. Maintenance access in <code>req_access</code> does not by itself exclude a door.</p>
+<h3 id="tg-proc-file-changes">TG Proc/File Changes:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="modular-overrides">Modular Overrides:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="defines">Defines:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="master-file-additions">Master file additions:</h3>
+<ul>
+<li><code>tgstation.dme</code> includes this module's source file.</li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<ul>
+<li>Richard Blonski</li>
+</ul></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/5ce2bd2215c0355ba9c54ff56d52ae20c90d36da">5ce2bd2</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

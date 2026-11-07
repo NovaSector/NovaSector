@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_nova/modules/species_slimeperson/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_nova/modules/species_slimeperson/readme.md <a href="https://github.com/NovaSector/NovaSector/blob/5ce2bd2215c0355ba9c54ff56d52ae20c90d36da/modular_nova/modules/species_slimeperson/readme.md"><img src="git.png" width="16" height="16" title="modular_nova/modules/species_slimeperson/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2 id="title-slimeperson-species">Title: Slimeperson Species</h2>
+<p>MODULE ID: SPECIES_SLIMEPERSON</p>
+<h3 id="description">Description:</h3>
+<p>Adds a new roundstart slimeperson species, reworking and rebalancing TG's jellyperson with new organs, water interactions, shapeshifting, and unique death mechanics.</p>
+<h3 id="tg-proc-file-changes">TG Proc/File Changes:</h3>
+<ul>
+<li><code>code/datums/components/chasm.dm</code>
+<ul>
+<li>Adds slime core to chasm storage</li>
+</ul>
+</li>
+<li><code>code/modules/fishing/fish/chasm_detritus.dm</code>
+<ul>
+<li>Adds slime core as body detritus target</li>
+</ul>
+</li>
+<li><code>code/modules/mob/living/basic/lavaland/legion/legion.dm</code>
+<ul>
+<li>Makes legion eject a stored slime core</li>
+</ul>
+</li>
+<li><code>code/controllers/subsystem/processing/quirks.dm</code>
+<ul>
+<li>Adds a blacklist arg for slime revival</li>
+</ul>
+</li>
+<li><code>code/datums/dna/dna.dm</code>
+<ul>
+<li>Adds code to preserve DNA properties</li>
+</ul>
+</li>
+<li><code>code/_globalvars/traits/_traits.dm</code>
+<ul>
+<li>Adds <code>TRAIT_SLIME_HYDROPHOBIA</code> to the list</li>
+</ul>
+</li>
+<li><code>code/_globalvars/traits/admin_tooling.dm</code>
+<ul>
+<li>Adds <code>TRAIT_SLIME_HYDROPHOBIA</code> to the list</li>
+</ul>
+</li>
+<li><code>tgstation.dme</code>
+<ul>
+<li>Adds modular files to the include</li>
+</ul>
+</li>
+<li><code>config/game_options.txt</code>
+<ul>
+<li>Adds <code>ROUNDSTART_RACES slimeperson</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="modular-file-changes">Modular File Changes:</h3>
+<ul>
+<li><code>modular_nova/modules/customization/modules/mob/living/carbon/human/human.dm</code>
+<ul>
+<li>Adds <code>/mob/living/carbon/human/species/roundstartslime</code></li>
+</ul>
+</li>
+<li><code>modular_nova\modules\quirk_hydrophobia\hydrophobia.dm</code>
+<ul>
+<li>Adds unique quirk interaction when used by a slime</li>
+</ul>
+</li>
+</ul>
+<h3 id="defines">Defines:</h3>
+<ul>
+<li><code>code/__HELPERS/~nova_helpers/is_helpers.dm</code>
+<ul>
+<li><code>isroundstartslime()</code>, <code>isslimecore()</code></li>
+</ul>
+</li>
+<li><code>code/__DEFINES/~nova_defines/traits/declarations.dm</code>
+<ul>
+<li><code>TRAIT_SLIME_HYDROPHOBIA</code></li>
+</ul>
+</li>
+<li><code>code/__DEFINES/~nova_defines/DNA.dm</code>
+<ul>
+<li><code>SPECIES_SLIMESTART</code></li>
+</ul>
+</li>
+<li><code>modular_nova\modules\species_slimeperson\code\signals_slime.dm</code>
+<ul>
+<li><code>COMSIG_SLIME_CORE_EJECTED</code>, <code>COMSIG_SLIME_REVIVED</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<ul>
+<li>Nerev4r</li>
+<li>Absolucy</li>
+<li>Siro</li>
+<li>Hardly3D</li>
+<li>Richard Blonski</li>
+</ul></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/5ce2bd2215c0355ba9c54ff56d52ae20c90d36da">5ce2bd2</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>
