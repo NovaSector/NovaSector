@@ -85,3 +85,51 @@
       merged into groups
   sqnztb:
   - qol: away maps should no longer have their decals colored by holiday effects.
+2026-11-07:
+  CabinetOnFire and Yobrocharlie:
+  - rscadd: You can now use a claw hammer to detonate 40mm and naval cannon shells.
+      You can also do this to someone holding one by targeting their mouth on non-combat
+      mode.
+  Fghj240:
+  - rscadd: Added burn and blunt wounds for robotic bodyparts
+  - rscadd: Added a new reagent, a coolant for robotic burns.
+  - map: Added chilled coolant spray (for robotic burn wounds) to robotics
+  - code_imp: removed magic strings from bone repair surgery required states text
+  Melbert:
+  - code_imp: Cleaned up chip bag pop code - report anything weird with that extremely
+      niche thing I guess
+  - bugfix: An EMP hitting a camera no longer permanently detaches it from all networks
+      (just temporarily)
+  - bugfix: AIs using "Jump to Network" no longer permanently detaches cameras from
+      some networks
+  - qol: Updated "Jump to Network" slightly, showing more networks that may be useful
+      to you.
+  - qol: Vendors accept returned items over their product cap again
+  - bugfix: Night lighting actually goes away when it ends
+  PapaMichael:
+  - balance: Blood worm hatchlings can see mobs while ventcrawling
+  SmArtKar:
+  - bugfix: Fixed a harddel in goliath tentacle code
+  cacogen:
+  - qol: Pride pins are now named after their skin instead of just generic "pride
+      pin"
+  - qol: Adds hotkeys to the portable air scrubber and portable air pump. These allow
+      you to toggle them on/off, remove their holding tanks and in the case of the
+      air pump maximise its output pressure.
+  desertmote:
+  - rscadd: Changes the rat infusion into a mouse infusion, updating its appearance
+      flavor and adding two visual organs
+  - image: Adds mouse ears and a mouse tail sprite, the latter can wag
+  - code_imp: Inner-ear rendering for cat ears uses a list for layer rendering instead
+      of one specific layer
+  moocowswag:
+  - qol: Ventcrawling critters will now be able to tell if the vent they are entering
+      is uncomfortable temperature.
+  san7890:
+  - balance: Telekinetic users can no longer open up a UI on a given object, allow
+      it to exit their site, and be able to edit it unceasingly.
+  thegrb93:
+  - balance: Tirizene prevents stamina regen
+  vinylspiders:
+  - bugfix: switched off lights no longer count as light for shadow walking and other
+      darkness checks, and lights that move around count where they actually are
