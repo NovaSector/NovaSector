@@ -632,6 +632,13 @@
 	SHOULD_CALL_PARENT(FALSE)
 
 	return FALSE // you will always be visible.
+  
+// TG Mouse infusion tail
+/datum/sprite_accessory/tails/mouse
+	feature_key_override = FEATURE_TAIL_MOUSE
+
+/datum/sprite_accessory/tails/mouse/default
+	name = "Mouse (Mouse Infusion)"
 
 /datum/sprite_accessory/tails/xeno
 	feature_key_override = FEATURE_TAIL_XENO

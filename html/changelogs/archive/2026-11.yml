@@ -1,0 +1,135 @@
+2026-11-01:
+  ATHATH:
+  - balance: Added a flash to the captain's locker for consistency with the other
+      heads of staff.
+  ArcaneMusic:
+  - admin: Admins may now use the "create black market item" verb to sell a marked
+      object on the black market.
+  CabinetOnFire:
+  - bugfix: Fixes edge-case where AI could get stuck in behaviors (due to decorators
+      not aborting correctly)
+  FeudeyTF:
+  - bugfix: 'fixed ''Input: Enable TGUI'' option for text inputs'
+  JohnFulpWillard:
+  - rscadd: Plaques are now more customizable, and in the loadout menu.
+  MacaroniCritter:
+  - qol: The loadout menu now relies on skins to select different colors of the fedora,
+      cowboy boots, and soft cap
+  Melbert:
+  - bugfix: Fixes head revolutionary not getting codewords
+  - bugfix: Fix chat message when removing embedded objects from yourself
+  - bugfix: Fix Crimson Cleaver Curse being droppable in late stages
+  - bugfix: Fix riot armor using brown mesh (now black, matching the armor)
+  - bugfix: Fix changeling void adaptation and darkness adaptation speeding up chemical
+      regen, rather than slowing it down
+  - bugfix: Fix modsuit deploy canceling from movement
+  - bugfix: Ceruleans picking up special shoes (like noslips) no longer permanently
+      breaks the shoes
+  - code_imp: Cleaned up clothing rendering very slightly, particularly relating to
+      inhand sprites, report anything weird with it
+  - code_imp: Cleaned up Cerulean shoe code, report anything weird with it
+  - bugfix: Fix latejoin revolution never gaining new headrevs
+  - bugfix: Stealthy actions (like spy stealing's cog icon) are hidden again
+  - bugfix: (Should) fix issues where progress bars flash red or flash complete at
+      inappropriate times
+  - bugfix: Fixes ninja draining power directly from a cell only working if they fail
+      to drain power
+  - code_imp: Cleaned up cancel interactions hotkey to be less jank, report anything
+      weird
+  - bugfix: Fix some forms of zombification being uncurable
+  - bugfix: Pirate, syndicate, and whiteship shuttles - among some other places -
+      now properly spawn with their AI interaction wires cut on their APCs and Airlocks,
+      preventing the AI and Cyborgs for messing with them unless mended.
+  - bugfix: Traitors can actually get hijack objectives
+  - bugfix: Smoke from things like smoke grenades or the chaplain's smoke spell once
+      again have a negative effect when exposed to it (coughing, minor oxygen damage,
+      dropping items)
+  - bugfix: Fixes airborne disease spread. Sneezing, coughing, and breathing will
+      now spread diseases if you are UNMASKED, rather than if you are masked.
+  PapaMichael:
+  - bugfix: You can once again give items with the keybind
+  - bugfix: Basic night vision (like from the genetics mutation) works again
+  TheSS13Melon:
+  - rscadd: Adds 4 areas for the halloween events.
+  necromanceranne:
+  - balance: Pulse projectiles now have high armor penetration. They also move extremely
+      quickly.
+  - balance: Pulse slugs do 40 damage and have an AP of 30.
+  - balance: X-ray lasers now do 20 damage instead of 15.
+  - balance: Smoothbore disablers no longer are inaccurate, and do 45 damage and move
+      twice as fast. They still struggle to harm anything with armor.
+  san7890:
+  - bugfix: Halloweeners rejoice, some ancient Dullahan bugs have been patched. This
+      includes their speech, how they interact as a changeling, and how they percieve
+      the world.
+  vinylspiders:
+  - qol: examining an unsecured welder now tells you its fuel tank is open and can
+      be screwed shut, and trying to light one tells you to screw the tank shut first.
+  - bugfix: camera coverage no longer breaks when looking down through glass at the
+      bottom of a multilevel area
+  - admin: overflayer once again shows the base plane and offset for unregistered
+      planes it can decode.
+  - bugfix: the potential manifest in the pre-game lobby updates when someone unreadies.
+2026-11-03:
+  Ruslanllll:
+  - bugfix: kill once objective now considered to be completed after target died from
+      *any* cause, rather than forcing traitors to kill their target permanently.
+  SmArtKar:
+  - bugfix: Fixed a sleeping proc in lobstrocity charge
+  cacogen:
+  - rscadd: Added the ability to alt right-click the gas analyzer to get it to point
+      to the nearest air alarm in the current area.
+  - qol: Added on mouseover hotkey hints to the multitool and the gas analyzer
+  sohpeach:
+  - bugfix: Pressure tanks now keep the correct amount of gas when deconstructed or
+      merged into groups
+  sqnztb:
+  - qol: away maps should no longer have their decals colored by holiday effects.
+2026-11-07:
+  CabinetOnFire and Yobrocharlie:
+  - rscadd: You can now use a claw hammer to detonate 40mm and naval cannon shells.
+      You can also do this to someone holding one by targeting their mouth on non-combat
+      mode.
+  Fghj240:
+  - rscadd: Added burn and blunt wounds for robotic bodyparts
+  - rscadd: Added a new reagent, a coolant for robotic burns.
+  - map: Added chilled coolant spray (for robotic burn wounds) to robotics
+  - code_imp: removed magic strings from bone repair surgery required states text
+  Melbert:
+  - code_imp: Cleaned up chip bag pop code - report anything weird with that extremely
+      niche thing I guess
+  - bugfix: An EMP hitting a camera no longer permanently detaches it from all networks
+      (just temporarily)
+  - bugfix: AIs using "Jump to Network" no longer permanently detaches cameras from
+      some networks
+  - qol: Updated "Jump to Network" slightly, showing more networks that may be useful
+      to you.
+  - qol: Vendors accept returned items over their product cap again
+  - bugfix: Night lighting actually goes away when it ends
+  PapaMichael:
+  - balance: Blood worm hatchlings can see mobs while ventcrawling
+  SmArtKar:
+  - bugfix: Fixed a harddel in goliath tentacle code
+  cacogen:
+  - qol: Pride pins are now named after their skin instead of just generic "pride
+      pin"
+  - qol: Adds hotkeys to the portable air scrubber and portable air pump. These allow
+      you to toggle them on/off, remove their holding tanks and in the case of the
+      air pump maximise its output pressure.
+  desertmote:
+  - rscadd: Changes the rat infusion into a mouse infusion, updating its appearance
+      flavor and adding two visual organs
+  - image: Adds mouse ears and a mouse tail sprite, the latter can wag
+  - code_imp: Inner-ear rendering for cat ears uses a list for layer rendering instead
+      of one specific layer
+  moocowswag:
+  - qol: Ventcrawling critters will now be able to tell if the vent they are entering
+      is uncomfortable temperature.
+  san7890:
+  - balance: Telekinetic users can no longer open up a UI on a given object, allow
+      it to exit their site, and be able to edit it unceasingly.
+  thegrb93:
+  - balance: Tirizene prevents stamina regen
+  vinylspiders:
+  - bugfix: switched off lights no longer count as light for shadow walking and other
+      darkness checks, and lights that move around count where they actually are

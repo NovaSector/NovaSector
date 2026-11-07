@@ -13,6 +13,46 @@
 	tastes = list("the unmatched power of the sun" = 10)
 	foodtypes = JUNKFOOD | CLOTH | GORE | NUTS | FRIED | FRUIT //You don't want to know what's in the broken debug snacks
 	w_class = WEIGHT_CLASS_SMALL
+	/// If TRUE, stepping on the unopened bag pops it, leaving the trash behind. Mirrors /obj/item/food/chips.
+	var/poppable = FALSE
+	/// Whether someone has taken a bite yet. Opened bags can't be popped.
+	VAR_PRIVATE/opened = FALSE
+
+/obj/item/food/vendor_snacks/make_edible()
+	. = ..()
+	if(poppable)
+		AddComponentFrom(SOURCE_EDIBLE_INNATE, /datum/component/edible, after_eat = CALLBACK(src, PROC_REF(open_bag)))
+
+/obj/item/food/vendor_snacks/proc/open_bag(...)
+	opened = TRUE
+
+/obj/item/food/vendor_snacks/make_leave_trash()
+	. = ..()
+	if(!poppable || !trash_type)
+		return
+	var/static/list/loc_connections = list(COMSIG_ATOM_ENTERED = PROC_REF(pop_bag))
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/item/food/vendor_snacks/proc/pop_bag(datum/source, atom/entered, ...)
+	SIGNAL_HANDLER
+
+	if(opened || !isliving(entered) || !isturf(loc)) // can't pop opened bags
+		return
+
+	var/mob/living/popper = entered
+	if(popper.mob_size < MOB_SIZE_HUMAN)
+		return
+
+	playsound(src, 'sound/effects/chipbagpop.ogg', 100)
+
+	popper.visible_message(
+		span_danger("[popper] steps on \the [source], popping the bag!"),
+		span_danger("You step on \the [source], popping the bag!"),
+		span_danger("You hear a sharp crack!"),
+		COMBAT_MESSAGE_RANGE,
+	)
+	new trash_type(loc)
+	qdel(src)
 
 /obj/item/trash/vendor_trash
 	name = "\improper God's Weakest Snacks"
@@ -46,9 +86,7 @@
 	tastes = list("incomprehensible flavoring" = 1, "rice cracker" = 2)
 	foodtypes = JUNKFOOD | GRAIN
 	custom_price = PAYCHECK_LOWER * 0.8
-
-/obj/item/food/vendor_snacks/rice_crackers/make_leave_trash()
-	AddElement(/datum/element/food_trash, trash_type, FOOD_TRASH_POPABLE)
+	poppable = TRUE
 
 /obj/item/trash/vendor_trash/rice_crackers
 	name = "empty rice crackers bag"
@@ -135,9 +173,7 @@
 	tastes = list("vanilla" = 1, "cotton" = 1, "chocolate" = 1)
 	foodtypes = VEGETABLES | SUGAR
 	custom_price = PAYCHECK_LOWER
-
-/obj/item/food/vendor_snacks/mothmallow/make_leave_trash()
-	AddElement(/datum/element/food_trash, trash_type, FOOD_TRASH_POPABLE)
+	poppable = TRUE
 
 /obj/item/trash/vendor_trash/mothmallow
 	name = "empty mothmallow bag"
@@ -200,6 +236,7 @@
 	name = "\improper Gyárhajó 1506: Navy Rum"
 	desc = "A can of navy rum brewed up and imported from a detachment of the nomad fleet, or so the can says."
 	icon_state = "navy_rum"
+	crushed_icon_state = "navyrum"
 	list_reagents = list(/datum/reagent/consumable/ethanol/navy_rum = 30)
 	drink_type = ALCOHOL
 
@@ -212,6 +249,7 @@
 	name = "\improper Gyárhajó 1023: Soda Water"
 	desc = "A can of soda water. Why not make a rum and soda? Now that you think of it, maybe not."
 	icon_state = "soda_water"
+	crushed_icon_state = "sodawater"
 	list_reagents = list(/datum/reagent/consumable/sodawater = 30)
 	drink_type = SUGAR
 
@@ -245,9 +283,7 @@
 	tastes = list("savouriness" = 1, "sweetness" = 1)
 	foodtypes = SUGAR | VEGETABLES
 	custom_price = PAYCHECK_LOWER * 1.4 //Tiziran imports are a bit more expensive overall
-
-/obj/item/food/vendor_snacks/lizard_bag/make_leave_trash()
-	AddElement(/datum/element/food_trash, trash_type, FOOD_TRASH_POPABLE)
+	poppable = TRUE
 
 /obj/item/food/vendor_snacks/lizard_bag/moon_jerky
 	name = "moonfish jerky"
