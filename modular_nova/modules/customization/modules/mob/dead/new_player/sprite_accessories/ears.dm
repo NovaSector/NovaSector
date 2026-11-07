@@ -32,6 +32,12 @@
 	color_src = USE_ONE_COLOR
 	has_inner = TRUE
 
+// TG Mouse infusion ears.
+/datum/sprite_accessory/ears/mouse
+	name = "Mouse (Mouse Infusion)"
+	color_src = USE_ONE_COLOR
+	has_inner = TRUE
+
 /datum/sprite_accessory/ears/external
 	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/ears.dmi'
 	organ_type = /obj/item/organ/ears_external
