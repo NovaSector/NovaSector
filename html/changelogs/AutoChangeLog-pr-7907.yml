@@ -1,4 +1,0 @@
-author: "Richard Blonski"
-delete-after: True
-changes:
-  - rscadd: "Unstaffed departments 5 minutes after shift start will receive emergency access until those departments get staffed."

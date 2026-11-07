@@ -1,7 +1,0 @@
-author: "Neocloudy"
-delete-after: True
-changes:
-  - refactor: "[NOVA] Ceruleans are now playable. The new fish species recently added upstream. They're very cool. You should play a Cerulean. You should report issues with the species (to the Nova repository in particular, unless you're extremely confident it's not a Nova specific issue)."
-  - code_imp: "Updated a lot of Nova-specific undersuits so they actually crop for Cerulean tails"
-  - refactor: "Deleted the Nova-specific hydro-vaporizer, replacing it with the TG hydro-vaporizer (the one that uses charge from a cell). This will probably require you to re-add it to any loadouts that use it. It also does not attach to undersuits. Put it in your pocket or on your belt instead."
-  - rscadd: "Akula-like species (Akula, Akula (Generic), Ceruleans) now understand their own language by default, plus Carptongue. This should be save-compatible, your Akulae hopefully won't get their languages wiped."
