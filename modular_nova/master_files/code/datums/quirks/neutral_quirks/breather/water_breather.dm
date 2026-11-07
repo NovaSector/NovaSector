@@ -8,10 +8,17 @@
 	lose_text = span_danger("You suddenly feel like you aren't bound to breathing through liquid anymore.")
 	value = 0
 	breathing_mask = NONE
-	breathing_tank = /obj/item/clothing/accessory/vaporizer
+	breathing_tank = /obj/item/vaporizer/with_cell
 	breath_type = "water"
 	// bonus trait
 	mob_trait = TRAIT_WATER_BREATHING
+
+/datum/quirk/item_quirk/breather/water_breather/add(client/client_source)
+	. = ..()
+
+	// hydro-vaporizers are slow, this prevents water breathers from temporarily suffocating.
+	// adding the trait here is probably not ideal but mob_trait only allows one trait...
+	ADD_TRAIT(quirk_holder, TRAIT_WET_FOR_LONGER, QUIRK_TRAIT)
 
 /datum/quirk/item_quirk/breather/water_breather/add_adaptation()
 	// this proc is guaranteed to be called multiple times

@@ -40,6 +40,10 @@ GLOBAL_LIST_EMPTY(customizable_races)
 /datum/species/proc/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
 	return
 
+/// Returns whether this species grows legs of its own.
+/datum/species/proc/grows_legs()
+	return bodypart_overrides[BODY_ZONE_L_LEG] || bodypart_overrides[BODY_ZONE_R_LEG]
+
 /// Replacing organs with oversized versions, for the oversized quirk. Add implementation for species-specific oversized organs as needed
 /datum/species/proc/gain_oversized_organs(mob/living/carbon/human/human_holder, datum/quirk/oversized/oversized_quirk)
 	if(isnull(human_holder.loc))

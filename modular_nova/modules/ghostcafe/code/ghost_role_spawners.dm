@@ -86,7 +86,11 @@
 
 /datum/outfit/ghostcafe/pre_equip(mob/living/carbon/human/visitor, visuals_only = FALSE)
 	..()
-	if (isplasmaman(visitor))
+	if(!visitor.dna.species.grows_legs())
+		// sorry, i can't find a better place for this...
+		// i just want ceruleans to work in the ghost cafe.
+		visitor.put_in_wheelchair()
+	if(isplasmaman(visitor))
 		backpack_contents += list(/obj/item/tank/internals/plasmaman/belt/full = 2)
 	if(isvox(visitor) || isvoxprimalis(visitor))
 		backpack_contents += list(/obj/item/tank/internals/nitrogen/belt/full = 2)

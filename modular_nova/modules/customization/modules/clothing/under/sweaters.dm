@@ -33,6 +33,8 @@
 	can_adjust = TRUE
 	flags_1 = IS_PLAYER_COLORABLE_1
 	gets_cropped_on_taurs = FALSE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
+	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/sweater/setup_reskins()
 	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/cableknit_sweater)
