@@ -72,6 +72,10 @@ endmap
 
 ##NOVA SECTOR MAPS##
 
+map flumfstation
+	votable
+endmap
+
 map voidraptor
 	maxplayers 100
 	votable
