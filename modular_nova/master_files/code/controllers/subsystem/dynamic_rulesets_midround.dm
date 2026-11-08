@@ -1,3 +1,7 @@
+/// Saves players denying a specific midround antagonist role.
+/datum/mind
+	var/list/midround_antag_denied = list()
+
 /// Name-change proc to be used for midround antags that would like to change their name
 /datum/dynamic_ruleset/midround/from_ghosts/proc/prompt_namechange(mob/living/player, client/player_client)
 	if(!player_client)
@@ -44,10 +48,16 @@
 	log_dynamic("MID-ROUND ANTAG: attempting to poll [length(candidates)] people individually to become [name].")
 	var/list/potential_candidates = shuffle(candidates)
 	var/list/yes_candidate = list()
+
 	for(var/mob/living/candidate in potential_candidates)
 		potential_candidates -= candidate
+
+		if(candidate.mind && (type in candidate.mind.midround_antag_denied))
+			continue
+
 		log_dynamic("MID-ROUND ANTAG: polling [key_name(candidate)] to become [name].")
-		yes_candidate += SSpolling.poll_candidates(
+
+		var/list/poll_results = SSpolling.poll_candidates(
 			question = midround_ask_question || "Do you want to become [name]?.",
 			group = list(candidate),
 			poll_time = 30 SECONDS,
@@ -64,10 +74,18 @@
 				POLL_RESPONSE_UNREGISTERED = "You decide against being a [name].",
 			),
 		)
-		if(length(yes_candidate))
+
+		if(length(poll_results))
+			yes_candidate = poll_results
 			break
-		message_admins("Candidate [key_name(candidate)] has declined to become [name].")
-		log_dynamic("MID-ROUND ANTAG: Candidate [key_name(candidate)] has declined to become [name].")
+
+		// No signup means they declined or timed out; remember the choice to avoid polling them again.
+		if(candidate.mind)
+			LAZYADD(candidate.mind.midround_antag_denied, type)
+
+		message_admins("Candidate [key_name(candidate)] did not accept becoming [name].")
+		log_dynamic("MID-ROUND ANTAG: Candidate [key_name(candidate)] did not accept becoming [name].")
+
 	if(!length(yes_candidate))
 		message_admins("MID-ROUND ANTAG: Nobody accepted the offer to become [name] - the ruleset will not execute this time.")
 		log_dynamic("MID-ROUND ANTAG: Nobody accepted the offer to become [name] - the ruleset will not execute this time.")
