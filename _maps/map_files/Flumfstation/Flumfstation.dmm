@@ -7807,7 +7807,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/cargo/miningdock)
 "bUB" = (
-/obj/structure/trash_pile,
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
 "bUI" = (
@@ -27692,10 +27693,10 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/upper)
 "guK" = (
-/obj/machinery/door/airlock/maintenance,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/station/maintenance/department/medical/central)
+/obj/effect/spawner/random/trash/graffiti,
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron,
+/area/station/maintenance/department/science/upper)
 "guR" = (
 /obj/effect/turf_decal/tile/dark_green/half/contrasted{
 	dir = 4
@@ -29378,24 +29379,6 @@
 /obj/effect/spawner/random/maintenance/no_decals/six,
 /turf/open/floor/catwalk_floor/iron,
 /area/station/maintenance/department/engineering/central)
-"gPA" = (
-/obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/caution/stand_clear,
-/obj/machinery/door/airlock/external{
-	name = "External Docking Port"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
-/obj/effect/mapping_helpers/airlock/access/all/security/general,
-/turf/open/floor/iron/dark,
-/area/station/hallway/secondary/exit/departure_lounge)
 "gPD" = (
 /obj/machinery/shieldgen,
 /turf/open/floor/engine/hull/air,
@@ -54885,11 +54868,6 @@
 	},
 /turf/open/floor/carpet/black,
 /area/station/common/night_club)
-"mOL" = (
-/obj/effect/spawner/random/trash/graffiti,
-/obj/machinery/light/directional/south,
-/turf/open/floor/iron,
-/area/station/maintenance/department/science/upper)
 "mOS" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/curtain/cloth/fancy/mechanical/start_closed{
@@ -58337,26 +58315,6 @@
 /obj/effect/spawner/random/trash/graffiti,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical)
-"nEx" = (
-/obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 4
-	},
-/obj/effect/turf_decal/stripes/corner,
-/obj/effect/turf_decal/stripes{
-	dir = 8
-	},
-/obj/effect/turf_decal/caution/stand_clear,
-/obj/machinery/door/airlock/external{
-	name = "External Docking Port";
-	space_dir = 8
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/airlock/access/all/security/general,
-/turf/open/floor/iron/dark,
-/area/station/hallway/secondary/exit/departure_lounge)
 "nEz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -91622,6 +91580,10 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/teleporter)
+"vsO" = (
+/obj/structure/trash_pile,
+/turf/open/floor/plating,
+/area/station/maintenance/department/medical/central)
 "vsQ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -135522,7 +135484,7 @@ tHU
 ibJ
 ibJ
 ibJ
-tPO
+tHU
 ibJ
 ibJ
 nzS
@@ -136550,7 +136512,7 @@ tHU
 ibJ
 ibJ
 ibJ
-tPO
+tHU
 qkv
 kML
 wcZ
@@ -137578,7 +137540,7 @@ tPO
 ibJ
 ibJ
 ibJ
-tPO
+tHU
 ibJ
 nzS
 nzS
@@ -204317,7 +204279,7 @@ aoj
 aoj
 aoj
 jNd
-bUB
+vsO
 bXH
 bXC
 kgg
@@ -205088,7 +205050,7 @@ tvH
 uKG
 uCn
 jNd
-guK
+bUB
 bXC
 bXC
 tkP
@@ -208935,7 +208897,7 @@ bZY
 kuC
 sHg
 eQh
-mOL
+guK
 jNd
 veP
 jNd
@@ -215186,7 +215148,7 @@ qUk
 qUk
 qUk
 slS
-nEx
+rRx
 slS
 pgR
 slS
@@ -215957,18 +215919,20 @@ qRq
 qRq
 qRq
 slS
-gPA
+wcd
+qUk
+wcd
+slS
+qRq
+qRq
+qRq
+slS
+wcd
 qUk
 wcd
 slS
 qRq
 qRq
-qRq
-slS
-wcd
-qUk
-wcd
-slS
 qRq
 qRq
 qRq
@@ -215986,8 +215950,6 @@ qRq
 qRq
 qRq
 vCs
-bEj
-bEj
 krR
 bEj
 krR
@@ -216206,6 +216168,8 @@ bEj
 bEj
 bEj
 qRq
+qRq
+qRq
 jYy
 jYy
 jYy
@@ -216215,14 +216179,14 @@ jYy
 jYy
 qby
 qby
+qby
+jYy
+qby
+jYy
+jYy
+jYy
 qby
 uhJ
-qby
-jYy
-jYy
-jYy
-qby
-jYy
 qby
 jYy
 qby
@@ -216243,8 +216207,6 @@ qRq
 qRq
 qRq
 vCs
-bEj
-bEj
 krR
 bEj
 krR
@@ -216463,6 +216425,8 @@ xVs
 aov
 qRq
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -216500,8 +216464,6 @@ qRq
 qRq
 qRq
 vCs
-krR
-vtN
 vtN
 vtN
 vtN
@@ -216720,6 +216682,8 @@ lEV
 bws
 qRq
 qRq
+qRq
+qRq
 jYy
 mza
 cYA
@@ -216757,8 +216721,6 @@ qRq
 bEj
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -216977,6 +216939,8 @@ hzD
 bws
 qRq
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -217014,8 +216978,6 @@ qRq
 qfR
 tOe
 oTm
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -217234,6 +217196,8 @@ cLP
 bws
 qRq
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -217270,8 +217234,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -217491,6 +217453,8 @@ vhu
 bws
 qRq
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -217527,8 +217491,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 dRU
 bEj
@@ -217748,6 +217710,8 @@ tED
 bws
 qRq
 qRq
+qRq
+qRq
 jYy
 mza
 fhE
@@ -217784,8 +217748,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -218005,6 +217967,8 @@ etP
 bws
 qRq
 qRq
+qRq
+qRq
 jYy
 mza
 fhE
@@ -218041,8 +218005,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -218262,6 +218224,8 @@ etP
 bws
 qRq
 qRq
+qRq
+qRq
 jYy
 mza
 fhE
@@ -218298,8 +218262,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -218519,6 +218481,8 @@ etP
 bws
 qRq
 qRq
+qRq
+qRq
 jYy
 mza
 fhE
@@ -218555,8 +218519,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -218776,6 +218738,8 @@ aFv
 bYr
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 fhE
@@ -218812,8 +218776,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -219033,6 +218995,8 @@ etP
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -219069,8 +219033,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -219290,6 +219252,8 @@ etP
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -219326,8 +219290,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -219547,6 +219509,8 @@ vcd
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -219583,8 +219547,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -219804,6 +219766,8 @@ etP
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -219840,8 +219804,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -220061,6 +220023,8 @@ tXh
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 fhE
@@ -220097,8 +220061,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -220318,6 +220280,8 @@ etP
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 fhE
@@ -220354,8 +220318,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -220575,6 +220537,8 @@ nrO
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 fhE
@@ -220611,8 +220575,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -220832,6 +220794,8 @@ etP
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 fhE
@@ -220868,8 +220832,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -221089,6 +221051,8 @@ etP
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 fhE
@@ -221125,8 +221089,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -221346,6 +221308,8 @@ etP
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -221382,8 +221346,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -221603,6 +221565,8 @@ gas
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -221639,8 +221603,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -221860,6 +221822,8 @@ gas
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -221896,8 +221860,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -222117,6 +222079,8 @@ gas
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -222153,8 +222117,6 @@ qRq
 qRq
 qfR
 vCs
-bEj
-bEj
 bEj
 dRU
 bEj
@@ -222374,6 +222336,8 @@ gas
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 cYA
@@ -222410,8 +222374,6 @@ qRq
 qRq
 bEj
 xhj
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -222631,6 +222593,8 @@ vpe
 bYr
 nOc
 qRq
+qRq
+qRq
 jYy
 mza
 mza
@@ -222667,8 +222631,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -222888,6 +222850,8 @@ wBV
 bws
 nOc
 qRq
+qRq
+qRq
 jYy
 jYy
 jYy
@@ -222924,8 +222888,6 @@ qRq
 qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -223179,10 +223141,10 @@ qRq
 qRq
 qRq
 qRq
+qRq
+qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -223436,10 +223398,10 @@ qRq
 qRq
 qRq
 qRq
+qRq
+qRq
 bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -223694,9 +223656,9 @@ bEj
 bEj
 bEj
 bEj
+bEj
+bEj
 vCs
-bEj
-bEj
 bEj
 bEj
 bEj
@@ -223951,9 +223913,9 @@ eQH
 eQH
 eQH
 eQH
+eQH
+eQH
 oTm
-bEj
-bEj
 bEj
 bEj
 bEj

@@ -50,6 +50,16 @@
 /obj/effect/turf_decal/siding/corner,
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
+"eN" = (
+/obj/machinery/light/directional/west,
+/obj/structure/table,
+/obj/machinery/chem_dispenser/drinks/beer/fullupgrade{
+	dir = 4;
+	pixel_x = -7;
+	pixel_y = 6
+	},
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
 "eO" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/engine/hull,
@@ -59,7 +69,7 @@
 /turf/open/floor/mineral/titanium/blue,
 /area/shuttle/escape)
 "ft" = (
-/obj/effect/mapping_helpers/airlock/access/any/cent_com,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /obj/effect/mapping_helpers/airlock/access/any/command/general,
 /obj/machinery/door/airlock/corporate,
 /turf/open/floor/mineral/titanium,
@@ -277,6 +287,15 @@
 	},
 /turf/open/floor/iron/sepia,
 /area/shuttle/escape)
+"pq" = (
+/obj/structure/table,
+/obj/machinery/chem_dispenser/drinks/fullupgrade{
+	dir = 4;
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
 "pv" = (
 /obj/machinery/biogenerator/food_replicator{
 	biomass = 600;
@@ -449,6 +468,14 @@
 /obj/machinery/light/directional/south,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
+"vG" = (
+/obj/structure/table,
+/obj/machinery/biogenerator/food_replicator{
+	biomass = 600;
+	pixel_y = 9
+	},
+/turf/open/floor/iron/sepia,
+/area/shuttle/escape)
 "wg" = (
 /obj/structure/railing{
 	dir = 10
@@ -517,7 +544,7 @@
 	id_tag = "SHUTTLECONF";
 	cycle_id = "ShuttleMeetingRoom"
 	},
-/obj/effect/mapping_helpers/airlock/access/any/cent_com,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /obj/effect/mapping_helpers/airlock/access/any/command/general,
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
@@ -873,6 +900,12 @@
 "NV" = (
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
+"Ow" = (
+/obj/machinery/door/airlock/shuttle/glass,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
+/obj/effect/mapping_helpers/airlock/access/any/command/general,
+/turf/open/floor/engine/hull,
+/area/shuttle/escape)
 "OB" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron/sepia,
@@ -1011,7 +1044,7 @@
 	cycle_id = "ShuttleMeetingRoom"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/command/general,
-/obj/effect/mapping_helpers/airlock/access/any/cent_com,
+/obj/effect/mapping_helpers/airlock/access/any/cent_com/rep_or_captain,
 /turf/open/floor/mineral/titanium,
 /area/shuttle/escape)
 "Uj" = (
@@ -1161,9 +1194,9 @@ rS
 rS
 rS
 rS
+Ow
 rS
-rS
-rS
+Ow
 rS
 rS
 rS
@@ -1177,9 +1210,9 @@ rS
 rS
 rS
 rS
-Xt
 rS
-Xt
+rS
+rS
 rS
 rS
 rS
@@ -1195,8 +1228,8 @@ rS
 tP
 Wx
 Wx
-ls
 Wx
+ls
 Wx
 NV
 NV
@@ -1211,9 +1244,9 @@ NE
 Iu
 ia
 rS
-xO
-rS
-xO
+pq
+eN
+vG
 rS
 YA
 YA
@@ -1245,9 +1278,9 @@ QI
 Wx
 eQ
 rS
-Xt
-rS
-Xt
+dd
+dd
+dd
 rS
 xO
 xO
@@ -1280,7 +1313,7 @@ mc
 Wx
 rS
 dd
-zO
+dd
 dd
 rS
 eO
