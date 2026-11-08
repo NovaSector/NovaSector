@@ -19,3 +19,4 @@
 		)
 	extended_inventory = TRUE
 	age_restrictions = FALSE
+	onstation = FALSE

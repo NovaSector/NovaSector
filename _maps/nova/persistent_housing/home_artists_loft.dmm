@@ -1,0 +1,340 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/turf/closed/wall/mineral/wood,
+/area/misc/player_home)
+"ab" = (
+/obj/structure/sign/painting,
+/turf/closed/wall/mineral/wood,
+/area/misc/player_home)
+"ac" = (
+/obj/structure/sign/painting/large,
+/turf/closed/wall/mineral/wood,
+/area/misc/player_home)
+"ad" = (
+/obj/structure/easel,
+/obj/item/canvas/nineteen_nineteen,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"ae" = (
+/turf/open/floor/wood,
+/area/misc/player_home)
+"af" = (
+/obj/structure/easel,
+/obj/item/canvas/twentythree_twentythree,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"ag" = (
+/obj/item/kirbyplants/random,
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"ah" = (
+/obj/structure/bed/double,
+/obj/effect/spawner/random/bedsheet/any/double,
+/turf/open/floor/carpet/orange,
+/area/misc/player_home)
+"ai" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp/green{
+	pixel_y = 6
+	},
+/obj/machinery/light/warm/directional/north,
+/turf/open/floor/carpet/orange,
+/area/misc/player_home)
+"aj" = (
+/obj/structure/dresser,
+/turf/open/floor/carpet/orange,
+/area/misc/player_home)
+"ak" = (
+/obj/structure/chair/stool,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"al" = (
+/obj/machinery/door/airlock/wood,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"am" = (
+/turf/open/floor/carpet/orange,
+/area/misc/player_home)
+"an" = (
+/obj/structure/closet/cabinet,
+/turf/open/floor/carpet/orange,
+/area/misc/player_home)
+"ao" = (
+/obj/item/kirbyplants/random,
+/turf/open/floor/carpet/orange,
+/area/misc/player_home)
+"ap" = (
+/obj/structure/carving_block,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"aq" = (
+/obj/structure/table/wood,
+/obj/item/paint_palette,
+/obj/item/storage/crayons,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"ar" = (
+/obj/structure/table/wood,
+/obj/item/toy/crayon/spraycan,
+/obj/item/paper_bin,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"as" = (
+/obj/structure/rack/wooden,
+/obj/item/canvas/nineteen_nineteen,
+/obj/item/canvas/nineteen_nineteen,
+/obj/item/canvas/twentythree_twentythree,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"at" = (
+/obj/structure/toilet,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/iron/white,
+/area/misc/player_home)
+"au" = (
+/turf/open/floor/iron/white,
+/area/misc/player_home)
+"av" = (
+/obj/machinery/shower/directional/south,
+/obj/structure/curtain,
+/turf/open/floor/iron/white,
+/area/misc/player_home)
+"aw" = (
+/obj/machinery/light/warm/directional/west,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"ax" = (
+/obj/structure/sink/directional/north,
+/obj/structure/mirror/directional/south,
+/turf/open/floor/iron/white,
+/area/misc/player_home)
+"ay" = (
+/obj/structure/towel_bin,
+/turf/open/floor/iron/white,
+/area/misc/player_home)
+"az" = (
+/obj/structure/chair/sofa/left/brown{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/misc/player_home)
+"aA" = (
+/obj/structure/table/wood,
+/obj/item/storage/fancy/candle_box,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"aB" = (
+/obj/structure/sink/kitchen/directional/south,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"aC" = (
+/obj/structure/table/wood,
+/obj/machinery/microwave,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"aD" = (
+/obj/structure/closet/secure_closet/freezer/kitchen/all_access,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"aE" = (
+/obj/structure/chair/sofa/right/brown{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/misc/player_home)
+"aF" = (
+/obj/machinery/home_saver,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"aG" = (
+/obj/machinery/light/warm/directional/south,
+/turf/open/floor/wood,
+/area/misc/player_home)
+"aH" = (
+/obj/structure/table/wood,
+/obj/item/knife/kitchen,
+/obj/item/reagent_containers/cup/glass/mug/tea,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"aI" = (
+/obj/structure/closet/crate/bin,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"aJ" = (
+/obj/machinery/oven/range,
+/turf/open/floor/wood/tile,
+/area/misc/player_home)
+"aK" = (
+/turf/closed/indestructible/hoteldoor/fakedoor/player_home,
+/area/misc/player_home)
+
+(1,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}
+(2,1,1) = {"
+ab
+ad
+ak
+ae
+ap
+ae
+aw
+ae
+az
+aE
+aa
+"}
+(3,1,1) = {"
+aa
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+aA
+ae
+aa
+"}
+(4,1,1) = {"
+ac
+ad
+ak
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+aa
+"}
+(5,1,1) = {"
+aa
+ae
+ae
+ae
+aq
+ae
+ae
+ae
+ae
+ae
+aa
+"}
+(6,1,1) = {"
+ab
+af
+ak
+ae
+ar
+ae
+ae
+ae
+ae
+aF
+aa
+"}
+(7,1,1) = {"
+aa
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+ae
+aK
+"}
+(8,1,1) = {"
+aa
+ag
+ae
+ae
+ae
+as
+ae
+ae
+ae
+aG
+aa
+"}
+(9,1,1) = {"
+aa
+aa
+al
+aa
+aa
+aa
+aa
+aa
+ae
+ae
+aa
+"}
+(10,1,1) = {"
+aa
+ah
+am
+am
+aa
+at
+ax
+aa
+aB
+aH
+aa
+"}
+(11,1,1) = {"
+aa
+ai
+am
+am
+al
+au
+au
+aa
+aC
+aI
+aa
+"}
+(12,1,1) = {"
+aa
+aj
+an
+ao
+aa
+av
+ay
+aa
+aD
+aJ
+aa
+"}
+(13,1,1) = {"
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+"}

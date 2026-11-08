@@ -203,6 +203,7 @@
 		/area/misc/hilbertshotel,
 		/area/misc/hilbertshotelstorage,
 		/area/misc/condo, // NOVA EDIT ADDITION - Condo System
+		/area/misc/player_home, // NOVA EDIT ADDITION - Player Homes
 	))
 	if(area_checking.type in special_areas)
 		return AREA_SPECIAL
