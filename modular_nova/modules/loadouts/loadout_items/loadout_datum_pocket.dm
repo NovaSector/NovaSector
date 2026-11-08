@@ -14,6 +14,10 @@
 *	ITEMS BELOW HERE
 */
 
+/datum/loadout_item/pocket_items/wetmaker
+	name = "Hydro-Vaporizer"
+	item_path = /obj/item/vaporizer/with_cell
+
 /datum/loadout_item/pocket_items/soap
 	name = "Bar of Soap"
 	item_path = /obj/item/soap

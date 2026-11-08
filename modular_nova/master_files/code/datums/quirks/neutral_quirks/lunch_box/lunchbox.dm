@@ -297,7 +297,7 @@ GLOBAL_LIST_INIT(possible_player_lunchbox_snack_choice, list(
 	"Chips" = /obj/item/food/chips,
 	"Shrimp Chips" = /obj/item/food/chips/shrimp,
 	"Scaredy's Beef Jerky" = /obj/item/food/sosjerky,
-	"Boritos Chips" = /obj/item/food/cornchips/random,
+	"Boritos Chips" = /obj/item/food/chips/corn/random,
 	"4no rasins" = /obj/item/food/no_raisin,
 	"Gallery's Peanuts" = /obj/item/food/peanuts,
 	"Gallery's Everyflavor Peanuts" = /obj/item/food/peanuts/random,

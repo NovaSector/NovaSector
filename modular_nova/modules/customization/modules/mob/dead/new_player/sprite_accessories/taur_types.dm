@@ -28,7 +28,8 @@
 	taur_mode = BODYSHAPE_TAUR_GENERIC /// So that every taur would crop clothes
 	/// Must be a single specific tauric suit variation bitflag. Don't do FLAG_1|FLAG_2
 	var/alt_taur_mode = NONE
-
+	/// Whether the body has a tail. It grows a tail organ, which takes the tail slot and hides the tail preferences.
+	var/has_tail = FALSE
 	/// If we can lay down. For types with no loaf sprite this should be set to FALSE.
 	var/can_lay_down = FALSE
 	/// The offset we get from laying down. Negative values move us down
@@ -97,6 +98,7 @@
 	color_src = USE_ONE_COLOR
 	can_lay_down = TRUE
 	laydown_offset = -3
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/cow/spotted
 	name = "Cow (Spotted)"
@@ -112,6 +114,7 @@
 	organ_type = /obj/item/organ/taur_body/horselike/deer
 	can_lay_down = TRUE
 	laydown_offset = -4
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/drake
 	name = "Drake"
@@ -119,6 +122,7 @@
 	taur_mode = BODYSHAPE_TAUR_PAW
 	can_lay_down = TRUE
 	laydown_offset = -3
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/drake/old
 	name = "Drake (Old)"
@@ -141,6 +145,7 @@
 	name = "Eevee"
 	icon_state = "eevee"
 	taur_mode = BODYSHAPE_TAUR_PAW
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/horse
 	name = "Horse"
@@ -149,6 +154,7 @@
 	alt_taur_mode = BODYSHAPE_TAUR_PAW
 	can_lay_down = TRUE
 	laydown_offset = -3
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/fishlike
 	name = "Mermaid"
@@ -156,6 +162,7 @@
 	organ_type = /obj/item/organ/taur_body/fishlike
 	taur_mode = BODYSHAPE_TAUR_SNAKE
 	color_src = USE_ONE_COLOR
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/fishlike/mermaid_alt
 	name = "Mermaid (Koi Fish)"
@@ -172,6 +179,7 @@
 	icon_state = "naga"
 	taur_mode = BODYSHAPE_TAUR_SNAKE
 	organ_type = /obj/item/organ/taur_body/serpentine
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/naga/fat
 	name = "Naga, Fat"
@@ -194,17 +202,20 @@
 	taur_mode = BODYSHAPE_TAUR_PAW
 	can_lay_down = TRUE
 	laydown_offset = -4
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/pede
 	name = "Scolipede"
 	icon_state = "pede"
 	taur_mode = BODYSHAPE_TAUR_PAW
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/centipede
 	name = "Centipede"
 	icon_state = "centipede"
 	taur_mode = BODYSHAPE_TAUR_SNAKE
 	organ_type = /obj/item/organ/taur_body/centipede
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/centipede/synth
 	name = "Centipede (Synth)"
@@ -229,6 +240,7 @@
 	taur_mode = BODYSHAPE_TAUR_PAW
 	can_lay_down = TRUE
 	laydown_offset = -3
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/feline
 	name = "Feline"
@@ -236,6 +248,7 @@
 	taur_mode = BODYSHAPE_TAUR_PAW
 	can_lay_down = TRUE
 	laydown_offset = -4
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/goop
 	name = "Goop"
@@ -284,6 +297,7 @@
 	taur_mode = BODYSHAPE_TAUR_PAW
 	can_lay_down = TRUE
 	laydown_offset = -3
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/kitsune/alt
 	name = "Kitsune (alt)"
@@ -295,6 +309,7 @@
 	taur_mode = BODYSHAPE_TAUR_PAW
 	can_lay_down = TRUE
 	laydown_offset = -6
+	has_tail = TRUE
 
 /datum/sprite_accessory/taur/chemlight/alt
 	name = "Striped Canine"

@@ -11,11 +11,13 @@ Module ID: SKYRAT_MEDICAL_UPDATE <!-- Uppercase, UNDERSCORE_CONNECTED name of yo
 
 Various changes to the medical system, from adding bandage overlays, to new wounds, to modularized procs.
 
+Synthetic blunt and burn wounds (robotic blunt T1-T3, robotic overheating T1-T3) and the dinitrogen plasmide coolant were upstreamed to /tg/ in tgstation/tgstation#97033 (`code/datums/wounds/robot/`). We now use the upstream versions; this module only keeps the Nova-only synthetic wounds: electrical damage (slash/pierce) and robotic muscle wounds.
+
 <!-- Here, try to describe what your PR does, what features it provides and any other directly useful information. -->
 
 ### TG Proc/File Changes:
 
-- `code/_DEFINES/wounds.dm`: Added muscle/synth wound series, added them to the global list of wound series
+- `code/_DEFINES/wounds.dm`: Added muscle and synth electrical damage (wire slash/pierce) wound series, added them to the global list of wound series. The metal blunt/burn series are upstream's.
 - cat2_medicine_reagents.dm: /datum/reagent/medicine/c2/hercuri/on_mob_life, Allowed hercuri to affect synthetics, also changed hercuri process flags for this purpose
 - quirks.dm: Commented out the quadruple_amputee/frail blacklist as frail can now apply to prosthetics
 <!-- If you edited any core procs, you should list them here. You should specify the files and procs you changed.

@@ -624,6 +624,22 @@
 /datum/sprite_accessory/tails/fish/chonky
 	name = "Chonky (Fish Infusion)"
 
+/datum/sprite_accessory/tails/fish/cerulean
+	// there is a nice and cool (but snowflakey) system for cerulean tails and MODs
+	flags_custom_mod_icon = NONE
+
+/datum/sprite_accessory/tails/fish/cerulean/is_hidden(mob/living/carbon/human/owner, datum/bodypart_overlay/mutant/bodypart_overlay)
+	SHOULD_CALL_PARENT(FALSE)
+
+	return FALSE // you will always be visible.
+
+// TG Mouse infusion tail
+/datum/sprite_accessory/tails/mouse
+	feature_key_override = FEATURE_TAIL_MOUSE
+
+/datum/sprite_accessory/tails/mouse/default
+	name = "Mouse (Mouse Infusion)"
+
 /datum/sprite_accessory/tails/xeno
 	feature_key_override = FEATURE_TAIL_XENO
 	recommended_species = list(SPECIES_XENO = 1)
