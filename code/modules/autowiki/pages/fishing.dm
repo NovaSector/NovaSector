@@ -64,7 +64,7 @@
 			var/max_temp = not_infinity ? fish::required_temperature_max : "∞"
 			output_list["temperature"] = "[fish::required_temperature_min] - [max_temp] K"
 
-		output += "\n\n" + include_template("Autowiki/FishEntry", output_list)
+		output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishEntry", output_list)
 
 	return output
 
@@ -152,7 +152,7 @@
 			if(TRAIT_GREAT_QUALITY_BAIT)
 				quality = "Great"
 
-		output += "\n\n" + include_template("Autowiki/FishBait", list(
+		output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishBait", list(
 			"name" = full_capitalize(escape_value(bait::name)),
 			"icon" = filename,
 			"description" = escape_value(bait::desc),
@@ -168,7 +168,7 @@
 
 	var/lead_desc = /obj/item/stock_parts/power_store/cell/lead::desc
 	lead_desc += " You probably shouldn't use it unless you're trying to catch a zipzap."
-	output += "\n\n" + include_template("Autowiki/FishBait", list(
+	output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishBait", list(
 		"name" = full_capitalize(escape_value(/obj/item/stock_parts/power_store/cell/lead::name)),
 		"icon" = filename,
 		"description" = lead_desc,
@@ -179,7 +179,7 @@
 	upload_icon(icon(/obj/item/stock_parts/power_store/cell/lead::icon, /obj/item/stock_parts/power_store/cell/lead::icon_state), filename)
 
 	var/obj/needletype = /obj/item/fish/needlefish
-	output += "\n\n" + include_template("Autowiki/FishBait", list(
+	output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishBait", list(
 		"name" = "Baitfish",
 		"icon" = FISH_AUTOWIKI_FILENAME(needletype),
 		"description" = "Smaller fish such as goldfish, needlefish, armorfish and lavaloops can also be used as bait, It's a fish eat fish world.",
@@ -187,7 +187,7 @@
 		"quality" = "Good",
 	))
 
-	output += "\n\n" + include_template("Autowiki/FishBait", list(
+	output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishBait", list(
 		"name" = "Food",
 		"icon" = "plain_bread",
 		"description" = "In absence of baits, food can be used as a substitute.",
@@ -209,7 +209,7 @@
 	for (var/obj/item/fishing_line/line as anything in typesof(/obj/item/fishing_line))
 		var/filename = SANITIZE_FILENAME("[line::icon_state]_wiki_line")
 
-		output += "\n\n" + include_template("Autowiki/FishLine", list(
+		output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishLine", list(
 			"name" = full_capitalize(escape_value(line::name)),
 			"icon" = filename,
 			"description" = escape_value(line::wiki_desc),
@@ -231,7 +231,7 @@
 	for (var/obj/item/fishing_hook/hook as anything in typesof(/obj/item/fishing_hook))
 		var/filename = SANITIZE_FILENAME("[hook::icon_state]_wiki_hook")
 
-		output += "\n\n" + include_template("Autowiki/FishHook", list(
+		output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishHook", list(
 			"name" = full_capitalize(escape_value(hook::name)),
 			"icon" = filename,
 			"description" = escape_value(hook::wiki_desc),
@@ -259,7 +259,7 @@
 		var/desc = escape_value(rod::ui_description)
 		if(rod::wiki_description)
 			desc += "<br>[escape_value(rod::wiki_description)]"
-		output += "\n\n" + include_template("Autowiki/FishingRod", list(
+		output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishingRod", list(
 			"name" = full_capitalize(escape_value(rod::name)),
 			"icon" = filename,
 			"description" = desc,
@@ -287,7 +287,7 @@
 		if(!source.catalog_description)
 			continue
 
-		output += "\n\n" + include_template("Autowiki/FishSource", list(
+		output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishSource", list(
 			"name" = full_capitalize(source.catalog_description),
 			"difficulty" = source.fishing_difficulty,
 			"contents" = get_contents(source),
@@ -339,7 +339,7 @@
 		if(!scan) //Just to be sure, if the scan was already completed.
 			scan = locate(scan_type) in techweb.completed_experiments
 
-		output += "\n\n" + include_template("Autowiki/FishScan", list(
+		output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishScan", list(
 			"name" = full_capitalize(escape_value(scan.name)),
 			"description" = escape_value(scan.description),
 			"requirements" = build_requirements(scan),
@@ -394,7 +394,7 @@
 		if(!evolution.show_on_wiki)
 			continue
 
-		output += "\n\n" + include_template("Autowiki/FishEvolution", list(
+		output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishEvolution", list(
 			"name" = escape_value(evolution.name),
 			"fish" = get_fish(evo_type),
 			"min_max_temp" = "[evolution.required_temperature_min] - [evolution.required_temperature_max] K",
@@ -426,9 +426,9 @@
 	for(var/obj/item/fishing_lure/lure as anything in SSfishing.lure_catchables)
 		var/state = initial(lure.icon_state)
 		var/filename = SANITIZE_FILENAME("[state]_wiki_lure")
-		output += "\n\n" + include_template("Autowiki/FishLure", list(
+		output += AUTOWIKI_NEWLINE + include_template("Autowiki/FishLure", list(
 			"name" = escape_value(full_capitalize(initial(lure.name))),
-			"desc" = escape_value(initial(lure.name)),
+			"description" = escape_value(initial(lure.description)),
 			"icon" = filename,
 			"catchables" = build_catchables(SSfishing.lure_catchables[lure]),
 		))
