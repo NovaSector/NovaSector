@@ -11307,12 +11307,11 @@
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
-/obj/effect/turf_decal/trimline/green/filled/line,
-/obj/effect/turf_decal/trimline/green/filled/corner{
-	dir = 1
+/obj/effect/turf_decal/trimline/green/filled/line{
+	dir = 6
 	},
 /obj/effect/turf_decal/trimline/green/filled/corner{
-	dir = 4
+	dir = 1
 	},
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -22739,11 +22738,8 @@
 /area/station/command/gateway)
 "fLE" = (
 /obj/machinery/modular_computer/preset/time_clock/directional/east,
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 6
-	},
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/table,
-/obj/item/paper_bin,
 /turf/open/floor/iron/white,
 /area/station/common/cryopods/floor1)
 "fLR" = (
@@ -23821,7 +23817,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 4
+	dir = 5
 	},
 /obj/machinery/airalarm/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -31568,6 +31564,9 @@
 /obj/effect/landmark/navigate_destination/cryopods/floor2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 4
+	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods/floor2)
 "hYm" = (
@@ -35729,10 +35728,10 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 9
 	},
-/obj/machinery/computer/cryopod/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 2
 	},
+/obj/machinery/modular_computer/preset/time_clock/directional/north,
 /turf/open/floor/iron/white,
 /area/station/common/cryopods/floor2)
 "jbg" = (
@@ -44272,7 +44271,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/floor2/port/fore)
 "leX" = (
-/obj/structure/sign/poster/timeclock_psa/directional/north,
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 4
 	},
@@ -45946,6 +45944,9 @@
 	dir = 8
 	},
 /obj/effect/landmark/navigate_destination/cryopods/floor1,
+/obj/effect/turf_decal/trimline/green/filled/corner{
+	dir = 2
+	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods/floor1)
 "lAJ" = (
@@ -47407,7 +47408,7 @@
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 1
+	dir = 5
 	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods/floor2)
@@ -56278,11 +56279,8 @@
 "nWr" = (
 /obj/machinery/computer/cryopod/directional/south,
 /obj/machinery/modular_computer/preset/time_clock/directional/east,
-/obj/effect/turf_decal/trimline/green/filled/end{
-	dir = 4
-	},
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/table,
-/obj/item/paper_bin,
 /turf/open/floor/iron/white,
 /area/station/common/cryopods/floor3)
 "nWu" = (
@@ -59318,6 +59316,7 @@
 	},
 /obj/effect/turf_decal/siding/thinplating_new/light/end,
 /obj/item/radio/intercom/directional/west,
+/obj/machinery/computer/cryopod/directional/south,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/common/cryopods/floor2)
 "oKq" = (
@@ -73067,11 +73066,8 @@
 /area/station/science/genetics)
 "sjq" = (
 /obj/machinery/firealarm/directional/north,
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 5
-	},
+/obj/effect/turf_decal/tile/green/fourcorners,
 /obj/structure/table,
-/obj/item/paper_bin,
 /turf/open/floor/iron/white,
 /area/station/common/cryopods/floor2)
 "sjs" = (
@@ -78749,7 +78745,7 @@
 "tEq" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 4
+	dir = 6
 	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods/floor1)
@@ -80285,9 +80281,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/effect/turf_decal/trimline/green/filled/line{
-	dir = 10
-	},
+/obj/effect/turf_decal/trimline/green/filled/end,
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/white,
 /area/station/common/cryopods/floor1)
@@ -82715,6 +82709,7 @@
 	},
 /obj/machinery/light/cold/no_nightlight/directional/west,
 /obj/machinery/camera/autoname/directional/north,
+/obj/structure/sign/poster/timeclock_psa/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/common/cryopods/floor2)
 "uGt" = (
