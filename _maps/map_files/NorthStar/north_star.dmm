@@ -45656,7 +45656,7 @@
 	dir = 8
 	},
 /obj/effect/landmark/start/cargo_technician,
-/turf/open/floor/iron/large,
+/turf/open/floor/iron/textured_large,
 /area/station/cargo/office)
 "lwc" = (
 /turf/closed/wall,
@@ -45675,7 +45675,7 @@
 /area/station/science/lobby)
 "lwl" = (
 /obj/structure/cable,
-/turf/open/floor/iron/large,
+/turf/open/floor/iron/textured_large,
 /area/station/cargo/office)
 "lwo" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -45794,7 +45794,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/large,
+/turf/open/floor/iron/textured_large,
 /area/station/cargo/office)
 "lxZ" = (
 /obj/effect/turf_decal/trimline/brown/warning{
@@ -45820,7 +45820,7 @@
 /area/station/service/library/lounge)
 "lyw" = (
 /obj/machinery/firealarm/directional/east,
-/turf/open/floor/iron/large,
+/turf/open/floor/iron/textured_large,
 /area/station/cargo/office)
 "lyB" = (
 /turf/open/floor/plating/elevatorshaft,
@@ -56122,7 +56122,7 @@
 /turf/open/floor/plating,
 /area/station/hallway/floor3/fore)
 "nUM" = (
-/turf/open/floor/iron/large,
+/turf/open/floor/iron/textured_large,
 /area/station/cargo/office)
 "nUO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
