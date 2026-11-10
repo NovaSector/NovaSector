@@ -4,7 +4,7 @@
  * When a player spawns into a department, this system revokes emergency access from that department.
  * Command and Security are excluded. (for obvious reasons).
  */
-/datum/departmental_emergency_access
+/datum/roundstart_emergency_access
 	/// Flags for each department's access requirements, used to identify which airlocks belong to which departments.
 	var/list/department_accesses = list(
 		/datum/job_department/engineering = REGION_ACCESS_ENGINEERING,
@@ -14,7 +14,7 @@
 		/datum/job_department/service = REGION_ACCESS_GENERAL,
 	)
 	/// Shared or command-related accesses are excluded so they do not misidentify a door as departmental. (We don't want to EA Head's office).
-	var/list/ignored_department_accesses
+	var/list/ignored_department_accesses = list()
 	/// Airlock -> departments whose access flags appear on that airlock. A door can belong to multiple departments.
 	var/list/door_departments = list()
 	/// Department typepath -> airlocks associated with that department.
@@ -28,22 +28,36 @@
 	/// Prevents multiple job-spawn signals from scheduling duplicate round-start scans.
 	var/roundstart_initialization_scheduled = FALSE
 
-/// Which accesses should be ignored when determining which airlocks belong to which departments.
-/// This prevents command and shared accesses from misidentifying a door as departmental.
-/datum/departmental_emergency_access/New()
+/datum/roundstart_emergency_access/New()
 	. = ..()
-	ignored_department_accesses = COMMAND_ACCESS + PRIVATE_COMMAND_ACCESS + CAPTAIN_ACCESS + list(
-		ACCESS_BUDGET,
+
+	ignored_department_accesses = get_ignored_access()
+
+	register_job_signal()
+
+/// Returns a list of access types that should be ignored
+/datum/roundstart_emergency_access/proc/get_ignored_access()
+	. = list(
+		// These places hold wild mobs
+		ACCESS_GENETICS,
+		ACCESS_VIROLOGY,
+
+		// Other areas
 		ACCESS_MAINT_TUNNELS,
 		ACCESS_EXTERNAL_AIRLOCKS,
 	)
 
+	. += REGION_ACCESS_SECURITY
+	. += COMMAND_ACCESS
+	. += PRIVATE_COMMAND_ACCESS
+	. += CAPTAIN_ACCESS
+
 /// Registers a signal to detect when a player spawns into a job, so the system can revoke emergency access for that department.
-/datum/departmental_emergency_access/proc/register_job_signal()
+/datum/roundstart_emergency_access/proc/register_job_signal()
 	RegisterSignal(SSdcs, COMSIG_GLOB_JOB_AFTER_SPAWN, PROC_REF(on_job_spawn))
 
 /// Records each department as staffed when a player spawns into one of its jobs.
-/datum/departmental_emergency_access/proc/on_job_spawn(datum/source, datum/job/job, mob/living/spawned, client/player_client)
+/datum/roundstart_emergency_access/proc/on_job_spawn(datum/source, datum/job/job, mob/living/spawned, client/player_client)
 	SIGNAL_HANDLER
 	if(!player_client || !job)
 		return
@@ -65,11 +79,11 @@
 	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(schedule_access_check)))
 
 /// Waits five minutes from shift start before evaluating department staffing.
-/datum/departmental_emergency_access/proc/schedule_access_check()
+/datum/roundstart_emergency_access/proc/schedule_access_check()
 	addtimer(CALLBACK(src, PROC_REF(initialize_access)), 5 MINUTES)
 
 /// Scans all station airlocks and enables emergency access for any unstaffed departments, then announces which departments are unstaffed.
-/datum/departmental_emergency_access/proc/initialize_access()
+/datum/roundstart_emergency_access/proc/initialize_access()
 	if(initialized)
 		return
 	initialized = TRUE
@@ -145,14 +159,14 @@
 		airlock.update_appearance()
 
 /// Returns TRUE if any department associated with this door is unstaffed, so it needs emergency access initially.
-/datum/departmental_emergency_access/proc/has_unstaffed_department(obj/machinery/door/airlock/airlock)
+/datum/roundstart_emergency_access/proc/has_unstaffed_department(obj/machinery/door/airlock/airlock)
 	for(var/department_type in door_departments[airlock])
 		if(!(department_type in staffed_departments))
 			return TRUE
 	return FALSE
 
 /// Rechecks this department's doors after a spawn and revokes system-granted access for that department.
-/datum/departmental_emergency_access/proc/update_department_doors(department_type)
+/datum/roundstart_emergency_access/proc/update_department_doors(department_type)
 	var/revoked_doors = 0
 	for(var/obj/machinery/door/airlock/airlock as anything in department_doors[department_type])
 		if(QDELETED(airlock) || !managed_doors[airlock])
@@ -173,9 +187,12 @@
 		sound_override = ANNOUNCER_DEPARTMENTAL, // Use the standard departmental announcement sound.
 	)
 
-GLOBAL_DATUM_INIT(departmental_emergency_access, /datum/departmental_emergency_access, new)
+/// Controller for roundstart department emergency access
+GLOBAL_DATUM(roundstart_emergency_access, /datum/roundstart_emergency_access)
 
 /// Register after the jobs subsystem's parent initialization, when SSdcs is available.
 /datum/controller/subsystem/job/Initialize()
 	. = ..()
-	GLOB.departmental_emergency_access.register_job_signal()
+	if(!CONFIG_GET(flag/enable_roundstart_emergency_access))
+		return
+	GLOB.roundstart_emergency_access = new
