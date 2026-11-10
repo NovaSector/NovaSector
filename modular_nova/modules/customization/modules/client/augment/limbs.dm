@@ -226,6 +226,9 @@
 	slot = AUGMENT_SLOT_L_LEG
 	slot_flag = LEG_LEFT
 	body_zone = BODY_ZONE_L_LEG
+	species_blacklist = list(
+		SPECIES_CERULEAN = 1,
+	)
 
 /datum/augment_item/limb/l_leg/prosthetic
 	name = "Prosthetic left leg"
@@ -256,7 +259,10 @@
 /datum/augment_item/limb/l_leg/plasmaman
 	name = "Plasmaman left leg"
 	path = /obj/item/bodypart/leg/left/plasmaman
-	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
+	species_blacklist = list(
+		SPECIES_HOLOSYNTH = 1,
+		SPECIES_CERULEAN = 1,
+	)
 
 /datum/augment_item/limb/l_leg/peg
 	name = "Left peg leg"
@@ -276,6 +282,9 @@
 	slot = AUGMENT_SLOT_R_LEG
 	slot_flag = LEG_RIGHT
 	body_zone = BODY_ZONE_R_LEG
+	species_blacklist = list(
+		SPECIES_CERULEAN = 1,
+	)
 
 /datum/augment_item/limb/r_leg/prosthetic
 	name = "Prosthetic right leg"
@@ -305,7 +314,10 @@
 /datum/augment_item/limb/r_leg/plasmaman
 	name = "Plasmaman right leg"
 	path = /obj/item/bodypart/leg/right/plasmaman
-	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
+	species_blacklist = list(
+		SPECIES_HOLOSYNTH = 1,
+		SPECIES_CERULEAN = 1,
+	)
 
 /datum/augment_item/limb/r_leg/peg
 	name = "Right peg leg"

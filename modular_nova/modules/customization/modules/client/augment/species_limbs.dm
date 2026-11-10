@@ -42,7 +42,10 @@
 	abstract_type = /datum/augment_item/limb/l_leg/species
 	cost = 0
 	uses_greyscale = TRUE
-	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
+	species_blacklist = list(
+		SPECIES_HOLOSYNTH = 1,
+		SPECIES_CERULEAN = 1,
+	)
 
 /datum/augment_item/limb/l_leg/species/mutant
 	name = "Anthromorph left leg"
@@ -53,7 +56,10 @@
 	abstract_type = /datum/augment_item/limb/r_leg/species
 	cost = 0
 	uses_greyscale = TRUE
-	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
+	species_blacklist = list(
+		SPECIES_HOLOSYNTH = 1,
+		SPECIES_CERULEAN = 1,
+	)
 
 /datum/augment_item/limb/r_leg/species/mutant
 	name = "Anthromorph right leg"
@@ -190,13 +196,19 @@
 	name = "Fly left leg"
 	path = /obj/item/bodypart/leg/left/fly
 	cost = 0
-	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
+	species_blacklist = list(
+		SPECIES_HOLOSYNTH = 1,
+		SPECIES_CERULEAN = 1,
+	)
 
 /datum/augment_item/limb/r_leg/fly
 	name = "Fly right leg"
 	path = /obj/item/bodypart/leg/right/fly
 	cost = 0
-	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
+	species_blacklist = list(
+		SPECIES_HOLOSYNTH = 1,
+		SPECIES_CERULEAN = 1,
+	)
 
 //Golems
 /datum/augment_item/limb/head/golem
@@ -227,13 +239,19 @@
 	name = "Golem left leg"
 	path = /obj/item/bodypart/leg/left/golem
 	cost = 0
-	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
+	species_blacklist = list(
+		SPECIES_HOLOSYNTH = 1,
+		SPECIES_CERULEAN = 1,
+	)
 
 /datum/augment_item/limb/r_leg/golem
 	name = "Golem right leg"
 	path = /obj/item/bodypart/leg/right/golem
 	cost = 0
-	species_blacklist = list(SPECIES_HOLOSYNTH = 1)
+	species_blacklist = list(
+		SPECIES_HOLOSYNTH = 1,
+		SPECIES_CERULEAN = 1,
+	)
 
 //Slimes
 /datum/augment_item/limb/head/species/mutant/slime
