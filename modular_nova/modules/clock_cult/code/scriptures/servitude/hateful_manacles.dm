@@ -31,7 +31,8 @@
 	if(target_carbon.handcuffed)
 		return FALSE
 
-	target_carbon.handcuffed = new /obj/item/restraints/handcuffs/clockwork(target_carbon)
+	if(!target_carbon.equip_to_slot_or_del(new /obj/item/restraints/handcuffs/clockwork, ITEM_SLOT_HANDCUFFED, indirect_action = TRUE))
+		return FALSE
 	log_combat(invoker, target_carbon, "handcuffed")
 
 	return TRUE
