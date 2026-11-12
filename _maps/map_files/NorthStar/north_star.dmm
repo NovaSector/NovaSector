@@ -17927,7 +17927,10 @@
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/service/kitchen/coldroom)
 "exC" = (
-/turf/open/floor/iron/white/smooth_corner{
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/turf/open/floor/iron/white/textured_corner{
 	dir = 1
 	},
 /area/station/cargo/miningfoyer)
@@ -40013,7 +40016,13 @@
 /area/station/command/heads_quarters/captain)
 "kej" = (
 /obj/item/radio/intercom/directional/west,
-/turf/open/floor/iron/white/smooth_edge{
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/turf/open/floor/iron/white/textured_edge{
 	dir = 4
 	},
 /area/station/cargo/miningfoyer)
@@ -45067,7 +45076,9 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/turf/open/floor/iron/white/smooth_edge,
+/turf/open/floor/iron/white/textured_edge{
+	dir = 2
+	},
 /area/station/cargo/miningfoyer)
 "loA" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
@@ -58935,7 +58946,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/iron/white/smooth_edge{
+/turf/open/floor/iron/white/textured_edge{
 	dir = 8
 	},
 /area/station/cargo/miningfoyer)
@@ -59119,7 +59130,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/firealarm/directional/north,
-/turf/open/floor/iron/white/smooth_edge{
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/brown,
+/turf/open/floor/iron/white/textured_edge{
 	dir = 1
 	},
 /area/station/cargo/miningfoyer)
@@ -62822,7 +62837,13 @@
 	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south,
-/turf/open/floor/iron/white/smooth_edge{
+/obj/effect/turf_decal/tile/brown{
+	dir = 2
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/turf/open/floor/iron/white/textured_edge{
 	dir = 1
 	},
 /area/station/cargo/miningfoyer)
@@ -63042,7 +63063,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/iron/white/smooth_edge{
+/obj/effect/turf_decal/tile/brown{
+	dir = 2
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/turf/open/floor/iron/white/textured_edge{
 	dir = 1
 	},
 /area/station/cargo/miningfoyer)
@@ -66783,7 +66810,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/iron/white/smooth_corner{
+/turf/open/floor/iron/white/textured_corner{
 	dir = 4
 	},
 /area/station/cargo/miningfoyer)
@@ -85007,7 +85034,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
-/turf/open/floor/iron/white/smooth_corner{
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/turf/open/floor/iron/white/textured_corner{
 	dir = 8
 	},
 /area/station/cargo/miningfoyer)
@@ -85254,7 +85284,13 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/turf/open/floor/iron/white/smooth_edge{
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/turf/open/floor/iron/white/textured_edge{
 	dir = 4
 	},
 /area/station/cargo/miningfoyer)
