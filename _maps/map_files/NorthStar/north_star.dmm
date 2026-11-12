@@ -33143,7 +33143,7 @@
 /obj/effect/decal/cleanable/glass,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plating,
-/area/station/cargo/sorting)
+/area/station/maintenance/floor1/starboard/fore)
 "itP" = (
 /obj/machinery/atmospherics/pipe/smart/simple/purple/hidden/layer1,
 /turf/open/floor/iron/dark,
@@ -36935,7 +36935,7 @@
 	dir = 4
 	},
 /turf/open/floor/catwalk_floor,
-/area/station/cargo/sorting)
+/area/station/maintenance/floor1/starboard/fore)
 "jry" = (
 /obj/effect/turf_decal/trimline/green/arrow_ccw{
 	dir = 1
@@ -56464,7 +56464,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/cargo/sorting)
+/area/station/maintenance/floor1/starboard/fore)
 "nYo" = (
 /obj/structure/table,
 /obj/machinery/light/small/directional/south,
@@ -59248,7 +59248,7 @@
 	dir = 4
 	},
 /turf/open/floor/catwalk_floor,
-/area/station/cargo/sorting)
+/area/station/cargo/storage)
 "oIS" = (
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron,
@@ -61142,7 +61142,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/mineral/plastitanium/pod/light,
-/area/station/cargo/sorting)
+/area/station/maintenance/floor1/starboard/fore)
 "pjM" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
@@ -64608,7 +64608,7 @@
 /obj/item/stack/package_wrap,
 /obj/item/hand_labeler,
 /turf/open/floor/mineral/plastitanium/pod/light,
-/area/station/cargo/sorting)
+/area/station/maintenance/floor1/starboard/fore)
 "qaS" = (
 /obj/effect/turf_decal/trimline/yellow/warning,
 /turf/open/floor/iron/dark/side,
@@ -81762,7 +81762,7 @@
 	dir = 8
 	},
 /turf/open/floor/plating,
-/area/station/cargo/sorting)
+/area/station/maintenance/floor1/starboard/fore)
 "utw" = (
 /obj/item/kirbyplants/random,
 /obj/machinery/light/small/directional/south,
@@ -87578,7 +87578,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/station/cargo/sorting)
+/area/station/maintenance/floor1/starboard/fore)
 "vPg" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark,
@@ -119286,8 +119286,8 @@ uNF
 uaJ
 oic
 jrx
-ncc
-ncc
+oic
+oic
 rze
 rze
 rhx
@@ -119543,7 +119543,7 @@ uaJ
 rdy
 oic
 jrx
-ncc
+oic
 xPB
 ncX
 xuX
@@ -119800,7 +119800,7 @@ bCW
 oic
 oic
 jrx
-ncc
+oic
 pbF
 iir
 pxk
@@ -120057,7 +120057,7 @@ oic
 oic
 vOW
 jrx
-ncc
+oic
 mdJ
 iir
 mJH
@@ -120311,10 +120311,10 @@ bUC
 yiZ
 unC
 wMQ
-ncc
+oic
 nYh
 jrx
-ncc
+oic
 xRU
 iir
 nqJ
@@ -120568,10 +120568,10 @@ bUC
 mwZ
 rCK
 lUY
-ncc
+oic
 itC
 jrx
-ncc
+oic
 rze
 xBe
 lvJ
@@ -120825,7 +120825,7 @@ imO
 vfG
 vNZ
 eYY
-ncc
+oic
 nYh
 jrx
 qaM
@@ -121082,7 +121082,7 @@ bUC
 rYA
 vXV
 mMH
-ncc
+oic
 utu
 jrx
 pjD
@@ -121339,10 +121339,10 @@ iCn
 ooP
 jUP
 jUP
-ncc
-ncc
+cUL
+cUL
 oIN
-ncc
+cUL
 rPi
 rPi
 nUM
