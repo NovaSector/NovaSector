@@ -44,7 +44,7 @@
 				/obj/item/food/peanuts/random = 6,
 				/obj/item/food/cnds/random = 6,
 				/obj/item/food/pistachios = 6,
-				/obj/item/food/cornchips/random = 6,
+				/obj/item/food/chips/corn/random = 6,
 				/obj/item/food/sosjerky = 6,
 				/obj/item/reagent_containers/cup/soda_cans/cola = 6,
 				/obj/item/reagent_containers/cup/soda_cans/lemon_lime = 6,

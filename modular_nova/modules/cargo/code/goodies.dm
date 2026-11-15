@@ -85,7 +85,7 @@
 	cost = CARGO_CRATE_VALUE * 4 //800 credits
 	contains = list(/obj/item/scratching_stone)
 	order_flags = ORDER_CONTRABAND
-	
+
 /datum/supply_pack/goody/ration
 	name = "Emergency Ration Single-Pack"
 	desc = "A single emergency ration, designed to be nutritious, filling, and to be edible across a wide range of crew species. \
@@ -336,14 +336,6 @@
 	cost = PAYCHECK_CREW * 6
 	contains = list(
 		/obj/item/storage/pouch/medical/firstaid/stabilizer,
-	)
-
-/datum/supply_pack/goody/wetmaker
-	name = "Stardress hydro-vaporizer"
-	desc = "Interesting Azulean technology, allowing the wearer to stay relatively moisturized at all times."
-	cost = PAYCHECK_CREW
-	contains = list(
-		/obj/item/clothing/accessory/vaporizer,
 	)
 
 /*

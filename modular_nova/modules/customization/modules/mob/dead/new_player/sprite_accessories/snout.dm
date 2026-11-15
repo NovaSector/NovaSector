@@ -37,6 +37,17 @@
 
 	return ..()
 
+// TG Cerulean fish snout, which is TG's own Round + Light sprite
+/datum/sprite_accessory/snouts/fish
+	name = "Fish"
+	icon = 'icons/mob/human/species/lizard/lizard_misc.dmi'
+	icon_state = "roundlight"
+	recommended_species = list(
+		SPECIES_AKULA = 1,
+		SPECIES_AQUATIC = 1,
+		SPECIES_CERULEAN = 1,
+	)
+
 /obj/item/organ/snout/top
 	bodypart_overlay = /datum/bodypart_overlay/mutant/snout/top
 

@@ -116,7 +116,6 @@
 	name = "guard utility uniform"
 	desc = "A utility uniform worn by trained guards."
 	icon_state = "util_sec"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_BIG_LEGS_MASK
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alt_covers_chest = TRUE
 
@@ -147,7 +146,7 @@
 	greyscale_colors = "#A52F29"
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_CERULEAN_MASK_LEGS
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS|FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/under/rank/security/nova/shorts/blue
@@ -166,8 +165,8 @@
 	greyscale_colors = "#A52F29"
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	bodyshapes_with_variations = NONE
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_CERULEAN_MASK_LEGS
+	bodyshapes_with_variations = BODYSHAPE_CERULEAN
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
 
 /obj/item/clothing/under/rank/security/nova/trousers/blue
@@ -184,9 +183,9 @@
 	greyscale_config_worn = /datum/greyscale_config/modskin/worn
 	greyscale_config_worn_digi = /datum/greyscale_config/modskin/worn/digi
 	greyscale_colors = "#39393F#A52F29"
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION | CLOTHING_CERULEAN_MASK_LEGS
 	flags_1 = IS_PLAYER_COLORABLE_1
-	bodyshapes_with_variations = NONE
+	bodyshapes_with_variations = BODYSHAPE_CERULEAN
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 
 /obj/item/clothing/under/rank/security/nova/modskin/blue

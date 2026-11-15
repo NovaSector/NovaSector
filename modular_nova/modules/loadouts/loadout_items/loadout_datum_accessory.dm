@@ -29,10 +29,6 @@
 	name = "Maid Apron - Tactical"
 	item_path = /obj/item/clothing/accessory/maidcorset/syndicate/loadout_corset
 
-/datum/loadout_item/accessory/wetmaker
-	name = "Stardress Hydro-Vaporizer"
-	item_path = /obj/item/clothing/accessory/vaporizer
-
 /*
 *	ARMBANDS
 */

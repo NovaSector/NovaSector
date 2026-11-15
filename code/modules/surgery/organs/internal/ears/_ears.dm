@@ -168,7 +168,7 @@
 	offset_location = UPPER_BODY
 
 	/// Layer upon which we add the inner ears overlay
-	var/inner_layer = EXTERNAL_FRONT
+	var/inner_layer = list(EXTERNAL_FRONT)
 
 /* // NOVA EDIT REMOVAL START - No.
 /datum/bodypart_overlay/mutant/cat_ears/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner, mob/living/carbon/owner)
@@ -180,7 +180,7 @@
 	base_ears.color = (dye_color || draw_color)
 
 	// Only add inner ears on the inner layer
-	if(layer_index != inner_layer)
+	if(!(layer_index in inner_layer))
 		return base_ears
 
 	// Construct image of inner ears, apply to base ears as an overlay
@@ -242,7 +242,7 @@
 	var/inner_color = "#F0004A"
 
 /datum/bodypart_overlay/mutant/cat_ears/cybernetic/get_image(obj/item/bodypart/limb, layer_index, layer_real)
-	if (layer_index != inner_layer)
+	if(!(layer_index in inner_layer))
 		return ..()
 	var/mutable_appearance/ear_holder = ..()
 	var/mutable_appearance/inner = ear_holder.overlays[2]
@@ -250,7 +250,7 @@
 	return ear_holder
 
 /datum/bodypart_overlay/mutant/cat_ears/cybernetic/get_overlay(obj/item/bodypart/limb, layer_index, layer_real)
-	if (layer_index != inner_layer)
+	if(!(layer_index in inner_layer))
 		return ..()
 	var/list/all_images = ..()
 	//var/mutable_appearance/ear_holder = all_images[1] // NOVA EDIT REMOVAL - Our ear overlays are done differently, see /datum/bodypart_overlay/mutant/get_images()

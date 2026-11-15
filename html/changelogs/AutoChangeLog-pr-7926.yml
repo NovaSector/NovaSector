@@ -1,0 +1,5 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - config: "The roundstart emergency access system is gated behind a configuration flag that is disabled by default."
+  - bugfix: "Virology, Genetics, and all departmental guard posts are now ignored by the roundstart emergency access system."

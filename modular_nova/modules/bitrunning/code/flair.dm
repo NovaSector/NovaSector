@@ -59,11 +59,11 @@
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "boritos"
 	loot = list(
-		/obj/item/food/cornchips,
-		/obj/item/food/cornchips/blue,
-		/obj/item/food/cornchips/green,
-		/obj/item/food/cornchips/red,
-		/obj/item/food/cornchips/purple,
+		/obj/item/food/chips/corn,
+		/obj/item/food/chips/corn/blue,
+		/obj/item/food/chips/corn/green,
+		/obj/item/food/chips/corn/red,
+		/obj/item/food/chips/corn/purple,
 	)
 
 /obj/effect/spawner/random/food_or_drink/donkpockets/bitrunning

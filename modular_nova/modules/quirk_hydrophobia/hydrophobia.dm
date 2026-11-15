@@ -17,13 +17,13 @@
 
 /datum/quirk/hydrophobia/add(client/client_source)
 	// If they're a slime, let's remove their ability
-	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia = locate() in quirk_holder.actions
+	var/datum/action/cooldown/slime_hydrophobia/slime_hydrophobia = locate() in quirk_holder.actions
 	if(slime_hydrophobia)
 		qdel(slime_hydrophobia)
 
 /datum/quirk/hydrophobia/remove()
 	// If they're a slime, let's grant them the ability to repel water
-	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia = locate() in quirk_holder.actions
+	var/datum/action/cooldown/slime_hydrophobia/slime_hydrophobia = locate() in quirk_holder.actions
 	if(isnull(slime_hydrophobia) && isroundstartslime(quirk_holder) && !HAS_TRAIT(quirk_holder, TRAIT_WATER_BREATHING))
 		slime_hydrophobia = new(src)
 		slime_hydrophobia.Grant(quirk_holder)

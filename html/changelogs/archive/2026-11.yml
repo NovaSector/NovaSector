@@ -85,3 +85,105 @@
       merged into groups
   sqnztb:
   - qol: away maps should no longer have their decals colored by holiday effects.
+2026-11-07:
+  CabinetOnFire and Yobrocharlie:
+  - rscadd: You can now use a claw hammer to detonate 40mm and naval cannon shells.
+      You can also do this to someone holding one by targeting their mouth on non-combat
+      mode.
+  Fghj240:
+  - rscadd: Added burn and blunt wounds for robotic bodyparts
+  - rscadd: Added a new reagent, a coolant for robotic burns.
+  - map: Added chilled coolant spray (for robotic burn wounds) to robotics
+  - code_imp: removed magic strings from bone repair surgery required states text
+  Hardly, Absolucy, Siro, Nerev4r:
+  - spellcheck: Adds the wiki's slime lore into their in-game lore description
+  - balance: As soon as slimes are wet they'll start losing slime jelly and regeneration
+      rather than having to be wet enough to trigger them
+  - balance: Splashing water into slimes directly damages their jelly (blood) now
+  - qol: Turns the wet/dry slime debuffs into a status effect, making it clearer on
+      whenever you (the slime) are losing jelly or not
+  - code_imp: Slime Action backgrounds were changed to be consistent
+  - balance: Wet/Dry slimes will lose slime jelly a bit faster, from 2 units to 3
+      units per tick
+  - code_imp: Healing particle uses the slime's mutant color
+  - code_imp: New say verbs for slimes
+  - bugfix: Getting (shuttle)gibbed or chasmed no longer means round removal for slimes,
+      your core should always drop on death (except cremation or admin abuse)
+  - bugfix: Slimes can now get fished out of the chasm, easier with a rescue hook
+  - balance: Slime cores will remain inside legions and vileworms until the mob is
+      dealt with
+  - balance: Slime cores now keeps the items inside them on death rather than dropping
+      them all
+  - qol: Slimes have their core's GPS turned on by default
+  - rscadd: Dead slimes now have the ability to murmur for help
+  - qol: Added screentips for the slime core
+  - code_imp: If you're evil, clicking on a slime core now lets you take all the items.
+      Right clicking on a slime core lets you take their GPS off
+  - balance: Halves the time it takes to steal the core's goodies or turn the GPS
+      off from 30 seconds to 15 seconds
+  - qol: Revival policy shows up for slimes on revival
+  - spellcheck: New descriptions for slime cores that should be clearer than before
+  - bugfix: Slime Changelings will die normally instead of turning into a slime core,
+      which would previously round remove them
+  - code_imp: Hydrophobia slime ability dries the user
+  - refactor: Slime Cleaning code is now cleaner, and with that, they can also clean
+      things by crawling onto them!
+  - balance: Slime hydrophobia halts passive regeneration
+  - balance: Slime hydrophobia prevents you from regenerating your limbs
+  - bugfix: Slimes no longer turn into a core in bitrunning/deathmatch, preventing
+      unintended behavior
+  Melbert:
+  - code_imp: Cleaned up chip bag pop code - report anything weird with that extremely
+      niche thing I guess
+  - bugfix: An EMP hitting a camera no longer permanently detaches it from all networks
+      (just temporarily)
+  - bugfix: AIs using "Jump to Network" no longer permanently detaches cameras from
+      some networks
+  - qol: Updated "Jump to Network" slightly, showing more networks that may be useful
+      to you.
+  - qol: Vendors accept returned items over their product cap again
+  - bugfix: Night lighting actually goes away when it ends
+  Neocloudy:
+  - refactor: '[NOVA] Ceruleans are now playable. The new fish species recently added
+      upstream. They''re very cool. You should play a Cerulean. You should report
+      issues with the species (to the Nova repository in particular, unless you''re
+      extremely confident it''s not a Nova specific issue).'
+  - code_imp: Updated a lot of Nova-specific undersuits so they actually crop for
+      Cerulean tails
+  - refactor: Deleted the Nova-specific hydro-vaporizer, replacing it with the TG
+      hydro-vaporizer (the one that uses charge from a cell). This will probably require
+      you to re-add it to any loadouts that use it. It also does not attach to undersuits.
+      Put it in your pocket or on your belt instead.
+  - rscadd: Akula-like species (Akula, Akula (Generic), Ceruleans) now understand
+      their own language by default, plus Carptongue. This should be save-compatible,
+      your Akulae hopefully won't get their languages wiped.
+  PapaMichael:
+  - balance: Blood worm hatchlings can see mobs while ventcrawling
+  Richard Blonski:
+  - rscadd: Unstaffed departments 5 minutes after shift start will receive emergency
+      access until those departments get staffed.
+  SmArtKar:
+  - bugfix: Fixed a harddel in goliath tentacle code
+  cacogen:
+  - qol: Pride pins are now named after their skin instead of just generic "pride
+      pin"
+  - qol: Adds hotkeys to the portable air scrubber and portable air pump. These allow
+      you to toggle them on/off, remove their holding tanks and in the case of the
+      air pump maximise its output pressure.
+  desertmote:
+  - rscadd: Changes the rat infusion into a mouse infusion, updating its appearance
+      flavor and adding two visual organs
+  - image: Adds mouse ears and a mouse tail sprite, the latter can wag
+  - code_imp: Inner-ear rendering for cat ears uses a list for layer rendering instead
+      of one specific layer
+  moocowswag:
+  - qol: Ventcrawling critters will now be able to tell if the vent they are entering
+      is uncomfortable temperature.
+  san7890:
+  - balance: Telekinetic users can no longer open up a UI on a given object, allow
+      it to exit their site, and be able to edit it unceasingly.
+  thegrb93:
+  - balance: Tirizene prevents stamina regen
+  vinylspiders:
+  - bugfix: switched off lights no longer count as light for shadow walking and other
+      darkness checks, and lights that move around count where they actually are

@@ -236,3 +236,8 @@ SAVEFILE_UPLOAD_LIMIT 2000
 
 ## Uncomment to force techweb base tech nodes to start unlocked instead of using the vanilla tg settings
 #ENABLE_NOVA_TECHWEB_STARTING_NODES
+
+## Uncomment to enable the roundstart emergency access system.
+## After 5 minutes of any players being in the game, this system will check
+## what departments are empty and add emergency access to all their airlocks.
+#ENABLE_ROUNDSTART_EMERGENCY_ACCESS

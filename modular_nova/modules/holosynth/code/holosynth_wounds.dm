@@ -34,17 +34,17 @@ GLOBAL_LIST_INIT(holosynth_wound_flavor, list(
 		"convulses with blinding holographic noise, screaming the whine of a dying emitter",
 		"Collapsing Projection",
 	),
-	/datum/wound/burn/robotic/overheat/moderate = list(
+	/datum/wound/burn/robotic/moderate = list(
 		"Projection Instability",
 		"flickers unsteadily, the projection shimmering with red noise",
 		"Flickering Glow",
 	),
-	/datum/wound/burn/robotic/overheat/severe = list(
+	/datum/wound/burn/robotic/severe = list(
 		"Emitter Burnout",
 		"wavers violently, the projection fraying at the edges",
 		"Burning Projection",
 	),
-	/datum/wound/burn/robotic/overheat/critical = list(
+	/datum/wound/burn/robotic/critical = list(
 		"Projection Cascade",
 		"burns itself into solid static, pixels melting off in streams of light",
 		"Melting Light",
@@ -64,12 +64,12 @@ GLOBAL_LIST_INIT(holosynth_wound_flavor, list(
 		"distorts, vertices drifting out of alignment",
 		"Wobbly Pixels",
 	),
-	/datum/wound/blunt/robotic/secures_internals/severe = list(
+	/datum/wound/blunt/robotic/severe = list(
 		"Fractured Projection",
 		"fragments violently, pixels spraying in all directions",
 		"Fractured Pixels",
 	),
-	/datum/wound/blunt/robotic/secures_internals/critical = list(
+	/datum/wound/blunt/robotic/critical = list(
 		"Collapsed Mesh",
 		"implodes, geometry shattering into a blinding burst of light",
 		"Shattered Geometry",

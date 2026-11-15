@@ -1,0 +1,4 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - bugfix: "[NOVA] Ceruleans can no longer take leg augments to have invisible but still usable legs."
