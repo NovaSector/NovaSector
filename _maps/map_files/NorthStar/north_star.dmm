@@ -17781,12 +17781,6 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor2/fore)
 "ewm" = (
-/obj/effect/turf_decal/siding/wood/end{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/glass/reinforced,
 /area/station/service/library)
@@ -29586,10 +29580,6 @@
 /area/station/ai/satellite)
 "hzE" = (
 /obj/structure/chair/comfy/brown,
-/obj/effect/turf_decal/siding/wood/end{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood,
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/glass/reinforced,
 /area/station/service/library)
@@ -33971,10 +33961,6 @@
 /area/station/maintenance/floor3/port)
 "iFw" = (
 /obj/item/flashlight/lamp/green,
-/obj/effect/turf_decal/siding/wood/end{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood,
 /obj/structure/table/wood,
 /turf/open/floor/glass/reinforced,
 /area/station/service/library)
@@ -59018,12 +59004,6 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor2/fore)
 "oGM" = (
-/obj/effect/turf_decal/siding/wood/end{
-	dir = 8
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
 /turf/open/floor/glass/reinforced,
 /area/station/service/library)
 "oGZ" = (
@@ -68939,15 +68919,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/rd)
-"rdW" = (
-/obj/effect/turf_decal/siding/wood{
-	dir = 5
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 10
-	},
-/turf/open/floor/glass/reinforced,
-/area/station/service/library)
 "rec" = (
 /obj/structure/cable,
 /turf/open/floor/iron/dark/side{
@@ -96020,10 +95991,6 @@
 /obj/structure/chair/comfy/brown{
 	dir = 1
 	},
-/obj/effect/turf_decal/siding/wood/end{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood,
 /obj/structure/sign/poster/official/random/directional/south,
 /turf/open/floor/glass/reinforced,
 /area/station/service/library)
@@ -270562,7 +270529,7 @@ fpU
 fpU
 fpU
 kmt
-rdW
+oGM
 hzE
 iFw
 xSK
