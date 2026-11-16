@@ -187,3 +187,69 @@
   vinylspiders:
   - bugfix: switched off lights no longer count as light for shadow walking and other
       darkness checks, and lights that move around count where they actually are
+2026-11-16:
+  Fghj240:
+  - bugfix: fixed mutated regeneration threshold text
+  - spellcheck: mutated regeneration fluff text changes to "quickly" instead of "slowly"
+      if you stack it high enough
+  Maia-J:
+  - bugfix: Limb growers no longer prevent printing when they have been upgraded and
+      have enough reagents if they wouldn't have had enough reagents were they not
+      upgraded.
+  Melbert:
+  - code_imp: Vents should perform better, note any issues with vents (especially
+      when overclocked)
+  - code_imp: Cleaned up code for mobs being burned while tied to heat exhange pipes.
+      Report anything weird if it doesn't work the next time you get the opportunity
+      to try it in like 8 months
+  - code_imp: Cleaned up code for updating your hand UI slots, report anything weird
+      with that
+  - code_imp: Cleaned up code for updating your sprite with your held items, report
+      anything weird with that
+  - code_imp: Cleaned up code pertaining to closing storage items you can't reach,
+      report if you are able to reach things you probably shouldn't be able to
+  - balance: '"Throwing Arm" quirk cost reduced (7 -> 5)'
+  - balance: Reduced chance of obtaining several quirk's related mail items moderately,
+      with the exception of the Gamer quirk (which is now twice as likely, intead)
+  - rscadd: Added quirk "Eccentric Correspondent", which adds more randomness to your
+      mail item pool
+  - rscadd: Added quirk "Well Connected", which offers discounts on cargo or black
+      market orders.
+  - rscadd: Added quirk "Shock Reflex", which reduces the chance of being shocked
+      when failing hacks or the like.
+  - rscdel: Removed organ transport box from mail pool of Prosthetic Organ and Tin
+      Man quirks
+  - balance: Electrodisruptive emitter beams heal the SM considerably more per hit,
+      but begin to experience diminishing returns after a number of hits, resetting
+      after not being hit with a healing emitter for some time.
+  Neocloudy:
+  - config: The roundstart emergency access system is gated behind a configuration
+      flag that is disabled by default.
+  - bugfix: Virology, Genetics, and all departmental guard posts are now ignored by
+      the roundstart emergency access system.
+  - bugfix: '[NOVA] Ceruleans can no longer take leg augments to have invisible but
+      still usable legs.'
+  PapaMichael:
+  - bugfix: MULEbots' autoreturn toggle now works
+  - bugfix: EMP protection works more robustly
+  - bugfix: Changeling transformations and experimental cloners now properly copy
+      the TTS pitch of the target
+  The-Tyrant:
+  - bugfix: Organic limbs can no longer get T1 robotic blunt wounds (loosened screws)
+  Y0SH1M4S73R:
+  - admin: datum instantiation from lua scripts can no longer be used to bypass admin
+      proc call protections
+  headband0536:
+  - rscadd: Throwable sledgehammer
+  - rscadd: Telescreens and status displays are now breakable
+  - image: Sledgehammer sprites by Simpleton
+  san7890:
+  - bugfix: Telekinetic users should be able to use UIs even when inside machinery,
+      as long as their client is expected to be able to have it in their sight (in
+      one way or another).
+  sohpeach:
+  - bugfix: ntos file manager can no longer be used to print carp plushies (and similar
+      things)
+  thegrb93:
+  - bugfix: Missing large painting frame craft recipe added
+  - bugfix: ooc chat button missing from ooc tab
