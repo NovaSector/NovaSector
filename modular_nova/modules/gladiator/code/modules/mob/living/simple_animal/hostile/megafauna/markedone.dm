@@ -368,7 +368,7 @@
 		var/obj/effect/temp_visual/small_smoke/smonk = new /obj/effect/temp_visual/small_smoke(targeted)
 		QDEL_IN(smonk, 0.5 SECONDS)
 		for(var/mob/living/slapped in targeted)
-			if(!FAST_FACTION_CHECK(faction, slapped.faction, null, null, FALSE) && !(slapped in hit_things))
+			if(!FACTION_CHECK(faction, slapped.faction, null, null, FALSE) && !(slapped in hit_things))
 				playsound(src, 'modular_nova/modules/gladiator/Clang_cut.ogg', 75, 0)
 				if(slapped.apply_damage(40, BRUTE, BODY_ZONE_CHEST, slapped.run_armor_check(BODY_ZONE_CHEST), wound_bonus = CANT_WOUND))
 					visible_message(span_danger("[src] slashes through [slapped] with his spinning blade!"))
