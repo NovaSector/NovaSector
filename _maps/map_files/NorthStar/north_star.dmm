@@ -39253,6 +39253,7 @@
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/turf_decal/stripes/end,
 /obj/structure/cable,
+/obj/effect/mapping_helpers/apc/cell_10k,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "jWR" = (
