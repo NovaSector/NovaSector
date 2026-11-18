@@ -67563,7 +67563,6 @@
 /obj/machinery/atmospherics/components/binary/pump{
 	name = "Waste Cooling Gas"
 	},
-/obj/machinery/airalarm/directional/east,
 /turf/open/floor/iron/dark,
 /area/station/engineering/atmos/pumproom)
 "qNh" = (
