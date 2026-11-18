@@ -174,7 +174,7 @@
 	crate_name = "security MODsuit crate"
 
 /datum/supply_pack/security/armor_nova
-	name = "Armor Crate"
+	name = "Armor Crate (Alternate Style)"
 	desc = "Three vests of well-rounded, decently-protective armor."
 	cost = CARGO_CRATE_VALUE * 3
 	access_view = ACCESS_SECURITY
@@ -184,13 +184,6 @@
 		/obj/item/clothing/suit/armor/vest/alt,
 	)
 	crate_name = "armor crate"
-
-/datum/supply_pack/security/helmets_nova
-	name = "Helmets Crate"
-	desc = "Contains three standard-issue brain buckets."
-	cost = CARGO_CRATE_VALUE * 3
-	contains = list(/obj/item/clothing/head/helmet/sec = 3)
-	crate_name = "helmet crate"
 
 /datum/supply_pack/security/deployablebarricades
 	name = "C.U.C.K.S Deployable Barricades"

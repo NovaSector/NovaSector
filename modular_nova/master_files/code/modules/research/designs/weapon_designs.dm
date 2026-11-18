@@ -50,3 +50,21 @@
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+
+// If ENABLE_NOVA_TECHWEB_STARTING_NODES is on, the techweb is mostly researched at roundstart.
+// That happens inside SSresearch's Initialize, which runs before SSshuttle has built its supply packs,
+// so the weapon req packs these designs unlock don't exist yet. So we wait for SSshuttle to do its thing first.
+/datum/design/cargo_weapon/on_station_research()
+	if(!SSshuttle.initialized)
+		RegisterSignal(SSshuttle, COMSIG_SUBSYSTEM_POST_INITIALIZE, PROC_REF(on_shuttle_initialized), override = TRUE)
+		return
+	return ..()
+
+/datum/design/cargo_weapon/on_station_unresearch()
+	UnregisterSignal(SSshuttle, COMSIG_SUBSYSTEM_POST_INITIALIZE)
+	return ..()
+
+/datum/design/cargo_weapon/proc/on_shuttle_initialized(datum/source)
+	SIGNAL_HANDLER
+	UnregisterSignal(SSshuttle, COMSIG_SUBSYSTEM_POST_INITIALIZE)
+	on_station_research()
