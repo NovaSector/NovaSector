@@ -5980,7 +5980,6 @@
 "buC" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light_switch/directional/west,
 /obj/structure/chair/wood{
 	dir = 4
 	},
@@ -12395,7 +12394,7 @@
 /turf/open/floor/iron,
 /area/station/service/hydroponics/garden)
 "daz" = (
-/obj/machinery/light/directional/north,
+/obj/machinery/light/cold/no_nightlight/directional/north,
 /mob/living/basic/pet/penguin/baby/permanent{
 	dir = 8
 	},
@@ -40358,7 +40357,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 5
 	},
-/obj/machinery/light/cold/no_nightlight/directional/east,
+/obj/machinery/light/directional/east,
 /turf/open/floor/iron,
 /area/station/hallway/floor3/fore)
 "kkg" = (
@@ -46811,7 +46810,7 @@
 /area/station/maintenance/floor1/port/fore)
 "lMR" = (
 /obj/effect/turf_decal/trimline/green/filled/line,
-/obj/machinery/light/cold/no_nightlight/directional/south,
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron,
 /area/station/hallway/floor3/fore)
 "lNh" = (
@@ -51509,7 +51508,7 @@
 "mSj" = (
 /obj/structure/table/wood,
 /obj/effect/spawner/random/entertainment/lighter,
-/obj/machinery/light/cold/no_nightlight/directional/south,
+/obj/machinery/light/directional/south,
 /turf/open/floor/wood,
 /area/station/hallway/floor3/fore)
 "mSl" = (
@@ -59073,7 +59072,8 @@
 	dir = 4
 	},
 /obj/machinery/air_sensor/engine_chamber{
-	chamber_id = "waste"
+	chamber_id = "waste";
+	name = "supermatter waste chamber gas sensor"
 	},
 /turf/open/floor/engine/airless,
 /area/station/engineering/supermatter/waste)
@@ -60129,7 +60129,7 @@
 /area/station/maintenance/floor2/port/fore)
 "oVY" = (
 /obj/effect/spawner/random/vending/snackvend,
-/obj/machinery/light/cold/no_nightlight/directional/north,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/hallway/floor3/fore)
 "oWe" = (
@@ -70962,7 +70962,7 @@
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hos)
 "rHg" = (
-/obj/machinery/light/cold/no_nightlight/directional/west,
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark/side{
 	dir = 9
 	},
@@ -81970,7 +81970,7 @@
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
 "uyf" = (
-/obj/machinery/light/cold/no_nightlight/directional/west,
+/obj/machinery/light/directional/west,
 /turf/open/floor/iron/dark/side{
 	dir = 8
 	},
