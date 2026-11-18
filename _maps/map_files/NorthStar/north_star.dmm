@@ -1860,7 +1860,7 @@
 /area/station/medical/surgery/aft)
 "axF" = (
 /obj/machinery/gateway/centerstation,
-/turf/open/floor/iron/large,
+/turf/open/floor/iron/textured_large,
 /area/station/command/gateway)
 "axG" = (
 /obj/structure/chair/office{
@@ -3027,7 +3027,7 @@
 /obj/effect/turf_decal/arrows/white{
 	dir = 1
 	},
-/turf/open/floor/iron/large,
+/turf/open/floor/iron/textured_large,
 /area/station/command/gateway)
 "aMA" = (
 /obj/effect/decal/cleanable/ash,
@@ -15800,7 +15800,7 @@
 	dir = 1
 	},
 /obj/machinery/light/directional/north,
-/turf/open/floor/iron/half,
+/turf/open/floor/iron/textured_half,
 /area/station/command/gateway)
 "dVf" = (
 /obj/structure/grille,
@@ -22690,7 +22690,7 @@
 	dir = 1
 	},
 /obj/effect/spawner/random/engineering/tracking_beacon,
-/turf/open/floor/iron/large,
+/turf/open/floor/iron/textured_large,
 /area/station/command/gateway)
 "fLE" = (
 /obj/machinery/modular_computer/preset/time_clock/directional/east,
@@ -30364,7 +30364,7 @@
 	dir = 9
 	},
 /obj/machinery/camera/autoname/directional/east,
-/turf/open/floor/iron/large,
+/turf/open/floor/iron/textured_large,
 /area/station/command/gateway)
 "hIQ" = (
 /obj/structure/railing{
@@ -30484,7 +30484,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 10
 	},
-/turf/open/floor/iron/corner{
+/turf/open/floor/iron/textured_corner{
 	dir = 8
 	},
 /area/station/command/gateway)
@@ -30773,7 +30773,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 8
 	},
-/turf/open/floor/iron/half{
+/turf/open/floor/iron/textured_half{
 	dir = 1
 	},
 /area/station/command/gateway)
@@ -35511,7 +35511,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 5
 	},
-/turf/open/floor/iron/large,
+/turf/open/floor/iron/textured_large,
 /area/station/command/gateway)
 "iZG" = (
 /obj/effect/turf_decal/tile/green/half{
@@ -39066,7 +39066,7 @@
 /turf/open/floor/iron/dark,
 /area/station/service/hydroponics)
 "jUg" = (
-/turf/open/floor/iron/half,
+/turf/open/floor/iron/textured_half,
 /area/station/command/gateway)
 "jUo" = (
 /obj/machinery/firealarm/directional/west,
@@ -54615,7 +54615,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 6
 	},
-/turf/open/floor/iron/corner,
+/turf/open/floor/iron/textured_corner,
 /area/station/command/gateway)
 "nDf" = (
 /obj/effect/turf_decal/tile/red{
@@ -56252,7 +56252,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4
 	},
-/turf/open/floor/iron/half{
+/turf/open/floor/iron/textured_half{
 	dir = 1
 	},
 /area/station/command/gateway)
@@ -75805,7 +75805,7 @@
 /obj/effect/turf_decal/arrows/white{
 	dir = 1
 	},
-/turf/open/floor/iron/large,
+/turf/open/floor/iron/textured_large,
 /area/station/command/gateway)
 "sUy" = (
 /obj/structure/disposalpipe/segment,
@@ -79052,7 +79052,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 8
 	},
-/turf/open/floor/iron/corner{
+/turf/open/floor/iron/textured_corner{
 	dir = 4
 	},
 /area/station/command/gateway)
@@ -94129,7 +94129,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4
 	},
-/turf/open/floor/iron/corner{
+/turf/open/floor/iron/textured_corner{
 	dir = 1
 	},
 /area/station/command/gateway)
