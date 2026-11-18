@@ -11,7 +11,7 @@ jobs:
   compile_all_stations:
     name: Compile All Station Maps
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 10 # NOVA EDIT CHANGE - ORIGINAL: timeout-minutes: 5
 
     steps:
       - uses: actions/checkout@v7
@@ -37,7 +37,7 @@ jobs:
   compile_all_templates:
     name: Compile TG Templates # NOVA EDIT CHANGE - ORIGINAL: name: Compile All Templates
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 10 # NOVA EDIT CHANGE - ORIGINAL: timeout-minutes: 5
 
     steps:
       - uses: actions/checkout@v7
@@ -58,7 +58,7 @@ jobs:
   compile_nova_templates:
     name: Compile Nova Templates
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v7
