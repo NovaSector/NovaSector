@@ -9,13 +9,21 @@
  */
 
 /// Bump when the on-disk format changes.
-#define HOME_SAVE_VERSION 1
+/// 2: each home in its own numbered slot directory, sidecar gains an optional "label".
+#define HOME_SAVE_VERSION 2
 
 /// Refuse a save holding more movables than this.
 #define HOME_MAX_OBJECTS 2500
 
 /// Largest footprint a home interior may have, in tiles.
 #define HOME_MAX_DIMENSION 40
+
+/// Hard ceiling on how many homes one account can hold. Each home lives in its own numbered slot,
+/// 1 through this. The player_home_slots config entry can lower it.
+#define HOME_MAX_SLOTS 10
+
+/// Longest name a player may give one of their homes.
+#define HOME_LABEL_MAX_LEN 32
 
 /// What write_map() may put in a save file, minus what save_blacklist strips.
 #define HOME_SAVE_FLAGS (SAVE_TURFS | SAVE_AREAS | SAVE_OBJECTS | SAVE_MOBS | SAVE_SPACE | SAVE_TURF_DECALS | SAVE_TURF_DIR)
@@ -37,6 +45,21 @@
 /datum/config_entry/number/player_home_supply_cooldown
 	default = 30
 	min_val = 0
+
+/// How many homes one account may claim from the terminal. Lowering it never takes homes away from
+/// anyone who already has more. It only stops them from claiming another.
+/datum/config_entry/number/player_home_slots
+	default = HOME_MAX_SLOTS
+	min_val = 1
+	max_val = HOME_MAX_SLOTS
+	integer = TRUE
+
+/// A slot number from the client, or null if it isn't a real slot. Never trusts what it is handed.
+/proc/sanitize_home_slot(raw)
+	var/slot = isnum(raw) ? raw : text2num(raw)
+	if(!isnum(slot) || (slot != round(slot)) || (slot < 1) || (slot > HOME_MAX_SLOTS))
+		return null
+	return slot
 
 /// Tells a home's reservation apart from any other block of reserved turfs, as condos do.
 /datum/turf_reservation/player_home

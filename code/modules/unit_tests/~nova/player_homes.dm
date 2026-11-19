@@ -15,17 +15,17 @@
 	wipe_test_home(test_ckey)
 	return ..()
 
-/// Clears every file the tests below leave behind.
+/// Clears every file the tests below leave behind, in every slot. Test ckeys are made up, so the
+/// whole account directory can simply go.
 /proc/wipe_test_home(ckey)
-	fdel(SShomes.home_file(ckey))
-	fdel(SShomes.home_file(ckey, "home_backup.dmm"))
-	fdel(SShomes.home_file(ckey, "home.json"))
-	SShomes.forget_preview(ckey)
+	for(var/slot in 1 to 10) // HOME_MAX_SLOTS, spelled out: module defines are not in scope this early
+		SShomes.forget_preview(ckey, slot)
+	fdel(SShomes.account_directory(ckey))
 
 /datum/unit_test/player_home_round_trip/proc/round_trip(datum/map_template/home/starter)
-	TEST_ASSERT(SShomes.write_starter(test_ckey, starter, null), "[starter.name]: could not be filed to disk")
+	TEST_ASSERT(SShomes.write_starter(test_ckey, 1, starter, null), "[starter.name]: could not be filed to disk")
 
-	var/datum/home_instance/home = SShomes.load_home(test_ckey, null, null)
+	var/datum/home_instance/home = SShomes.load_home(test_ckey, 1, null, null)
 	TEST_ASSERT_NOTNULL(home, "[starter.name]: filed interior would not load back off disk")
 
 	// The two things a home is unusable without. Loading self-heals both, so a failure here means
@@ -42,7 +42,7 @@
 	TEST_ASSERT(istype(landing_area, /area/misc/player_home), "[starter.name]: loaded into [landing_area.type] instead of a home area")
 
 	TEST_ASSERT(SShomes.save_home(home, null), "[starter.name]: write_map() round trip refused to save")
-	var/datum/map_template/home/reparsed = SShomes.build_runtime_template(SShomes.home_file(test_ckey), "round trip check")
+	var/datum/map_template/home/reparsed = SShomes.build_runtime_template(SShomes.home_file(test_ckey, 1), "round trip check")
 	TEST_ASSERT_NOTNULL(reparsed, "[starter.name]: the file its own save wrote does not parse back")
 	qdel(reparsed)
 
@@ -62,9 +62,9 @@
 /datum/unit_test/player_home_fixtures/Run()
 	var/datum/map_template/home/starter = SShomes.starter_templates[SShomes.starter_templates[1]]
 	TEST_ASSERT_NOTNULL(starter, "no starter home template to test against")
-	TEST_ASSERT(SShomes.write_starter(test_ckey, starter, null), "could not file the test home")
+	TEST_ASSERT(SShomes.write_starter(test_ckey, 1, starter, null), "could not file the test home")
 
-	var/datum/home_instance/home = SShomes.load_home(test_ckey, null, null)
+	var/datum/home_instance/home = SShomes.load_home(test_ckey, 1, null, null)
 	TEST_ASSERT_NOTNULL(home, "test home would not load")
 
 	// Settings have to survive a save, since they live in the sidecar rather than in the .dmm.
@@ -116,7 +116,7 @@
 	resident.forceMove(run_loc_floor_bottom_left) // releasing empties the turfs, occupants included
 	SShomes.release_home(home)
 
-	var/datum/home_instance/reloaded = SShomes.load_home(test_ckey, null, null)
+	var/datum/home_instance/reloaded = SShomes.load_home(test_ckey, 1, null, null)
 	TEST_ASSERT_NOTNULL(reloaded, "the home would not load after its fixtures moved")
 	var/turf/closed/indestructible/hoteldoor/fakedoor/player_home/moved_door = reloaded.find_door()
 	TEST_ASSERT_NOTNULL(moved_door, "the relocated door did not survive the save")
@@ -147,8 +147,8 @@
 			TEST_ASSERT(isnum(entry.manifest[thing_path]) && entry.manifest[thing_path] > 0, "catalogue line '[entry.name]' asks for a nonsense amount of [thing_path]")
 
 	var/datum/map_template/home/starter = SShomes.starter_templates[SShomes.starter_templates[1]]
-	TEST_ASSERT(SShomes.write_starter(test_ckey, starter, null), "could not file the test home")
-	var/datum/home_instance/home = SShomes.load_home(test_ckey, null, null)
+	TEST_ASSERT(SShomes.write_starter(test_ckey, 1, starter, null), "could not file the test home")
+	var/datum/home_instance/home = SShomes.load_home(test_ckey, 1, null, null)
 	TEST_ASSERT_NOTNULL(home, "test home would not load")
 
 	// A toolbox arrives full of tools. Unmarked tools inside a marked box would walk straight out in
@@ -169,6 +169,88 @@
 	qdel(pod)
 
 	SShomes.release_home(home)
+
+/// Several homes on one account have to stay out of each other's way: separate files, separate
+/// reservations and areas, and saving, naming or demolishing one never touching another. Also covers
+/// the claim limit and adopting a record filed before accounts could hold more than one home.
+/datum/unit_test/player_home_slots
+	var/test_ckey = "unittesthomeslots"
+	var/legacy_ckey = "unittesthomelegacy"
+
+/datum/unit_test/player_home_slots/Destroy()
+	wipe_test_home(test_ckey)
+	wipe_test_home(legacy_ckey)
+	return ..()
+
+/datum/unit_test/player_home_slots/Run()
+	// Slots arrive from the client, so anything that isn't a whole number in range is turned away.
+	TEST_ASSERT_EQUAL(sanitize_home_slot("3"), 3, "a slot sent as text was not read")
+	TEST_ASSERT_NULL(sanitize_home_slot(0), "slot 0 was accepted")
+	TEST_ASSERT_NULL(sanitize_home_slot(11), "a slot past HOME_MAX_SLOTS was accepted")
+	TEST_ASSERT_NULL(sanitize_home_slot(1.5), "a fractional slot was accepted")
+	TEST_ASSERT_NULL(sanitize_home_slot("kitchen"), "a nonsense slot was accepted")
+
+	var/datum/map_template/home/starter = SShomes.starter_templates[SShomes.starter_templates[1]]
+	TEST_ASSERT_NOTNULL(starter, "no starter home template to test against")
+	TEST_ASSERT(SShomes.write_starter(test_ckey, 1, starter, null), "could not file a home in slot 1")
+	TEST_ASSERT(SShomes.write_starter(test_ckey, 3, starter, null), "could not file a home in slot 3")
+	TEST_ASSERT_EQUAL(jointext(SShomes.filed_slots(test_ckey), ","), "1,3", "the registry miscounted which slots hold a home")
+	TEST_ASSERT_EQUAL(SShomes.next_free_slot(test_ckey), 2, "a new claim was not offered the lowest free slot")
+
+	var/datum/home_instance/first = SShomes.load_home(test_ckey, 1, null, null)
+	var/datum/home_instance/third = SShomes.load_home(test_ckey, 3, null, null)
+	TEST_ASSERT_NOTNULL(first, "the home in slot 1 would not load")
+	TEST_ASSERT_NOTNULL(third, "the home in slot 3 would not load while slot 1 was standing")
+	TEST_ASSERT(first != third, "two slots loaded as the same home")
+	TEST_ASSERT_EQUAL(SShomes.get_active_home(test_ckey, 3), third, "the registry lost track of which loaded home is which")
+	TEST_ASSERT(first.reservation != third.reservation, "two homes were unfolded into the same reservation")
+	// Sharing an area would mean the last person leaving one home released the other as well.
+	TEST_ASSERT(get_area(first.get_landing_turf()) != get_area(third.get_landing_turf()), "two loaded homes share an area")
+
+	// Saving one home must leave the other's record alone, byte for byte.
+	var/first_record_before = file2text(file(SShomes.home_file(test_ckey, 1)))
+	var/first_sidecar_before = file2text(file(SShomes.home_file(test_ckey, 1, "home.json")))
+	TEST_ASSERT(SShomes.save_home(third, null), "could not save the home in slot 3")
+	TEST_ASSERT(fexists(SShomes.home_file(test_ckey, 3, "home_backup.dmm")), "slot 3's save did not roll its own backup")
+	TEST_ASSERT(!fexists(SShomes.home_file(test_ckey, 1, "home_backup.dmm")), "saving slot 3 rolled a backup in slot 1")
+	TEST_ASSERT_EQUAL(file2text(file(SShomes.home_file(test_ckey, 1))), first_record_before, "saving slot 3 wrote over slot 1's record")
+	TEST_ASSERT_EQUAL(file2text(file(SShomes.home_file(test_ckey, 1, "home.json"))), first_sidecar_before, "saving slot 3 wrote over slot 1's sidecar")
+
+	// Naming a loaded home has to reach the loaded copy too, or its next save puts the old name back.
+	TEST_ASSERT(SShomes.set_home_label(test_ckey, 1, "Summer Place"), "could not name a home")
+	TEST_ASSERT_EQUAL(first.label, "Summer Place", "naming a loaded home did not reach the loaded copy")
+	TEST_ASSERT(SShomes.save_home(first, null), "could not save the home in slot 1")
+	TEST_ASSERT_EQUAL(SShomes.home_display_name(test_ckey, 1), "Summer Place", "saving a home forgot its name")
+	TEST_ASSERT_EQUAL(SShomes.home_display_name(test_ckey, 3), starter.name, "naming one home renamed another")
+
+	SShomes.release_home(first)
+	SShomes.release_home(third)
+	TEST_ASSERT_NULL(SShomes.get_active_home(test_ckey, 1), "a released home was still registered as loaded")
+
+	// Demolishing one frees its slot and nothing else.
+	SShomes.reset_home(test_ckey, 1, null)
+	TEST_ASSERT_EQUAL(jointext(SShomes.filed_slots(test_ckey), ","), "3", "demolishing one home disturbed the others")
+	// Slot 1 still holds its backup for the admins, so a fresh claim should pass over it for an empty slot.
+	TEST_ASSERT_EQUAL(SShomes.next_free_slot(test_ckey), 2, "a new claim was put on top of a demolished home's backup")
+
+	// Fill the account up to its limit. Past it, there is no slot to offer.
+	for(var/slot in 1 to CONFIG_GET(number/player_home_slots))
+		if(!SShomes.has_home(test_ckey, slot))
+			TEST_ASSERT(SShomes.write_starter(test_ckey, slot, starter, null), "could not file a home in slot [slot]")
+	TEST_ASSERT_NULL(SShomes.next_free_slot(test_ckey), "an account at its limit was offered another slot")
+
+	// A home filed before accounts had slots sits loose in the account directory. Discovering an
+	// account's homes moves it into slot 1, files and all.
+	var/legacy_directory = SShomes.account_directory(legacy_ckey)
+	rustg_file_write(file2text(file(starter.mappath)), "[legacy_directory]home.dmm")
+	rustg_file_write(json_encode(list("starter" = starter.name)), "[legacy_directory]home.json")
+	TEST_ASSERT_EQUAL(jointext(SShomes.filed_slots(legacy_ckey), ","), "1", "a single-home record was not adopted into slot 1")
+	TEST_ASSERT(!fexists("[legacy_directory]home.dmm"), "adopting a single-home record left the old copy behind")
+	var/list/legacy_metadata = SShomes.read_metadata(legacy_ckey, 1)
+	TEST_ASSERT_EQUAL(legacy_metadata["starter"], starter.name, "an adopted home lost its sidecar")
+	var/datum/home_instance/adopted = SShomes.load_home(legacy_ckey, 1, null, null)
+	TEST_ASSERT_NOTNULL(adopted, "an adopted home would not load")
+	SShomes.release_home(adopted)
 
 /**
  * The waste compactor destroys ordinary junk and refuses everything a home must never swallow. The

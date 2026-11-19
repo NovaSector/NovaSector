@@ -58,39 +58,43 @@
 	var/icon/photo = flat_render_reservation(home.reservation)
 	if(isnull(photo))
 		return FALSE
-	var/path = home_file(home.owner_ckey, "home_preview.png")
+	var/path = home_file(home.owner_ckey, home.slot, "home_preview.png")
 	fdel(path)
 	fcopy(photo, path)
 	// The old asset is registered under the old picture's hash, so nothing will ask for it again.
-	preview_assets -= home.owner_ckey
+	preview_assets -= home.registry_key()
 	return fexists(path)
 
-/// The asset datum for one player's preview, built on demand and remembered on the subsystem. Null
-/// if they have no picture yet - a home saved before previews existed, for instance.
-/datum/controller/subsystem/homes/proc/get_preview_asset(ckey)
-	var/path = home_file(ckey, "home_preview.png")
+/// The asset datum for one home's preview, built on demand and remembered on the subsystem. Null
+/// if it has no picture yet - a home saved before previews existed, for instance.
+/datum/controller/subsystem/homes/proc/get_preview_asset(ckey, slot)
+	var/path = home_file(ckey, slot, "home_preview.png")
 	if(!path || !fexists(path))
 		return null
-	var/datum/asset/home_preview/cached = preview_assets[ckey]
+	var/key = home_key(ckey, slot)
+	var/datum/asset/home_preview/cached = preview_assets[key]
 	if(!isnull(cached))
 		return cached
 	// The picture's hash goes in the asset name, so a client is never served the cached picture of a home that has since been rearranged.
 	var/hash = rustg_hash_file(RUSTG_HASH_MD5, path)
 	if(!hash)
 		return null
-	cached = new /datum/asset/home_preview("home_preview_[ckey]_[hash].png", path)
-	preview_assets[ckey] = cached
+	cached = new /datum/asset/home_preview("home_preview_[ckey]_[slot]_[hash].png", path)
+	preview_assets[key] = cached
 	return cached
 
-/// Throws away a player's cached picture and its asset, so the terminal never shows a preview of a home that has been demolished.
-/datum/controller/subsystem/homes/proc/forget_preview(ckey)
-	var/datum/asset/home_preview/stale = preview_assets[ckey]
+/// Throws away one home's cached picture and its asset, so the terminal never shows a preview of a home that has been demolished.
+/datum/controller/subsystem/homes/proc/forget_preview(ckey, slot)
+	var/key = home_key(ckey, slot)
+	var/datum/asset/home_preview/stale = preview_assets[key]
 	if(!isnull(stale))
 		stale.unregister()
-		preview_assets -= ckey
-	fdel(home_file(ckey, "home_preview.png"))
+		preview_assets -= key
+	var/path = home_file(ckey, slot, "home_preview.png")
+	if(path)
+		fdel(path)
 
-/// One player's home preview. Instanced per ckey.
+/// One home's preview. Instanced per home.
 /// abstract_type keeps SSassets from trying to instantiate it as a normal round-start asset.
 /datum/asset/home_preview
 	abstract_type = /datum/asset/home_preview

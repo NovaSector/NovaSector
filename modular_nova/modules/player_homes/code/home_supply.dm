@@ -38,6 +38,8 @@
 	var/id
 	var/static/next_id = 0
 	var/requester_ckey
+	/// Which of the requester's homes the goods are for. A key from SShomes.home_key().
+	var/home_key
 	var/requester_name
 	/// The catalogue line asked for. Null for a written request.
 	var/datum/home_supply/entry
@@ -47,9 +49,10 @@
 	/// Set once an admin has ruled on it, so the buttons cannot be pressed twice.
 	var/handled = FALSE
 
-/datum/home_requisition/New(ckey, mob/user, datum/home_supply/asked_for, written)
+/datum/home_requisition/New(datum/home_instance/home, mob/user, datum/home_supply/asked_for, written)
 	id = ++next_id
-	requester_ckey = ckey
+	requester_ckey = home.owner_ckey
+	home_key = home.registry_key()
 	requester_name = key_name(user, FALSE)
 	entry = asked_for
 	written_request = written
@@ -132,10 +135,10 @@
 	if(!isnull(entry) && !entry.needs_approval)
 		deliver_supplies(home, entry.manifest)
 		to_chat(user, span_notice("Requisition accepted. Stand clear - a pod is inbound."))
-		log_game("[key_name(user)] requisitioned '[entry.name]' to their home.")
+		log_game("[key_name(user)] requisitioned '[entry.name]' to their home [home.slot].")
 		return TRUE
 
-	var/datum/home_requisition/pending = new(home.owner_ckey, user, entry, written)
+	var/datum/home_requisition/pending = new(home, user, entry, written)
 	pending_requisitions += pending
 	notify_admins_of_requisition(pending)
 	to_chat(user, span_notice("Requisition filed for review. You will be told when somebody has looked at it."))
@@ -155,12 +158,12 @@
 	pending_requisitions -= pending
 
 	var/list/manifest = pending.entry?.manifest
-	var/datum/home_instance/home = active_homes[pending.requester_ckey]
+	var/datum/home_instance/home = active_homes[pending.home_key]
 	if(!isnull(manifest))
 		if(isnull(home))
-			// They have stepped out. Hold it rather than dropping a pod into an empty reservation.
-			LAZYADD(pending_deliveries[pending.requester_ckey], list(manifest))
-			to_chat(approver, span_notice("They are not home - the pod will land the next time they step inside."), confidential = TRUE)
+			// That home is shut up. Hold it rather than dropping a pod into an empty reservation.
+			LAZYADD(pending_deliveries[pending.home_key], list(manifest))
+			to_chat(approver, span_notice("That home is not loaded - the pod will land the next time somebody steps inside it."), confidential = TRUE)
 		else
 			deliver_supplies(home, manifest)
 	else
@@ -217,12 +220,13 @@
 	for(var/atom/movable/piece as anything in delivered.get_all_contents())
 		ADD_TRAIT(piece, TRAIT_HOME_FURNISHING, HOME_FURNISHING_TRAIT)
 
-/// Ships anything an admin approved while the player was out. Called once the home is loaded.
+/// Ships anything an admin approved while this home was shut up. Called once the home is loaded.
 /datum/controller/subsystem/homes/proc/flush_pending_deliveries(datum/home_instance/home)
-	var/list/held = pending_deliveries[home.owner_ckey]
+	var/key = home.registry_key()
+	var/list/held = pending_deliveries[key]
 	if(!LAZYLEN(held))
 		return
-	pending_deliveries -= home.owner_ckey
+	pending_deliveries -= key
 	for(var/list/manifest as anything in held)
 		deliver_supplies(home, manifest)
 

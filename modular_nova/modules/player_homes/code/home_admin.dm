@@ -16,6 +16,29 @@
 		return null
 	return ckey(typed)
 
+/// Asks which of a player's homes to act on, out of the given slots. Skips the question when there
+/// is only one to pick. Returns null if there is nothing to pick or the admin backed out.
+/proc/prompt_for_home_slot(mob/user, target_ckey, title, list/slots)
+	if(!length(slots))
+		return null
+	if(length(slots) == 1)
+		return slots[1]
+	var/list/choices = list()
+	for(var/slot in slots)
+		var/description = SShomes.has_home(target_ckey, slot) ? SShomes.home_display_name(target_ckey, slot) : "(no current record)"
+		choices["Slot [slot]: [description]"] = slot
+	var/picked = tgui_input_list(user, "Which of [target_ckey]'s homes?", title, choices)
+	return isnull(picked) ? null : choices[picked]
+
+/// Every slot holding any file at all for this player, current record or not.
+/proc/home_slots_with_files(target_ckey)
+	SShomes.adopt_legacy_home(target_ckey)
+	var/list/slots = list()
+	for(var/slot in 1 to HOME_MAX_SLOTS)
+		if(SShomes.slot_has_files(target_ckey, slot))
+			slots += slot
+	return slots
+
 ADMIN_VERB(player_homes, R_ADMIN, "Player Homes", "Inspect, grant, download, restore, wipe and audit stored homes.", ADMIN_CATEGORY_DEBUG)
 	var/static/list/actions = list(
 		HOME_ACTION_INSPECT,
@@ -43,24 +66,30 @@ ADMIN_VERB(player_homes, R_ADMIN, "Player Homes", "Inspect, grant, download, res
 		if(HOME_ACTION_AUDIT)
 			home_admin_audit(user)
 
-/// Show a player's home record and its metadata.
+/// Show every home a player has on file, with each one's metadata.
 /proc/home_admin_inspect(client/user)
 	var/target_ckey = prompt_for_home_ckey(user.mob, "Inspect Home")
 	if(!target_ckey)
 		return
-	if(!SShomes.has_home(target_ckey))
+	var/list/slots = home_slots_with_files(target_ckey)
+	if(!length(slots))
 		to_chat(user, span_warning("[target_ckey] has no home on file."), confidential = TRUE)
 		return
 
-	var/list/metadata = SShomes.read_metadata(target_ckey)
-	var/list/lines = list("<b>[target_ckey]</b>")
-	lines += "Loaded right now: [isnull(SShomes.active_homes[target_ckey]) ? "no" : "yes"]"
-	lines += "Backup on file: [fexists(SShomes.home_file(target_ckey, "home_backup.dmm")) ? "yes" : "no"]"
-	for(var/key in metadata)
-		lines += "[key]: [metadata[key]]"
+	var/list/lines = list("<b>[target_ckey]</b>: [length(SShomes.filed_slots(target_ckey))] of [CONFIG_GET(number/player_home_slots)] homes claimed")
+	for(var/slot in slots)
+		lines += ""
+		lines += "<b>Slot [slot]: [html_encode(SShomes.home_display_name(target_ckey, slot))]</b>"
+		lines += "Current record: [SShomes.has_home(target_ckey, slot) ? "yes" : "no (demolished?)"]"
+		lines += "Loaded right now: [isnull(SShomes.get_active_home(target_ckey, slot)) ? "no" : "yes"]"
+		lines += "Backup on file: [fexists(SShomes.home_file(target_ckey, slot, "home_backup.dmm")) ? "yes" : "no"]"
+		var/list/metadata = SShomes.read_metadata(target_ckey, slot)
+		for(var/key in metadata)
+			lines += "[key]: [html_encode("[metadata[key]]")]"
 	to_chat(user, boxed_message(lines.Join("<br>")), confidential = TRUE)
 
-/// Grants someone a new plot. Primarily used to give the restricted ones.
+/// Grants someone a new plot. Primarily used to give the restricted ones. Admins may fill any slot,
+/// past the config's limit on what players can claim for themselves.
 /proc/home_admin_grant(client/user)
 	var/target_ckey = prompt_for_home_ckey(user.mob, "Grant Home Plot")
 	if(!target_ckey)
@@ -81,78 +110,109 @@ ADMIN_VERB(player_homes, R_ADMIN, "Player Homes", "Inspect, grant, download, res
 	if(isnull(chosen))
 		return
 
-	var/replacing = SShomes.has_home(target_ckey)
+	SShomes.adopt_legacy_home(target_ckey)
+	var/list/slot_choices = list()
+	for(var/slot in 1 to HOME_MAX_SLOTS)
+		var/description = SShomes.has_home(target_ckey, slot) ? "replaces [SShomes.home_display_name(target_ckey, slot)]" : "empty"
+		slot_choices["Slot [slot]: [description]"] = slot
+	var/picked_slot = tgui_input_list(user.mob, "Which of [target_ckey]'s slots should it go in?", "Grant Home Plot", slot_choices)
+	if(isnull(picked_slot))
+		return
+	var/slot = slot_choices[picked_slot]
+
+	var/replacing = SShomes.has_home(target_ckey, slot)
 	if(replacing)
-		if(tgui_alert(user.mob, "[target_ckey] already has a home on file. Filing a new plan demolishes it, keeping their current record as the backup. Continue?", "Grant Home Plot", list("Demolish and File", "Cancel")) != "Demolish and File")
+		if(tgui_alert(user.mob, "[target_ckey] already has a home in slot [slot]. Filing a new plan demolishes it, keeping its current record as the backup. Continue?", "Grant Home Plot", list("Demolish and File", "Cancel")) != "Demolish and File")
 			return
-		var/datum/home_instance/loaded = SShomes.active_homes[target_ckey]
+		var/datum/home_instance/loaded = SShomes.get_active_home(target_ckey, slot)
 		if(!isnull(loaded))
 			loaded.evict_all()
-		var/live = SShomes.home_file(target_ckey)
+		var/live = SShomes.home_file(target_ckey, slot)
 		if(fexists(live))
-			var/backup = SShomes.home_file(target_ckey, "home_backup.dmm")
+			var/backup = SShomes.home_file(target_ckey, slot, "home_backup.dmm")
 			fdel(backup)
 			fcopy(live, backup)
-		SShomes.forget_preview(target_ckey)
+		SShomes.forget_preview(target_ckey, slot)
 
-	if(!SShomes.write_starter(target_ckey, chosen, user.mob))
+	if(!SShomes.write_starter(target_ckey, slot, chosen, user.mob))
 		to_chat(user, span_warning("The registry refused to file that plan. Check the runtime log for which gate it tripped."), confidential = TRUE)
 		return
 
-	var/what_happened = "filed [target_ckey] a home from plan '[chosen.name]'[replacing ? ", demolishing the one already on record" : ""]"
+	var/what_happened = "filed [target_ckey] a home in slot [slot] from plan '[chosen.name]'[replacing ? ", demolishing the one already on record" : ""]"
 	log_admin("[key_name(user)] [what_happened].")
 	message_admins("[key_name_admin(user)] [what_happened].")
 
-/// Download a player's saved home as a .dmm.
+/// Download one of a player's saved homes as a .dmm.
 /proc/home_admin_download(client/user)
 	var/target_ckey = prompt_for_home_ckey(user.mob, "Download Home")
 	if(!target_ckey)
 		return
-	var/path = SShomes.home_file(target_ckey)
-	if(!fexists(path))
-		to_chat(user, span_warning("[target_ckey] has no home on file."), confidential = TRUE)
+	var/list/filed = SShomes.filed_slots(target_ckey)
+	var/slot = prompt_for_home_slot(user.mob, target_ckey, "Download Home", filed)
+	if(isnull(slot))
+		if(!length(filed))
+			to_chat(user, span_warning("[target_ckey] has no home on file."), confidential = TRUE)
 		return
-	log_admin("[key_name(user)] downloaded [target_ckey] home record.")
-	DIRECT_OUTPUT(user, ftp(file(path), "[target_ckey]_home.dmm"))
+	var/path = SShomes.home_file(target_ckey, slot)
+	if(!fexists(path))
+		return
+	log_admin("[key_name(user)] downloaded [target_ckey] home [slot].")
+	DIRECT_OUTPUT(user, ftp(file(path), "[target_ckey]_home_[slot].dmm"))
 
-/// Roll a player's home back to its previous save.
+/// Roll one of a player's homes back to its previous save.
 /proc/home_admin_restore_backup(client/user)
 	var/target_ckey = prompt_for_home_ckey(user.mob, "Restore Home Backup")
 	if(!target_ckey)
 		return
-	var/backup = SShomes.home_file(target_ckey, "home_backup.dmm")
+	// Includes slots with no current record: a demolished home keeps its backup for exactly this.
+	var/list/with_backup = list()
+	for(var/slot in home_slots_with_files(target_ckey))
+		if(fexists(SShomes.home_file(target_ckey, slot, "home_backup.dmm")))
+			with_backup += slot
+	var/slot = prompt_for_home_slot(user.mob, target_ckey, "Restore Home Backup", with_backup)
+	if(isnull(slot))
+		if(!length(with_backup))
+			to_chat(user, span_warning("[target_ckey] has no backup on file."), confidential = TRUE)
+		return
+	var/backup = SShomes.home_file(target_ckey, slot, "home_backup.dmm")
 	if(!fexists(backup))
-		to_chat(user, span_warning("[target_ckey] has no backup on file."), confidential = TRUE)
 		return
 
-	var/datum/home_instance/loaded = SShomes.active_homes[target_ckey]
+	var/datum/home_instance/loaded = SShomes.get_active_home(target_ckey, slot)
 	if(!isnull(loaded))
 		loaded.evict_all()
-	var/live = SShomes.home_file(target_ckey)
+	var/live = SShomes.home_file(target_ckey, slot)
 	fdel(live)
 	fcopy(backup, live)
-	log_admin("[key_name(user)] restored [target_ckey] home from its backup.")
-	message_admins("[key_name_admin(user)] restored [target_ckey] home from its backup.")
+	log_admin("[key_name(user)] restored [target_ckey] home [slot] from its backup.")
+	message_admins("[key_name_admin(user)] restored [target_ckey] home [slot] from its backup.")
 
-/// Delete a player's home and backup.
+/// Delete one of a player's homes, its backup and its metadata.
 /proc/home_admin_wipe(client/user)
 	var/target_ckey = prompt_for_home_ckey(user.mob, "Wipe Home")
 	if(!target_ckey)
 		return
-	if(tgui_alert(user.mob, "Permanently delete [target_ckey] home, its backup and its metadata? This cannot be undone.", "Wipe Home", list("Wipe", "Cancel")) != "Wipe")
+	var/list/slots = home_slots_with_files(target_ckey)
+	var/slot = prompt_for_home_slot(user.mob, target_ckey, "Wipe Home", slots)
+	if(isnull(slot))
+		if(!length(slots))
+			to_chat(user, span_warning("[target_ckey] has no home on file."), confidential = TRUE)
+		return
+	if(tgui_alert(user.mob, "Permanently delete [target_ckey]'s home in slot [slot], its backup and its metadata? Their other homes are untouched. This cannot be undone.", "Wipe Home", list("Wipe", "Cancel")) != "Wipe")
 		return
 
-	var/datum/home_instance/loaded = SShomes.active_homes[target_ckey]
+	var/datum/home_instance/loaded = SShomes.get_active_home(target_ckey, slot)
 	if(!isnull(loaded))
 		loaded.evict_all()
-	fdel(SShomes.home_file(target_ckey))
-	fdel(SShomes.home_file(target_ckey, "home_backup.dmm"))
-	fdel(SShomes.home_file(target_ckey, "home.json"))
-	SShomes.forget_preview(target_ckey)
-	log_admin("[key_name(user)] wiped [target_ckey] home record entirely.")
-	message_admins("[key_name_admin(user)] wiped [target_ckey] home record entirely.")
+	fdel(SShomes.home_file(target_ckey, slot))
+	fdel(SShomes.home_file(target_ckey, slot, "home_backup.dmm"))
+	fdel(SShomes.home_file(target_ckey, slot, "home.json"))
+	SShomes.forget_preview(target_ckey, slot)
+	log_admin("[key_name(user)] wiped [target_ckey] home [slot] entirely.")
+	message_admins("[key_name_admin(user)] wiped [target_ckey] home [slot] entirely.")
 
-/// Walks the per-ckey save tree and reports every home with its last save date.
+/// Walks the per-ckey save tree and reports every home with its last save date. Moves any
+/// single-home record it finds into slot 1 on the way, as discovering homes always does.
 /proc/home_admin_audit(client/user)
 	if(tgui_alert(user.mob, "This walks every player save folder on disk and can take a while. Continue?", "Audit Player Homes", list("Audit", "Cancel")) != "Audit")
 		return
@@ -165,10 +225,9 @@ ADMIN_VERB(player_homes, R_ADMIN, "Player Homes", "Inspect, grant, download, res
 			if(copytext(player_folder, -1) != "/")
 				continue
 			var/found_ckey = copytext(player_folder, 1, -1)
-			if(!SShomes.has_home(found_ckey))
-				continue
-			var/list/metadata = SShomes.read_metadata(found_ckey)
-			rows += "[found_ckey] - last saved [metadata["saved_at"] || "never"], [metadata["object_count"] || 0] objects, from [metadata["starter"] || "unknown"]"
+			for(var/slot in SShomes.filed_slots(found_ckey))
+				var/list/metadata = SShomes.read_metadata(found_ckey, slot)
+				rows += "[found_ckey] #[slot] - [html_encode(SShomes.home_display_name(found_ckey, slot, metadata))], last saved [metadata["saved_at"] || "never"], [metadata["object_count"] || 0] objects, from [metadata["starter"] || "unknown"]"
 			CHECK_TICK
 
 	if(!length(rows))
