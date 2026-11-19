@@ -5,8 +5,12 @@
 
 /// One player's home, loaded into a turf reservation for as long as somebody is standing in it.
 /datum/home_instance
-	/// The account this home belongs to. Homes are per-ckey, so every character shares one.
+	/// The account this home belongs to. Homes are per-ckey, so every character shares them.
 	var/owner_ckey
+	/// Which of the account's homes this is, 1 through HOME_MAX_SLOTS.
+	var/slot
+	/// What the owner has named it, or null to go by its starter's name.
+	var/label
 	/// The cafe terminal occupants warp back out to.
 	var/obj/machinery/home_terminal/parent_terminal
 	var/datum/turf_reservation/player_home/reservation
@@ -101,6 +105,10 @@
 /// TRUE if this mob is the account that owns this home.
 /datum/home_instance/proc/is_owner(mob/user)
 	return user?.ckey && (user.ckey == owner_ckey)
+
+/// This home's key in SShomes.active_homes and the other per-home lists.
+/datum/home_instance/proc/registry_key()
+	return SShomes.home_key(owner_ckey, slot)
 
 /// A line for the exit prompt, so leaving is never a surprise about what's about to be lost.
 /datum/home_instance/proc/save_state_blurb()
@@ -261,7 +269,7 @@
 /// Nobody minded left inside? Let the reservation go. Nothing is saved on the way out - saving is
 /// always explicit, which is what keeps a griefed home off the disk.
 /area/misc/player_home/proc/check_for_departure(mob/gone)
-	log_game("[key_name(gone)] has left [home.owner_ckey]'s home")
+	log_game("[key_name(gone)] has left [home.owner_ckey]'s home [home.slot]")
 	for(var/mob/living/occupant as anything in get_all_contents_type(/mob/living)) // catches anyone hiding in anything
 		if(occupant.mind)
 			return

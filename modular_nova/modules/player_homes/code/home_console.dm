@@ -75,7 +75,7 @@
 		"lamp_color" = home.lamp_color,
 		"gravity" = home.gravity,
 		"accepts_knocks" = home.accepts_knocks,
-		"has_backup" = fexists(SShomes.home_file(home.owner_ckey, "home_backup.dmm")),
+		"has_backup" = fexists(SShomes.home_file(home.owner_ckey, home.slot, "home_backup.dmm")),
 		"max_brightness" = HOME_BRIGHTNESS_MAX,
 		"supply_cooldown" = SShomes.supply_cooldown_remaining(home.owner_ckey) / 10,
 	)

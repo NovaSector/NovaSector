@@ -4,6 +4,11 @@ Persistent per-account housing. A player enters through the registry terminal in
 the rooms, and saves from the console inside. The save is a real `.dmm` under their ckey, so it
 reloads next round and every character on the account shares it.
 
+An account can hold up to `HOME_MAX_SLOTS` (10) homes, each in its own numbered slot. A home is
+identified by `(ckey, slot)` everywhere: `SShomes.home_key()` builds the key that `active_homes`, the
+preview cache and held deliveries go by. Requisition and knock cooldowns stay per account, so more
+homes never means more requisitions.
+
 Homes load into a turf reservation on demand and unload once the last minded occupant leaves. Nothing
 is ever saved automatically. Saving is always an explicit press of the console.
 
@@ -44,14 +49,21 @@ area instance.
 ## On disk
 
 ```
-data/player_saves/[c]/[ckey]/homes/
+data/player_saves/[c]/[ckey]/homes/[slot]/
     home.dmm            current record
     home_backup.dmm     previous save
-    home.json           landing offset, lighting, gravity, last-saved, object count
+    home.json           name, landing offset, lighting, gravity, last-saved, object count
     home_preview.png    terminal preview
 ```
 
-Room settings live in the sidecar json, not the map, so changing one never touches the record.
+Room settings and the home's name live in the sidecar json, not the map, so changing one never
+touches the record.
+
+A slot counts as filed only while it has a `home.dmm`. Demolishing a home deletes that and the
+sidecar but keeps the backup for admins. New claims prefer truly empty slots, so that backup lasts.
+
+Homes filed before slots existed sat directly in `homes/`. `SShomes.filed_slots()`, the only way
+a player's homes are discovered, moves such a record into slot 1 (`adopt_legacy_home()`).
 
 ## Adding a starter interior
 
@@ -83,9 +95,14 @@ things that get produced don't have the `TRAIT_HOME_FURNISHING` flag.
 ```
 PLAYER_HOMES_ENABLED 0          # takes the terminal offline, saves untouched
 PLAYER_HOME_SUPPLY_COOLDOWN 30  # seconds between requisitions
+PLAYER_HOME_SLOTS 10            # homes a player may claim, 1 to HOME_MAX_SLOTS
 ```
+
+Lowering `PLAYER_HOME_SLOTS` never takes homes away. It only stops new claims. Admins granting a
+plot can use any slot, whatever the limit.
 
 ## Admin
 
-**Debug → Player Homes**: inspect, download as `.dmm`, restore backup, wipe, and audit the save tree.
+**Debug → Player Homes**: inspect, grant, download as `.dmm`, restore backup, wipe, and audit the save tree.
+Every action after the ckey asks which slot, unless only one applies.
 Pending requisitions get APPROVE/DENY links in adminchat.

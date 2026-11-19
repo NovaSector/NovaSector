@@ -9,10 +9,10 @@
 /// Every failure here means a player asked for a home and did not get one, so each one says which
 /// gate it tripped rather than a bare FALSE. Loud on purpose: silent failure looks identical from
 /// the terminal whether the map is missing, unreadable, or the save directory is not writable.
-/datum/controller/subsystem/homes/proc/write_starter(ckey, datum/map_template/home/starter, mob/user)
-	var/live = home_file(ckey)
+/datum/controller/subsystem/homes/proc/write_starter(ckey, slot, datum/map_template/home/starter, mob/user)
+	var/live = home_file(ckey, slot)
 	if(!live)
-		stack_trace("Player homes: no save path for ckey '[ckey]'.")
+		stack_trace("Player homes: no save path for ckey '[ckey]' slot '[slot]'.")
 		return FALSE
 	if(isnull(starter))
 		stack_trace("Player homes: asked to file a null starter for '[ckey]'.")
@@ -33,13 +33,15 @@
 		return FALSE
 
 	var/datum/home_instance/scratch = new()
+	scratch.owner_ckey = ckey
+	scratch.slot = slot
 	scratch.starter_name = starter.name
 	scratch.landing_x = starter.landing_zone_x_offset
 	scratch.landing_y = starter.landing_zone_y_offset
-	write_metadata(ckey, scratch, 0, user)
+	write_metadata(scratch, 0, user)
 	qdel(scratch)
 
-	log_game("[key_name(user)] filed a new home from starter '[starter.name]'.")
+	log_game("[key_name(user)] filed a new home in [ckey]'s slot [slot] from starter '[starter.name]'.")
 	return TRUE
 
 /// Parses a .dmm off disk into a loadable template, or returns null if it isn't usable.
@@ -121,34 +123,35 @@
 	return repaired
 
 /// Picks what to actually put in the reservation: their save, else their backup, else the initial starter
-/datum/controller/subsystem/homes/proc/resolve_template(ckey, mob/user)
-	var/datum/map_template/home/candidate = build_runtime_template(home_file(ckey), "[ckey] home")
+/datum/controller/subsystem/homes/proc/resolve_template(ckey, slot, mob/user)
+	var/datum/map_template/home/candidate = build_runtime_template(home_file(ckey, slot), "[ckey] home [slot]")
 	if(!isnull(candidate))
 		return candidate
 
-	candidate = build_runtime_template(home_file(ckey, "home_backup.dmm"), "[ckey] home (recovered)")
+	candidate = build_runtime_template(home_file(ckey, slot, "home_backup.dmm"), "[ckey] home [slot] (recovered)")
 	if(!isnull(candidate))
 		// Neutrally worded: a guest the owner let in can be the one who triggers this load.
 		to_chat(user, span_warning("This residence's current record was unreadable. The registry restored the save before it."))
-		message_admins("Player homes: [ckey] home.dmm failed validation - fell back to their backup.")
-		log_game("Player homes: [ckey] home.dmm failed validation, loaded home_backup.dmm instead.")
+		message_admins("Player homes: [ckey] home [slot] failed validation - fell back to its backup.")
+		log_game("Player homes: [ckey] home [slot] home.dmm failed validation, loaded home_backup.dmm instead.")
 		return candidate
 
-	var/list/metadata = read_metadata(ckey)
+	var/list/metadata = read_metadata(ckey, slot)
 	var/datum/map_template/home/starter = starter_templates[metadata["starter"]]
 	if(isnull(starter))
 		return null
 	to_chat(user, span_warning("Both records were unreadable. The registry rebuilt this residence from its original plan."))
-	message_admins("Player homes: [ckey] lost both records - rebuilt from starter '[starter.name]'.")
-	log_game("Player homes: [ckey] fell all the way back to starter '[starter.name]'.")
+	message_admins("Player homes: [ckey] home [slot] lost both records - rebuilt from starter '[starter.name]'.")
+	log_game("Player homes: [ckey] home [slot] fell all the way back to starter '[starter.name]'.")
 	return starter
 
-/// Brings a player's home into the world and registers it as active.
-/datum/controller/subsystem/homes/proc/load_home(ckey, obj/machinery/home_terminal/terminal, mob/user)
-	if(!isnull(active_homes[ckey]))
-		return active_homes[ckey]
+/// Brings one of a player's homes into the world and registers it as active.
+/datum/controller/subsystem/homes/proc/load_home(ckey, slot, obj/machinery/home_terminal/terminal, mob/user)
+	var/key = home_key(ckey, slot)
+	if(!isnull(active_homes[key]))
+		return active_homes[key]
 
-	var/datum/map_template/home/template = resolve_template(ckey, user)
+	var/datum/map_template/home/template = resolve_template(ckey, slot, user)
 	if(isnull(template))
 		to_chat(user, span_warning("The registry has no readable record of that residence. Contact an administrator."))
 		return null
@@ -173,15 +176,17 @@
 
 	if(!template.load(bottom_left))
 		to_chat(user, span_warning("The residence failed to unfold. Contact an administrator."))
-		message_admins("Player homes: [ckey] interior failed to load into its reservation.")
+		message_admins("Player homes: [ckey] home [slot] failed to load into its reservation.")
 		qdel(reservation)
 		if(disposable_template)
 			qdel(template)
 		return null
 
-	var/list/metadata = read_metadata(ckey)
+	var/list/metadata = read_metadata(ckey, slot)
 	var/datum/home_instance/home = new()
 	home.owner_ckey = ckey
+	home.slot = slot
+	home.label = metadata["label"]
 	home.parent_terminal = terminal
 	home.reservation = reservation
 	home.starter_name = metadata["starter"] || template.name
@@ -205,7 +210,7 @@
 		home.gravity = !!metadata["gravity"]
 
 	reservation.home = home
-	active_homes[ckey] = home
+	active_homes[key] = home
 	if(disposable_template)
 		qdel(template)
 
@@ -223,7 +228,7 @@
 	if(damaged_tiles)
 		// Neutrally worded for the same reason as resolve_template(): it may not be the owner reading it.
 		to_chat(user, span_warning("[damaged_tiles] tile\s of this residence couldn't be fully restored and [damaged_tiles == 1 ? "is" : "are"] flagged with a red marker. Examine one to see what was lost."))
-		message_admins("Player homes: [ckey] home loaded with [damaged_tiles] damaged tile\s - see the game log for the missing paths.")
+		message_admins("Player homes: [ckey] home [slot] loaded with [damaged_tiles] damaged tile\s - see the game log for the missing paths.")
 	return home
 
 /// Moves every reserved turf into a freshly made /area/misc/player_home.
@@ -239,7 +244,7 @@
 
 	if(isnull(home.find_door()) && !locate(/obj/item/home_door_kit) in reserved_turfs)
 		install_door(home)
-		message_admins("Player homes: [home.owner_ckey] had no door on record and one was fitted for them.")
+		message_admins("Player homes: [home.owner_ckey] home [home.slot] had no door on record and one was fitted for them.")
 	for(var/turf/closed/indestructible/hoteldoor/door in reserved_turfs)
 		door.parentSphere = home.parent_terminal
 
@@ -299,7 +304,7 @@
 		to_chat(user, span_warning("Registry refused: [object_count] cataloguable objects exceeds the [HOME_MAX_OBJECTS] permitted. Clear some out and try again."))
 		return FALSE
 
-	var/directory = home_directory(home.owner_ckey)
+	var/directory = home_directory(home.owner_ckey, home.slot)
 	var/scratch = "[directory]home.dmm.tmp"
 	var/live = "[directory]home.dmm"
 	var/backup = "[directory]home_backup.dmm"
@@ -319,8 +324,8 @@
 	if(!verify_save(scratch))
 		fdel(scratch)
 		to_chat(user, span_warning("The registry transcribed a corrupt record and discarded it. Your previous save is untouched - please tell an administrator."))
-		message_admins("Player homes: save verification FAILED for [home.owner_ckey]. Their previous save was left intact.")
-		log_game("Player homes: save verification failed for [home.owner_ckey].")
+		message_admins("Player homes: save verification FAILED for [home.owner_ckey] home [home.slot]. Their previous save was left intact.")
+		log_game("Player homes: save verification failed for [home.owner_ckey] home [home.slot].")
 		return FALSE
 
 	// Only now is it safe to touch the good copy.
@@ -332,10 +337,10 @@
 	fdel(scratch)
 
 	home.last_saved = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss", TIMEZONE_UTC)
-	write_metadata(home.owner_ckey, home, object_count, user)
+	write_metadata(home, object_count, user)
 	// Photograph it while the rooms are still standing; there is nothing to shoot once it unloads.
 	render_preview(home)
-	log_game("[key_name(user)] saved their home ([object_count] objects).")
+	log_game("[key_name(user)] saved [home.owner_ckey]'s home [home.slot] ([object_count] objects).")
 	return TRUE
 
 /// Parses a freshly written save back off disk before it is allowed to replace the good copy.
@@ -354,31 +359,34 @@
 /// Rolls a home back to the save before its last one, then turns everyone out so the rooms rebuild
 /// from the restored file the next time somebody walks in.
 /datum/controller/subsystem/homes/proc/restore_backup(datum/home_instance/home, mob/user)
-	var/backup = home_file(home.owner_ckey, "home_backup.dmm")
+	var/backup = home_file(home.owner_ckey, home.slot, "home_backup.dmm")
 	if(!fexists(backup))
 		to_chat(user, span_warning("There is no earlier record to restore."))
 		return FALSE
-	var/live = home_file(home.owner_ckey)
+	var/live = home_file(home.owner_ckey, home.slot)
 	fdel(live)
 	fcopy(backup, live)
 	to_chat(user, span_notice("Record restored. The registry is cycling everyone out so it can rebuild the rooms."))
-	log_game("[key_name(user)] restored their home from its backup.")
+	log_game("[key_name(user)] restored [home.owner_ckey]'s home [home.slot] from its backup.")
 	home.evict_all()
 	return TRUE
 
-/// Demolishes a player's home. The backup survives on purpose, so an admin can still put it back.
-/datum/controller/subsystem/homes/proc/reset_home(ckey, mob/user)
-	var/datum/home_instance/home = active_homes[ckey]
+/// Demolishes one of a player's homes, freeing its slot. The backup survives on purpose, so an admin
+/// can still put it back.
+/datum/controller/subsystem/homes/proc/reset_home(ckey, slot, mob/user)
+	var/live = home_file(ckey, slot)
+	if(!live)
+		return FALSE
+	var/datum/home_instance/home = get_active_home(ckey, slot)
 	if(!isnull(home))
 		home.evict_all()
 
-	var/live = home_file(ckey)
 	if(fexists(live))
-		var/backup = home_file(ckey, "home_backup.dmm")
+		var/backup = home_file(ckey, slot, "home_backup.dmm")
 		fdel(backup)
 		fcopy(live, backup)
 		fdel(live)
-	fdel(home_file(ckey, "home.json"))
-	forget_preview(ckey)
-	log_game("[key_name(user)] demolished [ckey] home record.")
+	fdel(home_file(ckey, slot, "home.json"))
+	forget_preview(ckey, slot)
+	log_game("[key_name(user)] demolished [ckey] home [slot].")
 	return TRUE
