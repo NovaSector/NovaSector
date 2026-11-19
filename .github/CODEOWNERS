@@ -1,38 +1,19 @@
 # This list auto requests reviews from the specified org members
+
 # when a PR that modifies the file in question is opened
+
 # This list is alphabetized by User -> Filename and separated into sections for Maintainers/Contributors KEEP IT THAT WAY
+
 # In the event that people are to be informed of changes
+
 # to the same file or dir, add them to the end of under Multiple Owners
 
 # MAINTAINERS
-
-# vinylspiders
-/.github/workflows/ @vinylspiders
-/SQL/ @vinylspiders
-/tools/ @vinylspiders
-/code/modules/tgui/ @vinylspiders
-
-# Zergspower
-
-/modular_nova/modules/borgs @Zergspower
-/modular_nova/modules/borg_buffs @Zergspower
-/modular_nova/modules/ghostcafe @Zergspower
-/modular_nova/modules/hotel_rooms @Zergspower
-/modular_nova/master_files/code/modules/mapfluff @Zergspower
-/modular_nova/modules/ashwalkers @Zergspower
-/modular_nova/modules/aesthetics/keyed_doors @Zergspower
 
 # CONTRIBUTORS
 
 # MULTIPLE OWNERS
 
-# Maptainers
-
-/tools/maplint/lints @sqnztb
-/tools/UpdatePaths @sqnztb
-/_maps/ @Zergspower @sqnztb
-/modular_nova/modules/mapping @Zergspower @sqnztb
-
 # Expensive files that touching basically always cause performance problems
+
 ## Init times
-**/*_EXPENSIVE.dm @vinylspiders
