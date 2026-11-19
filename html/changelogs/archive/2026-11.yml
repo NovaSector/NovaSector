@@ -257,6 +257,9 @@
   AitorLogedo:
   - bugfix: Dead bodies wearing insulating clothes cool down after burning instead
       of staying hot and husking.
+  ArrisFairburne:
+  - code_imp: Improved ranged trooper AI to ignore destroying objects they can shoot
+      through
   CabinetOnFire:
   - bugfix: mulebots now use stairs and ladders wow
   - balance: Monkeys are less tough to fight
@@ -349,8 +352,17 @@
   - balance: Cyborgs require two flashes to stun them once again.
   - balance: You can now punch borgs to death. But you do need to have a decent punch
       to even hurt them.
+  - balance: Lizardpeople are now so strong. They could bend steel. You could grate
+      cheese on those abdominals. It will get caught in their scales though, which
+      means they might get scalerot, so please don't actually do that. Just admire
+      them from a comfortable, although perhaps uncomfortable for the subject of admiration,
+      distance.
+  san7890:
+  - rscdel: CatwalkStation has been removed from the game.
   scolastico:
   - bugfix: Pressing "Force Reconnect" in the chat panel's websocket settings no longer
       breaks the websock
   sqnztb:
   - bugfix: Security department orders should show the weapon requisition kits again.
+  thegrb93:
+  - bugfix: Fix cyborg medical omni-tool from not having drapes at first.
