@@ -28,7 +28,7 @@
 	color_src = USE_ONE_COLOR
 	has_inner = TRUE
 
-/datum/sprite_accessory/ears/fox
+/datum/sprite_accessory/ears/cat/fox
 	color_src = USE_ONE_COLOR
 	has_inner = TRUE
 

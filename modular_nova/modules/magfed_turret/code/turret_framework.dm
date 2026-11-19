@@ -424,7 +424,7 @@
 	. = ..()
 	. -= span_notice("You can repair it by <b>left-clicking</b> with a combat wrench.")
 	. -= span_notice("You can fold it by <b>right-clicking</b> with a combat wrench.")
-	if(FAST_FACTION_CHECK(faction, user.get_faction(), null, null, FALSE) || has_ally(user))
+	if(FACTION_CHECK(faction, user.get_faction(), null, null, FALSE) || has_ally(user))
 		. += span_notice("Turret integrity is [atom_integrity]/[max_integrity]")
 		. += span_notice("You can unlock it by <b>left-clicking</b> with an <b>id card.</b>")
 		. += span_notice("You can repair it by <b>left-clicking</b> with a <b>wrench.</b>")
@@ -662,7 +662,7 @@
 	if(!faction_targeting)
 		return has_ally(target)
 
-	return FAST_FACTION_CHECK(faction, target.get_faction(), allies, target.allies, FALSE)
+	return ALLY_CHECK(allies, target.allies, FALSE) || FACTION_CHECK(faction, target.get_faction(), null, null, FALSE)
 
 
 /// toggles between whether things are inside the ally system
