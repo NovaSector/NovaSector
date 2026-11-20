@@ -5,6 +5,12 @@
 			"icon_state": "mantle",
 			"blend_mode": "overlay",
 			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "mantle_trim",
+			"blend_mode": "overlay",
+			"color_ids": [2]
 		}
 	]
 }
