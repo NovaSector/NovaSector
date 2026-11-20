@@ -1,6 +1,8 @@
 /// When the `AUTOWIKI` define is enabled, will generate an output file for tools/autowiki/autowiki.js to consume.
 /// Autowiki code intentionally still *exists* even without the define, to ensure developers notice
 /// when they break it immediately, rather than until CI or worse, call time.
+#define AUTOWIKI_NEWLINE "<br>"
+
 #if defined(AUTOWIKI) || defined(UNIT_TESTS)
 /proc/setup_autowiki()
 	Master.sleep_offline_after_initializations = FALSE
