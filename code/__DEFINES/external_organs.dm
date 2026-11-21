@@ -11,6 +11,7 @@
 
 /// Tail spine defines
 #define SPINE_KEY_LIZARD "lizard"
+#define SPINE_KEY_CAT "cat"
 #define SPINE_KEY_VOX "vox" // NOVA EDIT ADDITION
 
 //wing flight defines

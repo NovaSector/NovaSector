@@ -37,6 +37,7 @@
 	if(damage && !torn && prob(50))
 		balloon_alert_to_viewers("[src] tears!")
 		clothing_flags &= ~STOPSPRESSUREDAMAGE
+		astype(loc, /mob/living/carbon)?.refresh_obscured() // pressure protection is cached on the wearer, recalculate it
 		torn = TRUE
 		playsound(src, 'sound/items/weapons/slashmiss.ogg', 50, TRUE)
 		playsound(src, 'sound/effects/refill.ogg', 50, TRUE)

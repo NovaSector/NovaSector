@@ -120,6 +120,10 @@
 	if(liverless && !reagent.self_consuming) //need to be6 metabolized
 		return FALSE
 
+	if(!reagent.metabolizing)
+		reagent.metabolizing = TRUE
+		reagent.on_mob_metabolize(owner)
+
 	var/need_mob_update = FALSE
 	if(reagents_metabolized)
 		reagents_metabolized[reagent.type] = metabolization_ratio
