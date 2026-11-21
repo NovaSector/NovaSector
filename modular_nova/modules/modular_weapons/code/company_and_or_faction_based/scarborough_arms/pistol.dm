@@ -46,7 +46,10 @@
 	. = ..()
 	// safety indicator
 	var/datum/component/gun_safety/our_safety = GetComponent(/datum/component/gun_safety)
-	. += "[icon_state]_sf[our_safety.safety_currently_on ? "1" : "0"]"
+	if(our_safety)
+		. += "[icon_state]_sf[our_safety.safety_currently_on ? "1" : "0"]"
+	else
+		. += "[icon_state]_sf0"
 	// snowflaked indicator
 	if(magazine)
 		var/capacity_number
