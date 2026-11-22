@@ -27,6 +27,7 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/numb, /datum/quirk/selfaware),
 	list(/datum/quirk/empath, /datum/quirk/evil),
 	list(/datum/quirk/keen_nose, /datum/quirk/item_quirk/anosmia),
+	list(/datum/quirk/pyromania, /datum/quirk/pyrophobia),
 	// NOVA EDIT ADDITION BEGIN
 	list(/datum/quirk/equipping/nerve_staple, /datum/quirk/nonviolent),
 	list(/datum/quirk/equipping/nerve_staple, /datum/quirk/item_quirk/nearsighted),
