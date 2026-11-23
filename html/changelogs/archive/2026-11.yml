@@ -366,3 +366,80 @@
   - bugfix: Security department orders should show the weapon requisition kits again.
   thegrb93:
   - bugfix: Fix cyborg medical omni-tool from not having drapes at first.
+2026-11-23:
+  Absolucy:
+  - bugfix: chat no longer randomly stops autoscrolling when a big message (like an
+      examine) or a burst of messages comes in
+  - bugfix: Hopefully fixed most chat scrolling issues in general, tbh.
+  - bugfix: chat no longer stays blank for new players, or when chat settings are
+      slow to load
+  - bugfix: chat no longer breaks on every join if your saved chat data got corrupted
+  - qol: chat now tells you whenever something goes wrong with loading or saving your
+      chat data
+  - rscadd: You can now see which storage backend your chat settings use.
+  - bugfix: chat tooltips starting with a number no longer get cut down to just the
+      number
+  - bugfix: the music player no longer shows a garbage upload date when there isn't
+      one
+  - bugfix: new players with no saved chat settings can hear admin music again
+  - bugfix: chat highlights now work for terms with punctuation or accents
+  - bugfix: '"Exact" chat highlights now work with accented letters and terms ending
+      in punctuation'
+  - bugfix: chat highlights that mix /regex/ entries with plain words now match the
+      plain words too
+  - bugfix: the chat highlight list no longer reorders itself after you delete the
+      default highlight
+  - bugfix: fixed lighting and night vision breaking after turning back from a shapeshift
+      (or getting put into a body) on an upper z-level, until you changed z-levels
+  Arceniu:
+  - bugfix: enforcer pistol safety state icon
+  CabinetOnFire:
+  - bugfix: Pets no longer get stuck in attack mode
+  - qol: Pet commands should be more clearly communicated now
+  Kurgis:
+  - bugfix: Exosuit drills no longer need to disabled and re-enabled again to properly
+      use their on_click functions... because now they just start disabled.
+  Melbert:
+  - bugfix: You can no longer examine things obscured by darkness (unless you have
+      night vision)
+  - bugfix: You no longer see messages of people obscured by darkness (unless you
+      have night vision)
+  - rscadd: Shoving someone who is on fire into someone who is not spreads fire now.
+  Neocloudy:
+  - map: 'NorthStar: Received a lot of tweaks in general, see PR 7920 for mostly full
+      list of changes.'
+  - map: 'NorthStar: On Deck 1, there are now cryo pods nearby Supply/connected to
+      Arrivals on the port side. This is the fastest way to leave the game from Supply.'
+  - map: 'NorthStar: On Deck 2, there are now cryo pods next to Medical/neighboring
+      Virology and Science on the starboard side. This is the fastest way to leave
+      the game from Engineering, Medical or Science.'
+  - map: 'NorthStar: Adjusted the appearance of Deck 3''s Cryogenics.'
+  - map: 'NorthStar: Removed an unneeded camera from the Delivery Office.'
+  - map: 'NorthStar: Science Break Room can''t be seen from the main Science area,
+      has better wallmount placement, and functional disposals.'
+  - map: 'NorthStar: Apartments have curtains that you can close.'
+  - map: 'NorthStar: Third Floor Starboard Maint is slightly more lit, as opposed
+      to not lit at all. Second Floor Starboard Maint also receives a few more lights.'
+  - map: 'NorthStar: Medical uses new tiles that play around the presence of decals
+      in the Treatment Center and hallways.'
+  - map: 'NorthStar: Connected Medical Cryogenics to the scrubbers network, so CO2
+      from people in the pods is actually sent away.'
+  - map: 'NorthStar: Psychologist''s Office (main) is covered by a camera.'
+  - map: 'NorthStar: The quantum pad from Robotics to Research and Development is
+      linked at the start of the round.'
+  PapaMichael:
+  - bugfix: Ceruleans species-changed into humans no longer lose a third of their
+      blood nor zoom around super fast
+  - bugfix: AIs can now malfunction when piloting a shell
+  SmArtKar:
+  - bugfix: Fixes hacker names not filtering out some invalid symbols
+  TheRyeGuyWhoWillNowDie:
+  - balance: Doubled the potency of synthflesh
+  btcbuster:
+  - bugfix: Can't take pyrophobia and pyromania at once now.
+  - spellcheck: fixed a typo on an icebox plant
+  moocowswag:
+  - qol: Ai's will no longer be punished for having high apm
+  - qol: Silicons can now rapidly cycle modes on air alarms
+  - bugfix: Air alarm ai wires are no longer inverted
+  - bugfix: Air alarm screwdriver context is no longer inverted
