@@ -93,7 +93,7 @@
 
 //Give cyborgs hotkey clicks without breaking existing uses of hotkey clicks
 // for non-doors/apcs
-/mob/living/silicon/robot/CtrlShiftClickOn(atom/target) // Procs overriden in modular_nova/modules/Silicon_QoL
+/mob/living/silicon/robot/CtrlShiftClickOn(atom/target) // NOVA EDIT ADDITION - Procs overridden in modular_nova/modules/SiliconQoL
 	target.BorgCtrlShiftClick(src)
 
 /mob/living/silicon/robot/ShiftClickOn(atom/target)
