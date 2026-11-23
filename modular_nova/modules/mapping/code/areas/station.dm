@@ -155,6 +155,15 @@
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
 	icon_state = "cryopods"
 
+/area/station/common/cryopods/floor1
+	name = "First Floor Cryogenics"
+
+/area/station/common/cryopods/floor2
+	name = "Second Floor Cryogenics"
+
+/area/station/common/cryopods/floor3
+	name = "Third Floor Cryogenics"
+
 /area/station/service/salon
 	name = "\improper Salon"
 	icon = 'modular_nova/modules/mapping/icons/areas/areas_station.dmi'
