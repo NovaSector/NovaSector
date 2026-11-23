@@ -1,0 +1,4 @@
+author: "Arceniu"
+delete-after: True
+changes:
+  - bugfix: "enforcer pistol safety state icon"
