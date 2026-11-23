@@ -286,10 +286,14 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		var/old_organ_type = old_species?.get_mutant_organ_type_for_slot(slot)
 
 		/* // NOVA EDIT REMOVAL START
-		if(existing_organ && !existing_organ.get_replaceability(new_organ, old_organ_type, old_species, replace_current)) // NOVA EDIT REMOVAL
+		if(existing_organ && !existing_organ.get_replaceability(new_organ, old_organ_type, old_species, replace_current))
 			continue
 		// if we have an extra organ that before changing that the species didnt have, remove it
 		else if(!new_organ)
+			if(existing_organ)
+				existing_organ.Remove(organ_holder, special = TRUE)
+				qdel(existing_organ)
+			continue
 		*/ // NOVA EDIT REMOVAL END
 		// NOVA EDIT ADDITION START
 		if(!new_organ)

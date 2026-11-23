@@ -93,7 +93,7 @@
 
 //Give cyborgs hotkey clicks without breaking existing uses of hotkey clicks
 // for non-doors/apcs
-/mob/living/silicon/robot/CtrlShiftClickOn(atom/target) // Procs overriden in modular_nova/modules/Silicon_QoL
+/mob/living/silicon/robot/CtrlShiftClickOn(atom/target) // NOVA EDIT ADDITION - Procs overridden in modular_nova/modules/SiliconQoL
 	target.BorgCtrlShiftClick(src)
 
 /mob/living/silicon/robot/ShiftClickOn(atom/target)
@@ -157,6 +157,24 @@
 /obj/machinery/power/apc/attack_robot_secondary(mob/living/silicon/user, list/modifiers)
 	if(get_dist(src, user) <= user.interaction_range && !(user.control_disabled))
 		return attack_ai_secondary(user, modifiers)
+	else
+		..()
+
+/obj/machinery/airalarm/BorgCtrlClick(mob/living/silicon/robot/user) // cycles air alarm modes. Forwards to AI code
+	if(get_dist(src, user) <= user.interaction_range && !(user.control_disabled))
+		AICtrlClick(user)
+	else
+		..()
+
+/obj/machinery/airalarm/BorgShiftClick(mob/living/silicon/robot/user)
+	if(get_dist(src, user) <= user.interaction_range && !(user.control_disabled))
+		AIShiftClick(user)
+	else
+		..()
+
+/obj/machinery/airalarm/borg_click_alt(mob/living/silicon/robot/user)
+	if(get_dist(src, user) <= user.interaction_range && !(user.control_disabled))
+		ai_click_alt(user)
 	else
 		..()
 

@@ -18,6 +18,7 @@
 	range = MECHA_MELEE
 	tool_behaviour = TOOL_DRILL
 	toolspeed = 0.9
+	active = FALSE
 	mech_flags = EXOSUIT_MODULE_WORKING | EXOSUIT_MODULE_COMBAT
 	custom_materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5)
 	var/drill_delay = 7
@@ -178,7 +179,7 @@
 /turf/closed/mineral/drill_act(obj/item/mecha_parts/mecha_equipment/drill/drill, mob/user)
 	for(var/turf/closed/mineral/wall in range(drill.chassis, 1))
 		if(get_dir(drill.chassis, wall) & drill.chassis.dir)
-			wall.gets_drilled(user)
+			wall.gets_drilled(user) // NOVA EDIT CHANGE - ORIGINAL: wall.gets_drilled()
 	drill.log_message("[user] drilled through [src]", LOG_MECHA)
 	drill.move_ores()
 
