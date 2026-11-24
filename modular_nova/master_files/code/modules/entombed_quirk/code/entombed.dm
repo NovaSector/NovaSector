@@ -327,12 +327,12 @@
 	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/text/entombed_mod_name/serialize(input)
-	return htmlrendertext(input)
+	return STRIP_HTML_SIMPLE(htmlrendertext(input), maximum_value_length)
 
 /datum/preference/text/entombed_mod_name/deserialize(input, datum/preferences/preferences)
 	var/sanitized_input = htmlrendertext(input)
 	if(!isnull(sanitized_input))
-		return sanitized_input
+		return STRIP_HTML_SIMPLE(sanitized_input, maximum_value_length)
 	else
 		return ""
 
@@ -352,12 +352,12 @@
 	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/text/entombed_mod_desc/serialize(input)
-	return htmlrendertext(input)
+	return STRIP_HTML_SIMPLE(htmlrendertext(input), maximum_value_length)
 
 /datum/preference/text/entombed_mod_desc/deserialize(input, datum/preferences/preferences)
 	var/sanitized_input = htmlrendertext(input)
 	if(!isnull(sanitized_input))
-		return sanitized_input
+		return STRIP_HTML_SIMPLE(sanitized_input, maximum_value_length)
 	else
 		return ""
 
@@ -378,10 +378,10 @@
 	return /datum/quirk/equipping/entombed::name in preferences.all_quirks
 
 /datum/preference/text/entombed_mod_prefix/serialize(input)
-	return htmlrendertext(input)
+	return STRIP_HTML_SIMPLE(htmlrendertext(input), maximum_value_length)
 
 /datum/preference/text/entombed_mod_prefix/deserialize(input, datum/preferences/preferences)
-	return htmlrendertext(input)
+	return STRIP_HTML_SIMPLE(htmlrendertext(input), maximum_value_length)
 
 /datum/preference/text/entombed_mod_prefix/create_default_value()
 	return "Fused"
