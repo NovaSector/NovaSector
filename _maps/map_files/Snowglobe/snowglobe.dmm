@@ -1212,10 +1212,9 @@
 /obj/effect/turf_decal/stripes{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/binary/pressure_valve{
+/obj/machinery/atmospherics/components/binary/pressure_valve/on{
 	dir = 4;
-	name = "Engine Waste";
-	on = 1
+	name = "Output Release"
 	},
 /obj/effect/turf_decal/stripes{
 	dir = 8
@@ -1294,8 +1293,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain5b";
-	name = "curtain"
+	id = "dormscurtain5b"
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "Dorm5shutters";
@@ -4306,8 +4304,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "NTRepPrivacy";
-	name = "curtain"
+	id = "NTRepPrivacy"
 	},
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -6355,8 +6352,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "psychcurtain";
-	name = "curtain"
+	id = "psychcurtain"
 	},
 /turf/open/floor/grass,
 /area/station/medical/psychology)
@@ -7507,8 +7503,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain5b";
-	name = "curtain"
+	id = "dormscurtain5b"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/room5)
@@ -11349,7 +11344,6 @@
 	name = "HoS External Shutters"
 	},
 /obj/structure/curtain/cloth/fancy/mechanical{
-	name = "curtain";
 	id = "hosoffice"
 	},
 /obj/effect/spawner/structure/window/reinforced,
@@ -13005,8 +12999,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain6b";
-	name = "curtain"
+	id = "dormscurtain6b"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/room6)
@@ -13751,6 +13744,7 @@
 /obj/effect/turf_decal/stripes{
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "dGR" = (
@@ -13850,8 +13844,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain5";
-	name = "curtain"
+	id = "dormscurtain5"
 	},
 /turf/open/floor/grass,
 /area/station/commons/dorms/room5)
@@ -15725,8 +15718,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "SurgeryBcurtains";
-	name = "curtain"
+	id = "SurgeryBcurtains"
 	},
 /turf/open/floor/iron/white/smooth_corner,
 /area/station/medical/surgery/theatre)
@@ -16149,8 +16141,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "blueyprivacy2";
-	name = "curtain"
+	id = "blueyprivacy2"
 	},
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -16221,8 +16212,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "qmprivacy";
-	name = "curtain"
+	id = "qmprivacy"
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	dir = 8;
@@ -16338,7 +16328,6 @@
 "epA" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/curtain/cloth/fancy/mechanical{
-	name = "curtain";
 	id = "ceprivacy"
 	},
 /obj/structure/cable,
@@ -17719,7 +17708,6 @@
 "eJU" = (
 /obj/structure/cable,
 /obj/structure/curtain/cloth/fancy/mechanical{
-	name = "curtain";
 	id = "capprivacy"
 	},
 /obj/machinery/door/poddoor/preopen{
@@ -18488,8 +18476,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain3";
-	name = "curtain"
+	id = "dormscurtain3"
 	},
 /turf/open/floor/grass,
 /area/station/commons/dorms/room3)
@@ -21378,8 +21365,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain4";
-	name = "curtain"
+	id = "dormscurtain4"
 	},
 /turf/open/floor/grass,
 /area/station/commons/dorms/room4)
@@ -21832,9 +21818,6 @@
 /area/station/command/heads_quarters/cmo)
 "fLd" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 4
-	},
 /obj/effect/turf_decal/stripes{
 	dir = 1
 	},
@@ -22690,8 +22673,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain7";
-	name = "curtain"
+	id = "dormscurtain7"
 	},
 /turf/open/floor/grass,
 /area/station/commons/dorms/room7)
@@ -22907,8 +22889,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "spaprivacy";
-	name = "curtain"
+	id = "spaprivacy"
 	},
 /turf/open/floor/plating,
 /area/station/service/barber/spa)
@@ -23064,8 +23045,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "cmoprivacy";
-	name = "curtain"
+	id = "cmoprivacy"
 	},
 /obj/machinery/door/poddoor/preopen{
 	id = "CMOblastdoors";
@@ -23136,13 +23116,13 @@
 /turf/open/floor/wood/tile,
 /area/station/command/heads_quarters/blueshield)
 "gdt" = (
-/obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
-	dir = 8
-	},
 /obj/effect/turf_decal/stripes{
 	dir = 4
 	},
 /obj/effect/turf_decal/stripes/red/line{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
 	dir = 4
 	},
 /turf/open/floor/engine,
@@ -23262,7 +23242,6 @@
 	name = "Captain's Office Blast Door"
 	},
 /obj/structure/curtain/cloth/fancy/mechanical{
-	name = "curtain";
 	id = "capprivacy2"
 	},
 /obj/effect/spawner/structure/window/reinforced,
@@ -23543,7 +23522,6 @@
 	name = "Captain's Quarters Blast Door"
 	},
 /obj/structure/curtain/cloth/fancy/mechanical{
-	name = "curtain";
 	id = "capprivacy"
 	},
 /obj/effect/spawner/structure/window/reinforced,
@@ -24543,9 +24521,7 @@
 /turf/open/floor/iron/dark/diagonal,
 /area/station/service/theater)
 "gwb" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/visible{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
 /turf/open/floor/plating/reinforced,
 /area/station/engineering/supermatter/room)
 "gwe" = (
@@ -25099,8 +25075,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell4Privacy";
-	name = "curtain"
+	id = "Cell4Privacy"
 	},
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -25860,8 +25835,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain4";
-	name = "curtain"
+	id = "dormscurtain4"
 	},
 /turf/open/floor/grass,
 /area/station/commons/dorms/room4)
@@ -26014,7 +25988,6 @@
 "gQe" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/curtain/cloth/fancy/mechanical{
-	name = "curtain";
 	id = "ceprivacy"
 	},
 /obj/structure/cable,
@@ -27172,6 +27145,7 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "hfr" = (
@@ -28655,7 +28629,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/hedge,
 /obj/machinery/door/poddoor/shutters/preopen{
-	dir = 2;
 	id = "engiboardroom"
 	},
 /obj/structure/window/reinforced/fulltile,
@@ -28780,8 +28753,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain6b";
-	name = "curtain"
+	id = "dormscurtain6b"
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "Dorm6shutters";
@@ -28955,8 +28927,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "SurgeryAcurtains";
-	name = "curtain"
+	id = "SurgeryAcurtains"
 	},
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 8
@@ -30198,8 +30169,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain4";
-	name = "curtain"
+	id = "dormscurtain4"
 	},
 /turf/open/floor/grass,
 /area/station/commons/dorms/room4)
@@ -31111,8 +31081,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain1";
-	name = "curtain"
+	id = "dormscurtain1"
 	},
 /turf/open/floor/grass,
 /area/station/commons/dorms/room1)
@@ -33440,8 +33409,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain1b";
-	name = "curtain"
+	id = "dormscurtain1b"
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "Dorm1shutters";
@@ -34253,8 +34221,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain1";
-	name = "curtain"
+	id = "dormscurtain1"
 	},
 /turf/open/floor/grass,
 /area/station/commons/dorms/room1)
@@ -34685,11 +34652,11 @@
 /turf/open/floor/wood/tile,
 /area/station/security/courtroom)
 "jbi" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 4
-	},
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/caution/stand_clear,
+/obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
+	dir = 4
+	},
 /turf/open/floor/plating/reinforced,
 /area/station/engineering/supermatter/room)
 "jbq" = (
@@ -35048,8 +35015,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain2";
-	name = "curtain"
+	id = "dormscurtain2"
 	},
 /turf/open/floor/grass,
 /area/station/commons/dorms/room2)
@@ -36512,6 +36478,10 @@
 /obj/effect/turf_decal/stripes,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
+	},
+/obj/machinery/atmospherics/components/binary/temperature_gate{
+	on = 1;
+	name = "Output to Waste"
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
@@ -38020,8 +37990,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "blueyprivacy2";
-	name = "curtain"
+	id = "blueyprivacy2"
 	},
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -39147,13 +39116,11 @@
 	},
 /area/station/science/lab)
 "kiK" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 4
-	},
-/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible,
 /obj/effect/turf_decal/stripes{
 	dir = 4
 	},
+/obj/machinery/meter,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "kiN" = (
@@ -44605,7 +44572,6 @@
 /obj/structure/cable,
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/curtain/cloth/fancy/mechanical{
-	name = "curtain";
 	id = "BOPrivacy"
 	},
 /turf/open/floor/plating,
@@ -45034,7 +45000,6 @@
 "lLG" = (
 /obj/structure/cable,
 /obj/structure/curtain/cloth/fancy/mechanical{
-	name = "curtain";
 	id = "hosbathroom"
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -47214,8 +47179,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "psychcurtain";
-	name = "curtain"
+	id = "psychcurtain"
 	},
 /turf/open/floor/plating,
 /area/station/medical/psychology)
@@ -48002,7 +47966,6 @@
 /area/station/security/prison)
 "mBP" = (
 /obj/structure/curtain/cloth/fancy/mechanical{
-	name = "curtain";
 	id = "hosoffice"
 	},
 /obj/effect/spawner/structure/window/reinforced,
@@ -48210,9 +48173,6 @@
 /area/station/service/lawoffice)
 "mEC" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
-	dir = 1
-	},
 /obj/structure/sign/warning/radiation/directional/north,
 /obj/effect/turf_decal/stripes{
 	dir = 5
@@ -50651,9 +50611,7 @@
 /turf/open/floor/iron,
 /area/station/maintenance/department/security/brig)
 "npn" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
 /obj/machinery/light/small/dim/directional/east,
 /turf/open/floor/plating/reinforced,
 /area/station/engineering/supermatter/room)
@@ -52231,8 +52189,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "cell6privacy";
-	name = "curtain"
+	id = "cell6privacy"
 	},
 /obj/effect/spawner/structure/window,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -52388,8 +52345,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "rdprivacy";
-	name = "curtain"
+	id = "rdprivacy"
 	},
 /obj/machinery/door/poddoor/preopen{
 	id = "RDBlastDoors";
@@ -54623,7 +54579,6 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
-/obj/machinery/meter,
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
@@ -55785,8 +55740,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain1b";
-	name = "curtain"
+	id = "dormscurtain1b"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/room1)
@@ -58064,8 +58018,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell2Privacy";
-	name = "curtain"
+	id = "Cell2Privacy"
 	},
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -62814,8 +62767,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell3Privacy";
-	name = "curtain"
+	id = "Cell3Privacy"
 	},
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -63684,8 +63636,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "SurgeryAcurtains";
-	name = "curtain"
+	id = "SurgeryAcurtains"
 	},
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -64084,6 +64035,7 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/stripes,
+/obj/machinery/meter,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "qUv" = (
@@ -64451,14 +64403,14 @@
 /turf/open/floor/iron/stairs/left,
 /area/station/engineering/atmos/office)
 "qZm" = (
-/obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
-	dir = 8
-	},
 /obj/effect/turf_decal/stripes{
 	dir = 8
 	},
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
+	dir = 4
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
@@ -64704,13 +64656,6 @@
 /obj/item/kirbyplants/random,
 /turf/open/floor/carpet/purple,
 /area/station/service/barber/spa)
-"rcp" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 4
-	},
-/obj/machinery/meter,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "rct" = (
 /obj/structure/cable,
 /obj/effect/landmark/start/hangover,
@@ -65345,9 +65290,6 @@
 /area/station/engineering/atmos/office)
 "rlO" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 4
-	},
 /obj/effect/turf_decal/stripes{
 	dir = 1
 	},
@@ -65703,9 +65645,7 @@
 /turf/open/floor/circuit,
 /area/station/engineering/storage/tech)
 "rrU" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible,
 /obj/structure/marker_beacon/burgundy,
 /obj/effect/turf_decal/trimline/yellow,
 /turf/open/floor/plating/reinforced,
@@ -67526,17 +67466,6 @@
 /obj/structure/sign/poster/random/directional/west,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit/departure_lounge)
-"rSE" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 6
-	},
-/obj/effect/turf_decal/stripes{
-	dir = 1
-	},
-/obj/machinery/meter,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "rSL" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
@@ -67808,9 +67737,6 @@
 /area/station/ai/satellite/hallway)
 "rVn" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
-	dir = 4
-	},
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plating/reinforced,
 /area/station/engineering/supermatter/room)
@@ -71357,6 +71283,13 @@
 	},
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
+"sNY" = (
+/obj/effect/spawner/structure/window/reinforced/plasma,
+/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/station/engineering/supermatter/room)
 "sOf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -73013,8 +72946,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell1Privacy";
-	name = "curtain"
+	id = "Cell1Privacy"
 	},
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -74718,7 +74650,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/components/binary/pump/on/scrubbers/visible{
-	dir = 2;
 	name = "Ports to Filter"
 	},
 /obj/structure/cable,
@@ -75372,8 +75303,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "Cell5Privacy";
-	name = "curtain"
+	id = "Cell5Privacy"
 	},
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
@@ -75391,9 +75321,6 @@
 /area/station/hallway/primary/starboard)
 "tOU" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
-	dir = 1
-	},
 /obj/structure/sign/warning/radiation/directional/north,
 /obj/effect/turf_decal/stripes{
 	dir = 9
@@ -75902,8 +75829,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "blueyprivacy2";
-	name = "curtain"
+	id = "blueyprivacy2"
 	},
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -77490,9 +77416,7 @@
 /turf/open/floor/iron/diagonal,
 /area/station/service/hydroponics)
 "usK" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "usO" = (
@@ -79784,12 +79708,6 @@
 /obj/structure/flora/rock/pile/jungle/large/style_2,
 /turf/open/floor/grass,
 /area/station/hallway/primary/fore)
-"uYP" = (
-/obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
-	dir = 8
-	},
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "uZa" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Atmos Maintenance"
@@ -82785,8 +82703,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain4";
-	name = "curtain"
+	id = "dormscurtain4"
 	},
 /turf/open/floor/grass,
 /area/station/commons/dorms/room4)
@@ -84392,8 +84309,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain7b";
-	name = "curtain"
+	id = "dormscurtain7b"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/room7)
@@ -84906,8 +84822,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "SurgeryBcurtains";
-	name = "curtain"
+	id = "SurgeryBcurtains"
 	},
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -86220,8 +86135,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain7b";
-	name = "curtain"
+	id = "dormscurtain7b"
 	},
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "Dorm7shutters";
@@ -86285,7 +86199,6 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters/preopen{
-	dir = 2;
 	id = "engiboardroom"
 	},
 /turf/open/floor/circuit,
@@ -87355,7 +87268,6 @@
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "wTv" = (
-/obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/smart/simple/orange/visible{
 	dir = 4
 	},
@@ -89687,8 +89599,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "NTRepPrivacy";
-	name = "curtain"
+	id = "NTRepPrivacy"
 	},
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -92433,7 +92344,6 @@
 "ygm" = (
 /obj/structure/cable,
 /obj/structure/curtain/cloth/fancy/mechanical{
-	name = "curtain";
 	id = "blueyprivacy"
 	},
 /obj/effect/spawner/structure/window/reinforced,
@@ -92549,8 +92459,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain6";
-	name = "curtain"
+	id = "dormscurtain6"
 	},
 /turf/open/floor/grass,
 /area/station/commons/dorms/room6)
@@ -254937,8 +254846,8 @@ dlm
 iFC
 tvb
 vvP
-rSE
-rZE
+pJb
+wTv
 ilP
 hgL
 fKe
@@ -255195,7 +255104,7 @@ nkq
 bJQ
 vvP
 fLd
-rcp
+wTv
 gaL
 tax
 rkr
@@ -256223,7 +256132,7 @@ qEX
 vJc
 vvP
 rlO
-usK
+wTv
 oks
 lYX
 adN
@@ -256480,7 +256389,7 @@ iFC
 hcv
 vvP
 gsT
-uYP
+rZE
 tew
 hgL
 vsP
@@ -256996,7 +256905,7 @@ fhO
 oox
 kiK
 jBA
-pGR
+sNY
 heY
 qmG
 aUR
