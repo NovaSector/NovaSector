@@ -443,3 +443,7 @@
   - qol: Silicons can now rapidly cycle modes on air alarms
   - bugfix: Air alarm ai wires are no longer inverted
   - bugfix: Air alarm screwdriver context is no longer inverted
+2026-11-24:
+  sqnztb:
+  - rscadd: The Emergency Energy Node can be requested from the IC panel for deadpop
+      scenarios. Power without having to set the engine up.

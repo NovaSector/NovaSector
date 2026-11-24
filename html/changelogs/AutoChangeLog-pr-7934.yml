@@ -1,4 +1,0 @@
-author: "sqnztb"
-delete-after: True
-changes:
-  - rscadd: "The Emergency Energy Node can be requested from the IC panel for deadpop scenarios. Power without having to set the engine up."
