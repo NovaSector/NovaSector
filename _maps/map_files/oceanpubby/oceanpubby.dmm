@@ -24316,9 +24316,8 @@
 /area/station/hallway/primary/central/fore)
 "ezm" = (
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/atmospherics/components/binary/pressure_valve/on{
-	dir = 8;
-	name = "Output Release"
+/obj/machinery/atmospherics/components/binary/valve{
+	dir = 8
 	},
 /obj/structure/sign/warning/radiation/rad_area/directional/south,
 /turf/open/floor/engine,
