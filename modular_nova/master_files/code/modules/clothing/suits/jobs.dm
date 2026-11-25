@@ -1,5 +1,7 @@
-//Stop the unneccesary and inexplicable legs from being added to the digitigrade sprites on the apron
 /obj/item/clothing/suit/apron
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION // We don't need digitigrade masking for this, since we have our own sprites
+	bodyshapes_with_variations = NONE
 
-/obj/item/clothing/suit/apron/generate_digitigrade_icons(icon/base_icon, greyscale_colors)
-	return
+/obj/item/clothing/suit/utility/beekeeper_suit
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION // Same here
+	bodyshapes_with_variations = BODYSHAPE_CERULEAN
