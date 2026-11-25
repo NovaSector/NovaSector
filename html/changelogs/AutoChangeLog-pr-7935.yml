@@ -1,0 +1,4 @@
+author: "Neocloudy"
+delete-after: True
+changes:
+  - map: "[NOVA] Blueshift, Snowglobe, Void Raptor, Ocean Pubby SM loops have been updated for consistency with TG maps. They have fewer filters, consistent pipe colors, and slightly different (but consistent, except for Pubby) mechanisms for getting rid of waste."
