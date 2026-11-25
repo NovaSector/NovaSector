@@ -1,2 +1,3 @@
 /obj/item/clothing/suit/bio_suit
-	flags_inv = HIDEGLOVES|HIDEJUMPSUIT|HIDETAIL
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	bodyshapes_with_variations = BODYSHAPE_CERULEAN
