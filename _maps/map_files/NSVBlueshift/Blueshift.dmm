@@ -3380,8 +3380,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisonlibrarycurtain3";
-	name = "curtain"
+	id = "prisonlibrarycurtain3"
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/nt_rep)
@@ -4048,8 +4047,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisoncell7";
-	name = "curtain"
+	id = "prisoncell7"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison/safe)
@@ -11284,8 +11282,7 @@
 	linked_elevator_id = "publicElevator"
 	},
 /obj/machinery/button/elevator/directional/north{
-	id = "publicElevator";
-	name = "elevator button"
+	id = "publicElevator"
 	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/upper)
@@ -11929,8 +11926,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisoncell4";
-	name = "curtain"
+	id = "prisoncell4"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison/safe)
@@ -15760,6 +15756,10 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/fore/upper)
+"dib" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "did" = (
 /obj/structure/railing{
 	dir = 1
@@ -16235,8 +16235,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "HoPcurtains";
-	name = "curtain"
+	id = "HoPcurtains"
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/hop)
@@ -17266,6 +17265,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/command/gateway)
+"dyq" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/station/engineering/supermatter/room)
 "dyt" = (
 /obj/effect/landmark/event_spawn,
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
@@ -18142,13 +18147,6 @@
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/plating,
 /area/station/maintenance/console_room)
-"dHG" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/obj/effect/turf_decal/stripes{
-	dir = 1
-	},
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "dHN" = (
 /obj/machinery/computer/prisoner/management{
 	dir = 4
@@ -19202,8 +19200,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain4";
-	name = "curtain"
+	id = "dormscurtain4"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/room4)
@@ -22844,11 +22841,6 @@
 /obj/effect/spawner/random/structure/grille,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical)
-"eDu" = (
-/obj/machinery/meter,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "eDx" = (
 /obj/item/kirbyplants/random,
 /turf/open/floor/iron,
@@ -26291,8 +26283,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisoncell5";
-	name = "curtain"
+	id = "prisoncell5"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison/safe)
@@ -27781,8 +27772,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain5";
-	name = "curtain"
+	id = "dormscurtain5"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/room5)
@@ -28025,8 +28015,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain7";
-	name = "curtain"
+	id = "dormscurtain7"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/room7)
@@ -28422,7 +28411,6 @@
 /obj/effect/turf_decal/stripes{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/machinery/camera/directional/north{
@@ -28440,8 +28428,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisonlibrarycurtain3";
-	name = "curtain"
+	id = "prisonlibrarycurtain3"
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/nt_rep)
@@ -29122,14 +29109,6 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/fore)
-"fRB" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/visible,
-/obj/effect/turf_decal/stripes{
-	dir = 1
-	},
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "fRD" = (
 /obj/structure/table/reinforced,
 /obj/item/clothing/mask/gas/sechailer{
@@ -29518,13 +29497,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/medical/medbay/central)
-"fWn" = (
-/obj/machinery/atmospherics/components/trinary/filter/flipped/critical{
-	dir = 8
-	},
-/obj/effect/turf_decal/bot,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "fWo" = (
 /obj/structure/chair{
 	dir = 1
@@ -30025,6 +29997,9 @@
 "gbc" = (
 /obj/effect/turf_decal/stripes{
 	dir = 5
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 1
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
@@ -33206,7 +33181,6 @@
 "gIu" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/components/binary/pump/on/layer4{
-	dir = 2;
 	name = "Airlock Pump";
 	target_pressure = 300;
 	hide = 1
@@ -33982,8 +33956,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisoncell3";
-	name = "curtain"
+	id = "prisoncell3"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison/safe)
@@ -34528,8 +34501,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisonlibrarycurtain4";
-	name = "curtain"
+	id = "prisonlibrarycurtain4"
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/blueshield)
@@ -34662,8 +34634,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisonlibrarycurtain4";
-	name = "curtain"
+	id = "prisonlibrarycurtain4"
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/blueshield)
@@ -34792,6 +34763,10 @@
 /obj/machinery/duct,
 /turf/open/floor/iron/freezer,
 /area/station/medical/virology/isolation)
+"haj" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/engineering/main)
 "hal" = (
 /turf/closed/wall/rust,
 /area/station/security/detectives_office/private_investigators_office)
@@ -35762,6 +35737,8 @@
 	name = "Supermatter Emitters"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "hjP" = (
@@ -37617,8 +37594,7 @@
 	elevator_mode = 1
 	},
 /obj/machinery/button/elevator/directional/north{
-	id = "publicElevator";
-	name = "elevator button"
+	id = "publicElevator"
 	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
@@ -38795,8 +38771,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain1";
-	name = "curtain"
+	id = "dormscurtain1"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/room2)
@@ -39520,6 +39495,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/chapel)
+"hYD" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor,
+/area/station/engineering/supermatter/room)
 "hYF" = (
 /obj/item/kirbyplants/random,
 /obj/machinery/light_switch/directional/north{
@@ -40241,6 +40222,12 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/plating,
 /area/station/maintenance/abandon_diner)
+"igk" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/station/engineering/supermatter/room)
 "igE" = (
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 1
@@ -41179,9 +41166,6 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "iqH" = (
 /obj/structure/extinguisher_cabinet/directional/east,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	dir = 8
-	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "iqN" = (
@@ -41413,9 +41397,7 @@
 /turf/open/floor/iron/dark/side,
 /area/station/common/night_club/changing_room)
 "itZ" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/scrubbers/visible{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
 /obj/machinery/meter,
 /obj/machinery/incident_display/delam/directional/north,
 /turf/open/floor/engine,
@@ -42563,9 +42545,7 @@
 /turf/open/floor/iron/grimy,
 /area/station/command/heads_quarters/captain)
 "iFC" = (
-/obj/machinery/atmospherics/pipe/smart/manifold/brown/visible{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/orange/visible,
 /obj/machinery/meter,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
@@ -43404,10 +43384,6 @@
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
-"iPA" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/engine,
-/area/station/engineering/supermatter/room)
 "iPE" = (
 /turf/closed/wall/r_wall,
 /area/station/command/meeting_room/council)
@@ -43715,8 +43691,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain8";
-	name = "curtain"
+	id = "dormscurtain8"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/room8)
@@ -51227,8 +51202,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisoncell8";
-	name = "curtain"
+	id = "prisoncell8"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison/safe)
@@ -51344,6 +51318,7 @@
 	name = "Supermatter Emitters"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "krg" = (
@@ -52862,6 +52837,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
+"kGv" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor,
+/area/station/engineering/supermatter/room)
 "kGx" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 10
@@ -53276,8 +53257,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain6";
-	name = "curtain"
+	id = "dormscurtain6"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/room6)
@@ -54780,6 +54760,7 @@
 	name = "Engine Room Radiation Shutters";
 	id = "engroomsh"
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/engineering/main)
 "lcE" = (
@@ -55119,6 +55100,8 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor,
 /area/station/engineering/supermatter/room)
 "lfS" = (
@@ -55441,7 +55424,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/components/binary/pump/on/layer4{
-	dir = 2;
 	name = "Airlock Pump";
 	target_pressure = 300;
 	hide = 1
@@ -55818,6 +55800,11 @@
 	},
 /turf/open/floor/plating,
 /area/station/medical/paramedic)
+"lnt" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "lnC" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -56111,6 +56098,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/general,
 /obj/effect/landmark/navigate_destination,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/stairs/old,
 /area/station/engineering/supermatter/room)
 "lqT" = (
@@ -59607,8 +59595,7 @@
 	dir = 8
 	},
 /obj/machinery/sparker/directional/west{
-	id = "executionburn";
-	name = "mounted igniter"
+	id = "executionburn"
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/execution/education)
@@ -61245,6 +61232,11 @@
 	},
 /turf/open/floor/iron/kitchen_coldroom/freezerfloor,
 /area/station/medical/coldroom)
+"mvp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible,
+/obj/machinery/meter,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "mvq" = (
 /obj/structure/reagent_dispensers/plumbed{
 	dir = 8
@@ -62237,14 +62229,12 @@
 	id = "kitchenside";
 	name = "Kitchen Side Shutters";
 	pixel_x = -6;
-	pixel_y = -24;
 	req_access = list("kitchen")
 	},
 /obj/machinery/button/door/directional/south{
 	id = "kitchencounter";
 	name = "Kitchen Counter Shutters";
 	pixel_x = 6;
-	pixel_y = -24;
 	req_access = list("kitchen")
 	},
 /obj/machinery/light/directional/south,
@@ -67624,8 +67614,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisonlibrarycurtain3";
-	name = "curtain"
+	id = "prisonlibrarycurtain3"
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/nt_rep)
@@ -67917,6 +67906,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/central)
+"nNS" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/iron/dark,
+/area/station/engineering/supermatter/room)
 "nNW" = (
 /obj/structure/table_frame,
 /obj/effect/spawner/random/trash/mess,
@@ -68540,6 +68535,12 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
+"nUg" = (
+/obj/machinery/atmospherics/pipe/layer_manifold/scrubbers/hidden{
+	dir = 1
+	},
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "nUl" = (
 /obj/structure/table,
 /obj/item/paper_bin{
@@ -68983,7 +68984,6 @@
 	desc = "A remote control-switch for secure storage.";
 	id = "Secure Storage";
 	name = "Engineering Secure Storage";
-	pixel_x = -24;
 	req_access = list("engine_equip")
 	},
 /obj/structure/tank_dispenser,
@@ -72018,9 +72018,6 @@
 "oBJ" = (
 /obj/machinery/camera/directional/east,
 /obj/machinery/airalarm/directional/east,
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer{
-	dir = 8
-	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "oBL" = (
@@ -75293,6 +75290,14 @@
 	dir = 8
 	},
 /area/station/common/wrestling/arena)
+"pkR" = (
+/obj/machinery/atmospherics/components/binary/temperature_gate{
+	dir = 1;
+	on = 1;
+	name = "Output to Waste"
+	},
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "pkX" = (
 /obj/machinery/atmospherics/components/trinary/filter/critical{
 	dir = 4
@@ -78431,6 +78436,8 @@
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "pTH" = (
@@ -82513,6 +82520,11 @@
 	dir = 1
 	},
 /area/station/service/chapel)
+"qGF" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor,
+/area/station/engineering/supermatter/room)
 "qGL" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -84028,13 +84040,11 @@
 /obj/machinery/button/door/directional/east{
 	id = "QMLoaddoor2";
 	name = "Loading Doors";
-	pixel_x = 24;
 	pixel_y = -6
 	},
 /obj/machinery/button/door/directional/east{
 	id = "QMLoaddoor";
 	name = "Loading Doors";
-	pixel_x = 24;
 	pixel_y = 6
 	},
 /obj/machinery/computer/cargo{
@@ -85071,9 +85081,7 @@
 /area/station/engineering/supermatter/engine)
 "rha" = (
 /obj/effect/spawner/structure/window/reinforced/plasma,
-/obj/machinery/atmospherics/pipe/smart/simple/pink/visible{
-	dir = 8
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "rhi" = (
@@ -91025,7 +91033,6 @@
 "ssz" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/components/binary/pump/on/layer4{
-	dir = 2;
 	name = "Airlock Pump";
 	target_pressure = 300;
 	hide = 1
@@ -96268,8 +96275,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain3";
-	name = "curtain"
+	id = "dormscurtain3"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/room3)
@@ -96381,9 +96387,7 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/lobby)
 "tvm" = (
-/obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/purple/visible,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "tvp" = (
@@ -100059,8 +100063,7 @@
 	transport_linked_id = "publicElevator"
 	},
 /obj/machinery/button/elevator/directional/north{
-	id = "publicElevator";
-	name = "elevator button"
+	id = "publicElevator"
 	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/upper)
@@ -101462,6 +101465,12 @@
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron/white,
 /area/station/science/research)
+"uti" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/station/engineering/supermatter/room)
 "utj" = (
 /turf/open/floor/iron/shuttle/evac/airless,
 /area/station/maintenance/department/medical)
@@ -102854,6 +102863,10 @@
 /obj/machinery/light/small/broken/directional/south,
 /turf/open/floor/plating,
 /area/station/maintenance/fore/upper)
+"uHm" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/engine,
+/area/station/engineering/supermatter/room)
 "uHs" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -103226,8 +103239,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisonlibrarycurtain4";
-	name = "curtain"
+	id = "prisonlibrarycurtain4"
 	},
 /turf/open/floor/plating,
 /area/station/command/heads_quarters/blueshield)
@@ -103593,8 +103605,7 @@
 	transport_linked_id = "publicElevator"
 	},
 /obj/machinery/button/elevator/directional/north{
-	id = "publicElevator";
-	name = "elevator button"
+	id = "publicElevator"
 	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/primary/central)
@@ -105462,10 +105473,8 @@
 	desc = "A remote control-switch for secure storage.";
 	id = "Secure Storage";
 	name = "Engineering Secure Storage";
-	pixel_x = -24;
 	pixel_y = 5;
-	req_access = list("engine_equip");
-	dir = 8
+	req_access = list("engine_equip")
 	},
 /obj/machinery/button/door/directional/west{
 	id = "CEdoor";
@@ -105480,8 +105489,7 @@
 	name = "Lockdown Control";
 	pixel_x = -36;
 	pixel_y = 5;
-	req_access = list("ce");
-	dir = 8
+	req_access = list("ce")
 	},
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 1
@@ -105491,8 +105499,7 @@
 	name = "Secure Tool storage blast doors";
 	pixel_x = -36;
 	pixel_y = -6;
-	req_access = list("engine_equip");
-	dir = 8
+	req_access = list("engine_equip")
 	},
 /turf/open/floor/iron/white/side,
 /area/station/command/heads_quarters/ce)
@@ -106139,8 +106146,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisoncell6";
-	name = "curtain"
+	id = "prisoncell6"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison/safe)
@@ -106768,11 +106774,9 @@
 /obj/effect/turf_decal/stripes{
 	dir = 9
 	},
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "vwt" = (
@@ -107398,6 +107402,11 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/atmos/pumproom)
+"vBA" = (
+/obj/item/kirbyplants/random,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/iron,
+/area/station/engineering/main)
 "vBF" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/turf_decal/stripes{
@@ -111017,7 +111026,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/central)
 "wms" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/visible,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "wmu" = (
@@ -115058,6 +115067,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
 /area/station/maintenance/solars/starboard/fore)
+"xck" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/catwalk_floor,
+/area/station/engineering/supermatter/room)
 "xcn" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -116096,8 +116109,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisonlibrarycurtain3";
-	name = "curtain"
+	id = "prisonlibrarycurtain3"
 	},
 /turf/open/floor/grass,
 /area/station/command/heads_quarters/nt_rep)
@@ -117193,7 +117205,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/components/binary/pump/on/layer4{
-	dir = 2;
 	name = "Airlock Pump";
 	target_pressure = 300;
 	hide = 1
@@ -117417,8 +117428,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "prisonlibrarycurtain";
-	name = "curtain"
+	id = "prisonlibrarycurtain"
 	},
 /turf/open/floor/plating,
 /area/station/security/prison/rec)
@@ -117747,8 +117757,7 @@
 /obj/structure/curtain/cloth/fancy/mechanical{
 	icon_state = "bounty-open";
 	icon_type = "bounty";
-	id = "dormscurtain2";
-	name = "curtain"
+	id = "dormscurtain2"
 	},
 /turf/open/floor/plating,
 /area/station/commons/dorms/room1)
@@ -120449,7 +120458,7 @@
 /area/station/security/prison/garden)
 "ygq" = (
 /obj/effect/turf_decal/bot,
-/obj/machinery/atmospherics/components/binary/valve/digital/on{
+/obj/machinery/atmospherics/components/binary/pressure_valve/on{
 	dir = 4;
 	name = "Output Release"
 	},
@@ -150521,7 +150530,7 @@ tQJ
 tQJ
 bFX
 xGb
-rmW
+nNS
 cgs
 cgs
 cgs
@@ -150530,7 +150539,7 @@ rmW
 rmW
 rmW
 rmW
-rmW
+dyq
 ufO
 dto
 wRd
@@ -152058,7 +152067,7 @@ mHA
 xCQ
 jpq
 puj
-lZl
+vBA
 ced
 ced
 mNE
@@ -152315,7 +152324,7 @@ mFy
 bIL
 rvZ
 svL
-mFy
+haj
 mlC
 ced
 mNE
@@ -152587,8 +152596,8 @@ cYg
 oxo
 udE
 rgZ
-fRB
-bVn
+pKG
+dib
 eFF
 jJU
 oeM
@@ -152844,8 +152853,8 @@ cYg
 oxo
 qax
 xAU
-dHG
-wms
+mNE
+dib
 cAL
 jJU
 oeM
@@ -153102,7 +153111,7 @@ vCv
 vCv
 vCv
 rWN
-fWn
+bVn
 eFF
 jJU
 oeM
@@ -153603,8 +153612,8 @@ eAf
 cin
 jJU
 fKO
-iPA
-eFF
+lnt
+lnt
 qFA
 qWA
 qWA
@@ -153616,7 +153625,7 @@ qWA
 qWA
 qWA
 qWA
-fWn
+wms
 eFF
 jJU
 oeM
@@ -153861,19 +153870,19 @@ hrj
 jJU
 grh
 hiy
-eFF
-eFF
+lnt
+lnt
 eFF
 eFF
 hoI
 psI
 usf
 mNE
-eFF
-eFF
-eFF
-eFF
-wms
+uHm
+uHm
+nUg
+pkR
+mvp
 rHv
 jJU
 oeM
@@ -154130,7 +154139,7 @@ kqY
 qBd
 nly
 eFF
-eDu
+wms
 eFF
 jJU
 oeM
@@ -154376,14 +154385,14 @@ gBR
 lIS
 wIk
 lYA
-hUE
-hUE
+hYD
+kGv
 lfM
 lfM
-tdu
-tdu
-tdu
-tdu
+qGF
+qGF
+qGF
+xck
 qBd
 oBJ
 iqH
@@ -154633,13 +154642,13 @@ pOM
 pOM
 hLZ
 hUE
-frp
+igk
 frp
 wiN
 wiN
 frp
 bdJ
-frp
+uti
 dSf
 jJU
 jJU
