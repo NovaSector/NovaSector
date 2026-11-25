@@ -73,8 +73,18 @@
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = SPECIES_MAMMAL
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
+	// Previously inherited from tg's definition, which was removed in tg#98426
+	species_id = SPECIES_LIZARD
+	footprint_sprite = FOOTPRINT_SPRITE_CLAWS
+	footstep_type = FOOTSTEP_MOB_CLAW
+	zombie_color = "#508556"
 
 /obj/item/bodypart/leg/right/digitigrade
 	icon_greyscale = BODYPART_ICON_MAMMAL
 	limb_id = SPECIES_MAMMAL
 	bodyshape = parent_type::bodyshape | BODYSHAPE_DIGITIGRADE
+	// Previously inherited from tg's definition, which was removed in tg#98426
+	species_id = SPECIES_LIZARD
+	footprint_sprite = FOOTPRINT_SPRITE_CLAWS
+	footstep_type = FOOTSTEP_MOB_CLAW
+	zombie_color = "#508556"
