@@ -29,8 +29,20 @@
 /datum/preference/loadout/deserialize(list/input, datum/preferences/preferences)
 	for (var/name in input)
 		input[name] = ..(input[name], preferences) // ULTIMATE MODULARITY BULLSHIT GO
+		for (var/path, details in input[name])
+			encode_custom_text(details)
 
 	return input
+
+/datum/preference/loadout/proc/encode_custom_text(list/details)
+	for (var/key, max_length in list(INFO_NAMED = MAX_NAME_LEN, INFO_DESCRIBED = MAX_DESC_LEN))
+		var/value = details?[key]
+		if (isnull(value))
+			continue
+		if (!istext(value))
+			details -= key
+			continue
+		details[key] = copytext_char(html_encode(html_decode(value)), 1, max_length + 1)
 
 /datum/preference/loadout/create_default_value(datum/preferences/preferences)
 	return list("Default" = list())
