@@ -222,7 +222,6 @@
 		REMOVE_TRAIT(living, TRAIT_CORPSELOCKED, SPECIES_TRAIT)
 		visible_message(span_notice("The crystalline mass shatters, retreating into [living]'s newly formed body.")) // NOVA EDIT CHANGE - Ethereal Rework 2024 - This reads cooler, okay? - ORIGINAL: visible_message(span_notice("The crystals shatters, causing [living] to fall out."))
 
-
 	deltimer(crystal_heal_timer)
 	return ..()
 
