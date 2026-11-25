@@ -31,10 +31,10 @@
 	var/obj/item/pet_food/pet_space_treat/space_treat = new /obj/item/pet_food/pet_space_treat
 	var/new_name = client_source?.prefs.read_preference(/datum/preference/text/pet_name)
 	if (new_name)
-		pet.name = new_name
+		pet.name = html_encode(new_name)
 	var/new_desc = client_source?.prefs.read_preference(/datum/preference/text/pet_desc)
 	if (new_desc)
-		pet.desc = new_desc
+		pet.desc = html_encode(new_desc)
 	var/new_gender = client_source?.prefs.read_preference(/datum/preference/choiced/pet_gender)
 	if (new_gender == "Random")
 		pet.gender = pick(list(MALE, FEMALE))
