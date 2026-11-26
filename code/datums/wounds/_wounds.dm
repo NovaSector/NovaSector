@@ -798,3 +798,11 @@
 	return GLOB.all_wound_pregen_data[type]
 
 #undef WOUND_CRITICAL_BLUNT_DISMEMBER_BONUS
+
+// NOVA EDIT ADDITION START - Synth bleeding
+/datum/wound/proc/get_blood_noun()
+	var/datum/blood_type/blood_type = victim?.get_bloodtype()
+	if(isnull(blood_type))
+		return "blood"
+	return LOWER_TEXT(blood_type.get_blood_name())
+// NOVA EDIT ADDITION END
