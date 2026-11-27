@@ -237,6 +237,18 @@ SAVEFILE_UPLOAD_LIMIT 2000
 ## Uncomment to force techweb base tech nodes to start unlocked instead of using the vanilla tg settings
 #ENABLE_NOVA_TECHWEB_STARTING_NODES
 
+## Uncomment to take persistent player homes offline. The cafe registry terminal goes inert;
+## nobody's saved residence is touched.
+#PLAYER_HOMES_ENABLED 0
+
+## Seconds a player must wait between filing home requisitions from their domicile console.
+## 0 removes the wait entirely. Default: 30 seconds.
+#PLAYER_HOME_SUPPLY_COOLDOWN 30
+
+## How many homes one account may claim from the registry terminal, 1 to 10. Lowering it never takes
+## away homes a player already has. It only stops them from claiming more. Default: 10.
+#PLAYER_HOME_SLOTS 10
+
 ## Uncomment to enable the roundstart emergency access system.
 ## After 5 minutes of any players being in the game, this system will check
 ## what departments are empty and add emergency access to all their airlocks.
