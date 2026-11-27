@@ -1,7 +1,0 @@
-author: "sergeirocks100"
-delete-after: True
-changes:
-  - bugfix: "Aprons no longer have a unnecessary and odd-looking digitigrade mask applied to them."
-  - bugfix: "Biosuits and beekeeper suits now use their proper digitigrade sprites, instead of /tg/'s digitigrade masks."
-  - bugfix: "Certain suits that had tails hidden, such as fire suits, bomb suits, and radiation suits, now display tails with a mesh overlay as intended."
-  - image: "The horticultural waders now have digitigrade sprites."

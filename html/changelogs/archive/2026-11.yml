@@ -447,3 +447,88 @@
   sqnztb:
   - rscadd: The Emergency Energy Node can be requested from the IC panel for deadpop
       scenarios. Power without having to set the engine up.
+2026-11-27:
+  ArrisFairburne:
+  - sound: sawable guns now make appropriate sawing noises when they are sawn-off
+  - sound: gave appropriate usesound and operating sounds to various saw items in
+      the game
+  DeliciousPlushie:
+  - bugfix: Syndicate Battlecruiser Captain can unlock Starfury Armory airlocks normally
+      with pressing buttons.
+  Ghommie:
+  - refactor: Refactored digitigrade legs code a bit. Report any outstanding issue
+      that wasn't previously there.
+  Melbert:
+  - code_imp: Updated code for heart attack and disease outbreak events, report anything
+      weird with it
+  - bugfix: Fixes a niche issue where cooked goliath steak doesn't contribute to red
+      raptor breeding(?) more than raw goliath meat
+  - bugfix: Fix mystical snip cable X on Tramstation
+  - bugfix: Fix random loose "obj"s
+  - bugfix: Ethereals can't revive from changling husks
+  - bugfix: Some mechanics that differentiated being hit with a lethal vs non-lethal
+      ranged attack now properly differentiates again. For example, bots will spark
+      when shot now.
+  - bugfix: NTOS Chatroom checks names and messages more thoroughly
+  - rscadd: Individuals irradiated from a powerful primary source (such as the Supermatter)
+      will spread radiation around them. This is denoted by their radiation glow being
+      brighter than normal. Importantly, this will not cascade further, meaning any
+      individual irradiated from them will NOT spread it further.
+  - rscadd: Plasmamen, Androids, and other radiation immune species can be irradiated
+      once again, though are still immune to the effects. Only methods of direct decontamination
+      (like showering) will clear it.
+  - rscadd: Slimepeople can now properly be affected by radiation. Like Plasmamen,
+      it can only be cleared via direct decontamination.
+  - rscadd: Showers will now heal irradiation very slowly in addition to pausing the
+      negative effects.
+  - rscadd: Untreated irradiation will eventually spread to your internal organs,
+      causing organ damage and further complications. While it can spread to robotic
+      organs, this has no effect (for now). And yes, inserting an irradiated organ
+      into an otherwise clean patient will cause the radiation to spread to the body
+      over time.
+  - rscadd: Anti-rad medication such as Pentetic Acid now reverses organ damage caused
+      by irradiation (and eventually clears irradiated organs entirely) - so long
+      as the affected organ hasn't failed entirely.
+  - rscadd: Radioactive chemicals like Uranium can now directly irradiate organs -
+      for example, breathing radioactive smoke may irradiate your lungs.
+  - refactor: Radiation has seen a few changes if you couldn't tell. Report any issues
+      like mobs experiencing negative effects from irradiation when they otherwise
+      shouldn't be.
+  - qol: Revamps handheld gene scanner output
+  - balance: Trace amounts of blood loss no longer causes infinite hyperdeath to moon
+      heretics
+  - bugfix: Blade and Cosmic heretic can recharge their spells properly
+  Neocloudy:
+  - map: '[NOVA] Blueshift, Snowglobe, Void Raptor, Ocean Pubby SM loops have been
+      updated for consistency with TG maps. They have fewer filters, consistent pipe
+      colors, and slightly different (but consistent, except for Pubby) mechanisms
+      for getting rid of waste.'
+  PapaMichael:
+  - admin: Admins can Control+Alt+Click an atom to open VV on it
+  - admin: Admins can set the next round's station traits in the postround
+  UwUMacaroniTime:
+  - rscadd: Added two pre-con decks for TGC, available now at vendors!
+  san7890:
+  - server: The TOML Job Configuration system should now be a lot easier to edit.
+      You will have to regenerate the job configuration (downloading the file from
+      the server via the `Generate Job Configuration` verb of the `Server` tab of
+      the stat panel), download that file from FTP prompt you get from BYOND, and
+      then re-upload it to the server to take effect on later rounds, but it does
+      indeed feel a lot easier to edit. This measure is completely optional though.
+  sergeirocks100:
+  - bugfix: Aprons no longer have a unnecessary and odd-looking digitigrade mask applied
+      to them.
+  - bugfix: Biosuits and beekeeper suits now use their proper digitigrade sprites,
+      instead of /tg/'s digitigrade masks.
+  - bugfix: Certain suits that had tails hidden, such as fire suits, bomb suits, and
+      radiation suits, now display tails with a mesh overlay as intended.
+  - image: The horticultural waders now have digitigrade sprites.
+  tontyGH:
+  - bugfix: Fixed an exploit that allowed books to contain unsanitized HTML
+  - bugfix: Fixed an exploit that allowed the PDA camera app to print unsanitized
+      photos
+  - bugfix: Fixed derpspeech not sanitizing messages after processing
+  - bugfix: Fixed admin pAI verb not sanitizing the new pAI's name
+  - bugfix: Fixed telecomms logging not sanitizing the name/network/id when being
+      logged
+  - server: Fixed a bug that caused jobs to fallback to the default config at roundstart
