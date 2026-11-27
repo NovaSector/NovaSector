@@ -11,7 +11,7 @@
 	lizard.dna.mutant_bodyparts[FEATURE_SNOUT] = build_mutant_part("Sharp + Light", list("#009999", "#009999", "#009999")) // NOVA EDIT CHANGE - Customization - ORIGINAL: lizard.dna.features[FEATURE_SNOUT] = "Sharp + Light"
 	lizard.dna.mutant_bodyparts[FEATURE_HORNS] = build_mutant_part("Simple", list("#009999", "#009999", "#009999")) // NOVA EDIT CHANGE - Customization - ORIGINAL: lizard.dna.features[FEATURE_HORNS] = "Simple"
 	lizard.dna.mutant_bodyparts[FEATURE_FRILLS] = build_mutant_part("Aquatic", list("#009999", "#009999", "#009999")) // NOVA EDIT CHANGE - Customization - ORIGINAL: lizard.dna.features[FEATURE_FRILLS] = "Aquatic"
-	lizard.dna.features[FEATURE_LEGS] = "Normal Legs"
+	lizard.dna.features[FEATURE_LEGS] = NORMAL_LEGS
 	lizard.set_species(/datum/species/lizard)
 	lizard.equipOutfit(/datum/outfit/job/engineer)
 	test_screenshot("[/datum/species/lizard]", get_flat_icon_for_all_directions(lizard))

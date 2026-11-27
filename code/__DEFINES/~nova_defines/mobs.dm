@@ -14,6 +14,9 @@
 
 #define ICON_KEY_DIGI "digi"
 
+///The species is forced to have digitigrade legs in generation. Removed upstream in tg#98426, still used by Nova's digitigrade_type leg swap.
+#define DIGITIGRADE_FORCED 2
+
 ///Defines for icons used for modular bodyparts, created to make it easier to relocate the module or files if necessary.
 #define BODYPART_ICON_HUMAN 'modular_nova/modules/bodyparts/icons/human_parts_greyscale.dmi'
 #define BODYPART_ICON_HUMANOID 'modular_nova/modules/bodyparts/icons/humanoid_parts_greyscale.dmi'
