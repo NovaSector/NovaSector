@@ -51004,9 +51004,6 @@
 /turf/open/floor/catwalk_floor/iron,
 /area/station/cargo/office)
 "mMe" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 4
-	},
 /obj/structure/table/reinforced/rglass,
 /obj/item/wheelchair{
 	pixel_y = -3
