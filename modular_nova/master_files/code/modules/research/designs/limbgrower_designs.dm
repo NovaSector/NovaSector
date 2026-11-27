@@ -1,16 +1,16 @@
-/datum/design/leftarm/New()
+/datum/design/bodypart/leftarm/New()
 	category += list(SPECIES_SNAIL)
 	return ..()
 
-/datum/design/rightarm/New()
+/datum/design/bodypart/rightarm/New()
 	category += list(SPECIES_SNAIL)
 	return ..()
 
-/datum/design/leftleg/New()
+/datum/design/bodypart/leftleg/New()
 	category += list(SPECIES_SNAIL)
 	return ..()
 
-/datum/design/rightleg/New()
+/datum/design/bodypart/rightleg/New()
 	category += list(SPECIES_SNAIL)
 	return ..()
 
