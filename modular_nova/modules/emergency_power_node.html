@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_nova/modules/emergency_power_node/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_nova/modules/emergency_power_node/readme.md <a href="https://github.com/NovaSector/NovaSector/blob/e495d93c08e4982081b9243324ddb9db25f7c3b2/modular_nova/modules/emergency_power_node/readme.md"><img src="git.png" width="16" height="16" title="modular_nova/modules/emergency_power_node/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2 id="emergency-energy-node">Emergency Energy Node</h2>
+<p>Module ID: EMERGENCY_POWER_NODE</p>
+<h3 id="description">Description:</h3>
+<p>Adds a drop-in generator for shifts with nobody available to run the engine.</p>
+<p>A living player uses the <code>Request Emergency Power</code> verb in the IC tab. Admins get Approve and Deny links. If nobody responds within two minutes, the node launches automatically. A denial blocks new requests for ten minutes.</p>
+<p>Requests are refused above 10 active, living, human players. Each map needs a drop site in <code>GLOB.emergency_node_drop_sites</code>, on a tile with a cable on the station's main grid.</p>
+<h3 id="tg-proc-file-changes">TG Proc/File Changes:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="modular-overrides">Modular Overrides:</h3>
+<ul>
+<li>N/A</li>
+</ul>
+<h3 id="defines">Defines:</h3>
+<ul>
+<li><code>code/emergency_power_node.dm</code>: <code>EMERGENCY_NODE_APPROVAL_TIME</code>, <code>EMERGENCY_NODE_DENIAL_COOLDOWN</code>, <code>EMERGENCY_NODE_MAX_ACTIVE_PLAYERS</code>, <code>EMERGENCY_NODE_POD_TRANSIT_TIME</code>, <code>EMERGENCY_NODE_STATE_IDLE</code>, <code>EMERGENCY_NODE_STATE_PENDING</code>, <code>EMERGENCY_NODE_STATE_DEPLOYED</code></li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li><code>modular_nova/modules/colony_fabricator</code>: <code>/obj/item/flatpacked_machine</code>, its <code>rtg_packed</code> icon, and <code>/datum/element/repackable</code></li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<ul>
+<li>sqn</li>
+</ul></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/NovaSector/NovaSector/tree/e495d93c08e4982081b9243324ddb9db25f7c3b2">e495d93</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>
