@@ -65,6 +65,7 @@ GLOBAL_LIST_INIT(floor_designs, list(
 			list("name" = "Green Circuit Anim", "type" = /obj/item/stack/tile/circuit/green/anim, "tile_cost" = 5),
 			list("name" = "Red Circuit", "type" = /obj/item/stack/tile/circuit/red, "tile_cost" = 5),
 			list("name" = "Red Circuit Anim", "type" = /obj/item/stack/tile/circuit/red/anim, "tile_cost" = 5),
+			list("name" = "bitrunner pod coolant bay tile", "type" = /obj/item/stack/tile/circuit/pool, "tilecost" = 5),
 		)
 	),
 
